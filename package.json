@@ -1,0 +1,58 @@
+{
+  "name": "lmo",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "start:mock": "concurrently \"node mock-server/server.js\" \"ng serve\"",
+    "mock-server": "node mock-server/server.js",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": "*.html",
+        "options": {
+          "parser": "angular"
+        }
+      }
+    ]
+  },
+  "private": true,
+  "packageManager": "npm@11.6.2",
+  "dependencies": {
+    "@angular/animations": "^20.3.16",
+    "@angular/cdk": "^20.2.14",
+    "@angular/common": "^20.0.0",
+    "@angular/compiler": "^20.0.0",
+    "@angular/core": "^20.0.0",
+    "@angular/forms": "^20.0.0",
+    "@angular/material": "^20.2.14",
+    "@angular/platform-browser": "^20.0.0",
+    "@angular/router": "^20.0.0",
+    "@arcgis/core": "^4.26.5",
+    "@highcharts/grid-lite": "^2.2.0",
+    "@ngrx/signals": "^20.1.0",
+    "@ngx-translate/core": "^17.0.0",
+    "@ngx-translate/http-loader": "^17.0.0",
+    "bootstrap": "^5.3.8",
+    "esri-loader": "^3.7.0",
+    "highcharts": "^12.5.0",
+    "highcharts-angular": "^5.2.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^20.0.0",
+    "@angular/cli": "^20.0.0",
+    "@angular/compiler-cli": "^20.0.0",
+    "concurrently": "^9.2.1",
+    "jsdom": "^27.1.0",
+    "typescript": "~5.9.2",
+    "vitest": "^3.1.1"
+  }
+}

@@ -1,0 +1,29 @@
+@if (isOpen() || isClosing()) {
+  <div
+    class="widget-detail-modal"
+    [class.widget-detail-modal--closing]="isClosing()"
+    (click)="onBackdropClick()"
+  >
+    <div class="widget-detail-modal__content" (click)="onContentClick($event)">
+      @if (activeFilters().length > 0) {
+        <app-filter-bar [filters]="activeFilters()" (filtersApplied)="onFiltersApplied($event)">
+          <button class="widget-detail-modal__close widget-detail-modal__close--inline" (click)="close()">
+            <app-icon name="close" size="16"></app-icon>
+          </button>
+        </app-filter-bar>
+      } @else {
+        <button class="widget-detail-modal__close" (click)="close()">
+          <app-icon name="close" size="16"></app-icon>
+        </button>
+      }
+
+      <div class="widget-detail-modal__body">
+        @if (detailComponent(); as component) {
+          <ng-container *ngComponentOutlet="component" />
+        } @else if (detailConfig(); as config) {
+          <app-widget-detail-template [config]="config" />
+        }
+      </div>
+    </div>
+  </div>
+}

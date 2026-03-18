@@ -1,0 +1,137 @@
+<section class="center-section"
+  [class.center-section--widget-mode]="centerWidget()"
+  [class.center-section--3d-mode]="is3DMode()"
+  cdkDropList
+  id="center-drop"
+  [cdkDropListData]="centerDropData"
+  [cdkDropListSortingDisabled]="true"
+  (cdkDropListDropped)="onCenterDrop($event)">
+  <div class="center-section__presentation">
+    <button class="center-section__presentation-btn" (click)="openPresentationModal()">
+      <img src="assets/images/icons/presentation.svg" alt="Presentation"/>
+    </button>
+    <span class="center-section__presentation-text">{{ 'LMI.LABOR_MARKET_PULSE' | translate }}</span>
+    <button
+      class="center-section__control-btn center-section__3d-btn center-section__3d-btn--header"
+      [class.center-section__3d-btn--active]="is3DMode()"
+      [disabled]="isTransitioning()"
+      (click)="toggle3DMode()">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 2L3 6V14L10 18L17 14V6L10 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M10 18V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M17 6L10 10L3 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+  <div #mapContainer class="center-section__map"></div>
+  <button
+    class="center-section__action-btn"
+    [class.center-section__action-btn--active]="isAiAssistantActive()"
+    (click)="toggleAiAssistant()">
+    @if (isAiAnimating()) {
+      @if (isAiAssistantActive()) {
+        <img class="center-section__ai-icon center-section__ai-icon--leaving" src="assets/images/icons/AI Assistant.png"
+             alt="AI Assistant"/>
+        <div class="center-section__arrow-container center-section__arrow-container--entering">
+          <div class="center-section__arrow-icon"></div>
+        </div>
+      } @else {
+        <div class="center-section__arrow-container center-section__arrow-container--leaving">
+          <div class="center-section__arrow-icon"></div>
+        </div>
+        <img class="center-section__ai-icon center-section__ai-icon--entering"
+             src="assets/images/icons/AI Assistant.png" alt="AI Assistant"/>
+      }
+    } @else if (isAiAssistantActive()) {
+      <div class="center-section__arrow-container">
+        <div class="center-section__arrow-icon"></div>
+      </div>
+    } @else {
+      <img class="center-section__ai-icon" src="assets/images/icons/AI Assistant.png" alt="AI Assistant"/>
+    }
+  </button>
+  <div class="center-section__ai-box" [class.center-section__ai-box--expanded]="isAiExpanded()">
+    <app-ai-chat [isOpen]="isAiAssistantActive()" [isExpanded]="isAiExpanded()" (expandToggled)="toggleAiExpand()"/>
+  </div>
+  <div class="center-section__controls">
+    <button class="center-section__control-btn" (click)="resetView()">
+      <img src="assets/images/icons/collapse.svg" alt="Reset View"/>
+    </button>
+    <button class="center-section__control-btn" (click)="expandFullscreen()">
+      <img src="assets/images/icons/expand.svg" alt="Fullscreen"/>
+    </button>
+    <div class="center-section__zoom-controls">
+      <button class="center-section__zoom-btn center-section__zoom-btn--plus" (click)="zoomIn()">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button
+        class="center-section__zoom-btn center-section__zoom-btn--minus"
+        [class.center-section__zoom-btn--disabled]="isAtMinZoom()"
+        (click)="zoomOut()">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 10H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  @if (is3DMode() && regionData()) {
+    <div class="center-section__population-legend">
+      <div class="center-section__legend-header">
+        @if (drillRegion()) {
+          <button class="center-section__legend-back" (click)="drillBack()" [disabled]="isTransitioning()">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        }
+        <span class="center-section__legend-title">{{ legendTitle() | translate }}</span>
+        <span class="center-section__legend-year">{{ regionData()!.year }}</span>
+      </div>
+      @if (drillRegion()) {
+        <div class="center-section__legend-subtitle">
+          {{ 'LMI.POPULATION_3D' | translate }}
+        </div>
+      }
+      <div class="center-section__legend-items">
+        @for (region of legendRegions(); track region.name) {
+          <div class="center-section__legend-item">
+            <span class="center-section__legend-color"
+              [style.background]="'rgba(' + region.color[0] + ',' + region.color[1] + ',' + region.color[2] + ',' + region.color[3] + ')'"></span>
+            <span class="center-section__legend-name">{{ region.nameKey | translate }}</span>
+            <span class="center-section__legend-value">{{ region.population | number }}</span>
+          </div>
+        }
+      </div>
+      <div class="center-section__legend-total">
+        <span>{{ 'LMI.TOTAL_POPULATION' | translate }}</span>
+        <span>{{ legendTotal() | number }}</span>
+      </div>
+      @if (!drillRegion()) {
+        <div class="center-section__legend-hint">
+          {{ 'LMI.ZOOM_TO_DRILL' | translate }}
+        </div>
+      }
+    </div>
+  }
+
+  @if (centerWidget()) {
+    <div class="center-section__widget-area">
+      <div class="center-section__widget-card">
+        @if (isCustomWidget(centerWidget()!)) {
+          <app-dynamic-widget [widgetType]="centerWidget()!" (expandClick)="restoreFromCenter()"/>
+        } @else {
+          <app-generic-widget-card [widgetType]="centerWidget()!" [isCenter]="true" (expandClick)="restoreFromCenter()"/>
+        }
+      </div>
+    </div>
+  }
+</section>
+
+<app-presentation-modal
+  [isOpen]="isPresentationModalOpen()"
+  (closed)="closePresentationModal()"
+/>

@@ -1,0 +1,84 @@
+<div class="forecast-card__header">
+  <span class="forecast-card__title">{{ title() }}</span>
+  <div class="forecast-card__actions">
+    <app-button variant="toolbar-icon">
+      <app-icon buttonIcon name="bell" size="18"></app-icon>
+    </app-button>
+    <app-button variant="toolbar-icon">
+      <app-icon buttonIcon name="zoom-in" size="18"></app-icon>
+    </app-button>
+    <app-button variant="toolbar-icon">
+      <app-icon buttonIcon name="zoom-out" size="18"></app-icon>
+    </app-button>
+    <app-button variant="toolbar-icon">
+      <app-icon buttonIcon name="expand" size="18"></app-icon>
+    </app-button>
+  </div>
+</div>
+
+<div class="forecast-card__note">
+  <div class="forecast-card__note-heading">
+    <app-icon name="info-empty" size="16"></app-icon>
+    <span class="forecast-card__note-label">Note</span>
+  </div>
+  <p class="forecast-card__note-text">The forecasts produced for the reference period are generated using historical data collected prior to the start of the reference period. Therefore, any activities or policies that may have contributed to changes in values during the forecasted period are not considered in these projections.</p>
+</div>
+
+<div class="forecast-card__stats">
+  <div class="forecast-card__stat-group">
+    <div class="forecast-card__stat-col">
+      <span class="forecast-card__stat-label">{{ current().label }}</span>
+      <span class="forecast-card__stat-value">{{ current().mainValue }}</span>
+    </div>
+    <div class="forecast-card__stat-col">
+      <span class="forecast-card__stat-label">Q/Q</span>
+      <span class="forecast-card__stat-value">{{ current().qoq }}</span>
+    </div>
+    <div class="forecast-card__stat-col">
+      <span class="forecast-card__stat-label">Y/Y</span>
+      <span class="forecast-card__stat-value">{{ current().yoy }}</span>
+    </div>
+  </div>
+  <div class="forecast-card__stat-divider forecast-card__stat-divider--green"></div>
+  <div class="forecast-card__stat-group">
+    <div class="forecast-card__stat-col">
+      <span class="forecast-card__stat-label forecast-card__stat-label--forecast">{{ forecast().label }}</span>
+      <span class="forecast-card__stat-value">{{ forecast().mainValue }}</span>
+    </div>
+    <div class="forecast-card__stat-col">
+      <span class="forecast-card__stat-label">Q/Q</span>
+      <span class="forecast-card__stat-value">{{ forecast().qoq }}</span>
+    </div>
+    <div class="forecast-card__stat-col">
+      <span class="forecast-card__stat-label">Y/Y</span>
+      <span class="forecast-card__stat-value">{{ forecast().yoy }}</span>
+    </div>
+  </div>
+  <div class="forecast-card__stat-divider forecast-card__stat-divider--red"></div>
+  <div class="forecast-card__stat-group">
+    <div class="forecast-card__stat-col">
+      <span class="forecast-card__stat-label forecast-card__stat-label--target">{{ target().label }}</span>
+      <span class="forecast-card__stat-value">{{ target().mainValue }}</span>
+    </div>
+    <div class="forecast-card__stat-col">
+      <span class="forecast-card__stat-label">Q/Q</span>
+      <span class="forecast-card__stat-value">{{ target().qoq }}</span>
+    </div>
+    <div class="forecast-card__stat-col">
+      <span class="forecast-card__stat-label">Y/Y</span>
+      <span class="forecast-card__stat-value">{{ target().yoy }}</span>
+    </div>
+  </div>
+</div>
+
+<div class="forecast-card__chart">
+  <app-what-if-chart [widgetId]="widgetId()" [height]="396"></app-what-if-chart>
+</div>
+
+<div class="forecast-card__footer">
+  <div class="forecast-card__ai-heading">
+    <app-icon name="stars" size="24" color="#3375C6"></app-icon>
+    <span class="forecast-card__ai-title">AI Insights</span>
+  </div>
+  <p class="forecast-card__ai-text">AI analysis shows that demand is consistently higher than supply across all major sectors. Healthcare and Technology face the biggest talent gaps, while Construction remains the largest employer with ongoing workforce needs. Education, Finance, Tourism, and Management also show steady demand growth.</p>
+</div>

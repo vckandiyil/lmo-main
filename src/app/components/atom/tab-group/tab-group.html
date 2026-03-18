@@ -1,0 +1,10 @@
+<div class="tab-group">
+  @for (tab of tabs(); track tab.id) {
+    <div
+      class="tab-group__tab"
+      [class.tab-group__tab--active]="isActive(tab.id)"
+      (click)="selectTab(tab.id)">
+      <span class="tab-group__tab-text">{{ tab.label | translate }}</span>
+    </div>
+  }
+</div>

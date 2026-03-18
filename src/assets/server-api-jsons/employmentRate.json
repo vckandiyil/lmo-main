@@ -1,0 +1,316 @@
+{
+  "id": "334301",
+  "note": 3343,
+  "component_title": "Employment rate for residents in the Emirate of Abu Dhabi",
+  "component_subtitle": "This indicator measures the employment rate for residents in the Emirate of Abu Dhabi\n\nEmployment rate: It represent persons in employment as a percentage of the population of working age (15- 64 years)",
+  "domains": [
+    "Labour Force"
+  ],
+  "domain_id": "5",
+  "domain": "Labour Force",
+  "theme": "Labour Force",
+  "subtheme": "Employment",
+  "product": "Employment Rates",
+  "type": "scad",
+  "narrative": "",
+  "enableCompare": "FALSE",
+  "content_classification": "Official Statistics",
+  "content_classification_key": "official_statistics",
+  "tagName": "Official Statistics",
+  "updated": "2025-09-25",
+  "security": {
+    "label": "Open",
+    "name": "0 - Open",
+    "description": "Data that is authorized for direct access without restrictions."
+  },
+  "domain_details": {
+    "policy_guide": [
+      "1 - The above data reflects a quarterly labor force survey (according to the used methodology) that counts all persons who are 15+ and are usual residents of the emirate, regardless of where they work.",
+      "2 - The Statistics Center - Abu Dhabi is currently working on the procedure of updating the time series statistics, to comply with the results of the 2023 Census, and the updated time series of these statistics will be published after the completion of this procedure to ensure accuracy and reliability.",
+      "3 - The forecasts produced for the reference period are generated using historical data collected prior to the start of the reference period. Therefore, any activities or policies that may have contributed to changes in values during the forecasted period are not considered in these projections."
+    ]
+  },
+  "indicatorTools": [],
+  "indicatorFilters": [
+    {
+      "id": "period-filter",
+      "options": [
+        {
+          "id": "3-years",
+          "label": "3 YEARS",
+          "unit": "years",
+          "value": 3
+        },
+        {
+          "id": "5-years",
+          "label": "5 YEARS",
+          "unit": "years",
+          "value": 5
+        },
+        {
+          "id": "All",
+          "label": "ALL",
+          "unit": null,
+          "value": null,
+          "isSelected": true
+        }
+      ]
+    }
+  ],
+  "indicatorValues": {
+    "overviewValuesMeta": [
+      {
+        "id": "whatsnew",
+        "title": "{dateStart}",
+        "type": "static-with-title-template",
+        "compareFilters": [
+          "Yearly"
+        ],
+        "valueFormat": "number_1.1-1",
+        "templateFormat": "date_y",
+        "color": "#3667ff",
+        "dimension": {
+          "INDICATOR_ID": "3343"
+        },
+        "dateStart": "2019-03-01",
+        "value": "109.68",
+        "yearlyCompareValue": -58.316703796387,
+        "yearlyChangeValue": -34.7123236883256,
+        "quarterlyCompareValue": 0,
+        "quarterlyChangeValue": 0,
+        "monthlyCompareValue": 0,
+        "monthlyChangeValue": 0
+      }
+    ]
+  },
+  "indicatorVisualizations": {
+    "visualizationsMeta": [
+      {
+        "id": "line-chart-a177033116958776",
+        "type": "line-chart",
+        "indicatorId": "3343",
+        "seriesMeta": [
+          {
+            "type": "solid",
+            "xAccessor": {
+              "type": "date",
+              "path": "OBS_DT",
+              "specifier": "%Y-%m-%d"
+            },
+            "yAccessor": {
+              "type": "value",
+              "path": "VALUE"
+            },
+            "id": "a177033116958776",
+            "dbIndicatorId": "3343",
+            "label": null,
+            "color": "#000000",
+            "data": [
+              {
+                "VALUE": 94.5078855201524,
+                "MAX_VALUE": 95.4,
+                "MIN_VALUE": 94.5078855201524,
+                "MAX_OBS_DT": "2024-01-01",
+                "MIN_OBS_DT": "2021-01-01",
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021",
+                "OBS_DT_FORMAT": null
+              },
+              {
+                "VALUE": 95.1921527469597,
+                "MAX_VALUE": 95.4,
+                "MIN_VALUE": 94.5078855201524,
+                "MAX_OBS_DT": "2024-01-01",
+                "MIN_OBS_DT": "2021-01-01",
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022",
+                "OBS_DT_FORMAT": null
+              },
+              {
+                "VALUE": 95.4,
+                "MAX_VALUE": 95.4,
+                "MIN_VALUE": 94.5078855201524,
+                "MAX_OBS_DT": "2024-01-01",
+                "MIN_OBS_DT": "2021-01-01",
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023",
+                "OBS_DT_FORMAT": null
+              },
+              {
+                "VALUE": 95.3,
+                "MAX_VALUE": 95.4,
+                "MIN_VALUE": 94.5078855201524,
+                "MAX_OBS_DT": "2024-01-01",
+                "MIN_OBS_DT": "2021-01-01",
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024",
+                "OBS_DT_FORMAT": null
+              }
+            ],
+            "yMax": 95.4,
+            "yMin": 94.5078855201524,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          }
+        ],
+        "tooltipTitleFormat": "date_MMM y",
+        "tooltipValueFormat": "number_1.1-2",
+        "xAxisFormat": "date_y",
+        "yAxisFormat": "number_1.1-2",
+        "xAxisLabel": "",
+        "yAxisLabel": "Percentage (%)",
+        "viewName": "VW_STATISTICAL_INDICATORS",
+        "markersMeta": [],
+        "dbColumn": "INDICATOR_ID",
+        "relatedSV": [
+          {
+            "note": "3344",
+            "title": "Unemployment rate for residents in the Emirate of Abu Dhabi",
+            "title_ar": "معدل العمالة للمقيمين في إمارة أبوظبي حسب الفئة العمرية - سنوي",
+            "id": "334401",
+            "content_type": "scad_official_indicator"
+          },
+          {
+            "note": "3349",
+            "title": "Outside Labor Force rate for residents in the Emirate of Abu Dhabi",
+            "title_ar": "معدل العمالة للمقيمين في إمارة أبوظبي حسب التحصيل العلمي - سنوي",
+            "id": "334901",
+            "content_type": "scad_official_indicator"
+          }
+        ],
+        "yAxisLabel_ar": "نسبة مئوية (%)",
+        "dimension": false,
+        "componentTitle": "Employment rate for residents in the Emirate of Abu Dhabi - annually",
+        "componentTitle_ar": "معدل العمالة للمقيمين في إمارة أبوظبي - سنوي",
+        "componentSubtitle": "This indicator measures the employment rate for residents in the Emirate of Abu Dhabi\n\nEmployment rate: It represent persons in employment as a percentage of the population of working age (15- 64 years)",
+        "componentSubtitle_ar": "يقيس هذا المؤشر معدل العمالة للمقيمين في إمارة أبوظبي\n\nمعدل العمالة: تمثل الأشخاص العاملين كنسبة مئوية من عدد السكان في سن العمل (15- 64 سنة)",
+        "note": "Source: SCAD Official Data",
+        "note_ar": "المصدر: بيانات SCAD الرسمية",
+        "isMultiDimension": false,
+        "unit": "Percentage (%)",
+        "unit_ar": "نسبة مئوية (%)",
+        "data_source": "SCAD Official",
+        "data_source_ar": "مسؤول SCAD",
+        "rank": "10000",
+        "hideChart": [
+          "pie"
+        ],
+        "timeUnit": [
+          "Yearly"
+        ],
+        "indicatorFilters": [
+          {
+            "id": "period-filter",
+            "options": [
+              {
+                "id": "3-years",
+                "label": "3 YEARS",
+                "unit": "years",
+                "value": 3
+              },
+              {
+                "id": "5-years",
+                "label": "5 YEARS",
+                "unit": "years",
+                "value": 5
+              },
+              {
+                "id": "All",
+                "label": "ALL",
+                "unit": null,
+                "value": null,
+                "isSelected": true
+              }
+            ]
+          }
+        ],
+        "showPointLabels": false
+      }
+    ],
+    "visualizationDefault": "line-chart-a177033116958776"
+  },
+  "isUploadCompareData": false,
+  "metaData": [
+    {
+      "label": "Indicator code",
+      "value": "LF LFC YY 1D 3343"
+    },
+    {
+      "label": "Indicator name",
+      "value": "Employment rate for residents in the Emirate of Abu Dhabi - annually"
+    },
+    {
+      "label": "Indicator description",
+      "value": "This indicator measures the employment rate for residents in the Emirate of Abu Dhabi  Employment rate: It represent persons in employment as a percentage of the population of working age (15- 64 years)"
+    },
+    {
+      "label": "Keywords",
+      "value": "Employment rate, Employment, rate"
+    },
+    {
+      "label": "Statistical population",
+      "value": "The statistical population includes all individuals aged 15 years and above who reside in the Emirate of Abu Dhabi. The following are excluded: visitors to the Emirate who have stayed for less than six months, residents of institutions such as hospitals, psychiatric facilities, elderly care homes, orphanages, and hotels, members of the diplomatic corps, armed forces personnel, security camps, and palace residents."
+    },
+    {
+      "label": "Geographic coverage ",
+      "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra."
+    },
+    {
+      "label": "Measurement unit",
+      "value": "Percentage (%)"
+    },
+    {
+      "label": "Base period",
+      "value": "N/A"
+    },
+    {
+      "label": "Available periodicity",
+      "value": "Annual"
+    },
+    {
+      "label": "Data sources",
+      "value": "Statistics Centre - Abu Dhabi"
+    },
+    {
+      "label": "Statistical calculation method",
+      "value": "[Employed persons resident in the Emirate of Abu Dhabi - annually  lLabor force residing in the Emirate of Abu Dhabi - annually]  x 100"
+    },
+    {
+      "label": "Time series",
+      "value": ""
+    },
+    {
+      "label": "Last data update",
+      "value": "20240101"
+    },
+    {
+      "label": "Last update of indicator information card",
+      "value": "2025"
+    },
+    {
+      "label": "Copyright and usage restrictions",
+      "value": "© SCAD, for public usage"
+    }
+  ],
+  "unit": "Percentage (%)",
+  "data_source": "SCAD Official",
+  "viewName": "VW_STATISTICAL_INDICATORS",
+  "indicatorId": "3343",
+  "isMultiDimension": false,
+  "filterPanel": false,
+  "tableFields": [
+    {
+      "label": "INDICATOR ID",
+      "path": "INDICATOR_ID"
+    },
+    {
+      "label": "VALUE",
+      "path": "VALUE"
+    },
+    {
+      "label": "DATE",
+      "path": "OBS_DT"
+    }
+  ],
+  "benchmarks": []
+}

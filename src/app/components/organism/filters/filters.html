@@ -1,0 +1,76 @@
+<div class="filters">
+  <div class="filters__container">
+    <app-dropdown
+      class="filters__topic-dropdown"
+      [placeholder]="'Employment'"
+      [value]="selectedTopic()"
+      [options]="topicOptions()"
+      (selected)="onTopicSelect($event)"
+    />
+    <div class="filters__dropdowns">
+      <app-dropdown
+        [placeholder]="'LMI.REGION' | translate"
+        [options]="regionOptions()"
+        [variant]="'secondary'"
+        (selected)="onFilterChange('region', $event)"
+      />
+<app-dropdown
+        [placeholder]="'HOME.CITIZENSHIP' | translate"
+        [options]="citizenshipOptions()"
+        [variant]="'secondary'"
+        (selected)="onFilterChange('citizenship', $event)"
+      />
+      <app-dropdown
+        [placeholder]="'HOME.GENDER' | translate"
+        [options]="genderOptions()"
+        [variant]="'secondary'"
+        (selected)="onFilterChange('gender', $event)"
+      />
+      <app-dropdown
+        [placeholder]="'LMI.SECTOR' | translate"
+        [options]="sectorOptions()"
+        [variant]="'secondary'"
+        (selected)="onFilterChange('sector', $event)"
+      />
+      <app-dropdown
+        [placeholder]="'LMI.YEAR' | translate"
+        [options]="yearOptions()"
+        [variant]="'secondary'"
+        (selected)="onFilterChange('year', $event)"
+      />
+      <button class="filters__clear" type="button" aria-label="Clear filters" (click)="clearFilters()">
+        <span class="filters__clear-icon"></span>
+      </button>
+    </div>
+    <div class="filters__submit-section">
+      @if (showLayoutButtons()) {
+        <div class="filters__layout-buttons">
+          <button
+            class="filters__layout-btn"
+            [class.filters__layout-btn--active]="layoutMode() === '3col'"
+            type="button"
+            (click)="setLayout('3col')"
+          >
+            <app-icon name="layout-3col" size="16"/>
+          </button>
+          <button
+            class="filters__layout-btn"
+            [class.filters__layout-btn--active]="layoutMode() === '4col'"
+            type="button"
+            (click)="setLayout('4col')"
+          >
+            <app-icon name="layout-4col" size="16"/>
+          </button>
+        </div>
+      }
+      <button class="filters__submit" type="button" (click)="openReportModal()">
+        {{ 'LMI.GENERATE_REPORT' | translate }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<app-report-modal
+  [isOpen]="isReportModalOpen()"
+  (closed)="closeReportModal()"
+/>

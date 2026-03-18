@@ -1,0 +1,29 @@
+<aside class="what-if-sidebar">
+  <div class="what-if-sidebar__widgets">
+    <div class="what-if-sidebar__card">
+      <h2 class="what-if-sidebar__card-title">Change Drivers</h2>
+      <div class="what-if-sidebar__card-content">
+        @for (cfg of driverConfigs; track cfg.label) {
+          <div class="what-if-sidebar__driver">
+            <div class="what-if-sidebar__driver-header">
+              <span class="what-if-sidebar__driver-label">{{ cfg.label }}</span>
+              <div class="what-if-sidebar__driver-values">
+                <span class="what-if-sidebar__driver-base">{{ cfg.baseValue }}%</span>
+                @if (getAdjustedValue(cfg)) {
+                  <span class="what-if-sidebar__driver-adjusted"
+                        [class.what-if-sidebar__driver-adjusted--increase]="isIncrease(cfg)"
+                        [class.what-if-sidebar__driver-adjusted--decrease]="!isIncrease(cfg)">({{ getAdjustedValue(cfg) }})</span>
+                }
+              </div>
+            </div>
+            <app-range-selector
+              [options]="rangeOptions"
+              [activeValue]="'' + cfg.driver.value()"
+              (rangeChanged)="onSliderChange(cfg, $event)"
+            />
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</aside>

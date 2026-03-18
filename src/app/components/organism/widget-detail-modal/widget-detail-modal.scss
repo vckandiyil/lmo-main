@@ -1,0 +1,124 @@
+.widget-detail-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1040;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  animation: widgetDetailFadeIn 300ms ease-out forwards;
+
+  &--closing {
+    animation: widgetDetailFadeOut 300ms ease-out forwards;
+
+    .widget-detail-modal__content {
+      animation: widgetDetailSlideOut 300ms ease-out forwards;
+    }
+  }
+
+  &__content {
+    position: relative;
+    width: 1154px;
+    height: 1017px;
+    max-height: calc(100vh - 64px);
+    background: var(--lmo-bg-surface);
+    animation: widgetDetailSlideIn 300ms ease-out;
+    overflow-y: auto;
+  }
+
+  &__close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+
+    :host-context([dir='rtl']) & {
+      right: auto;
+      left: 24px;
+    }
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+    background: #F3F4F6;
+    border: none;
+    border-radius: 96px;
+    cursor: pointer;
+    transition: background-color 200ms ease;
+    z-index: 1;
+
+    &:hover {
+      background: var(--lmo-button-secondary-hover);
+    }
+
+    :host-context(body.theme--dark) & {
+      background: #212836;
+      border: 1px solid #364151;
+
+      svg path {
+        stroke: #9BA8B7;
+      }
+
+      &:hover {
+        background: #212836;
+      }
+    }
+
+    &--inline {
+      position: relative;
+      top: auto;
+      right: auto;
+    }
+  }
+
+  &__body {
+    padding: 48px;
+    padding-bottom: 64px;
+    box-sizing: border-box;
+  }
+}
+
+@keyframes widgetDetailSlideIn {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes widgetDetailSlideOut {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes widgetDetailFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes widgetDetailFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

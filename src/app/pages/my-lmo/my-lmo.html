@@ -1,0 +1,41 @@
+<div class="my-lmo__subheader">
+  <span class="my-lmo__title">My LMO</span>
+  <div class="my-lmo__actions">
+    <div class="my-lmo__search">
+      <app-icon name="search" size="20" class="my-lmo__search-icon" color="#3375C6"/>
+      <input
+        type="text"
+        class="my-lmo__search-input"
+        placeholder="Search widgets..."
+        [value]="searchValue()"
+        (input)="onSearchInput($event)"
+      />
+      @if (searchValue()) {
+        <button class="my-lmo__search-clear" (click)="clearSearch()">
+          <app-icon name="close" size="12"/>
+        </button>
+      }
+    </div>
+    <button class="my-lmo__add-button" (click)="openWidgetCenter()">
+      <div class="my-lmo__add-icon">
+        <app-icon name="plus" size="24"/>
+      </div>
+      <span>Add widget</span>
+    </button>
+  </div>
+</div>
+
+<div class="my-lmo__empty">
+  <div class="my-lmo__empty-text">
+    <p class="my-lmo__empty-title">No widgets yet</p>
+    <p class="my-lmo__empty-subtitle">Build your personal labor market view by adding<br>widgets that matter to you.</p>
+  </div>
+  <button class="my-lmo__add-button">
+    <div class="my-lmo__add-icon">
+      <app-icon name="plus" size="24"/>
+    </div>
+    <span>Add widget</span>
+  </button>
+</div>
+
+<app-sidebar [showRecommendations]="false"></app-sidebar>

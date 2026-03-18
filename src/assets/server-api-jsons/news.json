@@ -1,0 +1,38 @@
+{
+  "items": [
+    {
+      "image": "assets/images/card_images/card-1.png",
+      "published_date": "2025-06-30T08:00:00+04:00",
+      "title": "Abu Dhabi population in 2024 grows 7.5% to reach 4.14m",
+      "title_ar": "ارتفاع عدد سكان أبوظبي في 2024 بنسبة 7.5% ليصل إلى 4.14 مليون نسمة",
+      "description": "Lorem ipsum dolor sit amet consectetur. Et et tortor leo malesuada ut faucibus.",
+      "description_ar": "تشير الإحصائيات إلى نمو ملحوظ في عدد السكان، يعكس التطور الاقتصادي والاجتماعي المتسارع في الإمارة.",
+      "url": "https://www.scad.gov.ae/en/news/abu-dhabi-population-2024"
+    },
+    {
+      "image": "assets/images/card_images/card-2.png",
+      "published_date": "2025-07-03T09:30:00+04:00",
+      "title": "Statistics Centre – Abu Dhabi reports 3.4% growth in emirate's GDP in Q1 2025",
+      "title_ar": "مركز إحصاء أبوظبي يُعلن نمو الناتج المحلي الإجمالي للإمارة بنسبة 3.4% في الربع الأول 2025",
+      "description": "Lorem ipsum dolor sit amet consectetur. Et et tortor leo malesuada ut faucibus.",
+      "description_ar": "تواصل الإمارة مسيرتها التنموية مع تسجيل نمو اقتصادي مستدام خلال الربع الأول من العام.",
+      "url": "https://www.scad.gov.ae/en/news/gdp-q1-2025"
+    },
+    {
+      "image": "assets/images/card_images/card-3.png",
+      "published_date": "2025-08-11T11:00:00+04:00",
+      "title": "Abu Dhabi Chamber Align Efforts to Enhance Data Collaboration...",
+      "title_ar": "غرفة أبوظبي تتوحد جهودها لتعزيز التعاون في مجال البيانات...",
+      "description": "Lorem ipsum dolor sit amet consectetur. Et et tortor leo malesuada ut faucibus.",
+      "description_ar": "تتعاون المؤسسات في تبادل البيانات لدعم اتخاذ القرارات الاستراتيجية وتحسين بيئة الأعمال.",
+      "url": "https://www.abudhabichamber.ae/en/news/data-collaboration"
+    }
+  ],
+  "featured": {
+    "image": "assets/images/card_images/card-4.png",
+    "published_date": "2025-10-02T10:00:00+04:00",
+    "title": "Abu Dhabi GDP rises 3.8% in Q2-2025, driven by 6.6% growth of non-oil sectors",
+    "title_ar": "نمو الناتج المحلي الإجمالي لأبوظبي بنسبة 3.8% في الربع الثاني 2025، مدفوعاً بنمو القطاعات غير النفطية بنسبة 6.6%",
+    "url": "https://www.scad.gov.ae/en/news/gdp-q2-2025"
+  }
+}

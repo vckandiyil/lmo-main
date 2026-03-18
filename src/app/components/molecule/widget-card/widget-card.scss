@@ -1,0 +1,15 @@
+:host {
+  display: block;
+  border-radius: 16px;
+}
+
+.widget-card {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+
+  &__body {
+    flex: 1;
+    overflow: visible;
+  }
+}

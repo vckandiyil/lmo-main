@@ -1,0 +1,56 @@
+@if (isOpen()) {
+  <div class="ai-chat" [class.ai-chat--expanded]="isExpanded()" @fadeInOut>
+    <button class="ai-chat__expand-button" (click)="onExpandClick()">
+      <img
+        class="ai-chat__expand-icon"
+        [class.ai-chat__expand-icon--close]="isExpanded()"
+        [src]="isExpanded() ? 'assets/images/icons/close.svg' : 'assets/images/icons/expand.svg'"
+        [alt]="isExpanded() ? 'close' : 'expand'"
+      />
+    </button>
+    <img class="ai-chat__assistant-icon" src="assets/images/icons/AI Assistant.png" alt="AI Assistant" />
+    <div class="ai-chat__content">
+      <span class="ai-chat__greeting">{{ 'LMI.AI_HELLO' | translate }}</span>
+      <span class="ai-chat__question">{{ 'LMI.AI_WHAT_KNOW' | translate }}</span>
+    </div>
+    <div class="ai-chat__suggestions">
+      <div class="ai-chat__suggestion-item">
+        <div class="ai-chat__suggestion-icon-wrapper">
+          <img class="ai-chat__suggestion-icon" src="assets/images/icons/stars.svg" alt="stars" />
+        </div>
+        <span class="ai-chat__suggestion-text">{{ 'LMI.AI_SUGGESTION' | translate }}</span>
+      </div>
+      <div class="ai-chat__suggestion-item">
+        <div class="ai-chat__suggestion-icon-wrapper">
+          <img class="ai-chat__suggestion-icon" src="assets/images/icons/stars.svg" alt="stars" />
+        </div>
+        <span class="ai-chat__suggestion-text">{{ 'LMI.AI_SUGGESTION' | translate }}</span>
+      </div>
+      <div class="ai-chat__suggestion-item">
+        <div class="ai-chat__suggestion-icon-wrapper">
+          <img class="ai-chat__suggestion-icon" src="assets/images/icons/stars.svg" alt="stars" />
+        </div>
+        <span class="ai-chat__suggestion-text">{{ 'LMI.AI_SUGGESTION' | translate }}</span>
+      </div>
+    </div>
+    <div class="ai-chat__search">
+      <div class="ai-chat__search-input-wrapper">
+        <input
+          type="text"
+          class="ai-chat__search-field"
+          [placeholder]="'LMI.AI_PLACEHOLDER' | translate"
+        />
+      </div>
+      <div class="ai-chat__search-right">
+        <img
+          class="ai-chat__search-mic"
+          src="assets/images/icons/microphone.svg"
+          alt="microphone"
+        />
+        <div class="ai-chat__search-button">
+          <img class="ai-chat__search-button-icon" src="assets/images/icons/nav-arrow-right.svg" alt="search" />
+        </div>
+      </div>
+    </div>
+  </div>
+}

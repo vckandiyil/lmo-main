@@ -1,0 +1,358 @@
+.widget-center {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1040;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+
+  &--open {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    animation: backdropFadeIn 300ms ease-out forwards;
+
+    .widget-center__content {
+      animation: slideInBottom 300ms ease-out forwards;
+    }
+  }
+
+  &--closing {
+    visibility: visible;
+    pointer-events: auto;
+    animation: backdropFadeOut 300ms ease-out forwards;
+
+    .widget-center__content {
+      animation: slideOutBottom 300ms ease-out forwards;
+    }
+  }
+
+  &__content {
+    width: 1154px;
+    height: 1017px;
+    max-height: calc(100vh - 64px);
+    background: var(--lmo-bg-surface);
+    display: flex;
+    flex-direction: column;
+
+    :host-context(body.theme--dark) & {
+      background: var(--lmo-bg-primary);
+    }
+  }
+
+  &__header {
+    position: sticky;
+    top: 0;
+    width: 1154px;
+    height: 132px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 48px;
+    box-sizing: border-box;
+    z-index: 1;
+  }
+
+  &__title {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 36px;
+    color: var(--lmo-text-primary);
+    margin: 0;
+  }
+
+  &__actions {
+    width: 563px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__search {
+    width: 342px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 4px 4px 8px;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border: 1px solid var(--lmo-dropdown-border);
+    border-radius: 17px;
+
+    :host-context(body.theme--dark) & {
+      background: #212836;
+    }
+  }
+
+  &__search-icon {
+    flex-shrink: 0;
+    margin-right: 8px;
+
+    :host-context([dir='rtl']) & {
+      margin-right: 0;
+      margin-left: 8px;
+    }
+  }
+
+  &__search-input {
+    flex: 1;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0;
+    vertical-align: middle;
+    color: #000000;
+
+    :host-context(body.theme--dark) & {
+      color: #FFFFFF;
+    }
+
+    &::placeholder {
+      font-family: 'Graphik Trial', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+      letter-spacing: 0;
+      vertical-align: middle;
+      color: #6A7180;
+
+      :host-context(body.theme--dark) & {
+        color: #FFFFFF;
+      }
+    }
+  }
+
+  &__search-clear {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  &__search-clear-icon {
+    position: relative;
+    width: 12.36px;
+    height: 12.36px;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: #37516E;
+
+      :host-context(body.theme--dark) & {
+        background: #FFFFFF;
+      }
+    }
+
+    &::before {
+      width: 12.36px;
+      height: 1.6px;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      width: 12.36px;
+      height: 1.6px;
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+
+  &__add-button {
+    width: 161px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 24px 6px 16px;
+    box-sizing: border-box;
+    background: var(--lmo-button-secondary-bg);
+    border: none;
+    border-radius: 48px;
+    cursor: pointer;
+    transition: background-color 200ms ease;
+
+    span {
+      font-family: 'Graphik Trial', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: var(--lmo-text-primary);
+    }
+
+    &:hover {
+      background: var(--lmo-button-secondary-hover);
+    }
+  }
+
+  &__add-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: var(--lmo-icon-filter);
+  }
+
+  &__close {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
+    box-sizing: border-box;
+    background: #F3F4F6;
+    border: none;
+    border-radius: 96px;
+    cursor: pointer;
+    transition: background-color 200ms ease;
+
+    :host-context(body.theme--dark) & {
+      background: #212836;
+      border: 1px solid #364151;
+
+      svg path {
+        stroke: #9BA8B7;
+      }
+
+      &:hover {
+        background: #212836;
+      }
+    }
+
+    &:hover {
+      background: var(--lmo-button-secondary-hover);
+    }
+  }
+
+  &__body {
+    flex: 1;
+    padding: 24px 48px;
+    overflow-y: auto;
+  }
+
+  &__hidden {
+    display: none !important;
+  }
+
+  &__grid {
+    column-count: 3;
+    column-gap: 24px;
+  }
+
+  &__widget-wrapper {
+    display: inline-block;
+    width: 336px;
+    margin-bottom: 24px;
+    break-inside: avoid;
+    cursor: pointer;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+    }
+
+    > * {
+      display: block;
+      width: 100%;
+    }
+
+    ::ng-deep > * > * {
+      width: 100%;
+    }
+
+    ::ng-deep .widget-checkbox {
+      display: block;
+    }
+
+    &--selected {
+      ::ng-deep > * > * {
+        box-shadow: inset 0 0 0 1px var(--Color-Primary-300, #3375C6), 0px 0px 12px 0px #3375C680;
+        border-radius: 16px;
+      }
+
+      ::ng-deep .widget-card {
+        box-shadow: inset 0 0 0 1px var(--Color-Primary-300, #3375C6), 0px 0px 12px 0px #3375C680;
+      }
+
+      ::ng-deep .widget-checkbox__circle {
+        fill: var(--Color-Icon-Primary, #3375C6);
+        stroke: var(--Color-Icon-Primary, #3375C6);
+      }
+
+      ::ng-deep .widget-checkbox__check {
+        stroke: #FFFFFF;
+      }
+    }
+  }
+
+}
+
+@keyframes slideInBottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutBottom {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes backdropFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes backdropFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+

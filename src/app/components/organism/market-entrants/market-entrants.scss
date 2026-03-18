@@ -1,0 +1,107 @@
+.market-entrants {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+
+  &__body {
+    width: 100%;
+    height: 230px;
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__education {
+    width: 100%;
+    height: 124px;
+    gap: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--lmo-border-color);
+    display: flex;
+    flex-direction: column;
+
+    :host-context(body.theme--dark) & {
+      border-bottom: 1px solid #6A7180;
+    }
+  }
+
+  &__row {
+    width: 100%;
+    gap: 2px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__row-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    :host-context([dir='rtl']) & {
+      direction: ltr;
+    }
+  }
+
+  &__value {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--lmo-text-value);
+  }
+
+  &__label {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    color: var(--lmo-text-label);
+  }
+
+  &__bar {
+    width: 100%;
+    height: 8px;
+    overflow: hidden;
+
+    ::ng-deep .chart-container {
+      margin-top: -8px;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+
+    :host-context([dir='rtl']) & {
+      direction: ltr;
+    }
+  }
+
+  &__category {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--lmo-text-category);
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__section-title {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--lmo-text-primary);
+  }
+
+  &__immigration-chart {
+    width: 100%;
+    height: 75px;
+  }
+}

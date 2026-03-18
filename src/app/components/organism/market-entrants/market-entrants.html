@@ -1,0 +1,36 @@
+<div class="market-entrants" [class.market-entrants--selected]="selected()" (click)="onWidgetClick()">
+  <app-flip-card #flipCard>
+    <app-widget-checkbox [selected]="selected()" front/>
+    <app-widget-header [title]="'HOME.MARKET_ENTRANTS_TITLE' | translate" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" front/>
+    <div class="market-entrants__body" front>
+      <div class="market-entrants__education">
+        @for (item of educationData; track item.label) {
+          <div class="market-entrants__row">
+            <div class="market-entrants__row-header">
+              <span class="market-entrants__value">{{ formatValue(item.emirati) }}</span>
+              <span class="market-entrants__label">{{ getLabelKey(item.label) | translate }}</span>
+              <span class="market-entrants__value">{{ formatValue(item.expat) }}</span>
+            </div>
+            <div class="market-entrants__bar">
+              @if (item.chartOptions) {
+                <app-chart-wrapper [options]="item.chartOptions" />
+              }
+            </div>
+            <div class="market-entrants__footer">
+              <span class="market-entrants__category">{{ 'HOME.EMIRATI' | translate }}</span>
+              <span class="market-entrants__category">{{ 'HOME.EXPAT' | translate }}</span>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="market-entrants__section">
+        <span class="market-entrants__section-title">{{ 'HOME.IMMIGRATION_SUPPLY' | translate }}</span>
+        <div class="market-entrants__immigration-chart">
+          <app-chart-wrapper [options]="immigrationChartOptions()" />
+        </div>
+      </div>
+    </div>
+    <app-widget-back back [widgetType]="widgetType()" (close)="flipCard.toggle()"></app-widget-back>
+  </app-flip-card>
+</div>

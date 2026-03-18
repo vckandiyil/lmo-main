@@ -1,0 +1,90 @@
+.region-profile {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  --flip-gap: 12px;
+
+  &__body {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &__metric {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 0 8px;
+    border-right: 1px solid #B7C3D2;
+    border-bottom: 1px solid #B7C3D2;
+
+    :host-context([dir='rtl']) & {
+      border-right: none;
+      border-left: 1px solid #B7C3D2;
+    }
+
+    &--clickable {
+      cursor: pointer;
+    }
+
+    &:nth-child(3n) {
+      border-right: none;
+      padding-right: 0;
+
+      :host-context([dir='rtl']) & {
+        border-left: none;
+        padding-right: 8px;
+        padding-left: 0;
+      }
+    }
+
+    &:nth-child(3n+1) {
+      padding-left: 0;
+
+      :host-context([dir='rtl']) & {
+        padding-left: 8px;
+        padding-right: 0;
+      }
+    }
+
+    &:nth-last-child(-n+3) {
+      border-bottom: none;
+    }
+  }
+
+  &__metric-label {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #05264A;
+
+    :host-context(body.theme--dark) & {
+      color: #CDD4DB;
+    }
+  }
+
+  &__metric-data {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__metric-value {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #1E2937;
+
+    :host-context(body.theme--dark) & {
+      color: #FFFFFF;
+    }
+  }
+
+  &__metric-chart {
+    width: 35px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+}

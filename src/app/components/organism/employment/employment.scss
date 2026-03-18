@@ -1,0 +1,46 @@
+.employment {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  --flip-gap: 4px;
+
+  &__legend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  &__legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  &__legend-dot {
+    width: 5.6px;
+    height: 5.6px;
+    border-radius: 50%;
+
+    &--employment {
+      background-color: #3375C6;
+    }
+
+    &--unemployment {
+      background-color: #AAC2DF;
+    }
+  }
+
+  &__legend-label {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--lmo-text-secondary);
+  }
+
+  &__body {
+    flex: 1;
+    overflow: visible;
+  }
+}

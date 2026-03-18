@@ -1,0 +1,51 @@
+[
+  {
+    "id": "notif-001",
+    "created_date": "2025-12-15T10:30:00+04:00",
+    "type": "positive",
+    "message": "<b>Emiratization</b> in <b>Al Ain</b> has reached <b>52.4%</b>, the highest rate among Abu Dhabi regions.",
+    "message_ar": "وصل <b>التوطين</b> في <b>العين</b> إلى <b>52.4%</b>، وهو أعلى معدل بين مناطق أبوظبي."
+  },
+  {
+    "id": "notif-002",
+    "created_date": "2025-12-12T08:15:00+04:00",
+    "type": "positive",
+    "message": "<b>Employment</b> in the <b>healthcare</b> sector stands at <b>81.2%</b>, marking the highest level recorded for this sector.",
+    "message_ar": "بلغ <b>التوظيف</b> في قطاع <b>الرعاية الصحية</b> <b>81.2%</b>، وهو أعلى مستوى مسجّل لهذا القطاع."
+  },
+  {
+    "id": "notif-003",
+    "created_date": "2025-12-10T14:45:00+04:00",
+    "type": "negative",
+    "message": "<b>Job vacancies</b> in the <b>ICT</b> sector remain elevated at <b>68.7%</b>, indicating persistent skills shortages.",
+    "message_ar": "تبقى <b>الوظائف الشاغرة</b> في قطاع <b>تكنولوجيا المعلومات والاتصالات</b> مرتفعة عند <b>68.7%</b>، مما يشير إلى نقص مستمر في المهارات."
+  },
+  {
+    "id": "notif-004",
+    "created_date": "2025-12-05T09:00:00+04:00",
+    "type": "negative",
+    "message": "<b>Labor force</b> participation in <b>Al Dhafra</b> is at <b>54.1%</b>, the lowest among Abu Dhabi regions.",
+    "message_ar": "تبلغ نسبة مشاركة <b>القوى العاملة</b> في <b>الظفرة</b> <b>54.1%</b>، وهي الأدنى بين مناطق أبوظبي."
+  },
+  {
+    "id": "notif-005",
+    "created_date": "2025-11-20T11:30:00+04:00",
+    "type": "positive",
+    "message": "<b>Emiratization</b> in <b>Al Ain</b> has reached <b>52.4%</b>, the highest rate among Abu Dhabi regions.",
+    "message_ar": "وصل <b>التوطين</b> في <b>العين</b> إلى <b>52.4%</b>، وهو أعلى معدل بين مناطق أبوظبي."
+  },
+  {
+    "id": "notif-006",
+    "created_date": "2025-11-15T16:00:00+04:00",
+    "type": "negative",
+    "message": "<b>Labor force</b> participation in <b>Al Dhafra</b> is at <b>54.1%</b>, the lowest among Abu Dhabi regions.",
+    "message_ar": "تبلغ نسبة مشاركة <b>القوى العاملة</b> في <b>الظفرة</b> <b>54.1%</b>، وهي الأدنى بين مناطق أبوظبي."
+  },
+  {
+    "id": "notif-007",
+    "created_date": "2025-11-10T13:20:00+04:00",
+    "type": "negative",
+    "message": "<b>Job vacancies</b> in the <b>ICT</b> sector remain elevated at <b>68.7%</b>, indicating persistent skills shortages.",
+    "message_ar": "تبقى <b>الوظائف الشاغرة</b> في قطاع <b>تكنولوجيا المعلومات والاتصالات</b> مرتفعة عند <b>68.7%</b>، مما يشير إلى نقص مستمر في المهارات."
+  }
+]

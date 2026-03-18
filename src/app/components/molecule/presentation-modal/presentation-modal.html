@@ -1,0 +1,108 @@
+@if (isOpen() || isClosing()) {
+  <div
+    class="presentation-modal"
+    [class.presentation-modal--closing]="isClosing()"
+    (click)="onBackdropClick()"
+  >
+    <div class="presentation-modal__content" (click)="onContentClick($event)">
+      <button class="presentation-modal__close" (click)="close()">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13.5 1.5L1.5 13.5M1.5 1.5L13.5 13.5" stroke="#37516E" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="presentation-modal__body">
+        <div class="presentation-modal__header">
+          <div class="presentation-modal__title-wrapper">
+            <div class="presentation-modal__icon">
+              <img src="assets/images/icons/presentation.svg" alt="Presentation"/>
+            </div>
+            <span class="presentation-modal__title">{{ 'LMI.LABOR_MARKET_PULSE' | translate }}</span>
+          </div>
+          <app-tab-group
+            [tabs]="tabs"
+            [activeTab]="activeTab()"
+            (tabChanged)="onTabChanged($event)"
+          />
+        </div>
+        <div class="presentation-modal__content-area">
+          <div class="presentation-modal__table-frame">
+            <table class="presentation-modal__table">
+              <thead>
+                <tr>
+                  <th class="presentation-modal__table-header">{{ 'LMI.TABLE_DOMAIN' | translate }}</th>
+                  <th class="presentation-modal__table-header">{{ 'LMI.TABLE_OVERALL' | translate }}</th>
+                  <th class="presentation-modal__table-header">{{ 'LMI.TABLE_AL_DHAFRA' | translate }}</th>
+                  <th class="presentation-modal__table-header">{{ 'LMI.TABLE_ABU_DHABI' | translate }}</th>
+                  <th class="presentation-modal__table-header">{{ 'LMI.TABLE_AL_AIN' | translate }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (row of tableData; track row.domain) {
+                  <tr class="presentation-modal__table-row">
+                    <td class="presentation-modal__table-cell presentation-modal__table-cell--domain">{{ isArabic() ? (row.domain_ar ?? row.domain) : row.domain }}</td>
+                    <td class="presentation-modal__table-cell">
+                      <div class="presentation-modal__cell-content">
+                        <span class="presentation-modal__value">{{ row.overall }}</span>
+                        @if (activeTab() === 'yy') {
+                          <span class="presentation-modal__yy-badge" [class.presentation-modal__yy-badge--negative]="row.yy.overall < 0">
+                            <img [src]="row.yy.overall >= 0 ? 'assets/images/icons/trending-up.svg' : 'assets/images/icons/trending-down.svg'" alt=""/>
+                            <span>{{ row.yy.overall >= 0 ? '+' : '' }}{{ row.yy.overall }}%</span>
+                          </span>
+                        }
+                      </div>
+                    </td>
+                    <td class="presentation-modal__table-cell">
+                      <div class="presentation-modal__cell-content">
+                        <span class="presentation-modal__value">{{ row.alDhafra }}</span>
+                        @if (activeTab() === 'yy') {
+                          <span class="presentation-modal__yy-badge" [class.presentation-modal__yy-badge--negative]="row.yy.alDhafra < 0">
+                            <img [src]="row.yy.alDhafra >= 0 ? 'assets/images/icons/trending-up.svg' : 'assets/images/icons/trending-down.svg'" alt=""/>
+                            <span>{{ row.yy.alDhafra >= 0 ? '+' : '' }}{{ row.yy.alDhafra }}%</span>
+                          </span>
+                        }
+                      </div>
+                    </td>
+                    <td class="presentation-modal__table-cell">
+                      <div class="presentation-modal__cell-content">
+                        <span class="presentation-modal__value">{{ row.abuDhabi }}</span>
+                        @if (activeTab() === 'yy') {
+                          <span class="presentation-modal__yy-badge" [class.presentation-modal__yy-badge--negative]="row.yy.abuDhabi < 0">
+                            <img [src]="row.yy.abuDhabi >= 0 ? 'assets/images/icons/trending-up.svg' : 'assets/images/icons/trending-down.svg'" alt=""/>
+                            <span>{{ row.yy.abuDhabi >= 0 ? '+' : '' }}{{ row.yy.abuDhabi }}%</span>
+                          </span>
+                        }
+                      </div>
+                    </td>
+                    <td class="presentation-modal__table-cell">
+                      <div class="presentation-modal__cell-content">
+                        <span class="presentation-modal__value">{{ row.alAin }}</span>
+                        @if (activeTab() === 'yy') {
+                          <span class="presentation-modal__yy-badge" [class.presentation-modal__yy-badge--negative]="row.yy.alAin < 0">
+                            <img [src]="row.yy.alAin >= 0 ? 'assets/images/icons/trending-up.svg' : 'assets/images/icons/trending-down.svg'" alt=""/>
+                            <span>{{ row.yy.alAin >= 0 ? '+' : '' }}{{ row.yy.alAin }}%</span>
+                          </span>
+                        }
+                      </div>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+          <div class="presentation-modal__actions">
+            <app-button variant="dashed">
+              <svg buttonIcon width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 4V12M4 8H12" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+              </svg>
+              {{ 'HOME.ADD_INDICATOR' | translate }}
+            </app-button>
+            <app-button variant="filled">
+              {{ 'LMI.DOWNLOAD_REPORT' | translate }}
+            </app-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+}

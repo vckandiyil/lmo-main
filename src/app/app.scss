@@ -1,0 +1,14 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &.page--lmi,
+  &.page--my-lmo {
+    background: #e9f5ff;
+
+    :host-context(body.theme--dark) & {
+      background: var(--lmo-bg-surface);
+    }
+  }
+}

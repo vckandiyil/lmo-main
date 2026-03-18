@@ -1,0 +1,32 @@
+.what-if {
+  &__content {
+    position: fixed;
+    top: 61px;
+    left: calc(var(--nav-sidebar-w) + 384px);
+    width: calc(100% - var(--nav-sidebar-w) - 384px);
+    height: calc(100vh - 61px);
+    transition: left 0.3s ease, width 0.3s ease;
+    padding: 8px 20px 20px 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+
+    :host-context([dir='rtl']) & {
+      left: auto;
+      right: 384px;
+      padding: 8px 0 20px 20px;
+    }
+  }
+
+  &__graphs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 10px;
+
+    app-chart-card {
+      width: calc(50% - 5px);
+    }
+  }
+}

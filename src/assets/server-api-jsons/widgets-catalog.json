@@ -1,0 +1,149 @@
+{
+  "widgets": [
+    {
+      "id": "market-entrants",
+      "title": "Market Entrants",
+      "category": [
+        "Employment",
+        "Unemployment",
+        "Outside Labor Force"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": false,
+      "hidden": false
+    },
+    {
+      "id": "labor-force-composition",
+      "title": "Labor Force Composition",
+      "category": [
+        "Employment",
+        "Unemployment",
+        "Outside Labor Force"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": false,
+      "hidden": false
+    },
+    {
+      "id": "sector-gaps-opportunities",
+      "title": "Sector gaps and opportunities",
+      "category": [
+        "Employment",
+        "Unemployment",
+        "Outside Labor Force",
+        "Job Vacancies",
+        "Job Seekers"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": false,
+      "hidden": false
+    },
+    {
+      "id": "unemployment-rate",
+      "title": "Unemployment Rate",
+      "category": [
+        "Unemployment"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hidden": false
+    },
+    {
+      "id": "workforce-structure",
+      "title": "Workforce Structure",
+      "category": [
+        "Employment",
+        "Unemployment",
+        "Outside Labor Force"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": false,
+      "hidden": false
+    },
+    {
+      "id": "employment-rate",
+      "title": "Employment Rate",
+      "category": [
+        "Employment"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hidden": false
+    },
+    {
+      "id": "employment-rate-trend",
+      "title": "Employment Trend & Sentiment",
+      "category": [
+        "Employment"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": false,
+      "hidden": false
+    },
+    {
+      "id": "employment",
+      "title": "Employment",
+      "category": [
+        "Employment",
+        "Unemployment"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": false,
+      "hidden": true
+    },
+    {
+      "id": "ai-insights",
+      "title": "AI Insights",
+      "category": [
+        "Employment",
+        "Unemployment",
+        "Outside Labor Force",
+        "Job Vacancies",
+        "Job Seekers"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": false,
+      "hidden": false
+    },
+    {
+      "id": "region-profile",
+      "title": "Region Profile",
+      "category": [
+        "Employment",
+        "Unemployment",
+        "Outside Labor Force",
+        "Job Vacancies",
+        "Job Seekers"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": false,
+      "hidden": false
+    },
+    {
+      "id": "marital-activity-status",
+      "title": "Marital Activity Status",
+      "category": [
+        "Employment",
+        "Unemployment",
+        "Outside Labor Force",
+        "Job Vacancies",
+        "Job Seekers"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": false,
+      "hidden": false
+    },
+    {
+      "id": "population-number",
+      "title": "Population Number",
+      "category": [
+        "Employment",
+        "Unemployment",
+        "Outside Labor Force"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hidden": false
+    }
+  ]
+}

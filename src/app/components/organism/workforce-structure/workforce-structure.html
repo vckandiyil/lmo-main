@@ -1,0 +1,30 @@
+<div class="workforce-structure" [class.workforce-structure--selected]="selected()" (click)="onWidgetClick()">
+  <app-flip-card #flipCard>
+    <app-widget-checkbox [selected]="selected()" front/>
+    <app-widget-header [title]="'Workforce Structure'" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" front/>
+    <div class="workforce-structure__body" front>
+      <div class="workforce-structure__section workforce-structure__section--age">
+        <span class="workforce-structure__section-title">Age distribution</span>
+        <div class="workforce-structure__chart">
+          <app-chart-wrapper [options]="ageDistributionChartOptionsSignal()"/>
+        </div>
+      </div>
+
+      <div class="workforce-structure__section workforce-structure__section--split">
+        <span class="workforce-structure__section-title">Gender + Nationality split</span>
+        <div class="workforce-structure__donut">
+          <app-chart-wrapper [options]="genderNationalityChartOptions"/>
+        </div>
+      </div>
+    </div>
+    <div class="workforce-structure__legend" front>
+      @for (item of legendItems; track item.key) {
+        <div class="workforce-structure__legend-item">
+          <span class="workforce-structure__legend-dot" [style.background-color]="item.color"></span>
+          <span class="workforce-structure__legend-label">{{ item.label }}</span>
+        </div>
+      }
+    </div>
+    <app-widget-back back [widgetType]="widgetType()" (close)="flipCard.toggle()"></app-widget-back>
+  </app-flip-card>
+</div>

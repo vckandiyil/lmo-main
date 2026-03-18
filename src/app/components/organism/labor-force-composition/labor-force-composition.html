@@ -1,0 +1,66 @@
+<div class="labor-force-composition" [class.labor-force-composition--selected]="selected()" (click)="onWidgetClick()">
+  <app-flip-card #flipCard>
+    <app-widget-checkbox [selected]="selected()" front/>
+    <app-widget-header [title]="'HOME.LABOR_FORCE_TITLE' | translate" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" front/>
+    <div class="labor-force-composition__body" front>
+      <div class="labor-force-composition__charts">
+        <div class="labor-force-composition__chart-container">
+          @if (laborForceChartOptions(); as options) {
+            <app-chart-wrapper [options]="options" />
+          }
+          <div class="labor-force-composition__chart-center">
+            <span class="labor-force-composition__chart-value">{{ formatCompact(totalLaborForce) }}</span>
+            <span class="labor-force-composition__chart-label">{{ 'HOME.TOTAL_LABOR_FORCE' | translate }}</span>
+          </div>
+        </div>
+
+        <div class="labor-force-composition__chart-container">
+          @if (participationChartOptions(); as options) {
+            <app-chart-wrapper [options]="options" />
+          }
+          <div class="labor-force-composition__chart-center">
+            <span class="labor-force-composition__chart-value">{{ participationRate }}%</span>
+            <span class="labor-force-composition__chart-label">{{ 'HOME.PARTICIPATION_RATE' | translate }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="labor-force-composition__splits">
+        <div class="labor-force-composition__split">
+          <div class="labor-force-composition__split-header">
+            <span class="labor-force-composition__split-value">{{ formatNumber(nationalitySplit.leftValue) }}</span>
+            <span class="labor-force-composition__split-title">{{ 'HOME.NATIONALITY_SPLIT' | translate }}</span>
+            <span class="labor-force-composition__split-value">{{ formatNumber(nationalitySplit.rightValue) }}</span>
+          </div>
+          <div class="labor-force-composition__split-bar">
+            @if (nationalitySplit.chartOptions) {
+              <app-chart-wrapper [options]="nationalitySplit.chartOptions" />
+            }
+          </div>
+          <div class="labor-force-composition__split-footer">
+            <span class="labor-force-composition__split-label">{{ getLabelKey(nationalitySplit.leftLabel) | translate }}</span>
+            <span class="labor-force-composition__split-label">{{ getLabelKey(nationalitySplit.rightLabel) | translate }}</span>
+          </div>
+        </div>
+
+        <div class="labor-force-composition__split">
+          <div class="labor-force-composition__split-header">
+            <span class="labor-force-composition__split-value">{{ formatNumber(genderSplit.leftValue) }}</span>
+            <span class="labor-force-composition__split-title">{{ 'HOME.GENDER_SPLIT' | translate }}</span>
+            <span class="labor-force-composition__split-value">{{ formatNumber(genderSplit.rightValue) }}</span>
+          </div>
+          <div class="labor-force-composition__split-bar">
+            @if (genderSplit.chartOptions) {
+              <app-chart-wrapper [options]="genderSplit.chartOptions" />
+            }
+          </div>
+          <div class="labor-force-composition__split-footer">
+            <span class="labor-force-composition__split-label">{{ getLabelKey(genderSplit.leftLabel) | translate }}</span>
+            <span class="labor-force-composition__split-label">{{ getLabelKey(genderSplit.rightLabel) | translate }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-widget-back back [widgetType]="widgetType()" (close)="flipCard.toggle()"></app-widget-back>
+  </app-flip-card>
+</div>

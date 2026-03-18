@@ -1,0 +1,305 @@
+// =============================================================================
+// SCSS Mixins - Reusable Patterns
+// LMO Project - SCSS Infrastructure
+// =============================================================================
+// This file provides utility mixins for common CSS patterns.
+// Use @use 'styles' in component SCSS files to access these mixins.
+// =============================================================================
+
+@use 'variables' as vars;
+
+// -----------------------------------------------------------------------------
+// RESPONSIVE BREAKPOINT MIXINS
+// Usage: @include respond-to('md') { ... }
+// -----------------------------------------------------------------------------
+
+/// Generates a min-width media query for the specified breakpoint
+/// @param {String} $breakpoint - The breakpoint name (sm, md, lg, xl, xxl)
+@mixin respond-to($breakpoint) {
+  @if map-has-key(vars.$breakpoints, $breakpoint) {
+    @media (min-width: map-get(vars.$breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: #{$breakpoint}. Available: sm, md, lg, xl, xxl";
+  }
+}
+
+/// Generates a max-width media query (for mobile-first overrides)
+/// @param {String} $breakpoint - The breakpoint name
+@mixin respond-below($breakpoint) {
+  @if map-has-key(vars.$breakpoints, $breakpoint) {
+    @media (max-width: map-get(vars.$breakpoints, $breakpoint) - 0.02px) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: #{$breakpoint}. Available: sm, md, lg, xl, xxl";
+  }
+}
+
+/// Generates a media query for a specific range between two breakpoints
+/// @param {String} $lower - The lower breakpoint
+/// @param {String} $upper - The upper breakpoint
+@mixin respond-between($lower, $upper) {
+  @if map-has-key(vars.$breakpoints, $lower) and map-has-key(vars.$breakpoints, $upper) {
+    @media (min-width: map-get(vars.$breakpoints, $lower)) and (max-width: map-get(vars.$breakpoints, $upper) - 0.02px) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint in range: #{$lower} to #{$upper}";
+  }
+}
+
+// -----------------------------------------------------------------------------
+// FLEXBOX SHORTCUTS
+// Common flexbox patterns as mixins
+// -----------------------------------------------------------------------------
+
+/// Centers content both horizontally and vertically
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/// Space between items with vertical centering
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/// Flex column direction
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/// Flex column with centered content
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/// Flex row with wrapping
+@mixin flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/// Inline flex with vertical centering
+@mixin inline-flex-center {
+  display: inline-flex;
+  align-items: center;
+}
+
+// -----------------------------------------------------------------------------
+// TEXT UTILITIES
+// Text truncation and styling mixins
+// -----------------------------------------------------------------------------
+
+/// Single-line text truncation with ellipsis
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/// Multi-line text truncation with ellipsis
+/// @param {Number} $lines - Number of lines to show before truncating
+@mixin text-clamp($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/// Hide text visually but keep accessible to screen readers
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// -----------------------------------------------------------------------------
+// VISUAL UTILITIES
+// Shadows, focus states, and visual effects
+// -----------------------------------------------------------------------------
+
+/// Material Design elevation shadow
+/// @param {Number} $level - Elevation level (1-5)
+@mixin elevation($level: 1) {
+  @if $level == 1 {
+    box-shadow: vars.$shadow-1;
+  } @else if $level == 2 {
+    box-shadow: vars.$shadow-2;
+  } @else if $level == 3 {
+    box-shadow: vars.$shadow-3;
+  } @else if $level == 4 {
+    box-shadow: vars.$shadow-4;
+  } @else if $level == 5 {
+    box-shadow: vars.$shadow-5;
+  } @else {
+    @warn "Elevation level must be between 1 and 5. Got: #{$level}";
+  }
+}
+
+/// Accessible focus ring for interactive elements
+@mixin focus-ring {
+  outline: 2px solid vars.$color-primary;
+  outline-offset: 2px;
+}
+
+/// Remove default focus outline (use with focus-visible)
+@mixin focus-ring-reset {
+  outline: none;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+/// Smooth transition for hover/focus states
+/// @param {List} $properties - CSS properties to transition
+@mixin transition($properties: all) {
+  transition-property: $properties;
+  transition-duration: vars.$transition-base;
+  transition-timing-function: vars.$transition-timing;
+}
+
+// -----------------------------------------------------------------------------
+// SIZING UTILITIES
+// Width and height shortcuts
+// -----------------------------------------------------------------------------
+
+/// Set both width and height
+/// @param {Length} $width - The width value
+/// @param {Length} $height [$width] - The height value (defaults to width)
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+/// Set equal width and height (square)
+/// @param {Length} $size - The size value for both dimensions
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+/// Full width and height (100%)
+@mixin full-size {
+  width: 100%;
+  height: 100%;
+}
+
+// -----------------------------------------------------------------------------
+// POSITIONING UTILITIES
+// Common positioning patterns
+// -----------------------------------------------------------------------------
+
+/// Absolute positioning covering parent
+@mixin absolute-fill {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/// Fixed positioning covering viewport
+@mixin fixed-fill {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/// Center an absolutely positioned element
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// -----------------------------------------------------------------------------
+// SCROLLING UTILITIES
+// Custom scrollbar and scroll behavior
+// -----------------------------------------------------------------------------
+
+/// Hide scrollbar while maintaining scroll functionality
+@mixin hide-scrollbar {
+  -ms-overflow-style: none;  // IE and Edge
+  scrollbar-width: none;     // Firefox
+
+  &::-webkit-scrollbar {
+    display: none;           // Chrome, Safari, Opera
+  }
+}
+
+/// Custom thin scrollbar
+@mixin thin-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: vars.$color-gray-400 transparent;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: vars.$color-gray-400;
+    border-radius: vars.$border-radius-full;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// INTERACTIVE UTILITIES
+// Hover, click, and interactive states
+// -----------------------------------------------------------------------------
+
+/// Interactive element base (button-like behavior)
+@mixin interactive {
+  cursor: pointer;
+  user-select: none;
+  @include transition(background-color, color, opacity);
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+/// Hover overlay effect
+/// @param {Color} $color - The overlay color
+/// @param {Number} $opacity - The overlay opacity (0-1)
+@mixin hover-overlay($color: vars.$color-primary, $opacity: 0.08) {
+  position: relative;
+
+  &::before {
+    content: '';
+    @include absolute-fill;
+    background-color: $color;
+    opacity: 0;
+    @include transition(opacity);
+    pointer-events: none;
+  }
+
+  &:hover::before {
+    opacity: $opacity;
+  }
+}

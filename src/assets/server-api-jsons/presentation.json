@@ -1,0 +1,104 @@
+{
+  "laborMarketPulse": {
+    "indicators": [
+      {
+        "domain": "Population",
+        "domain_ar": "السكان",
+        "overall": "3.85M",
+        "alDhafra": "320k",
+        "abuDhabi": "2.45M",
+        "alAin": "1.08M",
+        "yy": {
+          "overall": 0.2,
+          "alDhafra": 0.2,
+          "abuDhabi": 0.2,
+          "alAin": -0.7
+        }
+      },
+      {
+        "domain": "Employment",
+        "domain_ar": "التوظيف",
+        "overall": "76.5%",
+        "alDhafra": "74%",
+        "abuDhabi": "80.5%",
+        "alAin": "78%",
+        "yy": {
+          "overall": 3.4,
+          "alDhafra": 3.4,
+          "abuDhabi": 3.4,
+          "alAin": 3.4
+        }
+      },
+      {
+        "domain": "Unemployment",
+        "domain_ar": "البطالة",
+        "overall": "3.8%",
+        "alDhafra": "4.6%",
+        "abuDhabi": "3.1%",
+        "alAin": "3.9%",
+        "yy": {
+          "overall": -1.7,
+          "alDhafra": -0.5,
+          "abuDhabi": -0.2,
+          "alAin": -0.6
+        }
+      },
+      {
+        "domain": "Labor Force Participation",
+        "domain_ar": "مشاركة القوى العاملة",
+        "overall": "67%",
+        "alDhafra": "63%",
+        "abuDhabi": "74%",
+        "alAin": "69%",
+        "yy": {
+          "overall": -0.2,
+          "alDhafra": -0.2,
+          "abuDhabi": 1.8,
+          "alAin": -0.2
+        }
+      },
+      {
+        "domain": "Wages & Income (AED)",
+        "domain_ar": "الأجور والدخل (درهم)",
+        "overall": "9,200",
+        "alDhafra": "7,500",
+        "abuDhabi": "14,500",
+        "alAin": "10,200",
+        "yy": {
+          "overall": 3.1,
+          "alDhafra": 3.1,
+          "abuDhabi": 3.1,
+          "alAin": 3.1
+        }
+      },
+      {
+        "domain": "Job Vacancies & Demand",
+        "domain_ar": "الوظائف الشاغرة والطلب",
+        "overall": "4.5%",
+        "alDhafra": "5.2%",
+        "abuDhabi": "4.1%",
+        "alAin": "3.9%",
+        "yy": {
+          "overall": 2.7,
+          "alDhafra": -1.9,
+          "abuDhabi": 2.7,
+          "alAin": -1.2
+        }
+      },
+      {
+        "domain": "Pensions & Social Protection",
+        "domain_ar": "المعاشات والحماية الاجتماعية",
+        "overall": "62%",
+        "alDhafra": "58%",
+        "abuDhabi": "83%",
+        "alAin": "76%",
+        "yy": {
+          "overall": 1.7,
+          "alDhafra": 1.7,
+          "abuDhabi": 1.7,
+          "alAin": 1.7
+        }
+      }
+    ]
+  }
+}

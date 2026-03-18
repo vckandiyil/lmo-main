@@ -1,0 +1,50 @@
+:host {
+  display: contents;
+}
+
+.widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__title {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--lmo-text-primary);
+  }
+
+  &__icons {
+    position: relative;
+    display: none;
+    align-items: center;
+    gap: 6px;
+
+    :host-context(.sidebar) &,
+    :host-context(.center-section__widget-card) & {
+      display: flex;
+    }
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  &__collapse-icon {
+    display: none;
+  }
+
+  :host-context(.center-section__widget-card) & {
+    &__expand-icon {
+      display: none;
+    }
+
+    &__collapse-icon {
+      display: inline-flex;
+    }
+  }
+}

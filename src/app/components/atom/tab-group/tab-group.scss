@@ -1,0 +1,46 @@
+.tab-group {
+  width: 378px;
+  height: 37px;
+  padding: 2px;
+  box-sizing: border-box;
+  border-radius: 96px;
+  background: var(--lmo-dropdown-bg);
+  display: flex;
+
+  &__tab {
+    flex: 1;
+    height: 33px;
+    padding: 6px 14px;
+    gap: 8px;
+    box-sizing: border-box;
+    border-radius: 96px;
+    background: var(--lmo-dropdown-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 300ms ease-out;
+
+    &--active {
+      background: #3375C6;
+
+      .tab-group__tab-text {
+        color: #FFFFFF;
+      }
+    }
+  }
+
+  &__tab-text {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0;
+    color: var(--Text-Body-Secondary, #364151);
+    transition: color 300ms ease-out;
+
+    :host-context(body.theme--dark) & {
+      color: #CDD4DB;
+    }
+  }
+}

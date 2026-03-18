@@ -1,0 +1,20 @@
+<div class="employment-rate-trend" [class.employment-rate-trend--selected]="selected()" (click)="onWidgetClick()">
+  <app-flip-card #flipCard>
+    <app-widget-checkbox [selected]="selected()" front/>
+    <app-widget-header [title]="'Employment Trend & Sentiment'" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" front/>
+    <div class="employment-rate-trend__legend" front>
+      <div class="employment-rate-trend__legend-item">
+        <span class="employment-rate-trend__legend-line"></span>
+        <span class="employment-rate-trend__legend-label">Employment Rate Trend</span>
+      </div>
+      <div class="employment-rate-trend__legend-item">
+        <span class="employment-rate-trend__legend-box"></span>
+        <span class="employment-rate-trend__legend-label">Sentiment</span>
+      </div>
+    </div>
+    <div class="employment-rate-trend__body" front>
+      <app-chart-wrapper [options]="chartOptionsSignal()"/>
+    </div>
+    <app-widget-back back [widgetType]="widgetType()" (close)="flipCard.toggle()"></app-widget-back>
+  </app-flip-card>
+</div>

@@ -1,0 +1,219 @@
+.nav-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 88px;
+  height: 100vh;
+  padding: 16px 16px 24px 16px;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border-right: 1px solid #CCDEF1;
+  overflow: visible;
+  z-index: 10;
+  transition: width 0.3s ease;
+  display: flex;
+  flex-direction: column;
+
+  :host-context(body.theme--dark) & {
+    background: var(--lmo-bg-surface);
+    border-right-color: #364151;
+  }
+
+  &--expanded {
+    width: 326px;
+  }
+
+&__toggle {
+    position: absolute;
+    right: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFFCC;
+    border: 1px solid #CCDEF1;
+    border-radius: 100px;
+    cursor: pointer;
+    padding: 0;
+
+    :host-context(body.theme--dark) & {
+      background: rgba(33, 40, 54, 0.8);
+      border-color: #364151;
+    }
+  }
+
+  &__toggle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+  }
+
+  &__top {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 32px;
+  }
+
+  &__nav-item {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-decoration: none;
+
+    &:hover {
+      background: #EFF5FB;
+
+      :host-context(body.theme--dark) & {
+        background: rgba(255, 255, 255, 0.08);
+      }
+    }
+
+    &--active {
+      background: #EFF5FB;
+
+      .nav-sidebar__icon {
+        color: #3375C6;
+      }
+
+      :host-context(body.theme--dark) & {
+        background: rgba(255, 255, 255, 0.12);
+      }
+    }
+  }
+
+  &__logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  &__logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    background: #E9F5FF;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__logo-img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  &__logo-text {
+    width: 175px;
+    height: 48px;
+    object-fit: contain;
+    flex-shrink: 0;
+    opacity: 0;
+    max-width: 0;
+    transform: translateX(-6px);
+    transition: opacity 0.1s ease, max-width 0.3s ease, transform 0.1s ease;
+  }
+
+  &--expanded &__logo-text {
+    opacity: 1;
+    max-width: 175px;
+    transform: translateX(0);
+    transition: opacity 0.2s ease 0.2s, max-width 0.3s ease, transform 0.2s ease 0.2s;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__icon-wrap {
+    width: 56px;
+    height: 56px;
+    padding: 0 16px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+
+    &--clickable {
+      cursor: pointer;
+
+      &:hover {
+        background: #EFF5FB;
+
+        :host-context(body.theme--dark) & {
+          background: rgba(255, 255, 255, 0.08);
+        }
+      }
+    }
+  }
+
+  &__icon {
+    color: var(--lmo-text-primary);
+    display: flex;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+  }
+
+  &__label {
+    opacity: 0;
+    max-width: 0;
+    overflow: hidden;
+    transform: translateX(-6px);
+    white-space: nowrap;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 140%;
+    letter-spacing: 0;
+    color: #09090A;
+    transition: opacity 0.1s ease, max-width 0.3s ease, transform 0.1s ease;
+
+    :host-context(body.theme--dark) & {
+      color: #ffffff;
+    }
+  }
+
+  &--expanded &__icon-wrap {
+    width: 100%;
+    gap: 16px;
+  }
+
+  &--expanded &__nav-item {
+    width: 100%;
+    gap: 16px;
+  }
+
+  &--expanded &__label {
+    opacity: 1;
+    max-width: 200px;
+    transform: translateX(0);
+    transition: opacity 0.2s ease 0.2s, max-width 0.3s ease, transform 0.2s ease 0.2s;
+  }
+}

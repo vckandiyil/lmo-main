@@ -1,0 +1,189 @@
+{
+  "regions": [
+    {
+      "name": "Abu Dhabi",
+      "nameKey": "LMI.ABU_DHABI",
+      "population": 2502000,
+      "longitude": 54.37,
+      "latitude": 24.45,
+      "color": [54, 103, 255, 0.9],
+      "subRegions": [
+        {
+          "name": "Abu Dhabi Island",
+          "nameKey": "LMI.ABU_DHABI_ISLAND",
+          "population": 810000,
+          "longitude": 54.37,
+          "latitude": 24.48,
+          "color": [54, 103, 255, 0.95]
+        },
+        {
+          "name": "Khalifa City",
+          "nameKey": "LMI.KHALIFA_CITY",
+          "population": 385000,
+          "longitude": 54.58,
+          "latitude": 24.42,
+          "color": [74, 123, 255, 0.9]
+        },
+        {
+          "name": "Mohammed Bin Zayed City",
+          "nameKey": "LMI.MBZ_CITY",
+          "population": 420000,
+          "longitude": 54.52,
+          "latitude": 24.35,
+          "color": [94, 143, 255, 0.9]
+        },
+        {
+          "name": "Musaffah",
+          "nameKey": "LMI.MUSAFFAH",
+          "population": 350000,
+          "longitude": 54.49,
+          "latitude": 24.35,
+          "color": [44, 93, 235, 0.9]
+        },
+        {
+          "name": "Al Shamkha",
+          "nameKey": "LMI.AL_SHAMKHA",
+          "population": 195000,
+          "longitude": 54.72,
+          "latitude": 24.37,
+          "color": [34, 83, 215, 0.9]
+        },
+        {
+          "name": "Baniyas",
+          "nameKey": "LMI.BANIYAS",
+          "population": 168000,
+          "longitude": 54.63,
+          "latitude": 24.31,
+          "color": [64, 113, 245, 0.9]
+        },
+        {
+          "name": "Al Reem Island",
+          "nameKey": "LMI.AL_REEM_ISLAND",
+          "population": 174000,
+          "longitude": 54.40,
+          "latitude": 24.50,
+          "color": [84, 133, 255, 0.9]
+        }
+      ]
+    },
+    {
+      "name": "Al Ain",
+      "nameKey": "LMI.AL_AIN",
+      "population": 1145000,
+      "longitude": 55.76,
+      "latitude": 24.19,
+      "color": [33, 207, 219, 0.9],
+      "subRegions": [
+        {
+          "name": "Al Ain City Center",
+          "nameKey": "LMI.AL_AIN_CENTER",
+          "population": 365000,
+          "longitude": 55.76,
+          "latitude": 24.21,
+          "color": [33, 207, 219, 0.95]
+        },
+        {
+          "name": "Al Hili",
+          "nameKey": "LMI.AL_HILI",
+          "population": 185000,
+          "longitude": 55.77,
+          "latitude": 24.27,
+          "color": [43, 217, 229, 0.9]
+        },
+        {
+          "name": "Al Jimi",
+          "nameKey": "LMI.AL_JIMI",
+          "population": 162000,
+          "longitude": 55.73,
+          "latitude": 24.24,
+          "color": [53, 227, 239, 0.9]
+        },
+        {
+          "name": "Al Mutawaa",
+          "nameKey": "LMI.AL_MUTAWAA",
+          "population": 138000,
+          "longitude": 55.69,
+          "latitude": 24.18,
+          "color": [23, 197, 209, 0.9]
+        },
+        {
+          "name": "Zakher",
+          "nameKey": "LMI.ZAKHER",
+          "population": 155000,
+          "longitude": 55.72,
+          "latitude": 24.15,
+          "color": [13, 187, 199, 0.9]
+        },
+        {
+          "name": "Al Muwaiji",
+          "nameKey": "LMI.AL_MUWAIJI",
+          "population": 140000,
+          "longitude": 55.79,
+          "latitude": 24.17,
+          "color": [63, 237, 249, 0.9]
+        }
+      ]
+    },
+    {
+      "name": "Al Dhafra",
+      "nameKey": "LMI.AL_DHAFRA",
+      "population": 488985,
+      "longitude": 53.75,
+      "latitude": 23.65,
+      "color": [131, 30, 255, 0.9],
+      "subRegions": [
+        {
+          "name": "Madinat Zayed",
+          "nameKey": "LMI.MADINAT_ZAYED",
+          "population": 155000,
+          "longitude": 53.70,
+          "latitude": 23.65,
+          "color": [131, 30, 255, 0.95]
+        },
+        {
+          "name": "Ruwais",
+          "nameKey": "LMI.RUWAIS",
+          "population": 98000,
+          "longitude": 52.73,
+          "latitude": 24.09,
+          "color": [151, 60, 255, 0.9]
+        },
+        {
+          "name": "Ghayathi",
+          "nameKey": "LMI.GHAYATHI",
+          "population": 72000,
+          "longitude": 52.61,
+          "latitude": 23.84,
+          "color": [141, 50, 255, 0.9]
+        },
+        {
+          "name": "Liwa",
+          "nameKey": "LMI.LIWA",
+          "population": 45985,
+          "longitude": 53.38,
+          "latitude": 23.13,
+          "color": [121, 20, 235, 0.9]
+        },
+        {
+          "name": "Dalma Island",
+          "nameKey": "LMI.DALMA",
+          "population": 28000,
+          "longitude": 52.30,
+          "latitude": 24.51,
+          "color": [161, 70, 255, 0.9]
+        },
+        {
+          "name": "Mirfa",
+          "nameKey": "LMI.MIRFA",
+          "population": 90000,
+          "longitude": 53.37,
+          "latitude": 24.08,
+          "color": [111, 10, 225, 0.9]
+        }
+      ]
+    }
+  ],
+  "total": 4135985,
+  "year": 2024,
+  "unit": "Persons"
+}

@@ -1,0 +1,154 @@
+.metadata-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1040;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  animation: metadataModalFadeIn 300ms ease-out forwards;
+
+  &--closing {
+    animation: metadataModalFadeOut 300ms ease-out forwards;
+
+    .metadata-modal__content {
+      animation: metadataModalScaleOut 300ms ease-out forwards;
+    }
+  }
+
+  &__content {
+    width: 600px;
+    max-height: calc(100vh - 128px);
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    background: #FFFFFF;
+    animation: metadataModalScaleIn 300ms ease-out forwards;
+
+    :host-context(body.theme--dark) & {
+      background: #212836;
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 24px 16px;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    color: #05264A;
+
+    :host-context(body.theme--dark) & {
+      color: #FFFFFF;
+    }
+  }
+
+  &__close {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F3F4F6;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #364151;
+
+    :host-context(body.theme--dark) & {
+      background: #30394A;
+      color: #9BA8B7;
+    }
+  }
+
+  &__body {
+    padding: 0 24px 24px;
+    overflow-y: auto;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0;
+    color: #000000;
+
+    :host-context(body.theme--dark) & {
+      color: #CDD4DB;
+    }
+
+    &::before {
+      content: '';
+      flex-shrink: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #2563EA;
+    }
+  }
+}
+
+@keyframes metadataModalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes metadataModalFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes metadataModalScaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes metadataModalScaleOut {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+}

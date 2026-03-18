@@ -1,0 +1,96 @@
+<div class="chart-card__header">
+  <span class="chart-card__title">{{ title() }}</span>
+  <div class="chart-card__actions">
+    <app-button variant="toolbar-icon">
+      <app-icon buttonIcon name="bell" size="14"></app-icon>
+    </app-button>
+    <app-button variant="toolbar-icon">
+      <app-icon buttonIcon name="zoom-in" size="14"></app-icon>
+    </app-button>
+    <app-button variant="toolbar-icon">
+      <app-icon buttonIcon name="zoom-out" size="14"></app-icon>
+    </app-button>
+    <app-button variant="toolbar-icon">
+      <app-icon buttonIcon name="expand" size="14"></app-icon>
+    </app-button>
+  </div>
+</div>
+
+<div class="chart-card__stats">
+  <div class="chart-card__stat-group">
+    <div class="chart-card__stat-col">
+      <span class="chart-card__stat-label">{{ current().label }}</span>
+      <span class="chart-card__stat-value">{{ current().mainValue }}</span>
+    </div>
+    <div class="chart-card__stat-col">
+      <span class="chart-card__stat-label">Q/Q</span>
+      <span class="chart-card__stat-value">{{ current().qoq }}</span>
+    </div>
+    <div class="chart-card__stat-col">
+      <span class="chart-card__stat-label">Y/Y</span>
+      <span class="chart-card__stat-value">{{ current().yoy }}</span>
+    </div>
+  </div>
+  <div class="chart-card__stat-divider chart-card__stat-divider--green"></div>
+  <div class="chart-card__stat-group">
+    <div class="chart-card__stat-col">
+      <span class="chart-card__stat-label chart-card__stat-label--forecast">{{ forecast().label }}</span>
+      <span class="chart-card__stat-value">{{ forecast().mainValue }}</span>
+    </div>
+    <div class="chart-card__stat-col">
+      <span class="chart-card__stat-label">Q/Q</span>
+      <span class="chart-card__stat-value">{{ forecast().qoq }}</span>
+    </div>
+    <div class="chart-card__stat-col">
+      <span class="chart-card__stat-label">Y/Y</span>
+      <span class="chart-card__stat-value">{{ forecast().yoy }}</span>
+    </div>
+  </div>
+  <div class="chart-card__stat-divider chart-card__stat-divider--red"></div>
+  <div class="chart-card__stat-group">
+    <div class="chart-card__stat-col">
+      <span class="chart-card__stat-label chart-card__stat-label--target">{{ target().label }}</span>
+      <span class="chart-card__stat-value">{{ target().mainValue }}</span>
+    </div>
+    <div class="chart-card__stat-col">
+      <span class="chart-card__stat-label">Q/Q</span>
+      <span class="chart-card__stat-value">{{ target().qoq }}</span>
+    </div>
+    <div class="chart-card__stat-col">
+      <span class="chart-card__stat-label">Y/Y</span>
+      <span class="chart-card__stat-value">{{ target().yoy }}</span>
+    </div>
+  </div>
+</div>
+
+<div class="chart-card__chart">
+  <app-what-if-chart [widgetId]="widgetId()"></app-what-if-chart>
+</div>
+
+<div class="chart-card__footer">
+  <div class="chart-card__footer-left">
+    <div class="chart-card__ai-heading">
+      <app-icon name="stars" size="16" color="#3375C6"></app-icon>
+      <span class="chart-card__ai-title">AI Insights</span>
+    </div>
+    <p class="chart-card__ai-text">AI analysis shows that demand is consistently higher than supply across all major sectors. Healthcare and Technology face the biggest talent gaps, while Construction remains the largest employer with ongoing workforce needs. Education, Finance, Tourism, and Management also show steady demand growth.</p>
+  </div>
+  <div class="chart-card__footer-right">
+    <span class="chart-card__download-title">Download</span>
+    <div class="chart-card__download-formats">
+      @for (format of downloadFormats; track format.id) {
+        <div class="chart-card__download-format">
+          <div class="chart-card__download-format-icon" [style.background-color]="format.color">
+            <app-icon [name]="format.icon" [color]="format.iconColor" size="16"></app-icon>
+          </div>
+          <span class="chart-card__download-format-label">{{ format.label }}</span>
+        </div>
+      }
+    </div>
+    <label class="chart-card__checkbox">
+      <input type="checkbox" [checked]="termsAccepted()" (change)="toggleTerms()">
+      <span class="chart-card__checkbox-mark"></span>
+      I agree to <strong>Terms &amp; Conditions</strong>
+    </label>
+  </div>
+</div>

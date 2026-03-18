@@ -1,0 +1,28 @@
+@if (isOpen() || isClosing()) {
+  <div
+    class="metadata-modal"
+    [class.metadata-modal--closing]="isClosing()"
+    (click)="onBackdropClick()"
+  >
+    <div class="metadata-modal__content" (click)="onContentClick($event)">
+      <div class="metadata-modal__header">
+        <div class="metadata-modal__title">
+          <app-icon name="code-brackets-square" color="#3375C6" size="24"></app-icon>
+          Statistical Metadata
+        </div>
+        <button class="metadata-modal__close" (click)="close()">
+          <app-icon name="close" size="16"></app-icon>
+        </button>
+      </div>
+      <div class="metadata-modal__body">
+        <ul class="metadata-modal__list">
+          @for (item of items(); track item.label) {
+            @if (item.value) {
+              <li class="metadata-modal__item">{{ item.label }}: {{ item.value }}</li>
+            }
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+}

@@ -1,0 +1,82 @@
+@if (isOpen() || isClosing()) {
+  <div
+    class="report-modal"
+    [class.report-modal--closing]="isClosing()"
+    (click)="onBackdropClick()"
+  >
+    <div class="report-modal__content" (click)="onContentClick($event)">
+      <button class="report-modal__close" (click)="close()">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13.5 1.5L1.5 13.5M1.5 1.5L13.5 13.5" stroke="#37516E" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="report-modal__body">
+        <section class="report-modal__section report-modal__section--header">
+          <div class="report-modal__title-row">
+            <h2 class="report-modal__title">{{ 'LMI.REPORT_TITLE' | translate }}</h2>
+            <span class="report-modal__badge">
+              <img src="assets/images/icons/ai-icon.svg" alt="" class="report-modal__badge-icon"/>
+              <span class="report-modal__badge-text">{{ 'LMI.REPORT_AI_BADGE' | translate }}</span>
+            </span>
+          </div>
+          <p class="report-modal__disclaimer">{{ 'LMI.REPORT_DISCLAIMER' | translate }}</p>
+        </section>
+
+        <section class="report-modal__section report-modal__section--filters">
+          <div class="report-modal__filter">
+            <label class="report-modal__filter-label">{{ 'LMI.REGION' | translate }}</label>
+            <app-dropdown
+              [placeholder]="'LMI.REPORT_SELECT_REGION' | translate"
+              [options]="regionOptions()"
+            />
+          </div>
+          <div class="report-modal__filter">
+            <label class="report-modal__filter-label">{{ 'LMI.SECTOR' | translate }}</label>
+            <app-dropdown
+              [placeholder]="'LMI.REPORT_SELECT_SECTOR' | translate"
+              [options]="sectorOptions()"
+            />
+          </div>
+          <div class="report-modal__filter">
+            <label class="report-modal__filter-label">{{ 'LMI.REPORT_TIME_RANGE' | translate }}</label>
+            <app-dropdown
+              [placeholder]="'LMI.REPORT_SELECT_TIME_RANGE' | translate"
+              [options]="timeRangeOptions()"
+            />
+          </div>
+        </section>
+
+        <section class="report-modal__section report-modal__section--includes">
+          <h3 class="report-modal__includes-title">{{ 'LMI.REPORT_INCLUDES_TITLE' | translate }}</h3>
+          <ul class="report-modal__includes-list">
+            <li class="report-modal__includes-item">{{ 'LMI.REPORT_INCLUDES_1' | translate }}</li>
+            <li class="report-modal__includes-item">{{ 'LMI.REPORT_INCLUDES_2' | translate }}</li>
+            <li class="report-modal__includes-item">{{ 'LMI.REPORT_INCLUDES_3' | translate }}</li>
+            <li class="report-modal__includes-item">{{ 'LMI.REPORT_INCLUDES_4' | translate }}</li>
+            <li class="report-modal__includes-item">{{ 'LMI.REPORT_INCLUDES_5' | translate }}</li>
+            <li class="report-modal__includes-item">{{ 'LMI.REPORT_INCLUDES_6' | translate }}</li>
+          </ul>
+        </section>
+
+        <section class="report-modal__section report-modal__section--actions">
+          <app-button class="report-modal__action report-modal__action--generate">
+            <img buttonIcon src="assets/images/icons/page.svg" alt=""/>
+            {{ 'LMI.REPORT_TITLE' | translate }}
+          </app-button>
+          <div class="report-modal__action-group">
+            <app-button class="report-modal__action report-modal__action--export">
+              <img buttonIcon src="assets/images/icons/download.svg" alt=""/>
+              {{ 'LMI.REPORT_EXPORT_PDF' | translate }}
+            </app-button>
+            <app-button class="report-modal__action report-modal__action--export">
+              <img buttonIcon src="assets/images/icons/download.svg" alt=""/>
+              {{ 'LMI.REPORT_EXPORT_PPTX' | translate }}
+            </app-button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+}

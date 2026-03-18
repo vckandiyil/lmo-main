@@ -1,0 +1,36 @@
+{
+  "aiOverview": {
+    "summary": {
+      "text": "While specific, up-to-date (2025) employment rates for Abu Dhabi are not available, 2019 data showed a refined economic participation rate of ~72.8%, with the region contributing 26.4% of the total labor force in the Abu Dhabi Emirate. Abu Dhabi's economy is diversified, with manufacturing, trade, and transportation being significant sectors.",
+      "highlights": [
+        "~72.8%",
+        "26.4% of the total labor force"
+      ]
+    },
+    "dataSection": {
+      "title": "Abu Dhabi employment & labor force data (Historical/Estimates)",
+      "source": {
+        "name": "scad.gov.ae",
+        "url": "https://scad.gov.ae"
+      },
+      "items": [
+        {
+          "label": "Labor Force (2019)",
+          "value": "Abu Dhabi Region represented 26.4% of the total labor force in the Abu Dhabi Emirate."
+        },
+        {
+          "label": "Economic Participation (2019)",
+          "value": "~72.8% (refined rate)."
+        },
+        {
+          "label": "Key Sectors (Metroverse est.)",
+          "value": "Manufacturing (27.35% of employees), Trade & Transportation (27%)."
+        },
+        {
+          "label": "Working-Age Population (2024 estimate)",
+          "value": "~80.9% (aged 15-64) in the Abu Dhabi region."
+        }
+      ]
+    }
+  }
+}

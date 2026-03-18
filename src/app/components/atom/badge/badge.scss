@@ -1,0 +1,65 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 14px;
+  border-radius: 64px;
+  background: #75CA6526;
+
+  &__icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  &__text {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0;
+    vertical-align: middle;
+    color: var(--Color-System-Success, #5CC049);
+  }
+
+  &--danger {
+    background: #EF444426;
+
+    .badge__text {
+      color: #EF4444;
+    }
+  }
+
+  &--impact {
+    padding: 4px 10px;
+    background: #75CA651A;
+    border: 1px solid #5CC04980;
+
+    .badge__text {
+      font-size: 12px;
+      line-height: 15px;
+      color: #75CA65;
+    }
+  }
+
+  &--sm {
+    padding: 0 4px;
+    height: 18px;
+    gap: 8px;
+
+    .badge__icon {
+      width: 12px;
+      height: 12px;
+    }
+
+    .badge__text {
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: 600;
+    }
+  }
+}

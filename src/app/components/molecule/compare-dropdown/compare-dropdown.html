@@ -1,0 +1,28 @@
+<div class="compare-dropdown">
+  <app-button variant="toolbar" (click)="toggle()">
+    <app-icon buttonIcon name="arrow-compare" size="20"></app-icon>
+    Compare
+  </app-button>
+  @if (isOpen()) {
+    <div class="compare-dropdown__panel">
+      <span class="compare-dropdown__title">Compare to:</span>
+      <ul class="compare-dropdown__list">
+        @for (item of items(); track item.id) {
+          <li class="compare-dropdown__item"
+              [class.compare-dropdown__item--selected]="item.selected"
+              (click)="selectItem(item.id)">
+            <span class="compare-dropdown__color" [style.background]="item.color"></span>
+            <span class="compare-dropdown__check">
+              @if (item.selected) {
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              }
+            </span>
+            {{ item.title }}
+          </li>
+        }
+      </ul>
+    </div>
+  }
+</div>

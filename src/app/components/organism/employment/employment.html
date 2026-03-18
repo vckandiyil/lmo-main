@@ -1,0 +1,20 @@
+<div class="employment" [class.employment--selected]="selected()" (click)="onWidgetClick()">
+  <app-flip-card #flipCard>
+    <app-widget-checkbox [selected]="selected()" front/>
+    <app-widget-header [title]="'Employment'" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" front/>
+    <div class="employment__legend" front>
+      <div class="employment__legend-item">
+        <span class="employment__legend-dot employment__legend-dot--employment"></span>
+        <span class="employment__legend-label">Employment</span>
+      </div>
+      <div class="employment__legend-item">
+        <span class="employment__legend-dot employment__legend-dot--unemployment"></span>
+        <span class="employment__legend-label">Unemployment</span>
+      </div>
+    </div>
+    <div class="employment__body" front>
+      <app-chart-wrapper [options]="chartOptionsSignal()"/>
+    </div>
+    <app-widget-back back [widgetType]="widgetType()" (close)="flipCard.toggle()"></app-widget-back>
+  </app-flip-card>
+</div>

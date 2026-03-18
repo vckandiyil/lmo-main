@@ -1,0 +1,377 @@
+{
+  "regionProfile": {
+    "metrics": [
+      {
+        "label": "Population",
+        "value": 2738,
+        "unit": "",
+        "trend": [
+          {
+            "value": 2400
+          },
+          {
+            "value": 2500
+          },
+          {
+            "value": 2600
+          },
+          {
+            "value": 2650
+          },
+          {
+            "value": 2738
+          }
+        ],
+        "isPositive": true
+      },
+      {
+        "label": "LF participation",
+        "value": 78,
+        "unit": "%",
+        "trend": [
+          {
+            "value": 72
+          },
+          {
+            "value": 74
+          },
+          {
+            "value": 75
+          },
+          {
+            "value": 77
+          },
+          {
+            "value": 78
+          }
+        ],
+        "isPositive": true
+      },
+      {
+        "label": "Employment",
+        "value": 95.3,
+        "unit": "%",
+        "trend": [
+          {
+            "value": 94.5
+          },
+          {
+            "value": 95.2
+          },
+          {
+            "value": 95.4
+          },
+          {
+            "value": 95.3
+          }
+        ],
+        "isPositive": true
+      },
+      {
+        "label": "Unemployment",
+        "value": 3.4,
+        "unit": "%",
+        "trend": [
+          {
+            "value": 4.2
+          },
+          {
+            "value": 4.0
+          },
+          {
+            "value": 3.8
+          },
+          {
+            "value": 3.6
+          },
+          {
+            "value": 3.4
+          }
+        ],
+        "isPositive": true
+      },
+      {
+        "label": "Emiratisation",
+        "value": 9.7,
+        "unit": "%",
+        "trend": [
+          {
+            "value": 8.5
+          },
+          {
+            "value": 9.0
+          },
+          {
+            "value": 8.8
+          },
+          {
+            "value": 9.2
+          },
+          {
+            "value": 9.7
+          }
+        ],
+        "isPositive": false
+      },
+      {
+        "label": "Vacancy Rate",
+        "value": 4.1,
+        "unit": "%",
+        "trend": [
+          {
+            "value": 3.8
+          },
+          {
+            "value": 3.5
+          },
+          {
+            "value": 3.9
+          },
+          {
+            "value": 4.0
+          },
+          {
+            "value": 4.1
+          }
+        ],
+        "isPositive": true
+      }
+    ]
+  },
+  "laborForceComposition": {
+    "totalLaborForce": 1900000,
+    "participationRate": 78,
+    "nationalitySplit": {
+      "leftLabel": "Emirati",
+      "rightLabel": "Expat",
+      "leftValue": 780546,
+      "rightValue": 1096543
+    },
+    "genderSplit": {
+      "leftLabel": "Male",
+      "rightLabel": "Female",
+      "leftValue": 1124556,
+      "rightValue": 770344
+    }
+  },
+  "marketEntrants": {
+    "educationData": [
+      {
+        "label": "Secondary Education",
+        "emirati": 34.7,
+        "expat": 12.7
+      },
+      {
+        "label": "Higher Education",
+        "emirati": 39.5,
+        "expat": 15.8
+      }
+    ],
+    "immigrationData": [
+      {
+        "label": "High-skilled",
+        "value": 11
+      },
+      {
+        "label": "Medium-skilled",
+        "value": 15.7
+      },
+      {
+        "label": "Low-skilled",
+        "value": 27.5
+      }
+    ]
+  },
+  "sectorGapsOpportunities": {
+    "sectors": [
+      {
+        "name": "Healthcare",
+        "vacancies": 50,
+        "jobseekers": 93,
+        "gap": -3.3
+      },
+      {
+        "name": "Logistics",
+        "vacancies": 47,
+        "jobseekers": 70,
+        "gap": -3.3
+      },
+      {
+        "name": "Construction",
+        "vacancies": 25,
+        "jobseekers": 58,
+        "gap": -0.7
+      },
+      {
+        "name": "Education",
+        "vacancies": 17,
+        "jobseekers": 35,
+        "gap": 6.7
+      },
+      {
+        "name": "Technology",
+        "vacancies": 10,
+        "jobseekers": 20,
+        "gap": 1.3
+      }
+    ]
+  },
+  "unemploymentRate": {
+    "rateData": [
+      {
+        "year": "2021",
+        "rate": 51
+      },
+      {
+        "year": "2022",
+        "rate": 62
+      },
+      {
+        "year": "2023",
+        "rate": 34
+      },
+      {
+        "year": "2024",
+        "rate": 26
+      },
+      {
+        "year": "2025",
+        "rate": 11
+      }
+    ]
+  },
+  "workforceStructure": {
+    "ageGroups": [
+      {
+        "ageGroup": "18-24",
+        "femaleExpat": 15,
+        "maleExpat": 25,
+        "maleEmirati": 20,
+        "femaleEmirati": 25,
+        "unemployed": 15
+      },
+      {
+        "ageGroup": "25-34",
+        "femaleExpat": 20,
+        "maleExpat": 20,
+        "maleEmirati": 25,
+        "femaleEmirati": 20,
+        "unemployed": 15
+      },
+      {
+        "ageGroup": "35-44",
+        "femaleExpat": 18,
+        "maleExpat": 22,
+        "maleEmirati": 25,
+        "femaleEmirati": 20,
+        "unemployed": 15
+      },
+      {
+        "ageGroup": "45-64",
+        "femaleExpat": 15,
+        "maleExpat": 25,
+        "maleEmirati": 25,
+        "femaleEmirati": 20,
+        "unemployed": 15
+      }
+    ]
+  },
+  "employmentRate": {
+    "rateData": [
+      {
+        "year": "2021",
+        "rate": 15
+      },
+      {
+        "year": "2022",
+        "rate": 46
+      },
+      {
+        "year": "2023",
+        "rate": 55
+      },
+      {
+        "year": "2024",
+        "rate": 92
+      },
+      {
+        "year": "2025",
+        "rate": 68
+      }
+    ]
+  },
+  "employmentRateTrend": {
+    "trendData": [
+      {
+        "x": 0,
+        "y": 93
+      },
+      {
+        "x": 1,
+        "y": 94
+      },
+      {
+        "x": 2,
+        "y": 96
+      },
+      {
+        "x": 3,
+        "y": 97
+      }
+    ],
+    "yAxisMin": 93,
+    "yAxisMax": 97,
+    "tickPositions": [
+      93,
+      95,
+      97
+    ]
+  },
+  "employment": {
+    "employmentData": [
+      25,
+      48,
+      65,
+      95,
+      70
+    ],
+    "unemploymentData": [
+      55,
+      70,
+      35,
+      25,
+      10
+    ],
+    "years": [
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025"
+    ]
+  },
+  "maritalActivityStatus": {
+    "statusData": [
+      {
+        "label": "Never Married",
+        "value": 1260000
+      },
+      {
+        "label": "Married",
+        "value": 1890000
+      },
+      {
+        "label": "Divorced",
+        "value": 210000
+      },
+      {
+        "label": "Widowed",
+        "value": 105000
+      },
+      {
+        "label": "Unknown",
+        "value": 35000
+      }
+    ]
+  }
+}

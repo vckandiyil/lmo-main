@@ -1,0 +1,11 @@
+// =============================================================================
+// SCSS Index - Barrel File
+// LMO Project - SCSS Infrastructure
+// =============================================================================
+// This file forwards all SCSS partials for easy importing.
+// Components can use: @use 'styles' as *;
+// Or selectively: @use 'styles' as styles; then styles.$color-primary
+// =============================================================================
+
+@forward 'variables';
+@forward 'mixins';

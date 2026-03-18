@@ -1,0 +1,123 @@
+@if (isOpen() || isClosing()) {
+  <div
+    class="search-modal"
+    [class.search-modal--closing]="isClosing()"
+    (click)="onBackdropClick()"
+  >
+    <div class="search-modal__content" (click)="onContentClick($event)">
+      <button class="search-modal__close" (click)="close()">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13.5 1.5L1.5 13.5M1.5 1.5L13.5 13.5" stroke="#37516E" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="search-modal__body">
+        <div class="search-modal__search">
+          <div class="search-modal__search-left">
+            <img class="search-modal__search-icon" src="assets/images/icons/search.svg" alt="search"/>
+            <div class="search-modal__search-input-wrapper">
+              @if (showPlaceholder()) {
+                <span class="search-modal__search-placeholder">Search with AI...</span>
+              }
+              <input
+                #searchInput
+                type="text"
+                class="search-modal__search-field"
+                [value]="inputValue()"
+                (focus)="onInputFocus()"
+                (blur)="onInputBlur()"
+                (input)="onInputChange($event)"
+                (keydown)="onInputKeydown($event)"
+              />
+            </div>
+          </div>
+          <div class="search-modal__search-right">
+            <img
+              class="search-modal__search-mic"
+              [src]="isMicSpeaking() ? 'assets/images/icons/mic-speaking.svg' : 'assets/images/icons/microphone.svg'"
+              alt="microphone"
+              (click)="toggleMic()"/>
+            <div class="search-modal__search-button" (click)="submit()">
+              <img class="search-modal__search-button-icon" src="assets/images/icons/nav-arrow-right.svg" alt="search"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="search-modal__section search-modal__section--second">
+          <p class="search-modal__question">{{ submittedQuery() }}</p>
+        </div>
+
+        <div class="search-modal__section search-modal__section--third">
+          <div class="search-modal__overview-header">
+            <div class="search-modal__overview-header-left">
+              <img class="search-modal__overview-icon" src="assets/images/icons/ai-icon.svg" alt=""/>
+              <span class="search-modal__overview-title">AI Overview</span>
+            </div>
+            <button class="search-modal__sound-button" type="button">
+              <img class="search-modal__sound-icon" src="assets/images/icons/sound-high.svg" alt=""/>
+            </button>
+          </div>
+          <div class="search-modal__overview-content">
+            @if (aiOverview(); as overview) {
+              <div class="search-modal__overview-item">
+                <div
+                  class="search-modal__overview-frame"
+                  [class.search-modal__overview-frame--expanded]="isFrameExpanded()"
+                >
+                  <p class="search-modal__overview-text" [innerHTML]="getHighlightedSummary()"></p>
+
+                  <div class="search-modal__data-section">
+                    <div class="search-modal__data-header">
+                      <span class="search-modal__data-title">{{ overview.dataSection.title }}</span>
+                      <a class="search-modal__data-source" [href]="overview.dataSection.source.url" target="_blank">
+                        {{ overview.dataSection.source.name }}
+                      </a>
+                    </div>
+                    <ul class="search-modal__data-list">
+                      @for (item of overview.dataSection.items; track item.label) {
+                        <li class="search-modal__data-item">
+                          <strong>{{ item.label }}:</strong> {{ item.value }}
+                        </li>
+                      }
+                    </ul>
+                  </div>
+                </div>
+                <button
+                  class="search-modal__overview-toggle"
+                  [class.search-modal__overview-toggle--opened]="isFrameExpanded()"
+                  (click)="toggleFrame()"
+                  type="button"
+                >
+                  <span class="search-modal__overview-toggle-text" [@textFade]="isFrameExpanded()">
+                    {{ isFrameExpanded() ? 'Show less' : 'Show more' }}
+                  </span>
+                  <img
+                    class="search-modal__overview-toggle-icon"
+                    [src]="isFrameExpanded() ? 'assets/images/icons/nav-arrow-up.svg' : 'assets/images/icons/nav-arrow-down.svg'"
+                    alt=""
+                  />
+                </button>
+              </div>
+            }
+
+            <hr class="search-modal__divider"/>
+
+            <div class="search-modal__overview-item">
+              <div class="search-modal__widgets-grid">
+                @for (type of allWidgetTypes(); track type) {
+                  <div
+                    class="search-modal__widget-wrapper"
+                    [class.search-modal__widget-hidden]="!isWidgetVisible(type)"
+                  >
+                    <ng-container [ngComponentOutlet]="getWidgetComponent(type)"/>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+}

@@ -1,0 +1,65 @@
+<aside class="nav-sidebar" [class.nav-sidebar--expanded]="expanded()">
+  <div class="nav-sidebar__top">
+    <a class="nav-sidebar__logo-wrap" routerLink="/">
+      <div class="nav-sidebar__logo">
+        <img src="assets/images/logos/small-white-logo.svg" alt="Logo" class="nav-sidebar__logo-img"/>
+      </div>
+      <img src="assets/images/logos/small-white-logo-text.svg" alt="Logo text" class="nav-sidebar__logo-text"/>
+    </a>
+    <div class="nav-sidebar__nav">
+      <a class="nav-sidebar__nav-item" routerLink="/" routerLinkActive="nav-sidebar__nav-item--active" [routerLinkActiveOptions]="{exact: true}">
+        <app-icon name="home-alt-slim-horiz" size="24" class="nav-sidebar__icon"/>
+        <span class="nav-sidebar__label">Overview</span>
+      </a>
+      <a class="nav-sidebar__nav-item" routerLink="/labor-market-insights" routerLinkActive="nav-sidebar__nav-item--active">
+        <app-icon name="stats-up-square" size="24" class="nav-sidebar__icon"/>
+        <span class="nav-sidebar__label">Labor Market Insights</span>
+      </a>
+      <a class="nav-sidebar__nav-item" routerLink="/what-if" routerLinkActive="nav-sidebar__nav-item--active">
+        <app-icon name="stats-report" size="24" class="nav-sidebar__icon"/>
+        <span class="nav-sidebar__label">What-If Simulator</span>
+      </a>
+      <a class="nav-sidebar__nav-item" routerLink="/gap-analysis" routerLinkActive="nav-sidebar__nav-item--active">
+        <app-icon name="report-columns" size="24" class="nav-sidebar__icon"/>
+        <span class="nav-sidebar__label">Gap Analysis</span>
+      </a>
+      <a class="nav-sidebar__nav-item" routerLink="/forecast" routerLinkActive="nav-sidebar__nav-item--active">
+        <app-icon name="report-columns" size="24" class="nav-sidebar__icon"/>
+        <span class="nav-sidebar__label">Forecasts</span>
+      </a>
+      <a class="nav-sidebar__nav-item" routerLinkActive="nav-sidebar__nav-item--active">
+        <app-icon name="report-columns" size="24" class="nav-sidebar__icon"/>
+        <span class="nav-sidebar__label">Insights Reports</span>
+      </a>
+      <a class="nav-sidebar__nav-item" routerLink="/my-lmo" routerLinkActive="nav-sidebar__nav-item--active">
+        <app-icon name="report-columns" size="24" class="nav-sidebar__icon"/>
+        <span class="nav-sidebar__label">My LMO</span>
+      </a>
+    </div>
+  </div>
+  <div class="nav-sidebar__bottom">
+    <div class="nav-sidebar__icon-wrap nav-sidebar__icon-wrap--clickable" (click)="openNotificationModal()">
+      <app-icon name="notification" size="24" class="nav-sidebar__icon"/>
+      <span class="nav-sidebar__label">Notifications</span>
+    </div>
+    <div class="nav-sidebar__icon-wrap">
+      <app-icon name="text" size="24" class="nav-sidebar__icon"/>
+      <span class="nav-sidebar__label">Text Size</span>
+    </div>
+    <div class="nav-sidebar__icon-wrap nav-sidebar__icon-wrap--clickable" (click)="toggleLanguage()">
+      <app-icon name="language" size="24" class="nav-sidebar__icon"/>
+      <span class="nav-sidebar__label">Language</span>
+    </div>
+    <div class="nav-sidebar__icon-wrap nav-sidebar__icon-wrap--clickable" (click)="toggleTheme()">
+      <app-icon [name]="isDarkMode() ? 'sun-light' : 'mode'" size="24" class="nav-sidebar__icon"/>
+      <span class="nav-sidebar__label">Dark mode</span>
+    </div>
+  </div>
+  <button class="nav-sidebar__toggle" (click)="toggle()" type="button">
+    <span class="nav-sidebar__toggle-icon">
+      <app-icon [name]="expanded() ? 'nav-arrow-left' : 'nav-arrow-right'" size="16" color="#4A5662"/>
+    </span>
+  </button>
+</aside>
+
+<app-notification-modal [isOpen]="isNotificationModalOpen()" (closed)="closeNotificationModal()"/>

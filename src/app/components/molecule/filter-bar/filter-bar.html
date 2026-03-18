@@ -1,0 +1,50 @@
+<div class="filter-bar__bar">
+  <div class="filter-bar__left">
+    <span class="filter-bar__label">{{ 'LMI.FILTER_BY' | translate }}</span>
+    <div class="filter-bar__dropdowns">
+      @for (filter of filters(); track filter.key) {
+        <div (click)="openPanel()">
+          <app-dropdown
+            [placeholder]="filter.label"
+            [options]="filter.options"
+            [noArrow]="true"
+            [value]="displayValues()[filter.key]">
+          </app-dropdown>
+        </div>
+      }
+    </div>
+    <button class="filter-bar__toggle" (click)="togglePanel()">
+      <app-icon [name]="isPanelOpen() ? 'nav-arrow-up' : 'nav-arrow-down'" size="20"></app-icon>
+    </button>
+  </div>
+  <ng-content></ng-content>
+</div>
+
+@if (isPanelOpen() || isPanelClosing()) {
+  <div class="filter-bar__panel" [class.filter-bar__panel--closing]="isPanelClosing()">
+    <div class="filter-bar__columns">
+      @for (filter of filters(); track filter.key) {
+        <div class="filter-bar__column">
+          @for (option of filter.options; track option) {
+            <label class="filter-bar__option">
+              <span>{{ option }}</span>
+              @if (filter.type === 'radio') {
+                <input type="radio" [name]="filter.key" [value]="option"
+                       [checked]="isRadioChecked(filter.key, option)"
+                       (change)="setRadio(filter.key, option)">
+              } @else {
+                <input type="checkbox" [value]="option"
+                       [checked]="isCheckboxChecked(filter.key, option)"
+                       (change)="toggleCheckbox(filter.key, option)">
+              }
+            </label>
+          }
+        </div>
+      }
+    </div>
+    <div class="filter-bar__actions">
+      <app-button variant="filter-reset" (click)="resetFilters()">{{ 'LMI.RESET' | translate }}</app-button>
+      <app-button variant="filter-apply" (click)="applyFilters()">{{ 'LMI.APPLY_FILTERS' | translate }}</app-button>
+    </div>
+  </div>
+}

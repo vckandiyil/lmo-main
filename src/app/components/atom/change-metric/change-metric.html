@@ -1,0 +1,7 @@
+<div class="change-metric">
+  <span class="change-metric__label">{{ label() }}</span>
+  <app-badge size="sm" [variant]="badgeVariant()">
+    <app-icon badgeIcon [name]="iconName()" [color]="iconColor()" size="16"></app-icon>
+    {{ formattedValue() }}
+  </app-badge>
+</div>

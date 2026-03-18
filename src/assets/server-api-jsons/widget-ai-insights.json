@@ -1,0 +1,46 @@
+{
+  "market-entrants": {
+    "en": "Education-driven market entry is dominated by Emirati talent. Across both secondary and higher education pathways, Emiratis represent the majority of new market entrants, indicating strong national participation in early and advanced education pipelines. While Emiratis remain dominant overall, the share of expats increases in higher education, highlighting reliance on international expertise for specialized and advanced roles.",
+    "ar": "دخول السوق القائم على التعليم يهيمن عليه المواهب الإماراتية. عبر مسارات التعليم الثانوي والعالي، يمثل الإماراتيون غالبية المنتسبين الجدد إلى السوق، مما يشير إلى مشاركة وطنية قوية في مسارات التعليم المبكر والمتقدم. بينما يظل الإماراتيون مهيمنين بشكل عام، تزداد حصة الوافدين في التعليم العالي، مما يسلط الضوء على الاعتماد على الخبرة الدولية للأدوار المتخصصة والمتقدمة."
+  },
+  "labor-force-composition": {
+    "en": "The labor force reflects a strong national participation rate supported by targeted Emiratization policies. Gender and nationality splits reveal ongoing workforce diversification, with Emirati female participation steadily rising across most sectors.",
+    "ar": "تعكس القوى العاملة معدل مشاركة وطني قوي مدعوم بسياسات التوطين المستهدفة. تكشف التوزيعات حسب الجنس والجنسية عن تنويع مستمر في القوى العاملة، مع ارتفاع ثابت في مشاركة المرأة الإماراتية في معظم القطاعات."
+  },
+  "sector-gaps-opportunities": {
+    "en": "Healthcare and Technology face the largest talent gaps between vacancies and job seekers, signaling critical areas for workforce investment. Construction remains the largest employer with steady demand, while Education, Finance, and Tourism show consistent growth in unfilled positions.",
+    "ar": "تواجه قطاعا الرعاية الصحية والتكنولوجيا أكبر الفجوات في المواهب بين الوظائف الشاغرة والباحثين عن عمل، مما يشير إلى مجالات حيوية للاستثمار في القوى العاملة. يظل قطاع البناء أكبر جهة توظيف مع طلب ثابت، في حين تُظهر قطاعات التعليم والمالية والسياحة نمواً متسقاً في الوظائف غير المشغولة."
+  },
+  "workforce-structure": {
+    "en": "Workforce age distribution reveals a predominantly young labor force, with the 25–34 age group forming the largest segment. Gender and nationality splits indicate improving balance, driven by sustained Emiratization and female workforce participation initiatives.",
+    "ar": "يكشف التوزيع العمري للقوى العاملة عن قوة عاملة شابة بشكل رئيسي، حيث تشكل الفئة العمرية 25-34 أكبر شريحة. تشير التوزيعات حسب الجنس والجنسية إلى تحسن في التوازن، مدفوعاً بمبادرات التوطين المستدامة ومشاركة المرأة في سوق العمل."
+  },
+  "employment-rate-trend": {
+    "en": "Employment rate trends show consistent recovery since 2021, now stabilizing near historical highs. Positive market sentiment aligns with strong job creation in non-oil sectors, though sustaining momentum will require continued investment in skills development and labor market adaptability.",
+    "ar": "تُظهر اتجاهات معدل التوظيف تعافياً متسقاً منذ عام 2021، مع استقرار حالي بالقرب من أعلى المستويات التاريخية. يتوافق الزخم الإيجابي في السوق مع نمو قوي في خلق فرص العمل في القطاعات غير النفطية، وإن كان الحفاظ على هذا الزخم يتطلب استمرار الاستثمار في تنمية المهارات وتكيف سوق العمل."
+  },
+  "employment": {
+    "en": "Employment levels have expanded steadily, driven by growth in the private sector and Emirati-focused hiring programs. Unemployment remains structurally low, though monitoring youth and female unemployment rates is key to ensuring inclusive economic growth.",
+    "ar": "توسعت مستويات التوظيف بشكل ثابت، مدفوعةً بالنمو في القطاع الخاص وبرامج التوظيف الموجهة للإماراتيين. يظل البطالة منخفضاً هيكلياً، وإن كانت مراقبة معدلات بطالة الشباب والمرأة مفتاحاً لضمان النمو الاقتصادي الشامل."
+  },
+  "region-profile": {
+    "en": "Regional labor market profiles reveal significant variation in employment concentration and sectoral specialization. Abu Dhabi leads in public sector employment, while Dubai drives private sector density, with Al Ain and Al Dhafra showing potential for diversified industrial growth.",
+    "ar": "تكشف ملفات سوق العمل الإقليمية عن تباين ملحوظ في تركيز التوظيف والتخصص القطاعي. تتصدر أبوظبي في التوظيف في القطاع العام، بينما تقود دبي كثافة القطاع الخاص، في حين تُظهر العين والظفرة إمكانات للنمو الصناعي المتنوع."
+  },
+  "marital-activity-status": {
+    "en": "Marital status analysis shows that married individuals form the largest economically active group, while single workers show higher mobility and adaptability. Policy interventions targeting work-life balance and family support could further enhance participation rates across all marital categories.",
+    "ar": "يُظهر تحليل الحالة الاجتماعية أن المتزوجين يشكلون أكبر الفئات النشطة اقتصادياً، في حين يُظهر العمال غير المتزوجين قدرة أعلى على التنقل والتكيف. قد تُعزز التدخلات السياسية الرامية إلى تحقيق التوازن بين العمل والحياة ودعم الأسرة معدلات المشاركة عبر جميع الفئات الاجتماعية."
+  },
+  "employment-rate": {
+    "en": "With employment rates at historically high levels, future gains will depend on improving job quality, skills alignment, and participation — particularly among Emiratis, youth, and women.",
+    "ar": "مع ارتفاع معدلات التوظيف إلى مستويات تاريخية، ستعتمد المكاسب المستقبلية على تحسين جودة الوظائف ومواءمة المهارات والمشاركة، ولا سيما بين الإماراتيين والشباب والمرأة."
+  },
+  "unemployment-rate": {
+    "en": "Unemployment remains structurally low and stable. Key focus areas include reducing youth unemployment and improving job matching efficiency between graduates and available positions in high-demand sectors.",
+    "ar": "يظل البطالة منخفضاً هيكلياً ومستقراً. تشمل مجالات التركيز الرئيسية تقليل بطالة الشباب وتحسين كفاءة التوفيق الوظيفي بين الخريجين والوظائف المتاحة في القطاعات عالية الطلب."
+  },
+  "population-number": {
+    "en": "Population growth is driven predominantly by expatriate inflows linked to economic expansion. Tracking the national-to-expatriate ratio is essential for long-term labor market sustainability and Emiratization progress.",
+    "ar": "يُعزى النمو السكاني في المقام الأول إلى تدفق الوافدين المرتبط بالتوسع الاقتصادي. يُعد تتبع نسبة المواطنين إلى الوافدين أمراً جوهرياً لاستدامة سوق العمل على المدى البعيد وتقدم التوطين."
+  }
+}

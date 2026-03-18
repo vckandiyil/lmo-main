@@ -1,0 +1,31 @@
+.forecast {
+  &__content {
+    position: fixed;
+    top: 61px;
+    left: var(--nav-sidebar-w);
+    width: calc(100% - var(--nav-sidebar-w));
+    height: calc(100vh - 61px);
+    transition: left 0.3s ease, width 0.3s ease;
+    padding: 8px 20px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+  }
+
+  &__graphs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+  }
+
+  &__graphs-item {
+    width: calc(50% - 10px);
+  }
+
+  &__add-btn {
+    margin-top: 32px;
+  }
+}

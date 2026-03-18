@@ -1,0 +1,29 @@
+<div class="marital-activity-status" [class.marital-activity-status--selected]="selected()" (click)="onWidgetClick()">
+  <app-flip-card #flipCard>
+    <app-widget-checkbox [selected]="selected()" front/>
+    <app-widget-header [title]="'Marital Activity Status'" [icons]="['stars', 'expand', 'more']" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" front/>
+    <div class="marital-activity-status__body" front>
+      <div class="marital-activity-status__legend">
+        @for (item of statusData; track item.label) {
+          <div class="marital-activity-status__legend-item">
+            <div class="marital-activity-status__legend-info">
+              <span class="marital-activity-status__legend-indicator" [style.background-color]="item.color"></span>
+              <span class="marital-activity-status__legend-label">{{ item.label }}</span>
+            </div>
+            <span class="marital-activity-status__legend-value">{{ formatNumber(item.value) }}</span>
+          </div>
+        }
+      </div>
+      <div class="marital-activity-status__chart-container">
+        @if (chartOptions(); as options) {
+          <app-chart-wrapper [options]="options" />
+        }
+        <div class="marital-activity-status__chart-center">
+          <span class="marital-activity-status__chart-label">Total</span>
+          <span class="marital-activity-status__chart-value">{{ formatCompact(total) }}</span>
+        </div>
+      </div>
+    </div>
+    <app-widget-back back [widgetType]="widgetType()" (close)="flipCard.toggle()"></app-widget-back>
+  </app-flip-card>
+</div>

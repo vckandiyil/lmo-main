@@ -1,0 +1,93 @@
+<div class="recommendations" [class.recommendations--expanded]="isExpanded()">
+  <div class="recommendations__toggle"
+       [class.recommendations__toggle--flipped]="isExpanded()" (click)="toggle()">
+    <svg class="recommendations__arrow" width="24" height="24"
+         viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6 15L12 9L18 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div class="recommendations__body">
+  <div class="recommendations__header">
+    <div class="recommendations__title-wrapper">
+      <svg class="recommendations__icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+           xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M12.9981 2.76725C13.1591 2.33194 13.7748 2.33194 13.9359 2.76725L15.764 7.70758C15.8146 7.84444 15.9226 7.95235 16.0594 8.00299L20.9997 9.83107C21.435 9.99215 21.435 10.6078 20.9997 10.7689L16.0594 12.597C15.9226 12.6477 15.8146 12.7556 15.764 12.8924L13.9359 17.8327C13.7748 18.2681 13.1591 18.2681 12.9981 17.8327L11.17 12.8924C11.1193 12.7556 11.0114 12.6477 10.8746 12.597L5.93425 10.7689C5.49894 10.6078 5.49894 9.99215 5.93425 9.83107L10.8746 8.00299C11.0114 7.95235 11.1193 7.84444 11.17 7.70758L12.9981 2.76725Z"
+          fill="#3375C6"/>
+        <path
+          d="M5.66447 14.9672C5.82555 14.5319 6.44125 14.5319 6.60232 14.9672L7.24201 16.6959C7.29265 16.8328 7.40056 16.9407 7.53742 16.9913L9.26615 17.631C9.70145 17.7921 9.70145 18.4078 9.26615 18.5689L7.53742 19.2086C7.40056 19.2592 7.29265 19.3671 7.24201 19.504L6.60232 21.2327C6.44125 21.668 5.82555 21.668 5.66447 21.2327L5.02479 19.504C4.97414 19.3671 4.86624 19.2592 4.72938 19.2086L3.00065 18.5689C2.56534 18.4078 2.56534 17.7921 3.00065 17.631L4.72938 16.9913C4.86624 16.9407 4.97414 16.8328 5.02479 16.6959L5.66447 14.9672Z"
+          fill="#3375C6"/>
+        <path d="M20 3L20.5402 4.45982L22 5L20.5402 5.54018L20 7L19.4598 5.54018L18 5L19.4598 4.45982L20 3Z"
+              fill="#3375C6"/>
+      </svg>
+      <span class="recommendations__title">{{ 'LMI.AI_REC_STAKEHOLDERS' | translate }}</span>
+    </div>
+    <div class="recommendations__tabs">
+      <div
+        class="recommendations__tab"
+        [class.recommendations__tab--active]="activeStakeholder() === 'policymakers'"
+        (click)="setActiveStakeholder('policymakers')">
+        <svg class="recommendations__tab-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+             xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 20V19C1 15.134 4.13401 12 8 12C11.866 12 15 15.134 15 19V20" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M13 14C13 11.2386 15.2386 9 18 9C20.7614 9 23 11.2386 23 14V14.5" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round"/>
+          <path
+            d="M8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12Z"
+            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path
+            d="M18 9C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6C15 7.65685 16.3431 9 18 9Z"
+            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="recommendations__tab-text">{{ 'LMI.POLICYMAKERS' | translate }}</span>
+      </div>
+      <div
+        class="recommendations__tab"
+        [class.recommendations__tab--active]="activeStakeholder() === 'employers'"
+        (click)="setActiveStakeholder('employers')">
+        <svg class="recommendations__tab-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+             xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 9.01L10.01 8.99889" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round"/>
+          <path d="M14 9.01L14.01 8.99889" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round"/>
+          <path d="M10 13.01L10.01 12.9989" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round"/>
+          <path d="M14 13.01L14.01 12.9989" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round"/>
+          <path d="M10 17.01L10.01 16.9989" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round"/>
+          <path d="M14 17.01L14.01 16.9989" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round"/>
+          <path
+            d="M6 20.4V5.6C6 5.26863 6.26863 5 6.6 5H12V3.6C12 3.26863 12.2686 3 12.6 3H17.4C17.7314 3 18 3.26863 18 3.6V20.4C18 20.7314 17.7314 21 17.4 21H6.6C6.26863 21 6 20.7314 6 20.4Z"
+            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="recommendations__tab-text">{{ 'LMI.EMPLOYERS' | translate }}</span>
+      </div>
+      <div
+        class="recommendations__tab"
+        [class.recommendations__tab--active]="activeStakeholder() === 'jobseekers'"
+        (click)="setActiveStakeholder('jobseekers')">
+        <svg class="recommendations__tab-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+             xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M8 7H4C2.89543 7 2 7.89543 2 9V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V9C22 7.89543 21.1046 7 20 7H16M8 7V3.6C8 3.26863 8.26863 3 8.6 3H15.4C15.7314 3 16 3.26863 16 3.6V7M8 7H16"
+            stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <span class="recommendations__tab-text">{{ 'LMI.JOB_SEEKERS' | translate }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="recommendations__content">
+    <span class="recommendations__label">{{ 'LMI.REC_LABEL_1' | translate }}</span>
+    <p class="recommendations__description">{{ 'LMI.REC_DESC_1' | translate }}</p>
+  </div>
+  <div class="recommendations__content">
+    <span class="recommendations__label">{{ 'LMI.REC_LABEL_2' | translate }}</span>
+    <p class="recommendations__description">{{ 'LMI.REC_DESC_2' | translate }}</p>
+  </div>
+  </div>
+</div>

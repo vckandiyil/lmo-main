@@ -1,0 +1,28 @@
+<div class="sector-gaps-opportunities" [class.sector-gaps-opportunities--selected]="selected()" (click)="onWidgetClick()">
+  <app-flip-card #flipCard>
+    <app-widget-checkbox [selected]="selected()" front/>
+    <app-widget-header [title]="'Sector gaps and opportunities'" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" front/>
+    <div class="sector-gaps-opportunities__legend" front>
+      <div class="sector-gaps-opportunities__legend-item">
+        <span class="sector-gaps-opportunities__legend-dot sector-gaps-opportunities__legend-dot--vacancies"></span>
+        <span class="sector-gaps-opportunities__legend-label">Vacancies</span>
+      </div>
+      <div class="sector-gaps-opportunities__legend-item">
+        <span class="sector-gaps-opportunities__legend-dot sector-gaps-opportunities__legend-dot--jobseekers"></span>
+        <span class="sector-gaps-opportunities__legend-label">Jobseekers</span>
+      </div>
+      <span class="sector-gaps-opportunities__legend-gap">Gap</span>
+    </div>
+    <div class="sector-gaps-opportunities__body" front>
+      <div class="sector-gaps-opportunities__chart">
+        <app-chart-wrapper [options]="chartOptionsSignal()" />
+      </div>
+      <div class="sector-gaps-opportunities__gaps">
+        @for (sector of sectors; track sector.name) {
+          <span class="sector-gaps-opportunities__gap-value">{{ formatGap(sector.gap) }}</span>
+        }
+      </div>
+    </div>
+    <app-widget-back back [widgetType]="widgetType()" (close)="flipCard.toggle()"></app-widget-back>
+  </app-flip-card>
+</div>

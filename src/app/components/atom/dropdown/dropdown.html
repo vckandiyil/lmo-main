@@ -1,0 +1,43 @@
+<div class="dropdown" [class.dropdown--open]="isOpen()" [class.dropdown--secondary]="variant() === 'secondary'">
+  <div class="dropdown__trigger" (click)="toggle()">
+    <div class="dropdown__value-container">
+      @if (isAnimating()) {
+        <span class="dropdown__value dropdown__value--leaving" [class.dropdown__value--selected]="previousValue()">
+          {{ previousValue() ?? placeholder() }}
+        </span>
+        <span class="dropdown__value dropdown__value--entering" [class.dropdown__value--selected]="newValue()">
+          {{ newValue() ?? placeholder() }}
+        </span>
+      } @else if (isOpen()) {
+        <span class="dropdown__value">
+          {{ placeholder() }}
+        </span>
+      } @else {
+        <span class="dropdown__value" [class.dropdown__value--selected]="selectedValue()">
+          {{ selectedValue() ?? placeholder() }}
+        </span>
+      }
+    </div>
+    @if (!noArrow()) {
+      <app-icon
+        name="nav-arrow-down"
+        size="20"
+        class="dropdown__arrow"
+        [class.dropdown__arrow--open]="isOpen()"/>
+    }
+  </div>
+  @if (isOpen()) {
+    <div class="dropdown__menu">
+      @for (option of options(); track option) {
+        <a
+          class="dropdown__link"
+          [class.dropdown__link--selected]="selectedValue() === option"
+          href="#"
+          (click)="select(option); $event.preventDefault(); $event.stopPropagation()"
+        >
+          {{ option }}
+        </a>
+      }
+    </div>
+  }
+</div>

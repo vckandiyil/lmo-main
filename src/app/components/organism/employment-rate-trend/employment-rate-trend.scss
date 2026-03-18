@@ -1,0 +1,44 @@
+.employment-rate-trend {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+
+  &__legend {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  &__legend-line {
+    width: 16px;
+    height: 3px;
+    background-color: #3375C6;
+    border-radius: 3px;
+  }
+
+  &__legend-box {
+    width: 14px;
+    height: 14px;
+    background-color: #A8E0AF;
+    border-radius: 4px;
+  }
+
+  &__legend-label {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: var(--lmo-text-secondary);
+  }
+
+  &__body {
+    flex: 1;
+    overflow: visible;
+  }
+}

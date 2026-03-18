@@ -1,0 +1,10 @@
+<div class="widget-card" [class.widget-card--selected]="selected()" (click)="onClick()">
+  <app-flip-card #flipCard>
+    <app-widget-checkbox [selected]="selected()" front/>
+    <app-widget-header [title]="title()" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" front/>
+    <div class="widget-card__body" front>
+      <app-chart-wrapper [options]="chartOptions()"/>
+    </div>
+    <app-widget-back back [widgetType]="widgetType()" (close)="flipCard.toggle()"></app-widget-back>
+  </app-flip-card>
+</div>

@@ -1,0 +1,223 @@
+:host {
+  display: block;
+  padding: 20px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-sizing: border-box;
+
+  :host-context(body.theme--dark) & {
+    background: #212836;
+  }
+}
+
+.forecast-card {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 600;
+    font-size: 19.35px;
+    line-height: 25.86px;
+    color: #1e2937;
+
+    :host-context(body.theme--dark) & {
+      color: #ffffff;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    ::ng-deep .button--toolbar-icon {
+      width: 35px;
+      height: 35px;
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+
+  &__note {
+    margin-top: 20px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: #F1F2F3;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    :host-context(body.theme--dark) & {
+      background: #30394A;
+    }
+  }
+
+  &__note-heading {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #37516E;
+
+    :host-context(body.theme--dark) & {
+      color: #9BA8B7;
+    }
+  }
+
+  &__note-label {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0;
+    vertical-align: middle;
+    color: #05264A;
+
+    :host-context(body.theme--dark) & {
+      color: #FFFFFF;
+    }
+  }
+
+  &__note-text {
+    margin: 0;
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0;
+    vertical-align: middle;
+    color: #364151;
+
+    :host-context(body.theme--dark) & {
+      color: #CDD4DB;
+    }
+  }
+
+  &__stats {
+    display: flex;
+    align-items: center;
+    margin-top: 24px;
+    gap: 16px;
+  }
+
+  &__stat-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  &__stat-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &__stat-label {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0;
+    color: #6A7180;
+
+    :host-context(body.theme--dark) & {
+      color: #CDD4DB;
+    }
+
+    &--forecast {
+      color: #75ca65;
+    }
+
+    &--target {
+      color: #f3393f;
+    }
+  }
+
+  &__stat-value {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: #05264A;
+
+    :host-context(body.theme--dark) & {
+      color: #FFFFFF;
+    }
+  }
+
+  &__stat-divider {
+    align-self: stretch;
+    width: 0;
+
+    &--green {
+      border-left: 2px dashed #75ca65;
+
+      :host-context([dir='rtl']) & {
+        border-left: none;
+        border-right: 2px dashed #75ca65;
+      }
+    }
+
+    &--red {
+      border-left: 2px dashed #f3393f;
+
+      :host-context([dir='rtl']) & {
+        border-left: none;
+        border-right: 2px dashed #f3393f;
+      }
+    }
+  }
+
+  &__chart {
+    margin-top: 24px;
+  }
+
+  &__footer {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__ai-heading {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  &__ai-title {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
+    vertical-align: middle;
+    color: #05264A;
+
+    :host-context(body.theme--dark) & {
+      color: #FFFFFF;
+    }
+  }
+
+  &__ai-text {
+    margin: 0;
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0;
+    vertical-align: middle;
+    color: #364151;
+
+    :host-context(body.theme--dark) & {
+      color: #CDD4DB;
+    }
+  }
+}

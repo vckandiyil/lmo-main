@@ -1,0 +1,38 @@
+:host {
+  display: contents;
+}
+
+.widget-checkbox {
+  display: none;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  :host-context([dir='rtl']) & {
+    right: auto;
+    left: 12px;
+  }
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+
+  &--selected {
+    .widget-checkbox__circle {
+      fill: var(--Color-Icon-Primary, #3375C6);
+      stroke: var(--Color-Icon-Primary, #3375C6);
+    }
+
+    .widget-checkbox__check {
+      stroke: #FFFFFF;
+    }
+  }
+
+  &__circle {
+    fill: none;
+    stroke: #AEB2BC;
+  }
+
+  &__check {
+    stroke: transparent;
+  }
+}

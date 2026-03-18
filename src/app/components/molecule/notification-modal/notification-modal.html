@@ -1,0 +1,45 @@
+@if (isOpen() || isClosing()) {
+  <div
+    class="notification-modal"
+    [class.notification-modal--closing]="isClosing()"
+    (click)="onBackdropClick()"
+  >
+    <div class="notification-modal__panel" (click)="onContentClick($event)">
+      <div class="notification-modal__header">
+        <span class="notification-modal__title">{{ 'NOTIFICATIONS.TITLE' | translate }}</span>
+        <button class="notification-modal__close" (click)="close()">
+          <app-icon name="close" size="16"/>
+        </button>
+      </div>
+
+      <div class="notification-modal__body">
+        @for (group of groups(); track group.month) {
+          <div class="notification-modal__group">
+            <div class="notification-modal__month">
+              <span class="notification-modal__month-line"></span>
+              <span class="notification-modal__month-text">{{ group.month }}</span>
+              <span class="notification-modal__month-line"></span>
+            </div>
+
+            @for (item of group.notifications; track item.id) {
+              <div
+                class="notification-modal__card"
+                [class.notification-modal__card--positive]="item.type === 'positive'"
+                [class.notification-modal__card--negative]="item.type === 'negative'"
+              >
+                <p class="notification-modal__message" [innerHTML]="item.message"></p>
+              </div>
+            }
+          </div>
+        }
+      </div>
+
+      <div class="notification-modal__footer">
+        <app-button variant="outline-secondary">
+          <b>{{ 'NOTIFICATIONS.VIEW_ALL' | translate }}</b>
+          <app-icon buttonIcon name="arrow-right" size="24"/>
+        </app-button>
+      </div>
+    </div>
+  </div>
+}

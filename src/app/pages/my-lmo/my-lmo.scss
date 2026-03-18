@@ -1,0 +1,206 @@
+.my-lmo {
+  &__subheader {
+    position: fixed;
+    top: 0;
+    left: var(--nav-sidebar-w);
+    right: 0;
+    transition: left 0.3s ease;
+    height: 84px;
+    padding: 24px 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--lmo-bg-surface);
+    border-bottom: 1px solid var(--lmo-border-color);
+    z-index: 9;
+  }
+
+  &__title {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: 0;
+    vertical-align: middle;
+    color: #000000;
+
+    :host-context(body.theme--dark) & {
+      color: #ffffff;
+    }
+  }
+
+  &__actions {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__search {
+    width: 342px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 4px 4px 8px;
+    box-sizing: border-box;
+    background: #ffffff;
+    border: 1px solid var(--lmo-dropdown-border);
+
+    :host-context(body.theme--dark) & {
+      background: #212836;
+    }
+
+    border-radius: 17px;
+  }
+
+  &__search-icon {
+    flex-shrink: 0;
+    margin-right: 8px;
+    color: #3375C6;
+  }
+
+  &__search-input {
+    flex: 1;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0;
+    vertical-align: middle;
+    color: #000000;
+
+    :host-context(body.theme--dark) & {
+      color: #ffffff;
+    }
+
+    &::placeholder {
+      font-family: 'Graphik Trial', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+      letter-spacing: 0;
+      vertical-align: middle;
+      color: #6A7180;
+
+      :host-context(body.theme--dark) & {
+        color: #ffffff;
+      }
+    }
+  }
+
+  &__search-clear {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    color: #37516E;
+
+    :host-context(body.theme--dark) & {
+      color: #ffffff;
+    }
+  }
+
+  &__add-button {
+    width: 161px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 24px 6px 16px;
+    box-sizing: border-box;
+    background: var(--lmo-button-secondary-bg);
+    border: none;
+    border-radius: 48px;
+    cursor: pointer;
+    transition: background-color 200ms ease;
+
+    span {
+      font-family: 'Graphik Trial', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: var(--lmo-text-primary);
+    }
+
+    &:hover {
+      background: var(--lmo-button-secondary-hover);
+    }
+  }
+
+  &__add-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--lmo-text-primary);
+  }
+
+  &__empty {
+    position: fixed;
+    top: 84px;
+    left: calc(var(--nav-sidebar-w) + 384px);
+    transition: left 0.3s ease;
+    right: 384px;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 34px;
+    pointer-events: none;
+
+    .my-lmo__add-button {
+      pointer-events: all;
+    }
+  }
+
+  &__empty-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__empty-title {
+    margin: 0;
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 33px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #05264A;
+
+    :host-context(body.theme--dark) & {
+      color: #ffffff;
+    }
+  }
+
+  &__empty-subtitle {
+    margin: 0;
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #364151;
+
+    :host-context(body.theme--dark) & {
+      color: #AEB2BC;
+    }
+  }
+}

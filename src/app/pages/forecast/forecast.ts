@@ -1,0 +1,31 @@
+import {Component, computed, inject} from '@angular/core';
+import {toSignal} from '@angular/core/rxjs-interop';
+import {Filters} from '../../components/organism/filters/filters';
+import {ForecastCard} from '../../components/molecule/forecast-card/forecast-card';
+import {Button} from '../../components/atom/button/button';
+import {WidgetCatalogService} from '../../core/services/widget-catalog.service';
+import {FilterStateService} from '../../core/services/filter-state.service';
+
+@Component({
+  selector: 'app-forecast',
+  standalone: true,
+  imports: [Filters, ForecastCard, Button],
+  templateUrl: './forecast.html',
+  styleUrl: './forecast.scss',
+})
+export class ForecastPage {
+  private readonly catalogService = inject(WidgetCatalogService);
+  private readonly filterState = inject(FilterStateService);
+
+  private readonly allDetailWidgets = toSignal(
+    this.catalogService.getDetailViewWidgets(),
+    {initialValue: []},
+  );
+
+  readonly visibleWidgets = computed(() => {
+    const topic = this.filterState.selectedTopic();
+    const widgets = this.allDetailWidgets();
+    if (!topic) return widgets;
+    return widgets.filter(w => w.category.includes(topic));
+  });
+}

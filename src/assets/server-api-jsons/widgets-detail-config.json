@@ -1,0 +1,158 @@
+{
+  "employment-rate": {
+    "indicatorName": "Employment Rate",
+    "dataLoader": {
+      "dataFile": "employmentRate.json",
+      "forecastInlineData": [
+        { "YEAR": "2024", "VALUE": 95.3 },
+        { "YEAR": "2025", "VALUE": 95.6 },
+        { "YEAR": "2026", "VALUE": 95.8 },
+        { "YEAR": "2027", "VALUE": 95.5 }
+      ]
+    },
+    "features": {
+      "forecast": true,
+      "compare": true
+    },
+    "viewTypes": [
+      { "id": "line", "label": "Line Chart", "icon": "graph-up", "default": true },
+      { "id": "bar", "label": "Bar Chart", "icon": "stats-up-square" },
+      { "id": "pie", "label": "Pie Chart", "icon": "chart-pie" },
+      { "id": "table", "label": "Table", "icon": "layout-left" }
+    ],
+    "compareIndicators": [
+      { "id": "334401", "title": "Unemployment Rate" }
+    ],
+    "filterBy": [
+      {
+        "key": "region",
+        "label": "Region",
+        "type": "radio",
+        "options": ["Abu Dhabi Emirates", "Abu Dhabi", "Al Ain", "Al Dhafra"]
+      },
+      {
+        "key": "citizenship",
+        "label": "Citizenship",
+        "type": "checkbox",
+        "options": ["All", "Emirati", "Expat"]
+      },
+      {
+        "key": "gender",
+        "label": "Gender",
+        "type": "checkbox",
+        "options": ["All", "Male", "Female"]
+      },
+      {
+        "key": "age",
+        "label": "Age",
+        "type": "checkbox",
+        "options": ["All", "18-24", "24-34", "35-44", "45-54", "55+"]
+      }
+    ],
+    "chartConfig": {
+      "type": "line",
+      "dimensions": { "width": 960, "height": 428 },
+      "yAxis": {
+        "dynamicBounds": true,
+        "minPadding": 1,
+        "maxPadding": 3,
+        "maxCap": 100,
+        "tickCount": 5,
+        "unit": "%"
+      },
+      "series": [
+        {
+          "name": "Employment Rate",
+          "color": "#2563EA",
+          "lineWidth": 2,
+          "markerRadius": 4,
+          "dataLabels": { "enabled": true, "unit": "%" }
+        }
+      ],
+      "forecast": { "color": "#5CC049", "dashStyle": "Dash" },
+      "compare": { "dashStyle": "ShortDash" }
+    },
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "تأثير عالٍ",
+      "title": "Focus on Job Quality and Participation to Sustain Employment",
+      "title_ar": "التركيز على جودة الوظائف والمشاركة للحفاظ على التوظيف",
+      "text": "With employment rates at historically high levels, future gains will depend on improving job quality, skills alignment, and participation—particularly among Emiratis, youth, and women.",
+      "text_ar": "مع بلوغ معدلات التوظيف مستويات تاريخية عالية، ستعتمد المكاسب المستقبلية على تحسين جودة الوظائف ومواءمة المهارات وتعزيز المشاركة، لا سيما بين المواطنين والشباب والمرأة.",
+      "reason": "Employment rates have risen strongly since 2021 and are now stabilizing at high levels, indicating that future labour market improvements will rely more on job quality, skills matching, and sustained participation than on further job expansion.",
+      "reason_ar": "ارتفعت معدلات التوظيف ارتفاعاً ملحوظاً منذ عام 2021 وباتت تستقر عند مستويات مرتفعة، مما يشير إلى أن تحسينات سوق العمل المستقبلية ستعتمد أكثر على جودة الوظائف ومطابقة المهارات والمشاركة المستدامة بدلاً من التوسع الإضافي في الوظائف."
+    }
+  },
+  "population-number": {
+    "indicatorName": "Population Number",
+    "dataLoader": {
+      "dataFile": "populationNumber.json"
+    },
+    "features": {
+      "forecast": false,
+      "compare": false
+    },
+    "viewTypes": [
+      { "id": "line", "label": "Line Chart", "icon": "graph-up", "default": true },
+      { "id": "bar", "label": "Bar Chart", "icon": "stats-up-square" },
+      { "id": "pie", "label": "Pie Chart", "icon": "chart-pie" },
+      { "id": "table", "label": "Table", "icon": "layout-left" }
+    ],
+    "filterBy": [
+      {
+        "key": "region",
+        "label": "Region",
+        "type": "radio",
+        "options": ["Abu Dhabi Emirates", "Abu Dhabi", "Al Ain", "Al Dhafra"]
+      },
+      {
+        "key": "citizenship",
+        "label": "Citizenship",
+        "type": "checkbox",
+        "options": ["All", "Emirati", "Expat"]
+      },
+      {
+        "key": "gender",
+        "label": "Gender",
+        "type": "checkbox",
+        "options": ["All", "Male", "Female"]
+      },
+      {
+        "key": "age",
+        "label": "Age",
+        "type": "checkbox",
+        "options": ["All", "18-24", "24-34", "35-44", "45-54", "55+"]
+      }
+    ],
+    "chartConfig": {
+      "type": "line",
+      "dimensions": { "width": 960, "height": 428 },
+      "yAxis": {
+        "dynamicBounds": true,
+        "paddingFactor": 0.1,
+        "snapTo": 100000,
+        "tickCount": 5,
+        "unit": ""
+      },
+      "series": [
+        {
+          "name": "Population",
+          "color": "#2563EA",
+          "lineWidth": 2,
+          "markerRadius": 4,
+          "dataLabels": { "enabled": true, "unit": "" }
+        }
+      ]
+    },
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "تأثير عالٍ",
+      "title": "Monitor Population Growth to Inform Infrastructure and Service Planning",
+      "title_ar": "رصد النمو السكاني لتوجيه تخطيط البنية التحتية والخدمات",
+      "text": "Sustained population growth requires proactive planning across housing, healthcare, education, and transport infrastructure to maintain quality of life for residents.",
+      "text_ar": "يستلزم النمو السكاني المستدام تخطيطاً استباقياً في مجالات الإسكان والرعاية الصحية والتعليم والبنية التحتية للنقل للحفاظ على جودة الحياة للسكان.",
+      "reason": "The population of Abu Dhabi has grown steadily, reflecting strong economic activity and continued inward migration. Understanding population trends is essential for allocating resources and planning public services effectively.",
+      "reason_ar": "نمت سكان أبوظبي بشكل مطرد، مما يعكس النشاط الاقتصادي القوي واستمرار الهجرة الوافدة. يُعدّ فهم الاتجاهات السكانية أمراً ضرورياً لتخصيص الموارد وتخطيط الخدمات العامة بفاعلية."
+    }
+  }
+}

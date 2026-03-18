@@ -1,0 +1,295 @@
+@if (layoutMode() === '3col') {
+  <aside class="sidebar sidebar--left">
+    <div class="sidebar__widgets" #leftWidgets>
+      <div
+        class="sidebar__content"
+        cdkDropList
+        id="left-widgets"
+        [cdkDropListData]="leftWidgetList()"
+        [cdkDropListConnectedTo]="['right-widgets', 'center-drop']"
+        (cdkDropListDropped)="onWidgetDrop($event, 'left')"
+      >
+        @for (widget of leftWidgetList(); track widget.id; let i = $index) {
+          <div class="sidebar__widget-item" cdkDrag (cdkDragStarted)="onDragStarted()"
+               (click)="onWidgetClick(widget.type)">
+            <div class="sidebar__widget-placeholder" *cdkDragPlaceholder></div>
+            @if (widget.type === WidgetType.Map) {
+              <div class="sidebar__map-card">
+                <div class="sidebar__map-card-header">
+                  <span class="sidebar__map-card-title">{{ 'LMI.MAP' | translate }}</span>
+                  <span class="sidebar__map-card-expand" (click)="onWidgetExpand('left', i); $event.stopPropagation()">
+                    <img src="assets/images/icons/expand.svg" alt="expand" width="18" height="18"/>
+                  </span>
+                </div>
+                <div class="sidebar__map-card-body">
+                  <svg class="sidebar__map-card-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 20L3 17V4l6 3m0 13l6-3m-6 3V7m6 10l6 3V7l-6-3m0 13V4"/>
+                  </svg>
+                </div>
+              </div>
+            } @else if (isCustomWidget(widget.type)) {
+              <app-dynamic-widget [widgetType]="widget.type" (expandClick)="onWidgetExpand('left', i)"/>
+            } @else {
+              <app-generic-widget-card [widgetType]="widget.type" (expandClick)="onWidgetExpand('left', i)"/>
+            }
+          </div>
+        }
+      </div>
+    </div>
+    <div class="sidebar__frame">
+      <div class="sidebar__frame-inner">
+        <div class="sidebar__frame-info">
+          <app-icon class="sidebar__frame-arrow"
+            name="nav-arrow-up"
+            size="20"
+            [color]="canScrollUpLeft() ? (isDarkMode() ? '#FFFFFF' : '#131927') : '#AEB2BC'"
+            (click)="scrollUp('left')"
+          />
+          <app-icon class="sidebar__frame-arrow"
+            name="nav-arrow-down"
+            size="20"
+            [color]="canScrollDownLeft() ? (isDarkMode() ? '#FFFFFF' : '#131927') : '#AEB2BC'"
+            (click)="scrollDown('left')"
+          />
+        </div>
+        <div class="sidebar__frame-action" (click)="openWidgetCenter('left')">
+          <app-icon class="sidebar__frame-plus" name="plus" size="16" />
+          <span class="sidebar__frame-label">{{ 'LMI.ADD_WIDGET' | translate }}</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <aside class="sidebar sidebar--right">
+    <div class="sidebar__widgets" #rightWidgets>
+      <div
+        class="sidebar__content"
+        cdkDropList
+        id="right-widgets"
+        [cdkDropListData]="rightWidgetList()"
+        [cdkDropListConnectedTo]="['left-widgets', 'center-drop']"
+        (cdkDropListDropped)="onWidgetDrop($event, 'right')"
+      >
+        @for (widget of rightWidgetList(); track widget.id; let i = $index) {
+          <div class="sidebar__widget-item" cdkDrag (cdkDragStarted)="onDragStarted()"
+               (click)="onWidgetClick(widget.type)">
+            <div class="sidebar__widget-placeholder" *cdkDragPlaceholder></div>
+            @if (widget.type === WidgetType.Map) {
+              <div class="sidebar__map-card">
+                <div class="sidebar__map-card-header">
+                  <span class="sidebar__map-card-title">{{ 'LMI.MAP' | translate }}</span>
+                  <span class="sidebar__map-card-expand" (click)="onWidgetExpand('right', i); $event.stopPropagation()">
+                    <img src="assets/images/icons/expand.svg" alt="expand" width="18" height="18"/>
+                  </span>
+                </div>
+                <div class="sidebar__map-card-body">
+                  <svg class="sidebar__map-card-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 20L3 17V4l6 3m0 13l6-3m-6 3V7m6 10l6 3V7l-6-3m0 13V4"/>
+                  </svg>
+                </div>
+              </div>
+            } @else if (isCustomWidget(widget.type)) {
+              <app-dynamic-widget [widgetType]="widget.type" (expandClick)="onWidgetExpand('right', i)"/>
+            } @else {
+              <app-generic-widget-card [widgetType]="widget.type" (expandClick)="onWidgetExpand('right', i)"/>
+            }
+          </div>
+        }
+      </div>
+    </div>
+    <div class="sidebar__frame">
+      <div class="sidebar__frame-inner">
+        <div class="sidebar__frame-info">
+          <app-icon class="sidebar__frame-arrow"
+            name="nav-arrow-up"
+            size="20"
+            [color]="canScrollUpRight() ? (isDarkMode() ? '#FFFFFF' : '#131927') : '#AEB2BC'"
+            (click)="scrollUp('right')"
+          />
+          <app-icon class="sidebar__frame-arrow"
+            name="nav-arrow-down"
+            size="20"
+            [color]="canScrollDownRight() ? (isDarkMode() ? '#FFFFFF' : '#131927') : '#AEB2BC'"
+            (click)="scrollDown('right')"
+          />
+        </div>
+        <div class="sidebar__frame-action" (click)="openWidgetCenter('right')">
+          <app-icon class="sidebar__frame-plus" name="plus" size="16" />
+          <span class="sidebar__frame-label">{{ 'LMI.ADD_WIDGET' | translate }}</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+}
+
+@if (layoutMode() === '4col') {
+  <aside class="sidebar sidebar--4col sidebar--4col-1" #col1Container>
+    <div
+      class="sidebar__content"
+      cdkDropList
+      id="col1-widgets"
+      [cdkDropListData]="col1Widgets()"
+      [cdkDropListConnectedTo]="['col2-widgets', 'col3-widgets', 'col4-widgets']"
+      (cdkDropListDropped)="onWidgetDrop4Col($event, 1)"
+    >
+      @for (widget of col1Widgets(); track widget.id) {
+        <div class="sidebar__widget-item" cdkDrag [cdkDragDisabled]="col1Widgets().length <= 1" (cdkDragStarted)="onDragStarted()" (click)="onWidgetClick(widget.type)">
+          <div class="sidebar__widget-placeholder" *cdkDragPlaceholder></div>
+          @if (isCustomWidget(widget.type)) {
+            <app-dynamic-widget [widgetType]="widget.type" (expandClick)="onWidgetExpand('left', $index)"/>
+          } @else {
+            <app-generic-widget-card [widgetType]="widget.type" (expandClick)="onWidgetExpand('left', $index)"/>
+          }
+        </div>
+      }
+    </div>
+    <div class="sidebar__frame">
+      <div class="sidebar__frame-inner">
+        <div class="sidebar__frame-info">
+          <app-icon class="sidebar__frame-arrow" name="nav-arrow-up" size="20"
+            [color]="canScrollUp4()[1] ? (isDarkMode() ? '#FFFFFF' : '#131927') : '#AEB2BC'"
+            (click)="scrollUp4Col(1)"/>
+          <app-icon class="sidebar__frame-arrow" name="nav-arrow-down" size="20"
+            [color]="canScrollDown4()[1] ? (isDarkMode() ? '#FFFFFF' : '#131927') : '#AEB2BC'"
+            (click)="scrollDown4Col(1)"/>
+        </div>
+        <div class="sidebar__frame-action" (click)="openWidgetCenter4Col(1)">
+          <app-icon class="sidebar__frame-plus" name="plus" size="16"/>
+          <span class="sidebar__frame-label">{{ 'LMI.ADD_WIDGET' | translate }}</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <aside class="sidebar sidebar--4col sidebar--4col-2" #col2Container>
+    <div
+      class="sidebar__content"
+      cdkDropList
+      id="col2-widgets"
+      [cdkDropListData]="col2Widgets()"
+      [cdkDropListConnectedTo]="['col1-widgets', 'col3-widgets', 'col4-widgets']"
+      (cdkDropListDropped)="onWidgetDrop4Col($event, 2)"
+    >
+      @for (widget of col2Widgets(); track widget.id) {
+        <div class="sidebar__widget-item" cdkDrag [cdkDragDisabled]="col2Widgets().length <= 1" (cdkDragStarted)="onDragStarted()" (click)="onWidgetClick(widget.type)">
+          <div class="sidebar__widget-placeholder" *cdkDragPlaceholder></div>
+          @if (isCustomWidget(widget.type)) {
+            <app-dynamic-widget [widgetType]="widget.type" (expandClick)="onWidgetExpand('left', $index)"/>
+          } @else {
+            <app-generic-widget-card [widgetType]="widget.type" (expandClick)="onWidgetExpand('left', $index)"/>
+          }
+        </div>
+      }
+    </div>
+    <div class="sidebar__frame">
+      <div class="sidebar__frame-inner">
+        <div class="sidebar__frame-info">
+          <app-icon class="sidebar__frame-arrow" name="nav-arrow-up" size="20"
+            [color]="canScrollUp4()[2] ? (isDarkMode() ? '#FFFFFF' : '#131927') : '#AEB2BC'"
+            (click)="scrollUp4Col(2)"/>
+          <app-icon class="sidebar__frame-arrow" name="nav-arrow-down" size="20"
+            [color]="canScrollDown4()[2] ? (isDarkMode() ? '#FFFFFF' : '#131927') : '#AEB2BC'"
+            (click)="scrollDown4Col(2)"/>
+        </div>
+        <div class="sidebar__frame-action" (click)="openWidgetCenter4Col(2)">
+          <app-icon class="sidebar__frame-plus" name="plus" size="16"/>
+          <span class="sidebar__frame-label">{{ 'LMI.ADD_WIDGET' | translate }}</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <aside class="sidebar sidebar--4col sidebar--4col-3" #col3Container>
+    <div
+      class="sidebar__content"
+      cdkDropList
+      id="col3-widgets"
+      [cdkDropListData]="col3Widgets()"
+      [cdkDropListConnectedTo]="['col1-widgets', 'col2-widgets', 'col4-widgets']"
+      (cdkDropListDropped)="onWidgetDrop4Col($event, 3)"
+    >
+      @for (widget of col3Widgets(); track widget.id) {
+        <div class="sidebar__widget-item" cdkDrag [cdkDragDisabled]="col3Widgets().length <= 1" (cdkDragStarted)="onDragStarted()" (click)="onWidgetClick(widget.type)">
+          <div class="sidebar__widget-placeholder" *cdkDragPlaceholder></div>
+          @if (isCustomWidget(widget.type)) {
+            <app-dynamic-widget [widgetType]="widget.type" (expandClick)="onWidgetExpand('right', $index)"/>
+          } @else {
+            <app-generic-widget-card [widgetType]="widget.type" (expandClick)="onWidgetExpand('right', $index)"/>
+          }
+        </div>
+      }
+    </div>
+    <div class="sidebar__frame">
+      <div class="sidebar__frame-inner">
+        <div class="sidebar__frame-info">
+          <app-icon class="sidebar__frame-arrow" name="nav-arrow-up" size="20"
+            [color]="canScrollUp4()[3] ? (isDarkMode() ? '#FFFFFF' : '#131927') : '#AEB2BC'"
+            (click)="scrollUp4Col(3)"/>
+          <app-icon class="sidebar__frame-arrow" name="nav-arrow-down" size="20"
+            [color]="canScrollDown4()[3] ? (isDarkMode() ? '#FFFFFF' : '#131927') : '#AEB2BC'"
+            (click)="scrollDown4Col(3)"/>
+        </div>
+        <div class="sidebar__frame-action" (click)="openWidgetCenter4Col(3)">
+          <app-icon class="sidebar__frame-plus" name="plus" size="16"/>
+          <span class="sidebar__frame-label">{{ 'LMI.ADD_WIDGET' | translate }}</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <aside class="sidebar sidebar--4col sidebar--4col-4" #col4Container>
+    <div
+      class="sidebar__content"
+      cdkDropList
+      id="col4-widgets"
+      [cdkDropListData]="col4Widgets()"
+      [cdkDropListConnectedTo]="['col1-widgets', 'col2-widgets', 'col3-widgets']"
+      (cdkDropListDropped)="onWidgetDrop4Col($event, 4)"
+    >
+      @for (widget of col4Widgets(); track widget.id) {
+        <div class="sidebar__widget-item" cdkDrag [cdkDragDisabled]="col4Widgets().length <= 1" (cdkDragStarted)="onDragStarted()" (click)="onWidgetClick(widget.type)">
+          <div class="sidebar__widget-placeholder" *cdkDragPlaceholder></div>
+          @if (isCustomWidget(widget.type)) {
+            <app-dynamic-widget [widgetType]="widget.type" (expandClick)="onWidgetExpand('right', $index)"/>
+          } @else {
+            <app-generic-widget-card [widgetType]="widget.type" (expandClick)="onWidgetExpand('right', $index)"/>
+          }
+        </div>
+      }
+    </div>
+    <div class="sidebar__frame">
+      <div class="sidebar__frame-inner">
+        <div class="sidebar__frame-info">
+          <app-icon class="sidebar__frame-arrow" name="nav-arrow-up" size="20"
+            [color]="canScrollUp4()[4] ? (isDarkMode() ? '#FFFFFF' : '#131927') : '#AEB2BC'"
+            (click)="scrollUp4Col(4)"/>
+          <app-icon class="sidebar__frame-arrow" name="nav-arrow-down" size="20"
+            [color]="canScrollDown4()[4] ? (isDarkMode() ? '#FFFFFF' : '#131927') : '#AEB2BC'"
+            (click)="scrollDown4Col(4)"/>
+        </div>
+        <div class="sidebar__frame-action" (click)="openWidgetCenter4Col(4)">
+          <app-icon class="sidebar__frame-plus" name="plus" size="16"/>
+          <span class="sidebar__frame-label">{{ 'LMI.ADD_WIDGET' | translate }}</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+}
+
+@if (showRecommendations && layoutMode() === '3col') {
+  <app-recommendations/>
+}
+
+<app-widget-center
+  [isOpen]="isWidgetCenterOpen()"
+  [targetSidebar]="activeWidgetCenterSidebar()"
+  [overrideSelection]="layoutMode() === '4col' ? col4OverrideSelection() : null"
+  (closed)="closeWidgetCenter()"
+  (widgetsAdded)="onWidgetsAdded($event)"
+/>
+
+<app-widget-detail-modal
+  [isOpen]="activeDetailWidget() !== null"
+  [widgetType]="activeDetailWidget()"
+  (closed)="closeWidgetDetail()"
+/>

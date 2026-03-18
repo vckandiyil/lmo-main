@@ -1,0 +1,99 @@
+.workforce-structure {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__action {
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__body {
+    display: flex;
+    gap: 47px;
+    flex: 1;
+    overflow: visible;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow: visible;
+
+    &--age {
+      flex: 1;
+      overflow: visible;
+    }
+
+    &--split {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__section-title {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 12px;
+    color: var(--lmo-text-primary);
+  }
+
+  &__chart {
+    flex: 1;
+    overflow: visible;
+    min-height: 130px;
+  }
+
+  &__donut {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__legend {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 46px;
+    box-sizing: border-box;
+    padding: 4px 10px 12px 10px;
+    margin: 0 -12px -12px -12px;
+    border-top: 1px solid var(--lmo-legend-border);
+  }
+
+  &__legend-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+  }
+
+  &__legend-label {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    text-align: center;
+    color: var(--lmo-text-category);
+  }
+}

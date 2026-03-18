@@ -1,0 +1,110 @@
+<section class="hero">
+  <div class="hero__ellipse hero__ellipse--1"></div>
+  <div class="hero__ellipse hero__ellipse--2"></div>
+  <div class="hero__ellipse hero__ellipse--3"></div>
+  <div class="hero__ellipse hero__ellipse--4"></div>
+  <div class="hero__map">
+    <div class="hero__region hero__region--al-dhafra">
+      <app-inline-svg src="assets/images/regions/AI-Dhafra.svg"/>
+      <div class="hero__region-label">{{ 'HOME.REGION_AL_DHAFRA' | translate }}</div>
+      <span class="hero__region-dot"></span>
+    </div>
+    <div class="hero__region hero__region--abu-dhabi">
+      <app-inline-svg src="assets/images/regions/Abu-Dhabi.svg"/>
+      <div class="hero__region-label">{{ 'HOME.REGION_ABU_DHABI' | translate }}</div>
+      <span class="hero__region-dot"></span>
+    </div>
+    <div class="hero__region hero__region--al-ain">
+      <app-inline-svg src="assets/images/regions/Al-ain.svg"/>
+      <div class="hero__region-label">{{ 'HOME.REGION_AL_AIN' | translate }}</div>
+      <span class="hero__region-dot"></span>
+    </div>
+  </div>
+  <div class="hero__bottom">
+    <app-ai-insights/>
+    <app-market-entrants/>
+    <app-labor-force-composition/>
+  </div>
+  <div class="hero__filters">
+    <span class="hero__filters-label">{{ 'HOME.FILTERS' | translate }}</span>
+    <div class="hero__filters-dropdowns">
+      <app-dropdown [placeholder]="'HOME.CITIZENSHIP' | translate" [options]="citizenshipOptions()"/>
+      <app-dropdown [placeholder]="'HOME.WORK_SECTOR' | translate" [options]="workSectorOptions()"/>
+      <app-dropdown [placeholder]="'HOME.GENDER' | translate" [options]="genderOptions()"/>
+      <button class="hero__filters-close" (click)="resetFilters()">
+        <app-icon name="close" size="16"/>
+      </button>
+    </div>
+  </div>
+</section>
+
+<div class="timeline-wrapper" #timelineWrapper>
+  <section class="timeline" #timelineSection>
+    <app-inline-svg class="timeline__lines" src="assets/images/timeline-lines.svg"/>
+    <div class="timeline__header">
+      <h2 class="timeline__title">{{ 'HOME.POLICIES_TITLE' | translate }}</h2>
+      <p class="timeline__subtitle">{{ 'HOME.POLICIES_SUBTITLE' | translate }}</p>
+    </div>
+    <div class="timeline__content" #timelineContent dir="ltr">
+      @for (row of timelineRows(); track $index) {
+        <div class="timeline__card" [class.timeline__card--top]="$index % 2 !== 0"
+             [class.timeline__card--bottom]="$index % 2 === 0">
+          @for (entry of row; track $index) {
+            <div class="timeline__entry">
+              <span class="timeline__year">{{ entry.created_date | date:'yyyy' }}</span>
+              @for (desc of (isArabic() ? (entry.descriptions_ar ?? entry.descriptions) : entry.descriptions); track $index) {
+                <p class="timeline__description">{{ desc }}</p>
+              }
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </section>
+</div>
+
+<section class="news">
+  <div class="news__header">
+    <div class="news__header-text">
+      <h2 class="news__title">{{ 'HOME.NEWS_TITLE' | translate }}</h2>
+      <p class="news__subtitle">{{ 'HOME.NEWS_SUBTITLE' | translate }}</p>
+    </div>
+    <app-button class="news__action" variant="outline">
+      {{ 'HOME.VIEW_ALL_NEWS' | translate }}
+      <app-icon buttonIcon name="arrow-right" size="20"/>
+    </app-button>
+  </div>
+  <div class="news__content">
+    <div class="news__list">
+      @for (card of newsData()?.items ?? []; track $index) {
+        <a class="news__card" [href]="card.url" target="_blank" rel="noopener noreferrer">
+          <img class="news__card-image" [src]="card.image" [alt]="card.title">
+          <div class="news__card-body">
+            <div class="news__card-info">
+              <div class="news__card-date">
+                <app-icon name="calendar" size="20" color="#AEB2BC"/>
+                <span>{{ card.published_date | date:'dd MMM yyyy' }}</span>
+              </div>
+              <h3 class="news__card-title">{{ isArabic() ? (card.title_ar ?? card.title) : card.title }}</h3>
+            </div>
+            <p class="news__card-description">{{ isArabic() ? (card.description_ar ?? card.description) : card.description }}</p>
+          </div>
+        </a>
+      }
+    </div>
+    @if (newsData()?.featured; as featured) {
+      <a class="news__featured" [href]="featured.url" target="_blank" rel="noopener noreferrer">
+        <img class="news__featured-image" [src]="featured.image" [alt]="featured.title">
+        <div class="news__featured-overlay">
+          <div class="news__featured-info">
+            <div class="news__featured-date">
+              <app-icon name="calendar" size="20" color="#AEB2BC"/>
+              <span>{{ featured.published_date | date:'dd MMM yyyy' }}</span>
+            </div>
+            <h3 class="news__featured-title">{{ isArabic() ? (featured.title_ar ?? featured.title) : featured.title }}</h3>
+          </div>
+        </div>
+      </a>
+    }
+  </div>
+</section>

@@ -1,0 +1,15 @@
+<app-what-if-sidebar></app-what-if-sidebar>
+<div class="what-if__content">
+  <app-filters></app-filters>
+  <div class="what-if__graphs">
+    @for (widget of visibleWidgets(); track widget.id) {
+      <app-chart-card
+        [title]="widget.title"
+        [widgetId]="widget.id"
+        [current]="{ label: '2024', mainValue: '86.9%', qoq: '0.4%', yoy: '1.3%' }"
+        [forecast]="{ label: '2027 Forecast', mainValue: '89.2%', qoq: '0.3%', yoy: '0.7%' }"
+        [target]="{ label: '2027 Target', mainValue: '85.3%', qoq: '0.1%', yoy: '0.4%' }"
+      ></app-chart-card>
+    }
+  </div>
+</div>

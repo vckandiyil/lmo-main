@@ -1,0 +1,47 @@
+{
+  "334301": {
+    "title": "Employment rate for residents in the Emirate of Abu Dhabi",
+    "data": [
+      { "YEAR": "2021", "VALUE": 94.5 },
+      { "YEAR": "2022", "VALUE": 95.2 },
+      { "YEAR": "2023", "VALUE": 95.4 },
+      { "YEAR": "2024", "VALUE": 95.3 }
+    ],
+    "forecast": [
+      { "YEAR": "2024", "VALUE": 95.3 },
+      { "YEAR": "2025", "VALUE": 95.6 },
+      { "YEAR": "2026", "VALUE": 95.8 },
+      { "YEAR": "2027", "VALUE": 95.5 }
+    ]
+  },
+  "334401": {
+    "title": "Unemployment rate for residents in the Emirate of Abu Dhabi",
+    "data": [
+      { "YEAR": "2021", "VALUE": 41.2 },
+      { "YEAR": "2022", "VALUE": 32.0 },
+      { "YEAR": "2023", "VALUE": 23.1 },
+      { "YEAR": "2024", "VALUE": 12.8 }
+    ],
+    "forecast": [
+      { "YEAR": "2024", "VALUE": 12.8 },
+      { "YEAR": "2025", "VALUE": 10.2 },
+      { "YEAR": "2026", "VALUE": 9.5 },
+      { "YEAR": "2027", "VALUE": 9.3 }
+    ]
+  },
+  "334901": {
+    "title": "Outside Labor Force rate for residents in the Emirate of Abu Dhabi",
+    "data": [
+      { "YEAR": "2021", "VALUE": 18.7 },
+      { "YEAR": "2022", "VALUE": 9.5 },
+      { "YEAR": "2023", "VALUE": 7.2 },
+      { "YEAR": "2024", "VALUE": 5.6 }
+    ],
+    "forecast": [
+      { "YEAR": "2024", "VALUE": 6.6 },
+      { "YEAR": "2025", "VALUE": 5.0 },
+      { "YEAR": "2026", "VALUE": 5.8 },
+      { "YEAR": "2027", "VALUE": 4.5 }
+    ]
+  }
+}

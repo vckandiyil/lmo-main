@@ -1,0 +1,109 @@
+.compare-dropdown {
+  position: relative;
+
+  &__panel {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    z-index: 10;
+
+    :host-context([dir='rtl']) & {
+      left: auto;
+      right: 0;
+    }
+    width: 420px;
+    max-height: 320px;
+    overflow-y: auto;
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    :host-context(body.theme--dark) & {
+      background: #30394A;
+      box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  &__title {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: #05264A;
+
+    :host-context(body.theme--dark) & {
+      color: #FFFFFF;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__item {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #364151;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    :host-context(body.theme--dark) & {
+      color: #CDD4DB;
+    }
+
+    &:hover {
+      background: #F0F4FF;
+
+      :host-context(body.theme--dark) & {
+        background: #3D4756;
+      }
+    }
+
+    &--selected {
+      background: #F0F4FF;
+
+      :host-context(body.theme--dark) & {
+        background: #3D4756;
+      }
+    }
+  }
+
+  &__color {
+    width: 4px;
+    height: 20px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  &__check {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: 2px solid #CDD4DB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    .compare-dropdown__item--selected & {
+      background: #2563EA;
+      border-color: #2563EA;
+    }
+  }
+}

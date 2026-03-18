@@ -1,0 +1,113 @@
+.marital-activity-status {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  --flip-gap: 12px;
+
+  &__body {
+    display: flex;
+    align-items: center;
+    gap: 39px;
+  }
+
+  &__legend {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 170px;
+    box-sizing: border-box;
+  }
+
+  &__legend-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__legend-info {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__legend-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  &__legend-label {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    text-align: center;
+    vertical-align: middle;
+    color: #05264A;
+
+    :host-context(body.theme--dark) & {
+      color: #CDD4DB;
+    }
+  }
+
+  &__legend-value {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 12px;
+    vertical-align: middle;
+    color: #1E2937;
+
+    :host-context(body.theme--dark) & {
+      color: #FFFFFF;
+    }
+  }
+
+  &__chart-container {
+    position: relative;
+    width: 136px;
+    height: 136px;
+    flex-shrink: 0;
+  }
+
+  &__chart-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+    pointer-events: none;
+  }
+
+  &__chart-label {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    text-align: center;
+    vertical-align: middle;
+    color: #05264A;
+
+    :host-context(body.theme--dark) & {
+      color: #CDD4DB;
+    }
+  }
+
+  &__chart-value {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 12px;
+    vertical-align: middle;
+    color: #05264A;
+
+    :host-context(body.theme--dark) & {
+      color: #FFFFFF;
+    }
+  }
+}

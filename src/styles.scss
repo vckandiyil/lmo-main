@@ -1,0 +1,228 @@
+// Bootstrap Grid and Utilities are loaded via angular.json styles array:
+// - bootstrap-grid.min.css: Container, row, col-* responsive classes
+// - bootstrap-utilities.min.css: Flex, spacing, and other utility classes
+// This approach avoids Sass compatibility issues with modern @use syntax
+
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+
+// -----------------------------------------------------------------------------
+// THEME CSS CUSTOM PROPERTIES
+// -----------------------------------------------------------------------------
+:root {
+  --nav-sidebar-w: 88px;
+
+  // Light theme (default)
+  --lmo-bg-primary: #fafafa;
+  --lmo-bg-surface: #ffffff;
+  --lmo-bg-surface-rgb: 255, 255, 255;
+  --lmo-bg-widget: linear-gradient(132.28deg, #EFF5FB 31.88%, #D3E2F3 109.58%);
+  --lmo-text-primary: #05264A;
+  --lmo-text-secondary: #364151;
+  --lmo-text-value: #1E2937;
+  --lmo-text-category: #6A7180;
+  --lmo-text-muted: #6A7180;
+  --lmo-text-label: #364151;
+  --lmo-border-color: #dbe8f5;
+  --lmo-legend-border: #dbe8f5;
+  --lmo-icon-filter: none;
+  --lmo-dropdown-bg: #ffffff;
+  --lmo-dropdown-border: #dbe8f5;
+  --lmo-dropdown-arrow-filter: brightness(0) saturate(100%) invert(29%) sepia(93%) saturate(1037%) hue-rotate(194deg) brightness(93%) contrast(86%);
+  --lmo-dropdown-hover: #f3f4f6;
+  --lmo-search-button-bg: #2563ea;
+  --lmo-toggle-bg: rgba(255, 255, 255, 0.5);
+  --lmo-button-secondary-bg: #f3f4f6;
+  --lmo-button-secondary-hover: #e5e7eb;
+}
+
+body.theme--dark {
+  --lmo-bg-primary: #121927;
+  --lmo-bg-surface: #1a2234;
+  --lmo-bg-surface-rgb: 26, 34, 52;
+  --lmo-bg-widget: linear-gradient(129.84deg, #4A5872 22.17%, #313A4B 80.42%);
+  --lmo-text-primary: #ffffff;
+  --lmo-text-secondary: #b0bec5;
+  --lmo-text-value: #ffffff;
+  --lmo-text-category: #CDD4DB;
+  --lmo-text-muted: #CDD4DB;
+  --lmo-text-label: #ffffff;
+  --lmo-border-color: #3a4556;
+  --lmo-legend-border: #697D92;
+  --lmo-icon-filter: invert(1) brightness(2);
+  --lmo-dropdown-bg: #212836;
+  --lmo-dropdown-border: #364151;
+  --lmo-dropdown-arrow-filter: invert(1) brightness(2);
+  --lmo-dropdown-hover: #364151;
+  --lmo-search-button-bg: #3375C6;
+  --lmo-toggle-bg: rgba(33, 40, 54, 0.5);
+  --lmo-button-secondary-bg: #364151;
+  --lmo-button-secondary-hover: #4a5568;
+}
+
+html {
+  @include mat.theme((
+    color: (
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
+
+body {
+  // Default the application to a light color theme. This can be changed to
+  // `dark` to enable the dark color theme, or to `light dark` to defer to the
+  // user's system settings.
+  color-scheme: light;
+
+  // Set a default background, font and text colors for the application using
+  // Angular Material's system-level CSS variables. Learn more about these
+  // variables at https://material.angular.dev/guide/system-variables
+  background-color: var(--lmo-bg-primary);
+  color: var(--lmo-text-primary);
+  font: var(--mat-sys-body-medium);
+
+  // Reset the user agent margin.
+  margin: 0;
+
+  &.theme--dark {
+    color-scheme: dark;
+  }
+}
+/* You can add global styles to this file, and also import other style files */
+
+app-root.page--home {
+  --lmo-bg-surface: #e9f5ff;
+
+  body.theme--dark & {
+    --lmo-bg-surface: #121927;
+  }
+}
+
+app-root.page--lmi {
+  --lmo-bg-surface: #e9f5ff;
+
+  body.theme--dark & {
+    --lmo-bg-surface: #1a2234;
+  }
+}
+
+app-root.page--home app-header {
+  --lmo-bg-surface: #ffffff;
+
+  body.theme--dark & {
+    --lmo-bg-surface: #1a2234;
+  }
+}
+
+app-root.page--lmi app-header .search,
+app-root.page--my-lmo app-header .search {
+  --lmo-bg-surface: #ffffff;
+
+  body.theme--dark & {
+    --lmo-bg-surface: #212836;
+  }
+}
+
+app-labor-market-insights,
+app-what-if,
+app-forecast {
+  --lmo-bg-surface: #e9f5ff;
+  --lmo-bg-widget: #ffffff;
+
+  body.theme--dark & {
+    --lmo-bg-surface: #1a2234;
+    --lmo-bg-widget: linear-gradient(129.84deg, #4A5872 22.17%, #313A4B 80.42%);
+  }
+}
+
+app-root.page--my-lmo {
+  --lmo-bg-surface: #e9f5ff;
+  --lmo-bg-widget: #ffffff;
+
+  body.theme--dark & {
+    --lmo-bg-surface: #1a2234;
+    --lmo-bg-widget: linear-gradient(129.84deg, #4A5872 22.17%, #313A4B 80.42%);
+  }
+}
+
+app-root.page--my-lmo app-sidebar {
+  --sidebar-top: 148px;
+}
+
+app-labor-market-insights app-filters app-dropdown,
+app-labor-market-insights app-sidebar app-dropdown,
+app-labor-market-insights app-filters .filters__clear,
+app-what-if app-filters app-dropdown,
+app-what-if app-what-if-sidebar app-dropdown,
+app-what-if app-filters .filters__clear,
+app-forecast app-filters app-dropdown,
+app-forecast app-filters .filters__clear {
+  --lmo-bg-surface: #ffffff;
+
+  body.theme--dark & {
+    --lmo-bg-surface: #212836;
+  }
+}
+
+app-widget-detail-modal,
+app-report-modal,
+app-search-modal {
+  --lmo-bg-surface: #ffffff;
+
+  body.theme--dark & {
+    --lmo-bg-surface: #1a2234;
+  }
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+body { font-family: 'Graphik Trial', Roboto, "Helvetica Neue", sans-serif; }
+
+// RTL Support
+// Direction-aware spacing and alignment
+[dir='rtl'] {
+  // Text alignment
+  text-align: right;
+
+  // Flip margins and paddings for common patterns
+  .ms-auto { margin-right: auto !important; margin-left: unset !important; }
+  .me-auto { margin-left: auto !important; margin-right: unset !important; }
+}
+
+// Utility classes for RTL-aware components
+.flip-horizontal {
+  [dir='rtl'] & {
+    transform: scaleX(-1);
+  }
+}
+
+// Ensure form inputs respect direction
+input, textarea, select {
+  &:not([dir]) {
+    direction: inherit;
+    text-align: inherit;
+  }
+}
+
+// CDK Drag and Drop global styles
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  opacity: 0.95;
+  z-index: 1000;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
