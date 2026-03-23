@@ -1,0 +1,17 @@
+.supply-and-demand-widget {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+
+  &__body {
+    width: 100%;
+    height: 260px;
+    overflow: hidden;
+
+    app-gap-analysis-sankey {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

@@ -2,35 +2,40 @@ import {Component, computed, ElementRef, HostListener, inject, input, output} fr
 import {Icon} from '../icon/icon';
 import {MoreMenu, MoreMenuItem} from '../more-menu/more-menu';
 import {MoreMenuService} from '../../../shared/services/more-menu.service';
+import {MatTooltip} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-widget-header',
   standalone: true,
-  imports: [Icon, MoreMenu],
+  imports: [Icon, MoreMenu, MatTooltip],
   template: `
     <div class="widget-header">
       <span class="widget-header__title">{{ title() }}</span>
       <div class="widget-header__icons">
         @for (icon of icons(); track icon) {
           @if (icon === 'more') {
-            <span class="widget-header__icon widget-header__icon--more" (click)="toggleMore($event)">
-              <app-icon name="more" size="18" color="#AEB2BC"/>
+            <span class="widget-header__icon widget-header__icon--more" matTooltip="Dropdown" matTooltipPosition="above" (click)="toggleMore($event)">
+              <app-icon name="more" size="18"/>
             </span>
             @if (moreOpen()) {
               <app-more-menu [items]="moreItems()"/>
             }
           } @else if (icon === 'stars') {
-            <span class="widget-header__icon" (click)="onStarsClick($event)">
-              <app-icon [name]="icon" size="18" color="#AEB2BC"/>
+            <span class="widget-header__icon" matTooltip="AI Insight" matTooltipPosition="above" (click)="onStarsClick($event)">
+              <app-icon [name]="icon" size="18"/>
             </span>
           } @else if (icon === 'expand') {
-            <span class="widget-header__icon" (click)="onExpandClick($event)">
-              <app-icon class="widget-header__expand-icon" name="expand" size="18" color="#AEB2BC"/>
-              <app-icon class="widget-header__collapse-icon" name="collapse" size="18" color="#AEB2BC"/>
+            <span class="widget-header__icon" matTooltip="Extended View" matTooltipPosition="above" (click)="onExpandClick($event)">
+              <app-icon class="widget-header__expand-icon" name="expand" size="18"/>
+              <app-icon class="widget-header__collapse-icon" name="collapse" size="18"/>
+            </span>
+          } @else if (icon === 'stats-up-square') {
+            <span class="widget-header__icon" matTooltip="Forecast" matTooltipPosition="above">
+              <app-icon [name]="icon" size="18"/>
             </span>
           } @else {
             <span class="widget-header__icon">
-              <app-icon [name]="icon" size="18" color="#AEB2BC"/>
+              <app-icon [name]="icon" size="18"/>
             </span>
           }
         }
@@ -43,7 +48,7 @@ export class WidgetHeader {
   private static nextId = 0;
 
   readonly title = input.required<string>();
-  readonly icons = input<string[]>(['stars', 'stats-up-square', 'expand', 'more']);
+  readonly icons = input<string[]>(['stars', 'stats-up-square', 'more']);
   readonly moreItems = input<MoreMenuItem[]>([
     {icon: 'info-empty', label: 'HOME.MORE_INFORMATION'},
     {icon: 'settings', label: 'HOME.MORE_SETTINGS'},

@@ -8,4 +8,4 @@ import {WidgetType} from '../../core/models/widget.model';
  */
 export const WIDGET_DETAIL_COMPONENT_MAP: Partial<Record<WidgetType, Type<unknown>>> = {};
 
-export const ALL_WIDGET_DETAIL_COMPONENTS = [] as const;
+export const ALL_WIDGET_DETAIL_COMPONENTS: Type<unknown>[] = [];

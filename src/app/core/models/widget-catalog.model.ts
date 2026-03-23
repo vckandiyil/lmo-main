@@ -4,6 +4,7 @@ export interface WidgetCatalogEntry {
   category: string[];
   hasSidebarComponent: boolean;
   hasDetailView: boolean;
+  hasExpandIcon?: boolean;
   hidden?: boolean;
 }
 

@@ -1,4 +1,5 @@
 import {Component, computed, inject, input, OnInit, output, signal} from '@angular/core';
+import {toSignal} from '@angular/core/rxjs-interop';
 import {forkJoin} from 'rxjs';
 import {ChartWrapper} from '../../molecule/chart-wrapper/chart-wrapper';
 import {WidgetHeader} from '../../atom/widget-header/widget-header';
@@ -13,6 +14,7 @@ import {
   WidgetDetailService,
   WidgetType,
 } from '../../../core';
+import {WidgetCatalogService} from '../../../core/services/widget-catalog.service';
 
 const COLORS = {
   positive: {
@@ -37,6 +39,13 @@ const COLORS = {
 export class RegionProfile implements OnInit {
   private readonly dashboardDataService = inject(DashboardDataService);
   private readonly widgetDetailService = inject(WidgetDetailService);
+
+  private readonly catalogEntry = toSignal(inject(WidgetCatalogService).getWidgetById('region-profile'), {initialValue: undefined});
+  readonly headerIcons = computed(() =>
+    this.catalogEntry()?.hasExpandIcon
+      ? ['stars', 'stats-up-square', 'expand', 'more']
+      : ['stars', 'stats-up-square', 'more']
+  );
 
   private readonly METRIC_WIDGET_MAP: Record<string, WidgetType> = {
     'Employment': WidgetType.EmploymentRate,

@@ -1,0 +1,37 @@
+<div class="gap-timeline__zoom">
+  <button class="gap-timeline__ctrl-btn">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 10H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <button class="gap-timeline__ctrl-btn">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <button class="gap-timeline__ctrl-btn">
+    <app-icon name="expand" size="20"/>
+  </button>
+  <button class="gap-timeline__ctrl-btn">
+    <app-icon name="collapse" size="20"/>
+  </button>
+</div>
+
+<div class="gap-timeline__controls">
+  <div class="gap-timeline__center">
+    @for (year of years; track year) {
+      <button
+        class="gap-timeline__year-btn"
+        [class.gap-timeline__year-btn--active]="selectedYear() === year"
+        (click)="yearChange.emit(year)">{{ year }}
+      </button>
+    }
+    @for (q of quarters; track q) {
+      <button
+        class="gap-timeline__quarter-btn"
+        [class.gap-timeline__quarter-btn--active]="selectedQuarter() === q"
+        (click)="quarterChange.emit(q)">{{ q }}
+      </button>
+    }
+  </div>
+</div>

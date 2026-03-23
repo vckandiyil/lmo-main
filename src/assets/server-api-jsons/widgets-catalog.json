@@ -10,6 +10,7 @@
       ],
       "hasSidebarComponent": true,
       "hasDetailView": false,
+      "hasExpandIcon": false,
       "hidden": false
     },
     {
@@ -22,6 +23,7 @@
       ],
       "hasSidebarComponent": true,
       "hasDetailView": false,
+      "hasExpandIcon": false,
       "hidden": false
     },
     {
@@ -36,6 +38,7 @@
       ],
       "hasSidebarComponent": true,
       "hasDetailView": false,
+      "hasExpandIcon": false,
       "hidden": false
     },
     {
@@ -46,6 +49,7 @@
       ],
       "hasSidebarComponent": true,
       "hasDetailView": true,
+      "hasExpandIcon": false,
       "hidden": false
     },
     {
@@ -58,6 +62,7 @@
       ],
       "hasSidebarComponent": true,
       "hasDetailView": false,
+      "hasExpandIcon": false,
       "hidden": false
     },
     {
@@ -68,6 +73,7 @@
       ],
       "hasSidebarComponent": true,
       "hasDetailView": true,
+      "hasExpandIcon": false,
       "hidden": false
     },
     {
@@ -78,6 +84,7 @@
       ],
       "hasSidebarComponent": true,
       "hasDetailView": false,
+      "hasExpandIcon": false,
       "hidden": false
     },
     {
@@ -89,6 +96,7 @@
       ],
       "hasSidebarComponent": true,
       "hasDetailView": false,
+      "hasExpandIcon": false,
       "hidden": true
     },
     {
@@ -103,6 +111,7 @@
       ],
       "hasSidebarComponent": true,
       "hasDetailView": false,
+      "hasExpandIcon": false,
       "hidden": false
     },
     {
@@ -117,6 +126,7 @@
       ],
       "hasSidebarComponent": true,
       "hasDetailView": false,
+      "hasExpandIcon": true,
       "hidden": false
     },
     {
@@ -131,6 +141,22 @@
       ],
       "hasSidebarComponent": true,
       "hasDetailView": false,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "supply-and-demand",
+      "title": "Supply and Demand",
+      "category": [
+        "Employment",
+        "Unemployment",
+        "Outside Labor Force",
+        "Job Vacancies",
+        "Job Seekers"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": false,
+      "hasExpandIcon": true,
       "hidden": false
     },
     {
@@ -143,6 +169,7 @@
       ],
       "hasSidebarComponent": true,
       "hasDetailView": true,
+      "hasExpandIcon": false,
       "hidden": false
     }
   ]

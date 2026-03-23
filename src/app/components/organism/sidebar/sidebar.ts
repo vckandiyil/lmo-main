@@ -179,7 +179,7 @@ export class Sidebar implements AfterViewInit, OnInit {
     this.widgetDetailService.close();
   }
 
-  onWidgetExpand(sidebar: SidebarPosition, index: number): void {
+  onWidgetExpand(sidebar: SidebarPosition, index: number, type?: WidgetType): void {
     this.widgetStore.swapWithCenter(sidebar, index);
   }
 

@@ -4,25 +4,23 @@
   left: var(--nav-sidebar-w);
   width: calc(100% - var(--nav-sidebar-w));
   transition: left 0.3s ease, width 0.3s ease;
-  padding: 12px 0;
-  gap: 12px;
+  padding: 12px 20px;
   box-sizing: border-box;
-  background: var(--lmo-bg-surface);
+  background: #FFFFFF;
   display: flex;
   align-items: center;
   z-index: 2;
+
+  :host-context(body.theme--dark) & {
+    background: #212836;
+  }
 
   &__container {
     display: flex;
     align-items: center;
     width: 100%;
     height: 37px;
-  }
-
-  &__topic-dropdown {
-    flex: 0 0 384px;
-    padding: 0 20px;
-    box-sizing: border-box;
+    gap: 12px;
   }
 
   &__dropdowns {
@@ -32,8 +30,7 @@
     gap: 12px;
 
     app-dropdown {
-      flex: 1;
-      min-width: 0;
+      flex: 0 0 150px;
     }
   }
 
@@ -83,18 +80,9 @@
   }
 
   &__submit-section {
-    flex: 0 0 384px;
-    padding: 0 20px;
-    box-sizing: border-box;
     display: flex;
     align-items: center;
-    gap: 12px;
-  }
-
-  &__layout-buttons {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    gap: 16px;
     flex-shrink: 0;
   }
 
@@ -109,44 +97,123 @@
     border: 1px solid var(--lmo-border-color);
     border-radius: 50%;
     cursor: pointer;
-    color: var(--Color-Secondary-200, #697D92);
+    color: #697D92;
     box-sizing: border-box;
+    flex-shrink: 0;
 
     :host-context(body.theme--dark) & {
       background: #212836;
       border-color: #364151;
-      color: #697D92;
+    }
+  }
+
+  &__presentation-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    background: #FFFFFF;
+    border: 1px solid var(--lmo-border-color);
+    border-radius: 50%;
+    cursor: pointer;
+    color: #697D92;
+    box-sizing: border-box;
+    flex-shrink: 0;
+
+    :host-context(body.theme--dark) & {
+      background: #212836;
+      border-color: #364151;
+    }
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+    flex: 0 0 384px;
+    height: 37px;
+    background: #ffffff;
+    border: 1px solid var(--lmo-border-color);
+    border-radius: 19px;
+    padding: 4px 4px 4px 8px;
+    box-sizing: border-box;
+    gap: 8px;
+
+    :host-context(body.theme--dark) & {
+      background: #212836;
+      border-color: #364151;
+    }
+  }
+
+  &__search-left {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  &__search-icon {
+    flex-shrink: 0;
+  }
+
+  &__search-field {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0;
+    vertical-align: middle;
+    color: #000000;
+    min-width: 0;
+
+    &::placeholder {
+      color: #000000;
+      font-weight: 600;
+
+      :host-context(body.theme--dark) & {
+        color: #FFFFFF;
+      }
     }
 
-    &--active {
-      background: #3375C6;
-      border-color: #3375C6;
+    :host-context(body.theme--dark) & {
       color: #FFFFFF;
     }
   }
 
-  &__submit {
+  &__search-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  &__search-mic {
+    cursor: pointer;
+    color: #05264A;
+
+    :host-context(body.theme--dark) & {
+      color: #FFFFFF;
+    }
+  }
+
+  &__search-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 37px;
-    background: #ffffff;
-    border: 1px solid var(--lmo-border-color);
-    border-radius: 17px;
+    width: 28px;
+    height: 28px;
+    background: #3375C6;
+    border: none;
+    border-radius: 50%;
     cursor: pointer;
-    font-family: 'Graphik Trial', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: #3375C6;
-    white-space: nowrap;
-    box-sizing: border-box;
+    padding: 0;
+    flex-shrink: 0;
 
-    :host-context(body.theme--dark) & {
-      background: #212836;
-      border-color: #364151;
-      color: #5B9BD5;
-    }
   }
 }

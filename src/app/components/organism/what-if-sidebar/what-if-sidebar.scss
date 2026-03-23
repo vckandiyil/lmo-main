@@ -16,7 +16,7 @@
     width: 100%;
     background: #ffffff;
     border-radius: 20px;
-    padding: 20px;
+    padding: 0 20px 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -141,7 +141,7 @@
 
   &__widgets {
     position: fixed;
-    top: 61px;
+    top: var(--content-top);
     left: var(--nav-sidebar-w);
     width: 384px;
     transition: left 0.3s ease;
@@ -150,8 +150,8 @@
       left: auto;
       right: 0;
     }
-    height: calc(100vh - 61px);
-    padding: 8px 20px;
+    height: calc(100vh - var(--content-top));
+    padding: 0 20px 20px;
     box-sizing: border-box;
     background: var(--lmo-bg-surface);
     display: flex;

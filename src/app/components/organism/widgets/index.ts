@@ -13,6 +13,7 @@ import { Employment } from '../employment/employment';
 import { AiInsights } from '../ai-insights/ai-insights';
 import { RegionProfile } from '../region-profile/region-profile';
 import { MaritalActivityStatus } from '../marital-activity-status/marital-activity-status';
+import { GapAnalysisWidget } from '../supply-and-demand-widget/supply-and-demand-widget';
 
 export {
   MarketEntrants,
@@ -24,6 +25,7 @@ export {
   AiInsights,
   RegionProfile,
   MaritalActivityStatus,
+  GapAnalysisWidget,
 };
 
 /**
@@ -41,6 +43,7 @@ export const ALL_WIDGET_COMPONENTS = [
   AiInsights,
   RegionProfile,
   MaritalActivityStatus,
+  GapAnalysisWidget,
 ] as const;
 
 /**
@@ -58,4 +61,5 @@ export const WIDGET_COMPONENT_MAP: Partial<Record<WidgetType, any>> = {
   [WidgetType.AiInsights]: AiInsights,
   [WidgetType.RegionProfile]: RegionProfile,
   [WidgetType.MaritalActivityStatus]: MaritalActivityStatus,
+  [WidgetType.GapAnalysis]: GapAnalysisWidget,
 };

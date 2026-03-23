@@ -1,4 +1,7 @@
 .sidebar {
+  // 4-col layout: 20px left + 20px right + 3×8px gaps = 64px fixed; 4 equal columns
+  --_4cw: calc((100% - var(--nav-sidebar-w) - 64px) / 4);
+
   width: 384px;
   box-sizing: border-box;
   background: var(--lmo-bg-surface);
@@ -16,7 +19,7 @@
     }
 
     .sidebar__widgets {
-      top: var(--sidebar-top, 61px);
+      top: var(--sidebar-top, var(--content-top));
       left: var(--nav-sidebar-w);
 
       :host-context([dir='rtl']) & {
@@ -36,9 +39,9 @@
   }
 
   &--right {
-    top: var(--sidebar-top, 61px);
+    top: var(--sidebar-top, var(--content-top));
     right: 0;
-    height: calc(100vh - var(--sidebar-top, 61px));
+    height: calc(100vh - var(--sidebar-top, var(--content-top)));
     gap: 1rem;
     overflow-x: hidden;
     overflow-y: auto;
@@ -75,9 +78,9 @@
   &__widgets {
     position: fixed;
     width: 384px;
-    height: calc(100vh - var(--sidebar-top, 61px));
+    height: calc(100vh - var(--sidebar-top, var(--content-top)));
     transition: left 0.3s ease;
-    padding: 8px 20px;
+    padding: 0 20px 20px;
     gap: 20px;
     box-sizing: border-box;
     background: var(--lmo-bg-surface);
@@ -299,15 +302,15 @@
 
   &--4col {
     position: fixed;
-    top: var(--sidebar-top, 61px);
-    width: calc(25% - var(--nav-sidebar-w) / 4);
+    top: var(--sidebar-top, var(--content-top));
+    width: var(--_4cw);
     transition: left 0.3s ease, width 0.3s ease;
-    height: calc(100vh - var(--sidebar-top, 61px));
+    height: calc(100vh - var(--sidebar-top, var(--content-top)));
     overflow-x: hidden;
     overflow-y: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    padding: 8px;
+    padding: 0;
     box-sizing: border-box;
     background: var(--lmo-bg-surface);
 
@@ -321,81 +324,81 @@
   }
 
   &--4col-1 {
-    left: var(--nav-sidebar-w);
+    left: calc(var(--nav-sidebar-w) + 20px);
 
     :host-context([dir='rtl']) & {
       left: auto;
-      right: 0;
+      right: 20px;
     }
 
     .sidebar__frame {
-      left: var(--nav-sidebar-w);
-      width: calc(25% - var(--nav-sidebar-w) / 4);
+      left: calc(var(--nav-sidebar-w) + 20px);
+      width: var(--_4cw);
       right: auto;
 
       :host-context([dir='rtl']) & {
         left: auto;
-        right: 0;
+        right: 20px;
       }
     }
   }
 
   &--4col-2 {
-    left: calc(25% + var(--nav-sidebar-w) * 3 / 4);
+    left: calc(var(--nav-sidebar-w) + 20px + var(--_4cw) + 8px);
 
     :host-context([dir='rtl']) & {
       left: auto;
-      right: 25%;
+      right: calc(20px + var(--_4cw) + 8px);
     }
 
     .sidebar__frame {
-      left: calc(25% + var(--nav-sidebar-w) * 3 / 4);
-      width: calc(25% - var(--nav-sidebar-w) / 4);
+      left: calc(var(--nav-sidebar-w) + 20px + var(--_4cw) + 8px);
+      width: var(--_4cw);
       right: auto;
 
       :host-context([dir='rtl']) & {
         left: auto;
-        right: 25%;
+        right: calc(20px + var(--_4cw) + 8px);
       }
     }
   }
 
   &--4col-3 {
-    left: calc(50% + var(--nav-sidebar-w) / 2);
+    left: calc(var(--nav-sidebar-w) + 20px + 2 * var(--_4cw) + 16px);
 
     :host-context([dir='rtl']) & {
       left: auto;
-      right: 50%;
+      right: calc(20px + 2 * var(--_4cw) + 16px);
     }
 
     .sidebar__frame {
-      left: calc(50% + var(--nav-sidebar-w) / 2);
-      width: calc(25% - var(--nav-sidebar-w) / 4);
+      left: calc(var(--nav-sidebar-w) + 20px + 2 * var(--_4cw) + 16px);
+      width: var(--_4cw);
       right: auto;
 
       :host-context([dir='rtl']) & {
         left: auto;
-        right: 50%;
+        right: calc(20px + 2 * var(--_4cw) + 16px);
       }
     }
   }
 
   &--4col-4 {
-    left: calc(75% + var(--nav-sidebar-w) / 4);
+    left: calc(var(--nav-sidebar-w) + 20px + 3 * var(--_4cw) + 24px);
 
     :host-context([dir='rtl']) & {
       left: auto;
-      right: 75%;
+      right: calc(20px + 3 * var(--_4cw) + 24px);
     }
 
     .sidebar__frame {
-      left: calc(75% + var(--nav-sidebar-w) / 4);
-      width: calc(25% - var(--nav-sidebar-w) / 4);
+      left: calc(var(--nav-sidebar-w) + 20px + 3 * var(--_4cw) + 24px);
+      width: var(--_4cw);
       right: auto;
 
       :host-context([dir='rtl']) & {
         left: auto;
-        right: 75%;
+        right: calc(20px + 3 * var(--_4cw) + 24px);
       }
     }
   }

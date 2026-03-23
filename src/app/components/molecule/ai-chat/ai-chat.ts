@@ -1,32 +1,38 @@
-import { Component, input, output } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import {TranslateModule} from '@ngx-translate/core';
+import { Icon } from '../../atom/icon/icon';
 import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-ai-chat',
   standalone: true,
-  imports: [TranslateModule],
+  imports: [TranslateModule, Icon],
   templateUrl: './ai-chat.html',
   styleUrl: './ai-chat.scss',
   animations: [
-    trigger('fadeInOut', [
+    trigger('slideInOut', [
       transition(':enter', [
-        style({ opacity: 0 }),
-        animate('200ms ease-out', style({ opacity: 1 })),
+        style({ transform: 'translateX(100%)' }),
+        animate('300ms ease-out', style({ transform: 'translateX(0)' })),
       ]),
       transition(':leave', [
-        animate('150ms ease-in', style({ opacity: 0 })),
+        animate('200ms ease-in', style({ transform: 'translateX(100%)' })),
       ]),
     ]),
   ],
 })
 export class AiChat {
-  isOpen = input<boolean>(false);
-  isExpanded = input<boolean>(false);
-  closed = output<void>();
-  expandToggled = output<void>();
+  isOpen = signal(false);
+  isAnimating = signal(false);
 
-  onExpandClick(): void {
-    this.expandToggled.emit();
+  toggle(): void {
+    if (this.isAnimating()) return;
+
+    this.isAnimating.set(true);
+    this.isOpen.update((value) => !value);
+
+    setTimeout(() => {
+      this.isAnimating.set(false);
+    }, 300);
   }
 }

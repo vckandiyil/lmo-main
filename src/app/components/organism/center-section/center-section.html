@@ -7,10 +7,6 @@
   [cdkDropListSortingDisabled]="true"
   (cdkDropListDropped)="onCenterDrop($event)">
   <div class="center-section__presentation">
-    <button class="center-section__presentation-btn" (click)="openPresentationModal()">
-      <img src="assets/images/icons/presentation.svg" alt="Presentation"/>
-    </button>
-    <span class="center-section__presentation-text">{{ 'LMI.LABOR_MARKET_PULSE' | translate }}</span>
     <button
       class="center-section__control-btn center-section__3d-btn center-section__3d-btn--header"
       [class.center-section__3d-btn--active]="is3DMode()"
@@ -24,41 +20,12 @@
     </button>
   </div>
   <div #mapContainer class="center-section__map"></div>
-  <button
-    class="center-section__action-btn"
-    [class.center-section__action-btn--active]="isAiAssistantActive()"
-    (click)="toggleAiAssistant()">
-    @if (isAiAnimating()) {
-      @if (isAiAssistantActive()) {
-        <img class="center-section__ai-icon center-section__ai-icon--leaving" src="assets/images/icons/AI Assistant.png"
-             alt="AI Assistant"/>
-        <div class="center-section__arrow-container center-section__arrow-container--entering">
-          <div class="center-section__arrow-icon"></div>
-        </div>
-      } @else {
-        <div class="center-section__arrow-container center-section__arrow-container--leaving">
-          <div class="center-section__arrow-icon"></div>
-        </div>
-        <img class="center-section__ai-icon center-section__ai-icon--entering"
-             src="assets/images/icons/AI Assistant.png" alt="AI Assistant"/>
-      }
-    } @else if (isAiAssistantActive()) {
-      <div class="center-section__arrow-container">
-        <div class="center-section__arrow-icon"></div>
-      </div>
-    } @else {
-      <img class="center-section__ai-icon" src="assets/images/icons/AI Assistant.png" alt="AI Assistant"/>
-    }
-  </button>
-  <div class="center-section__ai-box" [class.center-section__ai-box--expanded]="isAiExpanded()">
-    <app-ai-chat [isOpen]="isAiAssistantActive()" [isExpanded]="isAiExpanded()" (expandToggled)="toggleAiExpand()"/>
-  </div>
   <div class="center-section__controls">
     <button class="center-section__control-btn" (click)="resetView()">
-      <img src="assets/images/icons/collapse.svg" alt="Reset View"/>
+      <app-icon name="collapse" size="20"/>
     </button>
     <button class="center-section__control-btn" (click)="expandFullscreen()">
-      <img src="assets/images/icons/expand.svg" alt="Fullscreen"/>
+      <app-icon name="expand" size="20"/>
     </button>
     <div class="center-section__zoom-controls">
       <button class="center-section__zoom-btn center-section__zoom-btn--plus" (click)="zoomIn()">
@@ -119,19 +86,18 @@
   }
 
   @if (centerWidget()) {
-    <div class="center-section__widget-area">
-      <div class="center-section__widget-card">
-        @if (isCustomWidget(centerWidget()!)) {
-          <app-dynamic-widget [widgetType]="centerWidget()!" (expandClick)="restoreFromCenter()"/>
-        } @else {
-          <app-generic-widget-card [widgetType]="centerWidget()!" [isCenter]="true" (expandClick)="restoreFromCenter()"/>
-        }
+    @if (centerWidget() === WidgetType.GapAnalysis) {
+      <app-supply-and-demand-fullscreen (closed)="restoreFromCenter()"/>
+    } @else {
+      <div class="center-section__widget-area">
+        <div class="center-section__widget-card">
+          @if (isCustomWidget(centerWidget()!)) {
+            <app-dynamic-widget [widgetType]="centerWidget()!" (expandClick)="restoreFromCenter()"/>
+          } @else {
+            <app-generic-widget-card [widgetType]="centerWidget()!" [isCenter]="true" (expandClick)="restoreFromCenter()"/>
+          }
+        </div>
       </div>
-    </div>
+    }
   }
 </section>
-
-<app-presentation-modal
-  [isOpen]="isPresentationModalOpen()"
-  (closed)="closePresentationModal()"
-/>

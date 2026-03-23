@@ -18,6 +18,7 @@ export class WidgetCard {
   chartOptions = input<ChartOptions>({});
   selected = input(false);
   widgetType = input<string>('');
+  icons = input<string[]>(['stars', 'stats-up-square', 'more']);
   selectedChange = output<void>();
   expandClick = output<void>();
 

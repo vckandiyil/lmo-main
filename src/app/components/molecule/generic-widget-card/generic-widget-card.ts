@@ -17,6 +17,7 @@ import type {WidgetDetailData} from '../../../core/models/widget-detail.model';
       [chartOptions]="chartOptions()"
       [selected]="selected()"
       [widgetType]="widgetType()"
+      [icons]="icons()"
       (selectedChange)="selectedChange.emit()"
       (expandClick)="expandClick.emit()"
     />
@@ -35,6 +36,7 @@ export class GenericWidgetCard implements OnInit {
 
   title        = signal('');
   chartOptions = signal<ChartOptions>({});
+  icons        = signal<string[]>(['stars', 'stats-up-square', 'more']);
 
   ngOnInit(): void {
     forkJoin({
@@ -45,6 +47,9 @@ export class GenericWidgetCard implements OnInit {
       if (!config) return;
 
       this.title.set(catalog?.title ?? this.widgetType());
+      if (catalog?.hasExpandIcon) {
+        this.icons.set(['stars', 'stats-up-square', 'expand', 'more']);
+      }
 
       config.loadData(this.dashboardDataService).subscribe(data => {
         this.chartOptions.set(this.buildMiniChartOptions(data));

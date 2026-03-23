@@ -1,20 +1,20 @@
 <div class="filters">
   <div class="filters__container">
-    <app-dropdown
-      class="filters__topic-dropdown"
-      [placeholder]="'Employment'"
-      [value]="selectedTopic()"
-      [options]="topicOptions()"
-      (selected)="onTopicSelect($event)"
-    />
     <div class="filters__dropdowns">
+      <app-dropdown
+        class="filters__topic-dropdown"
+        [placeholder]="'Employment'"
+        [value]="selectedTopic()"
+        [options]="topicOptions()"
+        (selected)="onTopicSelect($event)"
+      />
       <app-dropdown
         [placeholder]="'LMI.REGION' | translate"
         [options]="regionOptions()"
         [variant]="'secondary'"
         (selected)="onFilterChange('region', $event)"
       />
-<app-dropdown
+      <app-dropdown
         [placeholder]="'HOME.CITIZENSHIP' | translate"
         [options]="citizenshipOptions()"
         [variant]="'secondary'"
@@ -43,34 +43,48 @@
       </button>
     </div>
     <div class="filters__submit-section">
-      @if (showLayoutButtons()) {
-        <div class="filters__layout-buttons">
-          <button
-            class="filters__layout-btn"
-            [class.filters__layout-btn--active]="layoutMode() === '3col'"
-            type="button"
-            (click)="setLayout('3col')"
-          >
-            <app-icon name="layout-3col" size="16"/>
-          </button>
-          <button
-            class="filters__layout-btn"
-            [class.filters__layout-btn--active]="layoutMode() === '4col'"
-            type="button"
-            (click)="setLayout('4col')"
-          >
-            <app-icon name="layout-4col" size="16"/>
+
+      <button class="filters__presentation-btn" type="button" (click)="openPresentationModal()">
+        <app-icon name="presentation" size="20"/>
+      </button>
+      <button class="filters__layout-btn" type="button" (click)="toggleLayout()">
+        <app-icon [name]="layoutMode() === '3col' ? 'layout-3col' : 'layout-4col'" size="16"/>
+      </button>
+      <div class="filters__search">
+        <div class="filters__search-left">
+          <app-icon class="filters__search-icon" name="search" size="20" color="#3375C6"/>
+          <input
+            type="text"
+            class="filters__search-field"
+            placeholder="Search with AI..."
+            [value]="searchQuery()"
+            (input)="onSearchInput($event)"
+            (keydown.enter)="openSearchModal()"
+          />
+        </div>
+        <div class="filters__search-right">
+          <app-icon
+            class="filters__search-mic"
+            [name]="isMicSpeaking() ? 'mic-speaking' : 'microphone'"
+            size="20"
+            (click)="toggleMic()"
+          />
+          <button class="filters__search-button" type="button" (click)="openSearchModal()">
+            <app-icon name="nav-arrow-right" size="20" color="#FFFFFF"/>
           </button>
         </div>
-      }
-      <button class="filters__submit" type="button" (click)="openReportModal()">
-        {{ 'LMI.GENERATE_REPORT' | translate }}
-      </button>
+      </div>
     </div>
   </div>
 </div>
 
-<app-report-modal
-  [isOpen]="isReportModalOpen()"
-  (closed)="closeReportModal()"
+<app-presentation-modal
+  [isOpen]="isPresentationModalOpen()"
+  (closed)="closePresentationModal()"
+/>
+
+<app-search-modal
+  [isOpen]="isSearchModalOpen()"
+  [searchQuery]="searchQuery()"
+  (closed)="closeSearchModal()"
 />

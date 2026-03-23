@@ -15,6 +15,8 @@
 // -----------------------------------------------------------------------------
 :root {
   --nav-sidebar-w: 88px;
+  --filters-h: 61px;
+  --content-top: 81px; /* filters height + 20px gap */
 
   // Light theme (default)
   --lmo-bg-primary: #fafafa;
@@ -132,7 +134,8 @@ app-root.page--my-lmo app-header .search {
 
 app-labor-market-insights,
 app-what-if,
-app-forecast {
+app-forecast,
+app-gap-analysis {
   --lmo-bg-surface: #e9f5ff;
   --lmo-bg-widget: #ffffff;
 
@@ -156,14 +159,17 @@ app-root.page--my-lmo app-sidebar {
   --sidebar-top: 148px;
 }
 
-app-labor-market-insights app-filters app-dropdown,
+app-filters app-dropdown,
+app-filters .filters__clear {
+  --lmo-bg-surface: #ffffff;
+
+  body.theme--dark & {
+    --lmo-bg-surface: #212836;
+  }
+}
+
 app-labor-market-insights app-sidebar app-dropdown,
-app-labor-market-insights app-filters .filters__clear,
-app-what-if app-filters app-dropdown,
-app-what-if app-what-if-sidebar app-dropdown,
-app-what-if app-filters .filters__clear,
-app-forecast app-filters app-dropdown,
-app-forecast app-filters .filters__clear {
+app-what-if app-what-if-sidebar app-dropdown {
   --lmo-bg-surface: #ffffff;
 
   body.theme--dark & {

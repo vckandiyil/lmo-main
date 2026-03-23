@@ -20,6 +20,8 @@ export class GapAnalysisSankey implements OnInit, OnChanges {
   private readonly el = inject(ElementRef);
 
   @Input() year = 2026;
+  @Input() height?: number;
+  @Input() compact = false;
 
   readonly chartOptions = signal<ChartOptions>({});
 
@@ -46,7 +48,7 @@ export class GapAnalysisSankey implements OnInit, OnChanges {
     this.chartOptions.set({
       chart: {
         backgroundColor: 'transparent',
-        height: this.el.nativeElement.offsetHeight || 500,
+        height: this.height ?? (this.el.nativeElement.offsetHeight || 500),
       } as any,
       title: {text: undefined},
       credits: {enabled: false},
@@ -58,8 +60,8 @@ export class GapAnalysisSankey implements OnInit, OnChanges {
         keys: ['from', 'to', 'weight'],
         nodes: this.sankeyNodes as any,
         data: this.sankeyData[String(this.year)],
-        nodeWidth: 140,
-        nodePadding: 28,
+        nodeWidth: this.compact ? 55 : 140,
+        nodePadding: this.compact ? 6 : 28,
         borderWidth: 0,
         curveFactor: 0.45,
         linkOpacity: 0.45,
@@ -68,8 +70,8 @@ export class GapAnalysisSankey implements OnInit, OnChanges {
           style: {
             color: '#111',
             textOutline: 'none',
-            fontSize: '14px',
-            fontWeight: '600',
+            fontSize: this.compact ? '9px' : '14px',
+            fontWeight: this.compact ? '400' : '600',
           },
         },
       }] as any,

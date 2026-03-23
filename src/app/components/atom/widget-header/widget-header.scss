@@ -32,6 +32,16 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    color: #AEB2BC;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: #000000;
+    }
+
+    :host-context(body.theme--dark) &:hover {
+      color: #FFFFFF;
+    }
   }
 
   &__collapse-icon {

@@ -1,13 +1,30 @@
+<button
+  class="ai-chat__toggle-btn"
+  [class.ai-chat__toggle-btn--active]="isOpen()"
+  (click)="toggle()">
+  @if (isAnimating()) {
+    @if (isOpen()) {
+      <img class="ai-chat__toggle-icon ai-chat__toggle-icon--leaving" src="assets/images/icons/AI Assistant.png" alt="AI Assistant"/>
+      <div class="ai-chat__toggle-arrow ai-chat__toggle-arrow--entering">
+        <div class="ai-chat__toggle-arrow-icon"></div>
+      </div>
+    } @else {
+      <div class="ai-chat__toggle-arrow ai-chat__toggle-arrow--leaving">
+        <div class="ai-chat__toggle-arrow-icon"></div>
+      </div>
+      <img class="ai-chat__toggle-icon ai-chat__toggle-icon--entering" src="assets/images/icons/AI Assistant.png" alt="AI Assistant"/>
+    }
+  } @else if (isOpen()) {
+    <div class="ai-chat__toggle-arrow">
+      <div class="ai-chat__toggle-arrow-icon"></div>
+    </div>
+  } @else {
+    <img class="ai-chat__toggle-icon" src="assets/images/icons/AI Assistant.png" alt="AI Assistant"/>
+  }
+</button>
+
 @if (isOpen()) {
-  <div class="ai-chat" [class.ai-chat--expanded]="isExpanded()" @fadeInOut>
-    <button class="ai-chat__expand-button" (click)="onExpandClick()">
-      <img
-        class="ai-chat__expand-icon"
-        [class.ai-chat__expand-icon--close]="isExpanded()"
-        [src]="isExpanded() ? 'assets/images/icons/close.svg' : 'assets/images/icons/expand.svg'"
-        [alt]="isExpanded() ? 'close' : 'expand'"
-      />
-    </button>
+  <div class="ai-chat__panel" @slideInOut>
     <img class="ai-chat__assistant-icon" src="assets/images/icons/AI Assistant.png" alt="AI Assistant" />
     <div class="ai-chat__content">
       <span class="ai-chat__greeting">{{ 'LMI.AI_HELLO' | translate }}</span>
@@ -15,21 +32,15 @@
     </div>
     <div class="ai-chat__suggestions">
       <div class="ai-chat__suggestion-item">
-        <div class="ai-chat__suggestion-icon-wrapper">
-          <img class="ai-chat__suggestion-icon" src="assets/images/icons/stars.svg" alt="stars" />
-        </div>
+        <app-icon name="stars" color="#3375C6" size="24"/>
         <span class="ai-chat__suggestion-text">{{ 'LMI.AI_SUGGESTION' | translate }}</span>
       </div>
       <div class="ai-chat__suggestion-item">
-        <div class="ai-chat__suggestion-icon-wrapper">
-          <img class="ai-chat__suggestion-icon" src="assets/images/icons/stars.svg" alt="stars" />
-        </div>
+        <app-icon name="stars" color="#3375C6" size="24"/>
         <span class="ai-chat__suggestion-text">{{ 'LMI.AI_SUGGESTION' | translate }}</span>
       </div>
       <div class="ai-chat__suggestion-item">
-        <div class="ai-chat__suggestion-icon-wrapper">
-          <img class="ai-chat__suggestion-icon" src="assets/images/icons/stars.svg" alt="stars" />
-        </div>
+        <app-icon name="stars" color="#3375C6" size="24"/>
         <span class="ai-chat__suggestion-text">{{ 'LMI.AI_SUGGESTION' | translate }}</span>
       </div>
     </div>
@@ -42,13 +53,9 @@
         />
       </div>
       <div class="ai-chat__search-right">
-        <img
-          class="ai-chat__search-mic"
-          src="assets/images/icons/microphone.svg"
-          alt="microphone"
-        />
+        <app-icon class="ai-chat__search-mic" name="microphone" size="16"/>
         <div class="ai-chat__search-button">
-          <img class="ai-chat__search-button-icon" src="assets/images/icons/nav-arrow-right.svg" alt="search" />
+          <app-icon name="nav-arrow-right" color="#FFFFFF" size="20"/>
         </div>
       </div>
     </div>

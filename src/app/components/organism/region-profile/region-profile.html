@@ -1,7 +1,7 @@
 <div class="region-profile" [class.region-profile--selected]="selected()">
   <app-flip-card #flipCard>
     <app-widget-checkbox [selected]="selected()" front/>
-    <app-widget-header [title]="'Region Profile'" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" front/>
+    <app-widget-header [title]="'Region Profile'" [icons]="headerIcons()" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" front/>
     <div class="region-profile__body" front>
       @for (metric of allMetrics(); track metric.label) {
         <div class="region-profile__metric" [class.region-profile__metric--clickable]="isClickable(metric.label)" (click)="onMetricClick($event, metric.label)">

@@ -1,0 +1,18 @@
+<div class="supply-and-demand-fullscreen">
+  <div class="supply-and-demand-fullscreen__header center-section__widget-card">
+    <app-widget-checkbox [selected]="false"/>
+    <app-widget-header [title]="title()" (expandClick)="closed.emit()"/>
+  </div>
+
+  <div class="supply-and-demand-fullscreen__chart" #chartContainer>
+    <app-gap-analysis-sankey [year]="selectedTimelineYear()" [height]="chartHeight()"/>
+  </div>
+
+  <div class="supply-and-demand-fullscreen__timeline">
+    <app-gap-analysis-timeline
+      [selectedYear]="selectedTimelineYear()"
+      [selectedQuarter]="selectedQuarter()"
+      (yearChange)="selectedTimelineYear.set($event)"
+      (quarterChange)="selectedQuarter.set($event)"/>
+  </div>
+</div>

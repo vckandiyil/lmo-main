@@ -13,11 +13,11 @@ import {CdkDragDrop, CdkDropList} from '@angular/cdk/drag-drop';
 import { MapService, MapViewType, SceneViewType, RegionPopulation } from '../../../shared/services/map.service';
 import { WidgetStore, WidgetType } from '../../../core';
 import type { Widget, SidebarPosition } from '../../../core';
-import { PresentationModal } from '../../molecule/presentation-modal/presentation-modal';
-import { AiChat } from '../../molecule/ai-chat/ai-chat';
 import { GenericWidgetCard } from '../../molecule/generic-widget-card/generic-widget-card';
+import { Icon } from '../../atom/icon/icon';
 import { WIDGET_COMPONENT_MAP } from '../widgets';
 import { DynamicWidget } from '../dynamic-widget/dynamic-widget';
+import { GapAnalysisFullscreen } from '../supply-and-demand-fullscreen/supply-and-demand-fullscreen';
 import { DecimalPipe } from '@angular/common';
 
 interface RegionPopulationData {
@@ -30,7 +30,7 @@ interface RegionPopulationData {
 @Component({
   selector: 'app-center-section',
   standalone: true,
-  imports: [PresentationModal, AiChat, TranslateModule, GenericWidgetCard, DynamicWidget, CdkDropList, DecimalPipe],
+  imports: [TranslateModule, GenericWidgetCard, DynamicWidget, GapAnalysisFullscreen, CdkDropList, DecimalPipe, Icon],
   templateUrl: './center-section.html',
   styleUrl: './center-section.scss',
 })
@@ -39,7 +39,6 @@ export class CenterSection implements AfterViewInit, OnDestroy {
   private readonly mapService = inject(MapService);
   private readonly widgetStore = inject(WidgetStore);
   private mapView: MapViewType | null = null;
-  private initialMapView: MapViewType | null = null;
   private sceneView: SceneViewType | null = null;
   private readonly mapStyleUrl = '/assets/map-styles/blue-white-canvas.json';
   private readonly defaultCenter: [number, number] = [54, 24];
@@ -50,6 +49,7 @@ export class CenterSection implements AfterViewInit, OnDestroy {
   private readonly drillZoomThreshold = 70000;
 
   readonly centerWidget = this.widgetStore.centerWidget;
+  readonly WidgetType = WidgetType;
   readonly centerDropData: Widget[] = [];
 
   is3DMode = signal(false);
@@ -94,38 +94,7 @@ export class CenterSection implements AfterViewInit, OnDestroy {
     this.widgetStore.swapWithCenter(sourceSidebar, event.previousIndex);
   }
 
-  isPresentationModalOpen = signal(false);
-  isAiAssistantActive = signal(false);
-  isAiAnimating = signal(false);
-  isAiExpanded = signal(false);
   isAtMinZoom = signal(true);
-
-  toggleAiAssistant(): void {
-    if (this.isAiAnimating()) return;
-
-    this.isAiAnimating.set(true);
-    this.isAiAssistantActive.update((value) => !value);
-
-    if (!this.isAiAssistantActive()) {
-      this.isAiExpanded.set(false);
-    }
-
-    setTimeout(() => {
-      this.isAiAnimating.set(false);
-    }, 300);
-  }
-
-  toggleAiExpand(): void {
-    this.isAiExpanded.update((value) => !value);
-  }
-
-  openPresentationModal(): void {
-    this.isPresentationModalOpen.set(true);
-  }
-
-  closePresentationModal(): void {
-    this.isPresentationModalOpen.set(false);
-  }
 
   zoomIn(): void {
     if (this.is3DMode()) return;
@@ -178,10 +147,9 @@ export class CenterSection implements AfterViewInit, OnDestroy {
 
     try {
       if (this.is3DMode()) {
-        // this.drillRegion.set(null);
-        // this.drillBreadcrumb.set([]);
-        // await this.switchTo2D();
-           this.initializeMap();
+        this.drillRegion.set(null);
+        this.drillBreadcrumb.set([]);
+        await this.switchTo2D();
       } else {
         await this.switchTo3D();
       }
@@ -232,7 +200,6 @@ export class CenterSection implements AfterViewInit, OnDestroy {
       this.sceneView.destroy();
       this.sceneView = null;
     }
-    this.initialMapView = null;
   }
 
   private disposeClickHandler(): void {
@@ -262,7 +229,6 @@ export class CenterSection implements AfterViewInit, OnDestroy {
     const container = this.mapContainer().nativeElement;
     const map = await this.createFreshMap();
     this.mapView = await this.mapService.createMapViewFromMap(container, map);
-    this.initialMapView = this.mapView;
 
     this.mapView.watch('zoom', (zoom: number) => {
       this.isAtMinZoom.set(zoom <= this.defaultZoom);
@@ -374,6 +340,8 @@ export class CenterSection implements AfterViewInit, OnDestroy {
   }
 
   private async switchTo2D(): Promise<void> {
+    const container = this.mapContainer().nativeElement;
+
     this.disposeClickHandler();
 
     if (this.sceneView) {
@@ -381,10 +349,23 @@ export class CenterSection implements AfterViewInit, OnDestroy {
       this.sceneView = null;
     }
 
-    if (this.initialMapView) {
-      this.mapView = this.initialMapView;
-      this.mapView.container = this.mapContainer().nativeElement;
-    }
+    const map = await this.createFreshMap();
+    this.mapView = await this.mapService.createMapViewFromMap(
+      container,
+      map,
+      this.defaultCenter,
+      this.defaultZoom
+    );
+
+    this.mapView.watch('zoom', (zoom: number) => {
+      this.isAtMinZoom.set(zoom <= this.defaultZoom);
+    });
+
+    this.mapView.on('drag', (event) => {
+      if (this.isAtMinZoom()) {
+        event.stopPropagation();
+      }
+    });
 
     this.is3DMode.set(false);
   }

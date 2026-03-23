@@ -1,10 +1,11 @@
-import {Component, computed, inject, input, QueryList, signal, ViewChildren} from '@angular/core';
+import {Component, computed, inject, QueryList, signal, ViewChildren} from '@angular/core';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {map} from 'rxjs';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {Dropdown} from '../../atom/dropdown/dropdown';
 import {Icon} from '../../atom/icon/icon';
-import {ReportModal} from '../../molecule/report-modal/report-modal';
+import {SearchModal} from '../search-modal/search-modal';
+import {PresentationModal} from '../../molecule/presentation-modal/presentation-modal';
 import {WidgetCatalogService} from '../../../core/services/widget-catalog.service';
 import {WidgetStore} from '../../../core';
 import {FilterStateService} from '../../../core/services/filter-state.service';
@@ -13,13 +14,11 @@ import {LayoutService} from '../../../core';
 @Component({
   selector: 'app-filters',
   standalone: true,
-  imports: [Dropdown, Icon, ReportModal, TranslateModule],
+  imports: [Dropdown, Icon, SearchModal, PresentationModal, TranslateModule],
   templateUrl: './filters.html',
   styleUrl: './filters.scss'
 })
 export class Filters {
-  readonly showLayoutButtons = input(false);
-
   @ViewChildren(Dropdown) dropdowns!: QueryList<Dropdown>;
 
   private readonly widgetCatalogService = inject(WidgetCatalogService);
@@ -42,7 +41,10 @@ export class Filters {
   });
   selectedTopic = signal<string | null>(null);
 
-  isReportModalOpen = signal(false);
+  isSearchModalOpen = signal(false);
+  isPresentationModalOpen = signal(false);
+  searchQuery = signal('');
+  isMicSpeaking = signal(false);
 
   readonly regionOptions = toSignal(
     this.translate.stream(['LMI.ALL', 'LMI.ABU_DHABI', 'LMI.AL_AIN', 'LMI.AL_DHAFRA']).pipe(
@@ -99,15 +101,31 @@ export class Filters {
     this.filterState.selectedTopic.set(null);
   }
 
-  openReportModal(): void {
-    this.isReportModalOpen.set(true);
+  onSearchInput(event: Event): void {
+    this.searchQuery.set((event.target as HTMLInputElement).value);
   }
 
-  closeReportModal(): void {
-    this.isReportModalOpen.set(false);
+  openPresentationModal(): void {
+    this.isPresentationModalOpen.set(true);
   }
 
-  setLayout(mode: '3col' | '4col'): void {
-    this.layoutService.setLayoutMode(mode);
+  closePresentationModal(): void {
+    this.isPresentationModalOpen.set(false);
+  }
+
+  toggleMic(): void {
+    this.isMicSpeaking.update(v => !v);
+  }
+
+  openSearchModal(): void {
+    this.isSearchModalOpen.set(true);
+  }
+
+  closeSearchModal(): void {
+    this.isSearchModalOpen.set(false);
+  }
+
+  toggleLayout(): void {
+    this.layoutService.setLayoutMode(this.layoutMode() === '3col' ? '4col' : '3col');
   }
 }

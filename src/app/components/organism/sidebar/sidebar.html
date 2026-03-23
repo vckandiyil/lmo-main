@@ -17,7 +17,7 @@
               <div class="sidebar__map-card">
                 <div class="sidebar__map-card-header">
                   <span class="sidebar__map-card-title">{{ 'LMI.MAP' | translate }}</span>
-                  <span class="sidebar__map-card-expand" (click)="onWidgetExpand('left', i); $event.stopPropagation()">
+                  <span class="sidebar__map-card-expand" (click)="onWidgetExpand('left', i, widget.type); $event.stopPropagation()">
                     <img src="assets/images/icons/expand.svg" alt="expand" width="18" height="18"/>
                   </span>
                 </div>
@@ -28,9 +28,9 @@
                 </div>
               </div>
             } @else if (isCustomWidget(widget.type)) {
-              <app-dynamic-widget [widgetType]="widget.type" (expandClick)="onWidgetExpand('left', i)"/>
+              <app-dynamic-widget [widgetType]="widget.type" (expandClick)="onWidgetExpand('left', i, widget.type)"/>
             } @else {
-              <app-generic-widget-card [widgetType]="widget.type" (expandClick)="onWidgetExpand('left', i)"/>
+              <app-generic-widget-card [widgetType]="widget.type" (expandClick)="onWidgetExpand('left', i, widget.type)"/>
             }
           </div>
         }
@@ -78,7 +78,7 @@
               <div class="sidebar__map-card">
                 <div class="sidebar__map-card-header">
                   <span class="sidebar__map-card-title">{{ 'LMI.MAP' | translate }}</span>
-                  <span class="sidebar__map-card-expand" (click)="onWidgetExpand('right', i); $event.stopPropagation()">
+                  <span class="sidebar__map-card-expand" (click)="onWidgetExpand('right', i, widget.type); $event.stopPropagation()">
                     <img src="assets/images/icons/expand.svg" alt="expand" width="18" height="18"/>
                   </span>
                 </div>
@@ -89,9 +89,9 @@
                 </div>
               </div>
             } @else if (isCustomWidget(widget.type)) {
-              <app-dynamic-widget [widgetType]="widget.type" (expandClick)="onWidgetExpand('right', i)"/>
+              <app-dynamic-widget [widgetType]="widget.type" (expandClick)="onWidgetExpand('right', i, widget.type)"/>
             } @else {
-              <app-generic-widget-card [widgetType]="widget.type" (expandClick)="onWidgetExpand('right', i)"/>
+              <app-generic-widget-card [widgetType]="widget.type" (expandClick)="onWidgetExpand('right', i, widget.type)"/>
             }
           </div>
         }
@@ -136,9 +136,9 @@
         <div class="sidebar__widget-item" cdkDrag [cdkDragDisabled]="col1Widgets().length <= 1" (cdkDragStarted)="onDragStarted()" (click)="onWidgetClick(widget.type)">
           <div class="sidebar__widget-placeholder" *cdkDragPlaceholder></div>
           @if (isCustomWidget(widget.type)) {
-            <app-dynamic-widget [widgetType]="widget.type" (expandClick)="onWidgetExpand('left', $index)"/>
+            <app-dynamic-widget [widgetType]="widget.type" (expandClick)="onWidgetExpand('left', $index, widget.type)"/>
           } @else {
-            <app-generic-widget-card [widgetType]="widget.type" (expandClick)="onWidgetExpand('left', $index)"/>
+            <app-generic-widget-card [widgetType]="widget.type" (expandClick)="onWidgetExpand('left', $index, widget.type)"/>
           }
         </div>
       }
@@ -174,9 +174,9 @@
         <div class="sidebar__widget-item" cdkDrag [cdkDragDisabled]="col2Widgets().length <= 1" (cdkDragStarted)="onDragStarted()" (click)="onWidgetClick(widget.type)">
           <div class="sidebar__widget-placeholder" *cdkDragPlaceholder></div>
           @if (isCustomWidget(widget.type)) {
-            <app-dynamic-widget [widgetType]="widget.type" (expandClick)="onWidgetExpand('left', $index)"/>
+            <app-dynamic-widget [widgetType]="widget.type" (expandClick)="onWidgetExpand('left', $index, widget.type)"/>
           } @else {
-            <app-generic-widget-card [widgetType]="widget.type" (expandClick)="onWidgetExpand('left', $index)"/>
+            <app-generic-widget-card [widgetType]="widget.type" (expandClick)="onWidgetExpand('left', $index, widget.type)"/>
           }
         </div>
       }
@@ -212,9 +212,9 @@
         <div class="sidebar__widget-item" cdkDrag [cdkDragDisabled]="col3Widgets().length <= 1" (cdkDragStarted)="onDragStarted()" (click)="onWidgetClick(widget.type)">
           <div class="sidebar__widget-placeholder" *cdkDragPlaceholder></div>
           @if (isCustomWidget(widget.type)) {
-            <app-dynamic-widget [widgetType]="widget.type" (expandClick)="onWidgetExpand('right', $index)"/>
+            <app-dynamic-widget [widgetType]="widget.type" (expandClick)="onWidgetExpand('right', $index, widget.type)"/>
           } @else {
-            <app-generic-widget-card [widgetType]="widget.type" (expandClick)="onWidgetExpand('right', $index)"/>
+            <app-generic-widget-card [widgetType]="widget.type" (expandClick)="onWidgetExpand('right', $index, widget.type)"/>
           }
         </div>
       }
@@ -250,9 +250,9 @@
         <div class="sidebar__widget-item" cdkDrag [cdkDragDisabled]="col4Widgets().length <= 1" (cdkDragStarted)="onDragStarted()" (click)="onWidgetClick(widget.type)">
           <div class="sidebar__widget-placeholder" *cdkDragPlaceholder></div>
           @if (isCustomWidget(widget.type)) {
-            <app-dynamic-widget [widgetType]="widget.type" (expandClick)="onWidgetExpand('right', $index)"/>
+            <app-dynamic-widget [widgetType]="widget.type" (expandClick)="onWidgetExpand('right', $index, widget.type)"/>
           } @else {
-            <app-generic-widget-card [widgetType]="widget.type" (expandClick)="onWidgetExpand('right', $index)"/>
+            <app-generic-widget-card [widgetType]="widget.type" (expandClick)="onWidgetExpand('right', $index, widget.type)"/>
           }
         </div>
       }
@@ -293,3 +293,4 @@
   [widgetType]="activeDetailWidget()"
   (closed)="closeWidgetDetail()"
 />
+

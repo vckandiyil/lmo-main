@@ -3,9 +3,11 @@ import {RouterOutlet, Router, NavigationEnd} from '@angular/router';
 import {filter} from 'rxjs';
 import {LanguageService} from './core';
 import {NavSidebar} from './components/organism/nav-sidebar/nav-sidebar';
+import {AiChat} from './components/molecule/ai-chat/ai-chat';
+
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavSidebar],
+  imports: [RouterOutlet, NavSidebar, AiChat],
   templateUrl: './app.html',
   styleUrl: './app.scss',
   host: {

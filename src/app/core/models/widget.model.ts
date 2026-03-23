@@ -14,6 +14,7 @@ export enum WidgetType {
   RegionProfile = 'region-profile',
   MaritalActivityStatus = 'marital-activity-status',
   PopulationNumber = 'population-number',
+  GapAnalysis = 'supply-and-demand',
   Map = 'map'
 }
 
