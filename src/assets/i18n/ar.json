@@ -36,6 +36,7 @@
     "REGION_ABU_DHABI": "أبوظبي",
     "REGION_AL_AIN": "العين",
     "FILTERS": "الفلاتر",
+    "REGION": "المنطقة",
     "CITIZENSHIP": "الجنسية",
     "WORK_SECTOR": "قطاع العمل",
     "GENDER": "الجنس",
@@ -77,6 +78,7 @@
     "AI_INSIGHT": "تحليل ذكي"
   },
   "LMI": {
+    "MAP": "خريطة ArcGIS",
     "ADD_WIDGET": "إضافة عنصر",
     "REGION": "المنطقة",
     "SECTOR": "القطاع",

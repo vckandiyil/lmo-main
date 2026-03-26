@@ -1,4 +1,4 @@
-<div class="region-profile" [class.region-profile--selected]="selected()">
+<div class="region-profile" [class.region-profile--selected]="selected()" [class.region-profile--center]="isCenter()">
   <app-flip-card #flipCard>
     <app-widget-checkbox [selected]="selected()" front/>
     <app-widget-header [title]="'Region Profile'" [icons]="headerIcons()" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" front/>

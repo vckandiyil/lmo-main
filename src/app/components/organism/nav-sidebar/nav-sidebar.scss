@@ -19,6 +19,17 @@
     border-right-color: #364151;
   }
 
+  :host-context([dir='rtl']) & {
+    left: auto;
+    right: 0;
+    border-right: none;
+    border-left: 1px solid #CCDEF1;
+  }
+
+  :host-context(body.theme--dark):host-context([dir='rtl']) & {
+    border-left-color: #364151;
+  }
+
   &--expanded {
     width: 326px;
   }
@@ -43,6 +54,11 @@
     :host-context(body.theme--dark) & {
       background: rgba(33, 40, 54, 0.8);
       border-color: #364151;
+    }
+
+    :host-context([dir='rtl']) & {
+      right: auto;
+      left: -14px;
     }
   }
 

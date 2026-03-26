@@ -59,6 +59,7 @@ export class RegionProfile implements OnInit {
   chartOptionsMap = signal<Map<string, ChartOptions>>(new Map());
   widgetType = input<string>('');
   selected = input(false);
+  isCenter = input(false);
   selectedChange = output<void>();
   expandClick = output<void>();
 
@@ -153,14 +154,15 @@ export class RegionProfile implements OnInit {
     const maxVal = Math.max(...values);
     const padding = (maxVal - minVal) * 0.1 || 1;
 
+    const center = this.isCenter();
     return {
       chart: {
         type: 'area',
-        height: 24,
-        width: 35,
+        height: center ? 64 : 24,
+        width: center ? null : 35,
         backgroundColor: 'transparent',
-        spacing: [2, 2, 2, 2],
-        margin: [2, 2, 2, 2],
+        spacing: center ? [2, 0, 2, 0] : [2, 2, 2, 2],
+        margin: center ? [2, 0, 2, 0] : [2, 2, 2, 2],
       },
       title: {text: ''},
       xAxis: {

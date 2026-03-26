@@ -15,20 +15,20 @@
         <app-icon name="stats-up-square" size="24" class="nav-sidebar__icon"/>
         <span class="nav-sidebar__label">Labor Market Insights</span>
       </a>
+      <a class="nav-sidebar__nav-item" routerLink="/gap-analysis" routerLinkActive="nav-sidebar__nav-item--active">
+        <app-icon name="gap" size="24" class="nav-sidebar__icon"/>
+        <span class="nav-sidebar__label">Gap Analysis</span>
+      </a>
+      <a class="nav-sidebar__nav-item" routerLink="/forecast" routerLinkActive="nav-sidebar__nav-item--active">
+        <app-icon name="graph-up" size="24" class="nav-sidebar__icon"/>
+        <span class="nav-sidebar__label">Forecasts</span>
+      </a>
       <a class="nav-sidebar__nav-item" routerLink="/what-if" routerLinkActive="nav-sidebar__nav-item--active">
         <app-icon name="stats-report" size="24" class="nav-sidebar__icon"/>
         <span class="nav-sidebar__label">What-If Simulator</span>
       </a>
-      <a class="nav-sidebar__nav-item" routerLink="/gap-analysis" routerLinkActive="nav-sidebar__nav-item--active">
-        <app-icon name="report-columns" size="24" class="nav-sidebar__icon"/>
-        <span class="nav-sidebar__label">Gap Analysis</span>
-      </a>
-      <a class="nav-sidebar__nav-item" routerLink="/forecast" routerLinkActive="nav-sidebar__nav-item--active">
-        <app-icon name="report-columns" size="24" class="nav-sidebar__icon"/>
-        <span class="nav-sidebar__label">Forecasts</span>
-      </a>
       <a class="nav-sidebar__nav-item" routerLinkActive="nav-sidebar__nav-item--active">
-        <app-icon name="report-columns" size="24" class="nav-sidebar__icon"/>
+        <app-icon name="page-search" size="24" class="nav-sidebar__icon"/>
         <span class="nav-sidebar__label">Insights Reports</span>
       </a>
       <a class="nav-sidebar__nav-item" routerLink="/my-lmo" routerLinkActive="nav-sidebar__nav-item--active">
@@ -57,7 +57,7 @@
   </div>
   <button class="nav-sidebar__toggle" (click)="toggle()" type="button">
     <span class="nav-sidebar__toggle-icon">
-      <app-icon [name]="expanded() ? 'nav-arrow-left' : 'nav-arrow-right'" size="16" color="#4A5662"/>
+      <app-icon [name]="(expanded() !== isRtl()) ? 'nav-arrow-left' : 'nav-arrow-right'" size="16" color="#4A5662"/>
     </span>
   </button>
 </aside>

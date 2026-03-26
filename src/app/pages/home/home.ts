@@ -56,6 +56,13 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     {initialValue: ['Male', 'Female']}
   );
 
+  protected readonly regionOptions = toSignal(
+    this.translate.stream(['HOME.REGION_ABU_DHABI', 'HOME.REGION_AL_AIN', 'HOME.REGION_AL_DHAFRA']).pipe(
+      map(t => [t['HOME.REGION_ABU_DHABI'], t['HOME.REGION_AL_AIN'], t['HOME.REGION_AL_DHAFRA']])
+    ),
+    {initialValue: ['Abu Dhabi', 'Al Ain', 'Al Dhafra']}
+  );
+
   protected timelineRows = signal<LabourMarketPolicyEntry[][]>([]);
   protected newsData = signal<NewsData | null>(null);
 

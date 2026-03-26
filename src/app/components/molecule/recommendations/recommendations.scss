@@ -20,6 +20,7 @@
   :host-context([dir='rtl']) & {
     left: auto;
     right: calc(var(--nav-sidebar-w) + 384px);
+    transition: right 0.3s ease, width 0.3s ease, height 0.3s ease;
   }
 
   &--expanded {

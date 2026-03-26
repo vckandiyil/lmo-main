@@ -28,6 +28,7 @@
   <div class="hero__filters">
     <span class="hero__filters-label">{{ 'HOME.FILTERS' | translate }}</span>
     <div class="hero__filters-dropdowns">
+      <app-dropdown [placeholder]="'HOME.REGION' | translate" [options]="regionOptions()"/>
       <app-dropdown [placeholder]="'HOME.CITIZENSHIP' | translate" [options]="citizenshipOptions()"/>
       <app-dropdown [placeholder]="'HOME.WORK_SECTOR' | translate" [options]="workSectorOptions()"/>
       <app-dropdown [placeholder]="'HOME.GENDER' | translate" [options]="genderOptions()"/>

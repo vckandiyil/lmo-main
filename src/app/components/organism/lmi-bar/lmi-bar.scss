@@ -1,0 +1,113 @@
+.lmi-bar {
+  position: fixed;
+  top: var(--filters-h);
+  left: var(--nav-sidebar-w);
+  right: 0;
+  border-top: 1px solid #CCDEF1;
+  background: #FFFFFF;
+  padding: 4px;
+  box-sizing: border-box;
+  z-index: 2;
+
+  :host-context([dir='rtl']) & {
+    left: 0;
+    right: var(--nav-sidebar-w);
+  }
+
+  :host-context(body.theme--dark) & {
+    background: #212836;
+    border-top-color: #364151;
+  }
+
+  &__ticker {
+    overflow: hidden;
+    width: 100%;
+    direction: ltr;
+  }
+
+  &__track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    gap: 0;
+    direction: ltr;
+    animation: lmi-scroll 80s linear infinite;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+    padding: 0 20px 0 0;
+    margin-right: 20px;
+    direction: ltr;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: -4px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #CCDEF1;
+    }
+
+    :host-context(body.theme--dark) &::after {
+      background-color: #364151;
+    }
+
+    :host-context([dir='rtl']) & {
+      padding: 0 0 0 20px;
+      margin-right: 0;
+      margin-left: 20px;
+    }
+
+    :host-context([dir='rtl']) &::after {
+      right: auto;
+      left: -4px;
+    }
+  }
+
+  &__label {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #000000;
+    white-space: nowrap;
+
+    :host-context(body.theme--dark) & {
+      color: var(--lmo-text-secondary);
+    }
+  }
+
+  &__value {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #000000;
+    white-space: nowrap;
+
+    :host-context(body.theme--dark) & {
+      color: var(--lmo-text-primary);
+    }
+  }
+}
+
+@keyframes lmi-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

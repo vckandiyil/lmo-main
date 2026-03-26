@@ -5,6 +5,7 @@
   id="center-drop"
   [cdkDropListData]="centerDropData"
   [cdkDropListSortingDisabled]="true"
+  [cdkDropListEnterPredicate]="canDropInCenter"
   (cdkDropListDropped)="onCenterDrop($event)">
   <div class="center-section__presentation">
     <button
@@ -92,7 +93,7 @@
       <div class="center-section__widget-area">
         <div class="center-section__widget-card">
           @if (isCustomWidget(centerWidget()!)) {
-            <app-dynamic-widget [widgetType]="centerWidget()!" (expandClick)="restoreFromCenter()"/>
+            <app-dynamic-widget [widgetType]="centerWidget()!" [isCenter]="true" (expandClick)="restoreFromCenter()"/>
           } @else {
             <app-generic-widget-card [widgetType]="centerWidget()!" [isCenter]="true" (expandClick)="restoreFromCenter()"/>
           }

@@ -26,6 +26,7 @@ import {WidgetType} from '../../../core';
 })
 export class DynamicWidget implements AfterViewInit, OnChanges, OnDestroy {
   @Input({required: true}) widgetType!: WidgetType;
+  @Input() isCenter = false;
   @ViewChild('anchor', {read: ViewContainerRef}) private anchor!: ViewContainerRef;
 
   readonly expandClick = output<void>();
@@ -40,8 +41,11 @@ export class DynamicWidget implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.viewReady && changes['widgetType']) {
+    if (!this.viewReady) return;
+    if (changes['widgetType']) {
       this.rebuild();
+    } else if (changes['isCenter'] && this.compRef) {
+      this.compRef.setInput('isCenter', this.isCenter);
     }
   }
 
@@ -60,6 +64,7 @@ export class DynamicWidget implements AfterViewInit, OnChanges, OnDestroy {
 
     this.compRef = this.anchor.createComponent(compType as Type<unknown>);
     this.compRef.setInput('widgetType', this.widgetType);
+    this.compRef.setInput('isCenter', this.isCenter);
 
     const expandOut = (this.compRef.instance as Record<string, unknown>)['expandClick'];
     if (expandOut && typeof (expandOut as {subscribe?: unknown}).subscribe === 'function') {

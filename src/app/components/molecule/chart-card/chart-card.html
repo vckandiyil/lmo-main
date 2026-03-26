@@ -68,29 +68,56 @@
 </div>
 
 <div class="chart-card__footer">
-  <div class="chart-card__footer-left">
-    <div class="chart-card__ai-heading">
-      <app-icon name="stars" size="16" color="#3375C6"></app-icon>
-      <span class="chart-card__ai-title">AI Insights</span>
+  <div class="chart-card__footer-panel">
+    <div class="chart-card__footer-tabs">
+      <div
+        class="chart-card__footer-tab"
+        [class.chart-card__footer-tab--active]="activeFooterTab() === 'ai'"
+        (click)="setFooterTab('ai')">
+        <app-icon name="stars" size="18" [color]="getTabIconColor('ai')"></app-icon>
+      </div>
+      <div
+        class="chart-card__footer-tab"
+        [class.chart-card__footer-tab--active]="activeFooterTab() === 'download'"
+        (click)="setFooterTab('download')">
+        <app-icon name="download" size="18" [color]="getTabIconColor('download')"></app-icon>
+      </div>
     </div>
-    <p class="chart-card__ai-text">AI analysis shows that demand is consistently higher than supply across all major sectors. Healthcare and Technology face the biggest talent gaps, while Construction remains the largest employer with ongoing workforce needs. Education, Finance, Tourism, and Management also show steady demand growth.</p>
-  </div>
-  <div class="chart-card__footer-right">
-    <span class="chart-card__download-title">Download</span>
-    <div class="chart-card__download-formats">
-      @for (format of downloadFormats; track format.id) {
-        <div class="chart-card__download-format">
-          <div class="chart-card__download-format-icon" [style.background-color]="format.color">
-            <app-icon [name]="format.icon" [color]="format.iconColor" size="16"></app-icon>
-          </div>
-          <span class="chart-card__download-format-label">{{ format.label }}</span>
+
+    @if (activeFooterTab() === 'ai') {
+      <div class="chart-card__tab-content">
+        <div class="chart-card__ai-heading">
+          <app-icon name="stars" size="16" color="#3375C6"></app-icon>
+          <span class="chart-card__ai-title">AI Insights</span>
         </div>
-      }
-    </div>
-    <label class="chart-card__checkbox">
-      <input type="checkbox" [checked]="termsAccepted()" (change)="toggleTerms()">
-      <span class="chart-card__checkbox-mark"></span>
-      I agree to <strong>Terms &amp; Conditions</strong>
-    </label>
+        <p class="chart-card__ai-text">AI analysis shows that demand is consistently higher than supply across all major sectors. Healthcare and Technology face the biggest talent gaps, while Construction remains the largest employer with ongoing workforce needs. Education, Finance, Tourism, and Management also show steady demand growth.</p>
+      </div>
+    }
+
+    @if (activeFooterTab() === 'download') {
+      <div class="chart-card__tab-content chart-card__tab-content--download">
+        <span class="chart-card__download-title">Download</span>
+        <div class="chart-card__download-formats">
+          @for (format of downloadFormats; track format.id) {
+            <div class="chart-card__download-format">
+              <div class="chart-card__download-format-icon" [style.background-color]="format.color">
+                <app-icon [name]="format.icon" [color]="format.iconColor" size="16"></app-icon>
+              </div>
+              <span class="chart-card__download-format-label">{{ format.label }}</span>
+            </div>
+          }
+        </div>
+        <label class="chart-card__checkbox">
+          <input type="checkbox" [checked]="termsAccepted()" (change)="toggleTerms()">
+          <span class="chart-card__checkbox-mark"></span>
+          I agree to <strong>Terms &amp; Conditions</strong>
+        </label>
+      </div>
+    }
   </div>
+
+  <p class="chart-card__note-text"><strong>Note:</strong> The forecasts produced for the reference period are generated
+    using historical data collected prior to the start of the reference period. Therefore, any activities or policies
+    that may have contributed to changes in values during the forecasted period are not considered in these projections.
+  </p>
 </div>

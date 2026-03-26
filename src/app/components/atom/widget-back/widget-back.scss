@@ -32,6 +32,14 @@
     line-height: 21px;
     vertical-align: middle;
     color: var(--lmo-text-primary);
+
+    &--info {
+      color: #05264A;
+
+      :host-context(body.theme--dark) & {
+        color: #FFFFFF;
+      }
+    }
   }
 
   &__close {
@@ -57,6 +65,43 @@
 
     &::-webkit-scrollbar {
       display: none;
+    }
+  }
+
+  &__meta-list {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    :host-context([dir='rtl']) & {
+      padding: 0 6px 0 0;
+    }
+  }
+
+  &__meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #000000;
+
+    :host-context(body.theme--dark) & {
+      color: #CDD4DB;
+    }
+
+    &::before {
+      content: '';
+      flex-shrink: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #2563EA;
     }
   }
 }

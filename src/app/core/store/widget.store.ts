@@ -4,7 +4,6 @@ import {first} from 'rxjs';
 import {Widget, SidebarPosition, WidgetType, createWidgetId} from '../models/widget.model';
 import {WidgetCatalogService} from '../services/widget-catalog.service';
 
-const MY_LMO_KEY = 'lmo-my-layout';
 
 export interface WidgetState {
   leftWidgets: Widget[];
@@ -108,33 +107,22 @@ export const WidgetStore = signalStore(
             leftWidgets: targetWidgets,
             rightWidgets: otherWidgets
           });
-          localStorage.setItem(MY_LMO_KEY, JSON.stringify({left: targetWidgets, right: otherWidgets}));
         } else {
           patchState(store, {
             leftWidgets: otherWidgets,
             rightWidgets: targetWidgets
           });
-          localStorage.setItem(MY_LMO_KEY, JSON.stringify({left: otherWidgets, right: targetWidgets}));
         }
       },
 
       setFourColLayout(left: Widget[], right: Widget[]): void {
         patchState(store, {leftWidgets: left, rightWidgets: right});
-        localStorage.setItem(MY_LMO_KEY, JSON.stringify({left, right}));
       },
 
       setTopicLayout(leftTypes: WidgetType[], rightTypes: WidgetType[]): void {
         const leftWidgets  = leftTypes.map(type  => ({id: createWidgetId(type),  type}));
         const rightWidgets = rightTypes.map(type => ({id: createWidgetId(type), type}));
         patchState(store, {leftWidgets, rightWidgets});
-      },
-
-      restoreMyLmo(): boolean {
-        const saved = localStorage.getItem(MY_LMO_KEY);
-        if (!saved) return false;
-        const {left, right} = JSON.parse(saved) as {left: Widget[]; right: Widget[]};
-        patchState(store, {leftWidgets: left, rightWidgets: right});
-        return true;
       },
 
       restoreFromCenter(): void {

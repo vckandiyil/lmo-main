@@ -46,6 +46,23 @@
     }
   }
 
+  &__note-text {
+    margin: 0;
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: #f1f2f3;
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #364151;
+
+    :host-context(body.theme--dark) & {
+      background: #30394a;
+      color: #cdd4db;
+    }
+  }
+
   &__stats {
     display: flex;
     align-items: center;
@@ -129,28 +146,48 @@
   &__footer {
     margin-top: 30px;
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 100px;
-  }
-
-  &__footer-left {
-    display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 16px;
   }
 
-  &__footer-right {
+  &__footer-tabs {
+    display: flex;
+  }
+
+  &__footer-tab {
+    width: 72px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 300ms ease-out;
+    border-radius: 8px 8px 0 0;
+
+    &--active {
+      background: #f1f2f3;
+
+      :host-context(body.theme--dark) & {
+        background: #30394a;
+      }
+    }
+  }
+
+  &__tab-content {
     padding: 12px;
-    border-radius: 12px;
-    background: #ffffff;
+    background: #f1f2f3;
+    border-radius: 0 8px 8px 8px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    flex-shrink: 0;
+    min-height: 140px;
 
     :host-context(body.theme--dark) & {
       background: #30394a;
+    }
+
+    &--download {
+      border-radius: 8px;
     }
   }
 

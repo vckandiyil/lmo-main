@@ -1,4 +1,4 @@
-import {Component, input, output} from '@angular/core';
+import {Component, input, output, signal} from '@angular/core';
 import {ChartWrapper} from '../chart-wrapper/chart-wrapper';
 import {WidgetHeader} from '../../atom/widget-header/widget-header';
 import {WidgetCheckbox} from '../../atom/widget-checkbox/widget-checkbox';
@@ -14,13 +14,19 @@ import {ChartOptions} from '../../../shared/services/chart-config.service';
   styleUrl: './widget-card.scss',
 })
 export class WidgetCard {
-  title = input.required<string>();
-  chartOptions = input<ChartOptions>({});
-  selected = input(false);
-  widgetType = input<string>('');
-  icons = input<string[]>(['stars', 'stats-up-square', 'more']);
+  title         = input.required<string>();
+  chartOptions  = input<ChartOptions>({});
+  selected      = input(false);
+  widgetType    = input<string>('');
+  icons         = input<string[]>(['stars', 'stats-up-square', 'more']);
+  indicatorName = input<string>('');
+  unit          = input<string>('');
+  updatedDate   = input<string>('');
+  periodicity   = input<string>('');
   selectedChange = output<void>();
-  expandClick = output<void>();
+  expandClick    = output<void>();
+
+  readonly backMode = signal<'ai' | 'info'>('ai');
 
   onClick(): void {
     this.selectedChange.emit();

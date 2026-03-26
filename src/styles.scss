@@ -156,7 +156,7 @@ app-root.page--my-lmo {
 }
 
 app-root.page--my-lmo app-sidebar {
-  --sidebar-top: 148px;
+  --sidebar-top: 108px;
 }
 
 app-filters app-dropdown,
@@ -169,7 +169,8 @@ app-filters .filters__clear {
 }
 
 app-labor-market-insights app-sidebar app-dropdown,
-app-what-if app-what-if-sidebar app-dropdown {
+app-what-if app-what-if-sidebar app-dropdown,
+app-widget-center app-dropdown {
   --lmo-bg-surface: #ffffff;
 
   body.theme--dark & {

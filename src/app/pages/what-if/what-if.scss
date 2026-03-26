@@ -14,8 +14,9 @@
 
     :host-context([dir='rtl']) & {
       left: auto;
-      right: 384px;
+      right: calc(var(--nav-sidebar-w) + 384px);
       padding: 8px 0 20px 20px;
+      transition: right 0.3s ease, width 0.3s ease;
     }
   }
 

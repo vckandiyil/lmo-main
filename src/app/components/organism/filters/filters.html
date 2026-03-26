@@ -70,7 +70,7 @@
             (click)="toggleMic()"
           />
           <button class="filters__search-button" type="button" (click)="openSearchModal()">
-            <app-icon name="nav-arrow-right" size="20" color="#FFFFFF"/>
+            <app-icon [name]="isRtl() ? 'nav-arrow-left' : 'nav-arrow-right'" size="20" color="#FFFFFF"/>
           </button>
         </div>
       </div>

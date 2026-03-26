@@ -1,114 +1,25 @@
+:host {
+  --content-top: 108px;
+}
+
 .my-lmo {
-  &__subheader {
+  &__center {
     position: fixed;
-    top: 0;
-    left: var(--nav-sidebar-w);
-    right: 0;
-    transition: left 0.3s ease;
-    height: 84px;
-    padding: 24px 20px;
-    box-sizing: border-box;
+    top: var(--content-top);
+    left: calc(var(--nav-sidebar-w) + 384px);
+    width: calc(100% - var(--nav-sidebar-w) - 768px);
+    height: calc(100vh - var(--content-top) - 168px - 40px);
+    transition: left 0.3s ease, width 0.3s ease;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: var(--lmo-bg-surface);
-    border-bottom: 1px solid var(--lmo-border-color);
-    z-index: 9;
-  }
+    flex-direction: column;
+    background: var(--lmo-bg-widget);
+    border-radius: 16px;
+    overflow: hidden;
 
-  &__title {
-    font-family: 'Graphik Trial', sans-serif;
-    font-weight: 600;
-    font-size: 28px;
-    line-height: 36px;
-    letter-spacing: 0;
-    vertical-align: middle;
-    color: #000000;
-
-    :host-context(body.theme--dark) & {
-      color: #ffffff;
-    }
-  }
-
-  &__actions {
-    height: 36px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  &__search {
-    width: 342px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 4px 4px 4px 8px;
-    box-sizing: border-box;
-    background: #ffffff;
-    border: 1px solid var(--lmo-dropdown-border);
-
-    :host-context(body.theme--dark) & {
-      background: #212836;
-    }
-
-    border-radius: 17px;
-  }
-
-  &__search-icon {
-    flex-shrink: 0;
-    margin-right: 8px;
-    color: #3375C6;
-  }
-
-  &__search-input {
-    flex: 1;
-    height: 100%;
-    border: none;
-    outline: none;
-    background: transparent;
-    font-family: 'Graphik Trial', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
-    letter-spacing: 0;
-    vertical-align: middle;
-    color: #000000;
-
-    :host-context(body.theme--dark) & {
-      color: #ffffff;
-    }
-
-    &::placeholder {
-      font-family: 'Graphik Trial', sans-serif;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 21px;
-      letter-spacing: 0;
-      vertical-align: middle;
-      color: #6A7180;
-
-      :host-context(body.theme--dark) & {
-        color: #ffffff;
-      }
-    }
-  }
-
-  &__search-clear {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    padding: 0;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    flex-shrink: 0;
-    color: #37516E;
-
-    :host-context(body.theme--dark) & {
-      color: #ffffff;
+    :host-context([dir='rtl']) & {
+      left: auto;
+      right: calc(var(--nav-sidebar-w) + 384px);
+      transition: right 0.3s ease, width 0.3s ease;
     }
   }
 
@@ -149,22 +60,12 @@
   }
 
   &__empty {
-    position: fixed;
-    top: 84px;
-    left: calc(var(--nav-sidebar-w) + 384px);
-    transition: left 0.3s ease;
-    right: 384px;
-    bottom: 0;
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 34px;
-    pointer-events: none;
-
-    .my-lmo__add-button {
-      pointer-events: all;
-    }
   }
 
   &__empty-text {

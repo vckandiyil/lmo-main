@@ -1,45 +1,18 @@
 <app-sidebar [resetToDefaults]="false"></app-sidebar>
-<app-filters [showLayoutButtons]="true"></app-filters>
+<app-filters></app-filters>
 @if (layoutMode() === '3col') {
   <section class="gap-analysis-center">
+    <div class="gap-analysis-center__header center-section__widget-card">
+      <app-widget-checkbox [selected]="false"/>
+      <app-widget-header [title]="title()"/>
+    </div>
     <app-gap-analysis-sankey [year]="selectedTimelineYear()"/>
-    <div class="gap-timeline">
-      <div class="gap-timeline__zoom">
-        <button class="gap-timeline__ctrl-btn">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 10H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-        <button class="gap-timeline__ctrl-btn">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-        <button class="gap-timeline__ctrl-btn">
-          <app-icon name="expand" size="20"/>
-        </button>
-        <button class="gap-timeline__ctrl-btn">
-          <app-icon name="collapse" size="20"/>
-        </button>
-      </div>
-      <div class="gap-timeline__controls">
-        <div class="gap-timeline__center">
-          @for (year of timelineYears; track year) {
-            <button
-              class="gap-timeline__year-btn"
-              [class.gap-timeline__year-btn--active]="selectedTimelineYear() === year"
-              (click)="selectedTimelineYear.set(year)">{{ year }}
-            </button>
-          }
-          @for (q of quarters; track q) {
-            <button
-              class="gap-timeline__quarter-btn"
-              [class.gap-timeline__quarter-btn--active]="selectedQuarter() === q"
-              (click)="selectedQuarter.set(q)">{{ q }}
-            </button>
-          }
-        </div>
-      </div>
+    <div class="gap-analysis-center__timeline">
+      <app-gap-analysis-timeline
+        [selectedYear]="selectedTimelineYear()"
+        [selectedQuarter]="selectedQuarter()"
+        (yearChange)="selectedTimelineYear.set($event)"
+        (quarterChange)="selectedQuarter.set($event)"/>
     </div>
   </section>
 }

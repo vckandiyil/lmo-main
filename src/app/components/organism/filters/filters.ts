@@ -9,7 +9,7 @@ import {PresentationModal} from '../../molecule/presentation-modal/presentation-
 import {WidgetCatalogService} from '../../../core/services/widget-catalog.service';
 import {WidgetStore} from '../../../core';
 import {FilterStateService} from '../../../core/services/filter-state.service';
-import {LayoutService} from '../../../core';
+import {LayoutService, LanguageService} from '../../../core';
 
 @Component({
   selector: 'app-filters',
@@ -26,18 +26,19 @@ export class Filters {
   private readonly filterState = inject(FilterStateService);
   private readonly translate = inject(TranslateService);
   private readonly layoutService = inject(LayoutService);
+  private readonly languageService = inject(LanguageService);
+
+  readonly isRtl = this.languageService.isRtl;
 
   readonly layoutMode = this.layoutService.layoutMode;
 
-  private readonly MY_LMO = 'My LMO';
   private readonly TOPIC_ORDER = ['Employment', 'Unemployment', 'Outside Labor Force', 'Job Vacancies', 'Job Seekers'];
 
   private readonly topics = toSignal(this.widgetCatalogService.getTopics(), {initialValue: []});
   readonly topicOptions = computed(() => {
-    const sorted = [...this.topics()].sort(
+    return [...this.topics()].sort(
       (a, b) => (this.TOPIC_ORDER.indexOf(a) ?? Infinity) - (this.TOPIC_ORDER.indexOf(b) ?? Infinity)
     );
-    return [...sorted, this.MY_LMO];
   });
   selectedTopic = signal<string | null>(null);
 
@@ -79,11 +80,6 @@ export class Filters {
 
   onTopicSelect(value: string): void {
     this.selectedTopic.set(value);
-    if (value === this.MY_LMO) {
-      this.widgetStore.restoreMyLmo();
-      this.filterState.selectedTopic.set(null);
-      return;
-    }
     this.filterState.selectedTopic.set(value);
     this.widgetCatalogService.getWidgetsByCategory(value).subscribe(widgets => {
       const mid = Math.ceil(widgets.length / 2);

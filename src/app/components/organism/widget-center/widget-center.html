@@ -2,19 +2,26 @@
   class="widget-center"
   [class.widget-center--open]="isOpen()"
   [class.widget-center--closing]="isClosing()"
-  (click)="onBackdropClick()"
+  (click)="onBackdropClick($event)"
 >
-  <div class="widget-center__content" (click)="onContentClick($event)">
+  <div class="widget-center__content">
     <div class="widget-center__header">
       <h2 class="widget-center__title">{{ 'LMI.WIDGET_CENTER_TITLE' | translate }}</h2>
       <div class="widget-center__actions">
+        <app-dropdown
+          class="widget-center__topic-dropdown"
+          placeholder="Topic"
+          [value]="selectedTopic()"
+          [options]="topics()"
+          (selected)="onTopicSelect($event)"
+        />
+        @if (selectedTopic()) {
+          <button class="widget-center__topic-clear" (click)="clearTopic()">
+            <app-icon name="close" size="12"/>
+          </button>
+        }
         <div class="widget-center__search">
-          <svg class="widget-center__search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
-               xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M17.5 17.5L13.875 13.875M15.8333 9.16667C15.8333 12.8486 12.8486 15.8333 9.16667 15.8333C5.48477 15.8333 2.5 12.8486 2.5 9.16667C2.5 5.48477 5.48477 2.5 9.16667 2.5C12.8486 2.5 15.8333 5.48477 15.8333 9.16667Z"
-              stroke="#3375C6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+          <app-icon class="widget-center__search-icon" name="search" size="20" color="#3375C6"/>
           <input
             type="text"
             class="widget-center__search-input"
@@ -24,7 +31,7 @@
           />
           @if (searchValue()) {
             <button class="widget-center__search-clear" (click)="clearSearch()">
-              <span class="widget-center__search-clear-icon"></span>
+              <app-icon name="close" size="12"/>
             </button>
           }
         </div>
@@ -33,38 +40,94 @@
           (click)="addSelectedWidgets()"
         >
           <div class="widget-center__add-icon">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 1V11M1 6H11" stroke="#131927" stroke-width="1.5" stroke-linecap="round"
-                    stroke-linejoin="round"/>
-            </svg>
+            <app-icon name="plus" size="16"/>
           </div>
           <span>{{ 'LMI.WIDGET_CENTER_ADD' | translate }}</span>
         </button>
         <button class="widget-center__close" (click)="close()">
-          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M13.5 1.5L1.5 13.5M1.5 1.5L13.5 13.5" stroke="#37516E" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round"/>
-          </svg>
+          <app-icon name="close" size="15"/>
         </button>
       </div>
     </div>
+
     <div class="widget-center__body">
       <div class="widget-center__grid">
-        @for (type of allWidgetTypes(); track type) {
-          <div
-            class="widget-center__widget-wrapper"
-            [class.widget-center__hidden]="!isVisible(type)"
-            [class.widget-center__widget-wrapper--selected]="isSelected(type)"
-            (click)="toggleSelection(type)"
-          >
-            @if (isCustomWidget(type)) {
-              <ng-container [ngComponentOutlet]="getWidgetComponent(type)"/>
-            } @else {
-              <app-generic-widget-card [widgetType]="type"/>
+        <div class="widget-center__col">
+          @for (type of col1Types(); track type) {
+            <div
+              class="widget-center__widget-wrapper"
+              [class.widget-center__widget-wrapper--selected]="isSelected(type)"
+              (click)="toggleSelection(type)"
+            >
+              @if (isCustomWidget(type)) {
+                <ng-container [ngComponentOutlet]="getWidgetComponent(type)"/>
+              } @else {
+                <app-generic-widget-card [widgetType]="type"/>
+              }
+            </div>
+          }
+        </div>
+        @if (col2Types().length > 0) {
+          <div class="widget-center__col">
+            @for (type of col2Types(); track type) {
+              <div
+                class="widget-center__widget-wrapper"
+                [class.widget-center__widget-wrapper--selected]="isSelected(type)"
+                (click)="toggleSelection(type)"
+              >
+                @if (isCustomWidget(type)) {
+                  <ng-container [ngComponentOutlet]="getWidgetComponent(type)"/>
+                } @else {
+                  <app-generic-widget-card [widgetType]="type"/>
+                }
+              </div>
+            }
+          </div>
+        }
+        @if (col3Types().length > 0) {
+          <div class="widget-center__col">
+            @for (type of col3Types(); track type) {
+              <div
+                class="widget-center__widget-wrapper"
+                [class.widget-center__widget-wrapper--selected]="isSelected(type)"
+                (click)="toggleSelection(type)"
+              >
+                @if (isCustomWidget(type)) {
+                  <ng-container [ngComponentOutlet]="getWidgetComponent(type)"/>
+                } @else {
+                  <app-generic-widget-card [widgetType]="type"/>
+                }
+              </div>
             }
           </div>
         }
       </div>
+
+      @if (totalPages() > 1) {
+        <div class="widget-center__pagination">
+          <button
+            class="widget-center__pagination-btn"
+            [class.widget-center__pagination-btn--disabled]="currentPage() === 1"
+            (click)="prevPage()"
+          >
+            <app-icon name="nav-arrow-left" size="16"/>
+          </button>
+          @for (page of pageNumbers(); track page) {
+            <button
+              class="widget-center__pagination-page"
+              [class.widget-center__pagination-page--active]="currentPage() === page"
+              (click)="goToPage(page)"
+            >{{ page }}</button>
+          }
+          <button
+            class="widget-center__pagination-btn"
+            [class.widget-center__pagination-btn--disabled]="currentPage() === totalPages()"
+            (click)="nextPage()"
+          >
+            <app-icon name="nav-arrow-right" size="16"/>
+          </button>
+        </div>
+      }
     </div>
   </div>
 </div>

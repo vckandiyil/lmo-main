@@ -15,7 +15,8 @@
 
     :host-context([dir='rtl']) & {
       left: auto;
-      right: 0;
+      right: var(--nav-sidebar-w);
+      transition: right 0.3s ease;
     }
 
     .sidebar__widgets {
@@ -24,7 +25,8 @@
 
       :host-context([dir='rtl']) & {
         left: auto;
-        right: 0;
+        right: var(--nav-sidebar-w);
+        transition: right 0.3s ease;
       }
     }
 
@@ -33,7 +35,8 @@
 
       :host-context([dir='rtl']) & {
         left: auto;
-        right: 0;
+        right: var(--nav-sidebar-w);
+        transition: right 0.3s ease;
       }
     }
   }
@@ -219,7 +222,8 @@
 
     :host-context([dir='rtl']) & {
       left: auto;
-      right: 0;
+      right: var(--nav-sidebar-w);
+      transition: right 0.3s ease;
     }
     height: 61px;
     gap: 10px;
@@ -305,6 +309,10 @@
     top: var(--sidebar-top, var(--content-top));
     width: var(--_4cw);
     transition: left 0.3s ease, width 0.3s ease;
+
+    :host-context([dir='rtl']) & {
+      transition: right 0.3s ease, width 0.3s ease;
+    }
     height: calc(100vh - var(--sidebar-top, var(--content-top)));
     overflow-x: hidden;
     overflow-y: auto;
@@ -328,7 +336,8 @@
 
     :host-context([dir='rtl']) & {
       left: auto;
-      right: 20px;
+      right: calc(var(--nav-sidebar-w) + 20px);
+      transition: right 0.3s ease, width 0.3s ease;
     }
 
     .sidebar__frame {
@@ -338,7 +347,8 @@
 
       :host-context([dir='rtl']) & {
         left: auto;
-        right: 20px;
+        right: calc(var(--nav-sidebar-w) + 20px);
+        transition: right 0.3s ease;
       }
     }
   }
@@ -348,7 +358,8 @@
 
     :host-context([dir='rtl']) & {
       left: auto;
-      right: calc(20px + var(--_4cw) + 8px);
+      right: calc(var(--nav-sidebar-w) + 20px + var(--_4cw) + 8px);
+      transition: right 0.3s ease, width 0.3s ease;
     }
 
     .sidebar__frame {
@@ -358,7 +369,8 @@
 
       :host-context([dir='rtl']) & {
         left: auto;
-        right: calc(20px + var(--_4cw) + 8px);
+        right: calc(var(--nav-sidebar-w) + 20px + var(--_4cw) + 8px);
+        transition: right 0.3s ease;
       }
     }
   }
@@ -368,7 +380,8 @@
 
     :host-context([dir='rtl']) & {
       left: auto;
-      right: calc(20px + 2 * var(--_4cw) + 16px);
+      right: calc(var(--nav-sidebar-w) + 20px + 2 * var(--_4cw) + 16px);
+      transition: right 0.3s ease, width 0.3s ease;
     }
 
     .sidebar__frame {
@@ -378,7 +391,8 @@
 
       :host-context([dir='rtl']) & {
         left: auto;
-        right: calc(20px + 2 * var(--_4cw) + 16px);
+        right: calc(var(--nav-sidebar-w) + 20px + 2 * var(--_4cw) + 16px);
+        transition: right 0.3s ease;
       }
     }
   }
@@ -388,7 +402,8 @@
 
     :host-context([dir='rtl']) & {
       left: auto;
-      right: calc(20px + 3 * var(--_4cw) + 24px);
+      right: calc(var(--nav-sidebar-w) + 20px + 3 * var(--_4cw) + 24px);
+      transition: right 0.3s ease, width 0.3s ease;
     }
 
     .sidebar__frame {
@@ -398,7 +413,8 @@
 
       :host-context([dir='rtl']) & {
         left: auto;
-        right: calc(20px + 3 * var(--_4cw) + 24px);
+        right: calc(var(--nav-sidebar-w) + 20px + 3 * var(--_4cw) + 24px);
+        transition: right 0.3s ease;
       }
     }
   }

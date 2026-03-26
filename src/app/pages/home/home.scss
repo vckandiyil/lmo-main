@@ -5,6 +5,12 @@
   padding-left: var(--nav-sidebar-w);
   background: var(--lmo-bg-surface);
   transition: padding-left 0.3s ease;
+
+  :host-context([dir='rtl']) & {
+    padding-left: 0;
+    padding-right: var(--nav-sidebar-w);
+    transition: padding-right 0.3s ease;
+  }
 }
 
 .hero {
@@ -19,7 +25,7 @@
 
   &__map {
     position: absolute;
-    top: 8%;
+    top: calc(8% - 40px);
     left: 50%;
     transform: translateX(-50%);
     width: 1100px;
@@ -60,7 +66,7 @@
 
     &--al-dhafra {
       left: -65px;
-      top: 120px;
+      top: 80px;
 
       .hero__region-dot,
       .hero__region-label {
@@ -71,7 +77,7 @@
 
     &--abu-dhabi {
       left: 502px;
-      top: -19px;
+      top: -59px;
 
       .hero__region-dot,
       .hero__region-label {
@@ -82,7 +88,7 @@
 
     &--al-ain {
       left: 708px;
-      top: 15px;
+      top: -25px;
 
       .hero__region-dot,
       .hero__region-label {
@@ -187,10 +193,9 @@
 
   &__filters {
     position: absolute;
-    top: 80px;
+    top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 538px;
     height: 44px;
     border-radius: 96px;
     padding: 4px 4px 4px 16px;
@@ -233,7 +238,7 @@
     flex: 1;
 
     app-dropdown {
-      flex: 1;
+      flex: 0 0 180px;
 
       ::ng-deep {
         .dropdown__trigger {
@@ -250,7 +255,14 @@
           }
         }
 
+        .dropdown__value-container {
+          overflow: hidden;
+        }
+
         .dropdown__value {
+          display: block;
+          overflow: hidden;
+          text-overflow: ellipsis;
           color: #6A7180;
 
           :host-context(body.theme--dark) & {
@@ -335,6 +347,12 @@
   :host-context(body.theme--dark) & {
     background-color: #121927;
   }
+
+  :host-context([dir='rtl']) & {
+    margin-left: 0;
+    margin-right: calc(-1 * var(--nav-sidebar-w));
+    transition: margin-right 0.3s ease, width 0.3s ease;
+  }
 }
 
 .timeline {
@@ -354,6 +372,7 @@
 
   :host-context([dir="rtl"]) & {
     padding: 100px calc(100px + var(--nav-sidebar-w)) 100px 0;
+    transition: padding-right 0.3s ease;
   }
 
   &__lines {
@@ -505,6 +524,13 @@
 
   :host-context(body.theme--dark) & {
     background: radial-gradient(47.16% 108.82% at 12.76% 17.39%, #1F2839 0%, #121927 100%);
+  }
+
+  :host-context([dir='rtl']) & {
+    padding: 100px calc(100px + var(--nav-sidebar-w)) 100px 100px;
+    margin-left: 0;
+    margin-right: calc(-1 * var(--nav-sidebar-w));
+    transition: padding-right 0.3s ease, margin-right 0.3s ease, width 0.3s ease;
   }
 
   &__header {

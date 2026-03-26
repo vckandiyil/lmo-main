@@ -19,6 +19,7 @@ export class NavSidebar {
 
   protected readonly expanded = signal(false);
   protected readonly isDarkMode = this.themeService.isDarkMode;
+  protected readonly isRtl = this.languageService.isRtl;
   protected readonly isNotificationModalOpen = signal(false);
 
   constructor() {

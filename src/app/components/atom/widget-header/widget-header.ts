@@ -18,7 +18,7 @@ import {MatTooltip} from '@angular/material/tooltip';
               <app-icon name="more" size="18"/>
             </span>
             @if (moreOpen()) {
-              <app-more-menu [items]="moreItems()"/>
+              <app-more-menu [items]="moreItems()" (itemClicked)="onMoreItemClicked($event)"/>
             }
           } @else if (icon === 'stars') {
             <span class="widget-header__icon" matTooltip="AI Insight" matTooltipPosition="above" (click)="onStarsClick($event)">
@@ -61,6 +61,7 @@ export class WidgetHeader {
 
   readonly starsClick = output<void>();
   readonly expandClick = output<void>();
+  readonly infoClick = output<void>();
 
   readonly moreOpen = computed(() => this.menuService.isOpen(this.id));
 
@@ -79,6 +80,13 @@ export class WidgetHeader {
   toggleMore(event: MouseEvent): void {
     event.stopPropagation();
     this.moreOpen() ? this.menuService.close() : this.menuService.open(this.id);
+  }
+
+  onMoreItemClicked(item: MoreMenuItem): void {
+    this.menuService.close();
+    if (item.label === 'HOME.MORE_INFORMATION') {
+      this.infoClick.emit();
+    }
   }
 
   @HostListener('document:click', ['$event'])

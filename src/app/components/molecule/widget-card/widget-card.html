@@ -1,10 +1,18 @@
 <div class="widget-card" [class.widget-card--selected]="selected()" (click)="onClick()">
   <app-flip-card #flipCard>
     <app-widget-checkbox [selected]="selected()" front/>
-    <app-widget-header [title]="title()" [icons]="icons()" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" front/>
+    <app-widget-header [title]="title()" [icons]="icons()" (starsClick)="backMode.set('ai'); flipCard.toggle()" (infoClick)="backMode.set('info'); flipCard.toggle()" (expandClick)="expandClick.emit()" front/>
     <div class="widget-card__body" front>
       <app-chart-wrapper [options]="chartOptions()"/>
     </div>
-    <app-widget-back back [widgetType]="widgetType()" (close)="flipCard.toggle()"></app-widget-back>
+    <app-widget-back back
+      [widgetType]="widgetType()"
+      [mode]="backMode()"
+      [indicatorName]="indicatorName()"
+      [unit]="unit()"
+      [updatedDate]="updatedDate()"
+      [periodicity]="periodicity()"
+      (close)="flipCard.toggle()">
+    </app-widget-back>
   </app-flip-card>
 </div>

@@ -10,7 +10,7 @@
         (cdkDropListDropped)="onWidgetDrop($event, 'left')"
       >
         @for (widget of leftWidgetList(); track widget.id; let i = $index) {
-          <div class="sidebar__widget-item" cdkDrag (cdkDragStarted)="onDragStarted()"
+          <div class="sidebar__widget-item" cdkDrag [cdkDragData]="widget" (cdkDragStarted)="onDragStarted()"
                (click)="onWidgetClick(widget.type)">
             <div class="sidebar__widget-placeholder" *cdkDragPlaceholder></div>
             @if (widget.type === WidgetType.Map) {
@@ -71,7 +71,7 @@
         (cdkDropListDropped)="onWidgetDrop($event, 'right')"
       >
         @for (widget of rightWidgetList(); track widget.id; let i = $index) {
-          <div class="sidebar__widget-item" cdkDrag (cdkDragStarted)="onDragStarted()"
+          <div class="sidebar__widget-item" cdkDrag [cdkDragData]="widget" (cdkDragStarted)="onDragStarted()"
                (click)="onWidgetClick(widget.type)">
             <div class="sidebar__widget-placeholder" *cdkDragPlaceholder></div>
             @if (widget.type === WidgetType.Map) {
@@ -129,11 +129,11 @@
       cdkDropList
       id="col1-widgets"
       [cdkDropListData]="col1Widgets()"
-      [cdkDropListConnectedTo]="['col2-widgets', 'col3-widgets', 'col4-widgets']"
+      [cdkDropListConnectedTo]="['col2-widgets', 'col3-widgets', 'col4-widgets', 'center-drop']"
       (cdkDropListDropped)="onWidgetDrop4Col($event, 1)"
     >
       @for (widget of col1Widgets(); track widget.id) {
-        <div class="sidebar__widget-item" cdkDrag [cdkDragDisabled]="col1Widgets().length <= 1" (cdkDragStarted)="onDragStarted()" (click)="onWidgetClick(widget.type)">
+        <div class="sidebar__widget-item" cdkDrag [cdkDragData]="widget" [cdkDragDisabled]="col1Widgets().length <= 1" (cdkDragStarted)="onDragStarted()" (click)="onWidgetClick(widget.type)">
           <div class="sidebar__widget-placeholder" *cdkDragPlaceholder></div>
           @if (isCustomWidget(widget.type)) {
             <app-dynamic-widget [widgetType]="widget.type" (expandClick)="onWidgetExpand('left', $index, widget.type)"/>
@@ -167,11 +167,11 @@
       cdkDropList
       id="col2-widgets"
       [cdkDropListData]="col2Widgets()"
-      [cdkDropListConnectedTo]="['col1-widgets', 'col3-widgets', 'col4-widgets']"
+      [cdkDropListConnectedTo]="['col1-widgets', 'col3-widgets', 'col4-widgets', 'center-drop']"
       (cdkDropListDropped)="onWidgetDrop4Col($event, 2)"
     >
       @for (widget of col2Widgets(); track widget.id) {
-        <div class="sidebar__widget-item" cdkDrag [cdkDragDisabled]="col2Widgets().length <= 1" (cdkDragStarted)="onDragStarted()" (click)="onWidgetClick(widget.type)">
+        <div class="sidebar__widget-item" cdkDrag [cdkDragData]="widget" [cdkDragDisabled]="col2Widgets().length <= 1" (cdkDragStarted)="onDragStarted()" (click)="onWidgetClick(widget.type)">
           <div class="sidebar__widget-placeholder" *cdkDragPlaceholder></div>
           @if (isCustomWidget(widget.type)) {
             <app-dynamic-widget [widgetType]="widget.type" (expandClick)="onWidgetExpand('left', $index, widget.type)"/>
@@ -205,11 +205,11 @@
       cdkDropList
       id="col3-widgets"
       [cdkDropListData]="col3Widgets()"
-      [cdkDropListConnectedTo]="['col1-widgets', 'col2-widgets', 'col4-widgets']"
+      [cdkDropListConnectedTo]="['col1-widgets', 'col2-widgets', 'col4-widgets', 'center-drop']"
       (cdkDropListDropped)="onWidgetDrop4Col($event, 3)"
     >
       @for (widget of col3Widgets(); track widget.id) {
-        <div class="sidebar__widget-item" cdkDrag [cdkDragDisabled]="col3Widgets().length <= 1" (cdkDragStarted)="onDragStarted()" (click)="onWidgetClick(widget.type)">
+        <div class="sidebar__widget-item" cdkDrag [cdkDragData]="widget" [cdkDragDisabled]="col3Widgets().length <= 1" (cdkDragStarted)="onDragStarted()" (click)="onWidgetClick(widget.type)">
           <div class="sidebar__widget-placeholder" *cdkDragPlaceholder></div>
           @if (isCustomWidget(widget.type)) {
             <app-dynamic-widget [widgetType]="widget.type" (expandClick)="onWidgetExpand('right', $index, widget.type)"/>
@@ -243,11 +243,11 @@
       cdkDropList
       id="col4-widgets"
       [cdkDropListData]="col4Widgets()"
-      [cdkDropListConnectedTo]="['col1-widgets', 'col2-widgets', 'col3-widgets']"
+      [cdkDropListConnectedTo]="['col1-widgets', 'col2-widgets', 'col3-widgets', 'center-drop']"
       (cdkDropListDropped)="onWidgetDrop4Col($event, 4)"
     >
       @for (widget of col4Widgets(); track widget.id) {
-        <div class="sidebar__widget-item" cdkDrag [cdkDragDisabled]="col4Widgets().length <= 1" (cdkDragStarted)="onDragStarted()" (click)="onWidgetClick(widget.type)">
+        <div class="sidebar__widget-item" cdkDrag [cdkDragData]="widget" [cdkDragDisabled]="col4Widgets().length <= 1" (cdkDragStarted)="onDragStarted()" (click)="onWidgetClick(widget.type)">
           <div class="sidebar__widget-placeholder" *cdkDragPlaceholder></div>
           @if (isCustomWidget(widget.type)) {
             <app-dynamic-widget [widgetType]="widget.type" (expandClick)="onWidgetExpand('right', $index, widget.type)"/>

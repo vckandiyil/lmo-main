@@ -12,6 +12,12 @@
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
+
+    :host-context([dir='rtl']) & {
+      left: 0;
+      right: var(--nav-sidebar-w);
+      transition: right 0.3s ease, width 0.3s ease;
+    }
   }
 
   &__graphs {

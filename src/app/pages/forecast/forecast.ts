@@ -1,7 +1,7 @@
 import {Component, computed, inject} from '@angular/core';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {Filters} from '../../components/organism/filters/filters';
-import {ForecastCard} from '../../components/molecule/forecast-card/forecast-card';
+import {ChartCard} from '../../components/molecule/chart-card/chart-card';
 import {Button} from '../../components/atom/button/button';
 import {WidgetCatalogService} from '../../core/services/widget-catalog.service';
 import {FilterStateService} from '../../core/services/filter-state.service';
@@ -9,7 +9,7 @@ import {FilterStateService} from '../../core/services/filter-state.service';
 @Component({
   selector: 'app-forecast',
   standalone: true,
-  imports: [Filters, ForecastCard, Button],
+  imports: [Filters, ChartCard, Button],
   templateUrl: './forecast.html',
   styleUrl: './forecast.scss',
 })

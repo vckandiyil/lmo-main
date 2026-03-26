@@ -9,9 +9,11 @@ import {
   computed,
 } from '@angular/core';
 import {TranslateModule} from '@ngx-translate/core';
-import {CdkDragDrop, CdkDropList} from '@angular/cdk/drag-drop';
+import {CdkDrag, CdkDragDrop, CdkDropList} from '@angular/cdk/drag-drop';
+import {toSignal} from '@angular/core/rxjs-interop';
+import {map} from 'rxjs';
 import { MapService, MapViewType, SceneViewType, RegionPopulation } from '../../../shared/services/map.service';
-import { WidgetStore, WidgetType } from '../../../core';
+import { WidgetStore, WidgetType, WidgetCatalogService } from '../../../core';
 import type { Widget, SidebarPosition } from '../../../core';
 import { GenericWidgetCard } from '../../molecule/generic-widget-card/generic-widget-card';
 import { Icon } from '../../atom/icon/icon';
@@ -30,7 +32,7 @@ interface RegionPopulationData {
 @Component({
   selector: 'app-center-section',
   standalone: true,
-  imports: [TranslateModule, GenericWidgetCard, DynamicWidget, GapAnalysisFullscreen, CdkDropList, DecimalPipe, Icon],
+  imports: [TranslateModule, GenericWidgetCard, DynamicWidget, GapAnalysisFullscreen, CdkDropList, CdkDrag, DecimalPipe, Icon],
   templateUrl: './center-section.html',
   styleUrl: './center-section.scss',
 })
@@ -38,6 +40,13 @@ export class CenterSection implements AfterViewInit, OnDestroy {
   private readonly mapContainer = viewChild.required<ElementRef<HTMLDivElement>>('mapContainer');
   private readonly mapService = inject(MapService);
   private readonly widgetStore = inject(WidgetStore);
+  private readonly catalogService = inject(WidgetCatalogService);
+  private readonly expandableTypes = toSignal(
+    this.catalogService.getSidebarWidgets().pipe(
+      map(entries => new Set(entries.filter(e => e.hasExpandIcon).map(e => e.id)))
+    ),
+    { initialValue: new Set<string>() }
+  );
   private mapView: MapViewType | null = null;
   private sceneView: SceneViewType | null = null;
   private readonly mapStyleUrl = '/assets/map-styles/blue-white-canvas.json';
@@ -89,9 +98,25 @@ export class CenterSection implements AfterViewInit, OnDestroy {
     this.widgetStore.restoreFromCenter();
   }
 
+  canDropInCenter = (drag: CdkDrag<Widget>): boolean => {
+    return drag.data.type === WidgetType.Map || this.expandableTypes().has(drag.data.type);
+  };
+
   onCenterDrop(event: CdkDragDrop<Widget[]>): void {
-    const sourceSidebar: SidebarPosition = event.previousContainer.id === 'left-widgets' ? 'left' : 'right';
-    this.widgetStore.swapWithCenter(sourceSidebar, event.previousIndex);
+    const draggedWidget = event.item.data as Widget;
+    const leftWidgets = this.widgetStore.leftWidgets();
+    const rightWidgets = this.widgetStore.rightWidgets();
+
+    const leftIdx = leftWidgets.findIndex(w => w.id === draggedWidget.id);
+    if (leftIdx >= 0) {
+      this.widgetStore.swapWithCenter('left', leftIdx);
+      return;
+    }
+
+    const rightIdx = rightWidgets.findIndex(w => w.id === draggedWidget.id);
+    if (rightIdx >= 0) {
+      this.widgetStore.swapWithCenter('right', rightIdx);
+    }
   }
 
   isAtMinZoom = signal(true);

@@ -18,6 +18,10 @@ import type {WidgetDetailData} from '../../../core/models/widget-detail.model';
       [selected]="selected()"
       [widgetType]="widgetType()"
       [icons]="icons()"
+      [indicatorName]="indicatorName()"
+      [unit]="unit()"
+      [updatedDate]="updatedDate()"
+      [periodicity]="periodicity()"
       (selectedChange)="selectedChange.emit()"
       (expandClick)="expandClick.emit()"
     />
@@ -34,9 +38,13 @@ export class GenericWidgetCard implements OnInit {
   selectedChange = output<void>();
   expandClick = output<void>();
 
-  title        = signal('');
-  chartOptions = signal<ChartOptions>({});
-  icons        = signal<string[]>(['stars', 'stats-up-square', 'more']);
+  title         = signal('');
+  chartOptions  = signal<ChartOptions>({});
+  icons         = signal<string[]>(['stars', 'stats-up-square', 'more']);
+  indicatorName = signal('');
+  unit          = signal('');
+  updatedDate   = signal('');
+  periodicity   = signal('');
 
   ngOnInit(): void {
     forkJoin({
@@ -47,12 +55,17 @@ export class GenericWidgetCard implements OnInit {
       if (!config) return;
 
       this.title.set(catalog?.title ?? this.widgetType());
+      this.indicatorName.set(config.indicatorName ?? '');
       if (catalog?.hasExpandIcon) {
         this.icons.set(['stars', 'stats-up-square', 'expand', 'more']);
       }
 
       config.loadData(this.dashboardDataService).subscribe(data => {
         this.chartOptions.set(this.buildMiniChartOptions(data));
+        this.unit.set(data.unit ?? '');
+        this.updatedDate.set(data.updatedDate ?? '');
+        const p = (data.metaData ?? []).find(m => m.label === 'Available periodicity')?.value ?? '';
+        this.periodicity.set(p);
       });
     });
   }

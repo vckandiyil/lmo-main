@@ -9,14 +9,15 @@
 
   :host-context([dir='rtl']) & {
     left: auto;
-    right: 0;
+    right: var(--nav-sidebar-w);
+    transition: right 0.3s ease;
   }
 
   &__card {
     width: 100%;
     background: #ffffff;
     border-radius: 20px;
-    padding: 0 20px 20px;
+    padding: 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -148,7 +149,8 @@
 
     :host-context([dir='rtl']) & {
       left: auto;
-      right: 0;
+      right: var(--nav-sidebar-w);
+      transition: right 0.3s ease;
     }
     height: calc(100vh - var(--content-top));
     padding: 0 20px 20px;

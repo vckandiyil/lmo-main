@@ -1,4 +1,4 @@
-import {Component, input} from '@angular/core';
+import {Component, input, output} from '@angular/core';
 import {TranslateModule} from '@ngx-translate/core';
 import {Icon} from '../icon/icon';
 
@@ -14,7 +14,7 @@ export interface MoreMenuItem {
   template: `
     <div class="more-menu" (mousedown)="$event.stopPropagation()" (click)="$event.stopPropagation()">
       @for (item of items(); track item.label) {
-        <div class="more-menu__item">
+        <div class="more-menu__item" (click)="itemClicked.emit(item)">
           <app-icon [name]="item.icon" size="20" class="more-menu__icon" />
           <span class="more-menu__label">{{ item.label | translate }}</span>
         </div>
@@ -25,4 +25,5 @@ export interface MoreMenuItem {
 })
 export class MoreMenu {
   readonly items = input<MoreMenuItem[]>([]);
+  readonly itemClicked = output<MoreMenuItem>();
 }

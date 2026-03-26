@@ -1,0 +1,38 @@
+@if (items().length > 0) {
+  <div class="lmi-bar">
+    <div class="lmi-bar__ticker">
+      <div class="lmi-bar__track">
+        @for (item of halfItems(); track $index) {
+          <div class="lmi-bar__item">
+            <span class="lmi-bar__label">{{ item.domain }}:</span>
+            <span class="lmi-bar__value">{{ item.overall }}</span>
+            <app-badge size="sm" [variant]="item.yyOverall >= 0 ? 'success' : 'danger'">
+              <app-icon
+                badgeIcon
+                [name]="item.yyOverall >= 0 ? 'trending-up' : 'trending-down'"
+                [color]="item.yyOverall >= 0 ? '#5CC049' : '#EF4444'"
+                size="12"
+              ></app-icon>
+              {{ item.yyOverall >= 0 ? '+' : '' }}{{ item.yyOverall }}%
+            </app-badge>
+          </div>
+        }
+        @for (item of halfItems(); track 'dup-' + $index) {
+          <div class="lmi-bar__item" aria-hidden="true">
+            <span class="lmi-bar__label">{{ item.domain }}:</span>
+            <span class="lmi-bar__value">{{ item.overall }}</span>
+            <app-badge size="sm" [variant]="item.yyOverall >= 0 ? 'success' : 'danger'">
+              <app-icon
+                badgeIcon
+                [name]="item.yyOverall >= 0 ? 'trending-up' : 'trending-down'"
+                [color]="item.yyOverall >= 0 ? '#5CC049' : '#EF4444'"
+                size="12"
+              ></app-icon>
+              {{ item.yyOverall >= 0 ? '+' : '' }}{{ item.yyOverall }}%
+            </app-badge>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+}

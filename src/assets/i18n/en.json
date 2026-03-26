@@ -36,6 +36,7 @@
     "REGION_ABU_DHABI": "Abu Dhabi",
     "REGION_AL_AIN": "Al Ain",
     "FILTERS": "Filters",
+    "REGION": "Region",
     "CITIZENSHIP": "Citizenship",
     "WORK_SECTOR": "Work Sector",
     "GENDER": "Gender",
@@ -77,6 +78,7 @@
     "AI_INSIGHT": "AI Insight"
   },
   "LMI": {
+    "MAP": "ArcGIS Map",
     "ADD_WIDGET": "Add widget",
     "REGION": "Region",
     "SECTOR": "Sector",
