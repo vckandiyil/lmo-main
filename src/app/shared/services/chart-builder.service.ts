@@ -148,15 +148,21 @@ export class ChartBuilderService {
       },
       title: {text: ''},
       xAxis: this.buildXAxis(categories),
-      yAxis: this.buildYAxis(yMin, yMax, tickCount, unit),
+      yAxis: this.buildYAxis(yMin, yMax, tickCount, unit, precise),
       legend:  {enabled: false},
-      tooltip: {enabled: ctx.showTooltip ?? false},
+      tooltip: {enabled: ctx.showTooltip ?? false, hideDelay: 0},
       credits: {enabled: false},
       plotOptions: {
         line: {
           marker: this.makeMarker(markerRadius, primaryColor),
           dataLabels: this.makeDataLabels(unit, -8, showDL, precise),
           states: {hover: {lineWidth: primarySeries?.lineWidth ?? 2, halo: {size: 0}}},
+          point: {
+            events: {
+              mouseOver(this: any) { this.dataLabel?.hide(); },
+              mouseOut(this: any)  { this.dataLabel?.show(); },
+            },
+          },
         },
       },
       series: [
@@ -185,6 +191,7 @@ export class ChartBuilderService {
 
     const {forecastEnabled, forecastSeries, selectedCompareItems, relatedSVMap} = ctx;
     const showDL      = ctx.showDataLabels ?? true;
+    const precise     = ctx.showPreciseValue ?? false;
     const hasForecast = forecastEnabled && forecastSeries.length > 0;
 
     const categories = hasForecast
@@ -221,9 +228,9 @@ export class ChartBuilderService {
       chart: {type: 'bar', backgroundColor: 'transparent', spacing: [40, 0, 20, 0]},
       title: {text: ''},
       xAxis: this.buildXAxis(categories),
-      yAxis: this.buildYAxis(yMin, yMax, tickCount, unit),
+      yAxis: this.buildYAxis(yMin, yMax, tickCount, unit, precise),
       legend:  {enabled: false},
-      tooltip: {enabled: ctx.showTooltip ?? false},
+      tooltip: {enabled: ctx.showTooltip ?? false, hideDelay: 0},
       credits: {enabled: false},
       plotOptions: {
         bar: {dataLabels: {enabled: showDL}},
@@ -301,7 +308,7 @@ export class ChartBuilderService {
       title: {text: ''},
       credits: {enabled: false},
       legend: {enabled: hasCompare || hasForecast},
-      tooltip: {enabled: ctx.showTooltip ?? false},
+      tooltip: {enabled: ctx.showTooltip ?? false, hideDelay: 0},
       xAxis: {visible: false},
       yAxis: {visible: false, gridLineWidth: 0},
       plotOptions: {
@@ -352,6 +359,13 @@ export class ChartBuilderService {
     return unit === '%' ? Math.round(value * 10) / 10 : value;
   }
 
+  private abbreviateNumber(n: number): string {
+    const abs = Math.abs(n);
+    if (abs >= 1_000_000) return `${+(n / 1_000_000).toFixed(1)}M`;
+    if (abs >= 1_000) return `${+(n / 1_000).toFixed(1)}K`;
+    return Number(n).toLocaleString('en-US', {maximumFractionDigits: 0});
+  }
+
   private makeMarker(radius: number, color: string): any {
     return {
       enabled: true,
@@ -365,6 +379,7 @@ export class ChartBuilderService {
   }
 
   private makeDataLabels(unit: string, yOffset: number, enabled = true, precise = false): any {
+    const abbreviateNumber = this.abbreviateNumber;
     return {
       enabled,
       useHTML: true,
@@ -376,11 +391,11 @@ export class ChartBuilderService {
         if (precise) {
           display = unit === '%'
             ? `${this.y}%`
-            : Number(this.y).toLocaleString('en-US', {maximumFractionDigits: 6});
+            : Number(this.y).toLocaleString('en-US', {maximumFractionDigits: 0});
         } else {
           display = unit === '%'
             ? `${Math.round(this.y * 10) / 10}%`
-            : Number(this.y).toLocaleString('en-US', {maximumFractionDigits: 0});
+            : abbreviateNumber(this.y);
         }
         return `<span style="color: ${color}; font-family: 'Graphik Trial', sans-serif; font-weight: 600; font-size: 14px; line-height: 21px;">${display}</span>`;
       },
@@ -422,7 +437,8 @@ export class ChartBuilderService {
     };
   }
 
-  private buildYAxis(yMin: number, yMax: number, tickCount: number, unit: string): any {
+  private buildYAxis(yMin: number, yMax: number, tickCount: number, unit: string, precise = false): any {
+    const abbreviateNumber = this.abbreviateNumber;
     return {
       visible: true,
       min: yMin,
@@ -434,9 +450,14 @@ export class ChartBuilderService {
         enabled: true,
         useHTML: true,
         formatter: function (this: any): string {
-          const display = unit === '%'
-            ? `${this.value}`
-            : Number(this.value).toLocaleString('en-US');
+          let display: string;
+          if (unit === '%') {
+            display = `${this.value}`;
+          } else if (precise) {
+            display = Number(this.value).toLocaleString('en-US', {maximumFractionDigits: 0});
+          } else {
+            display = abbreviateNumber(this.value);
+          }
           return `<span style="color: #6A7180; font-family: 'Graphik Trial', sans-serif; font-weight: 400; font-size: 14px; line-height: 21px; text-align: right;">${display}</span>`;
         },
       },

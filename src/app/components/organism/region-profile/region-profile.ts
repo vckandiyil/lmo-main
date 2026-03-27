@@ -29,6 +29,13 @@ const COLORS = {
   },
 };
 
+function formatShortNumber(value: number, unit: string): string {
+  if (unit === '%') return `${value}%`;
+  if (value >= 1_000_000) return `${(value / 1_000_000).toFixed(1)}M`;
+  if (value >= 1_000) return `${(value / 1_000).toFixed(0)}K`;
+  return String(value);
+}
+
 @Component({
   selector: 'app-region-profile',
   standalone: true,
@@ -122,16 +129,19 @@ export class RegionProfile implements OnInit {
     const unit = data.unit?.includes('%') ? '%' : '';
     const isPercent = unit === '%';
     const rawData = data.indicatorVisualizations.visualizationsMeta[0].seriesMeta[0].data;
-    const values = rawData.map(d => isPercent ? Math.round(d.VALUE * 10) / 10 : d.VALUE);
-    const latest = values[values.length - 1] ?? 0;
-    const previous = values[values.length - 2] ?? latest;
+    const trend = rawData.map(d => ({
+      value: isPercent ? Math.round(d.VALUE * 10) / 10 : d.VALUE,
+      year: d.YEAR as string | undefined,
+    }));
+    const latest = trend[trend.length - 1]?.value ?? 0;
+    const previous = trend[trend.length - 2]?.value ?? latest;
     const isPositive = higherIsBetter ? latest >= previous : latest <= previous;
 
     return {
       label,
       value: latest,
       unit,
-      trend: values.map(v => ({value: v})),
+      trend,
       isPositive,
     };
   }
@@ -153,6 +163,7 @@ export class RegionProfile implements OnInit {
     const minVal = Math.min(...values);
     const maxVal = Math.max(...values);
     const padding = (maxVal - minVal) * 0.1 || 1;
+    const hasYears = metric.trend.some(t => t.year);
 
     const center = this.isCenter();
     return {
@@ -161,8 +172,8 @@ export class RegionProfile implements OnInit {
         height: center ? 64 : 24,
         width: center ? null : 35,
         backgroundColor: 'transparent',
-        spacing: center ? [2, 0, 2, 0] : [2, 2, 2, 2],
-        margin: center ? [2, 0, 2, 0] : [2, 2, 2, 2],
+        spacing: [2, 2, 2, 2],
+        margin: center ? [28, 0, 0, 0] : [2, 2, 2, 2],
       },
       title: {text: ''},
       xAxis: {
@@ -183,8 +194,33 @@ export class RegionProfile implements OnInit {
       credits: {enabled: false},
       plotOptions: {
         area: {
-          marker: {enabled: false},
+          clip: false,
+          marker: {enabled: center && hasYears},
           states: {hover: {enabled: false}},
+          dataLabels: (center && hasYears ? [
+            {
+              enabled: true,
+              verticalAlign: 'middle',
+              y: -18,
+              crop: false,
+              overflow: 'allow',
+              style: {fontSize: '10px', fontWeight: '600', color: '#333', textOutline: 'none'},
+              formatter: function (this: any) {
+                return formatShortNumber(this.y, metric.unit);
+              },
+            },
+            {
+              enabled: true,
+              verticalAlign: 'middle',
+              y: 16,
+              crop: false,
+              overflow: 'allow',
+              style: {fontSize: '9px', fontWeight: '400', color: '#888', textOutline: 'none'},
+              formatter: function (this: any) {
+                return this.point?.name ?? '';
+              },
+            },
+          ] : [{enabled: false}]) as any,
         },
       },
       series: [
@@ -200,7 +236,7 @@ export class RegionProfile implements OnInit {
               [1, colors.gradientEnd] as [number, string],
             ],
           } as any,
-          data: values,
+          data: metric.trend.map(t => ({y: t.value, name: t.year})),
         },
       ],
     };

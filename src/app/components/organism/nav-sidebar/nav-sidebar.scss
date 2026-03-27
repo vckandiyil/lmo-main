@@ -36,11 +36,11 @@
 
 &__toggle {
     position: absolute;
-    right: -14px;
+    right: -17px;
     top: 50%;
     transform: translateY(-50%);
-    width: 28px;
-    height: 28px;
+    width: 36px;
+    height: 36px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -151,6 +151,10 @@
     max-width: 0;
     transform: translateX(-6px);
     transition: opacity 0.1s ease, max-width 0.3s ease, transform 0.1s ease;
+
+    :host-context(body.theme--dark) & {
+      filter: brightness(0) invert(1);
+    }
   }
 
   &--expanded &__logo-text {

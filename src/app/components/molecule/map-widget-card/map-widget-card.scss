@@ -1,0 +1,92 @@
+.map-widget-card {
+  width: 100%;
+  padding: 16px 20px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background: var(--lmo-bg-widget);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--lmo-text-primary);
+  }
+
+  &__expand {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+
+  &:hover &__expand {
+    opacity: 1;
+  }
+
+  &__body {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    height: 160px;
+    background: rgba(219, 232, 245, 0.3);
+
+    :host-context(body.theme--dark) & {
+      background: rgba(55, 81, 110, 0.3);
+    }
+  }
+
+  &__regions {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1100px;
+    height: 560px;
+    transform: translate(35px, 20px) scale(0.24);
+    transform-origin: top left;
+    pointer-events: none;
+  }
+
+  &__region {
+    position: absolute;
+
+    app-inline-svg {
+      display: block;
+
+      ::ng-deep svg {
+        overflow: visible;
+      }
+
+      ::ng-deep svg path {
+        :host-context(body.theme--dark) & {
+          fill: #203451;
+        }
+      }
+    }
+
+    &--al-dhafra {
+      left: -65px;
+      top: 80px;
+    }
+
+    &--abu-dhabi {
+      left: 502px;
+      top: -59px;
+    }
+
+    &--al-ain {
+      left: 708px;
+      top: -25px;
+    }
+  }
+}

@@ -24,7 +24,7 @@
 </button>
 
 @if (isOpen()) {
-  <div class="ai-chat__panel" @slideInOut>
+  <div class="ai-chat__panel" [@slideInOut]="animationParams()">
     <img class="ai-chat__assistant-icon" src="assets/images/icons/AI Assistant.png" alt="AI Assistant" />
     <div class="ai-chat__content">
       <span class="ai-chat__greeting">{{ 'LMI.AI_HELLO' | translate }}</span>
@@ -33,15 +33,15 @@
     <div class="ai-chat__suggestions">
       <div class="ai-chat__suggestion-item">
         <app-icon name="stars" color="#3375C6" size="24"/>
-        <span class="ai-chat__suggestion-text">{{ 'LMI.AI_SUGGESTION' | translate }}</span>
+        <span class="ai-chat__suggestion-text">{{ 'LMI.AI_SUGGESTION_1' | translate }}</span>
       </div>
       <div class="ai-chat__suggestion-item">
         <app-icon name="stars" color="#3375C6" size="24"/>
-        <span class="ai-chat__suggestion-text">{{ 'LMI.AI_SUGGESTION' | translate }}</span>
+        <span class="ai-chat__suggestion-text">{{ 'LMI.AI_SUGGESTION_2' | translate }}</span>
       </div>
       <div class="ai-chat__suggestion-item">
         <app-icon name="stars" color="#3375C6" size="24"/>
-        <span class="ai-chat__suggestion-text">{{ 'LMI.AI_SUGGESTION' | translate }}</span>
+        <span class="ai-chat__suggestion-text">{{ 'LMI.AI_SUGGESTION_3' | translate }}</span>
       </div>
     </div>
     <div class="ai-chat__search">

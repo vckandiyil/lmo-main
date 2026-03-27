@@ -72,7 +72,12 @@
     "AI_INSIGHTS_SUFFIX": "also show steady demand growth.",
     "ADD_INDICATOR": "Add indicator",
     "MORE_INFORMATION": "Information",
-    "MORE_SETTINGS": "Settings",
+    "MORE_CHART_TYPES": "Chart Type Views",
+    "CHART_TYPE_LINE": "Line",
+    "CHART_TYPE_BAR": "Bar",
+    "CHART_TYPE_COLUMN": "Column",
+    "CHART_TYPE_PIE": "Pie",
+    "CHART_TYPE_TABLE": "Table",
     "MORE_WHAT_IF": "What-If-Simulator",
     "MORE_DOWNLOAD": "Download Data",
     "AI_INSIGHT": "AI Insight"
@@ -140,7 +145,9 @@
     "DOWNLOAD_REPORT": "Download Report",
     "AI_HELLO": "Hello,",
     "AI_WHAT_KNOW": "What do you want to know?",
-    "AI_SUGGESTION": "Show Emiratization trend changes compared to last year.",
+    "AI_SUGGESTION_1": "Show Emiratization trend changes compared to last year.",
+    "AI_SUGGESTION_2": "What is the current unemployment rate by emirate?",
+    "AI_SUGGESTION_3": "Compare employment rates across different sectors.",
     "AI_PLACEHOLDER": "Ask me about anything",
     "FILTER_BY": "Filter by:",
     "RESET": "Reset",
@@ -201,5 +208,19 @@
   "NOTIFICATIONS": {
     "TITLE": "Labor Market Alerts",
     "VIEW_ALL": "View all"
+  },
+  "MY_LMO": {
+    "CUSTOM_PRESET": "Custom Preset",
+    "ADD_NEW_PRESET": "+ Add New Preset",
+    "SAVE_AS_PRESET": "Save as Preset",
+    "PRESET_NAME_PLACEHOLDER": "Preset name",
+    "SAVE_AS_PLACEHOLDER": "Save as...",
+    "CREATE": "Create",
+    "DELETE_PRESET": "Delete preset",
+    "NO_WIDGETS_TITLE": "No widgets yet",
+    "NO_WIDGETS_SUBTITLE": "Build your personal labor market view by adding widgets that matter to you.",
+    "ADD_WIDGET": "Add widget",
+    "NO_PRESETS": "No presets available",
+    "ADD_TO_PRESET": "Add to preset"
   }
 }

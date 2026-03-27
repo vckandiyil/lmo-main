@@ -1,13 +1,84 @@
 <div class="filters">
   <div class="filters__container">
     <div class="filters__dropdowns">
-      <app-dropdown
-        class="filters__topic-dropdown"
-        [placeholder]="'Employment'"
-        [value]="selectedTopic()"
-        [options]="topicOptions()"
-        (selected)="onTopicSelect($event)"
-      />
+      @if (isMyLmo()) {
+        <div class="filters__preset-wrapper">
+          <!-- Custom preset dropdown trigger -->
+          <div
+            class="filters__preset-trigger"
+            [class.filters__preset-trigger--open]="isPresetDropdownOpen()"
+            (click)="togglePresetDropdown()"
+          >
+            <span class="filters__preset-label" [class.filters__preset-label--selected]="activePresetName()">
+              {{ activePresetName() ?? ('MY_LMO.CUSTOM_PRESET' | translate) }}
+            </span>
+            <app-icon
+              name="nav-arrow-down"
+              size="20"
+              class="filters__preset-arrow"
+              [class.filters__preset-arrow--open]="isPresetDropdownOpen()"
+            />
+          </div>
+
+          <!-- Dropdown menu -->
+          @if (isPresetDropdownOpen()) {
+            <div class="filters__preset-menu">
+              @for (name of presetService.presetNames(); track name) {
+                <div
+                  class="filters__preset-option"
+                  [class.filters__preset-option--active]="activePresetName() === name"
+                  (click)="selectPreset(name)"
+                >
+                  <span class="filters__preset-option-label">{{ name }}</span>
+                  <button
+                    class="filters__preset-delete"
+                    (click)="deletePreset(name, $event)"
+                    [title]="'MY_LMO.DELETE_PRESET' | translate"
+                  >
+                    <app-icon name="close" size="12"/>
+                  </button>
+                </div>
+              }
+              @if (showSaveAsPreset()) {
+                <div class="filters__preset-option filters__preset-option--action" (click)="startCreatePreset('save')">
+                  {{ 'MY_LMO.SAVE_AS_PRESET' | translate }}
+                </div>
+              }
+              <div class="filters__preset-option filters__preset-option--action" (click)="startCreatePreset('new')">
+                {{ 'MY_LMO.ADD_NEW_PRESET' | translate }}
+              </div>
+            </div>
+          }
+
+          <!-- Inline name input -->
+          @if (isCreatingPreset()) {
+            <div class="filters__preset-create">
+              <input
+                class="filters__preset-input"
+                type="text"
+                [placeholder]="(createMode() === 'save' ? 'MY_LMO.SAVE_AS_PLACEHOLDER' : 'MY_LMO.PRESET_NAME_PLACEHOLDER') | translate"
+                [value]="newPresetName()"
+                (input)="newPresetName.set($any($event.target).value)"
+                (keydown.enter)="confirmCreatePreset()"
+                (keydown.escape)="cancelCreatePreset()"
+              />
+              <button class="filters__preset-confirm" (click)="confirmCreatePreset()">
+                {{ (createMode() === 'save' ? 'COMMON.SAVE' : 'MY_LMO.CREATE') | translate }}
+              </button>
+              <button class="filters__preset-cancel" (click)="cancelCreatePreset()">
+                <app-icon name="close" size="14"/>
+              </button>
+            </div>
+          }
+        </div>
+      } @else {
+        <app-dropdown
+          [placeholder]="'Employment'"
+          [value]="selectedTopic()"
+          [options]="topicOptions()"
+          (selected)="onTopicSelect($event)"
+        />
+      }
       <app-dropdown
         [placeholder]="'LMI.REGION' | translate"
         [options]="regionOptions()"

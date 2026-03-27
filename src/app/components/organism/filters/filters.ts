@@ -1,4 +1,4 @@
-import {Component, computed, inject, QueryList, signal, ViewChildren} from '@angular/core';
+import {Component, computed, ElementRef, HostListener, inject, input, QueryList, signal, ViewChildren} from '@angular/core';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {map} from 'rxjs';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
@@ -10,6 +10,7 @@ import {WidgetCatalogService} from '../../../core/services/widget-catalog.servic
 import {WidgetStore} from '../../../core';
 import {FilterStateService} from '../../../core/services/filter-state.service';
 import {LayoutService, LanguageService} from '../../../core';
+import {PresetService} from '../../../core/services/preset.service';
 
 @Component({
   selector: 'app-filters',
@@ -21,16 +22,34 @@ import {LayoutService, LanguageService} from '../../../core';
 export class Filters {
   @ViewChildren(Dropdown) dropdowns!: QueryList<Dropdown>;
 
+  private readonly elementRef = inject(ElementRef);
   private readonly widgetCatalogService = inject(WidgetCatalogService);
   private readonly widgetStore = inject(WidgetStore);
   private readonly filterState = inject(FilterStateService);
   private readonly translate = inject(TranslateService);
   private readonly layoutService = inject(LayoutService);
   private readonly languageService = inject(LanguageService);
+  readonly presetService = inject(PresetService);
 
   readonly isRtl = this.languageService.isRtl;
-
   readonly layoutMode = this.layoutService.layoutMode;
+
+  isMyLmo = input<boolean>(false);
+
+  readonly activePresetName = this.presetService.activePresetName;
+
+  readonly hasWidgets = computed(() =>
+    this.widgetStore.leftWidgets().length > 0 || this.widgetStore.rightWidgets().length > 0
+  );
+
+  readonly showSaveAsPreset = computed(() =>
+    this.hasWidgets() && !this.activePresetName()
+  );
+
+  isPresetDropdownOpen = signal(false);
+  isCreatingPreset = signal(false);
+  createMode = signal<'new' | 'save'>('new');
+  newPresetName = signal('');
 
   private readonly TOPIC_ORDER = ['Employment', 'Unemployment', 'Outside Labor Force', 'Job Vacancies', 'Job Seekers'];
 
@@ -95,6 +114,70 @@ export class Filters {
     this.dropdowns.forEach(dropdown => dropdown.reset());
     this.selectedTopic.set(null);
     this.filterState.selectedTopic.set(null);
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    if (!this.elementRef.nativeElement.contains(event.target as Node)) {
+      this.isPresetDropdownOpen.set(false);
+      if (this.isCreatingPreset()) {
+        this.cancelCreatePreset();
+      }
+    }
+  }
+
+  togglePresetDropdown(): void {
+    this.isPresetDropdownOpen.update(v => !v);
+    if (!this.isPresetDropdownOpen()) {
+      this.cancelCreatePreset();
+    }
+  }
+
+  selectPreset(name: string): void {
+    this.isPresetDropdownOpen.set(false);
+    this.cancelCreatePreset();
+    this.presetService.activePresetName.set(name);
+    const preset = this.presetService.getPreset(name);
+    if (preset) {
+      this.widgetStore.setTopicLayout(preset.leftWidgets, preset.rightWidgets);
+    }
+  }
+
+  deletePreset(name: string, event: MouseEvent): void {
+    event.stopPropagation();
+    const wasActive = this.presetService.activePresetName() === name;
+    this.presetService.deletePreset(name);
+    if (wasActive) {
+      this.widgetStore.setTopicLayout([], []);
+    }
+  }
+
+  startCreatePreset(mode: 'new' | 'save'): void {
+    this.createMode.set(mode);
+    this.isCreatingPreset.set(true);
+    this.newPresetName.set('');
+    this.isPresetDropdownOpen.set(false);
+  }
+
+  confirmCreatePreset(): void {
+    const name = this.newPresetName().trim();
+    if (!name) return;
+    if (this.createMode() === 'save') {
+      this.presetService.addPreset(name);
+      this.presetService.updateActivePreset(
+        this.widgetStore.leftWidgets().map(w => w.type),
+        this.widgetStore.rightWidgets().map(w => w.type)
+      );
+    } else {
+      this.presetService.addPreset(name);
+      this.widgetStore.setTopicLayout([], []);
+    }
+    this.isCreatingPreset.set(false);
+  }
+
+  cancelCreatePreset(): void {
+    this.isCreatingPreset.set(false);
+    this.newPresetName.set('');
   }
 
   onSearchInput(event: Event): void {

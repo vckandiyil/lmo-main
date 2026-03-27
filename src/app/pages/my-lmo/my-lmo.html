@@ -1,18 +1,24 @@
-<app-sidebar [showRecommendations]="true"></app-sidebar>
-<app-filters></app-filters>
+<app-sidebar [showRecommendations]="true" [resetToDefaults]="false"></app-sidebar>
+<app-filters [isMyLmo]="true"></app-filters>
 <app-lmi-bar></app-lmi-bar>
 
-<div class="my-lmo__center">
-  <div class="my-lmo__empty">
-    <div class="my-lmo__empty-text">
-      <p class="my-lmo__empty-title">No widgets yet</p>
-      <p class="my-lmo__empty-subtitle">Build your personal labor market view by adding<br>widgets that matter to you.</p>
-    </div>
-    <button class="my-lmo__add-button" (click)="openWidgetCenter()">
-      <div class="my-lmo__add-icon">
-        <app-icon name="plus" size="24"/>
+@if (!hasWidgets()) {
+  <div class="my-lmo__center">
+    <div class="my-lmo__empty">
+      <div class="my-lmo__empty-text">
+        <p class="my-lmo__empty-title">{{ 'MY_LMO.NO_WIDGETS_TITLE' | translate }}</p>
+        <p class="my-lmo__empty-subtitle">{{ 'MY_LMO.NO_WIDGETS_SUBTITLE' | translate }}</p>
       </div>
-      <span>Add widget</span>
-    </button>
+      <button class="my-lmo__add-button" (click)="openWidgetCenter()">
+        <div class="my-lmo__add-icon">
+          <app-icon name="plus" size="24"/>
+        </div>
+        <span>{{ 'MY_LMO.ADD_WIDGET' | translate }}</span>
+      </button>
+    </div>
   </div>
-</div>
+}
+
+@if (hasWidgets() && layoutMode() === '3col') {
+  <app-center-section></app-center-section>
+}

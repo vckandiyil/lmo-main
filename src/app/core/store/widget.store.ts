@@ -71,10 +71,11 @@ export const WidgetStore = signalStore(
 
       resetToDefaults(): void {
         catalogService.getSidebarWidgets().pipe(first()).subscribe(widgets => {
-          const mid = Math.ceil(widgets.length / 2);
-          const leftWidgets  = widgets.slice(0, mid).map(w => ({id: createWidgetId(w.id as WidgetType), type: w.id as WidgetType}));
-          const rightWidgets = widgets.slice(mid).map(w => ({id: createWidgetId(w.id as WidgetType), type: w.id as WidgetType}));
-          patchState(store, {leftWidgets, rightWidgets});
+          const sidebarWidgets = widgets.filter(w => w.id !== WidgetType.Map);
+          const mid = Math.ceil(sidebarWidgets.length / 2);
+          const leftWidgets  = sidebarWidgets.slice(0, mid).map(w => ({id: createWidgetId(w.id as WidgetType), type: w.id as WidgetType}));
+          const rightWidgets = sidebarWidgets.slice(mid).map(w => ({id: createWidgetId(w.id as WidgetType), type: w.id as WidgetType}));
+          patchState(store, {leftWidgets, rightWidgets, centerWidget: null});
         });
       },
 

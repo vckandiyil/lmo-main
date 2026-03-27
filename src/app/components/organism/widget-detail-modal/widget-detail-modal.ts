@@ -3,6 +3,7 @@ import {NgComponentOutlet} from '@angular/common';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {WidgetType} from '../../../core';
 import {WidgetDetailConfigService} from '../../../core/services/widget-detail-config.service';
+import {WidgetDetailService} from '../../../core/services/widget-detail.service';
 import {Icon} from '../../atom/icon/icon';
 import {FilterBar, FilterValues} from '../../molecule/filter-bar/filter-bar';
 import {WidgetDetailTemplate} from '../widget-detail-template/widget-detail-template';
@@ -17,6 +18,7 @@ import {ALL_WIDGET_DETAIL_COMPONENTS, WIDGET_DETAIL_COMPONENT_MAP} from '../../w
 })
 export class WidgetDetailModal {
   private readonly widgetDetailConfigService = inject(WidgetDetailConfigService);
+  private readonly widgetDetailService       = inject(WidgetDetailService);
 
   readonly isOpen    = input<boolean>(false);
   readonly widgetType = input<WidgetType | null>(null);
@@ -44,6 +46,11 @@ export class WidgetDetailModal {
     const type    = this.widgetType();
     const configs = this.allConfigs();
     return type && configs ? (configs.configMap.get(type) ?? null) : null;
+  });
+
+  readonly initialChartType = computed(() => {
+    const type = this.widgetType();
+    return type ? this.widgetDetailService.getChartTypeOverride(type) : null;
   });
 
   onFiltersApplied(_values: FilterValues): void {

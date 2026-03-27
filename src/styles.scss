@@ -160,7 +160,9 @@ app-root.page--my-lmo app-sidebar {
 }
 
 app-filters app-dropdown,
-app-filters .filters__clear {
+app-filters .filters__clear,
+app-filters .filters__preset-trigger,
+app-filters .filters__preset-create {
   --lmo-bg-surface: #ffffff;
 
   body.theme--dark & {

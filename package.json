@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 4201",
     "start:mock": "concurrently \"node mock-server/server.js\" \"ng serve\"",
     "mock-server": "node mock-server/server.js",
     "build": "ng build",

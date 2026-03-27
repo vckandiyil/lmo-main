@@ -8,6 +8,7 @@ import {DynamicWidget} from '../dynamic-widget/dynamic-widget';
 import {WidgetCenter} from '../widget-center/widget-center';
 import {WidgetDetailModal} from '../widget-detail-modal/widget-detail-modal';
 import {Recommendations} from '../../molecule/recommendations/recommendations';
+import {MapWidgetCard} from '../../molecule/map-widget-card/map-widget-card';
 import {WidgetStore, WidgetType, ThemeService, WidgetDetailService, LayoutService} from '../../../core';
 import {createWidgetId} from '../../../core/models/widget.model';
 import type {Widget, SidebarPosition} from '../../../core';
@@ -25,6 +26,7 @@ import type {Widget, SidebarPosition} from '../../../core';
     CdkDrag,
     CdkDragPlaceholder,
     DynamicWidget,
+    MapWidgetCard,
     TranslateModule,
   ],
   templateUrl: './sidebar.html',
@@ -73,6 +75,7 @@ export class Sidebar implements AfterViewInit, OnInit {
   isWidgetCenterOpen = signal(false);
   activeWidgetCenterSidebar = signal<SidebarPosition>('left');
   private activeCol4 = signal<1 | 2 | 3 | 4 | null>(null);
+  private splitNextAdd = signal(false);
 
   readonly col4OverrideSelection = computed<WidgetType[] | null>(() => {
     const col = this.activeCol4();
@@ -120,8 +123,16 @@ export class Sidebar implements AfterViewInit, OnInit {
   }
 
   openWidgetCenter(sidebar: SidebarPosition): void {
+    this.splitNextAdd.set(false);
     this.activeCol4.set(null);
     this.activeWidgetCenterSidebar.set(sidebar);
+    this.isWidgetCenterOpen.set(true);
+  }
+
+  openWidgetCenterSplitEvenly(): void {
+    this.splitNextAdd.set(true);
+    this.activeCol4.set(null);
+    this.activeWidgetCenterSidebar.set('left');
     this.isWidgetCenterOpen.set(true);
   }
 
@@ -139,6 +150,10 @@ export class Sidebar implements AfterViewInit, OnInit {
     const col = this.activeCol4();
     if (this.layoutMode() === '4col' && col !== null) {
       this.onWidgetsAdded4Col(col, widgetTypes);
+    } else if (this.splitNextAdd()) {
+      this.splitNextAdd.set(false);
+      const mid = Math.ceil(widgetTypes.length / 2);
+      this.widgetStore.setTopicLayout(widgetTypes.slice(0, mid), widgetTypes.slice(mid));
     } else {
       this.widgetStore.setWidgets(this.activeWidgetCenterSidebar(), widgetTypes);
     }
@@ -177,6 +192,10 @@ export class Sidebar implements AfterViewInit, OnInit {
 
   closeWidgetDetail(): void {
     this.widgetDetailService.close();
+  }
+
+  onWidgetChartTypeChange(widgetType: WidgetType, chartType: string): void {
+    this.widgetDetailService.setChartTypeOverride(widgetType, chartType);
   }
 
   onWidgetExpand(sidebar: SidebarPosition, index: number, type?: WidgetType): void {

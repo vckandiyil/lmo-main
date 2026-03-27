@@ -1,4 +1,4 @@
-import {Component, computed, ElementRef, HostListener, inject, input, output} from '@angular/core';
+import {Component, computed, effect, ElementRef, HostListener, inject, input, output} from '@angular/core';
 import {Icon} from '../icon/icon';
 import {MoreMenu, MoreMenuItem} from '../more-menu/more-menu';
 import {MoreMenuService} from '../../../shared/services/more-menu.service';
@@ -51,7 +51,6 @@ export class WidgetHeader {
   readonly icons = input<string[]>(['stars', 'stats-up-square', 'more']);
   readonly moreItems = input<MoreMenuItem[]>([
     {icon: 'info-empty', label: 'HOME.MORE_INFORMATION'},
-    {icon: 'settings', label: 'HOME.MORE_SETTINGS'},
     {icon: 'forked-arrow', label: 'HOME.MORE_WHAT_IF'},
     {icon: 'download-data-window', label: 'HOME.MORE_DOWNLOAD'},
   ]);
@@ -62,10 +61,24 @@ export class WidgetHeader {
   readonly starsClick = output<void>();
   readonly expandClick = output<void>();
   readonly infoClick = output<void>();
+  readonly downloadClick = output<void>();
+  readonly chartTypeChange = output<string>();
 
   readonly moreOpen = computed(() => this.menuService.isOpen(this.id));
 
-  constructor(private el: ElementRef) {}
+  constructor(private el: ElementRef) {
+    effect(() => {
+      const open = this.moreOpen();
+      let node: HTMLElement | null = this.el.nativeElement;
+      while (node && node.tagName?.toLowerCase() !== 'app-widget-card') {
+        node = node.parentElement;
+      }
+      if (node) {
+        node.style.zIndex = open ? '10' : '';
+        node.style.position = open ? 'relative' : '';
+      }
+    });
+  }
 
   onStarsClick(event: MouseEvent): void {
     event.stopPropagation();
@@ -86,6 +99,10 @@ export class WidgetHeader {
     this.menuService.close();
     if (item.label === 'HOME.MORE_INFORMATION') {
       this.infoClick.emit();
+    } else if (item.label === 'HOME.MORE_DOWNLOAD') {
+      this.downloadClick.emit();
+    } else if (item.value?.startsWith('chart-type:')) {
+      this.chartTypeChange.emit(item.value.replace('chart-type:', ''));
     }
   }
 

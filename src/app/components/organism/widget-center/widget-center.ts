@@ -4,6 +4,7 @@ import {NgComponentOutlet} from '@angular/common';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {ALL_WIDGET_COMPONENTS, WIDGET_COMPONENT_MAP} from '../widgets';
 import {GenericWidgetCard} from '../../molecule/generic-widget-card/generic-widget-card';
+import {MapWidgetCard} from '../../molecule/map-widget-card/map-widget-card';
 import {Dropdown} from '../../atom/dropdown/dropdown';
 import {Icon} from '../../atom/icon/icon';
 import {WidgetType, WidgetStore} from '../../../core';
@@ -14,7 +15,7 @@ import type {WidgetCatalogEntry} from '../../../core/models/widget-catalog.model
 @Component({
   selector: 'app-widget-center',
   standalone: true,
-  imports: [...ALL_WIDGET_COMPONENTS, GenericWidgetCard, NgComponentOutlet, TranslateModule, Dropdown, Icon],
+  imports: [...ALL_WIDGET_COMPONENTS, GenericWidgetCard, MapWidgetCard, NgComponentOutlet, TranslateModule, Dropdown, Icon],
   templateUrl: './widget-center.html',
   styleUrl: './widget-center.scss'
 })
@@ -27,6 +28,8 @@ export class WidgetCenter {
   overrideSelection = input<WidgetType[] | null>(null);
   closed            = output<void>();
   widgetsAdded      = output<WidgetType[]>();
+
+  readonly WidgetType = WidgetType;
 
   isClosing       = signal(false);
   searchValue     = signal('');

@@ -4,11 +4,12 @@ import {RouterLink, RouterLinkActive} from '@angular/router';
 import {Icon} from '../../atom/icon/icon';
 import {ThemeService, LanguageService} from '../../../core';
 import {NotificationModal} from '../../molecule/notification-modal/notification-modal';
+import {ReportModal} from '../../molecule/report-modal/report-modal';
 
 @Component({
   selector: 'app-nav-sidebar',
   standalone: true,
-  imports: [Icon, NotificationModal, RouterLink, RouterLinkActive],
+  imports: [Icon, NotificationModal, ReportModal, RouterLink, RouterLinkActive],
   templateUrl: './nav-sidebar.html',
   styleUrl: './nav-sidebar.scss',
 })
@@ -21,6 +22,7 @@ export class NavSidebar {
   protected readonly isDarkMode = this.themeService.isDarkMode;
   protected readonly isRtl = this.languageService.isRtl;
   protected readonly isNotificationModalOpen = signal(false);
+  protected readonly isReportModalOpen = signal(false);
 
   constructor() {
     effect(() => {
@@ -49,5 +51,13 @@ export class NavSidebar {
 
   closeNotificationModal(): void {
     this.isNotificationModalOpen.set(false);
+  }
+
+  openReportModal(): void {
+    this.isReportModalOpen.set(true);
+  }
+
+  closeReportModal(): void {
+    this.isReportModalOpen.set(false);
   }
 }

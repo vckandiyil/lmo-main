@@ -7,7 +7,7 @@ export interface RegionMetric {
   label: string;
   value: number;
   unit: string;
-  trend: {value: number}[];
+  trend: {value: number; year?: string}[];
   isPositive: boolean;
 }
 

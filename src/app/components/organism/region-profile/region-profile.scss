@@ -136,5 +136,12 @@
     width: 100%;
     height: 64px;
     flex-shrink: unset;
+    overflow: visible;
+
+    ::ng-deep svg,
+    ::ng-deep .highcharts-container,
+    ::ng-deep .chart-container {
+      overflow: visible !important;
+    }
   }
 }

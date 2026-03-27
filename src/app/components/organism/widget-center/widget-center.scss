@@ -271,10 +271,12 @@
   &__grid {
     display: flex;
     gap: 24px;
-    padding-top: 24px;
+    padding: 24px 12px 12px;
+    margin: 0 -12px;
     flex: 1;
     min-height: 0;
     align-items: flex-start;
+    overflow-y: auto;
   }
 
   &__col {

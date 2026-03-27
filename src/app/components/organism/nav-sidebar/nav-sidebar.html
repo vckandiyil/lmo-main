@@ -27,7 +27,7 @@
         <app-icon name="stats-report" size="24" class="nav-sidebar__icon"/>
         <span class="nav-sidebar__label">What-If Simulator</span>
       </a>
-      <a class="nav-sidebar__nav-item" routerLinkActive="nav-sidebar__nav-item--active">
+      <a class="nav-sidebar__nav-item" (click)="openReportModal()">
         <app-icon name="page-search" size="24" class="nav-sidebar__icon"/>
         <span class="nav-sidebar__label">Insights Reports</span>
       </a>
@@ -57,9 +57,10 @@
   </div>
   <button class="nav-sidebar__toggle" (click)="toggle()" type="button">
     <span class="nav-sidebar__toggle-icon">
-      <app-icon [name]="(expanded() !== isRtl()) ? 'nav-arrow-left' : 'nav-arrow-right'" size="16" color="#4A5662"/>
+      <app-icon [name]="(expanded() !== isRtl()) ? 'nav-arrow-left' : 'nav-arrow-right'" size="22" color="#4A5662"/>
     </span>
   </button>
 </aside>
 
 <app-notification-modal [isOpen]="isNotificationModalOpen()" (closed)="closeNotificationModal()"/>
+<app-report-modal [isOpen]="isReportModalOpen()" (closed)="closeReportModal()"/>

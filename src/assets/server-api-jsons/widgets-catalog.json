@@ -171,6 +171,21 @@
       "hasDetailView": true,
       "hasExpandIcon": false,
       "hidden": false
+    },
+    {
+      "id": "map",
+      "title": "Map",
+      "category": [
+        "Employment",
+        "Unemployment",
+        "Outside Labor Force",
+        "Job Vacancies",
+        "Job Seekers"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": false,
+      "hasExpandIcon": true,
+      "hidden": false
     }
   ]
 }

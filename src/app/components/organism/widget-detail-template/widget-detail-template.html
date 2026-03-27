@@ -35,9 +35,11 @@
         }
       </div>
       <div class="widget-detail-template__toolbar-item">
-        <app-button variant="toolbar-icon">
-          <app-icon buttonIcon name="bell" size="20"></app-icon>
-        </app-button>
+        <app-bookmark-dropdown
+          [presetNames]="presetNames()"
+          [isBookmarked]="isBookmarked()"
+          (presetSelected)="addToPreset($event)"
+        ></app-bookmark-dropdown>
         <app-button variant="toolbar-icon">
           <app-icon buttonIcon name="zoom-in" size="20"></app-icon>
         </app-button>

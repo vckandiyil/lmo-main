@@ -1,9 +1,29 @@
 <div class="widget-card" [class.widget-card--selected]="selected()" (click)="onClick()">
   <app-flip-card #flipCard>
     <app-widget-checkbox [selected]="selected()" front/>
-    <app-widget-header [title]="title()" [icons]="icons()" (starsClick)="backMode.set('ai'); flipCard.toggle()" (infoClick)="backMode.set('info'); flipCard.toggle()" (expandClick)="expandClick.emit()" front/>
+    <app-widget-header
+      [title]="title()"
+      [icons]="icons()"
+      [moreItems]="moreItems()"
+      (starsClick)="backMode.set('ai'); flipCard.toggle()"
+      (infoClick)="backMode.set('info'); flipCard.toggle()"
+      (downloadClick)="backMode.set('download'); flipCard.toggle()"
+      (expandClick)="expandClick.emit()"
+      (chartTypeChange)="chartTypeChange.emit($event)"
+      front/>
     <div class="widget-card__body" front>
-      <app-chart-wrapper [options]="chartOptions()"/>
+      @if (activeChartType() === 'table') {
+        <div class="widget-card__table">
+          @for (row of tableRows(); track row.year) {
+            <div class="widget-card__table-row">
+              <span class="widget-card__table-year">{{ row.year }}</span>
+              <span class="widget-card__table-value">{{ row.value }}{{ unit() ? ' ' + unit() : '' }}</span>
+            </div>
+          }
+        </div>
+      } @else {
+        <app-chart-wrapper [options]="chartOptions()"/>
+      }
     </div>
     <app-widget-back back
       [widgetType]="widgetType()"

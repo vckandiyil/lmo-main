@@ -1,0 +1,8 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    labels:
+      - "traefik.http.middlewares.lmo-auth-basic.basicauth.users=demouser:$apr1$tLDB8GfE$ipEbkbWnb2ON7Hz/3pJVS."

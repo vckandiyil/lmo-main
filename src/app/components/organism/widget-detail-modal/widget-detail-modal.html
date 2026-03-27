@@ -21,7 +21,7 @@
         @if (detailComponent(); as component) {
           <ng-container *ngComponentOutlet="component" />
         } @else if (detailConfig(); as config) {
-          <app-widget-detail-template [config]="config" />
+          <app-widget-detail-template [config]="config" [initialChartType]="initialChartType()" [widgetType]="widgetType()" />
         }
       </div>
     </div>

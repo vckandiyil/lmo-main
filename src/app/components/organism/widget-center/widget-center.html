@@ -59,7 +59,9 @@
               [class.widget-center__widget-wrapper--selected]="isSelected(type)"
               (click)="toggleSelection(type)"
             >
-              @if (isCustomWidget(type)) {
+              @if (type === WidgetType.Map) {
+                <app-map-widget-card/>
+              } @else if (isCustomWidget(type)) {
                 <ng-container [ngComponentOutlet]="getWidgetComponent(type)"/>
               } @else {
                 <app-generic-widget-card [widgetType]="type"/>
@@ -75,7 +77,9 @@
                 [class.widget-center__widget-wrapper--selected]="isSelected(type)"
                 (click)="toggleSelection(type)"
               >
-                @if (isCustomWidget(type)) {
+                @if (type === WidgetType.Map) {
+                  <app-map-widget-card/>
+                } @else if (isCustomWidget(type)) {
                   <ng-container [ngComponentOutlet]="getWidgetComponent(type)"/>
                 } @else {
                   <app-generic-widget-card [widgetType]="type"/>
@@ -92,7 +96,9 @@
                 [class.widget-center__widget-wrapper--selected]="isSelected(type)"
                 (click)="toggleSelection(type)"
               >
-                @if (isCustomWidget(type)) {
+                @if (type === WidgetType.Map) {
+                  <app-map-widget-card/>
+                } @else if (isCustomWidget(type)) {
                   <ng-container [ngComponentOutlet]="getWidgetComponent(type)"/>
                 } @else {
                   <app-generic-widget-card [widgetType]="type"/>

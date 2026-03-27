@@ -81,6 +81,92 @@
     }
   }
 
+  &__download {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__download-formats {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__download-format {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+  }
+
+  &__download-format-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__download-format-label {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    color: #000000;
+
+    :host-context(body.theme--dark) & {
+      color: #ffffff;
+    }
+  }
+
+  &__checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #364151;
+    cursor: pointer;
+
+    :host-context(body.theme--dark) & {
+      color: #cdd4db;
+    }
+
+    input {
+      display: none;
+    }
+  }
+
+  &__checkbox-mark {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    border: 1px solid #aeb2bc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-sizing: border-box;
+
+    input:checked + & {
+      background: #2563ea;
+      border-color: #2563ea;
+
+      &::after {
+        content: '';
+        width: 14px;
+        height: 14px;
+        background: url('/assets/images/icons/check.svg') no-repeat center / contain;
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+
   &__meta-item {
     display: flex;
     align-items: center;

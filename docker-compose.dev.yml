@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4200:4200"
+    environment:
+    labels:
+      - "traefik.http.middlewares.lmo-auth-basic.basicauth.users=demouser:$apr1$tLDB8GfE$ipEbkbWnb2ON7Hz/3pJVS."
+    #  - "traefik.http.routers.http-0-poscossckco4840ows8w4o8k-app.middlewares=gzip,lmo-auth-basic"
+    # Keep container running and enable live reload
+    stdin_open: true
+    tty: true

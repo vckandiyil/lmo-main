@@ -6,12 +6,15 @@ import {Button} from '../../atom/button/button';
 import {Icon} from '../../atom/icon/icon';
 import {ChangeMetric} from '../../atom/change-metric/change-metric';
 import {RangeSelector} from '../../atom/range-selector/range-selector';
+import {BookmarkDropdown} from '../../molecule/bookmark-dropdown/bookmark-dropdown';
 import {CompareDropdown, type CompareItem} from '../../molecule/compare-dropdown/compare-dropdown';
 import {MetadataModal} from '../../molecule/metadata-modal/metadata-modal';
 import {ChartWrapper} from '../../molecule/chart-wrapper/chart-wrapper';
 import {ChartOptions} from '../../../shared/services/chart-config.service';
 import {ChartBuilderService} from '../../../shared/services/chart-builder.service';
-import {DashboardDataService, LanguageService} from '../../../core';
+import {DashboardDataService, LanguageService, WidgetType} from '../../../core';
+import {PresetService} from '../../../core/services/preset.service';
+import {DOWNLOAD_FORMATS as DEFAULT_DOWNLOAD_FORMATS} from '../../../core/constants/download.constants';
 import type {MetaDataItem, RelatedSVMap, ForecastRelatedSVMap} from '../../../core';
 import type {ChartBuildContext, WidgetDetailConfig, WidgetDetailSeriesPoint} from '../../../core/models/widget-detail.model';
 
@@ -28,11 +31,6 @@ const DEFAULT_SETTINGS_TABS = [
   {id: 'share', icon: 'share-android', label: 'LMI.SHARE_TAB'},
 ];
 
-const DEFAULT_DOWNLOAD_FORMATS = [
-  {id: 'pdf', label: 'PDF', icon: 'pdf', color: '#DB5559', iconColor: '#FFFFFF'},
-  {id: 'excel', label: 'Excel', icon: 'excel', color: '#46B45F', iconColor: '#FFFFFF'},
-  {id: 'image', label: 'Image', icon: 'image', color: '#F3F4F6', iconColor: '#05264A'},
-];
 
 const DEFAULT_SHARE_FORMATS = [
   {id: 'telegram', label: 'Telegram', icon: 'telegram'},
@@ -43,7 +41,7 @@ const DEFAULT_SHARE_FORMATS = [
 @Component({
   selector: 'app-widget-detail-template',
   standalone: true,
-  imports: [Badge, Button, Icon, ChartWrapper, ChangeMetric, RangeSelector, CompareDropdown, MetadataModal, TranslateModule],
+  imports: [Badge, Button, Icon, ChartWrapper, ChangeMetric, RangeSelector, BookmarkDropdown, CompareDropdown, MetadataModal, TranslateModule],
   templateUrl: './widget-detail-template.html',
   styleUrl: './widget-detail-template.scss',
 })
@@ -52,10 +50,13 @@ export class WidgetDetailTemplate implements OnInit, OnDestroy {
   private readonly chartBuilderService  = inject(ChartBuilderService);
   private readonly translate            = inject(TranslateService);
   private readonly languageService      = inject(LanguageService);
+  private readonly presetService = inject(PresetService);
 
   protected readonly isArabic = this.languageService.isRtl;
 
-  readonly config = input<WidgetDetailConfig | null>(null);
+  readonly config           = input<WidgetDetailConfig | null>(null);
+  readonly initialChartType = input<string | null>(null);
+  readonly widgetType       = input<WidgetType | null>(null);
 
   private readonly tableContainerRef = viewChild<ElementRef>('tableContainer');
   private gridInstance: Grid | null = null;
@@ -224,6 +225,15 @@ export class WidgetDetailTemplate implements OnInit, OnDestroy {
     ].filter(item => !!item.value);
   });
 
+  readonly presetNames = computed(() => this.presetService.presetNames());
+  readonly isBookmarked = computed(() => {
+    const type = this.widgetType();
+    if (!type) return false;
+    return this.presetService.presets().some(p =>
+      p.leftWidgets.includes(type) || p.rightWidgets.includes(type),
+    );
+  });
+
   readonly settingsTabs = computed(() => this.config()?.settingsTabs ?? DEFAULT_SETTINGS_TABS);
   readonly downloadFormats = computed(() => this.config()?.downloadFormats ?? DEFAULT_DOWNLOAD_FORMATS);
   readonly shareFormats = computed(() => this.config()?.shareFormats ?? DEFAULT_SHARE_FORMATS);
@@ -240,9 +250,11 @@ export class WidgetDetailTemplate implements OnInit, OnDestroy {
     const cfg = this.config();
     if (!cfg) return;
 
-    // Set the active chart type to the default from config viewTypes
-    const defaultType = cfg.viewTypes?.find(v => v.default)?.id ?? cfg.viewTypes?.[0]?.id;
-    if (defaultType) this.activeChartType.set(defaultType);
+    // Use the chart type selected on the mini card, or fall back to the config default
+    const override     = this.initialChartType();
+    const defaultType  = cfg.viewTypes?.find(v => v.default)?.id ?? cfg.viewTypes?.[0]?.id;
+    const startingType = override ?? defaultType;
+    if (startingType) this.activeChartType.set(startingType);
 
     cfg.loadData(this.dashboardDataService).subscribe({
       next: (data) => {
@@ -270,6 +282,12 @@ export class WidgetDetailTemplate implements OnInit, OnDestroy {
         console.error('Failed to load widget detail data:', err);
       },
     });
+  }
+
+  addToPreset(presetName: string): void {
+    const type = this.widgetType();
+    if (!type) return;
+    this.presetService.addWidgetToPreset(presetName, type);
   }
 
   setSettingsTab(tabId: string): void {

@@ -1,0 +1,21 @@
+<div class="map-widget-card">
+  <div class="map-widget-card__header">
+    <span class="map-widget-card__title">{{ 'LMI.MAP' | translate }}</span>
+    <span class="map-widget-card__expand" (click)="expandClick.emit(); $event.stopPropagation()">
+      <app-icon name="expand" size="18"/>
+    </span>
+  </div>
+  <div class="map-widget-card__body">
+    <div class="map-widget-card__regions">
+      <div class="map-widget-card__region map-widget-card__region--al-dhafra">
+        <app-inline-svg src="assets/images/regions/AI-Dhafra.svg"/>
+      </div>
+      <div class="map-widget-card__region map-widget-card__region--abu-dhabi">
+        <app-inline-svg src="assets/images/regions/Abu-Dhabi.svg"/>
+      </div>
+      <div class="map-widget-card__region map-widget-card__region--al-ain">
+        <app-inline-svg src="assets/images/regions/Al-ain.svg"/>
+      </div>
+    </div>
+  </div>
+</div>

@@ -39,6 +39,25 @@ export class ChartWrapper implements AfterViewInit, OnChanges, OnDestroy {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['options'] && this.created) {
+      const prevType = (changes['options'].previousValue as ChartOptions)?.chart?.type;
+      const nextType = (changes['options'].currentValue  as ChartOptions)?.chart?.type;
+      const crossesPieBoundary = (prevType === 'pie') !== (nextType === 'pie');
+
+      if (crossesPieBoundary) {
+        // Pie ↔ cartesian transitions can't be handled via update() — recreate
+        if (this.updateTimeoutId) {
+          clearTimeout(this.updateTimeoutId);
+          this.updateTimeoutId = null;
+        }
+        this.ngZone.runOutsideAngular(() => {
+          this.chart.destroy();
+        });
+        this.created = false;
+        this.creating = false;
+        this.tryCreateChart();
+        return;
+      }
+
       // Debounce updates - cancel pending update if options change again
       if (this.updateTimeoutId) {
         clearTimeout(this.updateTimeoutId);

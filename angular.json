@@ -56,8 +56,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "1.5MB",
-                  "maximumError": "2MB"
+                  "maximumWarning": "2MB",
+                  "maximumError": "2.5MB"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -89,7 +89,6 @@
         "serve": {
           "builder": "@angular/build:dev-server",
           "options": {
-            "port": 4300,
             "allowedHosts": ["lmo.this-is-working.com"],
             "proxyConfig": "proxy.conf.json"
           },

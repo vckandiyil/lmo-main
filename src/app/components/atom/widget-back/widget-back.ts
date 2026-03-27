@@ -1,10 +1,11 @@
-import {Component, computed, inject, input, output} from '@angular/core';
+import {Component, computed, inject, input, output, signal} from '@angular/core';
 import {toObservable, toSignal} from '@angular/core/rxjs-interop';
 import {of, switchMap} from 'rxjs';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {Icon} from '../icon/icon';
 import {WidgetAiInsightService} from '../../../core/services/widget-ai-insight.service';
 import {LanguageService} from '../../../core/services/language.service';
+import {DOWNLOAD_FORMATS} from '../../../core/constants/download.constants';
 
 @Component({
   selector: 'app-widget-back',
@@ -17,6 +18,9 @@ import {LanguageService} from '../../../core/services/language.service';
           @if (mode() === 'info') {
             <app-icon name="code-brackets-square" size="18" color="#3375C6"/>
             <span class="widget-back__title widget-back__title--info">{{ 'LMI.STATISTICAL_METADATA' | translate }}</span>
+          } @else if (mode() === 'download') {
+            <app-icon name="download" size="18" color="#3375C6"/>
+            <span class="widget-back__title">{{ 'HOME.MORE_DOWNLOAD' | translate }}</span>
           } @else {
             <app-icon name="stars" size="18" color="#3375C6"/>
             <span class="widget-back__title">{{ 'HOME.AI_INSIGHT' | translate }}</span>
@@ -32,6 +36,24 @@ import {LanguageService} from '../../../core/services/language.service';
             <li class="widget-back__meta-item">{{ item.label }}: {{ item.value }}</li>
           }
         </ul>
+      } @else if (mode() === 'download') {
+        <div class="widget-back__download" (click)="$event.stopPropagation()">
+          <div class="widget-back__download-formats">
+            @for (format of downloadFormats; track format.id) {
+              <div class="widget-back__download-format">
+                <div class="widget-back__download-format-icon" [style.background-color]="format.color">
+                  <app-icon [name]="format.icon" [color]="format.iconColor" size="16"></app-icon>
+                </div>
+                <span class="widget-back__download-format-label">{{ format.label }}</span>
+              </div>
+            }
+          </div>
+          <label class="widget-back__checkbox">
+            <input type="checkbox" [checked]="termsAccepted()" (change)="toggleTerms()">
+            <span class="widget-back__checkbox-mark"></span>
+            {{ 'LMI.TERMS_AGREE' | translate }} <strong>{{ 'LMI.TERMS_CONDITIONS' | translate }}</strong>
+          </label>
+        </div>
       } @else {
         <div class="widget-back__content">{{ text() }}</div>
       }
@@ -41,12 +63,15 @@ import {LanguageService} from '../../../core/services/language.service';
 })
 export class WidgetBack {
   readonly widgetType   = input<string>('');
-  readonly mode         = input<'ai' | 'info'>('ai');
+  readonly mode         = input<'ai' | 'info' | 'download'>('ai');
   readonly indicatorName = input<string>('');
   readonly unit          = input<string>('');
   readonly updatedDate   = input<string>('');
   readonly periodicity   = input<string>('');
   readonly close = output<void>();
+
+  readonly downloadFormats = DOWNLOAD_FORMATS;
+  readonly termsAccepted = signal(false);
 
   private readonly aiInsightService = inject(WidgetAiInsightService);
   private readonly translate        = inject(TranslateService);
@@ -82,6 +107,10 @@ export class WidgetBack {
       {label: this.translate.instant('LMI.SOURCE'),         value: 'SCAD'},
     ].filter(item => !!item.value);
   });
+
+  toggleTerms(): void {
+    this.termsAccepted.update(v => !v);
+  }
 
   onClose(event: MouseEvent): void {
     event.stopPropagation();

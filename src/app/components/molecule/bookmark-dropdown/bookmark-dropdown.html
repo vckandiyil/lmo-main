@@ -1,0 +1,19 @@
+<div class="bookmark-dropdown">
+  <app-button variant="toolbar-icon" (click)="toggle()">
+    <app-icon buttonIcon [name]="isBookmarked() ? 'bookmark-select' : 'bookmark-empty'" size="20"></app-icon>
+  </app-button>
+  @if (isOpen()) {
+    <div class="bookmark-dropdown__panel">
+      <span class="bookmark-dropdown__title">{{ 'MY_LMO.ADD_TO_PRESET' | translate }}</span>
+      @if (presetNames().length === 0) {
+        <span class="bookmark-dropdown__empty">{{ 'MY_LMO.NO_PRESETS' | translate }}</span>
+      } @else {
+        <ul class="bookmark-dropdown__list">
+          @for (name of presetNames(); track name) {
+            <li class="bookmark-dropdown__item" (click)="selectPreset(name)">{{ name }}</li>
+          }
+        </ul>
+      }
+    </div>
+  }
+</div>
