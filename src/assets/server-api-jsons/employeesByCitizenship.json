@@ -1,0 +1,225 @@
+{
+  "success": true,
+  "correlationId": "334801-1774530421141",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "334801",
+    "title": "Employees by citizenship in the Emirate of Abu Dhabi",
+    "type": "scad",
+    "compare": false,
+    "unit": "",
+    "filters": [
+      {
+        "key": "region",
+        "label": "Region",
+        "type": "radio",
+        "options": [
+          "Abu Dhabi Emirates",
+          "Abu Dhabi",
+          "Al Ain",
+          "Al Dhafra"
+        ]
+      },
+      {
+        "key": "citizenship",
+        "label": "Citizenship",
+        "type": "checkbox",
+        "options": [
+          "All",
+          "Emirati",
+          "Non-Emirati"
+        ]
+      }
+    ],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Talent Pool",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF EBC YY 1D 3348"
+      },
+      {
+        "label": "Indicator name",
+        "value": "Employees by citizenship in the Emirate of Abu Dhabi - annually"
+      },
+      {
+        "label": "Indicator description",
+        "value": "This indicator measures the distribution of employees by citizenship in the Emirate of Abu Dhabi  Employees by citizenship: It represents the number of employed persons classified by citizenship status (Emirati and Non-Emirati) residing or working in the Emirate of Abu Dhabi"
+      },
+      {
+        "label": "Keywords",
+        "value": "Employees by citizenship, Emirati, Non-Emirati, workforce distribution, citizenship"
+      },
+      {
+        "label": "Statistical population",
+        "value": "The statistical population includes all individuals aged 15 years and above who reside in the Emirate of Abu Dhabi. The following are excluded: visitors to the Emirate who have stayed for less than six months, residents of institutions such as hospitals, psychiatric facilities, elderly care homes, orphanages, and hotels, members of the diplomatic corps, armed forces personnel, security camps, and palace residents."
+      },
+      {
+        "label": "Geographic coverage ",
+        "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "Number of Employees"
+      },
+      {
+        "label": "Base period",
+        "value": "N/A"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Statistical calculation method",
+        "value": "Count of employed persons residing or working in the Emirate of Abu Dhabi classified by citizenship status (Emirati / Non-Emirati) - annually"
+      },
+      {
+        "label": "Time series",
+        "value": ""
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Last update of indicator information card",
+        "value": "2025"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "© SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "description": "This indicator measures the distribution of employees by citizenship in the Emirate of Abu Dhabi",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "تأثير عالٍ",
+      "title": "Balance Emiratisation with Sustained Economic Growth",
+      "title_ar": "تحقيق التوازن بين التوطين والنمو الاقتصادي المستدام",
+      "text": "The significant gap between Emirati and Non-Emirati employees underscores the need for targeted Emiratisation policies that expand local workforce participation without disrupting productivity.",
+      "text_ar": "يؤكد الفارق الكبير بين الموظفين الإماراتيين وغير الإماراتيين الحاجة إلى سياسات توطين مستهدفة تعزز مشاركة القوى العاملة المحلية دون الإخلال بالإنتاجية.",
+      "reason": "Non-Emirati employees consistently outnumber Emirati employees by a factor of roughly six. Both groups are growing, but the ratio remains wide. Sustained workforce nationalisation programmes are critical to improving this balance while maintaining economic output.",
+      "reason_ar": "يتجاوز عدد الموظفين غير الإماراتيين باستمرار عدد نظرائهم الإماراتيين بنحو ستة أضعاف. وكلا المجموعتين في تنامٍ مستمر، غير أن الفجوة لا تزال واسعة. ويُعدّ استمرار برامج التوطين أمراً بالغ الأهمية لتحسين هذا الميزان مع الحفاظ على الناتج الاقتصادي."
+    },
+    "viewTypes": [
+      {
+        "id": "stacked-bar",
+        "label": "Stacked Bar",
+        "icon": "stats-up-square",
+        "default": true
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
+      }
+    ],
+    "orientation": "horizontal",
+    "yAxis": {
+      "paddingFactor": 0.05,
+      "snapTo": 100000
+    },
+    "visualizations": [
+      {
+        "label": "Employees by citizenship in the Emirate of Abu Dhabi",
+        "series": [
+          {
+            "id": "emirati",
+            "type": "solid",
+            "color": "#005A9C",
+            "group": "Emirati",
+            "label": "Emirati",
+            "data": [
+              {
+                "VALUE": 260000,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 272000,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 283000,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 295000,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 295000,
+            "yMin": 260000,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          },
+          {
+            "id": "non-emirati",
+            "type": "solid",
+            "color": "#E8A317",
+            "group": "Non-Emirati",
+            "label": "Non-Emirati",
+            "data": [
+              {
+                "VALUE": 1560000,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 1608000,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 1662000,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 1720000,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 1720000,
+            "yMin": 1560000,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          }
+        ],
+        "chartType": "stacked-bar",
+        "valueFormat": "compact",
+        "isTimeSeries": true
+      }
+    ],
+    "rangeOptions": [
+      {
+        "id": "all",
+        "label": "All",
+        "value": null
+      },
+      {
+        "id": "3",
+        "label": "3Y",
+        "value": 3
+      },
+      {
+        "id": "5",
+        "label": "5Y",
+        "value": 5
+      }
+    ]
+  }
+}

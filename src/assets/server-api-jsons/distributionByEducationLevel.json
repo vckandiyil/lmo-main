@@ -1,0 +1,291 @@
+{
+  "success": true,
+  "correlationId": "335301-1774530421142",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "335301",
+    "title": "Employee distribution by education level in the Emirate of Abu Dhabi",
+    "type": "scad",
+    "compare": false,
+    "unit": "",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Talent Pool",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF EDU YY 1D 3353"
+      },
+      {
+        "label": "Indicator name",
+        "value": "Employee distribution by education level in the Emirate of Abu Dhabi - annually"
+      },
+      {
+        "label": "Indicator description",
+        "value": "This indicator measures the distribution of employees by education level in the Emirate of Abu Dhabi  Employee distribution by education level: It represents the number of employed persons classified by their highest level of educational attainment residing or working in the Emirate of Abu Dhabi"
+      },
+      {
+        "label": "Keywords",
+        "value": "Education level distribution, employees, High School, Bachelor's Degree, Master's Degree, Doctorate, workforce education"
+      },
+      {
+        "label": "Statistical population",
+        "value": "The statistical population includes all individuals aged 15 years and above who reside in the Emirate of Abu Dhabi. The following are excluded: visitors to the Emirate who have stayed for less than six months, residents of institutions such as hospitals, psychiatric facilities, elderly care homes, orphanages, and hotels, members of the diplomatic corps, armed forces personnel, security camps, and palace residents."
+      },
+      {
+        "label": "Geographic coverage ",
+        "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "Number of Employees"
+      },
+      {
+        "label": "Base period",
+        "value": "N/A"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Statistical calculation method",
+        "value": "Count of employed persons residing or working in the Emirate of Abu Dhabi classified by highest educational attainment (High School / Bachelor's Degree / Master's Degree / Doctorate / Other) - annually"
+      },
+      {
+        "label": "Time series",
+        "value": ""
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Last update of indicator information card",
+        "value": "2025"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "© SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "description": "This indicator measures the distribution of employees by education level in the Emirate of Abu Dhabi",
+    "classification": "open",
+    "compareIndicators": [],
+    "viewTypes": [
+      {
+        "id": "stacked-bar",
+        "label": "Stacked Bar",
+        "icon": "stats-up-square",
+        "default": true
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
+      }
+    ],
+    "yAxis": {
+      "paddingFactor": 0.05,
+      "snapTo": 100000
+    },
+    "visualizations": [
+      {
+        "label": "Employee distribution by education level in the Emirate of Abu Dhabi",
+        "series": [
+          {
+            "id": "high-school",
+            "type": "solid",
+            "color": "#E8A317",
+            "group": "High School",
+            "label": "High School",
+            "data": [
+              {
+                "VALUE": 420000,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 436000,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 452000,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 468000,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 468000,
+            "yMin": 420000,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          },
+          {
+            "id": "bachelor-s-degree",
+            "type": "solid",
+            "color": "#005A9C",
+            "group": "Bachelor's Degree",
+            "label": "Bachelor's Degree",
+            "data": [
+              {
+                "VALUE": 820000,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 850000,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 882000,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 910000,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 910000,
+            "yMin": 820000,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          },
+          {
+            "id": "master-s-degree",
+            "type": "solid",
+            "color": "#27AE60",
+            "group": "Master's Degree",
+            "label": "Master's Degree",
+            "data": [
+              {
+                "VALUE": 285000,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 304000,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 321000,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 338000,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 338000,
+            "yMin": 285000,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          },
+          {
+            "id": "doctorate",
+            "type": "solid",
+            "color": "#8E44AD",
+            "group": "Doctorate",
+            "label": "Doctorate",
+            "data": [
+              {
+                "VALUE": 42000,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 47000,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 52000,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 58000,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 58000,
+            "yMin": 42000,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          },
+          {
+            "id": "other",
+            "type": "solid",
+            "color": "#7F8C8D",
+            "group": "Other",
+            "label": "Other",
+            "data": [
+              {
+                "VALUE": 241000,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 223000,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 202000,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 181000,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 241000,
+            "yMin": 181000,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          }
+        ],
+        "chartType": "stacked-bar",
+        "valueFormat": "compact",
+        "isTimeSeries": true
+      }
+    ],
+    "rangeOptions": [
+      {
+        "id": "all",
+        "label": "All",
+        "value": null
+      },
+      {
+        "id": "3",
+        "label": "3Y",
+        "value": 3
+      },
+      {
+        "id": "5",
+        "label": "5Y",
+        "value": 5
+      }
+    ]
+  }
+}

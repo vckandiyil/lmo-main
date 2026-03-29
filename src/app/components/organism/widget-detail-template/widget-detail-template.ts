@@ -16,7 +16,7 @@ import {DashboardDataService, LanguageService, WidgetType} from '../../../core';
 import {PresetService} from '../../../core/services/preset.service';
 import {DOWNLOAD_FORMATS as DEFAULT_DOWNLOAD_FORMATS} from '../../../core/constants/download.constants';
 import type {MetaDataItem, RelatedSVMap, ForecastRelatedSVMap} from '../../../core';
-import type {ChartBuildContext, WidgetDetailConfig, WidgetDetailSeriesPoint} from '../../../core/models/widget-detail.model';
+import type {ChartBuildContext, MultiSeriesItem, WidgetDetailConfig, WidgetDetailSeriesPoint} from '../../../core/models/widget-detail.model';
 
 const COMPARE_COLORS = [
   '#E85D75', '#F59E0B', '#10B981', '#8B5CF6',
@@ -75,52 +75,69 @@ export class WidgetDetailTemplate implements OnInit, OnDestroy {
 
       // Tracked signals — any change reruns the effect
       this.tableRefreshTrigger();
-      const mainSeries   = this.getFilteredSeries();    // tracks activeRange()
-      const isForecast   = this.forecastEnabled();
-      const selected     = this.selectedSVIds();
-      const selectedItems = this.compareItems().filter(i => selected.has(i.id));
-      const valueLabel   = this.unit() || 'Value';
+      const ms = this.getFilteredMultiSeries(); // tracks activeRange()
 
-      // Collect all years across all visible series
-      const allYears = new Set<string>(mainSeries.map(p => p.year));
-      const forecastData = isForecast ? this.rawForecastSeries : [];
-      forecastData.forEach(p => allYears.add(p.year));
-      selectedItems.forEach(item =>
-        (this.relatedSVMap[item.id]?.data ?? []).forEach(p => allYears.add(p.YEAR)),
-      );
+      let dtColumns: Record<string, (string | number | null)[]>;
+      let gridColumns: {id: string; header: {format: string}; width?: number}[];
 
-      const sortedYears = [...allYears].sort();
+      if (ms.length > 1) {
+        // Multi-series table: one column per series
+        const allYears = new Set<string>();
+        ms.forEach(s => s.data.forEach(p => allYears.add(p.year)));
+        const sortedYears = [...allYears].sort();
+        dtColumns = {year: sortedYears};
+        ms.forEach(s => {
+          const map = new Map(s.data.map(p => [p.year, p.value]));
+          dtColumns[s.name] = sortedYears.map(y => map.get(y) ?? null);
+        });
+        gridColumns = [
+          {id: 'year', header: {format: 'Year'}, width: 150},
+          ...ms.map(s => ({id: s.name, header: {format: s.name}})),
+        ];
+      } else {
+        // Single-series table
+        const mainSeries    = this.getFilteredSeries();    // tracks activeRange()
+        const isForecast    = this.forecastEnabled();
+        const selected      = this.selectedSVIds();
+        const selectedItems = this.compareItems().filter(i => selected.has(i.id));
+        const valueLabel    = this.unit() || 'Value';
 
-      // Value maps for quick lookup
-      const mainMap     = new Map(mainSeries.map(p => [p.year, p.value]));
-      const forecastMap = new Map(forecastData.map(p => [p.year, p.value]));
-
-      // Build dataTable columns
-      const dtColumns: Record<string, (string | number | null)[]> = {
-        year:  sortedYears,
-        value: sortedYears.map(y => mainMap.get(y) ?? null),
-      };
-
-      if (isForecast && forecastData.length > 0) {
-        dtColumns['forecast'] = sortedYears.map(y => forecastMap.get(y) ?? null);
-      }
-
-      for (const item of selectedItems) {
-        const svMap = new Map(
-          (this.relatedSVMap[item.id]?.data ?? []).map(p => [p.YEAR, p.VALUE]),
+        const allYears = new Set<string>(mainSeries.map(p => p.year));
+        const forecastData = isForecast ? this.rawForecastSeries : [];
+        forecastData.forEach(p => allYears.add(p.year));
+        selectedItems.forEach(item =>
+          (this.relatedSVMap[item.id]?.data ?? []).forEach(p => allYears.add(p.YEAR)),
         );
-        dtColumns[item.id] = sortedYears.map(y => svMap.get(y) ?? null);
-      }
 
-      // Build column config
-      const gridColumns = [
-        {id: 'year', header: {format: 'Year'}, width: 150},
-        {id: 'value', header: {format: valueLabel}},
-        ...(isForecast && forecastData.length > 0
-          ? [{id: 'forecast', header: {format: 'Forecast'}}]
-          : []),
-        ...selectedItems.map(item => ({id: item.id, header: {format: item.title}})),
-      ];
+        const sortedYears = [...allYears].sort();
+        const mainMap     = new Map(mainSeries.map(p => [p.year, p.value]));
+        const forecastMap = new Map(forecastData.map(p => [p.year, p.value]));
+
+        dtColumns = {
+          year:  sortedYears,
+          value: sortedYears.map(y => mainMap.get(y) ?? null),
+        };
+
+        if (isForecast && forecastData.length > 0) {
+          dtColumns['forecast'] = sortedYears.map(y => forecastMap.get(y) ?? null);
+        }
+
+        for (const item of selectedItems) {
+          const svMap = new Map(
+            (this.relatedSVMap[item.id]?.data ?? []).map(p => [p.YEAR, p.VALUE]),
+          );
+          dtColumns[item.id] = sortedYears.map(y => svMap.get(y) ?? null);
+        }
+
+        gridColumns = [
+          {id: 'year', header: {format: 'Year'}, width: 150},
+          {id: 'value', header: {format: valueLabel}},
+          ...(isForecast && forecastData.length > 0
+            ? [{id: 'forecast', header: {format: 'Forecast'}}]
+            : []),
+          ...selectedItems.map(item => ({id: item.id, header: {format: item.title}})),
+        ];
+      }
 
       if (this.gridInstance) {
         this.gridInstance.destroy();
@@ -139,6 +156,7 @@ export class WidgetDetailTemplate implements OnInit, OnDestroy {
 
   private rawSeries: WidgetDetailSeriesPoint[] = [];
   private rawForecastSeries: WidgetDetailSeriesPoint[] = [];
+  private rawMultiSeries: MultiSeriesItem[] = [];
   private relatedSVMap: RelatedSVMap = {};
   private forecastRelatedSVMap: ForecastRelatedSVMap = {};
 
@@ -273,6 +291,7 @@ export class WidgetDetailTemplate implements OnInit, OnDestroy {
         this.activeRange.set(data.defaultRange);
         this.rawSeries = data.series;
         this.rawForecastSeries = data.forecastSeries ?? [];
+        this.rawMultiSeries = data.multiSeries ?? [];
         this.relatedSV.set(data.relatedSV ?? []);
         this.relatedSVMap = data.relatedSVMap ?? {};
         this.forecastRelatedSVMap = data.forecastRelatedSVMap ?? {};
@@ -312,23 +331,6 @@ export class WidgetDetailTemplate implements OnInit, OnDestroy {
       else { next.add(id); adding = true; }
       return next;
     });
-
-    // If selecting a compare item whose data hasn't been loaded yet, fetch it on demand.
-    if (adding && !this.relatedSVMap[id]) {
-      this.dashboardDataService.getCompareData(id).subscribe({
-        next: (data) => {
-          this.relatedSVMap = {...this.relatedSVMap, [id]: {title: data.title, data: data.data}};
-          if (data.forecast?.length) {
-            this.forecastRelatedSVMap = {...this.forecastRelatedSVMap, [id]: data.forecast};
-          }
-          this.rebuildChart();
-        },
-        error: (err) => {
-          console.error(`[WidgetDetailTemplate] Failed to load compare data for id "${id}":`, err);
-        },
-      });
-      return;
-    }
 
     this.rebuildChart();
   }
@@ -421,6 +423,7 @@ export class WidgetDetailTemplate implements OnInit, OnDestroy {
       showTooltip: this.showTooltip(),
       showDataLabels: this.showDataLabels(),
       showPreciseValue: this.showPreciseValue(),
+      multiSeries: this.rawMultiSeries.length ? this.getFilteredMultiSeries() : undefined,
     };
   }
 
@@ -429,5 +432,12 @@ export class WidgetDetailTemplate implements OnInit, OnDestroy {
     if (range === 'ALL') return this.rawSeries;
     const years = parseInt(range, 10);
     return this.rawSeries.slice(-years);
+  }
+
+  private getFilteredMultiSeries(): MultiSeriesItem[] {
+    const range = this.activeRange();
+    if (range === 'ALL') return this.rawMultiSeries;
+    const years = parseInt(range, 10);
+    return this.rawMultiSeries.map(s => ({...s, data: s.data.slice(-years)}));
   }
 }

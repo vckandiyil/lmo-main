@@ -1,0 +1,205 @@
+{
+  "success": true,
+  "correlationId": "334701-1774530421139",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "334701",
+    "title": "Vacancy rate in the Emirate of Abu Dhabi",
+    "type": "scad",
+    "compare": false,
+    "unit": "%",
+    "filters": [
+      {
+        "key": "region",
+        "label": "Region",
+        "type": "radio",
+        "options": [
+          "Abu Dhabi Emirates",
+          "Abu Dhabi",
+          "Al Ain",
+          "Al Dhafra"
+        ]
+      },
+      {
+        "key": "sector",
+        "label": "Sector",
+        "type": "checkbox",
+        "options": [
+          "All",
+          "Public",
+          "Private"
+        ]
+      }
+    ],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Labour Force",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF VAC YY 1D 3347"
+      },
+      {
+        "label": "Indicator name",
+        "value": "Vacancy rate in the Emirate of Abu Dhabi - annually"
+      },
+      {
+        "label": "Indicator description",
+        "value": "This indicator measures the vacancy rate in the Emirate of Abu Dhabi  Vacancy rate: It represents the percentage of unfilled job positions out of the total number of job positions (filled and unfilled) available in establishments within the Emirate of Abu Dhabi"
+      },
+      {
+        "label": "Keywords",
+        "value": "Vacancy rate, job vacancies, unfilled positions, labour demand"
+      },
+      {
+        "label": "Statistical population",
+        "value": "The statistical population includes all establishments operating within the Emirate of Abu Dhabi that employ one or more persons. The following are excluded: households employing domestic workers, diplomatic missions, and international organizations."
+      },
+      {
+        "label": "Geographic coverage ",
+        "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "Percentage (%)"
+      },
+      {
+        "label": "Base period",
+        "value": "N/A"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Statistical calculation method",
+        "value": "[Number of vacant job positions in establishments in the Emirate of Abu Dhabi - annually / (Number of filled positions + Number of vacant positions) in the Emirate of Abu Dhabi - annually]  x 100"
+      },
+      {
+        "label": "Time series",
+        "value": ""
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Last update of indicator information card",
+        "value": "2025"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "© SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "description": "This indicator measures the vacancy rate in the Emirate of Abu Dhabi",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Moderate Impact",
+      "badge_ar": "تأثير متوسط",
+      "title": "Address Skills Gaps to Reduce Persistent Vacancies",
+      "title_ar": "معالجة فجوات المهارات للحد من الشواغر المستمرة",
+      "text": "Declining vacancy rates indicate improved labour market efficiency, but targeted skills programs are needed to address persistent mismatches between job seekers and available positions.",
+      "text_ar": "تشير معدلات الشواغر المتراجعة إلى تحسن كفاءة سوق العمل، غير أن برامج المهارات المستهدفة ضرورية لمعالجة الفجوات القائمة بين الباحثين عن عمل والمناصب المتاحة.",
+      "reason": "Vacancy rates have decreased from 4.2% in 2021 to 3.2% in 2024, reflecting better alignment between labour supply and demand. Continued workforce development efforts will help close remaining gaps and improve overall market efficiency.",
+      "reason_ar": "انخفضت معدلات الشواغر من 4.2% في عام 2021 إلى 3.2% في عام 2024، مما يعكس تحسناً في التوافق بين العرض والطلب في سوق العمل. وستساعد جهود تطوير القوى العاملة المستمرة في تضييق الفجوات المتبقية وتحسين كفاءة السوق."
+    },
+    "viewTypes": [
+      {
+        "id": "line",
+        "label": "Line Chart",
+        "icon": "graph-up",
+        "default": true
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
+      }
+    ],
+    "yAxis": {
+      "minPadding": 0.5,
+      "maxPadding": 1
+    },
+    "visualizations": [
+      {
+        "label": "Vacancy rate in the Emirate of Abu Dhabi",
+        "series": [
+          {
+            "id": "total",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "total",
+            "label": "Total",
+            "xAccessor": {
+              "path": "OBS_DT",
+              "type": "date",
+              "specifier": "%Y-%m-%d"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              {
+                "VALUE": 4.2,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 3.8,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 3.5,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 3.2,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 4.2,
+            "yMin": 3.2,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          }
+        ],
+        "chartType": "line",
+        "valueFormat": "compact",
+        "isTimeSeries": true
+      }
+    ],
+    "rangeOptions": [
+      {
+        "id": "all",
+        "label": "All",
+        "value": null
+      },
+      {
+        "id": "3",
+        "label": "3Y",
+        "value": 3
+      },
+      {
+        "id": "5",
+        "label": "5Y",
+        "value": 5
+      }
+    ]
+  }
+}

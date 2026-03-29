@@ -1,0 +1,326 @@
+{
+  "success": true,
+  "correlationId": "335001-1774530421140",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "335001",
+    "title": "Employee distribution by age group in the Emirate of Abu Dhabi",
+    "type": "scad",
+    "compare": false,
+    "unit": "",
+    "filters": [
+      {
+        "key": "region",
+        "label": "Region",
+        "type": "radio",
+        "options": [
+          "Abu Dhabi Emirates",
+          "Abu Dhabi",
+          "Al Ain",
+          "Al Dhafra"
+        ]
+      },
+      {
+        "key": "age",
+        "label": "Age Group",
+        "type": "checkbox",
+        "options": [
+          "All",
+          "18-24",
+          "25-34",
+          "35-44",
+          "45-54",
+          "55+"
+        ]
+      }
+    ],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Talent Pool",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF AGE YY 1D 3350"
+      },
+      {
+        "label": "Indicator name",
+        "value": "Employee distribution by age group in the Emirate of Abu Dhabi - annually"
+      },
+      {
+        "label": "Indicator description",
+        "value": "This indicator measures the distribution of employees by age group in the Emirate of Abu Dhabi  Employee distribution by age group: It represents the number of employed persons classified by age group residing or working in the Emirate of Abu Dhabi"
+      },
+      {
+        "label": "Keywords",
+        "value": "Age group distribution, employees, workforce age, 18-24, 25-34, 35-44, 45-54, 55 and above"
+      },
+      {
+        "label": "Statistical population",
+        "value": "The statistical population includes all individuals aged 15 years and above who reside in the Emirate of Abu Dhabi. The following are excluded: visitors to the Emirate who have stayed for less than six months, residents of institutions such as hospitals, psychiatric facilities, elderly care homes, orphanages, and hotels, members of the diplomatic corps, armed forces personnel, security camps, and palace residents."
+      },
+      {
+        "label": "Geographic coverage ",
+        "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "Number of Employees"
+      },
+      {
+        "label": "Base period",
+        "value": "N/A"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Statistical calculation method",
+        "value": "Count of employed persons residing or working in the Emirate of Abu Dhabi classified by age group (18-24 / 25-34 / 35-44 / 45-54 / 55+) - annually"
+      },
+      {
+        "label": "Time series",
+        "value": ""
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Last update of indicator information card",
+        "value": "2025"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "© SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "description": "This indicator measures the distribution of employees by age group in the Emirate of Abu Dhabi",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "تأثير عالٍ",
+      "title": "Invest in Youth Employment to Future-Proof the Workforce",
+      "title_ar": "الاستثمار في توظيف الشباب لضمان مستقبل القوى العاملة",
+      "text": "The dominance of the 25-34 age group signals a young workforce, but sustained investment in youth employability and mid-career development is critical to maintaining long-term productivity.",
+      "text_ar": "يُشير هيمنة الفئة العمرية 25-34 إلى قوة عاملة شابة، غير أن الاستثمار المستمر في توظيف الشباب وتطوير المسار المهني في منتصف العمر أمر بالغ الأهمية للحفاظ على الإنتاجية على المدى البعيد.",
+      "reason": "The 25-34 age group consistently forms the largest share of the workforce, followed by 35-44 and 45-54 segments. The growing 55+ group signals an ageing workforce challenge ahead, while the 18-24 segment represents the pipeline of future talent.",
+      "reason_ar": "تشكّل الفئة العمرية 25-34 باستمرار الحصة الأكبر من القوى العاملة، تليها فئتا 35-44 و45-54. ويُشير تنامي الفئة 55+ إلى تحدٍّ مستقبلي يتعلق بشيخوخة القوى العاملة، في حين تمثل الفئة 18-24 خزّان المواهب المستقبلية."
+    },
+    "viewTypes": [
+      {
+        "id": "stacked-bar",
+        "label": "Stacked Bar",
+        "icon": "stats-up-square",
+        "default": true
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
+      }
+    ],
+    "yAxis": {
+      "paddingFactor": 0.05,
+      "snapTo": 100000
+    },
+    "visualizations": [
+      {
+        "label": "Employee distribution by age group in the Emirate of Abu Dhabi",
+        "series": [
+          {
+            "id": "18-24-years",
+            "type": "solid",
+            "color": "#3667FF",
+            "group": "18-24 years",
+            "label": "18-24 years",
+            "data": [
+              {
+                "VALUE": 182000,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 191000,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 201000,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 210000,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 210000,
+            "yMin": 182000,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          },
+          {
+            "id": "25-34-years",
+            "type": "solid",
+            "color": "#005A9C",
+            "group": "25-34 years",
+            "label": "25-34 years",
+            "data": [
+              {
+                "VALUE": 655000,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 678000,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 700000,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 720000,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 720000,
+            "yMin": 655000,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          },
+          {
+            "id": "35-44-years",
+            "type": "solid",
+            "color": "#E8A317",
+            "group": "35-44 years",
+            "label": "35-44 years",
+            "data": [
+              {
+                "VALUE": 522000,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 541000,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 561000,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 580000,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 580000,
+            "yMin": 522000,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          },
+          {
+            "id": "45-54-years",
+            "type": "solid",
+            "color": "#C0392B",
+            "group": "45-54 years",
+            "label": "45-54 years",
+            "data": [
+              {
+                "VALUE": 282000,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 295000,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 308000,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 320000,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 320000,
+            "yMin": 282000,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          },
+          {
+            "id": "55-years",
+            "type": "solid",
+            "color": "#27AE60",
+            "group": "55+ years",
+            "label": "55+ years",
+            "data": [
+              {
+                "VALUE": 124000,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 137000,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 151000,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 165000,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 165000,
+            "yMin": 124000,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          }
+        ],
+        "chartType": "stacked-bar",
+        "valueFormat": "compact",
+        "isTimeSeries": true
+      }
+    ],
+    "rangeOptions": [
+      {
+        "id": "all",
+        "label": "All",
+        "value": null
+      },
+      {
+        "id": "3",
+        "label": "3Y",
+        "value": 3
+      },
+      {
+        "id": "5",
+        "label": "5Y",
+        "value": 5
+      }
+    ]
+  }
+}

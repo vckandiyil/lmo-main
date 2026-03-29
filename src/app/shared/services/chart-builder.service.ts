@@ -18,8 +18,10 @@ export class ChartBuilderService {
       case 'bar':    return this.buildBar(config, series, ctx);
       case 'column': return this.buildColumn(config, series, ctx);
       case 'pie':
-      case 'donut':  return this.buildPie(config, series, ctx);
-      default:       return this.buildCustom(config.type, config, series, ctx);
+      case 'donut':       return this.buildPie(config, series, ctx);
+      case 'stacked-bar':    return this.buildStackedBar(config, ctx);
+      case 'grouped-column': return this.buildGroupedColumn(config, ctx);
+      default:               return this.buildCustom(config.type, config, series, ctx);
     }
   }
 
@@ -315,6 +317,117 @@ export class ChartBuilderService {
         pie: {dataLabels: {enabled: ctx.showDataLabels ?? true}},
       },
       series: pieSeries as any,
+    };
+  }
+
+  private buildStackedBar(
+    config: WidgetChartConfig,
+    ctx: ChartBuildContext,
+  ): ChartOptions {
+    const items = ctx.multiSeries;
+    if (!items?.length) return {};
+
+    const showDL  = ctx.showDataLabels ?? false;
+    const precise = ctx.showPreciseValue ?? false;
+    const unit    = config.yAxis?.unit ?? '';
+
+    const horizontal = config.orientation === 'horizontal';
+    const hcType     = horizontal ? 'bar' : 'column';
+
+    const categories = items[0].data.map(d => d.year);
+    // For stacked charts yMin is always 0; yMax must accommodate the full cumulative stack height.
+    const stackTotals = Array.from({length: items[0].data.length}, (_, i) =>
+      items.reduce((sum, s) => sum + (s.data[i]?.value ?? 0), 0),
+    );
+    const yMin = 0;
+    const {yMax} = this.calcYBounds(config.yAxis ?? {}, stackTotals);
+    const tickCount    = config.yAxis?.tickCount ?? 5;
+    const width        = config.dimensions?.width;
+    const height       = config.dimensions?.height;
+
+    const hcSeries = items.map(s => ({
+      type:  hcType as 'bar' | 'column',
+      name:  s.name,
+      color: s.color,
+      data:  s.data.map(d => d.value),
+    }));
+
+    return {
+      colors: items.map(s => s.color),
+      chart: {
+        type: hcType,
+        ...(width  ? {width}  : {}),
+        ...(height ? {height} : {}),
+        backgroundColor: 'transparent',
+        spacing: [40, 0, 20, 0],
+      },
+      title:   {text: ''},
+      xAxis:   this.buildXAxis(categories),
+      yAxis:   this.buildYAxis(yMin, yMax, tickCount, unit, precise),
+      legend:  {enabled: true, align: 'center', verticalAlign: 'bottom', itemStyle: {fontFamily: "'Graphik Trial', sans-serif", fontWeight: '400', color: '#1E2937'}},
+      tooltip: {enabled: ctx.showTooltip ?? false, hideDelay: 0},
+      credits: {enabled: false},
+      plotOptions: {
+        [hcType]: {
+          stacking: 'normal',
+          dataLabels: {enabled: showDL},
+          borderWidth: 0,
+          borderRadius: 0,
+        },
+      },
+      series: hcSeries as any,
+    };
+  }
+
+  private buildGroupedColumn(
+    config: WidgetChartConfig,
+    ctx: ChartBuildContext,
+  ): ChartOptions {
+    const items = ctx.multiSeries;
+    if (!items?.length) return {};
+
+    const showDL  = ctx.showDataLabels ?? false;
+    const precise = ctx.showPreciseValue ?? false;
+    const unit    = config.yAxis?.unit ?? '';
+
+    const categories   = items[0].data.map(d => d.year);
+    const allValues    = items.flatMap(s => s.data.map(d => d.value));
+    const {yMin, yMax} = this.calcYBounds(config.yAxis ?? {}, allValues);
+    const tickCount    = config.yAxis?.tickCount ?? 5;
+    const width        = config.dimensions?.width;
+    const height       = config.dimensions?.height;
+
+    const hcSeries = items.map(s => ({
+      type:  'column' as const,
+      name:  s.name,
+      color: s.color,
+      data:  s.data.map(d => d.value),
+    }));
+
+    return {
+      colors: items.map(s => s.color),
+      chart: {
+        type: 'column',
+        ...(width  ? {width}  : {}),
+        ...(height ? {height} : {}),
+        backgroundColor: 'transparent',
+        spacing: [40, 0, 20, 0],
+      },
+      title:   {text: ''},
+      xAxis:   this.buildXAxis(categories),
+      yAxis:   this.buildYAxis(yMin, yMax, tickCount, unit, precise),
+      legend:  {enabled: true, align: 'center', verticalAlign: 'bottom', itemStyle: {fontFamily: "'Graphik Trial', sans-serif", fontWeight: '400', color: '#1E2937'}},
+      tooltip: {enabled: ctx.showTooltip ?? false, hideDelay: 0},
+      credits: {enabled: false},
+      plotOptions: {
+        column: {
+          grouping: true,
+          dataLabels: {enabled: showDL},
+          borderWidth: 0,
+          borderRadius: 0,
+        },
+      },
+      series: hcSeries as any,
     };
   }
 

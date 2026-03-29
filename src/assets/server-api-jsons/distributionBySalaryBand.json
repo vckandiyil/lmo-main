@@ -1,0 +1,313 @@
+{
+  "success": true,
+  "correlationId": "335401-1774530421143",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "335401",
+    "title": "Employee distribution by salary band in the Emirate of Abu Dhabi",
+    "type": "scad",
+    "compare": false,
+    "unit": "",
+    "filters": [
+      {
+        "key": "region",
+        "label": "Region",
+        "type": "radio",
+        "options": [
+          "Abu Dhabi Emirates",
+          "Abu Dhabi",
+          "Al Ain",
+          "Al Dhafra"
+        ]
+      }
+    ],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Talent Pool",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF SAL YY 1D 3354"
+      },
+      {
+        "label": "Indicator name",
+        "value": "Employee distribution by salary band in the Emirate of Abu Dhabi - annually"
+      },
+      {
+        "label": "Indicator description",
+        "value": "This indicator measures the distribution of employees by salary band in the Emirate of Abu Dhabi  Employee distribution by salary band: It represents the number of employed persons classified by their annual salary range residing or working in the Emirate of Abu Dhabi"
+      },
+      {
+        "label": "Keywords",
+        "value": "Salary band distribution, employees, wages, Below 30K, 30K-50K, 50K-70K, 70K-100K, Above 100K"
+      },
+      {
+        "label": "Statistical population",
+        "value": "The statistical population includes all individuals aged 15 years and above who reside in the Emirate of Abu Dhabi. The following are excluded: visitors to the Emirate who have stayed for less than six months, residents of institutions such as hospitals, psychiatric facilities, elderly care homes, orphanages, and hotels, members of the diplomatic corps, armed forces personnel, security camps, and palace residents."
+      },
+      {
+        "label": "Geographic coverage ",
+        "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "Number of Employees"
+      },
+      {
+        "label": "Base period",
+        "value": "N/A"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Statistical calculation method",
+        "value": "Count of employed persons residing or working in the Emirate of Abu Dhabi classified by annual salary band (Below 30K / 30K-50K / 50K-70K / 70K-100K / Above 100K) - annually"
+      },
+      {
+        "label": "Time series",
+        "value": ""
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Last update of indicator information card",
+        "value": "2025"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "© SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "description": "This indicator measures the distribution of employees by salary band in the Emirate of Abu Dhabi",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "تأثير عالٍ",
+      "title": "Address Wage Disparity to Strengthen Workforce Retention",
+      "title_ar": "معالجة التفاوت في الأجور لتعزيز الاحتفاظ بالقوى العاملة",
+      "text": "The concentration of employees in lower salary bands highlights wage inequality. Targeted wage growth policies and skills development programs can improve retention and productivity.",
+      "text_ar": "يُبرز تركّز الموظفين في الفئات الراتبية المنخفضة التفاوت في الأجور. ويمكن لسياسات نمو الأجور المستهدفة وبرامج تطوير المهارات أن تحسّن معدلات الاحتفاظ بالموظفين وترفع الإنتاجية.",
+      "reason": "The majority of employees fall within the Below 30K and 30K-50K salary bands, while higher bands represent smaller shares. Improving wage distribution across bands is key to attracting and retaining skilled talent in the Abu Dhabi labour market.",
+      "reason_ar": "يقع معظم الموظفين ضمن الفئتين الراتبيتين أقل من 30 ألف و30-50 ألف، في حين تمثل الفئات الأعلى حصصاً أصغر. يُعدّ تحسين توزيع الأجور عبر الفئات أمراً أساسياً لستقطاب الكفاءات والاحتفاظ بها في سوق عمل أبوظبي."
+    },
+    "viewTypes": [
+      {
+        "id": "grouped-column",
+        "label": "Grouped Column",
+        "icon": "stats-up-square",
+        "default": true
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
+      }
+    ],
+    "yAxis": {
+      "paddingFactor": 0.1,
+      "snapTo": 50000
+    },
+    "visualizations": [
+      {
+        "label": "Employee distribution by salary band in the Emirate of Abu Dhabi",
+        "series": [
+          {
+            "id": "below-30k",
+            "type": "solid",
+            "color": "#3667FF",
+            "group": "Below 30K",
+            "label": "Below 30K",
+            "data": [
+              {
+                "VALUE": 385000,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 398000,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 416000,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 435000,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 435000,
+            "yMin": 385000,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          },
+          {
+            "id": "30k-50k",
+            "type": "solid",
+            "color": "#005A9C",
+            "group": "30K - 50K",
+            "label": "30K - 50K",
+            "data": [
+              {
+                "VALUE": 610000,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 628000,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 648000,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 668000,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 668000,
+            "yMin": 610000,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          },
+          {
+            "id": "50k-70k",
+            "type": "solid",
+            "color": "#E8A317",
+            "group": "50K - 70K",
+            "label": "50K - 70K",
+            "data": [
+              {
+                "VALUE": 440000,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 456000,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 473000,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 490000,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 490000,
+            "yMin": 440000,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          },
+          {
+            "id": "70k-100k",
+            "type": "solid",
+            "color": "#27AE60",
+            "group": "70K - 100K",
+            "label": "70K - 100K",
+            "data": [
+              {
+                "VALUE": 248000,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 260000,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 272000,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 285000,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 285000,
+            "yMin": 248000,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          },
+          {
+            "id": "above-100k",
+            "type": "solid",
+            "color": "#8E44AD",
+            "group": "Above 100K",
+            "label": "Above 100K",
+            "data": [
+              {
+                "VALUE": 95000,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 109000,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 123000,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 137000,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 137000,
+            "yMin": 95000,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          }
+        ],
+        "chartType": "grouped-column",
+        "valueFormat": "compact",
+        "isTimeSeries": true
+      }
+    ],
+    "rangeOptions": [
+      {
+        "id": "all",
+        "label": "All",
+        "value": null
+      },
+      {
+        "id": "3",
+        "label": "3Y",
+        "value": 3
+      },
+      {
+        "id": "5",
+        "label": "5Y",
+        "value": 5
+      }
+    ]
+  }
+}

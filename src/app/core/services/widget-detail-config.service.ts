@@ -1,24 +1,17 @@
 import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {API_BASE_URL} from '../tokens/api-base-url.token';
-import {forkJoin, map, Observable, of, shareReplay} from 'rxjs';
-import type {DataLoaderConfig, FilterByConfig, WidgetDetailJsonConfig} from '../models/widget-detail-json.model';
-import type {WidgetChartConfig} from '../models/widget-chart-config.model';
-import type {WidgetType} from '../models/widget.model';
-import type {
-  ForecastDataPoint,
-  ForecastRelatedSVMap,
-  OverviewValueMeta,
-  RelatedSVMap,
-  VisualizationMeta,
-} from './dashboard-data.service';
-import {DashboardDataService} from './dashboard-data.service';
+import {forkJoin, map, Observable, of, shareReplay, switchMap} from 'rxjs';
 import type {FilterConfig} from '../../components/molecule/filter-bar/filter-bar';
 import type {
+  MultiSeriesItem,
   WidgetDetailConfig,
   WidgetDetailData,
   WidgetDetailSeriesPoint,
 } from '../models/widget-detail.model';
+import type {WidgetChartConfig} from '../models/widget-chart-config.model';
+import type {WidgetCatalogEntry, WidgetsCatalog} from '../models/widget-catalog.model';
+import {DashboardDataService} from './dashboard-data.service';
 
 interface WidgetDetailConfigCache {
   configMap: Map<string, WidgetDetailConfig>;
@@ -29,168 +22,194 @@ interface WidgetDetailConfigCache {
 export class WidgetDetailConfigService {
   private readonly http = inject(HttpClient);
   private readonly baseUrl = inject(API_BASE_URL);
-  private readonly dashboardDataService = inject(DashboardDataService);
 
-  private readonly json$ = forkJoin({
-    config: this.http.get<Record<string, WidgetDetailJsonConfig>>(`${this.baseUrl}/widgets-detail-config.json`),
-    unemployment: this.http.get<Record<string, WidgetDetailJsonConfig>>(`${this.baseUrl}/unemployment.json`),
-  }).pipe(
-    map(({config, unemployment}) => ({...config, ...unemployment})),
+  private readonly catalog$ = this.http
+    .get<WidgetsCatalog>(`${this.baseUrl}/widgets-catalog.json`)
+    .pipe(shareReplay(1));
+
+  readonly allConfigs$: Observable<WidgetDetailConfigCache> = this.catalog$.pipe(
+    switchMap(catalog => {
+      const entries = catalog.widgets.filter(w => w.hasDetailView);
+      if (entries.length === 0) return of({configMap: new Map(), filterMap: {}});
+
+      return forkJoin(
+        entries.map(w =>
+          this.http.get<any>(`${this.baseUrl}/${this.idToFileName(w)}`).pipe(
+            map(response => ({id: w.id, response})),
+          ),
+        ),
+      ).pipe(
+        map(results => {
+          const configMap = new Map<string, WidgetDetailConfig>();
+          const filterMap: Partial<Record<string, FilterConfig[]>> = {};
+
+          for (const {id, response} of results) {
+            configMap.set(id, this.buildConfigFromNewFormat(response));
+            const filters = this.buildFiltersFromNewFormat(response);
+            if (filters.length) filterMap[id] = filters;
+          }
+
+          return {configMap, filterMap};
+        }),
+      );
+    }),
     shareReplay(1),
   );
 
-  readonly allConfigs$: Observable<WidgetDetailConfigCache> = this.json$.pipe(
-    map(json => ({
-      configMap: this.buildConfigMap(json),
-      filterMap: this.buildFilterMap(json),
-    })),
-    shareReplay(1),
-  );
-
-  // ---------------------------------------------------------------------------
-  // Private builders
-  // ---------------------------------------------------------------------------
-
-  private buildConfigMap(json: Record<string, WidgetDetailJsonConfig>): Map<string, WidgetDetailConfig> {
-    const map = new Map<string, WidgetDetailConfig>();
-    for (const [id, entry] of Object.entries(json)) {
-      map.set(id, this.buildConfig(entry));
-    }
-    return map;
+  private idToFileName(w: WidgetCatalogEntry): string {
+    return w.id.replace(/-([a-z])/g, (_, c: string) => c.toUpperCase()) + '.json';
   }
 
-  private buildFilterMap(json: Record<string, WidgetDetailJsonConfig>): Partial<Record<string, FilterConfig[]>> {
-    const result: Partial<Record<string, FilterConfig[]>> = {};
-    for (const [id, entry] of Object.entries(json)) {
-      if (entry.filterBy && entry.filterBy.length > 0) {
-        result[id] = entry.filterBy.map(f => this.toFilterConfig(f));
+  // ---------------------------------------------------------------------------
+  // v2 (self-describing data file) builders
+  // ---------------------------------------------------------------------------
+
+  private buildConfigFromNewFormat(response: any): WidgetDetailConfig {
+    const d          = response.data;
+    const viz        = d.visualizations?.[0];
+    const unit       = d.unit ?? '';
+    const isPercent  = unit.includes('%');
+    const hasForecast = d.type === 'forecast';
+
+    const allActualSeries = (viz?.series ?? []).filter((s: any) => !s.isForecast);
+    const primarySeries   = allActualSeries.find((s: any) => s.group === 'total');
+    const hasCompare      = d.compare === true;
+
+    const chartConfig: WidgetChartConfig = {
+      type:       viz?.chartType ?? 'line',
+      dimensions: {width: 960, height: 428},
+      ...(d.orientation ? {orientation: d.orientation} : {}),
+      yAxis: {
+        dynamicBounds: true,
+        minPadding:    1,
+        maxPadding:    3,
+        ...(isPercent ? {maxCap: 100} : {}),
+        tickCount:     5,
+        ...(d.yAxis ?? {}),
+        unit,
+      },
+      series: [{
+        name:         d.title,
+        color:        primarySeries?.color ?? '#2563EA',
+        lineWidth:    2,
+        markerRadius: 4,
+        dataLabels:   {enabled: true, unit},
+      }],
+      ...(hasForecast ? {forecast: {color: '#5CC049', dashStyle: 'Dash'}} : {}),
+      ...(hasCompare  ? {compare:  {dashStyle: 'ShortDash'}}             : {}),
+    };
+
+    return {
+      indicatorName: d.title ?? '',
+      features:      {forecast: hasForecast, compare: hasCompare},
+      chartConfig,
+      viewTypes:     d.viewTypes,
+      loadData:      (_svc: DashboardDataService) => of(this.mapNewFormatToWidgetData(response)),
+    };
+  }
+
+  private buildFiltersFromNewFormat(response: any): FilterConfig[] {
+    return (response.data?.filters ?? []).map((f: any) => this.toFilterConfig(f));
+  }
+
+  private mapNewFormatToWidgetData(response: any): WidgetDetailData {
+    const d          = response.data;
+    const viz        = d.visualizations?.[0];
+    const unit       = d.unit ?? '';
+    const isPercent  = unit.includes('%');
+    const hasForecast = d.type === 'forecast';
+
+    const allActualSeries = (viz?.series ?? []).filter((s: any) => !s.isForecast);
+    const totalSeriesDef  = allActualSeries.find((s: any) => s.group === 'total');
+    const hasTotalSeries  = !!totalSeriesDef;
+
+    const series: WidgetDetailSeriesPoint[] = (totalSeriesDef?.data ?? []).map((p: any) => ({
+      year:  p.YEAR,
+      value: isPercent ? Math.round(p.VALUE * 10) / 10 : p.VALUE,
+    }));
+
+    let multiSeries: MultiSeriesItem[] | undefined;
+    if (!hasTotalSeries && allActualSeries.length > 0) {
+      multiSeries = allActualSeries.map((s: any) => ({
+        name:  s.label ?? '',
+        color: s.color ?? '#2563EA',
+        data:  (s.data ?? []).map((p: any) => ({
+          year:  p.YEAR,
+          value: isPercent ? Math.round(p.VALUE * 10) / 10 : p.VALUE,
+        })),
+      }));
+    }
+
+    let forecastSeries: WidgetDetailSeriesPoint[] | undefined;
+    if (hasForecast) {
+      const totalForecastDef = (viz?.series ?? []).find((s: any) => s.group === 'total' && s.isForecast === true);
+      if (totalForecastDef) {
+        const seriesYears = new Set(series.map(p => p.year));
+        forecastSeries = (totalForecastDef.data ?? [])
+          .filter((p: any) => !seriesYears.has(p.YEAR))
+          .map((p: any) => ({
+            year:  p.YEAR,
+            value: isPercent ? Math.round(p.VALUE * 10) / 10 : p.VALUE,
+          }));
       }
     }
-    return result;
-  }
 
-  private buildConfig(entry: WidgetDetailJsonConfig): WidgetDetailConfig {
-    const svc               = this.dashboardDataService;
-    const dataLoader        = entry.dataLoader;
-    const aiRec             = entry.aiRecommendation;
-    const chartConfig       = entry.chartConfig;
-    const compareIndicators = entry.compareIndicators;
-    const viewTypes         = entry.viewTypes;
-
-    return {
-      indicatorName: entry.indicatorName,
-      features:      entry.features,
-      chartConfig:   chartConfig as WidgetChartConfig | undefined,
-      viewTypes,
-      loadData:      (_svc: DashboardDataService) =>
-        this.loadDataGeneric(dataLoader, svc, aiRec, compareIndicators),
-    };
-  }
-
-  private loadDataGeneric(
-    dataLoader: DataLoaderConfig,
-    _svc: DashboardDataService,
-    aiRecommendation?: WidgetDetailJsonConfig['aiRecommendation'],
-    compareIndicators?: WidgetDetailJsonConfig['compareIndicators'],
-  ): Observable<WidgetDetailData> {
-    const primaryObs = dataLoader.dataFile
-      ? this.http.get<any>(`${this.baseUrl}/${dataLoader.dataFile}`)
-      : of(dataLoader.inlineData);
-
-    const observables: Record<string, Observable<any>> = {
-      primary: primaryObs,
-    };
-
-    if (dataLoader.forecastInlineData) observables['forecast'] = of(dataLoader.forecastInlineData);
-
-    return forkJoin(observables).pipe(
-      map(results => this.mapScadToWidgetData(results, dataLoader, aiRecommendation, compareIndicators)),
-    );
-  }
-
-  private mapScadToWidgetData(
-    results: Record<string, any>,
-    _dataLoader: DataLoaderConfig,
-    aiRecommendation?: WidgetDetailJsonConfig['aiRecommendation'],
-    compareIndicators?: WidgetDetailJsonConfig['compareIndicators'],
-  ): WidgetDetailData {
-    const primary  = results['primary'];
-    const viz: VisualizationMeta = primary.indicatorVisualizations.visualizationsMeta[0];
-    const isPercent = (primary.unit as string | undefined)?.includes('%') ?? false;
-
-    const series: WidgetDetailSeriesPoint[] = viz.seriesMeta[0].data.map(d => ({
-      year:  d.YEAR,
-      value: isPercent ? Math.round(d.VALUE * 10) / 10 : d.VALUE,
+    const rangeOptions = (d.rangeOptions ?? []).map((r: any) => ({
+      id:    r.id,
+      label: r.label,
+      value: r.value ?? null,
     }));
 
-    const first  = series[0]?.year ?? '';
-    const last   = series[series.length - 1]?.year ?? '';
+    // Use first series from multiSeries for period/highlights when there is no total series
+    const primaryData = hasTotalSeries
+      ? series
+      : (multiSeries?.[0]?.data ?? []).map(p => ({year: p.year, value: p.value}));
+
+    const first  = primaryData[0]?.year ?? '';
+    const last   = primaryData[primaryData.length - 1]?.year ?? '';
     const period = first === last ? first : `${first}\u2013${last}`;
 
-    const filters     = viz.indicatorFilters?.[0]?.options ?? primary.indicatorFilters?.[0]?.options ?? [];
-    const rangeOptions = filters.map((f: any) => ({
-      id:    f.id,
-      label: f.value != null ? `${f.value}Y` : f.label,
-      value: f.value,
-    }));
-
-    const overview: OverviewValueMeta | undefined = primary.indicatorValues?.overviewValuesMeta?.[0];
-
-    // Build forecast series (exclude years already in the main series)
-    const forecastRaw: ForecastDataPoint[] | undefined = results['forecast'];
-    let forecastSeries: WidgetDetailSeriesPoint[] | undefined;
-    if (forecastRaw) {
-      const seriesYears = new Set(series.map(d => d.year));
-      forecastSeries = forecastRaw
-        .filter(d => !seriesYears.has(d.YEAR))
-        .map(d => ({
-          year:  d.YEAR,
-          value: isPercent ? Math.round(d.VALUE * 10) / 10 : d.VALUE,
-        }));
-    }
-
-    const relatedSVMap: RelatedSVMap | undefined           = results['relatedSV'];
-    const forecastRelatedSVMap: ForecastRelatedSVMap | undefined = results['forecastRelatedSV'];
-
     return {
-      title:           primary.component_title,
-      description:     primary.component_subtitle,
-      securityLabel:   primary.security?.label ?? '',
-      unit:            primary.unit ?? '',
-      dataSource:      primary.data_source ?? '',
-      updatedDate:     primary.updated ?? '',
-      metaData:        primary.metaData ?? [],
+      title:           d.title ?? '',
+      description:     d.description ?? '',
+      securityLabel:   '',
+      unit,
+      dataSource:      d.dataSource ?? '',
+      updatedDate:     d.updated ?? '',
+      metaData:        (d.metadata ?? []).map((m: any) => ({label: m.label, value: m.value})),
       rangeOptions,
       defaultRange:    'ALL',
-      monthlyChange:   isPercent
-                         ? Math.round((overview?.monthlyChangeValue ?? 0) * 10) / 10
-                         : (overview?.monthlyChangeValue ?? 0),
-      quarterlyChange: isPercent
-                         ? Math.round((overview?.quarterlyChangeValue ?? 0) * 10) / 10
-                         : (overview?.quarterlyChangeValue ?? 0),
-      yearlyChange:    isPercent
-                         ? Math.round((overview?.yearlyChangeValue ?? 0) * 10) / 10
-                         : (overview?.yearlyChangeValue ?? 0),
-      highlights:      this.buildHighlights(series, isPercent),
+      monthlyChange:   0,
+      quarterlyChange: 0,
+      yearlyChange:    0,
+      highlights:      this.buildHighlights(primaryData, isPercent),
       period,
       series,
+      multiSeries,
       forecastSeries,
-      // Use API-provided relatedSV; fall back to compareIndicators from JSON config
-      relatedSV: viz.relatedSV?.length
-        ? viz.relatedSV
-        : (compareIndicators ?? []).map(c => ({
-            id: c.id, title: c.title, note: '', title_ar: '', content_type: '',
-          })),
-      relatedSVMap,
-      forecastRelatedSVMap,
-      aiRecommendation: aiRecommendation
-        ? {
-            badge: aiRecommendation.badge, badge_ar: aiRecommendation.badge_ar,
-            title: aiRecommendation.title, title_ar: aiRecommendation.title_ar,
-            text: aiRecommendation.text, text_ar: aiRecommendation.text_ar,
-            reason: aiRecommendation.reason, reason_ar: aiRecommendation.reason_ar,
-          }
-        : undefined,
+      relatedSV: (d.compareIndicators ?? []).map((c: any) => ({
+        id: c.id, title: c.title, note: '', title_ar: '', content_type: '',
+      })),
+      relatedSVMap: Object.fromEntries(
+        (d.compareIndicators ?? [])
+          .filter((c: any) => c.data)
+          .map((c: any) => [c.id, {title: c.title, data: c.data}]),
+      ),
+      forecastRelatedSVMap: Object.fromEntries(
+        (d.compareIndicators ?? [])
+          .filter((c: any) => c.forecast?.length)
+          .map((c: any) => [c.id, c.forecast]),
+      ),
+      aiRecommendation: d.aiRecommendation ? {
+        badge:     d.aiRecommendation.badge,
+        badge_ar:  d.aiRecommendation.badge_ar,
+        title:     d.aiRecommendation.title,
+        title_ar:  d.aiRecommendation.title_ar,
+        text:      d.aiRecommendation.text,
+        text_ar:   d.aiRecommendation.text_ar,
+        reason:    d.aiRecommendation.reason,
+        reason_ar: d.aiRecommendation.reason_ar,
+      } : undefined,
     };
   }
 
@@ -228,7 +247,7 @@ export class WidgetDetailConfigService {
     return result;
   }
 
-  private toFilterConfig(f: FilterByConfig): FilterConfig {
+  private toFilterConfig(f: any): FilterConfig {
     return {key: f.key, label: f.label, options: f.options, type: f.type};
   }
 }

@@ -21,6 +21,8 @@ import { WIDGET_COMPONENT_MAP } from '../widgets';
 import { DynamicWidget } from '../dynamic-widget/dynamic-widget';
 import { GapAnalysisFullscreen } from '../supply-and-demand-fullscreen/supply-and-demand-fullscreen';
 import { DecimalPipe } from '@angular/common';
+import { TalentPoolTreemap } from '../talent-pool-treemap/talent-pool-treemap';
+import { FilterStateService } from '../../../core/services/filter-state.service';
 
 interface RegionPopulationData {
   regions: RegionPopulation[];
@@ -32,7 +34,7 @@ interface RegionPopulationData {
 @Component({
   selector: 'app-center-section',
   standalone: true,
-  imports: [TranslateModule, GenericWidgetCard, DynamicWidget, GapAnalysisFullscreen, CdkDropList, CdkDrag, DecimalPipe, Icon],
+  imports: [TranslateModule, GenericWidgetCard, DynamicWidget, GapAnalysisFullscreen, CdkDropList, CdkDrag, DecimalPipe, Icon, TalentPoolTreemap],
   templateUrl: './center-section.html',
   styleUrl: './center-section.scss',
 })
@@ -41,6 +43,7 @@ export class CenterSection implements AfterViewInit, OnDestroy {
   private readonly mapService = inject(MapService);
   private readonly widgetStore = inject(WidgetStore);
   private readonly catalogService = inject(WidgetCatalogService);
+  private readonly filterState = inject(FilterStateService);
   private readonly expandableTypes = toSignal(
     this.catalogService.getSidebarWidgets().pipe(
       map(entries => new Set(entries.filter(e => e.hasExpandIcon).map(e => e.id)))
@@ -60,6 +63,10 @@ export class CenterSection implements AfterViewInit, OnDestroy {
   readonly centerWidget = this.widgetStore.centerWidget;
   readonly WidgetType = WidgetType;
   readonly centerDropData: Widget[] = [];
+
+  readonly showTalentPoolCenter = computed(
+    () => this.filterState.selectedTopic() === 'Talent Pool' && !this.centerWidget()
+  );
 
   is3DMode = signal(false);
   isTransitioning = signal(false);

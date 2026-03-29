@@ -51,14 +51,9 @@ export class Filters {
   createMode = signal<'new' | 'save'>('new');
   newPresetName = signal('');
 
-  private readonly TOPIC_ORDER = ['Employment', 'Unemployment', 'Outside Labor Force', 'Job Vacancies', 'Job Seekers'];
+  private readonly TOPIC_ORDER = ['Employment', 'Unemployment', 'Outside Labor Force', 'Job Vacancies', 'Job Seekers', 'Talent Pool'];
 
-  private readonly topics = toSignal(this.widgetCatalogService.getTopics(), {initialValue: []});
-  readonly topicOptions = computed(() => {
-    return [...this.topics()].sort(
-      (a, b) => (this.TOPIC_ORDER.indexOf(a) ?? Infinity) - (this.TOPIC_ORDER.indexOf(b) ?? Infinity)
-    );
-  });
+  readonly topicOptions = this.TOPIC_ORDER;
   selectedTopic = signal<string | null>(null);
 
   isSearchModalOpen = signal(false);

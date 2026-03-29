@@ -15,7 +15,18 @@ export enum WidgetType {
   MaritalActivityStatus = 'marital-activity-status',
   PopulationNumber = 'population-number',
   GapAnalysis = 'supply-and-demand',
-  Map = 'map'
+  Map = 'map',
+  Emiratisation = 'emiratisation',
+  LaborForceParticipation = 'labor-force-participation',
+  VacancyRate = 'vacancy-rate',
+  EmployeesByCitizenship = 'employees-by-citizenship',
+  GenderDistribution = 'gender-distribution',
+  DistributionByAgeGroup = 'distribution-by-age-group',
+  DistributionBySector = 'distribution-by-sector',
+  DistributionByOccupation = 'distribution-by-occupation',
+  DistributionByEducationLevel = 'distribution-by-education-level',
+  DistributionBySalaryBand = 'distribution-by-salary-band',
+  TalentPoolTreemap = 'talent-pool-treemap',
 }
 
 /**

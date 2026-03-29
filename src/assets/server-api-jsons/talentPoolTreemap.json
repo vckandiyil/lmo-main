@@ -1,0 +1,114 @@
+{
+  "success": true,
+  "correlationId": "7f3e1bc2-4a5d-4f8e-b123-9c8a7f6d5e4b",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 100,
+    "title": "Talent Pool of Employees in Abu Dhabi",
+    "type": "static",
+    "compare": false,
+    "unit": "",
+    "filters": [],
+    "related": [],
+    "updated": "2024-01-01",
+    "category": "Talent Pool",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "TP EMP AD 2024"
+      },
+      {
+        "label": "Keywords",
+        "value": "Talent pool, employees, citizenship, education, occupation"
+      },
+      {
+        "label": "Statistical population",
+        "value": "All employees working in Abu Dhabi Emirate, categorized by citizenship, education level, and occupation group."
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "Emirate of Abu Dhabi"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "Number of employees"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "© SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "highlights": [],
+    "description": "Distribution of employees in Abu Dhabi by citizenship, education level, and occupation group.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Strategic Insight",
+      "badge_ar": "رؤية استراتيجية",
+      "title": "Invest in Upskilling to Maximize Talent Pool Depth",
+      "title_ar": "الاستثمار في تطوير المهارات لتعظيم عمق مجمع المواهب",
+      "text": "Non-Emirati skilled trade workers represent the largest segment. Targeted Emiratisation in technical and professional roles, paired with education upgrades, can deepen the national talent pool.",
+      "text_ar": "يمثل العمال المهرة من غير المواطنين أكبر شريحة. يمكن لتعميق الإماراتية في الأدوار التقنية والمهنية، إلى جانب ترقيات التعليم، تعزيز مجمع المواهب الوطني.",
+      "reason": "With over 640,000 Non-Emirati employees concentrated in skilled trades and secondary education segments, there is a significant opportunity to develop homegrown talent in these areas.",
+      "reason_ar": "مع أكثر من 640,000 موظف غير مواطن يتمركزون في قطاعات الحرف الماهرة والتعليم الثانوي، هناك فرصة كبيرة لتطوير المواهب المحلية في هذه المجالات."
+    },
+    "visualizations": [
+      {
+        "label": "Talent Pool by Citizenship, Education and Occupation",
+        "chartType": "treemap",
+        "series": [
+          {
+            "id": "treemap-data",
+            "type": "treemap",
+            "data": [
+              { "id": "Emirati", "name": "Emirati", "custom": { "fullName": "Emirati Employees" } },
+              { "id": "Non-Emirati", "name": "Non-Emirati", "custom": { "fullName": "Non-Emirati Employees" } },
+
+              { "id": "Emirati-Secondary", "name": "Secondary or Below", "parent": "Emirati", "custom": { "fullName": "Emirati - Secondary or Below" } },
+              { "id": "Emirati-Diploma",   "name": "Diploma",            "parent": "Emirati", "custom": { "fullName": "Emirati - Diploma" } },
+              { "id": "Emirati-Bachelor",  "name": "Bachelor",           "parent": "Emirati", "custom": { "fullName": "Emirati - Bachelor" } },
+              { "id": "Emirati-Postgrad",  "name": "Postgraduate",       "parent": "Emirati", "custom": { "fullName": "Emirati - Postgraduate" } },
+
+              { "id": "NonEmirati-Secondary", "name": "Secondary or Below", "parent": "Non-Emirati", "custom": { "fullName": "Non-Emirati - Secondary or Below" } },
+              { "id": "NonEmirati-Diploma",   "name": "Diploma",            "parent": "Non-Emirati", "custom": { "fullName": "Non-Emirati - Diploma" } },
+              { "id": "NonEmirati-Bachelor",  "name": "Bachelor",           "parent": "Non-Emirati", "custom": { "fullName": "Non-Emirati - Bachelor" } },
+              { "id": "NonEmirati-Postgrad",  "name": "Postgraduate",       "parent": "Non-Emirati", "custom": { "fullName": "Non-Emirati - Postgraduate" } },
+
+              { "id": "E1", "name": "Managers",              "parent": "Emirati-Bachelor",  "value": 18500, "colorValue": 22, "custom": { "fullName": "Emirati - Bachelor - Managers",              "share": 22 } },
+              { "id": "E2", "name": "Professionals",         "parent": "Emirati-Bachelor",  "value": 26400, "colorValue": 31, "custom": { "fullName": "Emirati - Bachelor - Professionals",         "share": 31 } },
+              { "id": "E3", "name": "Technicians",           "parent": "Emirati-Diploma",   "value": 14300, "colorValue": 17, "custom": { "fullName": "Emirati - Diploma - Technicians",           "share": 17 } },
+              { "id": "E4", "name": "Clerical Support",      "parent": "Emirati-Diploma",   "value": 9800,  "colorValue": 12, "custom": { "fullName": "Emirati - Diploma - Clerical Support",      "share": 12 } },
+              { "id": "E5", "name": "Service & Sales",       "parent": "Emirati-Secondary", "value": 11200, "colorValue": 13, "custom": { "fullName": "Emirati - Secondary or Below - Service & Sales",       "share": 13 } },
+              { "id": "E6", "name": "Elementary Occupations","parent": "Emirati-Secondary", "value": 6700,  "colorValue": 8,  "custom": { "fullName": "Emirati - Secondary or Below - Elementary Occupations","share": 8  } },
+              { "id": "E7", "name": "Professionals",         "parent": "Emirati-Postgrad",  "value": 12100, "colorValue": 15, "custom": { "fullName": "Emirati - Postgraduate - Professionals",         "share": 15 } },
+              { "id": "E8", "name": "Managers",              "parent": "Emirati-Postgrad",  "value": 7900,  "colorValue": 9,  "custom": { "fullName": "Emirati - Postgraduate - Managers",              "share": 9  } },
+
+              { "id": "N1", "name": "Service & Sales",   "parent": "NonEmirati-Secondary", "value": 124000, "colorValue": 18, "custom": { "fullName": "Non-Emirati - Secondary or Below - Service & Sales",   "share": 18 } },
+              { "id": "N2", "name": "Skilled Trades",    "parent": "NonEmirati-Secondary", "value": 136500, "colorValue": 20, "custom": { "fullName": "Non-Emirati - Secondary or Below - Skilled Trades",    "share": 20 } },
+              { "id": "N3", "name": "Machine Operators", "parent": "NonEmirati-Secondary", "value": 88400,  "colorValue": 13, "custom": { "fullName": "Non-Emirati - Secondary or Below - Machine Operators", "share": 13 } },
+              { "id": "N4", "name": "Technicians",       "parent": "NonEmirati-Diploma",   "value": 72100,  "colorValue": 11, "custom": { "fullName": "Non-Emirati - Diploma - Technicians",       "share": 11 } },
+              { "id": "N5", "name": "Clerical Support",  "parent": "NonEmirati-Diploma",   "value": 46800,  "colorValue": 7,  "custom": { "fullName": "Non-Emirati - Diploma - Clerical Support",  "share": 7  } },
+              { "id": "N6", "name": "Professionals",     "parent": "NonEmirati-Bachelor",  "value": 109300, "colorValue": 16, "custom": { "fullName": "Non-Emirati - Bachelor - Professionals",     "share": 16 } },
+              { "id": "N7", "name": "Managers",          "parent": "NonEmirati-Bachelor",  "value": 35400,  "colorValue": 5,  "custom": { "fullName": "Non-Emirati - Bachelor - Managers",          "share": 5  } },
+              { "id": "N8", "name": "Professionals",     "parent": "NonEmirati-Postgrad",  "value": 27700,  "colorValue": 4,  "custom": { "fullName": "Non-Emirati - Postgraduate - Professionals",     "share": 4  } }
+            ]
+          }
+        ]
+      }
+    ],
+    "rangeOptions": []
+  }
+}

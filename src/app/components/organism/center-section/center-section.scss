@@ -54,7 +54,8 @@
       app-employment,
       app-ai-insights,
       app-region-profile,
-      app-marital-activity-status {
+      app-marital-activity-status,
+      app-talent-pool-treemap {
         display: block;
         width: 100%;
         height: 100%;
@@ -69,7 +70,8 @@
       .employment,
       .ai-insights,
       .region-profile,
-      .marital-activity-status {
+      .marital-activity-status,
+      .talent-pool-treemap--center {
         height: 100%;
         overflow-y: auto;
       }

@@ -1,0 +1,29 @@
+:host {
+  display: block;
+}
+
+.talent-pool-treemap {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+
+  &--selected {
+    outline: 2px solid #3375C6;
+    outline-offset: -2px;
+  }
+
+  &--center {
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+
+    ::ng-deep .chart-container {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__body {
+    padding: 4px 0 0;
+  }
+}

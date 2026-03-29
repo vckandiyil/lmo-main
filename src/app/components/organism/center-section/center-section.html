@@ -1,5 +1,5 @@
 <section class="center-section"
-  [class.center-section--widget-mode]="centerWidget()"
+  [class.center-section--widget-mode]="centerWidget() || showTalentPoolCenter()"
   [class.center-section--3d-mode]="is3DMode()"
   cdkDropList
   id="center-drop"
@@ -83,6 +83,14 @@
           {{ 'LMI.ZOOM_TO_DRILL' | translate }}
         </div>
       }
+    </div>
+  }
+
+  @if (showTalentPoolCenter()) {
+    <div class="center-section__widget-area">
+      <div class="center-section__widget-card">
+        <app-talent-pool-treemap [isCenter]="true"/>
+      </div>
     </div>
   }
 

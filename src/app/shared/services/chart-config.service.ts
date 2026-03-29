@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import 'highcharts/highcharts-more';
 import 'highcharts/modules/sankey';
+import 'highcharts/modules/treemap';
 
 /**
  * Chart options type extending Highcharts.Options

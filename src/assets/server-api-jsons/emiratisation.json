@@ -1,0 +1,211 @@
+{
+  "success": true,
+  "correlationId": "334601-1774530421137",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "334601",
+    "title": "Emiratisation rate in the Emirate of Abu Dhabi",
+    "type": "scad",
+    "compare": false,
+    "unit": "%",
+    "filters": [
+      {
+        "key": "region",
+        "label": "Region",
+        "type": "radio",
+        "options": [
+          "Abu Dhabi Emirates",
+          "Abu Dhabi",
+          "Al Ain",
+          "Al Dhafra"
+        ]
+      },
+      {
+        "key": "citizenship",
+        "label": "Citizenship",
+        "type": "checkbox",
+        "options": [
+          "All",
+          "Emirati",
+          "Expat"
+        ]
+      },
+      {
+        "key": "gender",
+        "label": "Gender",
+        "type": "checkbox",
+        "options": [
+          "All",
+          "Male",
+          "Female"
+        ]
+      }
+    ],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Labour Force",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF EMR YY 1D 3346"
+      },
+      {
+        "label": "Indicator name",
+        "value": "Emiratisation rate in the Emirate of Abu Dhabi - annually"
+      },
+      {
+        "label": "Indicator description",
+        "value": "This indicator measures the Emiratisation rate in the Emirate of Abu Dhabi  Emiratisation rate: It represents the percentage of UAE nationals (Emiratis) among the total employed workforce in the Emirate of Abu Dhabi"
+      },
+      {
+        "label": "Keywords",
+        "value": "Emiratisation rate, Emiratisation, UAE nationals, Emirati workforce"
+      },
+      {
+        "label": "Statistical population",
+        "value": "The statistical population includes all individuals aged 15 years and above who reside in the Emirate of Abu Dhabi. The following are excluded: visitors to the Emirate who have stayed for less than six months, residents of institutions such as hospitals, psychiatric facilities, elderly care homes, orphanages, and hotels, members of the diplomatic corps, armed forces personnel, security camps, and palace residents."
+      },
+      {
+        "label": "Geographic coverage ",
+        "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "Percentage (%)"
+      },
+      {
+        "label": "Base period",
+        "value": "N/A"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Statistical calculation method",
+        "value": "[Employed UAE nationals resident in the Emirate of Abu Dhabi - annually / Total employed persons resident in the Emirate of Abu Dhabi - annually]  x 100"
+      },
+      {
+        "label": "Time series",
+        "value": ""
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Last update of indicator information card",
+        "value": "2025"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "© SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "description": "This indicator measures the Emiratisation rate in the Emirate of Abu Dhabi",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "تأثير عالٍ",
+      "title": "Strengthen Emiratisation Programs to Meet Targets",
+      "title_ar": "تعزيز برامج التوطين لتحقيق الأهداف",
+      "text": "Continued growth in Emiratisation rates signals progress, but sustained policy focus is needed to meet sector-specific targets and improve Emirati workforce representation.",
+      "text_ar": "يشير الاستمرار في نمو معدلات التوطين إلى تقدم ملحوظ، غير أن التركيز المستمر على السياسات ضروري لتحقيق الأهداف القطاعية وتعزيز تمثيل القوى العاملة الإماراتية.",
+      "reason": "Emiratisation rates have shown consistent growth from 24.5% in 2021 to 30.5% in 2024, reflecting the success of targeted initiatives. Sustained effort is needed to maintain momentum and meet future national targets.",
+      "reason_ar": "أظهرت معدلات التوطين نمواً متسقاً من 24.5% في عام 2021 إلى 30.5% في عام 2024، مما يعكس نجاح المبادرات المستهدفة. ويلزم استمرار الجهود للحفاظ على هذا الزخم وتحقيق الأهداف الوطنية المستقبلية."
+    },
+    "viewTypes": [
+      {
+        "id": "line",
+        "label": "Line Chart",
+        "icon": "graph-up",
+        "default": true
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
+      }
+    ],
+    "visualizations": [
+      {
+        "label": "Emiratisation rate in the Emirate of Abu Dhabi",
+        "series": [
+          {
+            "id": "total",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "total",
+            "label": "Total",
+            "xAccessor": {
+              "path": "OBS_DT",
+              "type": "date",
+              "specifier": "%Y-%m-%d"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              {
+                "VALUE": 24.5,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 26.2,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 28.1,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 30.5,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 30.5,
+            "yMin": 24.5,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          }
+        ],
+        "chartType": "line",
+        "valueFormat": "compact",
+        "isTimeSeries": true
+      }
+    ],
+    "rangeOptions": [
+      {
+        "id": "all",
+        "label": "All",
+        "value": null
+      },
+      {
+        "id": "3",
+        "label": "3Y",
+        "value": 3
+      },
+      {
+        "id": "5",
+        "label": "5Y",
+        "value": 5
+      }
+    ]
+  }
+}

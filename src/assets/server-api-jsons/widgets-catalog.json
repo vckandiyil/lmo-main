@@ -173,6 +173,127 @@
       "hidden": false
     },
     {
+      "id": "employees-by-citizenship",
+      "title": "Employees by Citizenship",
+      "category": [
+        "Talent Pool"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "gender-distribution",
+      "title": "Gender Distribution",
+      "category": [
+        "Talent Pool"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "distribution-by-age-group",
+      "title": "Distribution by Age Group",
+      "category": [
+        "Talent Pool"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "distribution-by-sector",
+      "title": "Distribution by Sector",
+      "category": [
+        "Talent Pool"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "distribution-by-occupation",
+      "title": "Distribution by Occupation",
+      "category": [
+        "Talent Pool"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "distribution-by-education-level",
+      "title": "Distribution by Education Level",
+      "category": [
+        "Talent Pool"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "distribution-by-salary-band",
+      "title": "Distribution by Salary Band",
+      "category": [
+        "Talent Pool"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "talent-pool-treemap",
+      "title": "Talent Pool",
+      "category": [
+        "Talent Pool"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": false,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "emiratisation",
+      "title": "Emiratisation Rate",
+      "category": [
+        "Employment"
+      ],
+      "hasSidebarComponent": false,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "labor-force-participation",
+      "title": "Labor Force Participation Rate",
+      "category": [
+        "Employment"
+      ],
+      "hasSidebarComponent": false,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "vacancy-rate",
+      "title": "Vacancy Rate",
+      "category": [
+        "Employment"
+      ],
+      "hasSidebarComponent": false,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
       "id": "map",
       "title": "Map",
       "category": [

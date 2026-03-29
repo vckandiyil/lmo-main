@@ -31,6 +31,7 @@ export interface WidgetSeriesConfig {
 
 export interface WidgetChartConfig {
   type: string;
+  orientation?: 'horizontal' | 'vertical';
   dimensions?: { width?: number; height?: number };
   yAxis?: WidgetYAxisConfig;
   series?: WidgetSeriesConfig[];

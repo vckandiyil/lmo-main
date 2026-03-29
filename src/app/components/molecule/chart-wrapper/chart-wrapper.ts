@@ -67,7 +67,17 @@ export class ChartWrapper implements AfterViewInit, OnChanges, OnDestroy {
         this.updateTimeoutId = null;
         this.ngZone.runOutsideAngular(() => {
           const merged = this.chartConfigService.mergeOptions(this.options);
-          this.chart.update(merged as Highcharts.Options, true, true, false);
+          // Strip all animation from updates so theme switches / data changes
+          // are instant (the grow-in animation only runs on initial creation).
+          const {animation: _ca, ...chartRest} = (merged.chart ?? {}) as any;
+          const {series: seriesPlot, ...restPlot} = (merged.plotOptions ?? {}) as any;
+          const {animation: _sa, ...seriesPlotRest} = (seriesPlot ?? {}) as any;
+          const mergedForUpdate = {
+            ...merged,
+            chart: chartRest,
+            plotOptions: {...restPlot, series: seriesPlotRest},
+          };
+          this.chart.update(mergedForUpdate as Highcharts.Options, true, true, false);
         });
       }, 0);
     }

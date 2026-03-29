@@ -1,0 +1,224 @@
+{
+  "success": true,
+  "correlationId": "334901-1774530421141",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "334901",
+    "title": "Gender distribution of employees in the Emirate of Abu Dhabi",
+    "type": "scad",
+    "compare": false,
+    "unit": "",
+    "filters": [
+      {
+        "key": "region",
+        "label": "Region",
+        "type": "radio",
+        "options": [
+          "Abu Dhabi Emirates",
+          "Abu Dhabi",
+          "Al Ain",
+          "Al Dhafra"
+        ]
+      },
+      {
+        "key": "gender",
+        "label": "Gender",
+        "type": "checkbox",
+        "options": [
+          "All",
+          "Male",
+          "Female"
+        ]
+      }
+    ],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Talent Pool",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF GDE YY 1D 3349"
+      },
+      {
+        "label": "Indicator name",
+        "value": "Gender distribution of employees in the Emirate of Abu Dhabi - annually"
+      },
+      {
+        "label": "Indicator description",
+        "value": "This indicator measures the gender distribution of employees in the Emirate of Abu Dhabi  Gender distribution of employees: It represents the number of employed persons classified by gender (Male and Female) residing or working in the Emirate of Abu Dhabi"
+      },
+      {
+        "label": "Keywords",
+        "value": "Gender distribution, Male, Female, employees, workforce gender"
+      },
+      {
+        "label": "Statistical population",
+        "value": "The statistical population includes all individuals aged 15 years and above who reside in the Emirate of Abu Dhabi. The following are excluded: visitors to the Emirate who have stayed for less than six months, residents of institutions such as hospitals, psychiatric facilities, elderly care homes, orphanages, and hotels, members of the diplomatic corps, armed forces personnel, security camps, and palace residents."
+      },
+      {
+        "label": "Geographic coverage ",
+        "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "Number of Employees"
+      },
+      {
+        "label": "Base period",
+        "value": "N/A"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Statistical calculation method",
+        "value": "Count of employed persons residing or working in the Emirate of Abu Dhabi classified by gender (Male / Female) - annually"
+      },
+      {
+        "label": "Time series",
+        "value": ""
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Last update of indicator information card",
+        "value": "2025"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "© SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "description": "This indicator measures the gender distribution of employees in the Emirate of Abu Dhabi",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Moderate Impact",
+      "badge_ar": "تأثير متوسط",
+      "title": "Promote Gender Inclusivity to Strengthen the Talent Pool",
+      "title_ar": "تعزيز الشمولية بين الجنسين لتقوية مجمع المواهب",
+      "text": "While the overall workforce is growing, the gender gap remains significant. Targeted policies to increase female labour force participation can improve productivity and diversify the talent pool.",
+      "text_ar": "على الرغم من نمو القوى العاملة الإجمالية، لا تزال الفجوة بين الجنسين كبيرة. يمكن للسياسات الموجهة لزيادة مشاركة المرأة في سوق العمل أن تحسن الإنتاجية وتنوع مجمع المواهب.",
+      "reason": "Male employees consistently outnumber female employees by approximately 2:1. Both groups are growing year on year, but closing the gender gap requires sustained investment in equal opportunity programmes and workplace flexibility.",
+      "reason_ar": "يتجاوز عدد الموظفين الذكور باستمرار عدد الموظفات بنسبة 2:1 تقريباً. وكلا المجموعتين في نمو مستمر سنة بعد سنة، غير أن سد فجوة النوع الاجتماعي يستلزم استثماراً مستداماً في برامج تكافؤ الفرص ومرونة بيئة العمل."
+    },
+    "viewTypes": [
+      {
+        "id": "stacked-bar",
+        "label": "Stacked Bar",
+        "icon": "stats-up-square",
+        "default": true
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
+      }
+    ],
+    "yAxis": {
+      "paddingFactor": 0.05,
+      "snapTo": 100000
+    },
+    "visualizations": [
+      {
+        "label": "Gender distribution of employees in the Emirate of Abu Dhabi",
+        "series": [
+          {
+            "id": "male",
+            "type": "solid",
+            "color": "#005A9C",
+            "group": "Male",
+            "label": "Male",
+            "data": [
+              {
+                "VALUE": 1180000,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 1230000,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 1275000,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 1320000,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 1320000,
+            "yMin": 1180000,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          },
+          {
+            "id": "female",
+            "type": "solid",
+            "color": "#E8A317",
+            "group": "Female",
+            "label": "Female",
+            "data": [
+              {
+                "VALUE": 635000,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 650000,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 670000,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 695000,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 695000,
+            "yMin": 635000,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          }
+        ],
+        "chartType": "stacked-bar",
+        "valueFormat": "compact",
+        "isTimeSeries": true
+      }
+    ],
+    "rangeOptions": [
+      {
+        "id": "all",
+        "label": "All",
+        "value": null
+      },
+      {
+        "id": "3",
+        "label": "3Y",
+        "value": 3
+      },
+      {
+        "id": "5",
+        "label": "5Y",
+        "value": 5
+      }
+    ]
+  }
+}

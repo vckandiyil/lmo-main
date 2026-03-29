@@ -9,6 +9,12 @@ export interface WidgetDetailSeriesPoint {
   value: number;
 }
 
+export interface MultiSeriesItem {
+  name: string;
+  color: string;
+  data: WidgetDetailSeriesPoint[];
+}
+
 export interface ChartBuildContext {
   forecastEnabled: boolean;
   forecastSeries: WidgetDetailSeriesPoint[];
@@ -18,6 +24,7 @@ export interface ChartBuildContext {
   showTooltip?: boolean;
   showDataLabels?: boolean;
   showPreciseValue?: boolean;
+  multiSeries?: MultiSeriesItem[];
 }
 
 export interface WidgetDetailData {
@@ -37,6 +44,7 @@ export interface WidgetDetailData {
   period: string;
   series: WidgetDetailSeriesPoint[];
   forecastSeries?: WidgetDetailSeriesPoint[];
+  multiSeries?: MultiSeriesItem[];
   relatedSV?: RelatedSV[];
   relatedSVMap?: RelatedSVMap;
   forecastRelatedSVMap?: ForecastRelatedSVMap;

@@ -1,134 +1,116 @@
 {
-  "id": "334304",
-  "note": 4323,
-  "component_title": "Total population (usual residents) in the Emirate of Abu Dhabi",
-  "component_subtitle": "This indicator measures the total population of usual residents in the Emirate of Abu Dhabi.\n\nPopulation: Total number of usual residents living in Abu Dhabi at the reference date.",
-  "domains": [
-    "Labour Force"
-  ],
-  "domain_id": "5",
-  "domain": "Labour Force",
-  "theme": "Labour Force",
-  "subtheme": "Employment",
-  "product": "Population Number",
-  "type": "scad",
-  "narrative": "",
-  "enableCompare": "FALSE",
-  "content_classification": "Official Statistics",
-  "content_classification_key": "official_statistics",
-  "tagName": "Official Statistics",
-  "updated": "2025-06-30",
-  "security": {
-    "label": "Open",
-    "name": "0 - Open",
-    "description": "Data that is authorized for direct access without restrictions."
-  },
-  "domain_details": {
-    "policy_guide": [
-      "1 - Population figures refer to usual residents of the Emirate of Abu Dhabi at the reference date.",
-      "2 - Where applicable, time series may be updated to align with census / register-based methodology updates to ensure accuracy and reliability.",
-      "3 - Any forecast values (if provided) are generated using historical data available prior to the forecast reference period."
-    ]
-  },
-  "indicatorTools": [],
-  "indicatorFilters": [
-    {
-      "id": "period-filter",
-      "options": [
-        { "id": "3-years", "label": "3 YEARS", "unit": "years", "value": 3 },
-        { "id": "5-years", "label": "5 YEARS", "unit": "years", "value": 5 },
-        { "id": "All", "label": "ALL", "unit": null, "value": null, "isSelected": true }
-      ]
-    }
-  ],
-  "indicatorValues": {
-    "overviewValuesMeta": [
+  "success": true,
+  "correlationId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 334304,
+    "title": "Total population (usual residents) in the Emirate of Abu Dhabi",
+    "type": "scad",
+    "compare": false,
+    "unit": "Persons",
+    "filters": [],
+    "related": [],
+    "updated": "2025-06-30",
+    "category": "Labour Force",
+    "metadata": [
       {
-        "id": "whatsnew",
-        "title": "{dateStart}",
-        "type": "static-with-title-template",
-        "compareFilters": [
-          "Yearly"
-        ],
-        "valueFormat": "number_1.1-1",
-        "templateFormat": "date_y",
-        "color": "#3667ff",
-        "dimension": {
-          "INDICATOR_ID": "3345"
-        },
-        "dateStart": "2024-01-01",
-        "value": "4135985",
-        "yearlyCompareValue": 0,
-        "yearlyChangeValue": 0,
-        "quarterlyCompareValue": 0,
-        "quarterlyChangeValue": 0,
-        "monthlyCompareValue": 0,
-        "monthlyChangeValue": 0
+        "label": "Indicator code",
+        "value": "POP TOTAL YY 1D (PLACEHOLDER)"
+      },
+      {
+        "label": "Indicator name",
+        "value": "Total population (usual residents) in the Emirate of Abu Dhabi - annually"
+      },
+      {
+        "label": "Indicator description",
+        "value": "This indicator measures the total population of usual residents in the Emirate of Abu Dhabi."
+      },
+      {
+        "label": "Keywords",
+        "value": "Population, residents, demography"
+      },
+      {
+        "label": "Geographic coverage ",
+        "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "Persons"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "© SCAD, for public usage"
       }
-    ]
-  },
-  "indicatorVisualizations": {
-    "visualizationsMeta": [
+    ],
+    "dataSource": "SCAD Official",
+    "description": "This indicator measures the total population of usual residents in the Emirate of Abu Dhabi.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "تأثير عالٍ",
+      "title": "Monitor Population Growth to Inform Infrastructure and Service Planning",
+      "title_ar": "رصد النمو السكاني لتوجيه تخطيط البنية التحتية والخدمات",
+      "text": "Sustained population growth requires proactive planning across housing, healthcare, education, and transport infrastructure to maintain quality of life for residents.",
+      "text_ar": "يستلزم النمو السكاني المستدام تخطيطاً استباقياً في مجالات الإسكان والرعاية الصحية والتعليم والبنية التحتية للنقل للحفاظ على جودة الحياة للسكان.",
+      "reason": "The population of Abu Dhabi has grown steadily, reflecting strong economic activity and continued inward migration. Understanding population trends is essential for allocating resources and planning public services effectively.",
+      "reason_ar": "نمت سكان أبوظبي بشكل مطرد، مما يعكس النشاط الاقتصادي القوي واستمرار الهجرة الوافدة. يُعدّ فهم الاتجاهات السكانية أمراً ضرورياً لتخصيص الموارد وتخطيط الخدمات العامة بفاعلية."
+    },
+    "yAxis": {
+      "paddingFactor": 0.1,
+      "snapTo": 100000
+    },
+    "visualizations": [
       {
-        "id": "line-chart-pop-000001342",
-        "type": "line-chart",
-        "indicatorId": "4323",
-        "seriesMeta": [
+        "label": "Total population (usual residents) in the Emirate of Abu Dhabi",
+        "series": [
           {
+            "id": "total",
             "type": "solid",
+            "color": "#2563EA",
+            "group": "total",
+            "label": "Total",
             "xAccessor": {
-              "type": "date",
               "path": "OBS_DT",
+              "type": "date",
               "specifier": "%Y-%m-%d"
             },
             "yAccessor": {
-              "type": "value",
-              "path": "VALUE"
+              "path": "VALUE",
+              "type": "value"
             },
-            "id": "000001342",
-            "dbIndicatorId": "4323",
-            "label": null,
-            "color": "#000000",
             "data": [
               {
                 "VALUE": 3700000,
-                "MAX_VALUE": 4135985,
-                "MIN_VALUE": 3700000,
-                "MAX_OBS_DT": "2024-01-01",
-                "MIN_OBS_DT": "2021-01-01",
                 "OBS_DT": "2021-01-01",
-                "YEAR": "2021",
-                "OBS_DT_FORMAT": null
+                "YEAR": "2021"
               },
               {
                 "VALUE": 3850000,
-                "MAX_VALUE": 4135985,
-                "MIN_VALUE": 3700000,
-                "MAX_OBS_DT": "2024-01-01",
-                "MIN_OBS_DT": "2021-01-01",
                 "OBS_DT": "2022-01-01",
-                "YEAR": "2022",
-                "OBS_DT_FORMAT": null
+                "YEAR": "2022"
               },
               {
                 "VALUE": 3950000,
-                "MAX_VALUE": 4135985,
-                "MIN_VALUE": 3700000,
-                "MAX_OBS_DT": "2024-01-01",
-                "MIN_OBS_DT": "2021-01-01",
                 "OBS_DT": "2023-01-01",
-                "YEAR": "2023",
-                "OBS_DT_FORMAT": null
+                "YEAR": "2023"
               },
               {
                 "VALUE": 4135985,
-                "MAX_VALUE": 4135985,
-                "MIN_VALUE": 3700000,
-                "MAX_OBS_DT": "2024-01-01",
-                "MIN_OBS_DT": "2021-01-01",
                 "OBS_DT": "2024-01-01",
-                "YEAR": "2024",
-                "OBS_DT_FORMAT": null
+                "YEAR": "2024"
               }
             ],
             "yMax": 4135985,
@@ -137,74 +119,27 @@
             "xMax": "2024-01-01"
           }
         ],
-        "tooltipTitleFormat": "date_MMM y",
-        "tooltipValueFormat": "number_1.0-0",
-        "xAxisFormat": "date_y",
-        "yAxisFormat": "number_1.0-0",
-        "xAxisLabel": "",
-        "yAxisLabel": "Persons (number)",
-        "viewName": "VW_STATISTICAL_INDICATORS",
-        "markersMeta": [],
-        "dbColumn": "INDICATOR_ID",
-        "relatedSV": [],
-        "yAxisLabel_ar": "عدد الأشخاص",
-        "dimension": false,
-        "componentTitle": "Total population in the Emirate of Abu Dhabi",
-        "componentTitle_ar": "إجمالي عدد السكان (المقيمون عادةً) في إمارة أبوظبي - سنوي",
-        "componentSubtitle": "This indicator measures the total population of usual residents in the Emirate of Abu Dhabi.\n\nPopulation: Total number of usual residents living in Abu Dhabi at the reference date.",
-        "componentSubtitle_ar": "يقيس هذا المؤشر إجمالي عدد السكان (المقيمين عادةً) في إمارة أبوظبي.\n\nالسكان: إجمالي عدد المقيمين عادةً في أبوظبي عند تاريخ الإسناد.",
-        "note": "Source: SCAD Official Data",
-        "note_ar": "المصدر: بيانات SCAD الرسمية",
-        "isMultiDimension": false,
-        "unit": "Persons",
-        "unit_ar": "عدد",
-        "data_source": "SCAD Official",
-        "data_source_ar": "مسؤول SCAD",
-        "rank": "10000",
-        "hideChart": [
-          "pie"
-        ],
-        "timeUnit": [
-          "Yearly"
-        ],
-        "indicatorFilters": [
-          {
-            "id": "period-filter",
-            "options": [
-              { "id": "3-years", "label": "3 YEARS", "unit": "years", "value": 3 },
-              { "id": "5-years", "label": "5 YEARS", "unit": "years", "value": 5 },
-              { "id": "All", "label": "ALL", "unit": null, "value": null, "isSelected": true }
-            ]
-          }
-        ],
-        "showPointLabels": false
+        "chartType": "line",
+        "valueFormat": "compact",
+        "isTimeSeries": true
       }
     ],
-    "visualizationDefault": "line-chart-pop-000001"
-  },
-  "isUploadCompareData": false,
-  "metaData": [
-    { "label": "Indicator code", "value": "POP TOTAL YY 1D (PLACEHOLDER)" },
-    { "label": "Indicator name", "value": "Total population (usual residents) in the Emirate of Abu Dhabi - annually" },
-    { "label": "Indicator description", "value": "This indicator measures the total population of usual residents in the Emirate of Abu Dhabi." },
-    { "label": "Keywords", "value": "Population, residents, demography" },
-    { "label": "Geographic coverage ", "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra." },
-    { "label": "Measurement unit", "value": "Persons" },
-    { "label": "Available periodicity", "value": "Annual" },
-    { "label": "Data sources", "value": "Statistics Centre - Abu Dhabi" },
-    { "label": "Last data update", "value": "20240101" },
-    { "label": "Copyright and usage restrictions", "value": "© SCAD, for public usage" }
-  ],
-  "unit": "Persons",
-  "data_source": "SCAD Official",
-  "viewName": "VW_STATISTICAL_INDICATORS",
-  "indicatorId": "4323",
-  "isMultiDimension": false,
-  "filterPanel": false,
-  "tableFields": [
-    { "label": "INDICATOR ID", "path": "INDICATOR_ID" },
-    { "label": "VALUE", "path": "VALUE" },
-    { "label": "DATE", "path": "OBS_DT" }
-  ],
-  "benchmarks": []
+    "rangeOptions": [
+      {
+        "id": "all",
+        "label": "All",
+        "value": null
+      },
+      {
+        "id": "3",
+        "label": "3Y",
+        "value": 3
+      },
+      {
+        "id": "5",
+        "label": "5Y",
+        "value": 5
+      }
+    ]
+  }
 }

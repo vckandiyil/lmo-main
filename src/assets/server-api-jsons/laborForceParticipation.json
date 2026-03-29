@@ -1,0 +1,224 @@
+{
+  "success": true,
+  "correlationId": "334501-1774530421139",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "334501",
+    "title": "Labor Force Participation rate for residents in the Emirate of Abu Dhabi",
+    "type": "scad",
+    "compare": false,
+    "unit": "%",
+    "filters": [
+      {
+        "key": "region",
+        "label": "Region",
+        "type": "radio",
+        "options": [
+          "Abu Dhabi Emirates",
+          "Abu Dhabi",
+          "Al Ain",
+          "Al Dhafra"
+        ]
+      },
+      {
+        "key": "citizenship",
+        "label": "Citizenship",
+        "type": "checkbox",
+        "options": [
+          "All",
+          "Emirati",
+          "Expat"
+        ]
+      },
+      {
+        "key": "gender",
+        "label": "Gender",
+        "type": "checkbox",
+        "options": [
+          "All",
+          "Male",
+          "Female"
+        ]
+      },
+      {
+        "key": "age",
+        "label": "Age",
+        "type": "checkbox",
+        "options": [
+          "All",
+          "18-24",
+          "24-34",
+          "35-44",
+          "45-54",
+          "55+"
+        ]
+      }
+    ],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Labour Force",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF LFP YY 1D 3345"
+      },
+      {
+        "label": "Indicator name",
+        "value": "Labor Force Participation rate for residents in the Emirate of Abu Dhabi - annually"
+      },
+      {
+        "label": "Indicator description",
+        "value": "This indicator measures the labor force participation rate for residents in the Emirate of Abu Dhabi  Labor Force Participation rate: It represents the proportion of the working-age population (15-64 years) that is either employed or actively seeking employment"
+      },
+      {
+        "label": "Keywords",
+        "value": "Labor force participation rate, Labor force, participation rate"
+      },
+      {
+        "label": "Statistical population",
+        "value": "The statistical population includes all individuals aged 15 years and above who reside in the Emirate of Abu Dhabi. The following are excluded: visitors to the Emirate who have stayed for less than six months, residents of institutions such as hospitals, psychiatric facilities, elderly care homes, orphanages, and hotels, members of the diplomatic corps, armed forces personnel, security camps, and palace residents."
+      },
+      {
+        "label": "Geographic coverage ",
+        "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "Percentage (%)"
+      },
+      {
+        "label": "Base period",
+        "value": "N/A"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Statistical calculation method",
+        "value": "[Labor force residing in the Emirate of Abu Dhabi - annually / Working-age population residing in the Emirate of Abu Dhabi - annually]  x 100"
+      },
+      {
+        "label": "Time series",
+        "value": ""
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Last update of indicator information card",
+        "value": "2025"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "© SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "description": "This indicator measures the labor force participation rate for residents in the Emirate of Abu Dhabi",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Moderate Impact",
+      "badge_ar": "تأثير متوسط",
+      "title": "Expand Programs to Sustain Labor Force Participation",
+      "title_ar": "توسيع البرامج للحفاظ على مشاركة القوى العاملة",
+      "text": "Rising labor force participation rates reflect a healthier economy, but continued investment in training and inclusivity is needed to sustain and accelerate this trend.",
+      "text_ar": "تعكس معدلات مشاركة القوى العاملة المتزايدة اقتصاداً أكثر صحة، غير أن الاستمرار في الاستثمار في التدريب والشمولية ضروري للحفاظ على هذا الاتجاه وتسريعه.",
+      "reason": "Participation rates have grown steadily from 78.5% to 80.8% between 2021 and 2024, indicating more residents are actively engaged in the labour market. Policy focus should continue on skills development and removing barriers to participation.",
+      "reason_ar": "ارتفعت معدلات المشاركة بشكل مطرد من 78.5% إلى 80.8% بين عامي 2021 و2024، مما يشير إلى تزايد مشاركة السكان في سوق العمل. ينبغي أن يستمر التركيز على تنمية المهارات وإزالة العوائق أمام المشاركة."
+    },
+    "viewTypes": [
+      {
+        "id": "line",
+        "label": "Line Chart",
+        "icon": "graph-up",
+        "default": true
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
+      }
+    ],
+    "visualizations": [
+      {
+        "label": "Labor Force Participation rate for residents in the Emirate of Abu Dhabi",
+        "series": [
+          {
+            "id": "total",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "total",
+            "label": "Total",
+            "xAccessor": {
+              "path": "OBS_DT",
+              "type": "date",
+              "specifier": "%Y-%m-%d"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              {
+                "VALUE": 78.5,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 79.2,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 80.1,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 80.8,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 80.8,
+            "yMin": 78.5,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          }
+        ],
+        "chartType": "line",
+        "valueFormat": "compact",
+        "isTimeSeries": true
+      }
+    ],
+    "rangeOptions": [
+      {
+        "id": "all",
+        "label": "All",
+        "value": null
+      },
+      {
+        "id": "3",
+        "label": "3Y",
+        "value": 3
+      },
+      {
+        "id": "5",
+        "label": "5Y",
+        "value": 5
+      }
+    ]
+  }
+}

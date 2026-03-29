@@ -1,0 +1,323 @@
+{
+  "success": true,
+  "correlationId": "335101-1774530421140",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "335101",
+    "title": "Employee distribution by sector in the Emirate of Abu Dhabi",
+    "type": "scad",
+    "compare": false,
+    "unit": "",
+    "filters": [
+      {
+        "key": "region",
+        "label": "Region",
+        "type": "radio",
+        "options": [
+          "Abu Dhabi Emirates",
+          "Abu Dhabi",
+          "Al Ain",
+          "Al Dhafra"
+        ]
+      },
+      {
+        "key": "sector",
+        "label": "Sector",
+        "type": "checkbox",
+        "options": [
+          "All",
+          "Public",
+          "Private"
+        ]
+      }
+    ],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Talent Pool",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF SEC YY 1D 3351"
+      },
+      {
+        "label": "Indicator name",
+        "value": "Employee distribution by sector in the Emirate of Abu Dhabi - annually"
+      },
+      {
+        "label": "Indicator description",
+        "value": "This indicator measures the distribution of employees by economic sector in the Emirate of Abu Dhabi  Employee distribution by sector: It represents the number of employed persons classified by economic sector residing or working in the Emirate of Abu Dhabi"
+      },
+      {
+        "label": "Keywords",
+        "value": "Sector distribution, employees, Healthcare, Education, Construction, IT, Finance, economic sectors"
+      },
+      {
+        "label": "Statistical population",
+        "value": "The statistical population includes all individuals aged 15 years and above who reside in the Emirate of Abu Dhabi. The following are excluded: visitors to the Emirate who have stayed for less than six months, residents of institutions such as hospitals, psychiatric facilities, elderly care homes, orphanages, and hotels, members of the diplomatic corps, armed forces personnel, security camps, and palace residents."
+      },
+      {
+        "label": "Geographic coverage ",
+        "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "Number of Employees"
+      },
+      {
+        "label": "Base period",
+        "value": "N/A"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Statistical calculation method",
+        "value": "Count of employed persons residing or working in the Emirate of Abu Dhabi classified by economic sector (Healthcare / Education / Construction / IT / Finance) - annually"
+      },
+      {
+        "label": "Time series",
+        "value": ""
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Last update of indicator information card",
+        "value": "2025"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "© SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "description": "This indicator measures the distribution of employees by economic sector in the Emirate of Abu Dhabi",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "تأثير عالٍ",
+      "title": "Strengthen Private Sector Growth to Diversify Employment",
+      "title_ar": "تعزيز نمو القطاع الخاص لتنويع فرص العمل",
+      "text": "Expanding private sector employment is key to reducing dependence on public sector jobs and building a more resilient, diversified labour market in Abu Dhabi.",
+      "text_ar": "يُعدّ توسيع توظيف القطاع الخاص مفتاحاً للحدّ من الاعتماد على وظائف القطاع العام وبناء سوق عمل أكثر مرونة وتنوعاً في أبوظبي.",
+      "reason": "The distribution between public and private sector employment reflects the structural composition of the Abu Dhabi labour market. Tracking sector trends helps identify where policy interventions are needed to stimulate private sector job creation and sustainable economic growth.",
+      "reason_ar": "يعكس التوزيع بين توظيف القطاع العام والخاص التركيبة الهيكلية لسوق العمل في أبوظبي. يساعد تتبع اتجاهات القطاع على تحديد مواطن الحاجة إلى تدخلات سياساتية لتحفيز خلق فرص العمل في القطاع الخاص وتحقيق النمو الاقتصادي المستدام."
+    },
+    "viewTypes": [
+      {
+        "id": "stacked-bar",
+        "label": "Stacked Bar",
+        "icon": "stats-up-square",
+        "default": true
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
+      }
+    ],
+    "yAxis": {
+      "paddingFactor": 0.05,
+      "snapTo": 100000
+    },
+    "visualizations": [
+      {
+        "label": "Employee distribution by sector in the Emirate of Abu Dhabi",
+        "series": [
+          {
+            "id": "healthcare",
+            "type": "solid",
+            "color": "#E74C3C",
+            "group": "Healthcare",
+            "label": "Healthcare",
+            "data": [
+              {
+                "VALUE": 85000,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 91000,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 98000,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 105000,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 105000,
+            "yMin": 85000,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          },
+          {
+            "id": "education",
+            "type": "solid",
+            "color": "#3667FF",
+            "group": "Education",
+            "label": "Education",
+            "data": [
+              {
+                "VALUE": 75000,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 79000,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 84000,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 90000,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 90000,
+            "yMin": 75000,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          },
+          {
+            "id": "construction",
+            "type": "solid",
+            "color": "#E8A317",
+            "group": "Construction",
+            "label": "Construction",
+            "data": [
+              {
+                "VALUE": 355000,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 376000,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 398000,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 420000,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 420000,
+            "yMin": 355000,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          },
+          {
+            "id": "it",
+            "type": "solid",
+            "color": "#27AE60",
+            "group": "IT",
+            "label": "IT",
+            "data": [
+              {
+                "VALUE": 48000,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 54000,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 61000,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 68000,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 68000,
+            "yMin": 48000,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          },
+          {
+            "id": "finance",
+            "type": "solid",
+            "color": "#8E44AD",
+            "group": "Finance",
+            "label": "Finance",
+            "data": [
+              {
+                "VALUE": 56000,
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 61000,
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 65000,
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 70000,
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 70000,
+            "yMin": 56000,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          }
+        ],
+        "chartType": "stacked-bar",
+        "valueFormat": "compact",
+        "isTimeSeries": true
+      }
+    ],
+    "rangeOptions": [
+      {
+        "id": "all",
+        "label": "All",
+        "value": null
+      },
+      {
+        "id": "3",
+        "label": "3Y",
+        "value": 3
+      },
+      {
+        "id": "5",
+        "label": "5Y",
+        "value": 5
+      }
+    ]
+  }
+}

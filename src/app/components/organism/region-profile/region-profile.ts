@@ -58,6 +58,9 @@ export class RegionProfile implements OnInit {
     'Employment': WidgetType.EmploymentRate,
     'Unemployment': WidgetType.UnemploymentRate,
     'Population': WidgetType.PopulationNumber,
+    'Emiratisation': WidgetType.Emiratisation,
+    'LF participation': WidgetType.LaborForceParticipation,
+    'Vacancy Rate': WidgetType.VacancyRate,
   };
 
   row1Metrics = signal<RegionMetric[]>([]);
@@ -103,12 +106,18 @@ export class RegionProfile implements OnInit {
       employment: this.dashboardDataService.getEmploymentRateDetail(),
       unemployment: this.dashboardDataService.getUnemploymentDetail(),
       population: this.dashboardDataService.getPopulationNumberDetail(),
+      emiratisation: this.dashboardDataService.getEmiratisationDetail(),
+      laborForce: this.dashboardDataService.getLaborForceParticipationDetail(),
+      vacancyRate: this.dashboardDataService.getVacancyRateDetail(),
     }).subscribe({
-      next: ({dashboard, employment, unemployment, population}) => {
+      next: ({dashboard, employment, unemployment, population, emiratisation, laborForce, vacancyRate}) => {
         const overrideMap: Record<string, RegionMetric> = {
           'Employment': this.extractFromIndicator(employment, 'Employment', true),
           'Unemployment': this.extractFromIndicator(unemployment, 'Unemployment', false),
           'Population': this.extractFromIndicator(population, 'Population', true),
+          'Emiratisation': this.extractFromIndicator(emiratisation, 'Emiratisation', true),
+          'LF participation': this.extractFromIndicator(laborForce, 'LF participation', true),
+          'Vacancy Rate': this.extractFromIndicator(vacancyRate, 'Vacancy Rate', false),
         };
 
         const resolved = dashboard.regionProfile.metrics.map(m => overrideMap[m.label] ?? m);

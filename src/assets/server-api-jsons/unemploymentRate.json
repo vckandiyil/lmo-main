@@ -1,0 +1,271 @@
+{
+  "success": true,
+  "correlationId": "2e4b5c6d-7e8f-9a0b-c1d2-e3f4a5b6c7d8",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 3344,
+    "title": "Unemployment rate for residents in the Emirate of Abu Dhabi",
+    "type": "forecast",
+    "compare": true,
+    "unit": "%",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Employment",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF LFC YY 1D 3344"
+      },
+      {
+        "label": "Keywords",
+        "value": "Unemployment rate, Unemployment, rate"
+      },
+      {
+        "label": "Statistical population",
+        "value": "The statistical population includes all individuals aged 15 years and above who reside in the Emirate of Abu Dhabi. The following are excluded: visitors to the Emirate who have stayed for less than six months, residents of institutions such as hospitals, psychiatric facilities, elderly care homes, orphanages, and hotels, members of the diplomatic corps, armed forces personnel, security camps, and palace residents."
+      },
+      {
+        "label": "Geographic coverage ",
+        "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "%"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Statistical calculation method",
+        "value": "[Unemployed persons resident in the Emirate of Abu Dhabi - annually / Labour force residing in the Emirate of Abu Dhabi - annually] x 100"
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "© SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "highlights": [],
+    "description": "Unemployment rate for residents in the Emirate of Abu Dhabi.",
+    "classification": "open",
+    "compareIndicators": [
+      {
+        "id": "334301",
+        "title": "Employment Rate",
+        "data": [
+          {
+            "YEAR": "2021",
+            "VALUE": 94.5
+          },
+          {
+            "YEAR": "2022",
+            "VALUE": 95.2
+          },
+          {
+            "YEAR": "2023",
+            "VALUE": 95.4
+          },
+          {
+            "YEAR": "2024",
+            "VALUE": 95.3
+          }
+        ],
+        "forecast": [
+          {
+            "YEAR": "2024",
+            "VALUE": 95.3
+          },
+          {
+            "YEAR": "2025",
+            "VALUE": 95.6
+          },
+          {
+            "YEAR": "2026",
+            "VALUE": 95.8
+          },
+          {
+            "YEAR": "2027",
+            "VALUE": 95.5
+          }
+        ]
+      }
+    ],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "تأثير عالٍ",
+      "title": "Sustain Policy Efforts to Keep Unemployment on a Downward Trajectory",
+      "title_ar": "الحفاظ على الجهود السياسية لإبقاء البطالة في مسارها التنازلي",
+      "text": "With unemployment declining steadily since 2021, continued investment in skills development, job matching, and targeted programmes for youth and Emiratis will be key to maintaining this trend.",
+      "text_ar": "مع الانخفاض المتواصل في معدلات البطالة منذ عام 2021، سيكون الاستثمار المستمر في تنمية المهارات ومطابقة الوظائف والبرامج الموجهة للشباب والمواطنين مفتاحاً للحفاظ على هذا الاتجاه.",
+      "reason": "Unemployment rates have fallen consistently from 2021 to 2024, reflecting improvements in labour market conditions. Sustaining this progress will require targeted workforce development and active employment policies.",
+      "reason_ar": "انخفضت معدلات البطالة باستمرار من عام 2021 إلى عام 2024، مما يعكس تحسناً في أوضاع سوق العمل. سيتطلب استدامة هذا التقدم تنمية القوى العاملة الموجهة وسياسات التوظيف الفاعلة."
+    },
+    "visualizations": [
+      {
+        "label": "Unemployment rate for residents in the Emirate of Abu Dhabi",
+        "series": [
+          {
+            "id": "total",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "total",
+            "label": "Total",
+            "filterBy": {
+              "TYPE": "NOWCAST",
+              "CITIZENSHIP": "Total"
+            },
+            "xAccessor": {
+              "path": "OBS_DT",
+              "type": "date",
+              "specifier": "%Y-%m-%d"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              {
+                "VALUE": 4.2,
+                "MAX_VALUE": 4.2,
+                "MIN_VALUE": 2.9,
+                "MAX_OBS_DT": "2024-01-01",
+                "MIN_OBS_DT": "2021-01-01",
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 3.8,
+                "MAX_VALUE": 4.2,
+                "MIN_VALUE": 2.9,
+                "MAX_OBS_DT": "2024-01-01",
+                "MIN_OBS_DT": "2021-01-01",
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 3.2,
+                "MAX_VALUE": 4.2,
+                "MIN_VALUE": 2.9,
+                "MAX_OBS_DT": "2024-01-01",
+                "MIN_OBS_DT": "2021-01-01",
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 2.9,
+                "MAX_VALUE": 4.2,
+                "MIN_VALUE": 2.9,
+                "MAX_OBS_DT": "2024-01-01",
+                "MIN_OBS_DT": "2021-01-01",
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 4.2,
+            "yMin": 2.9,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          },
+          {
+            "id": "total-forecast",
+            "type": "dotted",
+            "color": "#2563EA",
+            "group": "total",
+            "label": "Total",
+            "filterBy": {
+              "TYPE": "FORECAST",
+              "CITIZENSHIP": "Total"
+            },
+            "xAccessor": {
+              "path": "OBS_DT",
+              "type": "date",
+              "specifier": "%Y-%m-%d"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "isForecast": true,
+            "data": [
+              {
+                "VALUE": 2.7,
+                "MAX_VALUE": 2.9,
+                "MIN_VALUE": 2.5,
+                "MAX_OBS_DT": "2027-01-01",
+                "MIN_OBS_DT": "2025-01-01",
+                "OBS_DT": "2025-01-01",
+                "YEAR": "2025"
+              },
+              {
+                "VALUE": 2.5,
+                "MAX_VALUE": 2.9,
+                "MIN_VALUE": 2.5,
+                "MAX_OBS_DT": "2027-01-01",
+                "MIN_OBS_DT": "2025-01-01",
+                "OBS_DT": "2026-01-01",
+                "YEAR": "2026"
+              },
+              {
+                "VALUE": 2.6,
+                "MAX_VALUE": 2.9,
+                "MIN_VALUE": 2.5,
+                "MAX_OBS_DT": "2027-01-01",
+                "MIN_OBS_DT": "2025-01-01",
+                "OBS_DT": "2027-01-01",
+                "YEAR": "2027"
+              }
+            ],
+            "yMax": 4.2,
+            "yMin": 2.5,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          }
+        ],
+        "viewName": "VW_STATISTICAL_INDICATORS",
+        "chartType": "line",
+        "valueFormat": "compact",
+        "isTimeSeries": true,
+        "rangeOptions": [
+          {
+            "id": "3y",
+            "label": "3Y",
+            "value": 3
+          },
+          {
+            "id": "all",
+            "label": "ALL",
+            "value": null
+          }
+        ],
+        "showMinMaxValues": true
+      }
+    ],
+    "rangeOptions": [
+      {
+        "id": "all",
+        "label": "All",
+        "value": null
+      },
+      {
+        "id": "3",
+        "label": "3Y",
+        "value": 3
+      },
+      {
+        "id": "5",
+        "label": "5Y",
+        "value": 5
+      }
+    ]
+  }
+}

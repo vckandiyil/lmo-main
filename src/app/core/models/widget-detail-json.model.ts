@@ -41,7 +41,10 @@ export interface AiRecommendationJsonConfig {
 }
 
 export interface WidgetDetailJsonConfig {
-  indicatorName: string;
+  /** 'v2' → self-describing data file; omit for legacy format */
+  format?: string;
+  /** Required for legacy format; derived from the data file for v2 */
+  indicatorName?: string;
   dataLoader: DataLoaderConfig;
   features?: { forecast?: boolean; compare?: boolean };
   viewTypes?: ViewTypeConfig[];

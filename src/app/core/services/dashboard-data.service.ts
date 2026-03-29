@@ -172,6 +172,8 @@ export interface SeriesMeta {
   data: ChartDataPoint[];
   yMax: number;
   yMin: number;
+  label?: string;
+  color?: string;
 }
 
 export interface VisualizationMeta {
@@ -215,13 +217,6 @@ export interface RelatedSVEntry {
 export type RelatedSVMap = Record<string, RelatedSVEntry>;
 export type ForecastRelatedSVMap = Record<string, ForecastDataPoint[]>;
 
-/** Shape of per-ID compare JSON files at assets/server-api-jsons/compare/{id}.json */
-export interface CompareIndicatorData {
-  title: string;
-  data: RelatedSVDataPoint[];
-  forecast?: ForecastDataPoint[];
-}
-
 export interface OverviewValueMeta {
   id: string;
   value: string;
@@ -261,9 +256,11 @@ export class DashboardDataService {
   private employmentRateDetailCache$: Observable<EmploymentRateDetailData> | null = null;
   private populationNumberDetailCache$: Observable<EmploymentRateDetailData> | null = null;
   private unemploymentDetailCache$: Observable<EmploymentRateDetailData> | null = null;
+  private emiratisationDetailCache$: Observable<EmploymentRateDetailData> | null = null;
+  private laborForceParticipationDetailCache$: Observable<EmploymentRateDetailData> | null = null;
+  private vacancyRateDetailCache$: Observable<EmploymentRateDetailData> | null = null;
   private labourMarketPoliciesCache$: Observable<LabourMarketPolicyEntry[][]> | null = null;
   private newsCache$: Observable<NewsData> | null = null;
-  private compareCache$: Observable<Record<string, CompareIndicatorData>> | null = null;
 
   /**
    * Get dashboard data with caching.
@@ -285,17 +282,59 @@ export class DashboardDataService {
   getEmploymentRateDetail(): Observable<EmploymentRateDetailData> {
     if (!this.employmentRateDetailCache$) {
       this.employmentRateDetailCache$ = this.http
-        .get<EmploymentRateDetailData>(`${this.baseUrl}/employmentRate.json`)
-        .pipe(shareReplay(1));
+        .get<any>(`${this.baseUrl}/employmentRate.json`)
+        .pipe(
+          map(raw => raw?.data?.visualizations ? this.mapV2ToLegacyDetail(raw) : raw as EmploymentRateDetailData),
+          shareReplay(1),
+        );
     }
     return this.employmentRateDetailCache$;
+  }
+
+  private mapV2ToLegacyDetail(raw: any): EmploymentRateDetailData {
+    const d   = raw.data;
+    const viz = d.visualizations?.[0];
+    const totalSeries = (viz?.series ?? []).find((s: any) => s.group === 'total' && !s.isForecast);
+    return {
+      id:                   String(d.id ?? ''),
+      component_title:      d.title ?? '',
+      component_subtitle:   d.description ?? '',
+      type:                 d.type ?? '',
+      updated:              d.updated ?? '',
+      unit:                 d.unit ?? '',
+      data_source:          d.dataSource ?? '',
+      security:             {label: d.classification ?? '', name: '', description: ''},
+      indicatorFilters:     [],
+      metaData:             d.metadata ?? [],
+      indicatorValues:      {overviewValuesMeta: []},
+      indicatorVisualizations: {
+        visualizationsMeta: [{
+          id:            '',
+          type:          viz?.chartType ?? 'line',
+          yAxisLabel:    '',
+          relatedSV:     [],
+          hideChart:     [],
+          indicatorFilters: [],
+          seriesMeta: [{
+            label:  totalSeries?.label ?? '',
+            color:  totalSeries?.color ?? '#2563EA',
+            yMax:   totalSeries?.yMax  ?? 0,
+            yMin:   totalSeries?.yMin  ?? 0,
+            data:   (totalSeries?.data ?? []).map((p: any) => ({VALUE: p.VALUE, YEAR: p.YEAR})),
+          }],
+        }],
+      },
+    } as EmploymentRateDetailData;
   }
 
   getPopulationNumberDetail(): Observable<EmploymentRateDetailData> {
     if (!this.populationNumberDetailCache$) {
       this.populationNumberDetailCache$ = this.http
-        .get<EmploymentRateDetailData>(`${this.baseUrl}/populationNumber.json`)
-        .pipe(shareReplay(1));
+        .get<any>(`${this.baseUrl}/populationNumber.json`)
+        .pipe(
+          map(raw => this.mapV2ToLegacyDetail(raw)),
+          shareReplay(1),
+        );
     }
     return this.populationNumberDetailCache$;
   }
@@ -303,13 +342,49 @@ export class DashboardDataService {
   getUnemploymentDetail(): Observable<EmploymentRateDetailData> {
     if (!this.unemploymentDetailCache$) {
       this.unemploymentDetailCache$ = this.http
-        .get<any>(`${this.baseUrl}/unemployment.json`)
+        .get<any>(`${this.baseUrl}/unemploymentRate.json`)
         .pipe(
-          map(d => d['unemployment-rate']['dataLoader']['inlineData'] as EmploymentRateDetailData),
+          map(raw => this.mapV2ToLegacyDetail(raw)),
           shareReplay(1),
         );
     }
     return this.unemploymentDetailCache$;
+  }
+
+  getEmiratisationDetail(): Observable<EmploymentRateDetailData> {
+    if (!this.emiratisationDetailCache$) {
+      this.emiratisationDetailCache$ = this.http
+        .get<any>(`${this.baseUrl}/emiratisation.json`)
+        .pipe(
+          map(raw => this.mapV2ToLegacyDetail(raw)),
+          shareReplay(1),
+        );
+    }
+    return this.emiratisationDetailCache$;
+  }
+
+  getLaborForceParticipationDetail(): Observable<EmploymentRateDetailData> {
+    if (!this.laborForceParticipationDetailCache$) {
+      this.laborForceParticipationDetailCache$ = this.http
+        .get<any>(`${this.baseUrl}/laborForceParticipation.json`)
+        .pipe(
+          map(raw => this.mapV2ToLegacyDetail(raw)),
+          shareReplay(1),
+        );
+    }
+    return this.laborForceParticipationDetailCache$;
+  }
+
+  getVacancyRateDetail(): Observable<EmploymentRateDetailData> {
+    if (!this.vacancyRateDetailCache$) {
+      this.vacancyRateDetailCache$ = this.http
+        .get<any>(`${this.baseUrl}/vacancyRate.json`)
+        .pipe(
+          map(raw => this.mapV2ToLegacyDetail(raw)),
+          shareReplay(1),
+        );
+    }
+    return this.vacancyRateDetailCache$;
   }
 
   getLabourMarketPolicies(): Observable<LabourMarketPolicyEntry[][]> {
@@ -319,25 +394,6 @@ export class DashboardDataService {
       );
     }
     return this.labourMarketPoliciesCache$;
-  }
-
-  /**
-   * Fetch compare indicator data by ID from the single compare.json file.
-   * The file is fetched once and cached; subsequent calls extract by ID.
-   */
-  getCompareData(id: string): Observable<CompareIndicatorData> {
-    if (!this.compareCache$) {
-      this.compareCache$ = this.http
-        .get<Record<string, CompareIndicatorData>>(`${this.baseUrl}/compare.json`)
-        .pipe(shareReplay(1));
-    }
-    return this.compareCache$.pipe(
-      map(all => {
-        const entry = all[id];
-        if (!entry) throw new Error(`[DashboardDataService] No compare data for id "${id}"`);
-        return entry;
-      }),
-    );
   }
 
   getNews(): Observable<NewsData> {
