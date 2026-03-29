@@ -1,0 +1,267 @@
+{
+  "success": true,
+  "correlationId": "9h51mi0j-4l68-1kj9-i2l0-6j39i669m501",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 10,
+    "title": "Hiring Progress: Vacancies vs Hired",
+    "type": "scad",
+    "compare": true,
+    "unit": "count",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Employment",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF LFC YY 1D 3351"
+      },
+      {
+        "label": "Keywords",
+        "value": "Vacancies, Hired, Hiring, Recruitment, Progress, Abu Dhabi"
+      },
+      {
+        "label": "Statistical population",
+        "value": "The statistical population includes all individuals aged 15 years and above who reside in the Emirate of Abu Dhabi. The following are excluded: visitors to the Emirate who have stayed for less than six months, residents of institutions such as hospitals, psychiatric facilities, elderly care homes, orphanages, and hotels, members of the diplomatic corps, armed forces personnel, security camps, and palace residents."
+      },
+      {
+        "label": "Geographic coverage ",
+        "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Statistical calculation method",
+        "value": "Annual comparison of total vacant positions advertised versus total positions successfully filled by establishments in the Emirate of Abu Dhabi."
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "© SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "highlights": [],
+    "description": "Annual comparison of vacancies posted versus positions successfully hired in Abu Dhabi.",
+    "classification": "open",
+    "compareIndicators": [
+      {
+        "id": "334409",
+        "title": "Vacancies",
+        "data": [
+          { "YEAR": "2021", "VALUE": 5600 },
+          { "YEAR": "2022", "VALUE": 7600 },
+          { "YEAR": "2023", "VALUE": 8550 },
+          { "YEAR": "2024", "VALUE": 9700 }
+        ],
+        "forecast": []
+      },
+      {
+        "id": "334410",
+        "title": "Hired",
+        "data": [
+          { "YEAR": "2021", "VALUE": 4400 },
+          { "YEAR": "2022", "VALUE": 6450 },
+          { "YEAR": "2023", "VALUE": 7500 },
+          { "YEAR": "2024", "VALUE": 8650 }
+        ],
+        "forecast": []
+      }
+    ],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "تأثير عالٍ",
+      "title": "Close the Vacancy-to-Hire Gap to Improve Labour Market Efficiency",
+      "title_ar": "سد الفجوة بين الشواغر والتوظيف لتحسين كفاءة سوق العمل",
+      "text": "While both vacancies and hires are growing year-on-year, a persistent gap remains between positions advertised and positions filled. Strengthening recruitment pipelines and reducing time-to-hire will be critical to closing this gap.",
+      "text_ar": "في حين تتنامى الوظائف الشاغرة والتوظيفات سنوياً، لا تزال هناك فجوة مستمرة بين الوظائف المُعلن عنها والوظائف المشغولة. سيكون تعزيز مسارات التوظيف وتقليص الوقت اللازم للتوظيف أمراً بالغ الأهمية لسد هذه الفجوة.",
+      "reason": "The gap between vacancies and hires has remained relatively stable across 2021–2024, indicating a structural mismatch between labour supply and employer demand. Targeted skills training, faster screening processes, and better employer-jobseeker matching platforms could help narrow this deficit.",
+      "reason_ar": "ظلّت الفجوة بين الشواغر والتوظيفات مستقرة نسبياً خلال الفترة 2021–2024، مما يُشير إلى عدم تطابق هيكلي بين عرض العمالة وطلب أصحاب العمل. يمكن أن تساعد برامج التدريب المستهدفة وعمليات الفرز الأسرع ومنصات المطابقة الأفضل بين أصحاب العمل والباحثين عن عمل في تضييق هذا العجز."
+    },
+    "visualizations": [
+      {
+        "label": "Hiring Progress: Vacancies vs Hired",
+        "series": [
+          {
+            "id": "vacancies",
+            "type": "solid",
+            "color": "#3375c6",
+            "group": "vacancies",
+            "label": "Vacancies",
+            "filterBy": {
+              "TYPE": "NOWCAST",
+              "CATEGORY": "Vacancies"
+            },
+            "xAccessor": {
+              "path": "OBS_DT",
+              "type": "date",
+              "specifier": "%Y-%m-%d"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              {
+                "VALUE": 5600,
+                "MAX_VALUE": 9700,
+                "MIN_VALUE": 5600,
+                "MAX_OBS_DT": "2024-01-01",
+                "MIN_OBS_DT": "2021-01-01",
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 7600,
+                "MAX_VALUE": 9700,
+                "MIN_VALUE": 5600,
+                "MAX_OBS_DT": "2024-01-01",
+                "MIN_OBS_DT": "2021-01-01",
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 8550,
+                "MAX_VALUE": 9700,
+                "MIN_VALUE": 5600,
+                "MAX_OBS_DT": "2024-01-01",
+                "MIN_OBS_DT": "2021-01-01",
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 9700,
+                "MAX_VALUE": 9700,
+                "MIN_VALUE": 5600,
+                "MAX_OBS_DT": "2024-01-01",
+                "MIN_OBS_DT": "2021-01-01",
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 9700,
+            "yMin": 5600,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          },
+          {
+            "id": "hired",
+            "type": "solid",
+            "color": "#aac2df",
+            "group": "hired",
+            "label": "Hired",
+            "filterBy": {
+              "TYPE": "NOWCAST",
+              "CATEGORY": "Hired"
+            },
+            "xAccessor": {
+              "path": "OBS_DT",
+              "type": "date",
+              "specifier": "%Y-%m-%d"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              {
+                "VALUE": 4400,
+                "MAX_VALUE": 8650,
+                "MIN_VALUE": 4400,
+                "MAX_OBS_DT": "2024-01-01",
+                "MIN_OBS_DT": "2021-01-01",
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 6450,
+                "MAX_VALUE": 8650,
+                "MIN_VALUE": 4400,
+                "MAX_OBS_DT": "2024-01-01",
+                "MIN_OBS_DT": "2021-01-01",
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 7500,
+                "MAX_VALUE": 8650,
+                "MIN_VALUE": 4400,
+                "MAX_OBS_DT": "2024-01-01",
+                "MIN_OBS_DT": "2021-01-01",
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 8650,
+                "MAX_VALUE": 8650,
+                "MIN_VALUE": 4400,
+                "MAX_OBS_DT": "2024-01-01",
+                "MIN_OBS_DT": "2021-01-01",
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              }
+            ],
+            "yMax": 8650,
+            "yMin": 4400,
+            "xMin": "2021-01-01",
+            "xMax": "2024-01-01"
+          }
+        ],
+        "viewName": "VW_DS_HIRING_PROGRESS_ANNUAL",
+        "chartType": "column",
+        "stacking": "normal",
+        "valueFormat": "compact",
+        "isTimeSeries": true,
+        "rangeOptions": [
+          {
+            "id": "3y",
+            "label": "3Y",
+            "value": 3
+          },
+          {
+            "id": "all",
+            "label": "ALL",
+            "value": null
+          }
+        ],
+        "showMinMaxValues": true
+      }
+    ],
+    "rangeOptions": [
+      {
+        "id": "all",
+        "label": "All",
+        "value": null
+      },
+      {
+        "id": "3",
+        "label": "3Y",
+        "value": 3
+      },
+      {
+        "id": "5",
+        "label": "5Y",
+        "value": 5
+      },
+      {
+        "id": "10",
+        "label": "10Y",
+        "value": 10
+      }
+    ]
+  }
+}

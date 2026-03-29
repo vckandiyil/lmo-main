@@ -1,0 +1,153 @@
+{
+  "success": true,
+  "correlationId": "7f39kg8h-2j46-9ih7-g0j8-4h17g447k389",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 8,
+    "title": "Gender Distribution of Vacancies in Abu Dhabi",
+    "type": "scad",
+    "compare": true,
+    "unit": "count",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Employment",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF LFC YY 1D 3349"
+      },
+      {
+        "label": "Keywords",
+        "value": "Vacancies, Gender, Male, Female, Distribution, Abu Dhabi"
+      },
+      {
+        "label": "Statistical population",
+        "value": "The statistical population includes all individuals aged 15 years and above who reside in the Emirate of Abu Dhabi. The following are excluded: visitors to the Emirate who have stayed for less than six months, residents of institutions such as hospitals, psychiatric facilities, elderly care homes, orphanages, and hotels, members of the diplomatic corps, armed forces personnel, security camps, and palace residents."
+      },
+      {
+        "label": "Geographic coverage ",
+        "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Statistical calculation method",
+        "value": "Total number of vacant job positions classified by gender preference, as reported by establishments in the Emirate of Abu Dhabi on an annual basis."
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "© SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "highlights": [],
+    "description": "Distribution of vacancies by gender in Abu Dhabi.",
+    "classification": "open",
+    "compareIndicators": [
+      {
+        "id": "334407",
+        "title": "Gender Distribution",
+        "data": [
+          {
+            "GENDER": "Male",
+            "VALUE": 400
+          },
+          {
+            "GENDER": "Female",
+            "VALUE": 300
+          }
+        ],
+        "forecast": []
+      }
+    ],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "تأثير عالٍ",
+      "title": "Narrow the Gender Vacancy Gap to Strengthen Female Labour Participation",
+      "title_ar": "تضييق فجوة الشواغر بين الجنسين لتعزيز مشاركة المرأة في سوق العمل",
+      "text": "Male-targeted vacancies outnumber female-targeted ones by 25%, highlighting an opportunity to design more inclusive job roles and accelerate female workforce participation across sectors.",
+      "text_ar": "تفوق الشواغر الموجهة للذكور نظيراتها الموجهة للإناث بنسبة 25%، مما يُبرز فرصة لتصميم أدوار وظيفية أكثر شمولاً وتسريع مشاركة المرأة في سوق العمل عبر مختلف القطاعات.",
+      "reason": "The gap between male and female vacancies reflects structural imbalances in how roles are defined and advertised. Addressing this through gender-neutral job descriptions and targeted outreach can help improve overall labour market inclusivity in Abu Dhabi.",
+      "reason_ar": "تعكس الفجوة بين شواغر الذكور والإناث اختلالات هيكلية في كيفية تحديد الأدوار والإعلان عنها. يمكن أن تساعد معالجة هذا الأمر من خلال توصيفات وظيفية محايدة جنسياً والتواصل الموجّه في تحسين الشمولية الإجمالية لسوق العمل في أبوظبي."
+    },
+    "visualizations": [
+      {
+        "label": "Gender Distribution of Vacancies",
+        "series": [
+          {
+            "id": "vacancies-by-gender",
+            "type": "solid",
+            "colorByPoint": true,
+            "group": "vacancies",
+            "label": "Gender",
+            "filterBy": {
+              "TYPE": "NOWCAST",
+              "CATEGORY": "Total"
+            },
+            "nameAccessor": {
+              "path": "GENDER",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              {
+                "GENDER": "Male",
+                "VALUE": 400
+              },
+              {
+                "GENDER": "Female",
+                "VALUE": 300
+              }
+            ]
+          }
+        ],
+        "viewName": "VW_DS_VACANCIES_BY_GENDER",
+        "chartType": "pie",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "rangeOptions": [],
+        "showMinMaxValues": false
+      }
+    ],
+    "rangeOptions": [
+      {
+        "id": "all",
+        "label": "All",
+        "value": null
+      },
+      {
+        "id": "3",
+        "label": "3Y",
+        "value": 3
+      },
+      {
+        "id": "5",
+        "label": "5Y",
+        "value": 5
+      },
+      {
+        "id": "10",
+        "label": "10Y",
+        "value": 10
+      }
+    ]
+  }
+}

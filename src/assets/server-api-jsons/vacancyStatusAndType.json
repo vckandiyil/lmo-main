@@ -1,0 +1,224 @@
+{
+  "success": true,
+  "correlationId": "1j73ok2l-6n80-3ml1-k4n2-8l51k881o723",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 12,
+    "title": "Vacancy Status & Type",
+    "type": "scad",
+    "compare": true,
+    "unit": "count",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Employment",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF LFC YY 1D 3353"
+      },
+      {
+        "label": "Keywords",
+        "value": "Vacancies, Status, Type, Full-time, Part-time, Contract, Open, Closed, In Progress, Filled, Abu Dhabi"
+      },
+      {
+        "label": "Statistical population",
+        "value": "The statistical population includes all individuals aged 15 years and above who reside in the Emirate of Abu Dhabi. The following are excluded: visitors to the Emirate who have stayed for less than six months, residents of institutions such as hospitals, psychiatric facilities, elderly care homes, orphanages, and hotels, members of the diplomatic corps, armed forces personnel, security camps, and palace residents."
+      },
+      {
+        "label": "Geographic coverage ",
+        "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Statistical calculation method",
+        "value": "Total number of vacant job positions cross-classified by recruitment status and employment type, as reported by establishments in the Emirate of Abu Dhabi on an annual basis."
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "© SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "highlights": [],
+    "description": "Breakdown of vacancies by recruitment status and employment type in Abu Dhabi.",
+    "classification": "open",
+    "compareIndicators": [
+      {
+        "id": "334412",
+        "title": "Full-time",
+        "data": [
+          { "STATUS": "Open", "VALUE": 200 },
+          { "STATUS": "Closed", "VALUE": 150 },
+          { "STATUS": "Progress", "VALUE": 120 },
+          { "STATUS": "Filled", "VALUE": 100 }
+        ],
+        "forecast": []
+      },
+      {
+        "id": "334413",
+        "title": "Part-time",
+        "data": [
+          { "STATUS": "Open", "VALUE": 100 },
+          { "STATUS": "Closed", "VALUE": 50 },
+          { "STATUS": "Progress", "VALUE": 60 },
+          { "STATUS": "Filled", "VALUE": 80 }
+        ],
+        "forecast": []
+      },
+      {
+        "id": "334414",
+        "title": "Contract",
+        "data": [
+          { "STATUS": "Open", "VALUE": 50 },
+          { "STATUS": "Closed", "VALUE": 30 },
+          { "STATUS": "Progress", "VALUE": 20 },
+          { "STATUS": "Filled", "VALUE": 20 }
+        ],
+        "forecast": []
+      }
+    ],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "تأثير عالٍ",
+      "title": "Diversify Employment Types to Broaden Labour Market Access",
+      "title_ar": "تنويع أنواع التوظيف لتوسيع الوصول إلى سوق العمل",
+      "text": "Full-time roles dominate all vacancy statuses, while part-time and contract positions remain underutilised. Expanding flexible work arrangements can attract a wider talent pool and improve vacancy fill rates.",
+      "text_ar": "تهيمن الأدوار بدوام كامل على جميع حالات الشواغر، في حين تظل الوظائف بدوام جزئي وعقود العمل غير مستغلة بشكل كافٍ. يمكن أن يؤدي توسيع ترتيبات العمل المرنة إلى استقطاب مجموعة أوسع من المواهب وتحسين معدلات شغل الوظائف الشاغرة.",
+      "reason": "The dominance of full-time vacancies across all statuses reflects traditional hiring preferences. However, the relatively high fill rate for part-time roles suggests strong candidate interest in flexible work, pointing to an opportunity to rebalance vacancy types in line with evolving workforce expectations.",
+      "reason_ar": "تعكس هيمنة الشواغر بدوام كامل عبر جميع الحالات تفضيلات التوظيف التقليدية. غير أن معدل الشغل المرتفع نسبياً للأدوار بدوام جزئي يُشير إلى اهتمام قوي من المرشحين بالعمل المرن، مما يُشير إلى فرصة لإعادة توازن أنواع الشواغر بما يتوافق مع تطلعات القوى العاملة المتطورة."
+    },
+    "visualizations": [
+      {
+        "label": "Vacancy Status & Type",
+        "series": [
+          {
+            "id": "full-time",
+            "type": "solid",
+            "color": "#3375c6",
+            "group": "full-time",
+            "label": "Full-time",
+            "filterBy": {
+              "TYPE": "NOWCAST",
+              "CATEGORY": "Full-time"
+            },
+            "xAccessor": {
+              "path": "STATUS",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              { "STATUS": "Open", "VALUE": 200, "MAX_VALUE": 200, "MIN_VALUE": 100 },
+              { "STATUS": "Closed", "VALUE": 150, "MAX_VALUE": 200, "MIN_VALUE": 100 },
+              { "STATUS": "Progress", "VALUE": 120, "MAX_VALUE": 200, "MIN_VALUE": 100 },
+              { "STATUS": "Filled", "VALUE": 100, "MAX_VALUE": 200, "MIN_VALUE": 100 }
+            ],
+            "yMax": 200,
+            "yMin": 100
+          },
+          {
+            "id": "part-time",
+            "type": "solid",
+            "color": "#aac2df",
+            "group": "part-time",
+            "label": "Part-time",
+            "filterBy": {
+              "TYPE": "NOWCAST",
+              "CATEGORY": "Part-time"
+            },
+            "xAccessor": {
+              "path": "STATUS",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              { "STATUS": "Open", "VALUE": 100, "MAX_VALUE": 100, "MIN_VALUE": 50 },
+              { "STATUS": "Closed", "VALUE": 50, "MAX_VALUE": 100, "MIN_VALUE": 50 },
+              { "STATUS": "Progress", "VALUE": 60, "MAX_VALUE": 100, "MIN_VALUE": 50 },
+              { "STATUS": "Filled", "VALUE": 80, "MAX_VALUE": 100, "MIN_VALUE": 50 }
+            ],
+            "yMax": 100,
+            "yMin": 50
+          },
+          {
+            "id": "contract",
+            "type": "solid",
+            "color": "#85b6e0",
+            "group": "contract",
+            "label": "Contract",
+            "filterBy": {
+              "TYPE": "NOWCAST",
+              "CATEGORY": "Contract"
+            },
+            "xAccessor": {
+              "path": "STATUS",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              { "STATUS": "Open", "VALUE": 50, "MAX_VALUE": 50, "MIN_VALUE": 20 },
+              { "STATUS": "Closed", "VALUE": 30, "MAX_VALUE": 50, "MIN_VALUE": 20 },
+              { "STATUS": "Progress", "VALUE": 20, "MAX_VALUE": 50, "MIN_VALUE": 20 },
+              { "STATUS": "Filled", "VALUE": 20, "MAX_VALUE": 50, "MIN_VALUE": 20 }
+            ],
+            "yMax": 50,
+            "yMin": 20
+          }
+        ],
+        "viewName": "VW_DS_VACANCY_STATUS_AND_TYPE",
+        "chartType": "column",
+        "stacking": "normal",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "rangeOptions": [],
+        "showMinMaxValues": true
+      }
+    ],
+    "rangeOptions": [
+      {
+        "id": "all",
+        "label": "All",
+        "value": null
+      },
+      {
+        "id": "3",
+        "label": "3Y",
+        "value": 3
+      },
+      {
+        "id": "5",
+        "label": "5Y",
+        "value": 5
+      },
+      {
+        "id": "10",
+        "label": "10Y",
+        "value": 10
+      }
+    ]
+  }
+}

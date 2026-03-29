@@ -1,0 +1,179 @@
+{
+  "success": true,
+  "correlationId": "0i62nj1k-5m79-2lk0-j3m1-7k40j770n612",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 11,
+    "title": "Vacancy Status Breakdown",
+    "type": "scad",
+    "compare": true,
+    "unit": "count",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Employment",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF LFC YY 1D 3352"
+      },
+      {
+        "label": "Keywords",
+        "value": "Vacancies, Status, Open, Closed, In Progress, Filled, Abu Dhabi"
+      },
+      {
+        "label": "Statistical population",
+        "value": "The statistical population includes all individuals aged 15 years and above who reside in the Emirate of Abu Dhabi. The following are excluded: visitors to the Emirate who have stayed for less than six months, residents of institutions such as hospitals, psychiatric facilities, elderly care homes, orphanages, and hotels, members of the diplomatic corps, armed forces personnel, security camps, and palace residents."
+      },
+      {
+        "label": "Geographic coverage ",
+        "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Statistical calculation method",
+        "value": "Total number of vacant job positions classified by their current recruitment status, as reported by establishments in the Emirate of Abu Dhabi on an annual basis."
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "© SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "highlights": [],
+    "description": "Breakdown of vacancies by current recruitment status in Abu Dhabi.",
+    "classification": "open",
+    "compareIndicators": [
+      {
+        "id": "334411",
+        "title": "Vacancy Status Breakdown",
+        "data": [
+          {
+            "STATUS": "Open",
+            "VALUE": 300
+          },
+          {
+            "STATUS": "Closed",
+            "VALUE": 150
+          },
+          {
+            "STATUS": "In Progress",
+            "VALUE": 100
+          },
+          {
+            "STATUS": "Filled",
+            "VALUE": 200
+          }
+        ],
+        "forecast": []
+      }
+    ],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "تأثير عالٍ",
+      "title": "Accelerate In-Progress Recruitments to Convert Open Vacancies Faster",
+      "title_ar": "تسريع عمليات التوظيف الجارية لتحويل الشواغر المفتوحة بشكل أسرع",
+      "text": "Open vacancies represent the largest share of the pipeline, while In Progress positions are the fewest. Streamlining screening and interview processes can help convert open roles to filled positions more efficiently.",
+      "text_ar": "تمثّل الشواغر المفتوحة الحصة الأكبر من مسار التوظيف، في حين تُشكّل الوظائف قيد التنفيذ أقل الفئات. يمكن أن يساعد تبسيط عمليات الفرز والمقابلات في تحويل الأدوار المفتوحة إلى وظائف مشغولة بكفاءة أكبر.",
+      "reason": "The high share of Open vacancies alongside a low In Progress count suggests bottlenecks in early recruitment stages. The Filled count being higher than Closed indicates that most resolved vacancies result in successful hires rather than cancellations.",
+      "reason_ar": "تشير الحصة الكبيرة من الشواغر المفتوحة إلى جانب انخفاض عدد الوظائف قيد التنفيذ إلى اختناقات في المراحل الأولى من التوظيف. كون عدد الوظائف المشغولة أعلى من المغلقة يُشير إلى أن معظم الشواغر المُحسومة تنتهي بتوظيف ناجح وليس بإلغاء."
+    },
+    "visualizations": [
+      {
+        "label": "Vacancy Status Breakdown",
+        "series": [
+          {
+            "id": "vacancies-by-status",
+            "type": "solid",
+            "color": "#3375c6",
+            "group": "vacancies",
+            "label": "Vacancies",
+            "filterBy": {
+              "TYPE": "NOWCAST",
+              "CATEGORY": "Total"
+            },
+            "xAccessor": {
+              "path": "STATUS",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              {
+                "STATUS": "Open",
+                "VALUE": 300,
+                "MAX_VALUE": 300,
+                "MIN_VALUE": 100
+              },
+              {
+                "STATUS": "Closed",
+                "VALUE": 150,
+                "MAX_VALUE": 300,
+                "MIN_VALUE": 100
+              },
+              {
+                "STATUS": "In Progress",
+                "VALUE": 100,
+                "MAX_VALUE": 300,
+                "MIN_VALUE": 100
+              },
+              {
+                "STATUS": "Filled",
+                "VALUE": 200,
+                "MAX_VALUE": 300,
+                "MIN_VALUE": 100
+              }
+            ],
+            "yMax": 300,
+            "yMin": 100
+          }
+        ],
+        "viewName": "VW_DS_VACANCY_STATUS_BREAKDOWN",
+        "chartType": "column",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "rangeOptions": [],
+        "showMinMaxValues": true
+      }
+    ],
+    "rangeOptions": [
+      {
+        "id": "all",
+        "label": "All",
+        "value": null
+      },
+      {
+        "id": "3",
+        "label": "3Y",
+        "value": 3
+      },
+      {
+        "id": "5",
+        "label": "5Y",
+        "value": 5
+      },
+      {
+        "id": "10",
+        "label": "10Y",
+        "value": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "success": true,
+  "correlationId": "3b95gc4d-8f02-5ed3-c6f4-0d73c003g945",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 4,
+    "title": "Vacancies by Entity",
+    "type": "scad",
+    "compare": true,
+    "unit": "count",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Employment",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF LFC YY 1D 3345"
+      },
+      {
+        "label": "Keywords",
+        "value": "Vacancies, Job openings, Entity, Establishment, Abu Dhabi"
+      },
+      {
+        "label": "Statistical population",
+        "value": "The statistical population includes all individuals aged 15 years and above who reside in the Emirate of Abu Dhabi. The following are excluded: visitors to the Emirate who have stayed for less than six months, residents of institutions such as hospitals, psychiatric facilities, elderly care homes, orphanages, and hotels, members of the diplomatic corps, armed forces personnel, security camps, and palace residents."
+      },
+      {
+        "label": "Geographic coverage ",
+        "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Statistical calculation method",
+        "value": "Total number of vacant job positions reported by each establishment in the Emirate of Abu Dhabi on an annual basis."
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "© SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "highlights": [],
+    "description": "Total number of vacancies broken down by major entities in Abu Dhabi.",
+    "classification": "open",
+    "compareIndicators": [
+      {
+        "id": "334403",
+        "title": "Vacancies by Entity",
+        "data": [
+          {
+            "ENTITY": "Abu Dhabi Investment Authority",
+            "VALUE": 1500
+          },
+          {
+            "ENTITY": "Emirates Telecommunications Corporation",
+            "VALUE": 2500
+          },
+          {
+            "ENTITY": "Abu Dhabi National Oil Company (ADNOC)",
+            "VALUE": 2000
+          },
+          {
+            "ENTITY": "Mubadala Investment Company",
+            "VALUE": 3000
+          },
+          {
+            "ENTITY": "Etihad Airways",
+            "VALUE": 1800
+          }
+        ],
+        "forecast": []
+      }
+    ],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "تأثير عالٍ",
+      "title": "Target High-Vacancy Entities for Targeted Emiratisation Programmes",
+      "title_ar": "استهداف الجهات ذات الشواغر الوظيفية العالية لبرامج التوطين المخصصة",
+      "text": "Mubadala Investment Company and Emirates Telecommunications Corporation report the highest vacancy counts, presenting prime opportunities for structured Emiratisation and graduate placement initiatives.",
+      "text_ar": "تُسجّل شركة مبادلة للاستثمار ومؤسسة الاتصالات الإماراتية أعلى أعداد الوظائف الشاغرة، مما يوفر فرصاً مثالية لمبادرات التوطين المنظّمة وبرامج توظيف الخريجين.",
+      "reason": "Vacancy distribution across key Abu Dhabi entities reveals concentrated demand in investment, telecommunications, and energy sectors. Aligning national talent pipelines with these entities can accelerate workforce localisation.",
+      "reason_ar": "يكشف توزيع الوظائف الشاغرة عبر الجهات الرئيسية في أبوظبي عن تركّز الطلب في قطاعات الاستثمار والاتصالات والطاقة. إن مواءمة مسارات المواهب الوطنية مع هذه الجهات يمكن أن تُسرّع توطين القوى العاملة."
+    },
+    "visualizations": [
+      {
+        "label": "Vacancies by Entity",
+        "series": [
+          {
+            "id": "vacancies-by-entity",
+            "type": "solid",
+            "color": "#3375c6",
+            "group": "vacancies",
+            "label": "Vacancies",
+            "filterBy": {
+              "TYPE": "NOWCAST",
+              "CATEGORY": "Total"
+            },
+            "xAccessor": {
+              "path": "ENTITY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              {
+                "ENTITY": "Abu Dhabi Investment Authority",
+                "VALUE": 1500,
+                "MAX_VALUE": 3000,
+                "MIN_VALUE": 1500
+              },
+              {
+                "ENTITY": "Emirates Telecommunications Corporation",
+                "VALUE": 2500,
+                "MAX_VALUE": 3000,
+                "MIN_VALUE": 1500
+              },
+              {
+                "ENTITY": "Abu Dhabi National Oil Company (ADNOC)",
+                "VALUE": 2000,
+                "MAX_VALUE": 3000,
+                "MIN_VALUE": 1500
+              },
+              {
+                "ENTITY": "Mubadala Investment Company",
+                "VALUE": 3000,
+                "MAX_VALUE": 3000,
+                "MIN_VALUE": 1500
+              },
+              {
+                "ENTITY": "Etihad Airways",
+                "VALUE": 1800,
+                "MAX_VALUE": 3000,
+                "MIN_VALUE": 1500
+              }
+            ],
+            "yMax": 3000,
+            "yMin": 1500
+          }
+        ],
+        "viewName": "VW_DS_VACANCIES_BY_ENTITY",
+        "chartType": "column",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "rangeOptions": [],
+        "showMinMaxValues": true
+      }
+    ],
+    "rangeOptions": [
+      {
+        "id": "all",
+        "label": "All",
+        "value": null
+      },
+      {
+        "id": "3",
+        "label": "3Y",
+        "value": 3
+      },
+      {
+        "id": "5",
+        "label": "5Y",
+        "value": 5
+      },
+      {
+        "id": "10",
+        "label": "10Y",
+        "value": 10
+      }
+    ]
+  }
+}

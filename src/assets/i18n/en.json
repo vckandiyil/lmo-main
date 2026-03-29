@@ -118,6 +118,10 @@
     "REC_DESC_1": "The healthcare sector is undergoing accelerated digitalization, resulting in a 34% rise in demand for digital health skills over the observed period. This trend reflects structural changes in service delivery, workforce organization, and technology adoption.",
     "REC_LABEL_2": "Recommended action",
     "REC_DESC_2": "Implement targeted digital skills initiatives focused on health informatics, telemedicine systems, and healthcare data analytics. These initiatives should be coordinated with employers and education providers to ensure rapid deployment and measurable labor market impact.",
+    "REC_EMPLOYERS_LABEL_1": "Upskill Healthcare Workforce for Digital Roles",
+    "REC_EMPLOYERS_DESC_1": "Demand for digital health skills has increased by 34% in healthcare. Employers should strengthen training, recruitment criteria, and internal reskilling to prepare staff for more technology-enabled roles.",
+    "REC_JOBSEEKERS_LABEL_1": "Build Digital Health Skills to Improve Employability",
+    "REC_JOBSEEKERS_DESC_1": "Healthcare jobs increasingly require digital and systems-based skills. Developing these capabilities can improve your chances of accessing new roles in a rapidly evolving sector.",
     "REPORT_TITLE": "Generate Report",
     "REPORT_AI_BADGE": "AI-assisted",
     "REPORT_DISCLAIMER": "This report is AI-assisted and based on available administrative data, modeled estimates, and analytical assumptions. It is intended to support decision-making, not replace official statistics.",
@@ -203,7 +207,10 @@
     "GHAYATHI": "Ghayathi",
     "LIWA": "Liwa",
     "DALMA": "Dalma Island",
-    "MIRFA": "Mirfa"
+    "MIRFA": "Mirfa",
+    "ALL_SECTORS": "All Sectors",
+    "GOVERNMENT_SECTOR": "Government Sector",
+    "PRIVATE_SECTOR": "Private Sector"
   },
   "NOTIFICATIONS": {
     "TITLE": "Labor Market Alerts",

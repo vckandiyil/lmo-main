@@ -33,7 +33,6 @@
         "Employment",
         "Unemployment",
         "Outside Labor Force",
-        "Job Vacancies",
         "Job Seekers"
       ],
       "hasSidebarComponent": true,
@@ -106,7 +105,6 @@
         "Employment",
         "Unemployment",
         "Outside Labor Force",
-        "Job Vacancies",
         "Job Seekers"
       ],
       "hasSidebarComponent": true,
@@ -151,7 +149,6 @@
         "Employment",
         "Unemployment",
         "Outside Labor Force",
-        "Job Vacancies",
         "Job Seekers"
       ],
       "hasSidebarComponent": true,
@@ -255,7 +252,7 @@
       "category": [
         "Talent Pool"
       ],
-      "hasSidebarComponent": true,
+      "hasSidebarComponent": false,
       "hasDetailView": false,
       "hasExpandIcon": false,
       "hidden": false
@@ -294,15 +291,119 @@
       "hidden": false
     },
     {
+      "id": "vacancies-over-time",
+      "title": "Vacancies Over Time",
+      "category": [
+        "Job Vacancies"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "vacancies-by-entity",
+      "title": "Vacancies by Entity",
+      "category": [
+        "Job Vacancies"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "hiring-progress",
+      "title": "Hiring Progress",
+      "category": [
+        "Job Vacancies"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "salary-distribution",
+      "title": "Salary Distribution",
+      "category": [
+        "Job Vacancies"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "vacancies-by-location",
+      "title": "Vacancies by Location",
+      "category": [
+        "Job Vacancies"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "vacancies-by-occupation",
+      "title": "Vacancies by Occupation",
+      "category": [
+        "Job Vacancies"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "vacancies-by-qualification",
+      "title": "Vacancies by Qualification",
+      "category": [
+        "Job Vacancies"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "vacancy-status-and-type",
+      "title": "Vacancy Status and Type",
+      "category": [
+        "Job Vacancies"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "vacancy-status-breakdown",
+      "title": "Vacancy Status Breakdown",
+      "category": [
+        "Job Vacancies"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "gender-distribution-pie",
+      "title": "Gender Distribution of Vacancies",
+      "category": [
+        "Job Vacancies"
+      ],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
       "id": "map",
       "title": "Map",
-      "category": [
-        "Employment",
-        "Unemployment",
-        "Outside Labor Force",
-        "Job Vacancies",
-        "Job Seekers"
-      ],
+      "category": [],
       "hasSidebarComponent": true,
       "hasDetailView": false,
       "hasExpandIcon": true,

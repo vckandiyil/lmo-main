@@ -1,0 +1,189 @@
+{
+  "success": true,
+  "correlationId": "4c06hd5e-9g13-6fe4-d7g5-1e84d114h056",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 5,
+    "title": "Vacancies by Location",
+    "type": "scad",
+    "compare": true,
+    "unit": "count",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Employment",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF LFC YY 1D 3346"
+      },
+      {
+        "label": "Keywords",
+        "value": "Vacancies, Job openings, Location, Region, Abu Dhabi, Al Ain, Al Dhafra"
+      },
+      {
+        "label": "Statistical population",
+        "value": "The statistical population includes all individuals aged 15 years and above who reside in the Emirate of Abu Dhabi. The following are excluded: visitors to the Emirate who have stayed for less than six months, residents of institutions such as hospitals, psychiatric facilities, elderly care homes, orphanages, and hotels, members of the diplomatic corps, armed forces personnel, security camps, and palace residents."
+      },
+      {
+        "label": "Geographic coverage ",
+        "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Statistical calculation method",
+        "value": "Total number of vacant job positions reported by establishments in each geographic location within the Emirate of Abu Dhabi on an annual basis."
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "© SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "highlights": [],
+    "description": "Total number of vacancies broken down by geographic location in Abu Dhabi.",
+    "classification": "open",
+    "compareIndicators": [
+      {
+        "id": "334404",
+        "title": "Vacancies by Location",
+        "data": [
+          {
+            "LOCATION": "Abu Dhabi City",
+            "VALUE": 3000
+          },
+          {
+            "LOCATION": "Al Ain",
+            "VALUE": 1500
+          },
+          {
+            "LOCATION": "Al Dhafra",
+            "VALUE": 2000
+          },
+          {
+            "LOCATION": "Al Fujairah",
+            "VALUE": 1200
+          },
+          {
+            "LOCATION": "Al Ain Oasis",
+            "VALUE": 1800
+          }
+        ],
+        "forecast": []
+      }
+    ],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "تأثير عالٍ",
+      "title": "Address Regional Vacancy Disparities to Drive Balanced Growth",
+      "title_ar": "معالجة التفاوتات الإقليمية في الوظائف الشاغرة لتحقيق نمو متوازن",
+      "text": "Abu Dhabi City dominates vacancy counts, while Al Fujairah and Al Ain lag behind. Targeted regional workforce strategies can help distribute economic opportunity more evenly across the emirate.",
+      "text_ar": "تهيمن مدينة أبوظبي على أعداد الوظائف الشاغرة، في حين تتأخر الفجيرة والعين. يمكن لاستراتيجيات القوى العاملة الإقليمية المستهدفة أن تساعد في توزيع الفرص الاقتصادية بشكل أكثر توازناً عبر الإمارة.",
+      "reason": "Vacancy concentration in Abu Dhabi City reflects centralised economic activity, while smaller figures in Al Fujairah and Al Ain suggest untapped labour demand in those regions. Regional incentives and decentralisation efforts could help rebalance this distribution.",
+      "reason_ar": "يعكس تركّز الوظائف الشاغرة في مدينة أبوظبي النشاط الاقتصادي المركزي، في حين تشير الأرقام الأقل في الفجيرة والعين إلى طلب عمالي غير مستغل في تلك المناطق. يمكن للحوافز الإقليمية وجهود اللامركزية أن تساعد في إعادة توازن هذا التوزيع."
+    },
+    "visualizations": [
+      {
+        "label": "Vacancies by Location",
+        "series": [
+          {
+            "id": "vacancies-by-location",
+            "type": "solid",
+            "color": "#3375c6",
+            "group": "vacancies",
+            "label": "Vacancies",
+            "filterBy": {
+              "TYPE": "NOWCAST",
+              "CATEGORY": "Total"
+            },
+            "xAccessor": {
+              "path": "LOCATION",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              {
+                "LOCATION": "Abu Dhabi City",
+                "VALUE": 3000,
+                "MAX_VALUE": 3000,
+                "MIN_VALUE": 1200
+              },
+              {
+                "LOCATION": "Al Ain",
+                "VALUE": 1500,
+                "MAX_VALUE": 3000,
+                "MIN_VALUE": 1200
+              },
+              {
+                "LOCATION": "Al Dhafra",
+                "VALUE": 2000,
+                "MAX_VALUE": 3000,
+                "MIN_VALUE": 1200
+              },
+              {
+                "LOCATION": "Al Fujairah",
+                "VALUE": 1200,
+                "MAX_VALUE": 3000,
+                "MIN_VALUE": 1200
+              },
+              {
+                "LOCATION": "Al Ain Oasis",
+                "VALUE": 1800,
+                "MAX_VALUE": 3000,
+                "MIN_VALUE": 1200
+              }
+            ],
+            "yMax": 3000,
+            "yMin": 1200
+          }
+        ],
+        "viewName": "VW_DS_VACANCIES_BY_LOCATION",
+        "chartType": "column",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "rangeOptions": [],
+        "showMinMaxValues": true
+      }
+    ],
+    "rangeOptions": [
+      {
+        "id": "all",
+        "label": "All",
+        "value": null
+      },
+      {
+        "id": "3",
+        "label": "3Y",
+        "value": 3
+      },
+      {
+        "id": "5",
+        "label": "5Y",
+        "value": 5
+      },
+      {
+        "id": "10",
+        "label": "10Y",
+        "value": 10
+      }
+    ]
+  }
+}

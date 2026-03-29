@@ -1,0 +1,189 @@
+{
+  "success": true,
+  "correlationId": "6e28jf7g-1i35-8hg6-f9i7-3g06f336j278",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 7,
+    "title": "Vacancies by Occupation",
+    "type": "scad",
+    "compare": true,
+    "unit": "count",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Employment",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF LFC YY 1D 3348"
+      },
+      {
+        "label": "Keywords",
+        "value": "Vacancies, Job openings, Occupation, Sector, Engineering, Healthcare, IT, Education, Finance, Abu Dhabi"
+      },
+      {
+        "label": "Statistical population",
+        "value": "The statistical population includes all individuals aged 15 years and above who reside in the Emirate of Abu Dhabi. The following are excluded: visitors to the Emirate who have stayed for less than six months, residents of institutions such as hospitals, psychiatric facilities, elderly care homes, orphanages, and hotels, members of the diplomatic corps, armed forces personnel, security camps, and palace residents."
+      },
+      {
+        "label": "Geographic coverage ",
+        "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Statistical calculation method",
+        "value": "Total number of vacant job positions classified by occupational category, as reported by establishments in the Emirate of Abu Dhabi on an annual basis."
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "© SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "highlights": [],
+    "description": "Total number of vacancies broken down by occupational category in Abu Dhabi.",
+    "classification": "open",
+    "compareIndicators": [
+      {
+        "id": "334406",
+        "title": "Vacancies by Occupation",
+        "data": [
+          {
+            "OCCUPATION": "Engineering",
+            "VALUE": 150
+          },
+          {
+            "OCCUPATION": "Healthcare",
+            "VALUE": 200
+          },
+          {
+            "OCCUPATION": "IT",
+            "VALUE": 300
+          },
+          {
+            "OCCUPATION": "Education",
+            "VALUE": 100
+          },
+          {
+            "OCCUPATION": "Finance",
+            "VALUE": 250
+          }
+        ],
+        "forecast": []
+      }
+    ],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "تأثير عالٍ",
+      "title": "Invest in IT and Finance Talent to Meet Growing Sectoral Demand",
+      "title_ar": "الاستثمار في مواهب تكنولوجيا المعلومات والمالية لتلبية الطلب القطاعي المتنامي",
+      "text": "IT leads all occupational vacancy categories, followed closely by Finance and Healthcare. Focused upskilling and talent attraction programmes in these sectors will be essential to sustaining Abu Dhabi's economic diversification agenda.",
+      "text_ar": "تتصدر تكنولوجيا المعلومات جميع فئات الوظائف الشاغرة المهنية، يليها المالية والرعاية الصحية عن كثب. ستكون برامج رفع المهارات وجذب المواهب المركّزة في هذه القطاعات ضرورية للحفاظ على أجندة التنويع الاقتصادي في أبوظبي.",
+      "reason": "IT vacancy dominance reflects Abu Dhabi's push toward digital transformation and smart city initiatives. Finance and Healthcare vacancies signal sustained demand driven by economic growth and expanding public services. Education records the lowest vacancy count, suggesting a relatively stable supply-demand balance in that sector.",
+      "reason_ar": "تعكس هيمنة شواغر تكنولوجيا المعلومات توجّه أبوظبي نحو التحول الرقمي ومبادرات المدن الذكية. تُشير شواغر المالية والرعاية الصحية إلى طلب مستدام مدفوع بالنمو الاقتصادي وتوسّع الخدمات العامة. تسجّل التعليم أدنى عدد من الشواغر، مما يوحي بتوازن نسبي بين العرض والطلب في ذلك القطاع."
+    },
+    "visualizations": [
+      {
+        "label": "Vacancies by Occupation",
+        "series": [
+          {
+            "id": "vacancies-by-occupation",
+            "type": "solid",
+            "color": "#3375c6",
+            "group": "vacancies",
+            "label": "Vacancies",
+            "filterBy": {
+              "TYPE": "NOWCAST",
+              "CATEGORY": "Total"
+            },
+            "xAccessor": {
+              "path": "OCCUPATION",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              {
+                "OCCUPATION": "Engineering",
+                "VALUE": 150,
+                "MAX_VALUE": 300,
+                "MIN_VALUE": 100
+              },
+              {
+                "OCCUPATION": "Healthcare",
+                "VALUE": 200,
+                "MAX_VALUE": 300,
+                "MIN_VALUE": 100
+              },
+              {
+                "OCCUPATION": "IT",
+                "VALUE": 300,
+                "MAX_VALUE": 300,
+                "MIN_VALUE": 100
+              },
+              {
+                "OCCUPATION": "Education",
+                "VALUE": 100,
+                "MAX_VALUE": 300,
+                "MIN_VALUE": 100
+              },
+              {
+                "OCCUPATION": "Finance",
+                "VALUE": 250,
+                "MAX_VALUE": 300,
+                "MIN_VALUE": 100
+              }
+            ],
+            "yMax": 300,
+            "yMin": 100
+          }
+        ],
+        "viewName": "VW_DS_VACANCIES_BY_OCCUPATION",
+        "chartType": "bar",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "rangeOptions": [],
+        "showMinMaxValues": true
+      }
+    ],
+    "rangeOptions": [
+      {
+        "id": "all",
+        "label": "All",
+        "value": null
+      },
+      {
+        "id": "3",
+        "label": "3Y",
+        "value": 3
+      },
+      {
+        "id": "5",
+        "label": "5Y",
+        "value": 5
+      },
+      {
+        "id": "10",
+        "label": "10Y",
+        "value": 10
+      }
+    ]
+  }
+}

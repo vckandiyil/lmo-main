@@ -1,0 +1,236 @@
+{
+  "success": true,
+  "correlationId": "2a84fb3c-7e91-4dc2-b5e3-9c62b992f834",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 3,
+    "title": "Vacancies Over Time",
+    "type": "scad",
+    "compare": true,
+    "unit": "count",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Employment",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF LFC YY 1D 3344"
+      },
+      {
+        "label": "Keywords",
+        "value": "Vacancies, Job openings, Abu Dhabi, Labour market"
+      },
+      {
+        "label": "Statistical population",
+        "value": "The statistical population includes all individuals aged 15 years and above who reside in the Emirate of Abu Dhabi. The following are excluded: visitors to the Emirate who have stayed for less than six months, residents of institutions such as hospitals, psychiatric facilities, elderly care homes, orphanages, and hotels, members of the diplomatic corps, armed forces personnel, security camps, and palace residents."
+      },
+      {
+        "label": "Geographic coverage ",
+        "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Statistical calculation method",
+        "value": "Total number of vacant job positions reported by establishments in the Emirate of Abu Dhabi on an annual basis."
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "© SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "highlights": [],
+    "description": "Total number of vacancies in Abu Dhabi by year.",
+    "classification": "open",
+    "compareIndicators": [
+      {
+        "id": "334402",
+        "title": "Vacancies Over Time",
+        "data": [
+          {
+            "YEAR": "2018",
+            "VALUE": 5000
+          },
+          {
+            "YEAR": "2019",
+            "VALUE": 7000
+          },
+          {
+            "YEAR": "2020",
+            "VALUE": 6000
+          },
+          {
+            "YEAR": "2021",
+            "VALUE": 8000
+          },
+          {
+            "YEAR": "2022",
+            "VALUE": 7500
+          },
+          {
+            "YEAR": "2023",
+            "VALUE": 9000
+          }
+        ],
+        "forecast": []
+      }
+    ],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "تأثير عالٍ",
+      "title": "Leverage Rising Vacancies to Boost Emiratisation and Skills Development",
+      "title_ar": "الاستفادة من الوظائف الشاغرة المتزايدة لتعزيز التوطين وتنمية المهارات",
+      "text": "With vacancies trending upward since 2020, there is a strong opportunity to align workforce development programmes with in-demand roles and accelerate Emiratisation targets.",
+      "text_ar": "مع الاتجاه التصاعدي للوظائف الشاغرة منذ عام 2020، تبرز فرصة قوية لمواءمة برامج تطوير القوى العاملة مع الأدوار المطلوبة وتسريع أهداف التوطين.",
+      "reason": "Vacancies have grown consistently from 5,000 in 2018 to 9,000 in 2023, reflecting expanding labour demand. This upward trend presents a window to match job seekers—especially Emiratis and youth—with available opportunities.",
+      "reason_ar": "ارتفعت الوظائف الشاغرة بشكل مستمر من 5,000 في عام 2018 إلى 9,000 في عام 2023، مما يعكس تنامي الطلب على العمالة. يوفر هذا الاتجاه التصاعدي نافذة لمطابقة الباحثين عن عمل، ولا سيما المواطنين والشباب، مع الفرص المتاحة."
+    },
+    "visualizations": [
+      {
+        "label": "Total Number of Vacancies in Abu Dhabi by Year",
+        "series": [
+          {
+            "id": "vacancies",
+            "type": "solid",
+            "color": "#3375c6",
+            "group": "vacancies",
+            "label": "Vacancies",
+            "filterBy": {
+              "TYPE": "NOWCAST",
+              "CATEGORY": "Total"
+            },
+            "xAccessor": {
+              "path": "OBS_DT",
+              "type": "date",
+              "specifier": "%Y-%m-%d"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              {
+                "VALUE": 5000,
+                "MAX_VALUE": 9000,
+                "MIN_VALUE": 5000,
+                "MAX_OBS_DT": "2023-01-01",
+                "MIN_OBS_DT": "2018-01-01",
+                "OBS_DT": "2018-01-01",
+                "YEAR": "2018"
+              },
+              {
+                "VALUE": 7000,
+                "MAX_VALUE": 9000,
+                "MIN_VALUE": 5000,
+                "MAX_OBS_DT": "2023-01-01",
+                "MIN_OBS_DT": "2018-01-01",
+                "OBS_DT": "2019-01-01",
+                "YEAR": "2019"
+              },
+              {
+                "VALUE": 6000,
+                "MAX_VALUE": 9000,
+                "MIN_VALUE": 5000,
+                "MAX_OBS_DT": "2023-01-01",
+                "MIN_OBS_DT": "2018-01-01",
+                "OBS_DT": "2020-01-01",
+                "YEAR": "2020"
+              },
+              {
+                "VALUE": 8000,
+                "MAX_VALUE": 9000,
+                "MIN_VALUE": 5000,
+                "MAX_OBS_DT": "2023-01-01",
+                "MIN_OBS_DT": "2018-01-01",
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 7500,
+                "MAX_VALUE": 9000,
+                "MIN_VALUE": 5000,
+                "MAX_OBS_DT": "2023-01-01",
+                "MIN_OBS_DT": "2018-01-01",
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 9000,
+                "MAX_VALUE": 9000,
+                "MIN_VALUE": 5000,
+                "MAX_OBS_DT": "2023-01-01",
+                "MIN_OBS_DT": "2018-01-01",
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              }
+            ],
+            "yMax": 9000,
+            "yMin": 5000,
+            "xMin": "2018-01-01",
+            "xMax": "2023-01-01"
+          }
+        ],
+        "viewName": "VW_DS_VACANCIES_ANNUAL",
+        "chartType": "column",
+        "valueFormat": "compact",
+        "isTimeSeries": true,
+        "rangeOptions": [
+          {
+            "id": "3y",
+            "label": "3Y",
+            "value": 3
+          },
+          {
+            "id": "5y",
+            "label": "5Y",
+            "value": 5
+          },
+          {
+            "id": "all",
+            "label": "ALL",
+            "value": null
+          }
+        ],
+        "showMinMaxValues": true
+      }
+    ],
+    "rangeOptions": [
+      {
+        "id": "all",
+        "label": "All",
+        "value": null
+      },
+      {
+        "id": "3",
+        "label": "3Y",
+        "value": 3
+      },
+      {
+        "id": "5",
+        "label": "5Y",
+        "value": 5
+      },
+      {
+        "id": "10",
+        "label": "10Y",
+        "value": 10
+      }
+    ]
+  }
+}

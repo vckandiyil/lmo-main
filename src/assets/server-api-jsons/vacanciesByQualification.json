@@ -1,0 +1,189 @@
+{
+  "success": true,
+  "correlationId": "5d17ie6f-0h24-7gf5-e8h6-2f95e225i167",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 6,
+    "title": "Vacancies by Qualification",
+    "type": "scad",
+    "compare": true,
+    "unit": "count",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Employment",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF LFC YY 1D 3347"
+      },
+      {
+        "label": "Keywords",
+        "value": "Vacancies, Job openings, Qualification, Education, Skills, Abu Dhabi"
+      },
+      {
+        "label": "Statistical population",
+        "value": "The statistical population includes all individuals aged 15 years and above who reside in the Emirate of Abu Dhabi. The following are excluded: visitors to the Emirate who have stayed for less than six months, residents of institutions such as hospitals, psychiatric facilities, elderly care homes, orphanages, and hotels, members of the diplomatic corps, armed forces personnel, security camps, and palace residents."
+      },
+      {
+        "label": "Geographic coverage ",
+        "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Statistical calculation method",
+        "value": "Total number of vacant job positions classified by the minimum educational qualification required, as reported by establishments in the Emirate of Abu Dhabi on an annual basis."
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "© SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "highlights": [],
+    "description": "Total number of vacancies broken down by required educational qualification in Abu Dhabi.",
+    "classification": "open",
+    "compareIndicators": [
+      {
+        "id": "334405",
+        "title": "Vacancies by Qualification",
+        "data": [
+          {
+            "QUALIFICATION": "High School",
+            "VALUE": 2000
+          },
+          {
+            "QUALIFICATION": "Bachelor's Degree",
+            "VALUE": 3500
+          },
+          {
+            "QUALIFICATION": "Master's Degree",
+            "VALUE": 1500
+          },
+          {
+            "QUALIFICATION": "PhD",
+            "VALUE": 500
+          },
+          {
+            "QUALIFICATION": "Diploma",
+            "VALUE": 1200
+          }
+        ],
+        "forecast": []
+      }
+    ],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "تأثير عالٍ",
+      "title": "Prioritise Bachelor's-Level Talent Pipelines to Meet Peak Labour Demand",
+      "title_ar": "إيلاء الأولوية لمسارات المواهب على مستوى البكالوريوس لتلبية ذروة الطلب على العمالة",
+      "text": "Bachelor's Degree holders account for the largest share of vacancies, followed by High School graduates. Strengthening university-to-work pathways and vocational programmes will be critical to closing this gap.",
+      "text_ar": "يمثّل حاملو درجة البكالوريوس الحصة الأكبر من الوظائف الشاغرة، يليهم خريجو المرحلة الثانوية. سيكون تعزيز مسارات الانتقال من الجامعة إلى العمل والبرامج المهنية أمراً بالغ الأهمية لسد هذه الفجوة.",
+      "reason": "The dominance of Bachelor's Degree vacancies signals that the Abu Dhabi labour market is increasingly knowledge-driven, while the significant High School share indicates parallel demand for semi-skilled roles. PhD vacancies remain niche, reflecting specialised research and academic needs.",
+      "reason_ar": "يُشير هيمنة شواغر درجة البكالوريوس إلى أن سوق العمل في أبوظبي يتجه بشكل متزايد نحو الاقتصاد المعرفي، في حين تُشير الحصة الكبيرة للمرحلة الثانوية إلى طلب موازٍ على الأدوار شبه الماهرة. تظل شواغر الدكتوراه محدودة النطاق، مما يعكس الاحتياجات البحثية والأكاديمية المتخصصة."
+    },
+    "visualizations": [
+      {
+        "label": "Vacancies by Qualification",
+        "series": [
+          {
+            "id": "vacancies-by-qualification",
+            "type": "solid",
+            "color": "#3375c6",
+            "group": "vacancies",
+            "label": "Vacancies",
+            "filterBy": {
+              "TYPE": "NOWCAST",
+              "CATEGORY": "Total"
+            },
+            "xAccessor": {
+              "path": "QUALIFICATION",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              {
+                "QUALIFICATION": "High School",
+                "VALUE": 2000,
+                "MAX_VALUE": 3500,
+                "MIN_VALUE": 500
+              },
+              {
+                "QUALIFICATION": "Bachelor's Degree",
+                "VALUE": 3500,
+                "MAX_VALUE": 3500,
+                "MIN_VALUE": 500
+              },
+              {
+                "QUALIFICATION": "Master's Degree",
+                "VALUE": 1500,
+                "MAX_VALUE": 3500,
+                "MIN_VALUE": 500
+              },
+              {
+                "QUALIFICATION": "PhD",
+                "VALUE": 500,
+                "MAX_VALUE": 3500,
+                "MIN_VALUE": 500
+              },
+              {
+                "QUALIFICATION": "Diploma",
+                "VALUE": 1200,
+                "MAX_VALUE": 3500,
+                "MIN_VALUE": 500
+              }
+            ],
+            "yMax": 3500,
+            "yMin": 500
+          }
+        ],
+        "viewName": "VW_DS_VACANCIES_BY_QUALIFICATION",
+        "chartType": "column",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "rangeOptions": [],
+        "showMinMaxValues": true
+      }
+    ],
+    "rangeOptions": [
+      {
+        "id": "all",
+        "label": "All",
+        "value": null
+      },
+      {
+        "id": "3",
+        "label": "3Y",
+        "value": 3
+      },
+      {
+        "id": "5",
+        "label": "5Y",
+        "value": 5
+      },
+      {
+        "id": "10",
+        "label": "10Y",
+        "value": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "success": true,
+  "correlationId": "8g40lh9i-3k57-0ji8-h1k9-5i28h558l490",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 9,
+    "title": "Salary Distribution",
+    "type": "scad",
+    "compare": true,
+    "unit": "count",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Employment",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF LFC YY 1D 3350"
+      },
+      {
+        "label": "Keywords",
+        "value": "Vacancies, Salary, Salary Band, Wage, Distribution, Abu Dhabi"
+      },
+      {
+        "label": "Statistical population",
+        "value": "The statistical population includes all individuals aged 15 years and above who reside in the Emirate of Abu Dhabi. The following are excluded: visitors to the Emirate who have stayed for less than six months, residents of institutions such as hospitals, psychiatric facilities, elderly care homes, orphanages, and hotels, members of the diplomatic corps, armed forces personnel, security camps, and palace residents."
+      },
+      {
+        "label": "Geographic coverage ",
+        "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Statistical calculation method",
+        "value": "Total number of vacant job positions classified by offered salary band, as reported by establishments in the Emirate of Abu Dhabi on an annual basis."
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "© SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "highlights": [],
+    "description": "Distribution of vacancies by salary band in Abu Dhabi.",
+    "classification": "open",
+    "compareIndicators": [
+      {
+        "id": "334408",
+        "title": "Salary Distribution",
+        "data": [
+          {
+            "SALARY_BAND": "0-20K",
+            "VALUE": 150
+          },
+          {
+            "SALARY_BAND": "20K-40K",
+            "VALUE": 200
+          },
+          {
+            "SALARY_BAND": "40K-60K",
+            "VALUE": 250
+          },
+          {
+            "SALARY_BAND": "60K-80K",
+            "VALUE": 180
+          },
+          {
+            "SALARY_BAND": "80K-100K",
+            "VALUE": 120
+          }
+        ],
+        "forecast": []
+      }
+    ],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "تأثير عالٍ",
+      "title": "Align Compensation Bands with Market Expectations to Attract Top Talent",
+      "title_ar": "مواءمة نطاقات التعويض مع توقعات السوق لاستقطاب أفضل الكفاءات",
+      "text": "The 40K–60K salary band holds the highest number of vacancies, suggesting mid-range roles are the most in demand. Employers offering below 20K may face challenges attracting qualified candidates in a competitive labour market.",
+      "text_ar": "يحتوي نطاق الراتب من 40 إلى 60 ألف على أعلى عدد من الوظائف الشاغرة، مما يشير إلى أن الأدوار متوسطة الأجر هي الأكثر طلباً. قد يواجه أصحاب العمل الذين يقدمون أقل من 20 ألف تحديات في استقطاب المرشحين المؤهلين في سوق عمل تنافسي.",
+      "reason": "Vacancy concentration in the 40K–60K band reflects demand for mid-level professionals, while the tapering at the 80K–100K range signals fewer but more specialised senior roles. The relatively high count in the 0–20K band may indicate demand for entry-level or semi-skilled positions.",
+      "reason_ar": "يعكس تركّز الشواغر في نطاق 40–60 ألف الطلب على المهنيين من المستوى المتوسط، في حين يُشير التناقص عند نطاق 80–100 ألف إلى أدوار كبرى أقل عدداً لكنها أكثر تخصصاً. قد يشير العدد المرتفع نسبياً في نطاق 0–20 ألف إلى الطلب على الوظائف المبتدئة أو شبه الماهرة."
+    },
+    "visualizations": [
+      {
+        "label": "Salary Distribution",
+        "series": [
+          {
+            "id": "vacancies-by-salary",
+            "type": "solid",
+            "color": "#3375c6",
+            "group": "vacancies",
+            "label": "Vacancies",
+            "filterBy": {
+              "TYPE": "NOWCAST",
+              "CATEGORY": "Total"
+            },
+            "xAccessor": {
+              "path": "SALARY_BAND",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              {
+                "SALARY_BAND": "0-20K",
+                "VALUE": 150,
+                "MAX_VALUE": 250,
+                "MIN_VALUE": 120
+              },
+              {
+                "SALARY_BAND": "20K-40K",
+                "VALUE": 200,
+                "MAX_VALUE": 250,
+                "MIN_VALUE": 120
+              },
+              {
+                "SALARY_BAND": "40K-60K",
+                "VALUE": 250,
+                "MAX_VALUE": 250,
+                "MIN_VALUE": 120
+              },
+              {
+                "SALARY_BAND": "60K-80K",
+                "VALUE": 180,
+                "MAX_VALUE": 250,
+                "MIN_VALUE": 120
+              },
+              {
+                "SALARY_BAND": "80K-100K",
+                "VALUE": 120,
+                "MAX_VALUE": 250,
+                "MIN_VALUE": 120
+              }
+            ],
+            "yMax": 250,
+            "yMin": 120
+          }
+        ],
+        "viewName": "VW_DS_VACANCIES_BY_SALARY",
+        "chartType": "column",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "rangeOptions": [],
+        "showMinMaxValues": true
+      }
+    ],
+    "rangeOptions": [
+      {
+        "id": "all",
+        "label": "All",
+        "value": null
+      },
+      {
+        "id": "3",
+        "label": "3Y",
+        "value": 3
+      },
+      {
+        "id": "5",
+        "label": "5Y",
+        "value": 5
+      },
+      {
+        "id": "10",
+        "label": "10Y",
+        "value": 10
+      }
+    ]
+  }
+}
