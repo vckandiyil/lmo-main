@@ -19,7 +19,7 @@ import { GenericWidgetCard } from '../../molecule/generic-widget-card/generic-wi
 import { Icon } from '../../atom/icon/icon';
 import { WIDGET_COMPONENT_MAP } from '../widgets';
 import { DynamicWidget } from '../dynamic-widget/dynamic-widget';
-import { GapAnalysisFullscreen } from '../supply-and-demand-fullscreen/supply-and-demand-fullscreen';
+import { GapAnalysisCenter } from '../gap-analysis-center/gap-analysis-center';
 import { DecimalPipe } from '@angular/common';
 import { TalentPoolTreemap } from '../talent-pool-treemap/talent-pool-treemap';
 import { FilterStateService } from '../../../core/services/filter-state.service';
@@ -34,7 +34,7 @@ interface RegionPopulationData {
 @Component({
   selector: 'app-center-section',
   standalone: true,
-  imports: [TranslateModule, GenericWidgetCard, DynamicWidget, GapAnalysisFullscreen, CdkDropList, CdkDrag, DecimalPipe, Icon, TalentPoolTreemap],
+  imports: [TranslateModule, GenericWidgetCard, DynamicWidget, GapAnalysisCenter, CdkDropList, CdkDrag, DecimalPipe, Icon, TalentPoolTreemap],
   templateUrl: './center-section.html',
   styleUrl: './center-section.scss',
 })

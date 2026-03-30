@@ -69,6 +69,10 @@ export const WidgetStore = signalStore(
         }
       },
 
+      clearWidgets(): void {
+        patchState(store, initialState);
+      },
+
       resetToDefaults(): void {
         catalogService.getSidebarWidgets().pipe(first()).subscribe(widgets => {
           const sidebarWidgets = widgets.filter(w => w.id !== WidgetType.Map);

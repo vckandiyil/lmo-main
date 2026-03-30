@@ -46,7 +46,7 @@
     cursor: pointer;
 
     :host-context(body.theme--dark) & {
-      background: #212836;
+      background: var(--lmo-bg-card);
       border-color: #364151;
     }
   }

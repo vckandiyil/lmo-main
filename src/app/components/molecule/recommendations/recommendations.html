@@ -81,13 +81,27 @@
       </div>
     </div>
   </div>
-  <div class="recommendations__content">
-    <span class="recommendations__label">{{ 'LMI.REC_LABEL_1' | translate }}</span>
-    <p class="recommendations__description">{{ 'LMI.REC_DESC_1' | translate }}</p>
-  </div>
-  <div class="recommendations__content">
-    <span class="recommendations__label">{{ 'LMI.REC_LABEL_2' | translate }}</span>
-    <p class="recommendations__description">{{ 'LMI.REC_DESC_2' | translate }}</p>
-  </div>
+  @if (activeStakeholder() === 'policymakers') {
+    <div class="recommendations__content">
+      <span class="recommendations__label">{{ 'LMI.REC_LABEL_1' | translate }}</span>
+      <p class="recommendations__description">{{ 'LMI.REC_DESC_1' | translate }}</p>
+    </div>
+    <div class="recommendations__content">
+      <span class="recommendations__label">{{ 'LMI.REC_LABEL_2' | translate }}</span>
+      <p class="recommendations__description">{{ 'LMI.REC_DESC_2' | translate }}</p>
+    </div>
+  }
+  @if (activeStakeholder() === 'employers') {
+    <div class="recommendations__content">
+      <span class="recommendations__label">{{ 'LMI.REC_EMPLOYERS_LABEL_1' | translate }}</span>
+      <p class="recommendations__description">{{ 'LMI.REC_EMPLOYERS_DESC_1' | translate }}</p>
+    </div>
+  }
+  @if (activeStakeholder() === 'jobseekers') {
+    <div class="recommendations__content">
+      <span class="recommendations__label">{{ 'LMI.REC_JOBSEEKERS_LABEL_1' | translate }}</span>
+      <p class="recommendations__description">{{ 'LMI.REC_JOBSEEKERS_DESC_1' | translate }}</p>
+    </div>
+  }
   </div>
 </div>

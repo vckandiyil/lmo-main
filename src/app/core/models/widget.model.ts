@@ -27,6 +27,16 @@ export enum WidgetType {
   DistributionByEducationLevel = 'distribution-by-education-level',
   DistributionBySalaryBand = 'distribution-by-salary-band',
   TalentPoolTreemap = 'talent-pool-treemap',
+  VacanciesOverTime = 'vacancies-over-time',
+  VacanciesByEntity = 'vacancies-by-entity',
+  HiringProgress = 'hiring-progress',
+  SalaryDistribution = 'salary-distribution',
+  VacanciesByLocation = 'vacancies-by-location',
+  VacanciesByOccupation = 'vacancies-by-occupation',
+  VacanciesByQualification = 'vacancies-by-qualification',
+  VacancyStatusAndType = 'vacancy-status-and-type',
+  VacancyStatusBreakdown = 'vacancy-status-breakdown',
+  GenderDistributionPie = 'gender-distribution-pie',
 }
 
 /**

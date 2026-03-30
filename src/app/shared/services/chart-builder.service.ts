@@ -1,12 +1,23 @@
-import {Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import type {ChartOptions} from './chart-config.service';
 import type {WidgetChartConfig, WidgetYAxisConfig} from '../../core/models/widget-chart-config.model';
 import type {ChartBuildContext, WidgetDetailSeriesPoint} from '../../core/models/widget-detail.model';
+import {abbreviateNumber} from '../utils/number-format';
+import {ThemeService} from '../../core/services/theme.service';
 
 const FORECAST_COLOR_DEFAULT = '#5CC049';
+const CHART_FONT             = "'Graphik Trial', sans-serif";
+const COLOR_AXIS_LABEL       = '#6A7180';
+const COLOR_GRID             = '#E8E8E8';
 
 @Injectable({providedIn: 'root'})
 export class ChartBuilderService {
+  private readonly themeService = inject(ThemeService);
+
+  private legendConfig() {
+    const color = this.themeService.isDarkMode() ? '#FFFFFF' : '#1E2937';
+    return {enabled: true, align: 'center' as const, verticalAlign: 'bottom' as const, itemStyle: {fontFamily: CHART_FONT, fontWeight: '400', color}};
+  }
 
   build(
     config: WidgetChartConfig,
@@ -14,11 +25,11 @@ export class ChartBuilderService {
     ctx: ChartBuildContext,
   ): ChartOptions {
     switch (config.type) {
-      case 'line':   return this.buildLine(config, series, ctx);
-      case 'bar':    return this.buildBar(config, series, ctx);
-      case 'column': return this.buildColumn(config, series, ctx);
+      case 'line':           return this.buildLine(config, series, ctx);
+      case 'bar':            return this.buildBar(config, series, ctx);
+      case 'column':         return this.buildColumn(config, series, ctx);
       case 'pie':
-      case 'donut':       return this.buildPie(config, series, ctx);
+      case 'donut':          return this.buildPie(config, series, ctx);
       case 'stacked-bar':    return this.buildStackedBar(config, ctx);
       case 'grouped-column': return this.buildGroupedColumn(config, ctx);
       default:               return this.buildCustom(config.type, config, series, ctx);
@@ -107,9 +118,9 @@ export class ChartBuilderService {
       if (hasForecast) {
         const forecastSV = forecastRelatedSVMap[item.id];
         if (forecastSV) {
-          const forecastMap      = new Map(forecastSV.map(d => [d.YEAR, this.roundValue(d.VALUE, unit)]));
-          const lastActualYear   = entry.data[entry.data.length - 1]?.YEAR;
-          const lastActualValue  = dataMap.get(lastActualYear!) ?? null;
+          const forecastMap     = new Map(forecastSV.map(d => [d.YEAR, this.roundValue(d.VALUE, unit)]));
+          const lastActualYear  = entry.data[entry.data.length - 1]?.YEAR;
+          const lastActualValue = dataMap.get(lastActualYear!) ?? null;
 
           const cmpForecastValues: (number | null)[] = categories.map(year => {
             if (year === lastActualYear) return lastActualValue;
@@ -151,7 +162,7 @@ export class ChartBuilderService {
       title: {text: ''},
       xAxis: this.buildXAxis(categories),
       yAxis: this.buildYAxis(yMin, yMax, tickCount, unit, precise),
-      legend:  {enabled: false},
+      legend:  this.legendConfig(),
       tooltip: {enabled: ctx.showTooltip ?? false, hideDelay: 0},
       credits: {enabled: false},
       plotOptions: {
@@ -231,7 +242,7 @@ export class ChartBuilderService {
       title: {text: ''},
       xAxis: this.buildXAxis(categories),
       yAxis: this.buildYAxis(yMin, yMax, tickCount, unit, precise),
-      legend:  {enabled: false},
+      legend:  this.legendConfig(),
       tooltip: {enabled: ctx.showTooltip ?? false, hideDelay: 0},
       credits: {enabled: false},
       plotOptions: {
@@ -247,9 +258,9 @@ export class ChartBuilderService {
   private buildColumn(
     config: WidgetChartConfig,
     series: WidgetDetailSeriesPoint[],
-    _ctx: ChartBuildContext,
+    ctx: ChartBuildContext,
   ): ChartOptions {
-    const bar = this.buildBar(config, series, _ctx);
+    const bar = this.buildBar(config, series, ctx);
     return {
       ...bar,
       chart: {...(bar.chart ?? {}), type: 'column'},
@@ -271,14 +282,11 @@ export class ChartBuilderService {
     const compareItems = selectedCompareItems.filter(i => !!relatedSVMap[i.id]);
     const hasCompare   = compareItems.length > 0;
 
-    // Main slice data: actual points + forecast points in forecast colour
     const mainData: any[] = series.map(d => ({name: d.year, y: d.value}));
     if (hasForecast) {
       forecastSeries.forEach(d => mainData.push({name: d.year, y: d.value, color: forecastColor}));
     }
 
-    // When compare items are present the main series becomes an outer ring;
-    // each compare item is rendered as a smaller inner ring.
     const outerSize = '80%';
     const innerSize = hasCompare ? '50%' : '0%';
 
@@ -309,7 +317,7 @@ export class ChartBuilderService {
       chart: {type: 'pie', backgroundColor: 'transparent'},
       title: {text: ''},
       credits: {enabled: false},
-      legend: {enabled: hasCompare || hasForecast},
+      legend: this.legendConfig(),
       tooltip: {enabled: ctx.showTooltip ?? false, hideDelay: 0},
       xAxis: {visible: false},
       yAxis: {visible: false, gridLineWidth: 0},
@@ -327,30 +335,43 @@ export class ChartBuilderService {
     const items = ctx.multiSeries;
     if (!items?.length) return {};
 
-    const showDL  = ctx.showDataLabels ?? false;
-    const precise = ctx.showPreciseValue ?? false;
-    const unit    = config.yAxis?.unit ?? '';
-
+    const showDL     = ctx.showDataLabels ?? true;
+    const precise    = ctx.showPreciseValue ?? false;
+    const unit       = config.yAxis?.unit ?? '';
     const horizontal = config.orientation === 'horizontal';
     const hcType     = horizontal ? 'bar' : 'column';
 
-    const categories = items[0].data.map(d => d.year);
-    // For stacked charts yMin is always 0; yMax must accommodate the full cumulative stack height.
+    const categories  = items[0].data.map(d => d.year);
     const stackTotals = Array.from({length: items[0].data.length}, (_, i) =>
       items.reduce((sum, s) => sum + (s.data[i]?.value ?? 0), 0),
     );
-    const yMin = 0;
-    const {yMax} = this.calcYBounds(config.yAxis ?? {}, stackTotals);
-    const tickCount    = config.yAxis?.tickCount ?? 5;
-    const width        = config.dimensions?.width;
-    const height       = config.dimensions?.height;
+    const {yMax}    = this.calcYBounds(config.yAxis ?? {}, stackTotals);
+    const tickCount = config.yAxis?.tickCount ?? 5;
+    const width     = config.dimensions?.width;
+    const height    = config.dimensions?.height;
 
-    const hcSeries = items.map(s => ({
-      type:  hcType as 'bar' | 'column',
-      name:  s.name,
-      color: s.color,
-      data:  s.data.map(d => d.value),
-    }));
+    const compareSeries: any[] = ctx.selectedCompareItems.map(item => {
+      const entry = ctx.relatedSVMap[item.id];
+      if (!entry) return null;
+      const dataMap = new Map(entry.data.map(d => [d.YEAR, d.VALUE]));
+      return {
+        type: 'line',
+        name: entry.title,
+        color: item.color,
+        data: categories.map(c => dataMap.get(c) ?? null),
+        marker: this.makeMarker(4, item.color),
+        dataLabels: {enabled: showDL, overflow: 'allow', crop: false},
+        yAxis: 1,
+      };
+    }).filter(Boolean);
+
+    const yAxes: any[] = [this.buildYAxis(0, yMax, tickCount, unit, precise)];
+    if (compareSeries.length) {
+      const allCompareVals = ctx.selectedCompareItems
+        .flatMap(item => (ctx.relatedSVMap[item.id]?.data ?? []).map(d => d.VALUE));
+      const {yMax: cmpMax} = this.calcYBounds(config.yAxis ?? {}, allCompareVals);
+      yAxes.push({...this.buildYAxis(0, cmpMax, tickCount, unit, precise), opposite: true});
+    }
 
     return {
       colors: items.map(s => s.color),
@@ -363,19 +384,27 @@ export class ChartBuilderService {
       },
       title:   {text: ''},
       xAxis:   this.buildXAxis(categories),
-      yAxis:   this.buildYAxis(yMin, yMax, tickCount, unit, precise),
-      legend:  {enabled: true, align: 'center', verticalAlign: 'bottom', itemStyle: {fontFamily: "'Graphik Trial', sans-serif", fontWeight: '400', color: '#1E2937'}},
+      yAxis:   compareSeries.length ? yAxes : yAxes[0],
+      legend:  this.legendConfig(),
       tooltip: {enabled: ctx.showTooltip ?? false, hideDelay: 0},
       credits: {enabled: false},
       plotOptions: {
         [hcType]: {
           stacking: 'normal',
-          dataLabels: {enabled: showDL},
+          dataLabels: this.makeBarDataLabels(unit, showDL, true),
           borderWidth: 0,
           borderRadius: 0,
         },
       },
-      series: hcSeries as any,
+      series: [
+        ...items.map(s => ({
+          type:  hcType as 'bar' | 'column',
+          name:  s.name,
+          color: s.color,
+          data:  s.data.map(d => d.value),
+        })),
+        ...compareSeries,
+      ] as any,
     };
   }
 
@@ -386,7 +415,7 @@ export class ChartBuilderService {
     const items = ctx.multiSeries;
     if (!items?.length) return {};
 
-    const showDL  = ctx.showDataLabels ?? false;
+    const showDL  = ctx.showDataLabels ?? true;
     const precise = ctx.showPreciseValue ?? false;
     const unit    = config.yAxis?.unit ?? '';
 
@@ -396,13 +425,6 @@ export class ChartBuilderService {
     const tickCount    = config.yAxis?.tickCount ?? 5;
     const width        = config.dimensions?.width;
     const height       = config.dimensions?.height;
-
-    const hcSeries = items.map(s => ({
-      type:  'column' as const,
-      name:  s.name,
-      color: s.color,
-      data:  s.data.map(d => d.value),
-    }));
 
     return {
       colors: items.map(s => s.color),
@@ -416,18 +438,23 @@ export class ChartBuilderService {
       title:   {text: ''},
       xAxis:   this.buildXAxis(categories),
       yAxis:   this.buildYAxis(yMin, yMax, tickCount, unit, precise),
-      legend:  {enabled: true, align: 'center', verticalAlign: 'bottom', itemStyle: {fontFamily: "'Graphik Trial', sans-serif", fontWeight: '400', color: '#1E2937'}},
+      legend:  this.legendConfig(),
       tooltip: {enabled: ctx.showTooltip ?? false, hideDelay: 0},
       credits: {enabled: false},
       plotOptions: {
         column: {
           grouping: true,
-          dataLabels: {enabled: showDL},
+          dataLabels: this.makeBarDataLabels(unit, showDL, false),
           borderWidth: 0,
           borderRadius: 0,
         },
       },
-      series: hcSeries as any,
+      series: items.map(s => ({
+        type:  'column' as const,
+        name:  s.name,
+        color: s.color,
+        data:  s.data.map(d => d.value),
+      })) as any,
     };
   }
 
@@ -437,7 +464,6 @@ export class ChartBuilderService {
     _series: WidgetDetailSeriesPoint[],
     _ctx: ChartBuildContext,
   ): ChartOptions {
-    // Placeholder — custom chart types handled by dedicated components
     return {};
   }
 
@@ -472,11 +498,25 @@ export class ChartBuilderService {
     return unit === '%' ? Math.round(value * 10) / 10 : value;
   }
 
-  private abbreviateNumber(n: number): string {
-    const abs = Math.abs(n);
-    if (abs >= 1_000_000) return `${+(n / 1_000_000).toFixed(1)}M`;
-    if (abs >= 1_000) return `${+(n / 1_000).toFixed(1)}K`;
-    return Number(n).toLocaleString('en-US', {maximumFractionDigits: 0});
+  private makeBarDataLabels(unit: string, enabled: boolean, inside: boolean): any {
+    return {
+      enabled,
+      useHTML: true,
+      inside,
+      verticalAlign: inside ? 'middle' : 'top',
+      overflow: 'allow',
+      crop: false,
+      formatter: function(this: any): string {
+        if (this.y == null) return '';
+        const isDark  = document.body.classList.contains('theme--dark');
+        const color   = inside ? '#FFFFFF' : (isDark ? '#FFFFFF' : '#1E2937');
+        const display = unit === '%'
+          ? `${Math.round(this.y * 10) / 10}%`
+          : abbreviateNumber(this.y);
+        return `<span style="color:${color};font-family:${CHART_FONT};font-weight:600;font-size:12px;line-height:18px;">${display}</span>`;
+      },
+      style: {fontFamily: CHART_FONT, fontWeight: '600', fontSize: '12px', textOutline: 'none'},
+    };
   }
 
   private makeMarker(radius: number, color: string): any {
@@ -492,14 +532,13 @@ export class ChartBuilderService {
   }
 
   private makeDataLabels(unit: string, yOffset: number, enabled = true, precise = false): any {
-    const abbreviateNumber = this.abbreviateNumber;
     return {
       enabled,
       useHTML: true,
-      formatter: function (this: any): string {
+      formatter: function(this: any): string {
         if (this.y == null) return '';
-        const isDark   = document.body.classList.contains('theme--dark');
-        const color    = isDark ? '#FFFFFF' : '#1E2937';
+        const isDark = document.body.classList.contains('theme--dark');
+        const color  = isDark ? '#FFFFFF' : '#1E2937';
         let display: string;
         if (precise) {
           display = unit === '%'
@@ -510,15 +549,9 @@ export class ChartBuilderService {
             ? `${Math.round(this.y * 10) / 10}%`
             : abbreviateNumber(this.y);
         }
-        return `<span style="color: ${color}; font-family: 'Graphik Trial', sans-serif; font-weight: 600; font-size: 14px; line-height: 21px;">${display}</span>`;
+        return `<span style="color:${color};font-family:${CHART_FONT};font-weight:600;font-size:14px;line-height:21px;">${display}</span>`;
       },
-      style: {
-        fontFamily: "'Graphik Trial', sans-serif",
-        fontWeight: '600',
-        fontSize: '14px',
-        color: '#1E2937',
-        textOutline: 'none',
-      },
+      style: {fontFamily: CHART_FONT, fontWeight: '600', fontSize: '14px', color: '#1E2937', textOutline: 'none'},
       verticalAlign: 'bottom',
       y: yOffset,
       overflow: 'allow',
@@ -536,8 +569,8 @@ export class ChartBuilderService {
         y: 20,
         autoRotation: [] as number[],
         useHTML: true,
-        formatter: function (this: any): string {
-          return `<span style="color: #6A7180; font-family: 'Graphik Trial', sans-serif; font-weight: 400; font-size: 14px; line-height: 21px;">${this.value}</span>`;
+        formatter: function(this: any): string {
+          return `<span style="color:${COLOR_AXIS_LABEL};font-family:${CHART_FONT};font-weight:400;font-size:14px;line-height:21px;">${this.value}</span>`;
         },
       },
       tickmarkPlacement: 'on',
@@ -551,7 +584,6 @@ export class ChartBuilderService {
   }
 
   private buildYAxis(yMin: number, yMax: number, tickCount: number, unit: string, precise = false): any {
-    const abbreviateNumber = this.abbreviateNumber;
     return {
       visible: true,
       min: yMin,
@@ -562,7 +594,7 @@ export class ChartBuilderService {
       labels: {
         enabled: true,
         useHTML: true,
-        formatter: function (this: any): string {
+        formatter: function(this: any): string {
           let display: string;
           if (unit === '%') {
             display = `${this.value}`;
@@ -571,10 +603,10 @@ export class ChartBuilderService {
           } else {
             display = abbreviateNumber(this.value);
           }
-          return `<span style="color: #6A7180; font-family: 'Graphik Trial', sans-serif; font-weight: 400; font-size: 14px; line-height: 21px; text-align: right;">${display}</span>`;
+          return `<span style="color:${COLOR_AXIS_LABEL};font-family:${CHART_FONT};font-weight:400;font-size:14px;line-height:21px;text-align:right;">${display}</span>`;
         },
       },
-      gridLineColor: '#E8E8E8',
+      gridLineColor: COLOR_GRID,
       gridLineWidth: 1,
       gridLineDashStyle: 'Solid',
     };

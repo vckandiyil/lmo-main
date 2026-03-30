@@ -54,8 +54,7 @@
 
     @if (activeChartType() !== 'table') {
       <div class="widget-detail-template__chart">
-        <span class="widget-detail-template__chart-label">{{ unit() }}</span>
-        <app-chart-wrapper [options]="chartOptionsSignal()"></app-chart-wrapper>
+<app-chart-wrapper [options]="chartOptionsSignal()"></app-chart-wrapper>
       </div>
     } @else {
       <div #tableContainer class="widget-detail-template__data-grid"></div>
@@ -63,29 +62,7 @@
 
     <div class="widget-detail-template__footer">
       <div class="widget-detail-template__footer-group">
-        <div class="widget-detail-template__legends">
-          <div class="widget-detail-template__legend">
-            <span class="widget-detail-template__legend-line"></span>
-            <span class="widget-detail-template__legend-label">{{ title() }}</span>
-          </div>
-          @for (item of compareItems(); track item.id) {
-            @if (item.selected) {
-              <div class="widget-detail-template__legend">
-                <span class="widget-detail-template__legend-line widget-detail-template__legend-line--compare"
-                      [style.background]="item.color"
-                      [style.--legend-dot-color]="item.color"></span>
-                <span class="widget-detail-template__legend-label">{{ item.title }}</span>
-              </div>
-            }
-          }
-          @if (forecastEnabled()) {
-            <div class="widget-detail-template__legend">
-              <span class="widget-detail-template__legend-line widget-detail-template__legend-line--forecast"></span>
-              <span class="widget-detail-template__legend-label">{{ 'LMI.FORECAST' | translate }}</span>
-            </div>
-          }
-        </div>
-        <app-range-selector [options]="rangeOptions()" [activeValue]="activeRange()"
+<app-range-selector [options]="rangeOptions()" [activeValue]="activeRange()"
                             (rangeChanged)="setRange($event)"></app-range-selector>
       </div>
 

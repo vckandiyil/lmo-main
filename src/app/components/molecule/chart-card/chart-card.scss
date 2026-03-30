@@ -6,7 +6,7 @@
   box-sizing: border-box;
 
   :host-context(body.theme--dark) & {
-    background: #212836;
+    background: var(--lmo-bg-card);
   }
 }
 
@@ -58,7 +58,7 @@
     color: #364151;
 
     :host-context(body.theme--dark) & {
-      background: #30394a;
+      background: #495265;
       color: #cdd4db;
     }
   }
@@ -168,7 +168,7 @@
       background: #f1f2f3;
 
       :host-context(body.theme--dark) & {
-        background: #30394a;
+        background: #495265;
       }
     }
   }
@@ -183,7 +183,7 @@
     min-height: 140px;
 
     :host-context(body.theme--dark) & {
-      background: #30394a;
+      background: #495265;
     }
 
     &--download {

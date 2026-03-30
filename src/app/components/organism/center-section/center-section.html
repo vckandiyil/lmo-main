@@ -96,7 +96,9 @@
 
   @if (centerWidget()) {
     @if (centerWidget() === WidgetType.GapAnalysis) {
-      <app-supply-and-demand-fullscreen (closed)="restoreFromCenter()"/>
+      <div class="center-section__widget-area">
+        <app-gap-analysis-center (closed)="restoreFromCenter()"/>
+      </div>
     } @else {
       <div class="center-section__widget-area">
         <div class="center-section__widget-card">

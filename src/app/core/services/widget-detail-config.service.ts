@@ -1,7 +1,7 @@
 import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {API_BASE_URL} from '../tokens/api-base-url.token';
-import {forkJoin, map, Observable, of, shareReplay, switchMap} from 'rxjs';
+import {catchError, forkJoin, map, Observable, of, shareReplay, switchMap} from 'rxjs';
 import type {FilterConfig} from '../../components/molecule/filter-bar/filter-bar';
 import type {
   MultiSeriesItem,
@@ -11,6 +11,14 @@ import type {
 } from '../models/widget-detail.model';
 import type {WidgetChartConfig} from '../models/widget-chart-config.model';
 import type {WidgetCatalogEntry, WidgetsCatalog} from '../models/widget-catalog.model';
+import type {
+  WidgetApiResponse,
+  WidgetApiData,
+  WidgetApiSeries,
+  WidgetApiSeriesPoint,
+  WidgetApiFilter,
+  WidgetApiCompareIndicator,
+} from '../models/widget-api-response.model';
 import {DashboardDataService} from './dashboard-data.service';
 
 interface WidgetDetailConfigCache {
@@ -20,7 +28,7 @@ interface WidgetDetailConfigCache {
 
 @Injectable({providedIn: 'root'})
 export class WidgetDetailConfigService {
-  private readonly http = inject(HttpClient);
+  private readonly http    = inject(HttpClient);
   private readonly baseUrl = inject(API_BASE_URL);
 
   private readonly catalog$ = this.http
@@ -34,8 +42,9 @@ export class WidgetDetailConfigService {
 
       return forkJoin(
         entries.map(w =>
-          this.http.get<any>(`${this.baseUrl}/${this.idToFileName(w)}`).pipe(
+          this.http.get<WidgetApiResponse>(`${this.baseUrl}/${this.idToFileName(w)}`).pipe(
             map(response => ({id: w.id, response})),
+            catchError(() => of(null)),
           ),
         ),
       ).pipe(
@@ -43,9 +52,11 @@ export class WidgetDetailConfigService {
           const configMap = new Map<string, WidgetDetailConfig>();
           const filterMap: Partial<Record<string, FilterConfig[]>> = {};
 
-          for (const {id, response} of results) {
-            configMap.set(id, this.buildConfigFromNewFormat(response));
-            const filters = this.buildFiltersFromNewFormat(response);
+          for (const result of results) {
+            if (!result) continue;
+            const {id, response} = result;
+            configMap.set(id, this.buildConfig(response));
+            const filters = this.buildFilters(response);
             if (filters.length) filterMap[id] = filters;
           }
 
@@ -61,22 +72,26 @@ export class WidgetDetailConfigService {
   }
 
   // ---------------------------------------------------------------------------
-  // v2 (self-describing data file) builders
+  // Builders
   // ---------------------------------------------------------------------------
 
-  private buildConfigFromNewFormat(response: any): WidgetDetailConfig {
+  private buildConfig(response: WidgetApiResponse): WidgetDetailConfig {
     const d          = response.data;
     const viz        = d.visualizations?.[0];
     const unit       = d.unit ?? '';
     const isPercent  = unit.includes('%');
     const hasForecast = d.type === 'forecast';
+    const hasCompare  = d.compare === true;
 
-    const allActualSeries = (viz?.series ?? []).filter((s: any) => !s.isForecast);
-    const primarySeries   = allActualSeries.find((s: any) => s.group === 'total');
-    const hasCompare      = d.compare === true;
+    const allActualSeries = (viz?.series ?? []).filter((s: WidgetApiSeries) => !s.isForecast);
+    const primarySeries   = allActualSeries.find((s: WidgetApiSeries) => s.group === 'total')
+      ?? (allActualSeries.length === 1 ? allActualSeries[0] : undefined);
+
+    const isStacked = viz?.stacking === 'normal';
+    const chartType = isStacked ? 'stacked-bar' : (viz?.chartType ?? 'line');
 
     const chartConfig: WidgetChartConfig = {
-      type:       viz?.chartType ?? 'line',
+      type:       chartType,
       dimensions: {width: 960, height: 428},
       ...(d.orientation ? {orientation: d.orientation} : {}),
       yAxis: {
@@ -104,63 +119,78 @@ export class WidgetDetailConfigService {
       features:      {forecast: hasForecast, compare: hasCompare},
       chartConfig,
       viewTypes:     d.viewTypes,
-      loadData:      (_svc: DashboardDataService) => of(this.mapNewFormatToWidgetData(response)),
+      loadData:      (_svc: DashboardDataService) => of(this.mapToWidgetData(response)),
     };
   }
 
-  private buildFiltersFromNewFormat(response: any): FilterConfig[] {
-    return (response.data?.filters ?? []).map((f: any) => this.toFilterConfig(f));
+  private buildFilters(response: WidgetApiResponse): FilterConfig[] {
+    return (response.data?.filters ?? []).map((f: WidgetApiFilter) => ({
+      key:     f.key,
+      label:   f.label,
+      options: f.options,
+      type:    f.type,
+    }));
   }
 
-  private mapNewFormatToWidgetData(response: any): WidgetDetailData {
-    const d          = response.data;
-    const viz        = d.visualizations?.[0];
-    const unit       = d.unit ?? '';
-    const isPercent  = unit.includes('%');
+  private mapToWidgetData(response: WidgetApiResponse): WidgetDetailData {
+    const d           = response.data;
+    const viz         = d.visualizations?.[0];
+    const unit        = d.unit ?? '';
+    const isPercent   = unit.includes('%');
     const hasForecast = d.type === 'forecast';
 
-    const allActualSeries = (viz?.series ?? []).filter((s: any) => !s.isForecast);
-    const totalSeriesDef  = allActualSeries.find((s: any) => s.group === 'total');
+    const allActualSeries = (viz?.series ?? []).filter((s: WidgetApiSeries) => !s.isForecast);
+    const totalSeriesDef  = allActualSeries.find((s: WidgetApiSeries) => s.group === 'total')
+      ?? (allActualSeries.length === 1 ? allActualSeries[0] : undefined);
     const hasTotalSeries  = !!totalSeriesDef;
 
-    const series: WidgetDetailSeriesPoint[] = (totalSeriesDef?.data ?? []).map((p: any) => ({
-      year:  p.YEAR,
+    const firstSeries = allActualSeries[0];
+    const nameKey = totalSeriesDef?.nameAccessor?.path
+      ?? totalSeriesDef?.xAccessor?.path
+      ?? (firstSeries?.xAccessor?.type === 'category' ? firstSeries?.xAccessor?.path : undefined)
+      ?? firstSeries?.nameAccessor?.path;
+    const series: WidgetDetailSeriesPoint[] = (totalSeriesDef?.data ?? []).map((p: WidgetApiSeriesPoint) => ({
+      year:  (nameKey ? p[nameKey] : p.YEAR) ?? '',
       value: isPercent ? Math.round(p.VALUE * 10) / 10 : p.VALUE,
     }));
 
     let multiSeries: MultiSeriesItem[] | undefined;
     if (!hasTotalSeries && allActualSeries.length > 0) {
-      multiSeries = allActualSeries.map((s: any) => ({
-        name:  s.label ?? '',
-        color: s.color ?? '#2563EA',
-        data:  (s.data ?? []).map((p: any) => ({
-          year:  p.YEAR,
-          value: isPercent ? Math.round(p.VALUE * 10) / 10 : p.VALUE,
-        })),
-      }));
+      multiSeries = allActualSeries.map((s: WidgetApiSeries) => {
+        const seriesCategoryKey = s.xAccessor?.path ?? s.nameAccessor?.path;
+        return {
+          name:  s.label ?? '',
+          color: s.color ?? '#2563EA',
+          data:  (s.data ?? []).map((p: WidgetApiSeriesPoint) => ({
+            year:  (seriesCategoryKey ? p[seriesCategoryKey] : p.YEAR) ?? '',
+            value: isPercent ? Math.round(p.VALUE * 10) / 10 : p.VALUE,
+          })),
+        };
+      });
     }
 
     let forecastSeries: WidgetDetailSeriesPoint[] | undefined;
     if (hasForecast) {
-      const totalForecastDef = (viz?.series ?? []).find((s: any) => s.group === 'total' && s.isForecast === true);
+      const totalForecastDef = (viz?.series ?? []).find(
+        (s: WidgetApiSeries) => s.group === 'total' && s.isForecast === true,
+      );
       if (totalForecastDef) {
         const seriesYears = new Set(series.map(p => p.year));
         forecastSeries = (totalForecastDef.data ?? [])
-          .filter((p: any) => !seriesYears.has(p.YEAR))
-          .map((p: any) => ({
-            year:  p.YEAR,
+          .filter((p: WidgetApiSeriesPoint) => !seriesYears.has(p.YEAR ?? ''))
+          .map((p: WidgetApiSeriesPoint) => ({
+            year:  p.YEAR ?? '',
             value: isPercent ? Math.round(p.VALUE * 10) / 10 : p.VALUE,
           }));
       }
     }
 
-    const rangeOptions = (d.rangeOptions ?? []).map((r: any) => ({
+    const rangeOptions = (d.rangeOptions ?? []).map(r => ({
       id:    r.id,
       label: r.label,
       value: r.value ?? null,
     }));
 
-    // Use first series from multiSeries for period/highlights when there is no total series
     const primaryData = hasTotalSeries
       ? series
       : (multiSeries?.[0]?.data ?? []).map(p => ({year: p.year, value: p.value}));
@@ -172,11 +202,11 @@ export class WidgetDetailConfigService {
     return {
       title:           d.title ?? '',
       description:     d.description ?? '',
-      securityLabel:   '',
+      securityLabel:   d.classification ? d.classification.charAt(0).toUpperCase() + d.classification.slice(1) : '',
       unit,
       dataSource:      d.dataSource ?? '',
       updatedDate:     d.updated ?? '',
-      metaData:        (d.metadata ?? []).map((m: any) => ({label: m.label, value: m.value})),
+      metaData:        (d.metadata ?? []).map(m => ({label: m.label, value: m.value})),
       rangeOptions,
       defaultRange:    'ALL',
       monthlyChange:   0,
@@ -187,18 +217,24 @@ export class WidgetDetailConfigService {
       series,
       multiSeries,
       forecastSeries,
-      relatedSV: (d.compareIndicators ?? []).map((c: any) => ({
+      relatedSV: (d.compareIndicators ?? []).map((c: WidgetApiCompareIndicator) => ({
         id: c.id, title: c.title, note: '', title_ar: '', content_type: '',
       })),
       relatedSVMap: Object.fromEntries(
         (d.compareIndicators ?? [])
-          .filter((c: any) => c.data)
-          .map((c: any) => [c.id, {title: c.title, data: c.data}]),
+          .filter((c: WidgetApiCompareIndicator) => c.data)
+          .map((c: WidgetApiCompareIndicator) => {
+            const normData = (c.data ?? []).map((point: any) => ({
+              YEAR:  nameKey ? point[nameKey] : (point.YEAR ?? ''),
+              VALUE: point.VALUE,
+            }));
+            return [c.id, {title: c.title, data: normData}];
+          }),
       ),
       forecastRelatedSVMap: Object.fromEntries(
         (d.compareIndicators ?? [])
-          .filter((c: any) => c.forecast?.length)
-          .map((c: any) => [c.id, c.forecast]),
+          .filter((c: WidgetApiCompareIndicator) => c.forecast?.length)
+          .map((c: WidgetApiCompareIndicator) => [c.id, c.forecast!]),
       ),
       aiRecommendation: d.aiRecommendation ? {
         badge:     d.aiRecommendation.badge,
@@ -213,14 +249,18 @@ export class WidgetDetailConfigService {
     };
   }
 
-  private buildHighlights(series: WidgetDetailSeriesPoint[], isPercent: boolean): {label: string; value: string}[] {
+  private buildHighlights(
+    series: WidgetDetailSeriesPoint[],
+    isPercent: boolean,
+  ): {label: string; value: string}[] {
     if (series.length === 0) return [];
 
     const format = (v: number) =>
       isPercent ? `${v}%` : v.toLocaleString('en-US');
 
-    const latest   = series[series.length - 1];
-    const label0   = isPercent ? 'Current Employment' : 'Current Population';
+    const latest = series[series.length - 1];
+    const label0 = isPercent ? 'Current Rate' : 'Latest Value';
+
     const result: {label: string; value: string}[] = [
       {label: `${label0} (${latest.year})`, value: format(latest.value)},
     ];
@@ -230,7 +270,7 @@ export class WidgetDetailConfigService {
       const change   = isPercent
         ? Math.round((latest.value - previous.value) * 10) / 10
         : latest.value - previous.value;
-      const sign     = change > 0 ? '+' : '';
+      const sign = change > 0 ? '+' : '';
       result.push({label: 'Change vs Last Year', value: `${sign}${format(change)}`});
     }
 
@@ -239,15 +279,11 @@ export class WidgetDetailConfigService {
       const growth   = isPercent
         ? Math.round((latest.value - earliest.value) * 10) / 10
         : latest.value - earliest.value;
-      const years    = parseInt(latest.year, 10) - parseInt(earliest.year, 10);
-      const sign     = growth > 0 ? '+' : '';
+      const years = parseInt(latest.year, 10) - parseInt(earliest.year, 10);
+      const sign  = growth > 0 ? '+' : '';
       result.push({label: `${years}-Year Historical Growth`, value: `${sign}${format(growth)}`});
     }
 
     return result;
-  }
-
-  private toFilterConfig(f: any): FilterConfig {
-    return {key: f.key, label: f.label, options: f.options, type: f.type};
   }
 }

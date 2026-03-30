@@ -6,7 +6,6 @@ export { WidgetType } from './models/widget.model';
 export type { Widget, SidebarPosition } from './models/widget.model';
 export type { WidgetCatalogEntry, WidgetsCatalog } from './models/widget-catalog.model';
 export type { WidgetChartConfig, WidgetYAxisConfig, WidgetSeriesConfig } from './models/widget-chart-config.model';
-export type { WidgetDetailJsonConfig, DataLoaderConfig, FilterByConfig } from './models/widget-detail-json.model';
 export type { AiOverview, AiOverviewResponse } from './models/ai-overview.model';
 export type { Notification, NotificationGroup, NotificationType } from './models/notification.model';
 

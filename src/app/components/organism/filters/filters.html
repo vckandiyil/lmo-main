@@ -79,6 +79,14 @@
           (selected)="onTopicSelect($event)"
         />
       }
+      @if (isJobVacanciesSelected()) {
+        <app-dropdown
+          [placeholder]="'LMI.ALL_SECTORS' | translate"
+          [options]="vacanciesSectorOptions()"
+          [variant]="'secondary'"
+          (selected)="onFilterChange('vacanciesSector', $event)"
+        />
+      }
       <app-dropdown
         [placeholder]="'LMI.REGION' | translate"
         [options]="regionOptions()"
@@ -114,7 +122,6 @@
       </button>
     </div>
     <div class="filters__submit-section">
-
       <button class="filters__presentation-btn" type="button" (click)="openPresentationModal()">
         <app-icon name="presentation" size="20"/>
       </button>

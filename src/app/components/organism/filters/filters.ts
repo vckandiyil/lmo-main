@@ -91,6 +91,14 @@ export class Filters {
     ),
     {initialValue: ['All', '2024', '2023', '2022', '2021', '2020']}
   );
+  readonly vacanciesSectorOptions = toSignal(
+    this.translate.stream(['LMI.ALL_SECTORS', 'LMI.GOVERNMENT_SECTOR', 'LMI.PRIVATE_SECTOR']).pipe(
+      map(t => [t['LMI.ALL_SECTORS'], t['LMI.GOVERNMENT_SECTOR'], t['LMI.PRIVATE_SECTOR']])
+    ),
+    {initialValue: ['All Sectors', 'Government Sector', 'Private Sector']}
+  );
+
+  readonly isJobVacanciesSelected = computed(() => this.selectedTopic() === 'Job Vacancies');
 
   onTopicSelect(value: string): void {
     this.selectedTopic.set(value);

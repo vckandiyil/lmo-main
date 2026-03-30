@@ -1,0 +1,18 @@
+<div class="gap-analysis-center">
+  <div class="gap-analysis-center__header">
+    <app-widget-checkbox [selected]="false"/>
+    <app-widget-header [title]="title()" (expandClick)="closed.emit()"/>
+  </div>
+
+  <div class="gap-analysis-center__chart" #chartContainer>
+    <app-gap-analysis-sankey [year]="selectedTimelineYear()" [height]="chartHeight()"/>
+  </div>
+
+  <div class="gap-analysis-center__timeline">
+    <app-gap-analysis-timeline
+      [selectedYear]="selectedTimelineYear()"
+      [selectedQuarter]="selectedQuarter()"
+      (yearChange)="selectedTimelineYear.set($event)"
+      (quarterChange)="selectedQuarter.set($event)"/>
+  </div>
+</div>

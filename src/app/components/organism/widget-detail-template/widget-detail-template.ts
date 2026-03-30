@@ -271,7 +271,7 @@ export class WidgetDetailTemplate implements OnInit, OnDestroy {
     // Use the chart type selected on the mini card, or fall back to the config default
     const override     = this.initialChartType();
     const defaultType  = cfg.viewTypes?.find(v => v.default)?.id ?? cfg.viewTypes?.[0]?.id;
-    const startingType = override ?? defaultType;
+    const startingType = override ?? defaultType ?? cfg.chartConfig?.type;
     if (startingType) this.activeChartType.set(startingType);
 
     cfg.loadData(this.dashboardDataService).subscribe({
@@ -403,9 +403,12 @@ export class WidgetDetailTemplate implements OnInit, OnDestroy {
     this.tableRefreshTrigger.update(v => v + 1);
     const cfg = this.config();
     if (!cfg?.chartConfig || this.activeChartType() === 'table') return;
-    // 'bar' view type means vertical bars (column in Highcharts); horizontal = 'bar' in Highcharts
+    // 'bar' → 'column' mapping applies only for the view-type switcher convention (viewTypes configured).
+    // When type comes directly from the JSON config (no viewTypes), use it as-is.
     const activeType = this.activeChartType();
-    const chartType = activeType === 'bar' ? 'column' : activeType;
+    const isMultiSeriesConfig = cfg.chartConfig.type === 'stacked-bar' || cfg.chartConfig.type === 'grouped-column';
+    const hasViewTypes = !!(cfg.viewTypes?.length);
+    const chartType = isMultiSeriesConfig ? cfg.chartConfig.type : (hasViewTypes && activeType === 'bar' ? 'column' : activeType);
     const effectiveConfig = {...cfg.chartConfig, type: chartType};
     this.chartOptionsSignal.set(
       this.chartBuilderService.build(effectiveConfig, this.getFilteredSeries(), this.buildContext()),

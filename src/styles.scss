@@ -22,6 +22,8 @@
   --lmo-bg-primary: #fafafa;
   --lmo-bg-surface: #ffffff;
   --lmo-bg-surface-rgb: 255, 255, 255;
+  --lmo-bg-card: #ffffff;
+  --lmo-bg-secondary: #EFF5FB;
   --lmo-bg-widget: linear-gradient(132.28deg, #EFF5FB 31.88%, #D3E2F3 109.58%);
   --lmo-text-primary: #05264A;
   --lmo-text-secondary: #364151;
@@ -46,7 +48,9 @@ body.theme--dark {
   --lmo-bg-primary: #121927;
   --lmo-bg-surface: #1a2234;
   --lmo-bg-surface-rgb: 26, 34, 52;
-  --lmo-bg-widget: linear-gradient(129.84deg, #4A5872 22.17%, #313A4B 80.42%);
+  --lmo-bg-card: #30394A;
+  --lmo-bg-secondary: #212836;
+  --lmo-bg-widget: var(--lmo-bg-card);
   --lmo-text-primary: #ffffff;
   --lmo-text-secondary: #b0bec5;
   --lmo-text-value: #ffffff;
@@ -56,7 +60,7 @@ body.theme--dark {
   --lmo-border-color: #3a4556;
   --lmo-legend-border: #697D92;
   --lmo-icon-filter: invert(1) brightness(2);
-  --lmo-dropdown-bg: #212836;
+  --lmo-dropdown-bg: var(--lmo-bg-card);
   --lmo-dropdown-border: #364151;
   --lmo-dropdown-arrow-filter: invert(1) brightness(2);
   --lmo-dropdown-hover: #364151;
@@ -141,7 +145,7 @@ app-gap-analysis {
 
   body.theme--dark & {
     --lmo-bg-surface: #1a2234;
-    --lmo-bg-widget: linear-gradient(129.84deg, #4A5872 22.17%, #313A4B 80.42%);
+    --lmo-bg-widget: var(--lmo-bg-card);
   }
 }
 
@@ -151,7 +155,7 @@ app-root.page--my-lmo {
 
   body.theme--dark & {
     --lmo-bg-surface: #1a2234;
-    --lmo-bg-widget: linear-gradient(129.84deg, #4A5872 22.17%, #313A4B 80.42%);
+    --lmo-bg-widget: var(--lmo-bg-card);
   }
 }
 

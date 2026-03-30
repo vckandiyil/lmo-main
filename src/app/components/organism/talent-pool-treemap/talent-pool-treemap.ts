@@ -8,6 +8,7 @@ import {FlipCard} from '../../atom/flip-card/flip-card';
 import {WidgetBack} from '../../atom/widget-back/widget-back';
 import {API_BASE_URL} from '../../../core/tokens/api-base-url.token';
 import {WidgetCatalogService} from '../../../core/services/widget-catalog.service';
+import {ThemeService} from '../../../core/services/theme.service';
 import type {ChartOptions} from '../../../shared/services/chart-config.service';
 
 @Component({
@@ -25,8 +26,9 @@ export class TalentPoolTreemap implements OnInit {
   selectedChange = output<void>();
   expandClick    = output<void>();
 
-  private readonly http    = inject(HttpClient);
-  private readonly baseUrl = inject(API_BASE_URL);
+  private readonly http         = inject(HttpClient);
+  private readonly baseUrl      = inject(API_BASE_URL);
+  private readonly themeService = inject(ThemeService);
   private readonly catalogEntry = toSignal(
     inject(WidgetCatalogService).getWidgetById('talent-pool-treemap'),
     {initialValue: undefined}
@@ -39,9 +41,10 @@ export class TalentPoolTreemap implements OnInit {
   private readonly nonEmiratiTotal = signal(0);
 
   readonly treemapChartOptions = computed<ChartOptions>(() => {
-    const data = this.treemapData();
+    const data   = this.treemapData();
+    const isDark = this.themeService.isDarkMode();
     if (!data.length) return {};
-    return this.buildTreemapOptions(data);
+    return this.buildTreemapOptions(data, isDark);
   });
 
   readonly miniChartOptions = computed<ChartOptions>(() => {
@@ -65,28 +68,24 @@ export class TalentPoolTreemap implements OnInit {
     });
   }
 
-  private buildTreemapOptions(data: any[]): ChartOptions {
+  private buildTreemapOptions(data: any[], isDark: boolean): ChartOptions {
+    const textColor       = isDark ? '#D1D5DB' : '#364151';
+    const breadcrumbHover = isDark ? '#374151' : '#E5E7EB';
+
     return {
       chart: {
-        backgroundColor: '#252931',
+        backgroundColor: 'transparent',
         height: null as any,
       },
-      title: {
-        text: 'Talent Pool of Employees in Abu Dhabi',
-        align: 'left',
-        style: {color: 'white', fontFamily: "'Graphik Trial', sans-serif"},
-      },
-      subtitle: {
-        text: 'Drill down from citizenship to education level and occupation group.',
-        align: 'left',
-        style: {color: 'silver', fontFamily: "'Graphik Trial', sans-serif"},
-      },
+      title:    {text: ''},
+      subtitle: {text: ''},
       series: [{
         type: 'treemap' as any,
+        name: 'Employees',
         layoutAlgorithm: 'squarified',
         allowDrillToNode: true,
         animationLimit: 1000,
-        borderColor: '#252931',
+        borderColor: isDark ? '#252931' : '#ffffff',
         nodeSizeBy: 'leaf',
         dataLabels: {
           enabled: false,
@@ -128,10 +127,10 @@ export class TalentPoolTreemap implements OnInit {
         accessibility: {exposeAsGroupOnly: true},
         breadcrumbs: {
           buttonTheme: {
-            style: {color: 'silver'},
+            style: {color: textColor},
             states: {
-              hover: {fill: '#333'},
-              select: {style: {color: 'white'}},
+              hover: {fill: breadcrumbHover},
+              select: {style: {color: textColor}},
             },
           },
         },
@@ -149,9 +148,9 @@ export class TalentPoolTreemap implements OnInit {
         stops: [[0, '#1e3a5f'], [0.5, '#2b6cb0'], [1, '#38b2ac']] as any,
         min: 5,
         max: 45,
-        labels: {style: {color: 'white'}, format: '{value}%'},
+        labels: {style: {color: textColor}, format: '{value}%'},
       } as any,
-      legend: {itemStyle: {color: 'white'}},
+      legend: {itemStyle: {color: textColor}},
       credits: {enabled: false},
       accessibility: {enabled: false},
     };

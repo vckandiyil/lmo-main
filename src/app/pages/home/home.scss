@@ -171,7 +171,7 @@
       --lmo-bg-widget: #FFFFFF;
 
       :host-context(body.theme--dark) & {
-        --lmo-bg-widget: #212836;
+        --lmo-bg-widget: var(--lmo-bg-card);
       }
 
       ::ng-deep .ai-insights {

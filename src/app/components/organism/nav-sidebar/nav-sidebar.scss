@@ -15,7 +15,7 @@
   flex-direction: column;
 
   :host-context(body.theme--dark) & {
-    background: var(--lmo-bg-surface);
+    background: var(--lmo-bg-card);
     border-right-color: #364151;
   }
 
@@ -95,22 +95,18 @@
     text-decoration: none;
 
     &:hover {
-      background: #EFF5FB;
-
-      :host-context(body.theme--dark) & {
-        background: rgba(255, 255, 255, 0.08);
-      }
+      background: var(--lmo-bg-secondary);
     }
 
     &--active {
-      background: #EFF5FB;
+      background: var(--lmo-bg-secondary);
 
       .nav-sidebar__icon {
         color: #3375C6;
       }
 
       :host-context(body.theme--dark) & {
-        background: rgba(255, 255, 255, 0.12);
+        background: var(--lmo-bg-secondary);
       }
     }
   }
@@ -128,7 +124,7 @@
     width: 56px;
     height: 56px;
     border-radius: 10px;
-    background: #E9F5FF;
+    background: var(--lmo-bg-secondary);
     flex-shrink: 0;
     display: flex;
     align-items: center;
@@ -183,11 +179,7 @@
       cursor: pointer;
 
       &:hover {
-        background: #EFF5FB;
-
-        :host-context(body.theme--dark) & {
-          background: rgba(255, 255, 255, 0.08);
-        }
+        background: var(--lmo-bg-secondary);
       }
     }
   }

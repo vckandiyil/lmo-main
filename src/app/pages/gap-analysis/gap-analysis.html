@@ -2,17 +2,6 @@
 <app-filters></app-filters>
 @if (layoutMode() === '3col') {
   <section class="gap-analysis-center">
-    <div class="gap-analysis-center__header center-section__widget-card">
-      <app-widget-checkbox [selected]="false"/>
-      <app-widget-header [title]="title()"/>
-    </div>
-    <app-gap-analysis-sankey [year]="selectedTimelineYear()"/>
-    <div class="gap-analysis-center__timeline">
-      <app-gap-analysis-timeline
-        [selectedYear]="selectedTimelineYear()"
-        [selectedQuarter]="selectedQuarter()"
-        (yearChange)="selectedTimelineYear.set($event)"
-        (quarterChange)="selectedQuarter.set($event)"/>
-    </div>
+    <app-gap-analysis-center/>
   </section>
 }

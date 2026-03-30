@@ -1,20 +1,18 @@
-@if (isCenter()) {
-  <div class="talent-pool-treemap talent-pool-treemap--center">
-    <app-chart-wrapper [options]="treemapChartOptions()"/>
-  </div>
-} @else {
-  <div class="talent-pool-treemap" [class.talent-pool-treemap--selected]="selected()" (click)="selectedChange.emit()">
-    <app-flip-card #flipCard>
-      <app-widget-checkbox [selected]="selected()" front/>
-      <app-widget-header
-        [title]="title()"
-        [icons]="['stars', 'stats-up-square', 'more']"
-        (starsClick)="flipCard.toggle()"
-        front/>
-      <div class="talent-pool-treemap__body" front>
+<div class="talent-pool-treemap" [class.talent-pool-treemap--selected]="selected()" (click)="selectedChange.emit()">
+  <app-flip-card #flipCard>
+    <app-widget-checkbox [selected]="selected()" front/>
+    <app-widget-header
+      [title]="title()"
+      [icons]="['stars', 'stats-up-square', 'more']"
+      (starsClick)="flipCard.toggle()"
+      front/>
+    <div class="talent-pool-treemap__body" front>
+      @if (isCenter()) {
+        <app-chart-wrapper [options]="treemapChartOptions()"/>
+      } @else {
         <app-chart-wrapper [options]="miniChartOptions()"/>
-      </div>
-      <app-widget-back back [widgetType]="widgetType()" (close)="flipCard.toggle()"/>
-    </app-flip-card>
-  </div>
-}
+      }
+    </div>
+    <app-widget-back back [widgetType]="widgetType()" (close)="flipCard.toggle()"/>
+  </app-flip-card>
+</div>
