@@ -15,8 +15,8 @@
 // -----------------------------------------------------------------------------
 :root {
   --nav-sidebar-w: 88px;
-  --filters-h: 61px;
-  --content-top: 81px; /* filters height + 20px gap */
+  --filters-h: 80px;
+  --content-top: 100px; /* filters height + 20px gap */
 
   // Light theme (default)
   --lmo-bg-primary: #fafafa;
@@ -35,6 +35,8 @@
   --lmo-legend-border: #dbe8f5;
   --lmo-icon-filter: none;
   --lmo-dropdown-bg: #ffffff;
+  --lmo-dropdown-label-color: #AEB2BC;
+  --lmo-dropdown-trigger-border: #CCDEF1;
   --lmo-dropdown-border: #dbe8f5;
   --lmo-dropdown-arrow-filter: brightness(0) saturate(100%) invert(29%) sepia(93%) saturate(1037%) hue-rotate(194deg) brightness(93%) contrast(86%);
   --lmo-dropdown-hover: #f3f4f6;
@@ -61,6 +63,8 @@ body.theme--dark {
   --lmo-legend-border: #697D92;
   --lmo-icon-filter: invert(1) brightness(2);
   --lmo-dropdown-bg: var(--lmo-bg-card);
+  --lmo-dropdown-label-color: #AEB2BC;
+  --lmo-dropdown-trigger-border: #364151;
   --lmo-dropdown-border: #364151;
   --lmo-dropdown-arrow-filter: invert(1) brightness(2);
   --lmo-dropdown-hover: #364151;
@@ -160,7 +164,11 @@ app-root.page--my-lmo {
 }
 
 app-root.page--my-lmo app-sidebar {
-  --sidebar-top: 108px;
+  --sidebar-top: 127px;
+}
+
+app-root.page--my-lmo app-center-section {
+  --content-top: 127px;
 }
 
 app-filters app-dropdown,
@@ -199,6 +207,24 @@ html, body {
   margin: 0;
   overflow: hidden;
 }
+
+// On tablet/mobile the layout switches from fixed positioning to flow,
+// so the body must be scrollable.
+@media (max-width: 1199.98px) {
+  html, body {
+    overflow: auto;
+    overflow-x: hidden;
+  }
+}
+
+// On mobile, compact the nav sidebar and shrink the filters bar.
+@media (max-width: 767.98px) {
+  :root {
+    --nav-sidebar-w: 48px;
+    --filters-h: 56px;
+    --content-top: 64px;
+  }
+}
 body { font-family: 'Graphik Trial', Roboto, "Helvetica Neue", sans-serif; }
 
 // RTL Support
@@ -225,6 +251,11 @@ input, textarea, select {
     direction: inherit;
     text-align: inherit;
   }
+}
+
+// Highcharts legend – align column-series symbol with label text
+.highcharts-legend-item.highcharts-column-series rect {
+  y: 10;
 }
 
 // CDK Drag and Drop global styles

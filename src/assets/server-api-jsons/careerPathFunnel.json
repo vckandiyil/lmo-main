@@ -1,0 +1,90 @@
+{
+  "success": true,
+  "correlationId": "d4e5f6g7-1004-5ed3-c6f4-0d73c003g928",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 28,
+    "title": "Career Path Funnel",
+    "type": "scad",
+    "compare": false,
+    "unit": "count",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF JD CP FN 2801"
+      },
+      {
+        "label": "Keywords",
+        "value": "Career path, Funnel, Pipeline, Workforce progression, Levels"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Quarterly"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Last data update",
+        "value": "20250925"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Conceptual workforce pipeline",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Strategic",
+      "badge_ar": "",
+      "title": "Strengthen Mid-to-Senior Transition Pathways",
+      "title_ar": "",
+      "text": "The funnel narrows sharply from mid-level (8,200) to senior (5,400), suggesting a critical transition gap. Mentorship and leadership development programmes could improve retention at this stage.",
+      "text_ar": "",
+      "reason": "A healthy career funnel should show gradual narrowing. Steep drops between levels indicate potential barriers to advancement that may drive talent attrition.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Career Path Funnel",
+        "series": [
+          {
+            "id": "career-path-funnel",
+            "type": "solid",
+            "color": "#3375c6",
+            "group": "funnel",
+            "label": "Positions",
+            "data": [
+              { "STAGE": "Entry Level", "VALUE": 12500 },
+              { "STAGE": "Mid Level", "VALUE": 8200 },
+              { "STAGE": "Senior", "VALUE": 5400 },
+              { "STAGE": "Manager", "VALUE": 3100 },
+              { "STAGE": "Director/VP", "VALUE": 1200 }
+            ],
+            "xAccessor": {
+              "path": "STAGE",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          }
+        ],
+        "chartType": "funnel",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false
+      }
+    ]
+  }
+}

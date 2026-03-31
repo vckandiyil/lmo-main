@@ -230,6 +230,17 @@
       color: #FFFFFF;
     }
 
+    &.button--active {
+      background: #2563EA;
+      border-color: #2563EA;
+      color: #FFFFFF;
+
+      :host-context(body.theme--dark) & {
+        background: #2563EA;
+        border-color: #2563EA;
+      }
+    }
+
     .button__text {
       display: none;
     }

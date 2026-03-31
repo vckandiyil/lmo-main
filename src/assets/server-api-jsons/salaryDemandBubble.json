@@ -1,0 +1,67 @@
+{
+  "success": true,
+  "correlationId": "a1b2c3d4-1009-4e5f-9a1b-000000000021",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "salaryDemandBubble",
+    "title": "Salary vs Demand Volume",
+    "type": "scad",
+    "compare": false,
+    "unit": "AED",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      { "label": "Indicator code", "value": "LF JD BB 1A 0021" },
+      { "label": "Keywords", "value": "Salary, Demand, Bubble, Volume, Roles, UAE" },
+      { "label": "Data sources", "value": "Job Postings Platform" },
+      { "label": "Geographic coverage", "value": "UAE" },
+      { "label": "Measurement unit", "value": "count" },
+      { "label": "Available periodicity", "value": "Monthly" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Identifies high demand + high pay roles",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Software Engineers Top Both Demand and Salary Metrics",
+      "title_ar": "",
+      "text": "Software Engineers lead demand volume at 2,800 postings with competitive salaries, making them the highest-priority role for workforce development investment. Project Managers follow closely at 2,200.",
+      "text_ar": "",
+      "reason": "The bubble chart reveals a positive correlation between demand volume and compensation for technical roles, confirming the strategic importance of STEM talent pipelines.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Salary vs Demand Volume",
+        "chartType": "bubble",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false,
+        "series": [
+          {
+            "id": "salary-demand-bubble",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "roles",
+            "label": "Demand Volume",
+            "xAccessor": { "path": "ROLE", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "ROLE": "Software Engineer", "VALUE": 2800 },
+              { "ROLE": "Project Manager", "VALUE": 2200 },
+              { "ROLE": "Data Analyst", "VALUE": 1900 },
+              { "ROLE": "Accountant", "VALUE": 1700 },
+              { "ROLE": "Civil Engineer", "VALUE": 1500 },
+              { "ROLE": "Nurse", "VALUE": 1400 }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "success": true,
+  "correlationId": "f4a1b2c3-4300-4e5f-9a1b-000000000043",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "applicantTopSkills",
+    "title": "Top Skills among Applicants",
+    "type": "scad",
+    "compare": false,
+    "unit": "count",
+    "filters": [],
+    "updated": "2025-09-25",
+    "category": "Job Applicant Intelligence",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF AI SK 1A 0043"
+      },
+      {
+        "label": "Keywords",
+        "value": "Applicants, Skills, Top, Treemap, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "description": "Most frequently cited skills among job applicants.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Python and Excel Dominate Applicant Skill Profiles",
+      "title_ar": "",
+      "text": "Python (8,500) and Excel (7,200) are the most common applicant skills, followed by Project Management (6,800) and SQL (5,400). Technical and analytical competencies lead the market.",
+      "text_ar": "",
+      "reason": "Skill supply concentration in technical and analytical competencies suggests strong market readiness, but niche skills like Cloud Computing may need targeted upskilling.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Top Skills among Applicants",
+        "chartType": "treemap",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "series": [
+          {
+            "id": "applicant-top-skills",
+            "type": "treemap",
+            "color": "#2563EA",
+            "group": "skills",
+            "label": "Top Skills",
+            "xAccessor": {
+              "path": "name",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "value",
+              "type": "value"
+            },
+            "data": [
+              {
+                "name": "Python",
+                "colorValue": 1,
+                "VALUE": 8500
+              },
+              {
+                "name": "Excel",
+                "colorValue": 2,
+                "VALUE": 7200
+              },
+              {
+                "name": "Project Management",
+                "colorValue": 3,
+                "VALUE": 6800
+              },
+              {
+                "name": "SQL",
+                "colorValue": 4,
+                "VALUE": 5400
+              },
+              {
+                "name": "Communication",
+                "colorValue": 5,
+                "VALUE": 5100
+              },
+              {
+                "name": "Leadership",
+                "colorValue": 6,
+                "VALUE": 4800
+              },
+              {
+                "name": "Data Analysis",
+                "colorValue": 7,
+                "VALUE": 4500
+              },
+              {
+                "name": "AutoCAD",
+                "colorValue": 8,
+                "VALUE": 4200
+              },
+              {
+                "name": "SAP",
+                "colorValue": 9,
+                "VALUE": 3900
+              },
+              {
+                "name": "Cloud Computing",
+                "colorValue": 10,
+                "VALUE": 3500
+              },
+              {
+                "name": "Financial Modeling",
+                "colorValue": 11,
+                "VALUE": 3200
+              },
+              {
+                "name": "JavaScript",
+                "colorValue": 12,
+                "VALUE": 2900
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

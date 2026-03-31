@@ -1,0 +1,239 @@
+{
+  "success": true,
+  "correlationId": "f4a1b2c3-5100-4e5f-9a1b-000000000051",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "sectorReadinessHeatmap",
+    "title": "Sector Readiness Heatmap",
+    "type": "scad",
+    "compare": false,
+    "unit": "score",
+    "filters": [],
+    "updated": "2025-09-25",
+    "category": "Talent Pool Intelligence",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF TP SR 1A 0051"
+      },
+      {
+        "label": "Keywords",
+        "value": "Sector, Readiness, Heatmap, Skills Match, Experience, Certification, Education, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "score (0-100)"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "description": "Readiness scores for sectors across key workforce dimensions.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "IT Leads Readiness — Healthcare Needs Investment",
+      "title_ar": "",
+      "text": "IT scores highest across all dimensions (avg 82) while Healthcare lags in Skills Match (48) and Certification (42). Targeted upskilling in healthcare can close this gap.",
+      "text_ar": "",
+      "reason": "Sector readiness scores provide a multi-dimensional view of workforce preparedness, enabling targeted policy interventions in underperforming sectors.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Sector Readiness Heatmap",
+        "chartType": "heatmap",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "series": [
+          {
+            "id": "sector-readiness-0",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "IT",
+            "color": "#2563EA",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "Skills Match",
+                "VALUE": 85
+              },
+              {
+                "CATEGORY": "Experience",
+                "VALUE": 78
+              },
+              {
+                "CATEGORY": "Certification",
+                "VALUE": 82
+              },
+              {
+                "CATEGORY": "Education",
+                "VALUE": 88
+              }
+            ]
+          },
+          {
+            "id": "sector-readiness-1",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Finance",
+            "color": "#3B82F6",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "Skills Match",
+                "VALUE": 72
+              },
+              {
+                "CATEGORY": "Experience",
+                "VALUE": 80
+              },
+              {
+                "CATEGORY": "Certification",
+                "VALUE": 75
+              },
+              {
+                "CATEGORY": "Education",
+                "VALUE": 70
+              }
+            ]
+          },
+          {
+            "id": "sector-readiness-2",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Healthcare",
+            "color": "#60A5FA",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "Skills Match",
+                "VALUE": 48
+              },
+              {
+                "CATEGORY": "Experience",
+                "VALUE": 65
+              },
+              {
+                "CATEGORY": "Certification",
+                "VALUE": 42
+              },
+              {
+                "CATEGORY": "Education",
+                "VALUE": 78
+              }
+            ]
+          },
+          {
+            "id": "sector-readiness-3",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Construction",
+            "color": "#93C5FD",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "Skills Match",
+                "VALUE": 62
+              },
+              {
+                "CATEGORY": "Experience",
+                "VALUE": 75
+              },
+              {
+                "CATEGORY": "Certification",
+                "VALUE": 55
+              },
+              {
+                "CATEGORY": "Education",
+                "VALUE": 58
+              }
+            ]
+          },
+          {
+            "id": "sector-readiness-4",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Education",
+            "color": "#BFDBFE",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "Skills Match",
+                "VALUE": 70
+              },
+              {
+                "CATEGORY": "Experience",
+                "VALUE": 68
+              },
+              {
+                "CATEGORY": "Certification",
+                "VALUE": 60
+              },
+              {
+                "CATEGORY": "Education",
+                "VALUE": 85
+              }
+            ]
+          },
+          {
+            "id": "sector-readiness-5",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Energy",
+            "color": "#1E40AF",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "Skills Match",
+                "VALUE": 74
+              },
+              {
+                "CATEGORY": "Experience",
+                "VALUE": 82
+              },
+              {
+                "CATEGORY": "Certification",
+                "VALUE": 68
+              },
+              {
+                "CATEGORY": "Education",
+                "VALUE": 72
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

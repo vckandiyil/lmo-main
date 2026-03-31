@@ -1,0 +1,135 @@
+{
+  "success": true,
+  "correlationId": "a1b2c3d4-1001-4e5f-9a1b-000000000013",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "jobTitleSectorMatrix",
+    "title": "Job Title Share by Sector",
+    "type": "scad",
+    "compare": false,
+    "unit": "",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      { "label": "Indicator code", "value": "LF JD HM 1A 0013" },
+      { "label": "Keywords", "value": "Job Title, Sector, Heatmap, Cross-view, UAE" },
+      { "label": "Data sources", "value": "Job Postings Platform" },
+      { "label": "Geographic coverage", "value": "UAE" },
+      { "label": "Measurement unit", "value": "count" },
+      { "label": "Available periodicity", "value": "Monthly" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Cross-view of titles across sectors",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Align Training Programmes with Sector-Specific Title Demand",
+      "title_ar": "",
+      "text": "Software Engineers are heavily concentrated in IT & Telecom while Civil Engineers dominate Oil & Gas and Real Estate. Targeted upskilling can bridge cross-sector mobility gaps.",
+      "text_ar": "",
+      "reason": "The heatmap reveals strong clustering of certain job titles within specific sectors, indicating limited cross-sector talent mobility and opportunities for strategic workforce reallocation.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Job Title Share by Sector",
+        "chartType": "heatmap",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false,
+        "series": [
+          {
+            "id": "sector-oil-gas",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "sectors",
+            "label": "Oil & Gas",
+            "xAccessor": { "path": "TITLE", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "TITLE": "Software Engineer", "VALUE": 120 },
+              { "TITLE": "Project Manager", "VALUE": 350 },
+              { "TITLE": "Accountant", "VALUE": 180 },
+              { "TITLE": "Civil Engineer", "VALUE": 620 },
+              { "TITLE": "Nurse", "VALUE": 75 },
+              { "TITLE": "HR Specialist", "VALUE": 140 }
+            ]
+          },
+          {
+            "id": "sector-it-telecom",
+            "type": "solid",
+            "color": "#3B82F6",
+            "group": "sectors",
+            "label": "IT & Telecom",
+            "xAccessor": { "path": "TITLE", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "TITLE": "Software Engineer", "VALUE": 780 },
+              { "TITLE": "Project Manager", "VALUE": 420 },
+              { "TITLE": "Accountant", "VALUE": 95 },
+              { "TITLE": "Civil Engineer", "VALUE": 60 },
+              { "TITLE": "Nurse", "VALUE": 50 },
+              { "TITLE": "HR Specialist", "VALUE": 210 }
+            ]
+          },
+          {
+            "id": "sector-government",
+            "type": "solid",
+            "color": "#60A5FA",
+            "group": "sectors",
+            "label": "Government",
+            "xAccessor": { "path": "TITLE", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "TITLE": "Software Engineer", "VALUE": 250 },
+              { "TITLE": "Project Manager", "VALUE": 380 },
+              { "TITLE": "Accountant", "VALUE": 310 },
+              { "TITLE": "Civil Engineer", "VALUE": 290 },
+              { "TITLE": "Nurse", "VALUE": 150 },
+              { "TITLE": "HR Specialist", "VALUE": 340 }
+            ]
+          },
+          {
+            "id": "sector-tourism",
+            "type": "solid",
+            "color": "#93C5FD",
+            "group": "sectors",
+            "label": "Tourism",
+            "xAccessor": { "path": "TITLE", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "TITLE": "Software Engineer", "VALUE": 85 },
+              { "TITLE": "Project Manager", "VALUE": 260 },
+              { "TITLE": "Accountant", "VALUE": 190 },
+              { "TITLE": "Civil Engineer", "VALUE": 70 },
+              { "TITLE": "Nurse", "VALUE": 110 },
+              { "TITLE": "HR Specialist", "VALUE": 230 }
+            ]
+          },
+          {
+            "id": "sector-real-estate",
+            "type": "solid",
+            "color": "#BFDBFE",
+            "group": "sectors",
+            "label": "Real Estate",
+            "xAccessor": { "path": "TITLE", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "TITLE": "Software Engineer", "VALUE": 130 },
+              { "TITLE": "Project Manager", "VALUE": 310 },
+              { "TITLE": "Accountant", "VALUE": 220 },
+              { "TITLE": "Civil Engineer", "VALUE": 540 },
+              { "TITLE": "Nurse", "VALUE": 55 },
+              { "TITLE": "HR Specialist", "VALUE": 175 }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

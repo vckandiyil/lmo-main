@@ -87,13 +87,14 @@ export class WidgetDetailConfigService {
     const primarySeries   = allActualSeries.find((s: WidgetApiSeries) => s.group === 'total')
       ?? (allActualSeries.length === 1 ? allActualSeries[0] : undefined);
 
-    const isStacked = viz?.stacking === 'normal';
+    const isStacked = viz?.stacking === 'normal' || viz?.stacking === 'percent';
     const chartType = isStacked ? 'stacked-bar' : (viz?.chartType ?? 'line');
 
     const chartConfig: WidgetChartConfig = {
       type:       chartType,
       dimensions: {width: 960, height: 428},
       ...(d.orientation ? {orientation: d.orientation} : {}),
+      ...(isStacked ? {stacking: viz?.stacking as 'normal' | 'percent'} : {}),
       yAxis: {
         dynamicBounds: true,
         minPadding:    1,

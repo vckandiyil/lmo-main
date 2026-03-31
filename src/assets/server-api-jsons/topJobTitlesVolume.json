@@ -1,0 +1,146 @@
+{
+  "success": true,
+  "correlationId": "a1b2c3d4-1012-5ed3-c6f4-0d73c003g012",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 112,
+    "title": "Top Job Titles by Volume",
+    "type": "scad",
+    "compare": false,
+    "unit": "count",
+    "filters": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LM JOB TV 1A 1012"
+      },
+      {
+        "label": "Keywords",
+        "value": "Job titles, Volume, Demand, Top roles, Abu Dhabi"
+      },
+      {
+        "label": "Statistical population",
+        "value": "All job postings aggregated by job title from the Job Postings Platform."
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "description": "Shows most demanded roles by posting volume",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Skills Gap",
+      "badge_ar": "",
+      "title": "Software Engineers and Data Analysts Lead Job Demand",
+      "title_ar": "",
+      "text": "Software Engineer leads with 4,200 postings, followed by Data Analyst (3,100) and Project Manager (2,800). Technology and management roles dominate employer demand across the emirate.",
+      "text_ar": "",
+      "reason": "The concentration of postings in technology and management roles reflects the economy's digital transformation priorities and sustained demand for technically skilled professionals.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Top Job Titles by Volume",
+        "series": [
+          {
+            "id": "top-job-titles-volume",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "job-titles",
+            "label": "Job Postings",
+            "xAccessor": {
+              "path": "name",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "value",
+              "type": "value"
+            },
+            "data": [
+              {
+                "name": "Software Engineer",
+                "VALUE": 4200
+              },
+              {
+                "name": "Data Analyst",
+                "VALUE": 3100
+              },
+              {
+                "name": "Project Manager",
+                "VALUE": 2800
+              },
+              {
+                "name": "Accountant",
+                "VALUE": 2500
+              },
+              {
+                "name": "Civil Engineer",
+                "VALUE": 2300
+              },
+              {
+                "name": "Nurse",
+                "VALUE": 2100
+              },
+              {
+                "name": "Marketing Manager",
+                "VALUE": 1900
+              },
+              {
+                "name": "HR Specialist",
+                "VALUE": 1750
+              },
+              {
+                "name": "Financial Analyst",
+                "VALUE": 1600
+              },
+              {
+                "name": "Mechanical Engineer",
+                "VALUE": 1450
+              },
+              {
+                "name": "Sales Executive",
+                "VALUE": 1300
+              },
+              {
+                "name": "Teacher",
+                "VALUE": 1200
+              },
+              {
+                "name": "Operations Manager",
+                "VALUE": 1100
+              },
+              {
+                "name": "UX Designer",
+                "VALUE": 950
+              },
+              {
+                "name": "Pharmacist",
+                "VALUE": 850
+              }
+            ]
+          }
+        ],
+        "chartType": "bar",
+        "valueFormat": "compact",
+        "isTimeSeries": false
+      }
+    ]
+  }
+}

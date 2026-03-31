@@ -1,0 +1,135 @@
+{
+  "success": true,
+  "correlationId": "e5f6g7h8-1005-5ed3-c6f4-0d73c003g929",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 29,
+    "title": "Work Arrangement by Experience Level",
+    "type": "scad",
+    "compare": false,
+    "unit": "%",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF JD WA EX 2901"
+      },
+      {
+        "label": "Keywords",
+        "value": "Work arrangement, Remote, Hybrid, On-site, Experience level"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "%"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Quarterly"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Last data update",
+        "value": "20250925"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Remote access for juniors and seniors",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Trend",
+      "badge_ar": "",
+      "title": "Senior Roles Enjoy Greater Flexibility",
+      "title_ar": "",
+      "text": "On-site requirements decrease from 75% at entry level to 45% at manager level, while hybrid and remote options increase. Organisations should consider extending flexibility to junior roles to improve attraction.",
+      "text_ar": "",
+      "reason": "Work arrangement flexibility correlates with experience level, potentially disadvantaging early-career talent in a competitive market that increasingly values remote options.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Work Arrangement by Experience Level",
+        "series": [
+          {
+            "id": "on-site",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "arrangement",
+            "label": "On-site",
+            "data": [
+              { "CATEGORY": "Entry", "VALUE": 75 },
+              { "CATEGORY": "Junior", "VALUE": 65 },
+              { "CATEGORY": "Mid", "VALUE": 55 },
+              { "CATEGORY": "Senior", "VALUE": 50 },
+              { "CATEGORY": "Manager", "VALUE": 45 }
+            ],
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          },
+          {
+            "id": "hybrid",
+            "type": "solid",
+            "color": "#3B82F6",
+            "group": "arrangement",
+            "label": "Hybrid",
+            "data": [
+              { "CATEGORY": "Entry", "VALUE": 15 },
+              { "CATEGORY": "Junior", "VALUE": 20 },
+              { "CATEGORY": "Mid", "VALUE": 25 },
+              { "CATEGORY": "Senior", "VALUE": 30 },
+              { "CATEGORY": "Manager", "VALUE": 35 }
+            ],
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          },
+          {
+            "id": "remote",
+            "type": "solid",
+            "color": "#60A5FA",
+            "group": "arrangement",
+            "label": "Remote",
+            "data": [
+              { "CATEGORY": "Entry", "VALUE": 10 },
+              { "CATEGORY": "Junior", "VALUE": 15 },
+              { "CATEGORY": "Mid", "VALUE": 20 },
+              { "CATEGORY": "Senior", "VALUE": 20 },
+              { "CATEGORY": "Manager", "VALUE": 20 }
+            ],
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          }
+        ],
+        "chartType": "bar",
+        "stacking": "percent",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false
+      }
+    ]
+  }
+}

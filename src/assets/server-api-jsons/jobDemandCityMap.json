@@ -1,0 +1,69 @@
+{
+  "success": true,
+  "correlationId": "a1b2c3d4-1005-4e5f-9a1b-000000000017",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "jobDemandCityMap",
+    "title": "Job Demand City Map",
+    "type": "scad",
+    "compare": false,
+    "unit": "count",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      { "label": "Indicator code", "value": "LF JD GM 1A 0017" },
+      { "label": "Keywords", "value": "Job Demand, City, Map, Geography, UAE" },
+      { "label": "Data sources", "value": "Job Postings Platform" },
+      { "label": "Geographic coverage", "value": "UAE" },
+      { "label": "Measurement unit", "value": "count" },
+      { "label": "Available periodicity", "value": "Monthly" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Primary geographic demand view",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Abu Dhabi and Dubai Concentrate 70% of Total Job Demand",
+      "title_ar": "",
+      "text": "Abu Dhabi leads with 15,200 postings followed by Dubai at 12,800. Northern emirates collectively account for under 12% of demand, suggesting opportunities for regional economic diversification.",
+      "text_ar": "",
+      "reason": "Geographic concentration of job demand highlights the dominance of the two largest cities, while smaller emirates present untapped potential for balanced economic growth.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Job Demand City Map",
+        "chartType": "bar",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false,
+        "series": [
+          {
+            "id": "job-demand-city",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "cities",
+            "label": "Job Demand",
+            "xAccessor": { "path": "CITY", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "CITY": "Abu Dhabi", "VALUE": 15200 },
+              { "CITY": "Dubai", "VALUE": 12800 },
+              { "CITY": "Sharjah", "VALUE": 4500 },
+              { "CITY": "Al Ain", "VALUE": 3200 },
+              { "CITY": "Ajman", "VALUE": 1800 },
+              { "CITY": "Ras Al Khaimah", "VALUE": 1500 },
+              { "CITY": "Fujairah", "VALUE": 900 },
+              { "CITY": "Umm Al Quwain", "VALUE": 600 }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

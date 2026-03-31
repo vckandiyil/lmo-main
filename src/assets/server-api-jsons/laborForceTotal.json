@@ -1,0 +1,133 @@
+{
+  "success": true,
+  "correlationId": "lf-total-001",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 201,
+    "title": "Total Labor Force",
+    "type": "forecast",
+    "compare": false,
+    "unit": "millions",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Employment",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF LFC TOT 1A 2001"
+      },
+      {
+        "label": "Keywords",
+        "value": "Labor force, total, workforce size, economically active"
+      },
+      {
+        "label": "Statistical population",
+        "value": "All individuals aged 15 years and above who are economically active (employed or actively seeking employment) in the Emirate of Abu Dhabi."
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra regions."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "Millions"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "\u00a9 SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "highlights": [],
+    "description": "Total labor force size in the Emirate of Abu Dhabi, representing all economically active individuals aged 15 and above.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Stable Growth",
+      "badge_ar": "\u0646\u0645\u0648 \u0645\u0633\u062a\u0642\u0631",
+      "title": "Labor Force Growth Remains Robust",
+      "title_ar": "\u0646\u0645\u0648 \u0627\u0644\u0642\u0648\u0649 \u0627\u0644\u0639\u0627\u0645\u0644\u0629 \u064a\u0638\u0644 \u0642\u0648\u064a\u0627\u064b",
+      "text": "The total labor force has expanded consistently, driven by population growth and increased economic participation across all demographics.",
+      "text_ar": "\u062a\u0648\u0633\u0639\u062a \u0627\u0644\u0642\u0648\u0649 \u0627\u0644\u0639\u0627\u0645\u0644\u0629 \u0628\u0634\u0643\u0644 \u0645\u0633\u062a\u0645\u0631\u060c \u0645\u062f\u0641\u0648\u0639\u0629 \u0628\u0627\u0644\u0646\u0645\u0648 \u0627\u0644\u0633\u0643\u0627\u0646\u064a \u0648\u0632\u064a\u0627\u062f\u0629 \u0627\u0644\u0645\u0634\u0627\u0631\u0643\u0629 \u0627\u0644\u0627\u0642\u062a\u0635\u0627\u062f\u064a\u0629.",
+      "reason": "Steady labor force growth reflects Abu Dhabi's economic diversification and attractiveness as a regional employment hub.",
+      "reason_ar": "\u064a\u0639\u0643\u0633 \u0627\u0644\u0646\u0645\u0648 \u0627\u0644\u0645\u0633\u062a\u0642\u0631 \u0644\u0644\u0642\u0648\u0649 \u0627\u0644\u0639\u0627\u0645\u0644\u0629 \u0627\u0644\u062a\u0646\u0648\u064a\u0639 \u0627\u0644\u0627\u0642\u062a\u0635\u0627\u062f\u064a \u0644\u0623\u0628\u0648\u0638\u0628\u064a."
+    },
+    "visualizations": [
+      {
+        "label": "Total Labor Force",
+        "series": [
+          {
+            "id": "total",
+            "type": "solid",
+            "color": "#3375C6",
+            "group": "total",
+            "label": "Total",
+            "xAccessor": {
+              "path": "YEAR",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              { "YEAR": "2017", "VALUE": 1.52 },
+              { "YEAR": "2018", "VALUE": 1.58 },
+              { "YEAR": "2019", "VALUE": 1.65 },
+              { "YEAR": "2020", "VALUE": 1.55 },
+              { "YEAR": "2021", "VALUE": 1.62 },
+              { "YEAR": "2022", "VALUE": 1.74 },
+              { "YEAR": "2023", "VALUE": 1.82 },
+              { "YEAR": "2024", "VALUE": 1.90 }
+            ]
+          },
+          {
+            "id": "total-forecast",
+            "type": "dotted",
+            "color": "#3375C6",
+            "group": "total",
+            "label": "Total",
+            "isForecast": true,
+            "xAccessor": {
+              "path": "YEAR",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              { "YEAR": "2025", "VALUE": 1.96 },
+              { "YEAR": "2026", "VALUE": 2.02 },
+              { "YEAR": "2027", "VALUE": 2.08 }
+            ]
+          }
+        ],
+        "chartType": "line",
+        "isTimeSeries": true
+      }
+    ],
+    "rangeOptions": [
+      { "id": "all", "label": "All", "value": null },
+      { "id": "3", "label": "3Y", "value": 3 },
+      { "id": "5", "label": "5Y", "value": 5 }
+    ],
+    "viewTypes": [
+      { "id": "line", "label": "Line Chart", "icon": "graph-up", "default": true },
+      { "id": "table", "label": "Table", "icon": "layout-left" }
+    ]
+  }
+}

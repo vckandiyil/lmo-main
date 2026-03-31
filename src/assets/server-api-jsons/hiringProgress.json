@@ -262,6 +262,19 @@
         "label": "10Y",
         "value": 10
       }
+    ],
+    "viewTypes": [
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square",
+        "default": true
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
+      }
     ]
   }
 }

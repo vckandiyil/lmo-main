@@ -3,7 +3,11 @@
     <div class="lmi-bar__ticker">
       <div class="lmi-bar__track">
         @for (item of halfItems(); track $index) {
-          <div class="lmi-bar__item">
+          <div
+            class="lmi-bar__item"
+            [class.lmi-bar__item--clickable]="item.id"
+            (click)="onItemClick(item)"
+          >
             <span class="lmi-bar__label">{{ item.domain }}:</span>
             <span class="lmi-bar__value">{{ item.overall }}</span>
             <app-badge size="sm" [variant]="item.yyOverall >= 0 ? 'success' : 'danger'">
@@ -18,7 +22,12 @@
           </div>
         }
         @for (item of halfItems(); track 'dup-' + $index) {
-          <div class="lmi-bar__item" aria-hidden="true">
+          <div
+            class="lmi-bar__item"
+            [class.lmi-bar__item--clickable]="item.id"
+            (click)="onItemClick(item)"
+            aria-hidden="true"
+          >
             <span class="lmi-bar__label">{{ item.domain }}:</span>
             <span class="lmi-bar__value">{{ item.overall }}</span>
             <app-badge size="sm" [variant]="item.yyOverall >= 0 ? 'success' : 'danger'">

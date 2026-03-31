@@ -1,0 +1,111 @@
+{
+  "success": true,
+  "correlationId": "me-main-001",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 100,
+    "title": "Market Entrants",
+    "type": "scad",
+    "compare": false,
+    "unit": "thousands",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Employment",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF ME ALL 1A 1000"
+      },
+      {
+        "label": "Keywords",
+        "value": "Market entrants, new workers, education, immigration, labor supply"
+      },
+      {
+        "label": "Statistical population",
+        "value": "Individuals entering the labor market for the first time in the Emirate of Abu Dhabi, including graduates and immigrants."
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra regions."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "Thousands"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "\u00a9 SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "highlights": [],
+    "description": "Total new market entrants combining education graduates and immigration-driven labor supply.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Key Insight",
+      "badge_ar": "\u0631\u0624\u064a\u0629 \u0631\u0626\u064a\u0633\u064a\u0629",
+      "title": "Balance Education and Immigration Pipelines",
+      "title_ar": "\u0645\u0648\u0627\u0632\u0646\u0629 \u0645\u0633\u0627\u0631\u0627\u062a \u0627\u0644\u062a\u0639\u0644\u064a\u0645 \u0648\u0627\u0644\u0647\u062c\u0631\u0629",
+      "text": "Market entrants have grown steadily, driven predominantly by immigration. Balancing education-based and immigration-based supply is key for sustainable growth.",
+      "text_ar": "\u0646\u0645\u0627 \u0639\u062f\u062f \u0627\u0644\u062f\u0627\u062e\u0644\u064a\u0646 \u0625\u0644\u0649 \u0633\u0648\u0642 \u0627\u0644\u0639\u0645\u0644 \u0628\u0634\u0643\u0644 \u0645\u0637\u0631\u062f\u060c \u0645\u062f\u0641\u0648\u0639\u0627\u064b \u0628\u0627\u0644\u0647\u062c\u0631\u0629 \u0628\u0634\u0643\u0644 \u0631\u0626\u064a\u0633\u064a.",
+      "reason": "Immigration-driven entrants outnumber education-based entrants by nearly 2:1, suggesting a need for stronger domestic talent development.",
+      "reason_ar": "\u064a\u0641\u0648\u0642 \u0639\u062f\u062f \u0627\u0644\u062f\u0627\u062e\u0644\u064a\u0646 \u0639\u0628\u0631 \u0627\u0644\u0647\u062c\u0631\u0629 \u0646\u0638\u0631\u0627\u0621\u0647\u0645 \u0645\u0646 \u0627\u0644\u062a\u0639\u0644\u064a\u0645 \u0628\u0646\u0633\u0628\u0629 2:1 \u062a\u0642\u0631\u064a\u0628\u0627\u064b."
+    },
+    "visualizations": [
+      {
+        "label": "Total Market Entrants",
+        "series": [
+          {
+            "id": "total",
+            "type": "solid",
+            "color": "#3375C6",
+            "group": "total",
+            "label": "Total Entrants",
+            "xAccessor": {
+              "path": "YEAR",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              { "YEAR": "2018", "VALUE": 127.7 },
+              { "YEAR": "2019", "VALUE": 137.2 },
+              { "YEAR": "2020", "VALUE": 100.5 },
+              { "YEAR": "2021", "VALUE": 122.7 },
+              { "YEAR": "2022", "VALUE": 144.4 },
+              { "YEAR": "2023", "VALUE": 155.5 },
+              { "YEAR": "2024", "VALUE": 163.9 }
+            ]
+          }
+        ],
+        "chartType": "line",
+        "isTimeSeries": true
+      }
+    ],
+    "rangeOptions": [
+      { "id": "all", "label": "All", "value": null },
+      { "id": "3", "label": "3Y", "value": 3 },
+      { "id": "5", "label": "5Y", "value": 5 }
+    ],
+    "viewTypes": [
+      { "id": "line", "label": "Line Chart", "icon": "graph-up", "default": true },
+      { "id": "table", "label": "Table", "icon": "layout-left" }
+    ]
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "success": true,
+  "correlationId": "a1b2c3d4-1011-5ed3-c6f4-0d73c003g011",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 111,
+    "title": "Remote Share by Industry",
+    "type": "scad",
+    "compare": false,
+    "unit": "%",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      { "label": "Indicator code", "value": "LM RMT SH 1A 1011" },
+      { "label": "Keywords", "value": "Remote work, Hybrid, On-site, Industry, Work arrangement, Abu Dhabi" },
+      { "label": "Statistical population", "value": "All job postings classified by work arrangement type across industries." },
+      { "label": "Geographic coverage", "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra." },
+      { "label": "Measurement unit", "value": "%" },
+      { "label": "Available periodicity", "value": "Monthly" },
+      { "label": "Data sources", "value": "Job Postings Platform" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Policy-relevant view of remote work adoption",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Policy Relevant",
+      "badge_ar": "",
+      "title": "Technology Sector Leads Remote Work Adoption",
+      "title_ar": "",
+      "text": "Technology has the highest remote work share at 45%, while Construction remains almost entirely on-site at 85%. Hybrid models are most prevalent in Finance (35%) and Education (30%).",
+      "text_ar": "",
+      "reason": "Remote work patterns inform infrastructure planning, transport policy, and digital readiness investments across different sectors of the economy.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Remote Share by Industry",
+        "series": [
+          {
+            "id": "remote-technology",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "technology",
+            "label": "Technology",
+            "xAccessor": { "path": "ARRANGEMENT", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "ARRANGEMENT": "Remote", "VALUE": 45 },
+              { "ARRANGEMENT": "Hybrid", "VALUE": 30 },
+              { "ARRANGEMENT": "On-site", "VALUE": 25 }
+            ]
+          },
+          {
+            "id": "remote-finance",
+            "type": "solid",
+            "color": "#3B82F6",
+            "group": "finance",
+            "label": "Finance",
+            "xAccessor": { "path": "ARRANGEMENT", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "ARRANGEMENT": "Remote", "VALUE": 20 },
+              { "ARRANGEMENT": "Hybrid", "VALUE": 35 },
+              { "ARRANGEMENT": "On-site", "VALUE": 45 }
+            ]
+          },
+          {
+            "id": "remote-healthcare",
+            "type": "solid",
+            "color": "#60A5FA",
+            "group": "healthcare",
+            "label": "Healthcare",
+            "xAccessor": { "path": "ARRANGEMENT", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "ARRANGEMENT": "Remote", "VALUE": 10 },
+              { "ARRANGEMENT": "Hybrid", "VALUE": 15 },
+              { "ARRANGEMENT": "On-site", "VALUE": 75 }
+            ]
+          },
+          {
+            "id": "remote-education",
+            "type": "solid",
+            "color": "#93C5FD",
+            "group": "education",
+            "label": "Education",
+            "xAccessor": { "path": "ARRANGEMENT", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "ARRANGEMENT": "Remote", "VALUE": 25 },
+              { "ARRANGEMENT": "Hybrid", "VALUE": 30 },
+              { "ARRANGEMENT": "On-site", "VALUE": 45 }
+            ]
+          },
+          {
+            "id": "remote-construction",
+            "type": "solid",
+            "color": "#BFDBFE",
+            "group": "construction",
+            "label": "Construction",
+            "xAccessor": { "path": "ARRANGEMENT", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "ARRANGEMENT": "Remote", "VALUE": 5 },
+              { "ARRANGEMENT": "Hybrid", "VALUE": 10 },
+              { "ARRANGEMENT": "On-site", "VALUE": 85 }
+            ]
+          }
+        ],
+        "chartType": "heatmap",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false
+      }
+    ]
+  }
+}

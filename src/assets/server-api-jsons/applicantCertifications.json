@@ -1,0 +1,122 @@
+{
+  "success": true,
+  "correlationId": "f4a1b2c3-4400-4e5f-9a1b-000000000044",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "applicantCertifications",
+    "title": "Top Certifications",
+    "type": "scad",
+    "compare": false,
+    "unit": "count",
+    "filters": [],
+    "updated": "2025-09-25",
+    "category": "Job Applicant Intelligence",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF AI CR 1A 0044"
+      },
+      {
+        "label": "Keywords",
+        "value": "Applicants, Certifications, PMP, AWS, CPA, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "description": "Most commonly held professional certifications among applicants.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "PMP and AWS Certifications Lead Applicant Credentials",
+      "title_ar": "",
+      "text": "PMP (2,100) and AWS Solutions Architect (1,800) are the most prevalent certifications, followed by CPA (1,500). Project management and cloud credentials dominate the applicant pool.",
+      "text_ar": "",
+      "reason": "Certification prevalence signals workforce readiness for specific roles. Gaps in emerging certifications may warrant subsidised training programmes.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Top Certifications",
+        "chartType": "bar",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "series": [
+          {
+            "id": "top-certifications",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "certifications",
+            "label": "Certified Applicants",
+            "xAccessor": {
+              "path": "name",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "value",
+              "type": "value"
+            },
+            "data": [
+              {
+                "name": "PMP",
+                "VALUE": 2100
+              },
+              {
+                "name": "AWS Solutions Architect",
+                "VALUE": 1800
+              },
+              {
+                "name": "CPA",
+                "VALUE": 1500
+              },
+              {
+                "name": "CFA",
+                "VALUE": 1350
+              },
+              {
+                "name": "CISSP",
+                "VALUE": 1200
+              },
+              {
+                "name": "Six Sigma",
+                "VALUE": 1050
+              },
+              {
+                "name": "Google Cloud Professional",
+                "VALUE": 950
+              },
+              {
+                "name": "ACCA",
+                "VALUE": 820
+              },
+              {
+                "name": "PHR/SPHR",
+                "VALUE": 700
+              },
+              {
+                "name": "CCNA",
+                "VALUE": 580
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

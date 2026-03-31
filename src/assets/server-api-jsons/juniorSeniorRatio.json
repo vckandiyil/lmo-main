@@ -1,0 +1,87 @@
+{
+  "success": true,
+  "correlationId": "c3d4e5f6-1003-5ed3-c6f4-0d73c003g927",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 27,
+    "title": "Junior-to-Senior Ratio",
+    "type": "scad",
+    "compare": false,
+    "unit": "ratio",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF JD JS RT 2701"
+      },
+      {
+        "label": "Keywords",
+        "value": "Junior, Senior, Ratio, Workforce maturity, Pipeline"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "ratio"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Quarterly"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Last data update",
+        "value": "20250925"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Workforce maturity indicator",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Moderate",
+      "badge_ar": "",
+      "title": "Balanced but Tilted Toward Junior Hiring",
+      "title_ar": "",
+      "text": "A ratio of 2.3 juniors per senior indicates a growing workforce with adequate mentorship capacity, but organisations should monitor for senior talent shortages.",
+      "text_ar": "",
+      "reason": "The junior-to-senior ratio reflects workforce pipeline health. Ratios above 3.0 may signal insufficient senior leadership, while ratios below 1.5 could indicate stagnation in new talent intake.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Junior-to-Senior Ratio",
+        "series": [
+          {
+            "id": "junior-senior-ratio",
+            "type": "solid",
+            "color": "#3375c6",
+            "group": "ratio",
+            "label": "Jr/Sr Ratio",
+            "data": [
+              { "METRIC": "Jr/Sr Ratio", "VALUE": 2.3 }
+            ],
+            "xAccessor": {
+              "path": "METRIC",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          }
+        ],
+        "chartType": "solidgauge",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false,
+        "yAxisMaxCap": 5
+      }
+    ]
+  }
+}

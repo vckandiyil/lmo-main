@@ -1,0 +1,91 @@
+{
+  "success": true,
+  "correlationId": "j0k1l2m3-1010-5ed3-c6f4-0d73c003g934",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 34,
+    "title": "Jobs vs Company Size",
+    "type": "scad",
+    "compare": false,
+    "unit": "count",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF JD JC SZ 3401"
+      },
+      {
+        "label": "Keywords",
+        "value": "Company size, Employer size, SME, Enterprise, Jobs, Market structure"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Quarterly"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Last data update",
+        "value": "20250925"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Market structure by employer size",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Structural",
+      "badge_ar": "",
+      "title": "Large Enterprises Drive Majority of Job Creation",
+      "title_ar": "",
+      "text": "Companies with 1,000+ employees account for 12,500 postings, the highest segment. However, mid-sized firms (51-200) also show strong demand at 8,500, suggesting a diversified employment landscape.",
+      "text_ar": "",
+      "reason": "Understanding job distribution by company size informs SME support policies and helps balance economic dependence between large enterprises and smaller employers.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Jobs vs Company Size",
+        "series": [
+          {
+            "id": "jobs-company-size",
+            "type": "solid",
+            "color": "#3375c6",
+            "group": "company-size",
+            "label": "Job Postings",
+            "data": [
+              { "SIZE": "1-10 employees", "VALUE": 3200 },
+              { "SIZE": "11-50", "VALUE": 5800 },
+              { "SIZE": "51-200", "VALUE": 8500 },
+              { "SIZE": "201-500", "VALUE": 7200 },
+              { "SIZE": "501-1000", "VALUE": 6100 },
+              { "SIZE": "1000+", "VALUE": 12500 }
+            ],
+            "xAccessor": {
+              "path": "SIZE",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          }
+        ],
+        "chartType": "column",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false
+      }
+    ]
+  }
+}

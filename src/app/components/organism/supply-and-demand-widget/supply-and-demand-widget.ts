@@ -6,6 +6,8 @@ import {WidgetCheckbox} from '../../atom/widget-checkbox/widget-checkbox';
 import {WidgetBack} from '../../atom/widget-back/widget-back';
 import {GapAnalysisSankey} from '../gap-analysis-sankey/gap-analysis-sankey';
 import {WidgetCatalogService} from '../../../core/services/widget-catalog.service';
+import {WidgetDetailService} from '../../../core/services/widget-detail.service';
+import {WidgetType} from '../../../core/models/widget.model';
 
 @Component({
   selector: 'app-supply-and-demand-widget',
@@ -18,6 +20,7 @@ export class GapAnalysisWidget {
   widgetType = input<string>('supply-and-demand');
   selected   = input(false);
 
+  private readonly widgetDetailService = inject(WidgetDetailService);
   private readonly entry = toSignal(inject(WidgetCatalogService).getWidgetById('supply-and-demand'), {initialValue: undefined});
   readonly title = computed(() => this.entry()?.title ?? '');
   readonly headerIcons = computed(() =>
@@ -31,5 +34,10 @@ export class GapAnalysisWidget {
 
   onWidgetClick(): void {
     this.selectedChange.emit();
+  }
+
+  onChartClick(event: Event): void {
+    event.stopPropagation();
+    this.widgetDetailService.open(WidgetType.GapAnalysis);
   }
 }

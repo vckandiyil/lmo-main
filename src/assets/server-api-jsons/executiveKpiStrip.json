@@ -1,0 +1,69 @@
+{
+  "success": true,
+  "correlationId": "a1b2c3d4-1001-5ed3-c6f4-0d73c003g001",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 101,
+    "title": "Executive KPI Strip",
+    "type": "scad",
+    "compare": false,
+    "unit": "count",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      { "label": "Indicator code", "value": "LM KPI EX 1A 1001" },
+      { "label": "Keywords", "value": "KPI, Executive, Market pulse, Total postings, Abu Dhabi" },
+      { "label": "Statistical population", "value": "All job postings aggregated from the Job Postings Platform for the Emirate of Abu Dhabi." },
+      { "label": "Geographic coverage", "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra." },
+      { "label": "Measurement unit", "value": "count" },
+      { "label": "Available periodicity", "value": "Monthly" },
+      { "label": "Data sources", "value": "Job Postings Platform" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Single-glance market pulse for decision makers",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Trending Up",
+      "badge_ar": "",
+      "title": "Job Market Shows Strong Growth Momentum",
+      "title_ar": "",
+      "text": "Total postings have reached 45,230, indicating robust hiring activity across the emirate. This represents a healthy labour market with sustained employer demand.",
+      "text_ar": "",
+      "reason": "The aggregate posting volume signals strong economic confidence among employers, particularly in key sectors driving Abu Dhabi's diversification strategy.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Executive KPI Strip",
+        "series": [
+          {
+            "id": "executive-kpi-strip",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "kpi",
+            "label": "Total Postings",
+            "xAccessor": {
+              "path": "METRIC",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              { "METRIC": "Total Postings", "VALUE": 45230 }
+            ]
+          }
+        ],
+        "chartType": "solidgauge",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false
+      }
+    ]
+  }
+}

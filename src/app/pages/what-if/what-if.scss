@@ -31,3 +31,52 @@
     }
   }
 }
+
+// ---------------------------------------------------------------------------
+// RESPONSIVE
+// ---------------------------------------------------------------------------
+@media (max-width: 1199.98px) {
+  :host {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: var(--content-top) 16px 16px calc(var(--nav-sidebar-w) + 16px);
+    box-sizing: border-box;
+    min-height: 100vh;
+  }
+
+  .what-if__content {
+    position: static;
+    width: 100%;
+    height: auto;
+    left: auto;
+    right: auto;
+    padding: 0;
+    transition: none;
+    order: 1;
+    flex: 1 1 calc(50% - 16px);
+    min-width: 0;
+
+    :host-context([dir='rtl']) & {
+      right: auto;
+      left: auto;
+      padding: 0;
+      transition: none;
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  :host {
+    gap: 12px;
+    padding: var(--content-top) 8px 8px calc(var(--nav-sidebar-w) + 8px);
+  }
+
+  .what-if__content {
+    flex: 1 1 100%;
+  }
+
+  .what-if__graphs app-chart-card {
+    width: 100%;
+  }
+}

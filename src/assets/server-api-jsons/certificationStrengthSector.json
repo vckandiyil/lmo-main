@@ -1,0 +1,197 @@
+{
+  "success": true,
+  "correlationId": "f4a1b2c3-5300-4e5f-9a1b-000000000053",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "certificationStrengthSector",
+    "title": "Certification Strength by Sector",
+    "type": "scad",
+    "compare": false,
+    "unit": "%",
+    "filters": [],
+    "updated": "2025-09-25",
+    "category": "Talent Pool Intelligence",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF TP CS 1A 0053"
+      },
+      {
+        "label": "Keywords",
+        "value": "Certification, Sector, Strength, Professional, Technical, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "%"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "description": "Percentage of certified professionals by certification type and sector.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Technology Leads in Technical Certifications — Government Lags",
+      "title_ar": "",
+      "text": "Technology sector shows 72% technical certification penetration compared to 25% in Government. Subsidised certification programmes for public sector employees can bridge this gap.",
+      "text_ar": "",
+      "reason": "Certification strength varies dramatically by sector, revealing where professional development investment can yield the greatest workforce capability improvements.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Certification Strength by Sector",
+        "chartType": "heatmap",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "series": [
+          {
+            "id": "cert-strength-sector-0",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Professional Cert",
+            "color": "#2563EA",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "Technology",
+                "VALUE": 55
+              },
+              {
+                "CATEGORY": "Energy",
+                "VALUE": 45
+              },
+              {
+                "CATEGORY": "Finance",
+                "VALUE": 75
+              },
+              {
+                "CATEGORY": "Healthcare",
+                "VALUE": 68
+              },
+              {
+                "CATEGORY": "Government",
+                "VALUE": 30
+              }
+            ]
+          },
+          {
+            "id": "cert-strength-sector-1",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Technical Cert",
+            "color": "#3B82F6",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "Technology",
+                "VALUE": 72
+              },
+              {
+                "CATEGORY": "Energy",
+                "VALUE": 58
+              },
+              {
+                "CATEGORY": "Finance",
+                "VALUE": 40
+              },
+              {
+                "CATEGORY": "Healthcare",
+                "VALUE": 35
+              },
+              {
+                "CATEGORY": "Government",
+                "VALUE": 25
+              }
+            ]
+          },
+          {
+            "id": "cert-strength-sector-2",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Industry Cert",
+            "color": "#60A5FA",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "Technology",
+                "VALUE": 48
+              },
+              {
+                "CATEGORY": "Energy",
+                "VALUE": 65
+              },
+              {
+                "CATEGORY": "Finance",
+                "VALUE": 60
+              },
+              {
+                "CATEGORY": "Healthcare",
+                "VALUE": 55
+              },
+              {
+                "CATEGORY": "Government",
+                "VALUE": 20
+              }
+            ]
+          },
+          {
+            "id": "cert-strength-sector-3",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Academic Cert",
+            "color": "#93C5FD",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "Technology",
+                "VALUE": 35
+              },
+              {
+                "CATEGORY": "Energy",
+                "VALUE": 30
+              },
+              {
+                "CATEGORY": "Finance",
+                "VALUE": 42
+              },
+              {
+                "CATEGORY": "Healthcare",
+                "VALUE": 70
+              },
+              {
+                "CATEGORY": "Government",
+                "VALUE": 15
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

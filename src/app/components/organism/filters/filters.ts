@@ -1,6 +1,7 @@
-import {Component, computed, ElementRef, HostListener, inject, input, QueryList, signal, ViewChildren} from '@angular/core';
+import {Component, computed, ElementRef, HostListener, inject, input, signal} from '@angular/core';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {map} from 'rxjs';
+import {RouterLink} from '@angular/router';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {Dropdown} from '../../atom/dropdown/dropdown';
 import {Icon} from '../../atom/icon/icon';
@@ -9,19 +10,18 @@ import {PresentationModal} from '../../molecule/presentation-modal/presentation-
 import {WidgetCatalogService} from '../../../core/services/widget-catalog.service';
 import {WidgetStore} from '../../../core';
 import {FilterStateService} from '../../../core/services/filter-state.service';
-import {LayoutService, LanguageService} from '../../../core';
+import {LayoutService, LanguageService, ThemeService} from '../../../core';
 import {PresetService} from '../../../core/services/preset.service';
+import {AdvancedFiltersPanel} from '../../molecule/advanced-filters-panel/advanced-filters-panel';
 
 @Component({
   selector: 'app-filters',
   standalone: true,
-  imports: [Dropdown, Icon, SearchModal, PresentationModal, TranslateModule],
+  imports: [Dropdown, Icon, SearchModal, PresentationModal, TranslateModule, RouterLink, AdvancedFiltersPanel],
   templateUrl: './filters.html',
   styleUrl: './filters.scss'
 })
 export class Filters {
-  @ViewChildren(Dropdown) dropdowns!: QueryList<Dropdown>;
-
   private readonly elementRef = inject(ElementRef);
   private readonly widgetCatalogService = inject(WidgetCatalogService);
   private readonly widgetStore = inject(WidgetStore);
@@ -29,12 +29,16 @@ export class Filters {
   private readonly translate = inject(TranslateService);
   private readonly layoutService = inject(LayoutService);
   private readonly languageService = inject(LanguageService);
+  private readonly themeService = inject(ThemeService);
   readonly presetService = inject(PresetService);
+
+  readonly isDarkMode = this.themeService.isDarkMode;
 
   readonly isRtl = this.languageService.isRtl;
   readonly layoutMode = this.layoutService.layoutMode;
 
   isMyLmo = input<boolean>(false);
+  hideLayoutBtn = input<boolean>(false);
 
   readonly activePresetName = this.presetService.activePresetName;
 
@@ -58,6 +62,7 @@ export class Filters {
 
   isSearchModalOpen = signal(false);
   isPresentationModalOpen = signal(false);
+  isFilterPanelOpen = signal(false);
   searchQuery = signal('');
   isMicSpeaking = signal(false);
 
@@ -67,39 +72,6 @@ export class Filters {
     ),
     {initialValue: ['All', 'Abu Dhabi', 'Al Ain', 'Al Dhafra']}
   );
-  readonly citizenshipOptions = toSignal(
-    this.translate.stream(['LMI.ALL', 'LMI.EMIRATI', 'LMI.EXPAT']).pipe(
-      map(t => [t['LMI.ALL'], t['LMI.EMIRATI'], t['LMI.EXPAT']])
-    ),
-    {initialValue: ['All', 'Emirati', 'Expat']}
-  );
-  readonly genderOptions = toSignal(
-    this.translate.stream(['LMI.ALL', 'LMI.MALE', 'LMI.FEMALE']).pipe(
-      map(t => [t['LMI.ALL'], t['LMI.MALE'], t['LMI.FEMALE']])
-    ),
-    {initialValue: ['All', 'Male', 'Female']}
-  );
-  readonly sectorOptions = toSignal(
-    this.translate.stream(['LMI.ALL', 'LMI.EDUCATION', 'LMI.MEDICAL', 'LMI.IT', 'LMI.FINANCE', 'LMI.CONSTRUCTION', 'LMI.RETAIL', 'LMI.GOVERNMENT', 'LMI.OTHER']).pipe(
-      map(t => [t['LMI.ALL'], t['LMI.EDUCATION'], t['LMI.MEDICAL'], t['LMI.IT'], t['LMI.FINANCE'], t['LMI.CONSTRUCTION'], t['LMI.RETAIL'], t['LMI.GOVERNMENT'], t['LMI.OTHER']])
-    ),
-    {initialValue: ['All', 'Education', 'Medical', 'IT', 'Finance', 'Construction', 'Retail', 'Government', 'Other']}
-  );
-  readonly yearOptions = toSignal(
-    this.translate.stream(['LMI.ALL']).pipe(
-      map(t => [t['LMI.ALL'], '2024', '2023', '2022', '2021', '2020'])
-    ),
-    {initialValue: ['All', '2024', '2023', '2022', '2021', '2020']}
-  );
-  readonly vacanciesSectorOptions = toSignal(
-    this.translate.stream(['LMI.ALL_SECTORS', 'LMI.GOVERNMENT_SECTOR', 'LMI.PRIVATE_SECTOR']).pipe(
-      map(t => [t['LMI.ALL_SECTORS'], t['LMI.GOVERNMENT_SECTOR'], t['LMI.PRIVATE_SECTOR']])
-    ),
-    {initialValue: ['All Sectors', 'Government Sector', 'Private Sector']}
-  );
-
-  readonly isJobVacanciesSelected = computed(() => this.selectedTopic() === 'Job Vacancies');
-
   onTopicSelect(value: string): void {
     this.selectedTopic.set(value);
     this.filterState.selectedTopic.set(value);
@@ -112,12 +84,6 @@ export class Filters {
   }
 
   onFilterChange(_filter: string, _value: string) {}
-
-  clearFilters() {
-    this.dropdowns.forEach(dropdown => dropdown.reset());
-    this.selectedTopic.set(null);
-    this.filterState.selectedTopic.set(null);
-  }
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent): void {
@@ -209,5 +175,13 @@ export class Filters {
 
   toggleLayout(): void {
     this.layoutService.setLayoutMode(this.layoutMode() === '3col' ? '4col' : '3col');
+  }
+
+  openFilterPanel(): void {
+    this.isFilterPanelOpen.set(true);
+  }
+
+  closeFilterPanel(): void {
+    this.isFilterPanelOpen.set(false);
   }
 }

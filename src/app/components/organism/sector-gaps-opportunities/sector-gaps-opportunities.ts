@@ -6,6 +6,8 @@ import {FlipCard} from '../../atom/flip-card/flip-card';
 import {WidgetBack} from '../../atom/widget-back/widget-back';
 import {ChartOptions} from '../../../shared/services/chart-config.service';
 import {DashboardDataService} from '../../../core';
+import {WidgetDetailService} from '../../../core/services/widget-detail.service';
+import {WidgetType} from '../../../core/models/widget.model';
 
 interface SectorData {
   name: string;
@@ -27,6 +29,7 @@ interface SectorGapsData {
 })
 export class SectorGapsOpportunities implements OnInit {
   private readonly dashboardDataService = inject(DashboardDataService);
+  private readonly widgetDetailService = inject(WidgetDetailService);
 
   chartOptionsSignal = signal<ChartOptions>({});
   widgetType = input<string>('');
@@ -36,6 +39,11 @@ export class SectorGapsOpportunities implements OnInit {
 
   onWidgetClick(): void {
     this.selectedChange.emit();
+  }
+
+  onChartClick(event: Event): void {
+    event.stopPropagation();
+    this.widgetDetailService.open(WidgetType.SectorGapsOpportunities);
   }
 
   ngOnInit(): void {

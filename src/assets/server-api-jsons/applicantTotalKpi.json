@@ -1,0 +1,62 @@
+{
+  "success": true,
+  "correlationId": "f4a1b2c3-3600-4e5f-9a1b-000000000036",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "applicantTotalKpi",
+    "title": "Total Applicants",
+    "type": "scad",
+    "compare": false,
+    "unit": "count",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Applicant Intelligence",
+    "metadata": [
+      { "label": "Indicator code", "value": "LF AI KP 1A 0036" },
+      { "label": "Keywords", "value": "Applicants, Total, KPI, Headcount, UAE" },
+      { "label": "Data sources", "value": "Job Postings Platform" },
+      { "label": "Geographic coverage", "value": "UAE" },
+      { "label": "Measurement unit", "value": "count" },
+      { "label": "Available periodicity", "value": "Monthly" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Total number of applicants across all job postings in the UAE labour market.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Robust Applicant Pool Supports Emiratisation Targets",
+      "title_ar": "",
+      "text": "With 28,450 total applicants, the talent pool is substantial enough to support targeted hiring initiatives across priority sectors.",
+      "text_ar": "",
+      "reason": "A large applicant pool indicates healthy labour market participation and provides ample selection for workforce localisation programmes.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Total Applicants",
+        "series": [
+          {
+            "id": "total-applicants-kpi",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "applicants",
+            "label": "Total Applicants",
+            "data": [
+              { "METRIC": "Total Applicants", "VALUE": 28450 }
+            ],
+            "xAccessor": { "path": "METRIC", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" }
+          }
+        ],
+        "chartType": "solidgauge",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false
+      }
+    ]
+  }
+}

@@ -354,3 +354,91 @@
     }
   }
 }
+
+// ---------------------------------------------------------------------------
+// RESPONSIVE: Tablet (<1200px) & Mobile (<768px)
+// Both sidebars switch from fixed to static flow layout so the page flex
+// container can arrange them alongside the center section.
+// ---------------------------------------------------------------------------
+@media (max-width: 1199.98px) {
+  :host {
+    display: block;
+    order: 2;
+    flex: 1 1 calc(50% - 16px);
+    min-width: 0;
+  }
+
+  .sidebar {
+    width: 100%;
+    position: static;
+    height: auto;
+    background: transparent;
+
+    &--left,
+    &--right {
+      position: static;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+
+    &--left {
+      top: auto;
+      left: auto;
+
+      :host-context([dir='rtl']) & {
+        right: auto;
+      }
+    }
+
+    &--right {
+      top: auto;
+      right: auto;
+      overflow-y: visible;
+
+      :host-context([dir='rtl']) & {
+        left: auto;
+      }
+    }
+
+    &__widgets {
+      position: static;
+      width: 100%;
+      height: auto;
+      padding: 0 0 20px;
+    }
+
+    &__frame {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  :host {
+    flex: 1 1 100%;
+  }
+
+  .sidebar {
+    &__widgets {
+      padding: 0 0 12px;
+      gap: 12px;
+    }
+
+    &__content {
+      gap: 12px;
+
+      &::after {
+        min-height: 20px;
+      }
+    }
+  }
+
+  .sidebar__widget-item {
+    cursor: default;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}

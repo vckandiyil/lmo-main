@@ -1,0 +1,287 @@
+{
+  "success": true,
+  "correlationId": "f4a1b2c3-4900-4e5f-9a1b-000000000049",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "applicantHoppingRisk",
+    "title": "Job-Hopping Risk Matrix",
+    "type": "scad",
+    "compare": false,
+    "unit": "score",
+    "filters": [],
+    "updated": "2025-09-25",
+    "category": "Job Applicant Intelligence",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF AI HR 1A 0049"
+      },
+      {
+        "label": "Keywords",
+        "value": "Applicants, Job Hopping, Risk, Tenure, Industry, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "score (0-100)"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "description": "Risk scores for job-hopping across tenure bands and industries.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Technology and Retail Show Highest Job-Hopping Risk in Short Tenures",
+      "title_ar": "",
+      "text": "Technology workers with <1yr tenure score 88 on job-hopping risk, while Retail scores 82. Targeted retention packages and career development paths can mitigate attrition in these segments.",
+      "text_ar": "",
+      "reason": "Understanding tenure-industry hopping risk enables proactive retention strategies and more accurate workforce planning forecasts.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Job-Hopping Risk Matrix",
+        "chartType": "heatmap",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "series": [
+          {
+            "id": "hopping-risk-matrix-0",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Technology",
+            "color": "#2563EA",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "<1yr",
+                "VALUE": 88
+              },
+              {
+                "CATEGORY": "1-2yr",
+                "VALUE": 72
+              },
+              {
+                "CATEGORY": "2-3yr",
+                "VALUE": 55
+              },
+              {
+                "CATEGORY": "3-5yr",
+                "VALUE": 38
+              },
+              {
+                "CATEGORY": "5-10yr",
+                "VALUE": 22
+              },
+              {
+                "CATEGORY": "10+yr",
+                "VALUE": 12
+              }
+            ]
+          },
+          {
+            "id": "hopping-risk-matrix-1",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Finance",
+            "color": "#3B82F6",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "<1yr",
+                "VALUE": 65
+              },
+              {
+                "CATEGORY": "1-2yr",
+                "VALUE": 52
+              },
+              {
+                "CATEGORY": "2-3yr",
+                "VALUE": 40
+              },
+              {
+                "CATEGORY": "3-5yr",
+                "VALUE": 28
+              },
+              {
+                "CATEGORY": "5-10yr",
+                "VALUE": 18
+              },
+              {
+                "CATEGORY": "10+yr",
+                "VALUE": 10
+              }
+            ]
+          },
+          {
+            "id": "hopping-risk-matrix-2",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Healthcare",
+            "color": "#60A5FA",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "<1yr",
+                "VALUE": 48
+              },
+              {
+                "CATEGORY": "1-2yr",
+                "VALUE": 38
+              },
+              {
+                "CATEGORY": "2-3yr",
+                "VALUE": 30
+              },
+              {
+                "CATEGORY": "3-5yr",
+                "VALUE": 22
+              },
+              {
+                "CATEGORY": "5-10yr",
+                "VALUE": 15
+              },
+              {
+                "CATEGORY": "10+yr",
+                "VALUE": 8
+              }
+            ]
+          },
+          {
+            "id": "hopping-risk-matrix-3",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Construction",
+            "color": "#93C5FD",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "<1yr",
+                "VALUE": 58
+              },
+              {
+                "CATEGORY": "1-2yr",
+                "VALUE": 45
+              },
+              {
+                "CATEGORY": "2-3yr",
+                "VALUE": 35
+              },
+              {
+                "CATEGORY": "3-5yr",
+                "VALUE": 25
+              },
+              {
+                "CATEGORY": "5-10yr",
+                "VALUE": 16
+              },
+              {
+                "CATEGORY": "10+yr",
+                "VALUE": 9
+              }
+            ]
+          },
+          {
+            "id": "hopping-risk-matrix-4",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Education",
+            "color": "#BFDBFE",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "<1yr",
+                "VALUE": 42
+              },
+              {
+                "CATEGORY": "1-2yr",
+                "VALUE": 32
+              },
+              {
+                "CATEGORY": "2-3yr",
+                "VALUE": 25
+              },
+              {
+                "CATEGORY": "3-5yr",
+                "VALUE": 18
+              },
+              {
+                "CATEGORY": "5-10yr",
+                "VALUE": 12
+              },
+              {
+                "CATEGORY": "10+yr",
+                "VALUE": 6
+              }
+            ]
+          },
+          {
+            "id": "hopping-risk-matrix-5",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Retail",
+            "color": "#1E40AF",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "<1yr",
+                "VALUE": 82
+              },
+              {
+                "CATEGORY": "1-2yr",
+                "VALUE": 68
+              },
+              {
+                "CATEGORY": "2-3yr",
+                "VALUE": 50
+              },
+              {
+                "CATEGORY": "3-5yr",
+                "VALUE": 35
+              },
+              {
+                "CATEGORY": "5-10yr",
+                "VALUE": 20
+              },
+              {
+                "CATEGORY": "10+yr",
+                "VALUE": 11
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

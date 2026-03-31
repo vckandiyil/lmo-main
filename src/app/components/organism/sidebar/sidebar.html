@@ -10,7 +10,7 @@
         (cdkDropListDropped)="onWidgetDrop($event, 'left')"
       >
         @for (widget of leftWidgetList(); track widget.id; let i = $index) {
-          <div class="sidebar__widget-item" cdkDrag [cdkDragData]="widget" (cdkDragStarted)="onDragStarted()"
+          <div class="sidebar__widget-item" cdkDrag [cdkDragData]="widget" [cdkDragDisabled]="isMobile()" (cdkDragStarted)="onDragStarted()"
                (click)="onWidgetClick(widget.type)">
             <div class="sidebar__widget-placeholder" *cdkDragPlaceholder></div>
             @if (widget.type === WidgetType.Map) {
@@ -59,7 +59,7 @@
         (cdkDropListDropped)="onWidgetDrop($event, 'right')"
       >
         @for (widget of rightWidgetList(); track widget.id; let i = $index) {
-          <div class="sidebar__widget-item" cdkDrag [cdkDragData]="widget" (cdkDragStarted)="onDragStarted()"
+          <div class="sidebar__widget-item" cdkDrag [cdkDragData]="widget" [cdkDragDisabled]="isMobile()" (cdkDragStarted)="onDragStarted()"
                (click)="onWidgetClick(widget.type)">
             <div class="sidebar__widget-placeholder" *cdkDragPlaceholder></div>
             @if (widget.type === WidgetType.Map) {

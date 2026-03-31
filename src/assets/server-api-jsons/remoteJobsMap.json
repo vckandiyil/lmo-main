@@ -1,0 +1,66 @@
+{
+  "success": true,
+  "correlationId": "a1b2c3d4-1007-4e5f-9a1b-000000000019",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "remoteJobsMap",
+    "title": "Remote Jobs Map",
+    "type": "scad",
+    "compare": false,
+    "unit": "%",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      { "label": "Indicator code", "value": "LF JD GM 1B 0019" },
+      { "label": "Keywords", "value": "Remote, Work from Home, Digital, Geography, UAE" },
+      { "label": "Data sources", "value": "Job Postings Platform" },
+      { "label": "Geographic coverage", "value": "UAE" },
+      { "label": "Measurement unit", "value": "count" },
+      { "label": "Available periodicity", "value": "Monthly" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Mobility and digital work insight by geography",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Dubai Leads Remote Work Adoption at 35%",
+      "title_ar": "",
+      "text": "Dubai's remote job share stands at 35%, significantly ahead of other emirates. Expanding digital infrastructure in smaller emirates could unlock remote work opportunities and reduce geographic employment disparities.",
+      "text_ar": "",
+      "reason": "Remote work penetration varies sharply across cities, reflecting differences in industry composition and digital readiness that policy makers can address through targeted infrastructure investment.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Remote Jobs Map",
+        "chartType": "bar",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false,
+        "series": [
+          {
+            "id": "remote-jobs-city",
+            "type": "solid",
+            "color": "#3B82F6",
+            "group": "cities",
+            "label": "Remote Job Share",
+            "xAccessor": { "path": "CITY", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "CITY": "Abu Dhabi", "VALUE": 28 },
+              { "CITY": "Dubai", "VALUE": 35 },
+              { "CITY": "Sharjah", "VALUE": 18 },
+              { "CITY": "Al Ain", "VALUE": 12 },
+              { "CITY": "Ajman", "VALUE": 10 }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

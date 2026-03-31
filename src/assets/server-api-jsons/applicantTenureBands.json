@@ -1,0 +1,106 @@
+{
+  "success": true,
+  "correlationId": "f4a1b2c3-4700-4e5f-9a1b-000000000047",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "applicantTenureBands",
+    "title": "Average Tenure Bands",
+    "type": "scad",
+    "compare": false,
+    "unit": "count",
+    "filters": [],
+    "updated": "2025-09-25",
+    "category": "Job Applicant Intelligence",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF AI TN 1A 0047"
+      },
+      {
+        "label": "Keywords",
+        "value": "Applicants, Tenure, Bands, Retention, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "description": "Distribution of applicants by average tenure bands.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Most Applicants Have 1-2 Years Tenure — Active Job Market",
+      "title_ar": "",
+      "text": "The 1-2 year band leads with 8,500 applicants, suggesting a dynamic job market with frequent mobility. Retention strategies should target this cohort to reduce turnover costs.",
+      "text_ar": "",
+      "reason": "Tenure distribution provides insight into workforce stability and turnover patterns, helping employers calibrate retention investments.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Average Tenure Bands",
+        "chartType": "column",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "series": [
+          {
+            "id": "tenure-bands",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "applicants",
+            "label": "Applicants",
+            "xAccessor": {
+              "path": "name",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "value",
+              "type": "value"
+            },
+            "data": [
+              {
+                "name": "<1yr",
+                "VALUE": 6200
+              },
+              {
+                "name": "1-2yr",
+                "VALUE": 8500
+              },
+              {
+                "name": "2-3yr",
+                "VALUE": 7800
+              },
+              {
+                "name": "3-5yr",
+                "VALUE": 7100
+              },
+              {
+                "name": "5-10yr",
+                "VALUE": 5400
+              },
+              {
+                "name": "10+yr",
+                "VALUE": 3200
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

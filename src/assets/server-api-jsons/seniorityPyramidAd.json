@@ -1,0 +1,251 @@
+{
+  "success": true,
+  "correlationId": "f4a1b2c3-5400-4e5f-9a1b-000000000054",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "seniorityPyramidAd",
+    "title": "Seniority Pyramid",
+    "type": "scad",
+    "compare": false,
+    "unit": "%",
+    "filters": [],
+    "updated": "2025-09-25",
+    "category": "Talent Pool Intelligence",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF TP SP 1A 0054"
+      },
+      {
+        "label": "Keywords",
+        "value": "Seniority, Pyramid, Junior, Mid, Senior, Lead, Executive, Sector, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "%"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "description": "Seniority level composition by sector.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Mid-Level Professionals Dominate Across Sectors",
+      "title_ar": "",
+      "text": "Mid-level professionals comprise 30-35% of the workforce across most sectors. Technology shows a higher concentration of Senior and Lead roles, while Construction skews Junior.",
+      "text_ar": "",
+      "reason": "The seniority pyramid by sector reveals workforce maturity patterns that inform succession planning and targeted recruitment strategies.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Seniority Pyramid",
+        "chartType": "stacked-bar",
+        "stacking": "percent",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "series": [
+          {
+            "id": "seniority-junior",
+            "type": "solid",
+            "color": "#BFDBFE",
+            "group": "seniority",
+            "label": "Junior",
+            "xAccessor": {
+              "path": "name",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "value",
+              "type": "value"
+            },
+            "data": [
+              {
+                "name": "Technology",
+                "VALUE": 20
+              },
+              {
+                "name": "Finance",
+                "VALUE": 22
+              },
+              {
+                "name": "Healthcare",
+                "VALUE": 25
+              },
+              {
+                "name": "Construction",
+                "VALUE": 30
+              },
+              {
+                "name": "Education",
+                "VALUE": 18
+              }
+            ]
+          },
+          {
+            "id": "seniority-mid",
+            "type": "solid",
+            "color": "#93C5FD",
+            "group": "seniority",
+            "label": "Mid",
+            "xAccessor": {
+              "path": "name",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "value",
+              "type": "value"
+            },
+            "data": [
+              {
+                "name": "Technology",
+                "VALUE": 30
+              },
+              {
+                "name": "Finance",
+                "VALUE": 32
+              },
+              {
+                "name": "Healthcare",
+                "VALUE": 35
+              },
+              {
+                "name": "Construction",
+                "VALUE": 35
+              },
+              {
+                "name": "Education",
+                "VALUE": 30
+              }
+            ]
+          },
+          {
+            "id": "seniority-senior",
+            "type": "solid",
+            "color": "#3B82F6",
+            "group": "seniority",
+            "label": "Senior",
+            "xAccessor": {
+              "path": "name",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "value",
+              "type": "value"
+            },
+            "data": [
+              {
+                "name": "Technology",
+                "VALUE": 25
+              },
+              {
+                "name": "Finance",
+                "VALUE": 24
+              },
+              {
+                "name": "Healthcare",
+                "VALUE": 22
+              },
+              {
+                "name": "Construction",
+                "VALUE": 20
+              },
+              {
+                "name": "Education",
+                "VALUE": 28
+              }
+            ]
+          },
+          {
+            "id": "seniority-lead",
+            "type": "solid",
+            "color": "#1E40AF",
+            "group": "seniority",
+            "label": "Lead",
+            "xAccessor": {
+              "path": "name",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "value",
+              "type": "value"
+            },
+            "data": [
+              {
+                "name": "Technology",
+                "VALUE": 15
+              },
+              {
+                "name": "Finance",
+                "VALUE": 14
+              },
+              {
+                "name": "Healthcare",
+                "VALUE": 12
+              },
+              {
+                "name": "Construction",
+                "VALUE": 10
+              },
+              {
+                "name": "Education",
+                "VALUE": 16
+              }
+            ]
+          },
+          {
+            "id": "seniority-executive",
+            "type": "solid",
+            "color": "#1D4ED8",
+            "group": "seniority",
+            "label": "Executive",
+            "xAccessor": {
+              "path": "name",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "value",
+              "type": "value"
+            },
+            "data": [
+              {
+                "name": "Technology",
+                "VALUE": 10
+              },
+              {
+                "name": "Finance",
+                "VALUE": 8
+              },
+              {
+                "name": "Healthcare",
+                "VALUE": 6
+              },
+              {
+                "name": "Construction",
+                "VALUE": 5
+              },
+              {
+                "name": "Education",
+                "VALUE": 8
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

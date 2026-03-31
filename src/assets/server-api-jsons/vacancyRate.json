@@ -123,6 +123,11 @@
         "icon": "stats-up-square"
       },
       {
+        "id": "pie",
+        "label": "Pie Chart",
+        "icon": "chart-pie"
+      },
+      {
         "id": "table",
         "label": "Table",
         "icon": "layout-left"

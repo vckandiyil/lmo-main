@@ -105,12 +105,31 @@
 
             <div class="search-modal__overview-item">
               <div class="search-modal__widgets-grid">
-                @for (type of allWidgetTypes(); track type) {
-                  <div
-                    class="search-modal__widget-wrapper"
-                    [class.search-modal__widget-hidden]="!isWidgetVisible(type)"
-                  >
-                    <ng-container [ngComponentOutlet]="getWidgetComponent(type)"/>
+                @if (col1Types().length > 0) {
+                  <div class="search-modal__col">
+                    @for (type of col1Types(); track type) {
+                      <div class="search-modal__widget-wrapper">
+                        <ng-container [ngComponentOutlet]="getWidgetComponent(type)"/>
+                      </div>
+                    }
+                  </div>
+                }
+                @if (col2Types().length > 0) {
+                  <div class="search-modal__col">
+                    @for (type of col2Types(); track type) {
+                      <div class="search-modal__widget-wrapper">
+                        <ng-container [ngComponentOutlet]="getWidgetComponent(type)"/>
+                      </div>
+                    }
+                  </div>
+                }
+                @if (col3Types().length > 0) {
+                  <div class="search-modal__col">
+                    @for (type of col3Types(); track type) {
+                      <div class="search-modal__widget-wrapper">
+                        <ng-container [ngComponentOutlet]="getWidgetComponent(type)"/>
+                      </div>
+                    }
                   </div>
                 }
               </div>

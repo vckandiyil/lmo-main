@@ -1,0 +1,160 @@
+{
+  "success": true,
+  "correlationId": "a1b2c3d4-1002-4e5f-9a1b-000000000014",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "topSkillsTreemap",
+    "title": "Top Skills Treemap",
+    "type": "scad",
+    "compare": false,
+    "unit": "count",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF JD TM 1A 0014"
+      },
+      {
+        "label": "Keywords",
+        "value": "Skills, Treemap, Demand, Frequency, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Exploration of most frequent skills in postings",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Invest in Python and Project Management Training Pipelines",
+      "title_ar": "",
+      "text": "Python and Project Management dominate skill demand with 4,500 and 4,200 mentions respectively. Scaling certified training programmes in these areas can directly address employer needs.",
+      "text_ar": "",
+      "reason": "The treemap highlights a clear concentration of demand in technical and managerial skills, suggesting that workforce development should prioritise digital literacy and leadership competencies.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Top Skills Treemap",
+        "chartType": "treemap",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false,
+        "series": [
+          {
+            "id": "top-skills-treemap",
+            "type": "treemap",
+            "color": "#2563EA",
+            "group": "skills",
+            "label": "Top Skills",
+            "xAccessor": {
+              "path": "name",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "value",
+              "type": "value"
+            },
+            "data": [
+              {
+                "name": "Python",
+                "colorValue": 1,
+                "VALUE": 4500
+              },
+              {
+                "name": "Project Management",
+                "colorValue": 2,
+                "VALUE": 4200
+              },
+              {
+                "name": "Data Analysis",
+                "colorValue": 3,
+                "VALUE": 3800
+              },
+              {
+                "name": "JavaScript",
+                "colorValue": 4,
+                "VALUE": 3500
+              },
+              {
+                "name": "Communication",
+                "colorValue": 5,
+                "VALUE": 3200
+              },
+              {
+                "name": "SQL",
+                "colorValue": 6,
+                "VALUE": 2900
+              },
+              {
+                "name": "Leadership",
+                "colorValue": 7,
+                "VALUE": 2700
+              },
+              {
+                "name": "AutoCAD",
+                "colorValue": 8,
+                "VALUE": 2500
+              },
+              {
+                "name": "SAP",
+                "colorValue": 9,
+                "VALUE": 2300
+              },
+              {
+                "name": "Cloud Computing",
+                "colorValue": 10,
+                "VALUE": 2100
+              },
+              {
+                "name": "Cybersecurity",
+                "colorValue": 11,
+                "VALUE": 1900
+              },
+              {
+                "name": "Machine Learning",
+                "colorValue": 12,
+                "VALUE": 1800
+              },
+              {
+                "name": "Nursing",
+                "colorValue": 13,
+                "VALUE": 1700
+              },
+              {
+                "name": "Financial Analysis",
+                "colorValue": 14,
+                "VALUE": 1600
+              },
+              {
+                "name": "Excel",
+                "colorValue": 15,
+                "VALUE": 1500
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

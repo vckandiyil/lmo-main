@@ -1,0 +1,64 @@
+{
+  "success": true,
+  "correlationId": "a1b2c3d4-1009-5ed3-c6f4-0d73c003g009",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 109,
+    "title": "Company Concentration Risk",
+    "type": "scad",
+    "compare": false,
+    "unit": "%",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      { "label": "Indicator code", "value": "LM CMP CR 1A 1009" },
+      { "label": "Keywords", "value": "Concentration, Risk, Top employers, Dependency, Abu Dhabi" },
+      { "label": "Statistical population", "value": "All job postings aggregated to measure employer concentration from the Job Postings Platform." },
+      { "label": "Geographic coverage", "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra." },
+      { "label": "Measurement unit", "value": "%" },
+      { "label": "Available periodicity", "value": "Monthly" },
+      { "label": "Data sources", "value": "Job Postings Platform" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Measures dependency on top employers",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Risk Alert",
+      "badge_ar": "",
+      "title": "Moderate Concentration Risk in Employer Base",
+      "title_ar": "",
+      "text": "The top 10 companies account for 38% of all postings, indicating moderate concentration risk. Encouraging SME growth and startup hiring could reduce dependency on large employers.",
+      "text_ar": "",
+      "reason": "High employer concentration creates vulnerability to sector-specific shocks. Diversifying the employer base strengthens labour market resilience and broadens career opportunities.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Company Concentration Risk",
+        "series": [
+          {
+            "id": "company-concentration-risk",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "concentration",
+            "label": "Top 10 Share",
+            "xAccessor": { "path": "METRIC", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "METRIC": "Top 10 Share", "VALUE": 38 }
+            ]
+          }
+        ],
+        "chartType": "solidgauge",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false,
+        "yAxis": { "maxCap": 100 }
+      }
+    ]
+  }
+}

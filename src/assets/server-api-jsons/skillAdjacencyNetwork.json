@@ -1,0 +1,224 @@
+{
+  "success": true,
+  "correlationId": "k1l2m3n4-1011-5ed3-c6f4-0d73c003g935",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 35,
+    "title": "Skill Adjacency Network",
+    "type": "scad",
+    "compare": false,
+    "unit": "",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF JD SK AN 3501"
+      },
+      {
+        "label": "Keywords",
+        "value": "Skills, Adjacency, Network, Co-occurrence, Pathways, Ecosystem"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "co-occurrence count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Quarterly"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Last data update",
+        "value": "20250925"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Shows skill ecosystems and pathways",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Strategic",
+      "badge_ar": "",
+      "title": "Python Is the Central Hub of the Skill Network",
+      "title_ar": "",
+      "text": "Python connects to JavaScript, Data Analysis, and Machine Learning, making it the most versatile skill in the network. Training programmes centred on Python can unlock multiple career pathways.",
+      "text_ar": "",
+      "reason": "Skill adjacency analysis reveals which competencies serve as bridges between domains. Investing in hub skills like Python maximises workforce adaptability and cross-functional mobility.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Skill Adjacency Network",
+        "series": [
+          {
+            "id": "python",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "skills",
+            "label": "Python",
+            "data": [
+              { "SKILL": "JavaScript", "VALUE": 4500 },
+              { "SKILL": "Data Analysis", "VALUE": 5200 },
+              { "SKILL": "Machine Learning", "VALUE": 4800 }
+            ],
+            "xAccessor": {
+              "path": "SKILL",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          },
+          {
+            "id": "javascript",
+            "type": "solid",
+            "color": "#3B82F6",
+            "group": "skills",
+            "label": "JavaScript",
+            "data": [
+              { "SKILL": "Python", "VALUE": 4500 },
+              { "SKILL": "SQL", "VALUE": 3800 },
+              { "SKILL": "Cloud Computing", "VALUE": 3200 }
+            ],
+            "xAccessor": {
+              "path": "SKILL",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          },
+          {
+            "id": "sql",
+            "type": "solid",
+            "color": "#60A5FA",
+            "group": "skills",
+            "label": "SQL",
+            "data": [
+              { "SKILL": "Data Analysis", "VALUE": 4100 },
+              { "SKILL": "Python", "VALUE": 3900 }
+            ],
+            "xAccessor": {
+              "path": "SKILL",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          },
+          {
+            "id": "data-analysis",
+            "type": "solid",
+            "color": "#1E40AF",
+            "group": "skills",
+            "label": "Data Analysis",
+            "data": [
+              { "SKILL": "Python", "VALUE": 5200 },
+              { "SKILL": "SQL", "VALUE": 4100 },
+              { "SKILL": "Machine Learning", "VALUE": 3600 }
+            ],
+            "xAccessor": {
+              "path": "SKILL",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          },
+          {
+            "id": "machine-learning",
+            "type": "solid",
+            "color": "#1D4ED8",
+            "group": "skills",
+            "label": "Machine Learning",
+            "data": [
+              { "SKILL": "Python", "VALUE": 4800 },
+              { "SKILL": "Data Analysis", "VALUE": 3600 },
+              { "SKILL": "Cloud Computing", "VALUE": 2900 }
+            ],
+            "xAccessor": {
+              "path": "SKILL",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          },
+          {
+            "id": "cloud-computing",
+            "type": "solid",
+            "color": "#7C3AED",
+            "group": "skills",
+            "label": "Cloud Computing",
+            "data": [
+              { "SKILL": "JavaScript", "VALUE": 3200 },
+              { "SKILL": "Machine Learning", "VALUE": 2900 }
+            ],
+            "xAccessor": {
+              "path": "SKILL",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          },
+          {
+            "id": "project-management",
+            "type": "solid",
+            "color": "#DB2777",
+            "group": "skills",
+            "label": "Project Management",
+            "data": [
+              { "SKILL": "Communication", "VALUE": 5500 },
+              { "SKILL": "Data Analysis", "VALUE": 2800 }
+            ],
+            "xAccessor": {
+              "path": "SKILL",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          },
+          {
+            "id": "communication",
+            "type": "solid",
+            "color": "#F59E0B",
+            "group": "skills",
+            "label": "Communication",
+            "data": [
+              { "SKILL": "Project Management", "VALUE": 5500 },
+              { "SKILL": "Leadership", "VALUE": 4700 }
+            ],
+            "xAccessor": {
+              "path": "SKILL",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          }
+        ],
+        "chartType": "networkgraph",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false
+      }
+    ]
+  }
+}

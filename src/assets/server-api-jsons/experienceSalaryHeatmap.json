@@ -1,0 +1,130 @@
+{
+  "success": true,
+  "correlationId": "a1b2c3d4-1010-4e5f-9a1b-000000000022",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "experienceSalaryHeatmap",
+    "title": "Experience vs Salary Heatmap",
+    "type": "scad",
+    "compare": false,
+    "unit": "",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      { "label": "Indicator code", "value": "LF JD HM 1D 0022" },
+      { "label": "Keywords", "value": "Experience, Salary, Heatmap, Bands, UAE" },
+      { "label": "Data sources", "value": "Job Postings Platform" },
+      { "label": "Geographic coverage", "value": "UAE" },
+      { "label": "Measurement unit", "value": "count" },
+      { "label": "Available periodicity", "value": "Monthly" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Shows salary intensity by experience bands and roles",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Mid-Experience Band (3-5 Years) Dominates the 10K-20K Salary Range",
+      "title_ar": "",
+      "text": "The 3-5 year experience band shows the highest posting concentration in the 10K-20K AED salary range with 480 postings. Employers should benchmark offers within this band to remain competitive.",
+      "text_ar": "",
+      "reason": "The experience-salary heatmap reveals clear clustering patterns that can inform compensation benchmarking and career progression frameworks across the UAE labour market.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Experience vs Salary Heatmap",
+        "chartType": "heatmap",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false,
+        "series": [
+          {
+            "id": "exp-0-2",
+            "type": "solid",
+            "color": "#BFDBFE",
+            "group": "experience",
+            "label": "0-2 years",
+            "xAccessor": { "path": "SALARY_BAND", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "SALARY_BAND": "<10K", "VALUE": 450 },
+              { "SALARY_BAND": "10K-20K", "VALUE": 280 },
+              { "SALARY_BAND": "20K-30K", "VALUE": 60 },
+              { "SALARY_BAND": "30K-50K", "VALUE": 15 },
+              { "SALARY_BAND": "50K+", "VALUE": 10 }
+            ]
+          },
+          {
+            "id": "exp-3-5",
+            "type": "solid",
+            "color": "#93C5FD",
+            "group": "experience",
+            "label": "3-5 years",
+            "xAccessor": { "path": "SALARY_BAND", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "SALARY_BAND": "<10K", "VALUE": 180 },
+              { "SALARY_BAND": "10K-20K", "VALUE": 480 },
+              { "SALARY_BAND": "20K-30K", "VALUE": 220 },
+              { "SALARY_BAND": "30K-50K", "VALUE": 55 },
+              { "SALARY_BAND": "50K+", "VALUE": 20 }
+            ]
+          },
+          {
+            "id": "exp-6-10",
+            "type": "solid",
+            "color": "#60A5FA",
+            "group": "experience",
+            "label": "6-10 years",
+            "xAccessor": { "path": "SALARY_BAND", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "SALARY_BAND": "<10K", "VALUE": 40 },
+              { "SALARY_BAND": "10K-20K", "VALUE": 310 },
+              { "SALARY_BAND": "20K-30K", "VALUE": 420 },
+              { "SALARY_BAND": "30K-50K", "VALUE": 180 },
+              { "SALARY_BAND": "50K+", "VALUE": 45 }
+            ]
+          },
+          {
+            "id": "exp-11-15",
+            "type": "solid",
+            "color": "#3B82F6",
+            "group": "experience",
+            "label": "11-15 years",
+            "xAccessor": { "path": "SALARY_BAND", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "SALARY_BAND": "<10K", "VALUE": 12 },
+              { "SALARY_BAND": "10K-20K", "VALUE": 90 },
+              { "SALARY_BAND": "20K-30K", "VALUE": 280 },
+              { "SALARY_BAND": "30K-50K", "VALUE": 350 },
+              { "SALARY_BAND": "50K+", "VALUE": 120 }
+            ]
+          },
+          {
+            "id": "exp-16-plus",
+            "type": "solid",
+            "color": "#1E40AF",
+            "group": "experience",
+            "label": "16+ years",
+            "xAccessor": { "path": "SALARY_BAND", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "SALARY_BAND": "<10K", "VALUE": 10 },
+              { "SALARY_BAND": "10K-20K", "VALUE": 35 },
+              { "SALARY_BAND": "20K-30K", "VALUE": 110 },
+              { "SALARY_BAND": "30K-50K", "VALUE": 500 },
+              { "SALARY_BAND": "50K+", "VALUE": 290 }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

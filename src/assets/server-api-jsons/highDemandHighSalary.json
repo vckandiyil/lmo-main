@@ -1,0 +1,122 @@
+{
+  "success": true,
+  "correlationId": "a1b2c3d4-1012-4e5f-9a1b-000000000024",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "highDemandHighSalary",
+    "title": "High Demand, High Salary Roles",
+    "type": "scad",
+    "compare": false,
+    "unit": "AED",
+    "filters": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF JD BR 1A 0024"
+      },
+      {
+        "label": "Keywords",
+        "value": "High Demand, High Salary, Strategic, Priority, Roles, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "AED"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "description": "Top 10 roles combining high demand with high average salary",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "AI Engineers Command Highest Average Salary Among High-Demand Roles",
+      "title_ar": "",
+      "text": "AI Engineer leads with an average salary of 42,000 AED, followed by Cloud Architect (39,500) and DevOps Lead (37,000). Investing in these talent pipelines offers the highest return on workforce development spend.",
+      "text_ar": "",
+      "reason": "Roles that combine high demand with premium salaries represent strategic priorities where talent shortages have the greatest economic impact and where intervention yields the highest returns.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "High Demand, High Salary Roles",
+        "chartType": "bar",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "series": [
+          {
+            "id": "high-demand-high-salary",
+            "type": "solid",
+            "color": "#1D4ED8",
+            "group": "roles",
+            "label": "Avg Salary (AED)",
+            "xAccessor": {
+              "path": "name",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "value",
+              "type": "value"
+            },
+            "data": [
+              {
+                "name": "AI Engineer",
+                "VALUE": 42000
+              },
+              {
+                "name": "Cloud Architect",
+                "VALUE": 39500
+              },
+              {
+                "name": "DevOps Lead",
+                "VALUE": 37000
+              },
+              {
+                "name": "Data Science Manager",
+                "VALUE": 36000
+              },
+              {
+                "name": "Cybersecurity Analyst",
+                "VALUE": 34500
+              },
+              {
+                "name": "Solutions Architect",
+                "VALUE": 33000
+              },
+              {
+                "name": "Full Stack Developer",
+                "VALUE": 31000
+              },
+              {
+                "name": "Product Manager",
+                "VALUE": 30000
+              },
+              {
+                "name": "Platform Engineer",
+                "VALUE": 28500
+              },
+              {
+                "name": "Machine Learning Engineer",
+                "VALUE": 27500
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

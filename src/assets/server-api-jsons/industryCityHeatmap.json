@@ -1,0 +1,135 @@
+{
+  "success": true,
+  "correlationId": "a1b2c3d4-1006-4e5f-9a1b-000000000018",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "industryCityHeatmap",
+    "title": "Industry by City Heatmap",
+    "type": "scad",
+    "compare": false,
+    "unit": "",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      { "label": "Indicator code", "value": "LF JD HM 1C 0018" },
+      { "label": "Keywords", "value": "Industry, City, Heatmap, Regional, Sector, UAE" },
+      { "label": "Data sources", "value": "Job Postings Platform" },
+      { "label": "Geographic coverage", "value": "UAE" },
+      { "label": "Measurement unit", "value": "count" },
+      { "label": "Available periodicity", "value": "Monthly" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Planning view for regional sector demand",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Energy Sector Dominates Abu Dhabi While Technology Leads Dubai",
+      "title_ar": "",
+      "text": "Abu Dhabi shows peak demand in Energy (4,800) and Government-adjacent sectors, while Dubai leads in Technology (5,000) and Finance. Regional specialisation strategies should leverage these natural clusters.",
+      "text_ar": "",
+      "reason": "The city-industry heatmap reveals distinct regional economic profiles, enabling targeted policy interventions and infrastructure investments aligned with each city's sectoral strengths.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Industry by City Heatmap",
+        "chartType": "heatmap",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false,
+        "series": [
+          {
+            "id": "city-abu-dhabi",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "cities",
+            "label": "Abu Dhabi",
+            "xAccessor": { "path": "INDUSTRY", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "INDUSTRY": "Technology", "VALUE": 3200 },
+              { "INDUSTRY": "Healthcare", "VALUE": 2100 },
+              { "INDUSTRY": "Finance", "VALUE": 2800 },
+              { "INDUSTRY": "Construction", "VALUE": 1900 },
+              { "INDUSTRY": "Education", "VALUE": 1400 },
+              { "INDUSTRY": "Energy", "VALUE": 4800 }
+            ]
+          },
+          {
+            "id": "city-dubai",
+            "type": "solid",
+            "color": "#3B82F6",
+            "group": "cities",
+            "label": "Dubai",
+            "xAccessor": { "path": "INDUSTRY", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "INDUSTRY": "Technology", "VALUE": 5000 },
+              { "INDUSTRY": "Healthcare", "VALUE": 1800 },
+              { "INDUSTRY": "Finance", "VALUE": 3500 },
+              { "INDUSTRY": "Construction", "VALUE": 2200 },
+              { "INDUSTRY": "Education", "VALUE": 1100 },
+              { "INDUSTRY": "Energy", "VALUE": 1200 }
+            ]
+          },
+          {
+            "id": "city-al-ain",
+            "type": "solid",
+            "color": "#60A5FA",
+            "group": "cities",
+            "label": "Al Ain",
+            "xAccessor": { "path": "INDUSTRY", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "INDUSTRY": "Technology", "VALUE": 600 },
+              { "INDUSTRY": "Healthcare", "VALUE": 850 },
+              { "INDUSTRY": "Finance", "VALUE": 400 },
+              { "INDUSTRY": "Construction", "VALUE": 750 },
+              { "INDUSTRY": "Education", "VALUE": 900 },
+              { "INDUSTRY": "Energy", "VALUE": 350 }
+            ]
+          },
+          {
+            "id": "city-sharjah",
+            "type": "solid",
+            "color": "#93C5FD",
+            "group": "cities",
+            "label": "Sharjah",
+            "xAccessor": { "path": "INDUSTRY", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "INDUSTRY": "Technology", "VALUE": 1100 },
+              { "INDUSTRY": "Healthcare", "VALUE": 700 },
+              { "INDUSTRY": "Finance", "VALUE": 500 },
+              { "INDUSTRY": "Construction", "VALUE": 1300 },
+              { "INDUSTRY": "Education", "VALUE": 1200 },
+              { "INDUSTRY": "Energy", "VALUE": 250 }
+            ]
+          },
+          {
+            "id": "city-ajman",
+            "type": "solid",
+            "color": "#BFDBFE",
+            "group": "cities",
+            "label": "Ajman",
+            "xAccessor": { "path": "INDUSTRY", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "INDUSTRY": "Technology", "VALUE": 350 },
+              { "INDUSTRY": "Healthcare", "VALUE": 280 },
+              { "INDUSTRY": "Finance", "VALUE": 200 },
+              { "INDUSTRY": "Construction", "VALUE": 600 },
+              { "INDUSTRY": "Education", "VALUE": 450 },
+              { "INDUSTRY": "Energy", "VALUE": 220 }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "success": true,
+  "correlationId": "f6g7h8i9-1006-5ed3-c6f4-0d73c003g930",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 30,
+    "title": "Education Level Mix for Jobs",
+    "type": "scad",
+    "compare": false,
+    "unit": "%",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF JD ED MX 3001"
+      },
+      {
+        "label": "Keywords",
+        "value": "Education level, Bachelor, Master, PhD, Diploma, High school, Jobs"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "%"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Quarterly"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Last data update",
+        "value": "20250925"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Education requirements distribution",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Trend",
+      "badge_ar": "",
+      "title": "Bachelor's Degree Demand Continues to Rise",
+      "title_ar": "",
+      "text": "Bachelor's degree requirements grew from 40% in Q1 to 42% in Q3 2025, while high school and diploma requirements decreased. This trend may limit access for non-degree holders.",
+      "text_ar": "",
+      "reason": "Shifting education requirements reflect evolving employer expectations. Monitoring this mix helps align education policy and vocational training programmes with market needs.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Education Level Mix for Jobs",
+        "series": [
+          {
+            "id": "high-school",
+            "type": "solid",
+            "color": "#BFDBFE",
+            "group": "education",
+            "label": "High School",
+            "data": [
+              { "QUARTER": "Q1 2025", "VALUE": 15 },
+              { "QUARTER": "Q2 2025", "VALUE": 14 },
+              { "QUARTER": "Q3 2025", "VALUE": 13 }
+            ],
+            "xAccessor": {
+              "path": "QUARTER",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          },
+          {
+            "id": "diploma",
+            "type": "solid",
+            "color": "#93C5FD",
+            "group": "education",
+            "label": "Diploma",
+            "data": [
+              { "QUARTER": "Q1 2025", "VALUE": 20 },
+              { "QUARTER": "Q2 2025", "VALUE": 19 },
+              { "QUARTER": "Q3 2025", "VALUE": 18 }
+            ],
+            "xAccessor": {
+              "path": "QUARTER",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          },
+          {
+            "id": "bachelor",
+            "type": "solid",
+            "color": "#3B82F6",
+            "group": "education",
+            "label": "Bachelor",
+            "data": [
+              { "QUARTER": "Q1 2025", "VALUE": 40 },
+              { "QUARTER": "Q2 2025", "VALUE": 41 },
+              { "QUARTER": "Q3 2025", "VALUE": 42 }
+            ],
+            "xAccessor": {
+              "path": "QUARTER",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          },
+          {
+            "id": "master",
+            "type": "solid",
+            "color": "#1E40AF",
+            "group": "education",
+            "label": "Master",
+            "data": [
+              { "QUARTER": "Q1 2025", "VALUE": 20 },
+              { "QUARTER": "Q2 2025", "VALUE": 21 },
+              { "QUARTER": "Q3 2025", "VALUE": 22 }
+            ],
+            "xAccessor": {
+              "path": "QUARTER",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          },
+          {
+            "id": "phd",
+            "type": "solid",
+            "color": "#1D4ED8",
+            "group": "education",
+            "label": "PhD",
+            "data": [
+              { "QUARTER": "Q1 2025", "VALUE": 5 },
+              { "QUARTER": "Q2 2025", "VALUE": 5 },
+              { "QUARTER": "Q3 2025", "VALUE": 5 }
+            ],
+            "xAccessor": {
+              "path": "QUARTER",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          }
+        ],
+        "chartType": "bar",
+        "stacking": "percent",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false
+      }
+    ]
+  }
+}

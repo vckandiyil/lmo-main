@@ -490,6 +490,19 @@
         "label": "10Y",
         "value": 10
       }
+    ],
+    "viewTypes": [
+      {
+        "id": "line",
+        "label": "Line Chart",
+        "icon": "graph-up",
+        "default": true
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
+      }
     ]
   }
 }

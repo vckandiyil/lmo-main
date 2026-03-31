@@ -1,6 +1,5 @@
 <button
   class="ai-chat__toggle-btn"
-  [class.ai-chat__toggle-btn--active]="isOpen()"
   (click)="toggle()">
   @if (isAnimating()) {
     @if (isOpen()) {
@@ -25,39 +24,73 @@
 
 @if (isOpen()) {
   <div class="ai-chat__panel" [@slideInOut]="animationParams()">
-    <img class="ai-chat__assistant-icon" src="assets/images/icons/AI Assistant.png" alt="AI Assistant" />
-    <div class="ai-chat__content">
-      <span class="ai-chat__greeting">{{ 'LMI.AI_HELLO' | translate }}</span>
-      <span class="ai-chat__question">{{ 'LMI.AI_WHAT_KNOW' | translate }}</span>
+
+    <div class="ai-chat__header">
+      <img class="ai-chat__assistant-icon" src="assets/images/icons/AI Assistant.png" alt="AI Assistant"/>
     </div>
-    <div class="ai-chat__suggestions">
-      <div class="ai-chat__suggestion-item">
-        <app-icon name="stars" color="#3375C6" size="24"/>
-        <span class="ai-chat__suggestion-text">{{ 'LMI.AI_SUGGESTION_1' | translate }}</span>
+
+    @if (!hasMessages()) {
+      <div class="ai-chat__content">
+        <span class="ai-chat__greeting">{{ 'LMI.AI_HELLO' | translate }}</span>
+        <span class="ai-chat__question">{{ 'LMI.AI_WHAT_KNOW' | translate }}</span>
       </div>
-      <div class="ai-chat__suggestion-item">
-        <app-icon name="stars" color="#3375C6" size="24"/>
-        <span class="ai-chat__suggestion-text">{{ 'LMI.AI_SUGGESTION_2' | translate }}</span>
+      <div class="ai-chat__suggestions">
+        @for (key of suggestions; track key) {
+          <div class="ai-chat__suggestion-item" (click)="onSuggestionClick(key)">
+            <app-icon name="stars" color="#3375C6" size="24"/>
+            <span class="ai-chat__suggestion-text">{{ key | translate }}</span>
+          </div>
+        }
       </div>
-      <div class="ai-chat__suggestion-item">
-        <app-icon name="stars" color="#3375C6" size="24"/>
-        <span class="ai-chat__suggestion-text">{{ 'LMI.AI_SUGGESTION_3' | translate }}</span>
+    } @else {
+      <div class="ai-chat__messages" #messageContainer>
+        @for (msg of messages(); track $index) {
+          @if (msg.type === 'user') {
+            <div class="ai-chat__msg ai-chat__msg--user">{{ msg.content }}</div>
+          } @else {
+            <div class="ai-chat__msg ai-chat__msg--assistant" [class.ai-chat__msg--error]="msg.isError">
+              <p class="ai-chat__msg-text">{{ msg.response?.message?.content ?? msg.content }}</p>
+              @if (msg.response?.show_viz && msg.response?.custom_charts?.length) {
+                @if (msg.response!.chart_desc) {
+                  <p class="ai-chat__chart-desc">{{ msg.response!.chart_desc }}</p>
+                }
+                @for (chart of msg.response!.custom_charts; track $index) {
+                  <div class="ai-chat__chart">
+                    <app-chart-wrapper [options]="buildChartOptions(chart)"/>
+                  </div>
+                }
+              }
+            </div>
+          }
+        }
+        @if (isLoading()) {
+          <div class="ai-chat__msg ai-chat__msg--assistant ai-chat__msg--loading">
+            <span class="ai-chat__loading-dot"></span>
+            <span class="ai-chat__loading-dot"></span>
+            <span class="ai-chat__loading-dot"></span>
+          </div>
+        }
       </div>
-    </div>
+    }
+
     <div class="ai-chat__search">
       <div class="ai-chat__search-input-wrapper">
         <input
           type="text"
           class="ai-chat__search-field"
           [placeholder]="'LMI.AI_PLACEHOLDER' | translate"
+          [value]="inputValue()"
+          (input)="inputValue.set($any($event.target).value)"
+          (keyup.enter)="sendMessage()"
         />
       </div>
       <div class="ai-chat__search-right">
         <app-icon class="ai-chat__search-mic" name="microphone" size="16"/>
-        <div class="ai-chat__search-button">
+        <div class="ai-chat__search-button" (click)="sendMessage()">
           <app-icon name="nav-arrow-right" color="#FFFFFF" size="20"/>
         </div>
       </div>
     </div>
+
   </div>
 }

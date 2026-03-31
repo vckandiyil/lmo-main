@@ -7,6 +7,8 @@ import {FlipCard} from '../../atom/flip-card/flip-card';
 import {WidgetBack} from '../../atom/widget-back/widget-back';
 import {ChartOptions} from '../../../shared/services/chart-config.service';
 import {DashboardDataService} from '../../../core';
+import {WidgetDetailService} from '../../../core/services/widget-detail.service';
+import {WidgetType} from '../../../core/models/widget.model';
 
 const SPLIT_COLORS: Record<string, { left: string; right: string }> = {
   nationality: {left: '#3375C6', right: '#84A7D3'},
@@ -42,6 +44,7 @@ interface LaborForceData {
 })
 export class LaborForceComposition implements OnInit {
   private readonly dashboardDataService = inject(DashboardDataService);
+  private readonly widgetDetailService = inject(WidgetDetailService);
 
   totalLaborForce = 1900000;
   participationRate = 78;
@@ -73,6 +76,26 @@ export class LaborForceComposition implements OnInit {
 
   onWidgetClick(): void {
     this.selectedChange.emit();
+  }
+
+  onParticipationRateClick(event: Event): void {
+    event.stopPropagation();
+    this.widgetDetailService.open(WidgetType.LaborForceParticipation);
+  }
+
+  onTotalLaborForceClick(event: Event): void {
+    event.stopPropagation();
+    this.widgetDetailService.open(WidgetType.LaborForceTotal);
+  }
+
+  onNationalitySplitClick(event: Event): void {
+    event.stopPropagation();
+    this.widgetDetailService.open(WidgetType.LaborForceNationality);
+  }
+
+  onGenderSplitClick(event: Event): void {
+    event.stopPropagation();
+    this.widgetDetailService.open(WidgetType.LaborForceGender);
   }
 
   ngOnInit(): void {

@@ -2,6 +2,7 @@
   display: block;
   flex: 1;
   overflow-y: auto;
+  padding-top: var(--filters-h);
   padding-left: var(--nav-sidebar-w);
   background: var(--lmo-bg-surface);
   transition: padding-left 0.3s ease;
@@ -10,6 +11,12 @@
     padding-left: 0;
     padding-right: var(--nav-sidebar-w);
     transition: padding-right 0.3s ease;
+  }
+}
+
+@media (max-width: 767.98px) {
+  :host {
+    transition: none;
   }
 }
 

@@ -1,0 +1,71 @@
+{
+  "success": true,
+  "correlationId": "f4a1b2c3-3900-4e5f-9a1b-000000000039",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "applicantRoleFamily",
+    "title": "Applicants by Role Family",
+    "type": "scad",
+    "compare": false,
+    "unit": "count",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Applicant Intelligence",
+    "metadata": [
+      { "label": "Indicator code", "value": "LF AI RF 1A 0039" },
+      { "label": "Keywords", "value": "Applicants, Role Family, Occupation, Distribution, UAE" },
+      { "label": "Data sources", "value": "Job Postings Platform" },
+      { "label": "Geographic coverage", "value": "UAE" },
+      { "label": "Measurement unit", "value": "count" },
+      { "label": "Available periodicity", "value": "Monthly" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Distribution of applicants across major role families.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Engineering Dominates Applicant Supply — Align with Demand",
+      "title_ar": "",
+      "text": "Engineering leads with 5,200 applicants, followed by Finance and IT. Aligning training and placement programmes with sector-specific demand gaps can optimise talent allocation.",
+      "text_ar": "",
+      "reason": "Role family distribution reveals supply concentrations that may not align with emerging demand in healthcare and technology, presenting rebalancing opportunities.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Applicants by Role Family",
+        "series": [
+          {
+            "id": "applicants-role-family",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "applicants",
+            "label": "Applicants",
+            "data": [
+              { "ROLE": "Engineering", "VALUE": 5200 },
+              { "ROLE": "Finance & Accounting", "VALUE": 4100 },
+              { "ROLE": "IT & Technology", "VALUE": 3800 },
+              { "ROLE": "Healthcare", "VALUE": 3200 },
+              { "ROLE": "Sales & Marketing", "VALUE": 2900 },
+              { "ROLE": "Human Resources", "VALUE": 2400 },
+              { "ROLE": "Operations", "VALUE": 2100 },
+              { "ROLE": "Education", "VALUE": 1800 },
+              { "ROLE": "Legal", "VALUE": 1200 },
+              { "ROLE": "Creative & Design", "VALUE": 900 }
+            ],
+            "xAccessor": { "path": "ROLE", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" }
+          }
+        ],
+        "chartType": "bar",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false
+      }
+    ]
+  }
+}

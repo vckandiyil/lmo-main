@@ -35,3 +35,36 @@
     margin-top: 32px;
   }
 }
+
+// ---------------------------------------------------------------------------
+// RESPONSIVE
+// ---------------------------------------------------------------------------
+@media (max-width: 1199.98px) {
+  .forecast__content {
+    position: static;
+    width: 100%;
+    height: auto;
+    left: auto;
+    right: auto;
+    padding: var(--content-top) 16px 16px calc(var(--nav-sidebar-w) + 16px);
+    transition: none;
+
+    :host-context([dir='rtl']) & {
+      left: auto;
+      right: auto;
+      transition: none;
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .forecast {
+    &__content {
+      padding: var(--content-top) 8px 8px calc(var(--nav-sidebar-w) + 8px);
+    }
+
+    &__graphs-item {
+      width: 100%;
+    }
+  }
+}

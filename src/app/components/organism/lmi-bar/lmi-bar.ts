@@ -3,8 +3,11 @@ import {HttpClient} from '@angular/common/http';
 import {API_BASE_URL} from '../../../core/tokens/api-base-url.token';
 import {Badge} from '../../atom/badge/badge';
 import {Icon} from '../../atom/icon/icon';
+import {WidgetDetailService} from '../../../core/services/widget-detail.service';
+import {WidgetType} from '../../../core/models/widget.model';
 
 interface LmiTickerItem {
+  id: WidgetType | null;
   domain: string;
   overall: string;
   yyOverall: number;
@@ -20,6 +23,7 @@ interface LmiTickerItem {
 export class LmiBar implements OnInit {
   private readonly http = inject(HttpClient);
   private readonly baseUrl = inject(API_BASE_URL);
+  private readonly widgetDetailService = inject(WidgetDetailService);
 
   items = signal<LmiTickerItem[]>([]);
 
@@ -34,6 +38,7 @@ export class LmiBar implements OnInit {
       next: ({laborMarketPulse}) => {
         this.items.set(
           laborMarketPulse.indicators.map((ind: any) => ({
+            id: ind.id ?? null,
             domain: ind.domain,
             overall: ind.overall,
             yyOverall: ind.yy.overall,
@@ -42,5 +47,11 @@ export class LmiBar implements OnInit {
       },
       error: (err) => console.error('Failed to load lmi-bar data:', err),
     });
+  }
+
+  onItemClick(item: LmiTickerItem): void {
+    if (item.id) {
+      this.widgetDetailService.open(item.id);
+    }
   }
 }

@@ -1,0 +1,91 @@
+{
+  "success": true,
+  "correlationId": "b2c3d4e5-1002-5ed3-c6f4-0d73c003g926",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 26,
+    "title": "Jobs by Experience Level",
+    "type": "scad",
+    "compare": false,
+    "unit": "count",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF JD EX LV 2601"
+      },
+      {
+        "label": "Keywords",
+        "value": "Experience level, Entry level, Junior, Senior, Manager, Jobs"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Quarterly"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Last data update",
+        "value": "20250925"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Shows demand by experience level",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Insight",
+      "badge_ar": "",
+      "title": "Entry-Level Demand Dominates the Market",
+      "title_ar": "",
+      "text": "Entry-level positions account for the largest share of job postings at 12,500, indicating strong onboarding demand. Workforce development programmes should focus on preparing graduates for immediate employment.",
+      "text_ar": "",
+      "reason": "The pyramid-shaped demand distribution highlights a healthy intake pipeline but also suggests potential bottlenecks in mid-to-senior career progression paths.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Jobs by Experience Level",
+        "series": [
+          {
+            "id": "jobs-by-experience-level",
+            "type": "solid",
+            "color": "#3375c6",
+            "group": "experience",
+            "label": "Job Postings",
+            "data": [
+              { "LEVEL": "Entry Level", "VALUE": 12500 },
+              { "LEVEL": "Junior (1-3 yrs)", "VALUE": 9800 },
+              { "LEVEL": "Mid (3-6 yrs)", "VALUE": 8200 },
+              { "LEVEL": "Senior (6-10 yrs)", "VALUE": 5400 },
+              { "LEVEL": "Manager (10+ yrs)", "VALUE": 3100 },
+              { "LEVEL": "Director/VP", "VALUE": 1200 }
+            ],
+            "xAccessor": {
+              "path": "LEVEL",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          }
+        ],
+        "chartType": "column",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false
+      }
+    ]
+  }
+}

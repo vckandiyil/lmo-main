@@ -1,0 +1,97 @@
+{
+  "success": true,
+  "correlationId": "a1b2c3d4-1010-5ed3-c6f4-0d73c003g010",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 110,
+    "title": "Job Type Distribution",
+    "type": "scad",
+    "compare": false,
+    "unit": "%",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      { "label": "Indicator code", "value": "LM JOB TD 1A 1010" },
+      { "label": "Keywords", "value": "Job type, Distribution, Full-time, Part-time, Contract, Abu Dhabi" },
+      { "label": "Statistical population", "value": "All job postings classified by employment type from the Job Postings Platform." },
+      { "label": "Geographic coverage", "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra." },
+      { "label": "Measurement unit", "value": "%" },
+      { "label": "Available periodicity", "value": "Monthly" },
+      { "label": "Data sources", "value": "Job Postings Platform" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Composition of FT/PT/Contract postings",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Stable Trend",
+      "badge_ar": "",
+      "title": "Full-Time Employment Remains Dominant",
+      "title_ar": "",
+      "text": "Full-time positions consistently account for 71-73% of postings, indicating a stable preference for permanent employment across Abu Dhabi's labour market.",
+      "text_ar": "",
+      "reason": "The stability of the full-time share provides confidence in job quality metrics, though monitoring part-time and contract trends remains important for labour policy.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Job Type Distribution",
+        "series": [
+          {
+            "id": "job-type-fulltime",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "full-time",
+            "label": "Full-time",
+            "xAccessor": { "path": "MONTH", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "MONTH": "Jan 2025", "VALUE": 72 },
+              { "MONTH": "Feb 2025", "VALUE": 71 },
+              { "MONTH": "Mar 2025", "VALUE": 73 },
+              { "MONTH": "Apr 2025", "VALUE": 72 }
+            ]
+          },
+          {
+            "id": "job-type-parttime",
+            "type": "solid",
+            "color": "#60A5FA",
+            "group": "part-time",
+            "label": "Part-time",
+            "xAccessor": { "path": "MONTH", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "MONTH": "Jan 2025", "VALUE": 15 },
+              { "MONTH": "Feb 2025", "VALUE": 16 },
+              { "MONTH": "Mar 2025", "VALUE": 14 },
+              { "MONTH": "Apr 2025", "VALUE": 15 }
+            ]
+          },
+          {
+            "id": "job-type-contract",
+            "type": "solid",
+            "color": "#93C5FD",
+            "group": "contract",
+            "label": "Contract",
+            "xAccessor": { "path": "MONTH", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "MONTH": "Jan 2025", "VALUE": 13 },
+              { "MONTH": "Feb 2025", "VALUE": 13 },
+              { "MONTH": "Mar 2025", "VALUE": 13 },
+              { "MONTH": "Apr 2025", "VALUE": 13 }
+            ]
+          }
+        ],
+        "chartType": "bar",
+        "stacking": "percent",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false
+      }
+    ]
+  }
+}

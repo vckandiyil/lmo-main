@@ -1,0 +1,271 @@
+{
+  "success": true,
+  "correlationId": "e1f2a3b4-5c6d-7e8f-9a0b-1c2d3e4f5a6b",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 23,
+    "title": "Employment",
+    "type": "scad",
+    "compare": false,
+    "unit": "persons",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Employment",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF EMP TT 1D 3001"
+      },
+      {
+        "label": "Keywords",
+        "value": "Employment, total employed, workforce"
+      },
+      {
+        "label": "Statistical population",
+        "value": "The statistical population includes all individuals aged 15 years and above who are employed and reside in the Emirate of Abu Dhabi."
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "Number of persons"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Statistical calculation method",
+        "value": "Total count of employed persons aged 15 and above residing in the Emirate of Abu Dhabi."
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "\u00a9 SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "highlights": [],
+    "description": "Total number of employed persons in the Emirate of Abu Dhabi.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Growth",
+      "badge_ar": "\u0646\u0645\u0648",
+      "title": "Employment Numbers Reach Record Highs",
+      "title_ar": "\u0623\u0639\u062f\u0627\u062f \u0627\u0644\u062a\u0648\u0638\u064a\u0641 \u062a\u0635\u0644 \u0625\u0644\u0649 \u0645\u0633\u062a\u0648\u064a\u0627\u062a \u0642\u064a\u0627\u0633\u064a\u0629",
+      "text": "Total employment has grown steadily, reaching over 1.3 million in 2025, driven by private sector expansion and government diversification initiatives.",
+      "text_ar": "\u0646\u0645\u0627 \u0625\u062c\u0645\u0627\u0644\u064a \u0627\u0644\u062a\u0648\u0638\u064a\u0641 \u0628\u0634\u0643\u0644 \u0645\u0637\u0631\u062f\u060c \u0645\u062a\u062c\u0627\u0648\u0632\u0627\u064b 1.3 \u0645\u0644\u064a\u0648\u0646 \u0641\u064a 2025.",
+      "reason": "Abu Dhabi's economic diversification strategy has expanded employment beyond traditional oil and gas sectors, with growth concentrated in technology, finance, tourism, and construction.",
+      "reason_ar": "\u0648\u0633\u0639\u062a \u0627\u0633\u062a\u0631\u0627\u062a\u064a\u062c\u064a\u0629 \u0627\u0644\u062a\u0646\u0648\u064a\u0639 \u0627\u0644\u0627\u0642\u062a\u0635\u0627\u062f\u064a \u0641\u064a \u0623\u0628\u0648\u0638\u0628\u064a \u0627\u0644\u062a\u0648\u0638\u064a\u0641 \u0625\u0644\u0649 \u0645\u0627 \u0648\u0631\u0627\u0621 \u0642\u0637\u0627\u0639\u064a \u0627\u0644\u0646\u0641\u0637 \u0648\u0627\u0644\u063a\u0627\u0632 \u0627\u0644\u062a\u0642\u0644\u064a\u062f\u064a\u064a\u0646."
+    },
+    "visualizations": [
+      {
+        "label": "Total Employment",
+        "series": [
+          {
+            "id": "total",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "total",
+            "label": "Total",
+            "filterBy": {
+              "TYPE": "NOWCAST",
+              "CITIZENSHIP": "Total"
+            },
+            "xAccessor": {
+              "path": "OBS_DT",
+              "type": "date",
+              "specifier": "%Y-%m-%d"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              {
+                "VALUE": 1042000,
+                "MAX_VALUE": 1335000,
+                "MIN_VALUE": 978000,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2014-01-01",
+                "YEAR": "2014"
+              },
+              {
+                "VALUE": 1058000,
+                "MAX_VALUE": 1335000,
+                "MIN_VALUE": 978000,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2015-01-01",
+                "YEAR": "2015"
+              },
+              {
+                "VALUE": 1071000,
+                "MAX_VALUE": 1335000,
+                "MIN_VALUE": 978000,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2016-01-01",
+                "YEAR": "2016"
+              },
+              {
+                "VALUE": 1089000,
+                "MAX_VALUE": 1335000,
+                "MIN_VALUE": 978000,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2017-01-01",
+                "YEAR": "2017"
+              },
+              {
+                "VALUE": 1105000,
+                "MAX_VALUE": 1335000,
+                "MIN_VALUE": 978000,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2018-01-01",
+                "YEAR": "2018"
+              },
+              {
+                "VALUE": 1123000,
+                "MAX_VALUE": 1335000,
+                "MIN_VALUE": 978000,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2019-01-01",
+                "YEAR": "2019"
+              },
+              {
+                "VALUE": 978000,
+                "MAX_VALUE": 1335000,
+                "MIN_VALUE": 978000,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2020-01-01",
+                "YEAR": "2020"
+              },
+              {
+                "VALUE": 1087000,
+                "MAX_VALUE": 1335000,
+                "MIN_VALUE": 978000,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 1168000,
+                "MAX_VALUE": 1335000,
+                "MIN_VALUE": 978000,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 1245000,
+                "MAX_VALUE": 1335000,
+                "MIN_VALUE": 978000,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 1298000,
+                "MAX_VALUE": 1335000,
+                "MIN_VALUE": 978000,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              },
+              {
+                "VALUE": 1335000,
+                "MAX_VALUE": 1335000,
+                "MIN_VALUE": 978000,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2025-01-01",
+                "YEAR": "2025"
+              }
+            ],
+            "yMax": 1335000,
+            "yMin": 978000,
+            "xMin": "2014-01-01",
+            "xMax": "2025-01-01"
+          }
+        ],
+        "viewName": "VW_DS_EMPLOYMENT_TOTAL_ANNUAL",
+        "chartType": "line",
+        "valueFormat": "compact",
+        "isTimeSeries": true,
+        "rangeOptions": [
+          {
+            "id": "3y",
+            "label": "3Y",
+            "value": 3
+          },
+          {
+            "id": "5y",
+            "label": "5Y",
+            "value": 5
+          },
+          {
+            "id": "all",
+            "label": "ALL",
+            "value": null
+          }
+        ],
+        "showMinMaxValues": true
+      }
+    ],
+    "rangeOptions": [
+      {
+        "id": "all",
+        "label": "All",
+        "value": null
+      },
+      {
+        "id": "3",
+        "label": "3Y",
+        "value": 3
+      },
+      {
+        "id": "5",
+        "label": "5Y",
+        "value": 5
+      },
+      {
+        "id": "10",
+        "label": "10Y",
+        "value": 10
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "line",
+        "label": "Line Chart",
+        "icon": "graph-up",
+        "default": true
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
+      }
+    ]
+  }
+}

@@ -1,0 +1,296 @@
+{
+  "success": true,
+  "correlationId": "a1b2c3d4-1011-4e5f-9a1b-000000000023",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "titleSalaryHeatmap",
+    "title": "Job Title × Salary Heatmap",
+    "type": "scad",
+    "compare": false,
+    "unit": "count",
+    "filters": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF JD HM 1E 0023"
+      },
+      {
+        "label": "Keywords",
+        "value": "Job Title, Salary, Heatmap, Bands, Decision, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "description": "Matrix of job titles versus salary ranges showing posting concentrations",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Software Engineers Cluster in Premium Salary Bands",
+      "title_ar": "",
+      "text": "Software Engineers show peak concentration in the 60-80k band (420 postings) while Accountants dominate 20-40k (380 postings). These patterns guide compensation strategy and talent acquisition budgets.",
+      "text_ar": "",
+      "reason": "The title-salary matrix provides actionable intelligence for HR departments and policy makers to benchmark offers and identify roles where salary expectations diverge from market reality.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Job Title × Salary Heatmap",
+        "chartType": "heatmap",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "series": [
+          {
+            "id": "title-salary-heatmap-0",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Software Engineer",
+            "color": "#2563EA",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "20-40k",
+                "VALUE": 120
+              },
+              {
+                "CATEGORY": "40-60k",
+                "VALUE": 350
+              },
+              {
+                "CATEGORY": "60-80k",
+                "VALUE": 420
+              },
+              {
+                "CATEGORY": "80-100k",
+                "VALUE": 280
+              },
+              {
+                "CATEGORY": "100k+",
+                "VALUE": 150
+              }
+            ]
+          },
+          {
+            "id": "title-salary-heatmap-1",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Data Analyst",
+            "color": "#3B82F6",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "20-40k",
+                "VALUE": 280
+              },
+              {
+                "CATEGORY": "40-60k",
+                "VALUE": 410
+              },
+              {
+                "CATEGORY": "60-80k",
+                "VALUE": 310
+              },
+              {
+                "CATEGORY": "80-100k",
+                "VALUE": 140
+              },
+              {
+                "CATEGORY": "100k+",
+                "VALUE": 60
+              }
+            ]
+          },
+          {
+            "id": "title-salary-heatmap-2",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Project Manager",
+            "color": "#60A5FA",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "20-40k",
+                "VALUE": 150
+              },
+              {
+                "CATEGORY": "40-60k",
+                "VALUE": 320
+              },
+              {
+                "CATEGORY": "60-80k",
+                "VALUE": 380
+              },
+              {
+                "CATEGORY": "80-100k",
+                "VALUE": 290
+              },
+              {
+                "CATEGORY": "100k+",
+                "VALUE": 180
+              }
+            ]
+          },
+          {
+            "id": "title-salary-heatmap-3",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Accountant",
+            "color": "#93C5FD",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "20-40k",
+                "VALUE": 380
+              },
+              {
+                "CATEGORY": "40-60k",
+                "VALUE": 350
+              },
+              {
+                "CATEGORY": "60-80k",
+                "VALUE": 190
+              },
+              {
+                "CATEGORY": "80-100k",
+                "VALUE": 80
+              },
+              {
+                "CATEGORY": "100k+",
+                "VALUE": 30
+              }
+            ]
+          },
+          {
+            "id": "title-salary-heatmap-4",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Civil Engineer",
+            "color": "#BFDBFE",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "20-40k",
+                "VALUE": 200
+              },
+              {
+                "CATEGORY": "40-60k",
+                "VALUE": 340
+              },
+              {
+                "CATEGORY": "60-80k",
+                "VALUE": 360
+              },
+              {
+                "CATEGORY": "80-100k",
+                "VALUE": 210
+              },
+              {
+                "CATEGORY": "100k+",
+                "VALUE": 90
+              }
+            ]
+          },
+          {
+            "id": "title-salary-heatmap-5",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Nurse",
+            "color": "#1E40AF",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "20-40k",
+                "VALUE": 420
+              },
+              {
+                "CATEGORY": "40-60k",
+                "VALUE": 310
+              },
+              {
+                "CATEGORY": "60-80k",
+                "VALUE": 160
+              },
+              {
+                "CATEGORY": "80-100k",
+                "VALUE": 50
+              },
+              {
+                "CATEGORY": "100k+",
+                "VALUE": 15
+              }
+            ]
+          },
+          {
+            "id": "title-salary-heatmap-6",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Marketing Manager",
+            "color": "#1D4ED8",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "20-40k",
+                "VALUE": 180
+              },
+              {
+                "CATEGORY": "40-60k",
+                "VALUE": 290
+              },
+              {
+                "CATEGORY": "60-80k",
+                "VALUE": 320
+              },
+              {
+                "CATEGORY": "80-100k",
+                "VALUE": 240
+              },
+              {
+                "CATEGORY": "100k+",
+                "VALUE": 110
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

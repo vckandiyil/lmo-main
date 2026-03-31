@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, computed, effect, ElementRef, inject, Input, signal, untracked, ViewChild, OnInit} from '@angular/core';
+import {AfterViewInit, Component, computed, DestroyRef, effect, ElementRef, inject, Input, OnDestroy, signal, untracked, ViewChild, OnInit} from '@angular/core';
 import {TranslateModule} from '@ngx-translate/core';
 import {CdkDragDrop, CdkDrag, CdkDropList, CdkDragPlaceholder} from '@angular/cdk/drag-drop';
 import {Icon} from '../../atom/icon/icon';
@@ -32,7 +32,7 @@ import type {Widget, SidebarPosition} from '../../../core';
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss'
 })
-export class Sidebar implements AfterViewInit, OnInit {
+export class Sidebar implements AfterViewInit, OnInit, OnDestroy {
   @ViewChild('leftWidgets') leftWidgets!: ElementRef<HTMLElement>;
   @ViewChild('rightWidgets') rightWidgets!: ElementRef<HTMLElement>;
 
@@ -46,9 +46,12 @@ export class Sidebar implements AfterViewInit, OnInit {
   private readonly themeService = inject(ThemeService);
   private readonly widgetDetailService = inject(WidgetDetailService);
   private readonly layoutService = inject(LayoutService);
+  private readonly mobileQuery = typeof window !== 'undefined' && typeof window.matchMedia === 'function' ? window.matchMedia('(max-width: 767.98px)') : null;
+  private readonly mobileListener = (e: MediaQueryListEvent) => this.isMobile.set(e.matches);
 
   isDarkMode = this.themeService.isDarkMode;
   readonly layoutMode = this.layoutService.layoutMode;
+  readonly isMobile = signal(this.mobileQuery?.matches ?? false);
 
   leftWidgetList = this.widgetStore.leftWidgets;
   rightWidgetList = this.widgetStore.rightWidgets;
@@ -87,6 +90,8 @@ export class Sidebar implements AfterViewInit, OnInit {
   private wasDragged = false;
 
   constructor() {
+    this.mobileQuery?.addEventListener('change', this.mobileListener);
+
     // Initialize the 4 column signals from the store when entering 4col mode.
     // untracked() ensures the effect only re-runs on layoutMode changes,
     // not on every store update (which would reset in-progress drag operations).
@@ -206,6 +211,10 @@ export class Sidebar implements AfterViewInit, OnInit {
     if (this.resetToDefaults) {
       this.widgetStore.resetToDefaults();
     }
+  }
+
+  ngOnDestroy(): void {
+    this.mobileQuery?.removeEventListener('change', this.mobileListener);
   }
 
   ngAfterViewInit(): void {

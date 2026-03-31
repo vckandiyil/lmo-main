@@ -1,0 +1,135 @@
+{
+  "success": true,
+  "correlationId": "lf-nat-001",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 202,
+    "title": "Labor Force by Nationality",
+    "type": "scad",
+    "compare": false,
+    "unit": "thousands",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Employment",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF LFC NAT 1A 2002"
+      },
+      {
+        "label": "Keywords",
+        "value": "Labor force, nationality, Emirati, expatriate, composition"
+      },
+      {
+        "label": "Statistical population",
+        "value": "Economically active individuals aged 15 and above in the Emirate of Abu Dhabi, classified by nationality (Emirati vs Expatriate)."
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra regions."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "Thousands"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "\u00a9 SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "highlights": [],
+    "description": "Labor force composition by nationality, showing Emirati and expatriate workforce distribution over time.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Key Insight",
+      "badge_ar": "\u0631\u0624\u064a\u0629 \u0631\u0626\u064a\u0633\u064a\u0629",
+      "title": "Emiratisation Progress Needs Acceleration in Private Sector",
+      "title_ar": "\u062a\u0642\u062f\u0645 \u0627\u0644\u062a\u0648\u0637\u064a\u0646 \u064a\u062d\u062a\u0627\u062c \u0625\u0644\u0649 \u062a\u0633\u0631\u064a\u0639 \u0641\u064a \u0627\u0644\u0642\u0637\u0627\u0639 \u0627\u0644\u062e\u0627\u0635",
+      "text": "While the Emirati labor force has grown, expatriates still represent the majority. Targeted private-sector Emiratisation programs are critical.",
+      "text_ar": "\u0628\u064a\u0646\u0645\u0627 \u0646\u0645\u062a \u0627\u0644\u0642\u0648\u0649 \u0627\u0644\u0639\u0627\u0645\u0644\u0629 \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a\u064a\u0629\u060c \u0644\u0627 \u064a\u0632\u0627\u0644 \u0627\u0644\u0648\u0627\u0641\u062f\u0648\u0646 \u064a\u0645\u062b\u0644\u0648\u0646 \u0627\u0644\u0623\u063a\u0644\u0628\u064a\u0629.",
+      "reason": "Emirati share of total labor force has been gradually increasing but remains under 45%, indicating ongoing reliance on expatriate labor.",
+      "reason_ar": "\u062d\u0635\u0629 \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a\u064a\u064a\u0646 \u0645\u0646 \u0625\u062c\u0645\u0627\u0644\u064a \u0627\u0644\u0642\u0648\u0649 \u0627\u0644\u0639\u0627\u0645\u0644\u0629 \u062a\u0632\u062f\u0627\u062f \u062a\u062f\u0631\u064a\u062c\u064a\u0627\u064b \u0644\u0643\u0646\u0647\u0627 \u0644\u0627 \u062a\u0632\u0627\u0644 \u0623\u0642\u0644 \u0645\u0646 45%."
+    },
+    "visualizations": [
+      {
+        "label": "Labor Force by Nationality",
+        "series": [
+          {
+            "id": "emirati",
+            "type": "solid",
+            "color": "#3375C6",
+            "group": "emirati",
+            "label": "Emirati",
+            "xAccessor": {
+              "path": "YEAR",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              { "YEAR": "2018", "VALUE": 625.3 },
+              { "YEAR": "2019", "VALUE": 648.7 },
+              { "YEAR": "2020", "VALUE": 660.2 },
+              { "YEAR": "2021", "VALUE": 689.4 },
+              { "YEAR": "2022", "VALUE": 721.8 },
+              { "YEAR": "2023", "VALUE": 752.1 },
+              { "YEAR": "2024", "VALUE": 780.5 }
+            ]
+          },
+          {
+            "id": "expatriate",
+            "type": "solid",
+            "color": "#84A7D3",
+            "group": "expatriate",
+            "label": "Expatriate",
+            "xAccessor": {
+              "path": "YEAR",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              { "YEAR": "2018", "VALUE": 952.4 },
+              { "YEAR": "2019", "VALUE": 998.1 },
+              { "YEAR": "2020", "VALUE": 885.6 },
+              { "YEAR": "2021", "VALUE": 932.8 },
+              { "YEAR": "2022", "VALUE": 1018.5 },
+              { "YEAR": "2023", "VALUE": 1065.3 },
+              { "YEAR": "2024", "VALUE": 1096.5 }
+            ]
+          }
+        ],
+        "chartType": "line",
+        "isTimeSeries": true
+      }
+    ],
+    "rangeOptions": [
+      { "id": "all", "label": "All", "value": null },
+      { "id": "3", "label": "3Y", "value": 3 },
+      { "id": "5", "label": "5Y", "value": 5 }
+    ],
+    "viewTypes": [
+      { "id": "line", "label": "Line Chart", "icon": "graph-up", "default": true },
+      { "id": "table", "label": "Table", "icon": "layout-left" }
+    ]
+  }
+}

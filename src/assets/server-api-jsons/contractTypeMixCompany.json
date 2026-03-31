@@ -1,0 +1,115 @@
+{
+  "success": true,
+  "correlationId": "a1b2c3d4-1008-5ed3-c6f4-0d73c003g008",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 108,
+    "title": "Contract Type Mix by Company",
+    "type": "scad",
+    "compare": false,
+    "unit": "%",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      { "label": "Indicator code", "value": "LM CTR MX 1A 1008" },
+      { "label": "Keywords", "value": "Contract type, Company, Full-time, Part-time, Hiring strategy, Abu Dhabi" },
+      { "label": "Statistical population", "value": "All job postings classified by contract type and employer from the Job Postings Platform." },
+      { "label": "Geographic coverage", "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra." },
+      { "label": "Measurement unit", "value": "%" },
+      { "label": "Available periodicity", "value": "Monthly" },
+      { "label": "Data sources", "value": "Job Postings Platform" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Shows hiring strategy (FT/PT/Contract)",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Workforce Strategy",
+      "badge_ar": "",
+      "title": "Contract Work Rising in Energy Sector Companies",
+      "title_ar": "",
+      "text": "TAQA and Masdar show contract work at 25% and 22% respectively, higher than the market average of 15%. This trend may affect job stability metrics for these sectors.",
+      "text_ar": "",
+      "reason": "The growing share of contract-based hiring in energy companies signals a shift toward project-based employment, requiring updated labour market regulations and worker protections.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Contract Type Mix by Company",
+        "series": [
+          {
+            "id": "contract-fulltime",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "full-time",
+            "label": "Full-time",
+            "xAccessor": { "path": "COMPANY", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "COMPANY": "ADNOC", "VALUE": 72 },
+              { "COMPANY": "Etisalat", "VALUE": 75 },
+              { "COMPANY": "Emirates NBD", "VALUE": 80 },
+              { "COMPANY": "Mubadala", "VALUE": 70 },
+              { "COMPANY": "Abu Dhabi Health", "VALUE": 68 },
+              { "COMPANY": "Aldar Properties", "VALUE": 74 },
+              { "COMPANY": "First Abu Dhabi Bank", "VALUE": 78 },
+              { "COMPANY": "Etihad Airways", "VALUE": 65 },
+              { "COMPANY": "TAQA", "VALUE": 60 },
+              { "COMPANY": "Masdar", "VALUE": 63 }
+            ]
+          },
+          {
+            "id": "contract-parttime",
+            "type": "solid",
+            "color": "#60A5FA",
+            "group": "part-time",
+            "label": "Part-time",
+            "xAccessor": { "path": "COMPANY", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "COMPANY": "ADNOC", "VALUE": 13 },
+              { "COMPANY": "Etisalat", "VALUE": 12 },
+              { "COMPANY": "Emirates NBD", "VALUE": 10 },
+              { "COMPANY": "Mubadala", "VALUE": 15 },
+              { "COMPANY": "Abu Dhabi Health", "VALUE": 17 },
+              { "COMPANY": "Aldar Properties", "VALUE": 14 },
+              { "COMPANY": "First Abu Dhabi Bank", "VALUE": 12 },
+              { "COMPANY": "Etihad Airways", "VALUE": 20 },
+              { "COMPANY": "TAQA", "VALUE": 15 },
+              { "COMPANY": "Masdar", "VALUE": 15 }
+            ]
+          },
+          {
+            "id": "contract-contract",
+            "type": "solid",
+            "color": "#93C5FD",
+            "group": "contract",
+            "label": "Contract",
+            "xAccessor": { "path": "COMPANY", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "COMPANY": "ADNOC", "VALUE": 15 },
+              { "COMPANY": "Etisalat", "VALUE": 13 },
+              { "COMPANY": "Emirates NBD", "VALUE": 10 },
+              { "COMPANY": "Mubadala", "VALUE": 15 },
+              { "COMPANY": "Abu Dhabi Health", "VALUE": 15 },
+              { "COMPANY": "Aldar Properties", "VALUE": 12 },
+              { "COMPANY": "First Abu Dhabi Bank", "VALUE": 10 },
+              { "COMPANY": "Etihad Airways", "VALUE": 15 },
+              { "COMPANY": "TAQA", "VALUE": 25 },
+              { "COMPANY": "Masdar", "VALUE": 22 }
+            ]
+          }
+        ],
+        "chartType": "bar",
+        "stacking": "percent",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false
+      }
+    ]
+  }
+}

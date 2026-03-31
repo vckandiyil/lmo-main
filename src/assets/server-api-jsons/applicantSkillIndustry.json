@@ -1,0 +1,263 @@
+{
+  "success": true,
+  "correlationId": "f4a1b2c3-4600-4e5f-9a1b-000000000046",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "applicantSkillIndustry",
+    "title": "Skill × Industry Matrix",
+    "type": "scad",
+    "compare": false,
+    "unit": "count",
+    "filters": [],
+    "updated": "2025-09-25",
+    "category": "Job Applicant Intelligence",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF AI SI 1A 0046"
+      },
+      {
+        "label": "Keywords",
+        "value": "Applicants, Skills, Industry, Matrix, Heatmap, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "description": "Cross-tabulation of applicant skills by target industry.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Python Skills Concentrated in IT — Other Sectors Lag",
+      "title_ar": "",
+      "text": "Python-skilled applicants overwhelmingly target IT (2,800) while Healthcare (350) and Construction (200) see minimal interest. Cross-sector mobility programmes could address this imbalance.",
+      "text_ar": "",
+      "reason": "The skill-industry matrix reveals sector-specific talent concentrations that create supply bottlenecks in underserved industries.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Skill × Industry Matrix",
+        "chartType": "heatmap",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "series": [
+          {
+            "id": "skill-industry-matrix-0",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Python",
+            "color": "#2563EA",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "IT",
+                "VALUE": 2800
+              },
+              {
+                "CATEGORY": "Finance",
+                "VALUE": 1200
+              },
+              {
+                "CATEGORY": "Healthcare",
+                "VALUE": 350
+              },
+              {
+                "CATEGORY": "Construction",
+                "VALUE": 200
+              },
+              {
+                "CATEGORY": "Education",
+                "VALUE": 580
+              }
+            ]
+          },
+          {
+            "id": "skill-industry-matrix-1",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Excel",
+            "color": "#3B82F6",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "IT",
+                "VALUE": 1400
+              },
+              {
+                "CATEGORY": "Finance",
+                "VALUE": 2600
+              },
+              {
+                "CATEGORY": "Healthcare",
+                "VALUE": 1800
+              },
+              {
+                "CATEGORY": "Construction",
+                "VALUE": 900
+              },
+              {
+                "CATEGORY": "Education",
+                "VALUE": 1500
+              }
+            ]
+          },
+          {
+            "id": "skill-industry-matrix-2",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "SQL",
+            "color": "#60A5FA",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "IT",
+                "VALUE": 2400
+              },
+              {
+                "CATEGORY": "Finance",
+                "VALUE": 1900
+              },
+              {
+                "CATEGORY": "Healthcare",
+                "VALUE": 600
+              },
+              {
+                "CATEGORY": "Construction",
+                "VALUE": 300
+              },
+              {
+                "CATEGORY": "Education",
+                "VALUE": 750
+              }
+            ]
+          },
+          {
+            "id": "skill-industry-matrix-3",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Project Management",
+            "color": "#93C5FD",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "IT",
+                "VALUE": 1500
+              },
+              {
+                "CATEGORY": "Finance",
+                "VALUE": 1800
+              },
+              {
+                "CATEGORY": "Healthcare",
+                "VALUE": 900
+              },
+              {
+                "CATEGORY": "Construction",
+                "VALUE": 2200
+              },
+              {
+                "CATEGORY": "Education",
+                "VALUE": 700
+              }
+            ]
+          },
+          {
+            "id": "skill-industry-matrix-4",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Data Analysis",
+            "color": "#BFDBFE",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "IT",
+                "VALUE": 2100
+              },
+              {
+                "CATEGORY": "Finance",
+                "VALUE": 1600
+              },
+              {
+                "CATEGORY": "Healthcare",
+                "VALUE": 800
+              },
+              {
+                "CATEGORY": "Construction",
+                "VALUE": 400
+              },
+              {
+                "CATEGORY": "Education",
+                "VALUE": 950
+              }
+            ]
+          },
+          {
+            "id": "skill-industry-matrix-5",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Cloud Computing",
+            "color": "#1E40AF",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "IT",
+                "VALUE": 2100
+              },
+              {
+                "CATEGORY": "Finance",
+                "VALUE": 800
+              },
+              {
+                "CATEGORY": "Healthcare",
+                "VALUE": 280
+              },
+              {
+                "CATEGORY": "Construction",
+                "VALUE": 220
+              },
+              {
+                "CATEGORY": "Education",
+                "VALUE": 350
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -7,6 +7,8 @@ import {FlipCard} from '../../atom/flip-card/flip-card';
 import {WidgetBack} from '../../atom/widget-back/widget-back';
 import {ChartOptions} from '../../../shared/services/chart-config.service';
 import {DashboardDataService} from '../../../core';
+import {WidgetDetailService} from '../../../core/services/widget-detail.service';
+import {WidgetType} from '../../../core/models/widget.model';
 
 const EDUCATION_COLORS: Record<string, { emirati: string; expat: string }> = {
   'Secondary Education': {emirati: '#3375C6', expat: '#84A7D3'},
@@ -44,6 +46,7 @@ interface MarketEntrantsData {
 })
 export class MarketEntrants implements OnInit {
   private readonly dashboardDataService = inject(DashboardDataService);
+  private readonly widgetDetailService = inject(WidgetDetailService);
 
   educationData: EducationData[] = [];
   immigrationChartOptions = signal<ChartOptions>({});
@@ -55,6 +58,16 @@ export class MarketEntrants implements OnInit {
 
   onWidgetClick(): void {
     this.selectedChange.emit();
+  }
+
+  onEducationClick(event: Event): void {
+    event.stopPropagation();
+    this.widgetDetailService.open(WidgetType.MarketEntrantsEducation);
+  }
+
+  onImmigrationClick(event: Event): void {
+    event.stopPropagation();
+    this.widgetDetailService.open(WidgetType.MarketEntrantsImmigration);
   }
 
   ngOnInit(): void {

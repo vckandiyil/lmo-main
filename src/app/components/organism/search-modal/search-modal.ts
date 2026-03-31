@@ -53,6 +53,22 @@ export class SearchModal {
     this.catalogEntries().map(e => e.id as WidgetType),
   );
 
+  readonly visibleWidgetTypes = computed(() =>
+    this.allWidgetTypes().filter(type => this.isWidgetVisible(type)),
+  );
+
+  /** Distribute widgets evenly across 3 columns. */
+  private readonly colBreakpoints = computed((): [number, number] => {
+    const n    = this.visibleWidgetTypes().length;
+    const col1 = Math.ceil(n / 3);
+    const col2 = Math.ceil((n - col1) / 2);
+    return [col1, col1 + col2];
+  });
+
+  readonly col1Types = computed(() => this.visibleWidgetTypes().slice(0, this.colBreakpoints()[0]));
+  readonly col2Types = computed(() => this.visibleWidgetTypes().slice(this.colBreakpoints()[0], this.colBreakpoints()[1]));
+  readonly col3Types = computed(() => this.visibleWidgetTypes().slice(this.colBreakpoints()[1]));
+
   constructor() {
     effect(() => {
       if (this.isOpen()) {

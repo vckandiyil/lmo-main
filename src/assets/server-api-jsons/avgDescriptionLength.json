@@ -1,0 +1,93 @@
+{
+  "success": true,
+  "correlationId": "h8i9j0k1-1008-5ed3-c6f4-0d73c003g932",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 32,
+    "title": "Avg Description Length by Industry",
+    "type": "scad",
+    "compare": false,
+    "unit": "words",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF JD DL IN 3201"
+      },
+      {
+        "label": "Keywords",
+        "value": "Description length, Posting quality, Industry, Words, Job posting"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "words"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Quarterly"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Last data update",
+        "value": "20250925"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Posting quality proxy",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Quality",
+      "badge_ar": "",
+      "title": "Technology Leads in Posting Detail and Clarity",
+      "title_ar": "",
+      "text": "Technology postings average 450 words, nearly double Hospitality at 230. More detailed postings correlate with better candidate-job matching and lower mis-hire rates.",
+      "text_ar": "",
+      "reason": "Job description length serves as a proxy for posting quality. Industries with shorter descriptions may benefit from standardised posting templates to improve applicant quality.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Avg Description Length by Industry",
+        "series": [
+          {
+            "id": "avg-description-length",
+            "type": "solid",
+            "color": "#3375c6",
+            "group": "description",
+            "label": "Avg Words",
+            "data": [
+              { "INDUSTRY": "Technology", "VALUE": 450 },
+              { "INDUSTRY": "Finance", "VALUE": 380 },
+              { "INDUSTRY": "Healthcare", "VALUE": 350 },
+              { "INDUSTRY": "Education", "VALUE": 320 },
+              { "INDUSTRY": "Construction", "VALUE": 280 },
+              { "INDUSTRY": "Retail", "VALUE": 250 },
+              { "INDUSTRY": "Hospitality", "VALUE": 230 },
+              { "INDUSTRY": "Energy", "VALUE": 400 }
+            ],
+            "xAccessor": {
+              "path": "INDUSTRY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          }
+        ],
+        "chartType": "bar",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false
+      }
+    ]
+  }
+}

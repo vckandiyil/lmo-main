@@ -9,7 +9,7 @@
         "Outside Labor Force"
       ],
       "hasSidebarComponent": true,
-      "hasDetailView": false,
+      "hasDetailView": true,
       "hasExpandIcon": false,
       "hidden": false
     },
@@ -22,7 +22,7 @@
         "Outside Labor Force"
       ],
       "hasSidebarComponent": true,
-      "hasDetailView": false,
+      "hasDetailView": true,
       "hasExpandIcon": false,
       "hidden": false
     },
@@ -36,7 +36,7 @@
         "Job Seekers"
       ],
       "hasSidebarComponent": true,
-      "hasDetailView": false,
+      "hasDetailView": true,
       "hasExpandIcon": false,
       "hidden": false
     },
@@ -60,7 +60,7 @@
         "Outside Labor Force"
       ],
       "hasSidebarComponent": true,
-      "hasDetailView": false,
+      "hasDetailView": true,
       "hasExpandIcon": false,
       "hidden": false
     },
@@ -82,7 +82,7 @@
         "Employment"
       ],
       "hasSidebarComponent": true,
-      "hasDetailView": false,
+      "hasDetailView": true,
       "hasExpandIcon": false,
       "hidden": false
     },
@@ -94,7 +94,7 @@
         "Unemployment"
       ],
       "hasSidebarComponent": true,
-      "hasDetailView": false,
+      "hasDetailView": true,
       "hasExpandIcon": false,
       "hidden": true
     },
@@ -108,7 +108,7 @@
         "Job Seekers"
       ],
       "hasSidebarComponent": true,
-      "hasDetailView": false,
+      "hasDetailView": true,
       "hasExpandIcon": false,
       "hidden": false
     },
@@ -138,7 +138,7 @@
         "Job Seekers"
       ],
       "hasSidebarComponent": true,
-      "hasDetailView": false,
+      "hasDetailView": true,
       "hasExpandIcon": false,
       "hidden": false
     },
@@ -152,7 +152,7 @@
         "Job Seekers"
       ],
       "hasSidebarComponent": true,
-      "hasDetailView": false,
+      "hasDetailView": true,
       "hasExpandIcon": true,
       "hidden": false
     },
@@ -401,12 +401,615 @@
       "hidden": false
     },
     {
+      "id": "market-entrants-education",
+      "title": "Market Entrants by Education Level",
+      "category": [
+        "Employment"
+      ],
+      "hasSidebarComponent": false,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "market-entrants-immigration",
+      "title": "Market Entrants by Immigration",
+      "category": [
+        "Employment"
+      ],
+      "hasSidebarComponent": false,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "labor-force-total",
+      "title": "Total Labor Force",
+      "category": [
+        "Employment"
+      ],
+      "hasSidebarComponent": false,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "labor-force-nationality",
+      "title": "Labor Force by Nationality",
+      "category": [
+        "Employment"
+      ],
+      "hasSidebarComponent": false,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "labor-force-gender",
+      "title": "Labor Force by Gender",
+      "category": [
+        "Employment"
+      ],
+      "hasSidebarComponent": false,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "workforce-age-distribution",
+      "title": "Workforce Age Distribution",
+      "category": [
+        "Employment"
+      ],
+      "hasSidebarComponent": false,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "workforce-gender-nationality",
+      "title": "Workforce Gender and Nationality Split",
+      "category": [
+        "Employment"
+      ],
+      "hasSidebarComponent": false,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
       "id": "map",
       "title": "Map",
       "category": [],
       "hasSidebarComponent": true,
       "hasDetailView": false,
       "hasExpandIcon": true,
+      "hidden": false
+    },
+    {
+      "id": "wages-and-income",
+      "title": "Wages & Income (AED)",
+      "category": [
+        "Employment"
+      ],
+      "hasSidebarComponent": false,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "pensions-and-social-protection",
+      "title": "Pensions & Social Protection",
+      "category": [
+        "Employment"
+      ],
+      "hasSidebarComponent": false,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "executive-kpi-strip",
+      "title": "Executive KPI Strip",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "industry-share-jobs",
+      "title": "Industry Share of Total Jobs",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "industry-summary-table",
+      "title": "Industry Summary Table",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "skill-level-mix-industry",
+      "title": "Skill Level Mix by Industry",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "sector-contribution-openings",
+      "title": "Sector Contribution to Openings",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "sector-city-contribution",
+      "title": "Sector by City Contribution",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "top-companies-postings",
+      "title": "Top Companies by Postings",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "contract-type-mix-company",
+      "title": "Contract Type Mix by Company",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "company-concentration-risk",
+      "title": "Company Concentration Risk",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "job-type-distribution",
+      "title": "Job Type Distribution",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "remote-share-industry",
+      "title": "Remote Share by Industry",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "top-job-titles-volume",
+      "title": "Top Job Titles by Volume",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "job-title-sector-matrix",
+      "title": "Job Title Share by Sector",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "top-skills-treemap",
+      "title": "Top Skills Treemap",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "skills-industry-matrix",
+      "title": "Skills by Industry Matrix",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "skill-level-demand-mix",
+      "title": "Skill Level Demand Mix",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "job-demand-city-map",
+      "title": "Job Demand City Map",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "industry-city-heatmap",
+      "title": "Industry by City Heatmap",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "remote-jobs-map",
+      "title": "Remote Jobs Map",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "salary-range-role",
+      "title": "Salary Range by Role",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "salary-demand-bubble",
+      "title": "Salary vs Demand Volume",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "experience-salary-heatmap",
+      "title": "Experience vs Salary Heatmap",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "title-salary-heatmap",
+      "title": "Job Title vs Salary Heatmap",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "high-demand-high-salary",
+      "title": "High Demand + High Salary Roles",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "high-demand-low-salary",
+      "title": "High Demand + Low Salary Roles",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "jobs-by-experience-level",
+      "title": "Jobs by Experience Level",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "junior-senior-ratio",
+      "title": "Junior-to-Senior Ratio",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "career-path-funnel",
+      "title": "Career Path Funnel",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "work-arrangement-experience",
+      "title": "Work Arrangement by Experience",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "education-level-mix-jobs",
+      "title": "Education Level Mix for Jobs",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "education-industry-heatmap",
+      "title": "Education by Industry Heatmap",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "avg-description-length",
+      "title": "Avg Description Length by Industry",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "language-jobs-distribution",
+      "title": "Language vs Number of Jobs",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "jobs-company-size",
+      "title": "Jobs vs Company Size",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "skill-adjacency-network",
+      "title": "Skill Adjacency Network",
+      "category": ["Job Demand"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "applicant-total-kpi",
+      "title": "Total Applicants",
+      "category": ["Job Applicant Intelligence"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "applicant-abu-dhabi-pct",
+      "title": "% Located in Abu Dhabi",
+      "category": ["Job Applicant Intelligence"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "applicant-median-experience",
+      "title": "Median Years of Experience",
+      "category": ["Job Applicant Intelligence"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "applicant-role-family",
+      "title": "Applicants by Role Family",
+      "category": ["Job Applicant Intelligence"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "applicant-seniority-mix",
+      "title": "Applicant Seniority Mix",
+      "category": ["Job Applicant Intelligence"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "applicant-experience-bands",
+      "title": "Experience Bands Distribution",
+      "category": ["Job Applicant Intelligence"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "applicant-city-top15",
+      "title": "Applicants by City (Top 15)",
+      "category": ["Job Applicant Intelligence"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "applicant-top-skills",
+      "title": "Applicant Top Skills",
+      "category": ["Job Applicant Intelligence"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "applicant-certifications",
+      "title": "Top Certifications",
+      "category": ["Job Applicant Intelligence"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "applicant-education-mix",
+      "title": "Applicant Education Level Mix",
+      "category": ["Job Applicant Intelligence"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "applicant-skill-industry",
+      "title": "Skill \u00d7 Industry Matrix",
+      "category": ["Job Applicant Intelligence"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "applicant-tenure-bands",
+      "title": "Tenure in Current Role",
+      "category": ["Job Applicant Intelligence"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "applicant-mobility-score",
+      "title": "Career Mobility Score",
+      "category": ["Job Applicant Intelligence"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "applicant-hopping-risk",
+      "title": "Job Hopping Risk by Industry",
+      "category": ["Job Applicant Intelligence"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "ad-talent-pool-kpi",
+      "title": "Abu Dhabi Talent Pool Size",
+      "category": ["Talent Pool Intelligence"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "sector-readiness-heatmap",
+      "title": "Strategic Sector Readiness",
+      "category": ["Talent Pool Intelligence"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "rising-skills-ad",
+      "title": "Rising Skills in Abu Dhabi",
+      "category": ["Talent Pool Intelligence"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "certification-strength-sector",
+      "title": "Certification Strength by Sector",
+      "category": ["Talent Pool Intelligence"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "seniority-pyramid-ad",
+      "title": "Seniority Pyramid (Abu Dhabi)",
+      "category": ["Talent Pool Intelligence"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "talent-source-concentration",
+      "title": "Talent Source Concentration",
+      "category": ["Talent Pool Intelligence"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
+      "hidden": false
+    },
+    {
+      "id": "skill-adjacency-network-ad",
+      "title": "Skill Network (Abu Dhabi)",
+      "category": ["Talent Pool Intelligence"],
+      "hasSidebarComponent": true,
+      "hasDetailView": true,
+      "hasExpandIcon": false,
       "hidden": false
     }
   ]

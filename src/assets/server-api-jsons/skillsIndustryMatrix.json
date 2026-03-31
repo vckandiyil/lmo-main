@@ -1,0 +1,130 @@
+{
+  "success": true,
+  "correlationId": "a1b2c3d4-1003-4e5f-9a1b-000000000015",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "skillsIndustryMatrix",
+    "title": "Skills by Industry Matrix",
+    "type": "scad",
+    "compare": false,
+    "unit": "",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      { "label": "Indicator code", "value": "LF JD HM 1B 0015" },
+      { "label": "Keywords", "value": "Skills, Industry, Matrix, Heatmap, UAE" },
+      { "label": "Data sources", "value": "Job Postings Platform" },
+      { "label": "Geographic coverage", "value": "UAE" },
+      { "label": "Measurement unit", "value": "count" },
+      { "label": "Available periodicity", "value": "Monthly" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Shows skill demand by industry",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Bridge Skill Gaps in Healthcare and Construction Sectors",
+      "title_ar": "",
+      "text": "Technology leads in Python and SQL demand while Healthcare and Construction lag in digital skills. Cross-industry digital upskilling initiatives can improve workforce adaptability.",
+      "text_ar": "",
+      "reason": "The skills-industry matrix shows pronounced digital skill concentrations in Technology, with other sectors showing significant gaps that represent opportunities for workforce development.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Skills by Industry Matrix",
+        "chartType": "heatmap",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false,
+        "series": [
+          {
+            "id": "industry-technology",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "industries",
+            "label": "Technology",
+            "xAccessor": { "path": "SKILL", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "SKILL": "Python", "VALUE": 1850 },
+              { "SKILL": "Project Management", "VALUE": 1200 },
+              { "SKILL": "Data Analysis", "VALUE": 1600 },
+              { "SKILL": "Communication", "VALUE": 800 },
+              { "SKILL": "SQL", "VALUE": 1700 }
+            ]
+          },
+          {
+            "id": "industry-healthcare",
+            "type": "solid",
+            "color": "#3B82F6",
+            "group": "industries",
+            "label": "Healthcare",
+            "xAccessor": { "path": "SKILL", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "SKILL": "Python", "VALUE": 250 },
+              { "SKILL": "Project Management", "VALUE": 600 },
+              { "SKILL": "Data Analysis", "VALUE": 480 },
+              { "SKILL": "Communication", "VALUE": 1100 },
+              { "SKILL": "SQL", "VALUE": 180 }
+            ]
+          },
+          {
+            "id": "industry-finance",
+            "type": "solid",
+            "color": "#60A5FA",
+            "group": "industries",
+            "label": "Finance",
+            "xAccessor": { "path": "SKILL", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "SKILL": "Python", "VALUE": 900 },
+              { "SKILL": "Project Management", "VALUE": 1050 },
+              { "SKILL": "Data Analysis", "VALUE": 1400 },
+              { "SKILL": "Communication", "VALUE": 750 },
+              { "SKILL": "SQL", "VALUE": 1200 }
+            ]
+          },
+          {
+            "id": "industry-construction",
+            "type": "solid",
+            "color": "#93C5FD",
+            "group": "industries",
+            "label": "Construction",
+            "xAccessor": { "path": "SKILL", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "SKILL": "Python", "VALUE": 120 },
+              { "SKILL": "Project Management", "VALUE": 1800 },
+              { "SKILL": "Data Analysis", "VALUE": 300 },
+              { "SKILL": "Communication", "VALUE": 650 },
+              { "SKILL": "SQL", "VALUE": 100 }
+            ]
+          },
+          {
+            "id": "industry-education",
+            "type": "solid",
+            "color": "#BFDBFE",
+            "group": "industries",
+            "label": "Education",
+            "xAccessor": { "path": "SKILL", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "SKILL": "Python", "VALUE": 400 },
+              { "SKILL": "Project Management", "VALUE": 550 },
+              { "SKILL": "Data Analysis", "VALUE": 620 },
+              { "SKILL": "Communication", "VALUE": 2000 },
+              { "SKILL": "SQL", "VALUE": 280 }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

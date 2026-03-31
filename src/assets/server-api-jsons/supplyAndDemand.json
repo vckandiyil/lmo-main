@@ -1,0 +1,111 @@
+{
+  "success": true,
+  "correlationId": "sd-001",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 501,
+    "title": "Supply and Demand Gap Analysis",
+    "type": "scad",
+    "compare": false,
+    "unit": "thousands",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Employment",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF GAP SD 1A 5001"
+      },
+      {
+        "label": "Keywords",
+        "value": "Supply, demand, gap analysis, labor market balance, workforce planning"
+      },
+      {
+        "label": "Statistical population",
+        "value": "Total labor supply (available workforce) and labor demand (job vacancies and employed positions) across all sectors in the Emirate of Abu Dhabi."
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra regions."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "Thousands"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "\u00a9 SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "highlights": [],
+    "description": "Overview of labor market supply and demand dynamics, tracking the balance between available workforce and employment opportunities.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Strategic Priority",
+      "badge_ar": "\u0623\u0648\u0644\u0648\u064a\u0629 \u0627\u0633\u062a\u0631\u0627\u062a\u064a\u062c\u064a\u0629",
+      "title": "Narrow the Supply-Demand Gap Through Skills Programs",
+      "title_ar": "\u062a\u0636\u064a\u064a\u0642 \u0641\u062c\u0648\u0629 \u0627\u0644\u0639\u0631\u0636 \u0648\u0627\u0644\u0637\u0644\u0628 \u0645\u0646 \u062e\u0644\u0627\u0644 \u0628\u0631\u0627\u0645\u062c \u0627\u0644\u0645\u0647\u0627\u0631\u0627\u062a",
+      "text": "The labor market shows persistent structural mismatches between supply and demand, particularly in emerging technology and healthcare sectors.",
+      "text_ar": "\u064a\u064f\u0638\u0647\u0631 \u0633\u0648\u0642 \u0627\u0644\u0639\u0645\u0644 \u0627\u062e\u062a\u0644\u0627\u0644\u0627\u062a \u0647\u064a\u0643\u0644\u064a\u0629 \u0645\u0633\u062a\u0645\u0631\u0629 \u0628\u064a\u0646 \u0627\u0644\u0639\u0631\u0636 \u0648\u0627\u0644\u0637\u0644\u0628.",
+      "reason": "While overall supply exceeds demand by approximately 12%, specific sectors face acute shortages that require targeted intervention.",
+      "reason_ar": "\u0628\u064a\u0646\u0645\u0627 \u064a\u062a\u062c\u0627\u0648\u0632 \u0627\u0644\u0639\u0631\u0636 \u0627\u0644\u0625\u062c\u0645\u0627\u0644\u064a \u0627\u0644\u0637\u0644\u0628 \u0628\u0646\u062d\u0648 12%\u060c \u062a\u0648\u0627\u062c\u0647 \u0642\u0637\u0627\u0639\u0627\u062a \u0645\u062d\u062f\u062f\u0629 \u0646\u0642\u0635\u0627\u064b \u062d\u0627\u062f\u0627\u064b."
+    },
+    "visualizations": [
+      {
+        "label": "Supply and Demand Gap",
+        "series": [
+          {
+            "id": "total",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "total",
+            "label": "Net Gap",
+            "xAccessor": {
+              "path": "YEAR",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              { "YEAR": "2018", "VALUE": 145.2 },
+              { "YEAR": "2019", "VALUE": 158.7 },
+              { "YEAR": "2020", "VALUE": 210.4 },
+              { "YEAR": "2021", "VALUE": 185.3 },
+              { "YEAR": "2022", "VALUE": 162.8 },
+              { "YEAR": "2023", "VALUE": 148.5 },
+              { "YEAR": "2024", "VALUE": 138.9 }
+            ]
+          }
+        ],
+        "chartType": "line",
+        "isTimeSeries": true
+      }
+    ],
+    "rangeOptions": [
+      { "id": "all", "label": "All", "value": null },
+      { "id": "3", "label": "3Y", "value": 3 },
+      { "id": "5", "label": "5Y", "value": 5 }
+    ],
+    "viewTypes": [
+      { "id": "line", "label": "Line Chart", "icon": "graph-up", "default": true },
+      { "id": "table", "label": "Table", "icon": "layout-left" }
+    ]
+  }
+}

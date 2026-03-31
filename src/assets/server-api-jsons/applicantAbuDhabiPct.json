@@ -1,0 +1,63 @@
+{
+  "success": true,
+  "correlationId": "f4a1b2c3-3700-4e5f-9a1b-000000000037",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "applicantAbuDhabiPct",
+    "title": "% Located in Abu Dhabi",
+    "type": "scad",
+    "compare": false,
+    "unit": "%",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Applicant Intelligence",
+    "metadata": [
+      { "label": "Indicator code", "value": "LF AI KP 1B 0037" },
+      { "label": "Keywords", "value": "Applicants, Abu Dhabi, Percentage, Location, UAE" },
+      { "label": "Data sources", "value": "Job Postings Platform" },
+      { "label": "Geographic coverage", "value": "UAE" },
+      { "label": "Measurement unit", "value": "%" },
+      { "label": "Available periodicity", "value": "Monthly" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Percentage of total applicants located in Abu Dhabi.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Abu Dhabi Captures 42% of the Applicant Base",
+      "title_ar": "",
+      "text": "Nearly half of all applicants are based in Abu Dhabi, reflecting strong local talent availability. Targeted local hiring campaigns can leverage this concentration.",
+      "text_ar": "",
+      "reason": "A 42% concentration in Abu Dhabi suggests that local talent pipelines are well-established, reducing reliance on inter-emirate or international recruitment.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "% Located in Abu Dhabi",
+        "series": [
+          {
+            "id": "abu-dhabi-pct",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "applicants",
+            "label": "Abu Dhabi %",
+            "data": [
+              { "METRIC": "Abu Dhabi %", "VALUE": 42 }
+            ],
+            "xAccessor": { "path": "METRIC", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" }
+          }
+        ],
+        "chartType": "solidgauge",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false,
+        "yAxisMaxCap": 100
+      }
+    ]
+  }
+}

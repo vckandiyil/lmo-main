@@ -13,7 +13,7 @@
       </div>
       <span class="sector-gaps-opportunities__legend-gap">Gap</span>
     </div>
-    <div class="sector-gaps-opportunities__body" front>
+    <div class="sector-gaps-opportunities__body" front (click)="onChartClick($event)">
       <div class="sector-gaps-opportunities__chart">
         <app-chart-wrapper [options]="chartOptionsSignal()" />
       </div>

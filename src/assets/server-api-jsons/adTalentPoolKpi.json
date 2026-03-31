@@ -1,0 +1,63 @@
+{
+  "success": true,
+  "correlationId": "f4a1b2c3-5000-4e5f-9a1b-000000000050",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "adTalentPoolKpi",
+    "title": "Abu Dhabi Talent Pool Size",
+    "type": "scad",
+    "compare": false,
+    "unit": "count",
+    "filters": [],
+    "updated": "2025-09-25",
+    "category": "Talent Pool Intelligence",
+    "metadata": [
+      { "label": "Indicator code", "value": "LF TP KP 1A 0050" },
+      { "label": "Keywords", "value": "Talent Pool, Abu Dhabi, Size, KPI, UAE" },
+      { "label": "Data sources", "value": "Job Postings Platform" },
+      { "label": "Geographic coverage", "value": "UAE" },
+      { "label": "Measurement unit", "value": "count" },
+      { "label": "Available periodicity", "value": "Monthly" },
+      { "label": "YoY Growth", "value": "+8.2%" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "description": "Total size of the active talent pool in Abu Dhabi.",
+    "yAxis": { "maxCap": 200000 },
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Trending Up",
+      "badge_ar": "",
+      "title": "Abu Dhabi Talent Pool Reaches 145,000 Professionals",
+      "title_ar": "",
+      "text": "The 145,000-strong talent pool represents 8.2% year-over-year growth, providing a solid foundation for workforce localisation across strategic sectors.",
+      "text_ar": "",
+      "reason": "Talent pool size is a foundational metric for workforce planning, indicating the available human capital for economic diversification initiatives.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Abu Dhabi Talent Pool Size",
+        "chartType": "solidgauge",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "min": 0,
+        "max": 200000,
+        "series": [
+          {
+            "id": "ad-talent-pool-kpi",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "talent-pool",
+            "label": "AD Talent Pool",
+            "xAccessor": { "path": "name", "type": "category" },
+            "yAccessor": { "path": "y", "type": "value" },
+            "data": [
+              { "name": "Abu Dhabi Talent Pool", "VALUE": 145000 }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,9 +1,9 @@
 .nav-sidebar {
   position: fixed;
-  top: 0;
+  top: var(--filters-h);
   left: 0;
   width: 88px;
-  height: 100vh;
+  height: calc(100vh - var(--filters-h));
   padding: 16px 16px 24px 16px;
   box-sizing: border-box;
   background: #FFFFFF;
@@ -31,7 +31,7 @@
   }
 
   &--expanded {
-    width: 326px;
+    width: 275px;
   }
 
 &__toggle {
@@ -79,7 +79,6 @@
     display: flex;
     flex-direction: column;
     gap: 4px;
-    margin-top: 32px;
   }
 
   &__nav-item {
@@ -109,55 +108,6 @@
         background: var(--lmo-bg-secondary);
       }
     }
-  }
-
-  &__logo-wrap {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    overflow: hidden;
-    cursor: pointer;
-    text-decoration: none;
-  }
-
-  &__logo {
-    width: 56px;
-    height: 56px;
-    border-radius: 10px;
-    background: var(--lmo-bg-secondary);
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  &__logo-img {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-    flex-shrink: 0;
-  }
-
-  &__logo-text {
-    width: 175px;
-    height: 48px;
-    object-fit: contain;
-    flex-shrink: 0;
-    opacity: 0;
-    max-width: 0;
-    transform: translateX(-6px);
-    transition: opacity 0.1s ease, max-width 0.3s ease, transform 0.1s ease;
-
-    :host-context(body.theme--dark) & {
-      filter: brightness(0) invert(1);
-    }
-  }
-
-  &--expanded &__logo-text {
-    opacity: 1;
-    max-width: 175px;
-    transform: translateX(0);
-    transition: opacity 0.2s ease 0.2s, max-width 0.3s ease, transform 0.2s ease 0.2s;
   }
 
   &__bottom {
@@ -227,5 +177,64 @@
     max-width: 200px;
     transform: translateX(0);
     transition: opacity 0.2s ease 0.2s, max-width 0.3s ease, transform 0.2s ease 0.2s;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// RESPONSIVE: Mobile — compact nav sidebar (48px)
+// ---------------------------------------------------------------------------
+@media (max-width: 767.98px) {
+  .nav-sidebar {
+    width: 48px;
+    padding: 8px 4px 12px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    // Never expand on mobile
+    &--expanded {
+      width: 48px;
+    }
+
+    &__toggle {
+      display: none;
+    }
+
+    &__nav-item {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      justify-content: center;
+      border-radius: 10px;
+    }
+
+    &__icon-wrap {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      justify-content: center;
+      border-radius: 10px;
+    }
+
+    &__icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    &__nav {
+      gap: 2px;
+    }
+
+    &__bottom {
+      gap: 2px;
+    }
+
+    &__label {
+      display: none;
+    }
   }
 }

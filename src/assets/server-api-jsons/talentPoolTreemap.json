@@ -109,6 +109,28 @@
         ]
       }
     ],
-    "rangeOptions": []
+    "rangeOptions": [],
+    "viewTypes": [
+      {
+        "id": "line",
+        "label": "Line Chart",
+        "icon": "graph-up"
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square"
+      },
+      {
+        "id": "pie",
+        "label": "Pie Chart",
+        "icon": "chart-pie"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
+      }
+    ]
   }
 }

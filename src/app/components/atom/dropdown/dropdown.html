@@ -1,5 +1,8 @@
-<div class="dropdown" [class.dropdown--open]="isOpen()" [class.dropdown--secondary]="variant() === 'secondary'">
+<div class="dropdown" [class.dropdown--open]="isOpen()" [class.dropdown--secondary]="variant() === 'secondary'" [class.dropdown--labeled]="label()">
   <div class="dropdown__trigger" (click)="toggle()">
+    @if (label()) {
+      <span class="dropdown__label">{{ label() }}</span>
+    }
     <div class="dropdown__value-container">
       @if (isAnimating()) {
         <span class="dropdown__value dropdown__value--leaving" [class.dropdown__value--selected]="previousValue()">
@@ -27,6 +30,7 @@
     }
   </div>
   @if (isOpen()) {
+    <div class="dropdown__backdrop" (click)="toggle()"></div>
     <div class="dropdown__menu">
       @for (option of options(); track option) {
         <a

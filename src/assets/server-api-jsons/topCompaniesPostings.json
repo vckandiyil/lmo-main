@@ -1,0 +1,72 @@
+{
+  "success": true,
+  "correlationId": "a1b2c3d4-1007-5ed3-c6f4-0d73c003g007",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 107,
+    "title": "Top Companies by Postings",
+    "type": "scad",
+    "compare": false,
+    "unit": "count",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      { "label": "Indicator code", "value": "LM CMP TP 1A 1007" },
+      { "label": "Keywords", "value": "Companies, Top employers, Postings, Hiring, Abu Dhabi" },
+      { "label": "Statistical population", "value": "All job postings aggregated by employer from the Job Postings Platform." },
+      { "label": "Geographic coverage", "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra." },
+      { "label": "Measurement unit", "value": "count" },
+      { "label": "Available periodicity", "value": "Monthly" },
+      { "label": "Data sources", "value": "Job Postings Platform" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Shows major hiring employers and their scale",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "ADNOC and Etisalat Lead Hiring Activity",
+      "title_ar": "",
+      "text": "ADNOC (3,200) and Etisalat (2,800) are the top two hiring entities, representing significant Emiratisation opportunities in energy and telecommunications.",
+      "text_ar": "",
+      "reason": "Engaging top employers in coordinated workforce planning can amplify national employment programme outcomes and ensure alignment with private sector needs.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Top Companies by Postings",
+        "series": [
+          {
+            "id": "top-companies-postings",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "companies",
+            "label": "Job Postings",
+            "xAccessor": { "path": "COMPANY", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "COMPANY": "ADNOC", "VALUE": 3200 },
+              { "COMPANY": "Etisalat", "VALUE": 2800 },
+              { "COMPANY": "Emirates NBD", "VALUE": 2400 },
+              { "COMPANY": "Mubadala", "VALUE": 2100 },
+              { "COMPANY": "Abu Dhabi Health", "VALUE": 1900 },
+              { "COMPANY": "Aldar Properties", "VALUE": 1700 },
+              { "COMPANY": "First Abu Dhabi Bank", "VALUE": 1500 },
+              { "COMPANY": "Etihad Airways", "VALUE": 1400 },
+              { "COMPANY": "TAQA", "VALUE": 1200 },
+              { "COMPANY": "Masdar", "VALUE": 1100 }
+            ]
+          }
+        ],
+        "chartType": "bar",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false
+      }
+    ]
+  }
+}

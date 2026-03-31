@@ -3,6 +3,10 @@ import * as Highcharts from 'highcharts';
 import 'highcharts/highcharts-more';
 import 'highcharts/modules/sankey';
 import 'highcharts/modules/treemap';
+import 'highcharts/modules/heatmap';
+import 'highcharts/modules/funnel';
+import 'highcharts/modules/solid-gauge';
+import 'highcharts/modules/networkgraph';
 
 /**
  * Chart options type extending Highcharts.Options

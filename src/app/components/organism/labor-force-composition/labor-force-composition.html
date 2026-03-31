@@ -4,7 +4,7 @@
     <app-widget-header [title]="'HOME.LABOR_FORCE_TITLE' | translate" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" front/>
     <div class="labor-force-composition__body" front>
       <div class="labor-force-composition__charts">
-        <div class="labor-force-composition__chart-container">
+        <div class="labor-force-composition__chart-container" (click)="onTotalLaborForceClick($event)">
           @if (laborForceChartOptions(); as options) {
             <app-chart-wrapper [options]="options" />
           }
@@ -14,7 +14,7 @@
           </div>
         </div>
 
-        <div class="labor-force-composition__chart-container">
+        <div class="labor-force-composition__chart-container" (click)="onParticipationRateClick($event)">
           @if (participationChartOptions(); as options) {
             <app-chart-wrapper [options]="options" />
           }
@@ -26,7 +26,7 @@
       </div>
 
       <div class="labor-force-composition__splits">
-        <div class="labor-force-composition__split">
+        <div class="labor-force-composition__split" (click)="onNationalitySplitClick($event)">
           <div class="labor-force-composition__split-header">
             <span class="labor-force-composition__split-value">{{ formatNumber(nationalitySplit.leftValue) }}</span>
             <span class="labor-force-composition__split-title">{{ 'HOME.NATIONALITY_SPLIT' | translate }}</span>
@@ -43,7 +43,7 @@
           </div>
         </div>
 
-        <div class="labor-force-composition__split">
+        <div class="labor-force-composition__split" (click)="onGenderSplitClick($event)">
           <div class="labor-force-composition__split-header">
             <span class="labor-force-composition__split-value">{{ formatNumber(genderSplit.leftValue) }}</span>
             <span class="labor-force-composition__split-title">{{ 'HOME.GENDER_SPLIT' | translate }}</span>

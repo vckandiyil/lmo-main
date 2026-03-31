@@ -6,7 +6,7 @@ import {ChartBuilderService} from './chart-builder.service';
 import {ThemeService} from '../../core/services/theme.service';
 import {abbreviateNumber} from '../utils/number-format';
 
-const MINI_CHART_HEIGHT = 150;
+const MINI_CHART_HEIGHT = 200;
 const CHART_FONT        = "'Graphik Trial', sans-serif";
 const MINI_LABEL_STYLE  = `color:var(--lmo-text-category);font-family:${CHART_FONT};font-weight:400;font-size:12px;`;
 const COLOR_GRID_MINI   = '#CFDCEC';
@@ -23,7 +23,7 @@ const miniLegend = (isDark: boolean) => ({
   margin: 6,
   maxHeight: 20,
   navigation: {enabled: false},
-  itemStyle: {fontFamily: CHART_FONT, fontWeight: '400', fontSize: '9px', color: isDark ? '#FFFFFF' : '#1E2937'},
+  itemStyle: {fontFamily: CHART_FONT, fontWeight: '400', fontSize: '12px', color: isDark ? '#FFFFFF' : '#1E2937'},
 });
 
 const MINI_CTX: ChartBuildContext = {
@@ -88,9 +88,22 @@ export class MiniChartBuilderService {
     if (type === 'grouped-column' && multiSeries?.length) {
       return this.buildMiniGroupedColumn(multiSeries, height, isDark);
     }
+    if (type === 'heatmap' || type === 'treemap' || type === 'networkgraph' ||
+        type === 'funnel' || type === 'bubble' || type === 'solidgauge' ||
+        type === 'columnrange' || type === 'spline') {
+      return this.buildMiniNative(config, series, multiSeries, height, isDark);
+    }
     if (type === 'pie' || type === 'donut') {
       const built = this.chartBuilderService.build(config, series, MINI_CTX);
-      return {...built, chart: {...(built.chart ?? {}), height}};
+      return {
+        ...built,
+        chart: {...(built.chart ?? {}), height, spacing: [10, 10, 5, 10]},
+        legend: miniLegend(isDark),
+        plotOptions: {
+          ...(built.plotOptions ?? {}),
+          pie: {...((built.plotOptions as any)?.pie ?? {}), showInLegend: true},
+        },
+      };
     }
     return this.buildMiniCartesian(series, type as 'line' | 'column' | 'bar', unit, height, config.series?.[0]?.name ?? '', isDark);
   }
@@ -158,11 +171,11 @@ export class MiniChartBuilderService {
 
     return {
       colors: ms.map(s => s.color),
-      chart: {type: 'column', height, backgroundColor: 'transparent', spacing: [18, 10, 20, 0]},
+      chart: {type: 'column', height, backgroundColor: 'transparent', spacing: [18, 10, 5, 0]},
       title: {text: ''},
       xAxis: {
         categories,
-        labels: {enabled: true, y: 14, useHTML: true, formatter: function(this: any) { return `<span style="${MINI_LABEL_STYLE}">${this.value}</span>`; }},
+        labels: {enabled: true, y: 14, useHTML: true, formatter: function(this: any) { const label = String(this.value).split('-')[0]; return `<span style="${MINI_LABEL_STYLE}">${label}</span>`; }},
         lineWidth: 0, tickWidth: 0, offset: 4,
       },
       yAxis: {
@@ -184,13 +197,128 @@ export class MiniChartBuilderService {
     };
   }
 
+  /**
+   * Builds a mini version of the real chart type (heatmap, treemap, networkgraph, etc.)
+   * by delegating to the main ChartBuilderService and compacting the result.
+   */
+  private buildMiniNative(
+    config: WidgetChartConfig,
+    series: WidgetDetailSeriesPoint[],
+    multiSeries: MultiSeriesItem[] | undefined,
+    height: number | undefined,
+    isDark: boolean,
+  ): ChartOptions {
+    const ctx: ChartBuildContext = {
+      ...MINI_CTX,
+      multiSeries,
+      showDataLabels: false,
+      showTooltip: true,
+    };
+    const built = this.chartBuilderService.build(config, series, ctx);
+    if (!built || Object.keys(built).length === 0) return {};
+
+    const miniFont = {fontFamily: CHART_FONT, fontSize: '9px', color: '#6A7180'};
+    const result: ChartOptions = {
+      ...built,
+      chart: {
+        ...(built.chart ?? {}),
+        height,
+        backgroundColor: 'transparent',
+        spacing: [8, 8, 8, 8],
+      },
+      title: {text: ''},
+      credits: {enabled: false},
+      legend: config.type === 'networkgraph' ? {enabled: false} : miniLegend(isDark),
+    };
+
+    // Compact axis labels for types that have them
+    if (result.xAxis && typeof result.xAxis === 'object') {
+      (result.xAxis as any).labels = {
+        ...((result.xAxis as any).labels ?? {}),
+        style: miniFont,
+        rotation: -45,
+      };
+    }
+    if (result.yAxis && typeof result.yAxis === 'object' && !Array.isArray(result.yAxis)) {
+      (result.yAxis as any).labels = {
+        ...((result.yAxis as any).labels ?? {}),
+        style: miniFont,
+      };
+      (result.yAxis as any).title = {text: ''};
+    }
+
+    // Shrink heatmap data labels
+    if (config.type === 'heatmap' && result.series) {
+      (result.series as any[]).forEach(s => {
+        if (s.dataLabels) {
+          s.dataLabels = {...s.dataLabels, enabled: true, style: {...(s.dataLabels.style ?? {}), fontSize: '8px'}};
+        }
+      });
+    }
+
+    // Shrink treemap data labels
+    if (config.type === 'treemap' && result.series) {
+      (result.series as any[]).forEach(s => {
+        if (s.dataLabels) {
+          s.dataLabels = {...s.dataLabels, style: {...(s.dataLabels.style ?? {}), fontSize: '10px'}};
+        }
+      });
+    }
+
+    // Shrink network graph nodes and labels
+    if (config.type === 'networkgraph') {
+      if ((result.plotOptions as any)?.networkgraph?.dataLabels) {
+        (result.plotOptions as any).networkgraph.dataLabels = {
+          ...(result.plotOptions as any).networkgraph.dataLabels,
+          style: {...((result.plotOptions as any).networkgraph.dataLabels.style ?? {}), fontSize: '9px'},
+        };
+      }
+      (result.series as any[])?.forEach(s => {
+        s.marker = {...(s.marker ?? {}), radius: 8};
+      });
+    }
+
+    // Compact solidgauge pane for mini size
+    if (config.type === 'solidgauge') {
+      (result as any).pane = {
+        center: ['50%', '70%'],
+        size: '100%',
+        startAngle: -90,
+        endAngle: 90,
+        background: [{backgroundColor: '#EEE', innerRadius: '60%', outerRadius: '100%', shape: 'arc', borderWidth: 0}],
+      };
+      if ((result.plotOptions as any)?.solidgauge?.dataLabels) {
+        (result.plotOptions as any).solidgauge.dataLabels.format =
+          '<div style="text-align:center"><span style="font-size:18px;font-family:\'Graphik Trial\',sans-serif;font-weight:700;color:#1E2937">{y}</span></div>';
+      }
+    }
+
+    // Shrink funnel labels
+    if (config.type === 'funnel' && (result.plotOptions as any)?.funnel?.dataLabels) {
+      (result.plotOptions as any).funnel.dataLabels = {
+        ...(result.plotOptions as any).funnel.dataLabels,
+        style: {...((result.plotOptions as any).funnel.dataLabels.style ?? {}), fontSize: '10px'},
+      };
+    }
+
+    // Spline mini: smaller markers and thinner lines
+    if (config.type === 'spline') {
+      (result.series as any[])?.forEach(s => {
+        s.lineWidth = 1.5;
+        s.marker = {enabled: true, radius: 2};
+      });
+    }
+
+    return result;
+  }
+
   private buildMiniGroupedColumn(ms: MultiSeriesItem[], height: number | undefined, isDark: boolean = false): ChartOptions {
     const lastIndex = ms[0].data.length - 1;
     const lastYear  = ms[0].data[lastIndex]?.year ?? '';
 
     return {
       colors: ms.map(s => s.color),
-      chart: {type: 'column', height, backgroundColor: 'transparent', spacing: [18, 10, 20, 0]},
+      chart: {type: 'column', height, backgroundColor: 'transparent', spacing: [18, 10, 5, 0]},
       title: {text: ''},
       xAxis: {
         categories: [lastYear],
@@ -247,11 +375,11 @@ export class MiniChartBuilderService {
       : {format: isPercent ? '{y}%' : '{y}'};
 
     return {
-      chart: {type: hcType, height, backgroundColor: 'transparent', spacing: [18, 10, 20, 0]},
+      chart: {type: hcType, height, backgroundColor: 'transparent', spacing: [18, 10, 5, 0]},
       title: {text: ''},
       xAxis: {
         categories: years,
-        labels: {enabled: true, y: 14, useHTML: true, formatter: function(this: any) { return `<span style="${MINI_LABEL_STYLE}">${this.value}</span>`; }},
+        labels: {enabled: true, y: 14, useHTML: true, formatter: function(this: any) { const label = String(this.value).split('-')[0]; return `<span style="${MINI_LABEL_STYLE}">${label}</span>`; }},
         lineWidth: 0, tickWidth: 0, offset: 4,
       },
       yAxis: {

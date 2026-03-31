@@ -1,0 +1,100 @@
+{
+  "success": true,
+  "correlationId": "a1b2c3d4-1004-5ed3-c6f4-0d73c003g004",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 104,
+    "title": "Skill Level Mix by Industry",
+    "type": "scad",
+    "compare": false,
+    "unit": "%",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      { "label": "Indicator code", "value": "LM SKL MX 1A 1004" },
+      { "label": "Keywords", "value": "Skill level, Industry, Low skill, Medium skill, High skill, Abu Dhabi" },
+      { "label": "Statistical population", "value": "All job postings classified by skill level requirement across industries." },
+      { "label": "Geographic coverage", "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra." },
+      { "label": "Measurement unit", "value": "%" },
+      { "label": "Available periodicity", "value": "Monthly" },
+      { "label": "Data sources", "value": "Job Postings Platform" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Shows low/medium/high skill demand composition",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Policy Alert",
+      "badge_ar": "",
+      "title": "Construction Sector Shows High Low-Skill Dependency",
+      "title_ar": "",
+      "text": "Construction has 40% low-skill demand compared to Technology at only 10%. Upskilling programmes in construction could improve productivity and reduce reliance on low-skill labour.",
+      "text_ar": "",
+      "reason": "The stark contrast in skill composition across industries highlights the need for sector-specific workforce development strategies aligned with Abu Dhabi's economic vision.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Skill Level Mix by Industry",
+        "series": [
+          {
+            "id": "skill-level-low",
+            "type": "solid",
+            "color": "#93C5FD",
+            "group": "low-skill",
+            "label": "Low Skill",
+            "xAccessor": { "path": "INDUSTRY", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "INDUSTRY": "Technology", "VALUE": 10 },
+              { "INDUSTRY": "Healthcare", "VALUE": 25 },
+              { "INDUSTRY": "Finance", "VALUE": 15 },
+              { "INDUSTRY": "Construction", "VALUE": 40 },
+              { "INDUSTRY": "Education", "VALUE": 20 }
+            ]
+          },
+          {
+            "id": "skill-level-medium",
+            "type": "solid",
+            "color": "#3B82F6",
+            "group": "medium-skill",
+            "label": "Medium Skill",
+            "xAccessor": { "path": "INDUSTRY", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "INDUSTRY": "Technology", "VALUE": 30 },
+              { "INDUSTRY": "Healthcare", "VALUE": 35 },
+              { "INDUSTRY": "Finance", "VALUE": 35 },
+              { "INDUSTRY": "Construction", "VALUE": 40 },
+              { "INDUSTRY": "Education", "VALUE": 35 }
+            ]
+          },
+          {
+            "id": "skill-level-high",
+            "type": "solid",
+            "color": "#1E40AF",
+            "group": "high-skill",
+            "label": "High Skill",
+            "xAccessor": { "path": "INDUSTRY", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "INDUSTRY": "Technology", "VALUE": 60 },
+              { "INDUSTRY": "Healthcare", "VALUE": 40 },
+              { "INDUSTRY": "Finance", "VALUE": 50 },
+              { "INDUSTRY": "Construction", "VALUE": 20 },
+              { "INDUSTRY": "Education", "VALUE": 45 }
+            ]
+          }
+        ],
+        "chartType": "bar",
+        "stacking": "percent",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false
+      }
+    ]
+  }
+}

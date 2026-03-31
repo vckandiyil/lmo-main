@@ -7,6 +7,7 @@ import {
   ElementRef,
   signal,
   computed,
+  effect,
 } from '@angular/core';
 import {TranslateModule} from '@ngx-translate/core';
 import {CdkDrag, CdkDragDrop, CdkDropList} from '@angular/cdk/drag-drop';
@@ -23,6 +24,7 @@ import { GapAnalysisCenter } from '../gap-analysis-center/gap-analysis-center';
 import { DecimalPipe } from '@angular/common';
 import { TalentPoolTreemap } from '../talent-pool-treemap/talent-pool-treemap';
 import { FilterStateService } from '../../../core/services/filter-state.service';
+import { ThemeService } from '../../../core/services/theme.service';
 
 interface RegionPopulationData {
   regions: RegionPopulation[];
@@ -44,6 +46,7 @@ export class CenterSection implements AfterViewInit, OnDestroy {
   private readonly widgetStore = inject(WidgetStore);
   private readonly catalogService = inject(WidgetCatalogService);
   private readonly filterState = inject(FilterStateService);
+  private readonly themeService = inject(ThemeService);
   private readonly expandableTypes = toSignal(
     this.catalogService.getSidebarWidgets().pipe(
       map(entries => new Set(entries.filter(e => e.hasExpandIcon).map(e => e.id)))
@@ -52,7 +55,8 @@ export class CenterSection implements AfterViewInit, OnDestroy {
   );
   private mapView: MapViewType | null = null;
   private sceneView: SceneViewType | null = null;
-  private readonly mapStyleUrl = '/assets/map-styles/blue-white-canvas.json';
+  private readonly lightStyleUrl = '/assets/map-styles/blue-white-canvas.json';
+  private readonly darkStyleUrl = '/assets/map-styles/dark-canvas.json';
   private readonly defaultCenter: [number, number] = [54, 24];
   private readonly defaultZoom = 7;
   private clickHandler: __esri.Handle | null = null;
@@ -74,6 +78,14 @@ export class CenterSection implements AfterViewInit, OnDestroy {
 
   drillRegion = signal<RegionPopulation | null>(null);
   drillBreadcrumb = signal<string[]>([]);
+
+  private mapInitialized = false;
+
+  private readonly themeEffect = effect(() => {
+    const isDark = this.themeService.isDarkMode();
+    if (!this.mapInitialized) return;
+    this.updateMapTheme(isDark);
+  });
 
   legendRegions = computed(() => {
     const drill = this.drillRegion();
@@ -253,14 +265,27 @@ export class CenterSection implements AfterViewInit, OnDestroy {
     }
   }
 
+  private get currentStyleUrl(): string {
+    return this.themeService.isDarkMode() ? this.darkStyleUrl : this.lightStyleUrl;
+  }
+
+  private async updateMapTheme(isDark: boolean): Promise<void> {
+    const styleUrl = isDark ? this.darkStyleUrl : this.lightStyleUrl;
+    const activeMap = this.is3DMode() ? this.sceneView?.map : this.mapView?.map;
+    if (activeMap) {
+      await this.mapService.updateBasemapStyle(activeMap, styleUrl);
+    }
+  }
+
   private async createFreshMap(): Promise<__esri.Map> {
-    return this.mapService.createMapFromStyle(this.mapStyleUrl);
+    return this.mapService.createMapFromStyle(this.currentStyleUrl);
   }
 
   private async initializeMap(): Promise<void> {
     const container = this.mapContainer().nativeElement;
     const map = await this.createFreshMap();
     this.mapView = await this.mapService.createMapViewFromMap(container, map);
+    this.mapInitialized = true;
 
     this.mapView.watch('zoom', (zoom: number) => {
       this.isAtMinZoom.set(zoom <= this.defaultZoom);

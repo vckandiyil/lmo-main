@@ -1,0 +1,70 @@
+{
+  "success": true,
+  "correlationId": "a1b2c3d4-1003-5ed3-c6f4-0d73c003g003",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 103,
+    "title": "Industry Summary Table",
+    "type": "scad",
+    "compare": false,
+    "unit": "count",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      { "label": "Indicator code", "value": "LM IND SM 1A 1003" },
+      { "label": "Keywords", "value": "Industry, Summary, Table, Job count, Abu Dhabi" },
+      { "label": "Statistical population", "value": "All job postings aggregated by industry from the Job Postings Platform." },
+      { "label": "Geographic coverage", "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra." },
+      { "label": "Measurement unit", "value": "count" },
+      { "label": "Available periodicity", "value": "Monthly" },
+      { "label": "Data sources", "value": "Job Postings Platform" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Exportable industry view for executives",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Key Insight",
+      "badge_ar": "",
+      "title": "Technology and Healthcare Lead Job Creation",
+      "title_ar": "",
+      "text": "Technology (12,500) and Healthcare (8,200) account for nearly half of all industry postings, underscoring the need for targeted training programmes in these fields.",
+      "text_ar": "",
+      "reason": "The concentration of demand in technology and healthcare reflects Abu Dhabi's strategic investments in digital transformation and public health infrastructure.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Industry Summary Table",
+        "series": [
+          {
+            "id": "industry-summary",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "industry",
+            "label": "Job Postings",
+            "xAccessor": { "path": "INDUSTRY", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "INDUSTRY": "Technology", "VALUE": 12500 },
+              { "INDUSTRY": "Healthcare", "VALUE": 8200 },
+              { "INDUSTRY": "Finance", "VALUE": 6800 },
+              { "INDUSTRY": "Construction", "VALUE": 5400 },
+              { "INDUSTRY": "Education", "VALUE": 4500 },
+              { "INDUSTRY": "Energy", "VALUE": 3600 },
+              { "INDUSTRY": "Retail", "VALUE": 3100 },
+              { "INDUSTRY": "Hospitality", "VALUE": 2300 }
+            ]
+          }
+        ],
+        "chartType": "column",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false
+      }
+    ]
+  }
+}

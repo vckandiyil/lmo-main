@@ -1,0 +1,131 @@
+{
+  "success": true,
+  "correlationId": "a1b2c3d4-1006-5ed3-c6f4-0d73c003g006",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 106,
+    "title": "Sector by City Contribution",
+    "type": "scad",
+    "compare": false,
+    "unit": "count",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      { "label": "Indicator code", "value": "LM SEC CT 1A 1006" },
+      { "label": "Keywords", "value": "Sector, City, Contribution, Heatmap, Cross-view, Abu Dhabi" },
+      { "label": "Statistical population", "value": "All job postings cross-tabulated by sector and city from the Job Postings Platform." },
+      { "label": "Geographic coverage", "value": "Abu Dhabi, Dubai, Al Ain, Sharjah, and Ajman." },
+      { "label": "Measurement unit", "value": "count" },
+      { "label": "Available periodicity", "value": "Monthly" },
+      { "label": "Data sources", "value": "Job Postings Platform" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Cross-view: which sectors drive which cities",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Geographic Insight",
+      "badge_ar": "",
+      "title": "Dubai Dominates IT & Telecom Hiring",
+      "title_ar": "",
+      "text": "Dubai accounts for the highest IT & Telecom postings (4800), while Abu Dhabi leads in Oil & Gas (4500). This geographic specialisation suggests targeted workforce planning by city.",
+      "text_ar": "",
+      "reason": "Understanding sector-city dynamics enables more effective placement of training centres and career guidance services in locations where demand is concentrated.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Sector by City Contribution",
+        "series": [
+          {
+            "id": "city-abu-dhabi",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "abu-dhabi",
+            "label": "Abu Dhabi",
+            "xAccessor": { "path": "SECTOR", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "SECTOR": "Oil & Gas", "VALUE": 4500 },
+              { "SECTOR": "IT & Telecom", "VALUE": 3200 },
+              { "SECTOR": "Government", "VALUE": 3800 },
+              { "SECTOR": "Tourism", "VALUE": 2100 },
+              { "SECTOR": "Real Estate", "VALUE": 1800 }
+            ]
+          },
+          {
+            "id": "city-dubai",
+            "type": "solid",
+            "color": "#3B82F6",
+            "group": "dubai",
+            "label": "Dubai",
+            "xAccessor": { "path": "SECTOR", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "SECTOR": "Oil & Gas", "VALUE": 1200 },
+              { "SECTOR": "IT & Telecom", "VALUE": 4800 },
+              { "SECTOR": "Government", "VALUE": 1500 },
+              { "SECTOR": "Tourism", "VALUE": 4200 },
+              { "SECTOR": "Real Estate", "VALUE": 3500 }
+            ]
+          },
+          {
+            "id": "city-al-ain",
+            "type": "solid",
+            "color": "#60A5FA",
+            "group": "al-ain",
+            "label": "Al Ain",
+            "xAccessor": { "path": "SECTOR", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "SECTOR": "Oil & Gas", "VALUE": 800 },
+              { "SECTOR": "IT & Telecom", "VALUE": 600 },
+              { "SECTOR": "Government", "VALUE": 1200 },
+              { "SECTOR": "Tourism", "VALUE": 900 },
+              { "SECTOR": "Real Estate", "VALUE": 500 }
+            ]
+          },
+          {
+            "id": "city-sharjah",
+            "type": "solid",
+            "color": "#93C5FD",
+            "group": "sharjah",
+            "label": "Sharjah",
+            "xAccessor": { "path": "SECTOR", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "SECTOR": "Oil & Gas", "VALUE": 600 },
+              { "SECTOR": "IT & Telecom", "VALUE": 1500 },
+              { "SECTOR": "Government", "VALUE": 800 },
+              { "SECTOR": "Tourism", "VALUE": 1100 },
+              { "SECTOR": "Real Estate", "VALUE": 900 }
+            ]
+          },
+          {
+            "id": "city-ajman",
+            "type": "solid",
+            "color": "#BFDBFE",
+            "group": "ajman",
+            "label": "Ajman",
+            "xAccessor": { "path": "SECTOR", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "SECTOR": "Oil & Gas", "VALUE": 500 },
+              { "SECTOR": "IT & Telecom", "VALUE": 700 },
+              { "SECTOR": "Government", "VALUE": 600 },
+              { "SECTOR": "Tourism", "VALUE": 800 },
+              { "SECTOR": "Real Estate", "VALUE": 550 }
+            ]
+          }
+        ],
+        "chartType": "heatmap",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false
+      }
+    ]
+  }
+}

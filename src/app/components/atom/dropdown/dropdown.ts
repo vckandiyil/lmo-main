@@ -15,6 +15,7 @@ export class Dropdown {
   variant = input<'primary' | 'secondary'>('primary');
   noArrow = input<boolean>(false);
   value = input<string | null>(null);
+  label = input<string | null>(null);
   selected = output<string>();
 
   isOpen = signal(false);

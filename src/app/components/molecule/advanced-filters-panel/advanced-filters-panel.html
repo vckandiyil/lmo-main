@@ -1,0 +1,36 @@
+<button class="advanced-filters-panel__trigger" type="button" (click)="toggle()">
+  <span class="advanced-filters-panel__trigger-text">Advanced Filters</span>
+  <app-icon name="nav-arrow-down" size="20" class="advanced-filters-panel__trigger-icon" [class.advanced-filters-panel__trigger-icon--open]="isOpen()"/>
+</button>
+
+@if (isOpen()) {
+  <div class="advanced-filters-panel__panel">
+    <span class="advanced-filters-panel__title">Advanced Filters</span>
+    <div class="advanced-filters-panel__dropdowns">
+      <app-dropdown
+        [placeholder]="'HOME.CITIZENSHIP' | translate"
+        [options]="citizenshipOptions()"
+        [variant]="'secondary'"
+        (selected)="onFilterChange('citizenship', $event)"
+      />
+      <app-dropdown
+        [placeholder]="'HOME.GENDER' | translate"
+        [options]="genderOptions()"
+        [variant]="'secondary'"
+        (selected)="onFilterChange('gender', $event)"
+      />
+      <app-dropdown
+        [placeholder]="'LMI.SECTOR' | translate"
+        [options]="sectorOptions()"
+        [variant]="'secondary'"
+        (selected)="onFilterChange('sector', $event)"
+      />
+      <app-dropdown
+        [placeholder]="'LMI.YEAR' | translate"
+        [options]="yearOptions()"
+        [variant]="'secondary'"
+        (selected)="onFilterChange('year', $event)"
+      />
+    </div>
+  </div>
+}

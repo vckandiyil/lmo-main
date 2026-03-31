@@ -212,6 +212,18 @@
   }
 }
 
+// ---------------------------------------------------------------------------
+// RESPONSIVE: Mobile — full-width panel
+// ---------------------------------------------------------------------------
+@media (max-width: 767.98px) {
+  .notification-modal {
+    &__panel {
+      width: 100%;
+      padding: 16px;
+    }
+  }
+}
+
 @keyframes notificationSlideIn {
   from {
     transform: translateX(100%);

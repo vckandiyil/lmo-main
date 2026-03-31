@@ -1,0 +1,63 @@
+{
+  "success": true,
+  "correlationId": "f4a1b2c3-3800-4e5f-9a1b-000000000038",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "applicantMedianExperience",
+    "title": "Median Years of Experience",
+    "type": "scad",
+    "compare": false,
+    "unit": "years",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Applicant Intelligence",
+    "metadata": [
+      { "label": "Indicator code", "value": "LF AI KP 1C 0038" },
+      { "label": "Keywords", "value": "Applicants, Experience, Median, Years, UAE" },
+      { "label": "Data sources", "value": "Job Postings Platform" },
+      { "label": "Geographic coverage", "value": "UAE" },
+      { "label": "Measurement unit", "value": "years" },
+      { "label": "Available periodicity", "value": "Monthly" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Median years of professional experience among job applicants.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Experienced Applicant Pool Signals Market Maturity",
+      "title_ar": "",
+      "text": "A median of 8 years of experience indicates a seasoned applicant pool well-suited for mid-to-senior roles across strategic sectors.",
+      "text_ar": "",
+      "reason": "Higher median experience supports demand for senior and specialist roles, though early-career pipelines should be monitored to ensure long-term workforce sustainability.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Median Years of Experience",
+        "series": [
+          {
+            "id": "median-experience",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "applicants",
+            "label": "Median Experience",
+            "data": [
+              { "METRIC": "Median Experience", "VALUE": 8 }
+            ],
+            "xAccessor": { "path": "METRIC", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" }
+          }
+        ],
+        "chartType": "solidgauge",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false,
+        "yAxisMaxCap": 30
+      }
+    ]
+  }
+}

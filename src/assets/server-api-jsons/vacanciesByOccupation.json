@@ -184,6 +184,29 @@
         "label": "10Y",
         "value": 10
       }
+    ],
+    "viewTypes": [
+      {
+        "id": "line",
+        "label": "Line Chart",
+        "icon": "graph-up"
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square",
+        "default": true
+      },
+      {
+        "id": "pie",
+        "label": "Pie Chart",
+        "icon": "chart-pie"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
+      }
     ]
   }
 }

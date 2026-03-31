@@ -1,0 +1,93 @@
+{
+  "success": true,
+  "correlationId": "a1b2c3d4-1004-4e5f-9a1b-000000000016",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "skillLevelDemandMix",
+    "title": "Skill Level Demand Mix",
+    "type": "scad",
+    "compare": false,
+    "unit": "",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      { "label": "Indicator code", "value": "LF JD ST 1A 0016" },
+      { "label": "Keywords", "value": "Skill Level, Entry, Mid, Senior, Demand Mix, UAE" },
+      { "label": "Data sources", "value": "Job Postings Platform" },
+      { "label": "Geographic coverage", "value": "UAE" },
+      { "label": "Measurement unit", "value": "count" },
+      { "label": "Available periodicity", "value": "Monthly" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Composition of demand by low/medium/high skill",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Senior-Level Demand Rising Signals Strategic Talent Shortage",
+      "title_ar": "",
+      "text": "Senior-level demand has grown from 25% to 29% over three quarters while entry-level share declined from 30% to 27%. Accelerating mid-career development programmes can fill the growing senior pipeline gap.",
+      "text_ar": "",
+      "reason": "The stacked composition reveals a steady shift toward higher skill requirements, indicating market maturation and increasing complexity of available roles.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Skill Level Demand Mix",
+        "chartType": "bar",
+        "stacking": "percent",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false,
+        "series": [
+          {
+            "id": "entry-level",
+            "type": "solid",
+            "color": "#93C5FD",
+            "group": "skill-levels",
+            "label": "Entry Level",
+            "xAccessor": { "path": "QUARTER", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "QUARTER": "Q1 2025", "VALUE": 30 },
+              { "QUARTER": "Q2 2025", "VALUE": 28 },
+              { "QUARTER": "Q3 2025", "VALUE": 27 }
+            ]
+          },
+          {
+            "id": "mid-level",
+            "type": "solid",
+            "color": "#3B82F6",
+            "group": "skill-levels",
+            "label": "Mid Level",
+            "xAccessor": { "path": "QUARTER", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "QUARTER": "Q1 2025", "VALUE": 45 },
+              { "QUARTER": "Q2 2025", "VALUE": 45 },
+              { "QUARTER": "Q3 2025", "VALUE": 44 }
+            ]
+          },
+          {
+            "id": "senior-level",
+            "type": "solid",
+            "color": "#1E40AF",
+            "group": "skill-levels",
+            "label": "Senior Level",
+            "xAccessor": { "path": "QUARTER", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "QUARTER": "Q1 2025", "VALUE": 25 },
+              { "QUARTER": "Q2 2025", "VALUE": 27 },
+              { "QUARTER": "Q3 2025", "VALUE": 29 }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

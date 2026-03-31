@@ -3,14 +3,14 @@
     <app-widget-checkbox [selected]="selected()" front/>
     <app-widget-header [title]="'Workforce Structure'" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" front/>
     <div class="workforce-structure__body" front>
-      <div class="workforce-structure__section workforce-structure__section--age">
+      <div class="workforce-structure__section workforce-structure__section--age" (click)="onAgeDistributionClick($event)">
         <span class="workforce-structure__section-title">Age distribution</span>
         <div class="workforce-structure__chart">
           <app-chart-wrapper [options]="ageDistributionChartOptionsSignal()"/>
         </div>
       </div>
 
-      <div class="workforce-structure__section workforce-structure__section--split">
+      <div class="workforce-structure__section workforce-structure__section--split" (click)="onGenderNationalityClick($event)">
         <span class="workforce-structure__section-title">Gender + Nationality split</span>
         <div class="workforce-structure__donut">
           <app-chart-wrapper [options]="genderNationalityChartOptions"/>

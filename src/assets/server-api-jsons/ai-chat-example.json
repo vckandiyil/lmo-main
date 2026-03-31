@@ -1,0 +1,99 @@
+[
+  {
+    "type": "user",
+    "content": "What is the unemployment rate of Al Ain?"
+  },
+  {
+    "type": "assistant",
+    "response": {
+      "chat_id": "example-chat-001",
+      "message": {
+        "id": "msg-001",
+        "content": "The unemployment rate in Al Ain for Q1 2025 was 3%, Q2 2025 was 4%, and Q3 2025 was 4.1%. The annual rate for 2024 was recorded at 5%. Overall the trend indicates a gradual increase through the year."
+      },
+      "status": "complete",
+      "chart_desc": "",
+      "show_viz": true,
+      "custom_charts": [],
+      "user_query": "What is the unemployment rate of Al Ain?"
+    }
+  },
+  {
+    "type": "user",
+    "content": "Plot the unemployment rate of Al Ain"
+  },
+  {
+    "type": "assistant",
+    "response": {
+      "chat_id": "example-chat-001",
+      "message": {
+        "id": "msg-002",
+        "content": "The unemployment rate in Al Ain shows moderate fluctuations. In Q1 2025 it stood at 3%, rising slightly to 4% in Q2, and reaching 4.1% in Q3. The annual rate for 2024 was 5%."
+      },
+      "status": "complete",
+      "chart_desc": "Unemployment rate trend for Al Ain region — 2025 quarterly data.",
+      "show_viz": true,
+      "custom_charts": [
+        {
+          "name": "Unemployment Rate – Al Ain (Quarterly)",
+          "data": [3, 4, 4.1],
+          "dashStyle": "Solid",
+          "type": "line",
+          "zIndex": 1,
+          "lineWidth": 2,
+          "color": "#3375C6",
+          "marker": {
+            "fillColor": "#3375C6",
+            "lineWidth": 1,
+            "lineColor": "#3375C6",
+            "symbol": "circle",
+            "enabled": true
+          },
+          "category": ["2025-Q1", "2025-Q2", "2025-Q3"],
+          "yAxisLabel": "Unemployment Rate (%)",
+          "xAxisLabel": "Quarter"
+        }
+      ],
+      "user_query": "Plot the unemployment rate of Al Ain"
+    }
+  },
+  {
+    "type": "user",
+    "content": "Show the employment rate in Abu Dhabi"
+  },
+  {
+    "type": "assistant",
+    "response": {
+      "chat_id": "example-chat-001",
+      "message": {
+        "id": "msg-003",
+        "content": "The employment rate in Abu Dhabi has been steadily increasing over the past five years, reaching 75.3% in 2024 — the highest recorded since 2020."
+      },
+      "status": "complete",
+      "chart_desc": "Employment rate trend in Abu Dhabi from 2020 to 2024.",
+      "show_viz": true,
+      "custom_charts": [
+        {
+          "name": "Employment Rate – Abu Dhabi",
+          "data": [68.5, 70.2, 72.1, 73.8, 75.3],
+          "dashStyle": "Solid",
+          "type": "column",
+          "zIndex": 1,
+          "lineWidth": 2,
+          "color": "#009e49",
+          "marker": {
+            "fillColor": "#009e49",
+            "lineWidth": 1,
+            "lineColor": "#009e49",
+            "symbol": "circle",
+            "enabled": true
+          },
+          "category": ["2020", "2021", "2022", "2023", "2024"],
+          "yAxisLabel": "Employment Rate (%)",
+          "xAxisLabel": "Year"
+        }
+      ],
+      "user_query": "Show the employment rate in Abu Dhabi"
+    }
+  }
+]

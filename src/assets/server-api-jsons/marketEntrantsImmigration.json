@@ -1,0 +1,111 @@
+{
+  "success": true,
+  "correlationId": "me-imm-001",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 102,
+    "title": "Market Entrants by Immigration",
+    "type": "scad",
+    "compare": false,
+    "unit": "thousands",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Employment",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF ME IMM 1A 1002"
+      },
+      {
+        "label": "Keywords",
+        "value": "Market entrants, immigration, skilled workers, semi-skilled, supply"
+      },
+      {
+        "label": "Statistical population",
+        "value": "Immigrant workers entering the Abu Dhabi labor market, classified by skill level."
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra regions."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "Thousands"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "\u00a9 SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "highlights": [],
+    "description": "Immigration-driven labor market supply by skill level, including skilled and semi-skilled worker categories.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Key Insight",
+      "badge_ar": "\u0631\u0624\u064a\u0629 \u0631\u0626\u064a\u0633\u064a\u0629",
+      "title": "Align Immigration Policies with Skill Demand Forecasts",
+      "title_ar": "\u0645\u0648\u0627\u0621\u0645\u0629 \u0633\u064a\u0627\u0633\u0627\u062a \u0627\u0644\u0647\u062c\u0631\u0629 \u0645\u0639 \u062a\u0648\u0642\u0639\u0627\u062a \u0627\u0644\u0637\u0644\u0628 \u0639\u0644\u0649 \u0627\u0644\u0645\u0647\u0627\u0631\u0627\u062a",
+      "text": "Skilled worker immigration continues to grow, reflecting strong demand in technology and professional services sectors.",
+      "text_ar": "\u064a\u0633\u062a\u0645\u0631 \u0646\u0645\u0648 \u0647\u062c\u0631\u0629 \u0627\u0644\u0639\u0645\u0627\u0644\u0629 \u0627\u0644\u0645\u0627\u0647\u0631\u0629\u060c \u0645\u0645\u0627 \u064a\u0639\u0643\u0633 \u0627\u0644\u0637\u0644\u0628 \u0627\u0644\u0642\u0648\u064a \u0641\u064a \u0642\u0637\u0627\u0639\u064a \u0627\u0644\u062a\u0643\u0646\u0648\u0644\u0648\u062c\u064a\u0627 \u0648\u0627\u0644\u062e\u062f\u0645\u0627\u062a \u0627\u0644\u0645\u0647\u0646\u064a\u0629.",
+      "reason": "Immigration-driven supply of skilled workers has increased steadily, supporting key economic sectors but also intensifying competition for Emirati job seekers in specialized fields.",
+      "reason_ar": "\u0632\u0627\u062f \u0639\u0631\u0636 \u0627\u0644\u0639\u0645\u0627\u0644\u0629 \u0627\u0644\u0645\u0627\u0647\u0631\u0629 \u0639\u0628\u0631 \u0627\u0644\u0647\u062c\u0631\u0629 \u0628\u0634\u0643\u0644 \u0645\u0637\u0631\u062f\u060c \u0645\u0645\u0627 \u064a\u062f\u0639\u0645 \u0627\u0644\u0642\u0637\u0627\u0639\u0627\u062a \u0627\u0644\u0627\u0642\u062a\u0635\u0627\u062f\u064a\u0629 \u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629."
+    },
+    "visualizations": [
+      {
+        "label": "Market Entrants by Immigration",
+        "series": [
+          {
+            "id": "total",
+            "type": "solid",
+            "color": "#589FB7",
+            "group": "total",
+            "label": "Total Immigration Supply",
+            "xAccessor": {
+              "path": "YEAR",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              { "YEAR": "2018", "VALUE": 85.2 },
+              { "YEAR": "2019", "VALUE": 91.4 },
+              { "YEAR": "2020", "VALUE": 62.3 },
+              { "YEAR": "2021", "VALUE": 78.6 },
+              { "YEAR": "2022", "VALUE": 95.1 },
+              { "YEAR": "2023", "VALUE": 102.8 },
+              { "YEAR": "2024", "VALUE": 108.5 }
+            ]
+          }
+        ],
+        "chartType": "line",
+        "isTimeSeries": true
+      }
+    ],
+    "rangeOptions": [
+      { "id": "all", "label": "All", "value": null },
+      { "id": "3", "label": "3Y", "value": 3 },
+      { "id": "5", "label": "5Y", "value": 5 }
+    ],
+    "viewTypes": [
+      { "id": "line", "label": "Line Chart", "icon": "graph-up", "default": true },
+      { "id": "table", "label": "Table", "icon": "layout-left" }
+    ]
+  }
+}

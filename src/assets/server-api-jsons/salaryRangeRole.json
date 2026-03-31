@@ -1,0 +1,88 @@
+{
+  "success": true,
+  "correlationId": "a1b2c3d4-1008-4e5f-9a1b-000000000020",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "salaryRangeRole",
+    "title": "Salary Range by Role",
+    "type": "scad",
+    "compare": false,
+    "unit": "AED",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      { "label": "Indicator code", "value": "LF JD CR 1A 0020" },
+      { "label": "Keywords", "value": "Salary, Range, Role, Compensation, UAE" },
+      { "label": "Data sources", "value": "Job Postings Platform" },
+      { "label": "Geographic coverage", "value": "UAE" },
+      { "label": "Measurement unit", "value": "count" },
+      { "label": "Available periodicity", "value": "Monthly" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Shows salary dispersion and market spread",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Project Managers Command the Widest Salary Spread at 27K AED",
+      "title_ar": "",
+      "text": "Project Managers show an 18K-45K AED range, the widest spread among tracked roles. This suggests high variance in seniority and specialisation, presenting opportunities for structured career ladders.",
+      "text_ar": "",
+      "reason": "Salary range analysis reveals significant compensation dispersion across roles, indicating varied experience requirements and opportunities for standardised pay frameworks.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Salary Range by Role",
+        "chartType": "columnrange",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false,
+        "series": [
+          {
+            "id": "min-salary",
+            "type": "solid",
+            "color": "#60A5FA",
+            "group": "salary-range",
+            "label": "Min Salary",
+            "xAccessor": { "path": "ROLE", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "ROLE": "Software Engineer", "VALUE": 15000 },
+              { "ROLE": "Project Manager", "VALUE": 18000 },
+              { "ROLE": "Data Analyst", "VALUE": 12000 },
+              { "ROLE": "Accountant", "VALUE": 10000 },
+              { "ROLE": "Civil Engineer", "VALUE": 14000 },
+              { "ROLE": "Nurse", "VALUE": 8000 },
+              { "ROLE": "HR Specialist", "VALUE": 9000 },
+              { "ROLE": "Marketing Manager", "VALUE": 13000 }
+            ]
+          },
+          {
+            "id": "max-salary",
+            "type": "solid",
+            "color": "#1E40AF",
+            "group": "salary-range",
+            "label": "Max Salary",
+            "xAccessor": { "path": "ROLE", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "ROLE": "Software Engineer", "VALUE": 35000 },
+              { "ROLE": "Project Manager", "VALUE": 45000 },
+              { "ROLE": "Data Analyst", "VALUE": 28000 },
+              { "ROLE": "Accountant", "VALUE": 22000 },
+              { "ROLE": "Civil Engineer", "VALUE": 30000 },
+              { "ROLE": "Nurse", "VALUE": 18000 },
+              { "ROLE": "HR Specialist", "VALUE": 20000 },
+              { "ROLE": "Marketing Manager", "VALUE": 32000 }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

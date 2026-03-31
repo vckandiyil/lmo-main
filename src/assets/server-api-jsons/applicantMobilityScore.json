@@ -1,0 +1,110 @@
+{
+  "success": true,
+  "correlationId": "f4a1b2c3-4800-4e5f-9a1b-000000000048",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "applicantMobilityScore",
+    "title": "Geographic Mobility Score",
+    "type": "scad",
+    "compare": false,
+    "unit": "score",
+    "filters": [],
+    "updated": "2025-09-25",
+    "category": "Job Applicant Intelligence",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF AI MS 1A 0048"
+      },
+      {
+        "label": "Keywords",
+        "value": "Applicants, Geographic, Mobility, Score, Emirate, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "score"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "description": "Geographic mobility scores by emirate indicating willingness to relocate.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Dubai Applicants Show Highest Geographic Mobility",
+      "title_ar": "",
+      "text": "Dubai leads with a mobility score of 82, followed by Abu Dhabi (75) and Sharjah (68). Higher mobility in major emirates supports inter-emirate talent redistribution strategies.",
+      "text_ar": "",
+      "reason": "Geographic mobility scores help predict talent flow patterns between emirates and inform relocation incentive programmes.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Geographic Mobility Score",
+        "chartType": "column",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "series": [
+          {
+            "id": "mobility-score",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "emirates",
+            "label": "Mobility Score",
+            "xAccessor": {
+              "path": "name",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "value",
+              "type": "value"
+            },
+            "data": [
+              {
+                "name": "Abu Dhabi",
+                "VALUE": 75
+              },
+              {
+                "name": "Dubai",
+                "VALUE": 82
+              },
+              {
+                "name": "Sharjah",
+                "VALUE": 68
+              },
+              {
+                "name": "Ajman",
+                "VALUE": 55
+              },
+              {
+                "name": "Ras Al Khaimah",
+                "VALUE": 48
+              },
+              {
+                "name": "Fujairah",
+                "VALUE": 42
+              },
+              {
+                "name": "Umm Al Quwain",
+                "VALUE": 38
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

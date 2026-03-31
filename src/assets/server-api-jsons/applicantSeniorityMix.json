@@ -1,0 +1,121 @@
+{
+  "success": true,
+  "correlationId": "f4a1b2c3-4000-4e5f-9a1b-000000000040",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "applicantSeniorityMix",
+    "title": "Applicant Seniority Mix",
+    "type": "scad",
+    "compare": false,
+    "unit": "%",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Applicant Intelligence",
+    "metadata": [
+      { "label": "Indicator code", "value": "LF AI SM 1A 0040" },
+      { "label": "Keywords", "value": "Applicants, Seniority, Mix, Junior, Senior, Executive, UAE" },
+      { "label": "Data sources", "value": "Job Postings Platform" },
+      { "label": "Geographic coverage", "value": "UAE" },
+      { "label": "Measurement unit", "value": "%" },
+      { "label": "Available periodicity", "value": "Monthly" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Year-over-year seniority composition of the applicant pool.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Senior and Executive Share Growing Steadily",
+      "title_ar": "",
+      "text": "Senior-level applicants grew from 22% to 25% between 2023 and 2025, while intern share declined. This shift reflects a maturing talent pool better suited for leadership roles.",
+      "text_ar": "",
+      "reason": "The upward migration in seniority mix indicates workforce maturation. Organisations should prepare leadership development pathways to retain this experienced talent.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Applicant Seniority Mix",
+        "chartType": "bar",
+        "stacking": "percent",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false,
+        "series": [
+          {
+            "id": "seniority-intern",
+            "type": "solid",
+            "color": "#BFDBFE",
+            "group": "seniority",
+            "label": "Intern",
+            "xAccessor": { "path": "YEAR", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "YEAR": "2023", "VALUE": 8 },
+              { "YEAR": "2024", "VALUE": 7 },
+              { "YEAR": "2025", "VALUE": 6 }
+            ]
+          },
+          {
+            "id": "seniority-junior",
+            "type": "solid",
+            "color": "#93C5FD",
+            "group": "seniority",
+            "label": "Junior",
+            "xAccessor": { "path": "YEAR", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "YEAR": "2023", "VALUE": 25 },
+              { "YEAR": "2024", "VALUE": 24 },
+              { "YEAR": "2025", "VALUE": 22 }
+            ]
+          },
+          {
+            "id": "seniority-mid",
+            "type": "solid",
+            "color": "#3B82F6",
+            "group": "seniority",
+            "label": "Mid",
+            "xAccessor": { "path": "YEAR", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "YEAR": "2023", "VALUE": 35 },
+              { "YEAR": "2024", "VALUE": 35 },
+              { "YEAR": "2025", "VALUE": 36 }
+            ]
+          },
+          {
+            "id": "seniority-senior",
+            "type": "solid",
+            "color": "#1E40AF",
+            "group": "seniority",
+            "label": "Senior",
+            "xAccessor": { "path": "YEAR", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "YEAR": "2023", "VALUE": 22 },
+              { "YEAR": "2024", "VALUE": 24 },
+              { "YEAR": "2025", "VALUE": 25 }
+            ]
+          },
+          {
+            "id": "seniority-executive",
+            "type": "solid",
+            "color": "#1D4ED8",
+            "group": "seniority",
+            "label": "Executive",
+            "xAccessor": { "path": "YEAR", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "YEAR": "2023", "VALUE": 10 },
+              { "YEAR": "2024", "VALUE": 10 },
+              { "YEAR": "2025", "VALUE": 11 }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

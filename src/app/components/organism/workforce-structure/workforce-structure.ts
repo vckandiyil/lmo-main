@@ -6,6 +6,8 @@ import {FlipCard} from '../../atom/flip-card/flip-card';
 import {WidgetBack} from '../../atom/widget-back/widget-back';
 import {ChartOptions} from '../../../shared/services/chart-config.service';
 import {DashboardDataService} from '../../../core';
+import {WidgetDetailService} from '../../../core/services/widget-detail.service';
+import {WidgetType} from '../../../core/models/widget.model';
 
 interface AgeGroupData {
   ageGroup: string;
@@ -35,6 +37,7 @@ interface WorkforceStructureData {
 })
 export class WorkforceStructure implements OnInit {
   private readonly dashboardDataService = inject(DashboardDataService);
+  private readonly widgetDetailService = inject(WidgetDetailService);
 
   ageDistributionChartOptionsSignal = signal<ChartOptions>({});
   widgetType = input<string>('');
@@ -44,6 +47,16 @@ export class WorkforceStructure implements OnInit {
 
   onWidgetClick(): void {
     this.selectedChange.emit();
+  }
+
+  onAgeDistributionClick(event: Event): void {
+    event.stopPropagation();
+    this.widgetDetailService.open(WidgetType.WorkforceAgeDistribution);
+  }
+
+  onGenderNationalityClick(event: Event): void {
+    event.stopPropagation();
+    this.widgetDetailService.open(WidgetType.WorkforceGenderNationality);
   }
 
   ngOnInit(): void {

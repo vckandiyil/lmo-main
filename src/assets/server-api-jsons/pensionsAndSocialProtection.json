@@ -1,0 +1,271 @@
+{
+  "success": true,
+  "correlationId": "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 25,
+    "title": "Pensions & Social Protection",
+    "type": "scad",
+    "compare": false,
+    "unit": "persons",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Employment",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF PSP YY 1D 8001"
+      },
+      {
+        "label": "Keywords",
+        "value": "Pensions, social protection, retirement, social security, beneficiaries"
+      },
+      {
+        "label": "Statistical population",
+        "value": "The statistical population includes all individuals registered under pension and social protection schemes in the Emirate of Abu Dhabi, including retirees, disability pension recipients, and survivors' benefit recipients."
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "Number of beneficiaries"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi, Abu Dhabi Retirement Pensions and Benefits Fund"
+      },
+      {
+        "label": "Statistical calculation method",
+        "value": "Total count of active pension and social protection beneficiaries registered under Abu Dhabi pension schemes."
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "\u00a9 SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "highlights": [],
+    "description": "Total number of pension and social protection beneficiaries in the Emirate of Abu Dhabi.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Expanding Coverage",
+      "badge_ar": "\u062a\u0648\u0633\u0639 \u0627\u0644\u062a\u063a\u0637\u064a\u0629",
+      "title": "Social Protection Coverage Steadily Expanding",
+      "title_ar": "\u062a\u063a\u0637\u064a\u0629 \u0627\u0644\u062d\u0645\u0627\u064a\u0629 \u0627\u0644\u0627\u062c\u062a\u0645\u0627\u0639\u064a\u0629 \u062a\u062a\u0648\u0633\u0639 \u0628\u0627\u0637\u0631\u0627\u062f",
+      "text": "The number of pension and social protection beneficiaries has grown by over 40% since 2014, reflecting an aging workforce, expanded coverage policies, and increasing Emiratisation of the labor market.",
+      "text_ar": "\u0646\u0645\u0627 \u0639\u062f\u062f \u0627\u0644\u0645\u0633\u062a\u0641\u064a\u062f\u064a\u0646 \u0645\u0646 \u0627\u0644\u0645\u0639\u0627\u0634\u0627\u062a \u0648\u0627\u0644\u062d\u0645\u0627\u064a\u0629 \u0627\u0644\u0627\u062c\u062a\u0645\u0627\u0639\u064a\u0629 \u0628\u0623\u0643\u062b\u0631 \u0645\u0646 40% \u0645\u0646\u0630 2014.",
+      "reason": "Growth in beneficiaries is driven by the maturing pension system, increased Emirati workforce participation leading to more pension contributors reaching retirement, and expanded social protection policies.",
+      "reason_ar": "\u064a\u0639\u0648\u062f \u0627\u0644\u0646\u0645\u0648 \u0641\u064a \u0623\u0639\u062f\u0627\u062f \u0627\u0644\u0645\u0633\u062a\u0641\u064a\u062f\u064a\u0646 \u0625\u0644\u0649 \u0646\u0636\u062c \u0646\u0638\u0627\u0645 \u0627\u0644\u062a\u0642\u0627\u0639\u062f \u0648\u0632\u064a\u0627\u062f\u0629 \u0645\u0634\u0627\u0631\u0643\u0629 \u0627\u0644\u0645\u0648\u0627\u0637\u0646\u064a\u0646 \u0641\u064a \u0633\u0648\u0642 \u0627\u0644\u0639\u0645\u0644."
+    },
+    "visualizations": [
+      {
+        "label": "Pension & Social Protection Beneficiaries",
+        "series": [
+          {
+            "id": "total",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "total",
+            "label": "Total",
+            "filterBy": {
+              "TYPE": "NOWCAST",
+              "CITIZENSHIP": "Total"
+            },
+            "xAccessor": {
+              "path": "OBS_DT",
+              "type": "date",
+              "specifier": "%Y-%m-%d"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              {
+                "VALUE": 42500,
+                "MAX_VALUE": 61200,
+                "MIN_VALUE": 42500,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2014-01-01",
+                "YEAR": "2014"
+              },
+              {
+                "VALUE": 43800,
+                "MAX_VALUE": 61200,
+                "MIN_VALUE": 42500,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2015-01-01",
+                "YEAR": "2015"
+              },
+              {
+                "VALUE": 45200,
+                "MAX_VALUE": 61200,
+                "MIN_VALUE": 42500,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2016-01-01",
+                "YEAR": "2016"
+              },
+              {
+                "VALUE": 46900,
+                "MAX_VALUE": 61200,
+                "MIN_VALUE": 42500,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2017-01-01",
+                "YEAR": "2017"
+              },
+              {
+                "VALUE": 48500,
+                "MAX_VALUE": 61200,
+                "MIN_VALUE": 42500,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2018-01-01",
+                "YEAR": "2018"
+              },
+              {
+                "VALUE": 50100,
+                "MAX_VALUE": 61200,
+                "MIN_VALUE": 42500,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2019-01-01",
+                "YEAR": "2019"
+              },
+              {
+                "VALUE": 51800,
+                "MAX_VALUE": 61200,
+                "MIN_VALUE": 42500,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2020-01-01",
+                "YEAR": "2020"
+              },
+              {
+                "VALUE": 53400,
+                "MAX_VALUE": 61200,
+                "MIN_VALUE": 42500,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 55600,
+                "MAX_VALUE": 61200,
+                "MIN_VALUE": 42500,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 57800,
+                "MAX_VALUE": 61200,
+                "MIN_VALUE": 42500,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 59500,
+                "MAX_VALUE": 61200,
+                "MIN_VALUE": 42500,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              },
+              {
+                "VALUE": 61200,
+                "MAX_VALUE": 61200,
+                "MIN_VALUE": 42500,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2025-01-01",
+                "YEAR": "2025"
+              }
+            ],
+            "yMax": 61200,
+            "yMin": 42500,
+            "xMin": "2014-01-01",
+            "xMax": "2025-01-01"
+          }
+        ],
+        "viewName": "VW_DS_PENSIONS_SOCIAL_PROTECTION_ANNUAL",
+        "chartType": "line",
+        "valueFormat": "compact",
+        "isTimeSeries": true,
+        "rangeOptions": [
+          {
+            "id": "3y",
+            "label": "3Y",
+            "value": 3
+          },
+          {
+            "id": "5y",
+            "label": "5Y",
+            "value": 5
+          },
+          {
+            "id": "all",
+            "label": "ALL",
+            "value": null
+          }
+        ],
+        "showMinMaxValues": true
+      }
+    ],
+    "rangeOptions": [
+      {
+        "id": "all",
+        "label": "All",
+        "value": null
+      },
+      {
+        "id": "3",
+        "label": "3Y",
+        "value": 3
+      },
+      {
+        "id": "5",
+        "label": "5Y",
+        "value": 5
+      },
+      {
+        "id": "10",
+        "label": "10Y",
+        "value": 10
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "line",
+        "label": "Line Chart",
+        "icon": "graph-up",
+        "default": true
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
+      }
+    ]
+  }
+}

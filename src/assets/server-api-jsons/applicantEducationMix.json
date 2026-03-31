@@ -1,0 +1,214 @@
+{
+  "success": true,
+  "correlationId": "f4a1b2c3-4500-4e5f-9a1b-000000000045",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "applicantEducationMix",
+    "title": "Education Level Mix",
+    "type": "scad",
+    "compare": false,
+    "unit": "%",
+    "filters": [],
+    "updated": "2025-09-25",
+    "category": "Job Applicant Intelligence",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF AI ED 1A 0045"
+      },
+      {
+        "label": "Keywords",
+        "value": "Applicants, Education, Diploma, Bachelor, Master, PhD, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "%"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "description": "Education level composition of the applicant pool by role family.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Bachelor's Degree Holders Dominate Across Role Families",
+      "title_ar": "",
+      "text": "Bachelor's degree holders comprise 45-55% of applicants across most role families. Master's holders are concentrated in Technology (30%) and Finance (28%), while Diploma holders are more prevalent in Operations.",
+      "text_ar": "",
+      "reason": "Education level mix by role family reveals qualification alignment and identifies areas where upskilling or credential programmes could strengthen the talent pipeline.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Education Level Mix",
+        "chartType": "stacked-bar",
+        "stacking": "percent",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "series": [
+          {
+            "id": "education-diploma",
+            "type": "solid",
+            "color": "#BFDBFE",
+            "group": "education",
+            "label": "Diploma",
+            "xAccessor": {
+              "path": "name",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "value",
+              "type": "value"
+            },
+            "data": [
+              {
+                "name": "Technology",
+                "VALUE": 8
+              },
+              {
+                "name": "Finance",
+                "VALUE": 10
+              },
+              {
+                "name": "Healthcare",
+                "VALUE": 15
+              },
+              {
+                "name": "Construction",
+                "VALUE": 22
+              },
+              {
+                "name": "Education",
+                "VALUE": 5
+              }
+            ]
+          },
+          {
+            "id": "education-bachelors",
+            "type": "solid",
+            "color": "#93C5FD",
+            "group": "education",
+            "label": "Bachelor's",
+            "xAccessor": {
+              "path": "name",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "value",
+              "type": "value"
+            },
+            "data": [
+              {
+                "name": "Technology",
+                "VALUE": 45
+              },
+              {
+                "name": "Finance",
+                "VALUE": 48
+              },
+              {
+                "name": "Healthcare",
+                "VALUE": 42
+              },
+              {
+                "name": "Construction",
+                "VALUE": 55
+              },
+              {
+                "name": "Education",
+                "VALUE": 40
+              }
+            ]
+          },
+          {
+            "id": "education-masters",
+            "type": "solid",
+            "color": "#3B82F6",
+            "group": "education",
+            "label": "Master's",
+            "xAccessor": {
+              "path": "name",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "value",
+              "type": "value"
+            },
+            "data": [
+              {
+                "name": "Technology",
+                "VALUE": 30
+              },
+              {
+                "name": "Finance",
+                "VALUE": 28
+              },
+              {
+                "name": "Healthcare",
+                "VALUE": 25
+              },
+              {
+                "name": "Construction",
+                "VALUE": 18
+              },
+              {
+                "name": "Education",
+                "VALUE": 35
+              }
+            ]
+          },
+          {
+            "id": "education-phd",
+            "type": "solid",
+            "color": "#1D4ED8",
+            "group": "education",
+            "label": "PhD",
+            "xAccessor": {
+              "path": "name",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "value",
+              "type": "value"
+            },
+            "data": [
+              {
+                "name": "Technology",
+                "VALUE": 17
+              },
+              {
+                "name": "Finance",
+                "VALUE": 14
+              },
+              {
+                "name": "Healthcare",
+                "VALUE": 18
+              },
+              {
+                "name": "Construction",
+                "VALUE": 5
+              },
+              {
+                "name": "Education",
+                "VALUE": 20
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

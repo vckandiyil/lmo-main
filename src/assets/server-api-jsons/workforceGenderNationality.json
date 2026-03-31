@@ -1,0 +1,111 @@
+{
+  "success": true,
+  "correlationId": "ws-gn-001",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 402,
+    "title": "Workforce Gender and Nationality Split",
+    "type": "scad",
+    "compare": false,
+    "unit": "%",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Employment",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF WFS GNS 1A 4002"
+      },
+      {
+        "label": "Keywords",
+        "value": "Workforce, gender, nationality, Emirati, expatriate, male, female"
+      },
+      {
+        "label": "Statistical population",
+        "value": "All employed individuals aged 15 and above in the Emirate of Abu Dhabi, classified by gender and nationality."
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra regions."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "%"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi"
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "\u00a9 SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "highlights": [],
+    "description": "Workforce distribution by combined gender and nationality categories, showing the intersection of demographic characteristics.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Insight",
+      "badge_ar": "\u0631\u0624\u064a\u0629",
+      "title": "Emirati Female Workforce Growing Fastest",
+      "title_ar": "\u0627\u0644\u0642\u0648\u0649 \u0627\u0644\u0639\u0627\u0645\u0644\u0629 \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a\u064a\u0629 \u0627\u0644\u0646\u0633\u0627\u0626\u064a\u0629 \u0627\u0644\u0623\u0633\u0631\u0639 \u0646\u0645\u0648\u0627\u064b",
+      "text": "Emirati women represent the fastest-growing workforce segment, driven by education attainment and government support programs.",
+      "text_ar": "\u062a\u0645\u062b\u0644 \u0627\u0644\u0645\u0631\u0623\u0629 \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a\u064a\u0629 \u0627\u0644\u0634\u0631\u064a\u062d\u0629 \u0627\u0644\u0623\u0633\u0631\u0639 \u0646\u0645\u0648\u0627\u064b.",
+      "reason": "Female Emirati workforce share grew from 8.5% in 2018 to 12.1% in 2024, the strongest growth among all four demographic categories.",
+      "reason_ar": "\u0646\u0645\u062a \u062d\u0635\u0629 \u0627\u0644\u0645\u0631\u0623\u0629 \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a\u064a\u0629 \u0641\u064a \u0627\u0644\u0642\u0648\u0649 \u0627\u0644\u0639\u0627\u0645\u0644\u0629 \u0645\u0646 8.5% \u0641\u064a 2018 \u0625\u0644\u0649 12.1% \u0641\u064a 2024."
+    },
+    "visualizations": [
+      {
+        "label": "Workforce Gender and Nationality Split",
+        "series": [
+          {
+            "id": "total",
+            "type": "solid",
+            "color": "#3375C6",
+            "group": "total",
+            "label": "Emirati Share",
+            "xAccessor": {
+              "path": "YEAR",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              { "YEAR": "2018", "VALUE": 38.2 },
+              { "YEAR": "2019", "VALUE": 38.8 },
+              { "YEAR": "2020", "VALUE": 40.1 },
+              { "YEAR": "2021", "VALUE": 40.9 },
+              { "YEAR": "2022", "VALUE": 41.3 },
+              { "YEAR": "2023", "VALUE": 41.8 },
+              { "YEAR": "2024", "VALUE": 42.4 }
+            ]
+          }
+        ],
+        "chartType": "line",
+        "isTimeSeries": true
+      }
+    ],
+    "rangeOptions": [
+      { "id": "all", "label": "All", "value": null },
+      { "id": "3", "label": "3Y", "value": 3 },
+      { "id": "5", "label": "5Y", "value": 5 }
+    ],
+    "viewTypes": [
+      { "id": "line", "label": "Line Chart", "icon": "graph-up", "default": true },
+      { "id": "table", "label": "Table", "icon": "layout-left" }
+    ]
+  }
+}

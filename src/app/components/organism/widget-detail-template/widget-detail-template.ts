@@ -17,6 +17,7 @@ import {PresetService} from '../../../core/services/preset.service';
 import {DOWNLOAD_FORMATS as DEFAULT_DOWNLOAD_FORMATS} from '../../../core/constants/download.constants';
 import type {MetaDataItem, RelatedSVMap, ForecastRelatedSVMap} from '../../../core';
 import type {ChartBuildContext, MultiSeriesItem, WidgetDetailConfig, WidgetDetailSeriesPoint} from '../../../core/models/widget-detail.model';
+import {sortSeries, sortMultiSeries} from './sort-utils';
 
 const COMPARE_COLORS = [
   '#E85D75', '#F59E0B', '#10B981', '#8B5CF6',
@@ -80,15 +81,26 @@ export class WidgetDetailTemplate implements OnInit, OnDestroy {
       let dtColumns: Record<string, (string | number | null)[]>;
       let gridColumns: {id: string; header: {format: string}; width?: number}[];
 
+      const dir = this.sortDirection(); // track sort changes
+
       if (ms.length > 1) {
         // Multi-series table: one column per series
         const allYears = new Set<string>();
         ms.forEach(s => s.data.forEach(p => allYears.add(p.year)));
-        const sortedYears = [...allYears].sort();
-        dtColumns = {year: sortedYears};
+        let orderedYears = [...allYears].sort();
+
+        if (dir) {
+          const sumByYear = new Map<string, number>();
+          ms.forEach(s => s.data.forEach(p => sumByYear.set(p.year, (sumByYear.get(p.year) ?? 0) + p.value)));
+          orderedYears.sort((a, b) => dir === 'asc'
+            ? (sumByYear.get(a) ?? 0) - (sumByYear.get(b) ?? 0)
+            : (sumByYear.get(b) ?? 0) - (sumByYear.get(a) ?? 0));
+        }
+
+        dtColumns = {year: orderedYears};
         ms.forEach(s => {
           const map = new Map(s.data.map(p => [p.year, p.value]));
-          dtColumns[s.name] = sortedYears.map(y => map.get(y) ?? null);
+          dtColumns[s.name] = orderedYears.map(y => map.get(y) ?? null);
         });
         gridColumns = [
           {id: 'year', header: {format: 'Year'}, width: 150},
@@ -109,24 +121,32 @@ export class WidgetDetailTemplate implements OnInit, OnDestroy {
           (this.relatedSVMap[item.id]?.data ?? []).forEach(p => allYears.add(p.YEAR)),
         );
 
-        const sortedYears = [...allYears].sort();
+        let orderedYears = [...allYears].sort();
         const mainMap     = new Map(mainSeries.map(p => [p.year, p.value]));
         const forecastMap = new Map(forecastData.map(p => [p.year, p.value]));
 
+        if (dir) {
+          orderedYears.sort((a, b) => {
+            const va = mainMap.get(a) ?? 0;
+            const vb = mainMap.get(b) ?? 0;
+            return dir === 'asc' ? va - vb : vb - va;
+          });
+        }
+
         dtColumns = {
-          year:  sortedYears,
-          value: sortedYears.map(y => mainMap.get(y) ?? null),
+          year:  orderedYears,
+          value: orderedYears.map(y => mainMap.get(y) ?? null),
         };
 
         if (isForecast && forecastData.length > 0) {
-          dtColumns['forecast'] = sortedYears.map(y => forecastMap.get(y) ?? null);
+          dtColumns['forecast'] = orderedYears.map(y => forecastMap.get(y) ?? null);
         }
 
         for (const item of selectedItems) {
           const svMap = new Map(
             (this.relatedSVMap[item.id]?.data ?? []).map(p => [p.YEAR, p.VALUE]),
           );
-          dtColumns[item.id] = sortedYears.map(y => svMap.get(y) ?? null);
+          dtColumns[item.id] = orderedYears.map(y => svMap.get(y) ?? null);
         }
 
         gridColumns = [
@@ -207,6 +227,8 @@ export class WidgetDetailTemplate implements OnInit, OnDestroy {
   showTooltip = signal<boolean>(true);
   showDataLabels = signal<boolean>(true);
   showPreciseValue = signal<boolean>(false);
+
+  sortDirection = signal<'asc' | 'desc' | null>(null);
 
   /** Chart-type switcher icons — driven by viewTypes from widgets-detail-config.json */
   readonly chartTypes = computed(() => {
@@ -399,6 +421,11 @@ export class WidgetDetailTemplate implements OnInit, OnDestroy {
     this.rebuildChart();
   }
 
+  toggleSort(direction: 'asc' | 'desc'): void {
+    this.sortDirection.update(current => current === direction ? null : direction);
+    this.rebuildChart();
+  }
+
   private rebuildChart(): void {
     this.tableRefreshTrigger.update(v => v + 1);
     const cfg = this.config();
@@ -432,15 +459,13 @@ export class WidgetDetailTemplate implements OnInit, OnDestroy {
 
   private getFilteredSeries(): WidgetDetailSeriesPoint[] {
     const range = this.activeRange();
-    if (range === 'ALL') return this.rawSeries;
-    const years = parseInt(range, 10);
-    return this.rawSeries.slice(-years);
+    const data = range === 'ALL' ? this.rawSeries : this.rawSeries.slice(-parseInt(range, 10));
+    return sortSeries(data, this.sortDirection());
   }
 
   private getFilteredMultiSeries(): MultiSeriesItem[] {
     const range = this.activeRange();
-    if (range === 'ALL') return this.rawMultiSeries;
-    const years = parseInt(range, 10);
-    return this.rawMultiSeries.map(s => ({...s, data: s.data.slice(-years)}));
+    const items = range === 'ALL' ? this.rawMultiSeries : this.rawMultiSeries.map(s => ({...s, data: s.data.slice(-parseInt(range, 10))}));
+    return sortMultiSeries(items, this.sortDirection());
   }
 }

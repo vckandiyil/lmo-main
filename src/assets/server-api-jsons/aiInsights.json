@@ -1,0 +1,271 @@
+{
+  "success": true,
+  "correlationId": "b4c2d3e5-6f7a-8901-bcde-f23456789012",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 21,
+    "title": "AI Insights - Labor Market Health Index",
+    "type": "scad",
+    "compare": false,
+    "unit": "index",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Employment",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF AI IDX 1D 5001"
+      },
+      {
+        "label": "Keywords",
+        "value": "AI insights, labor market index, composite indicator, machine learning"
+      },
+      {
+        "label": "Statistical population",
+        "value": "Composite index derived from multiple labor market indicators covering all individuals aged 15 years and above residing in the Emirate of Abu Dhabi."
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "Geographical coverage includes the three regions in the Emirate of Abu Dhabi: Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "Index (0-100)"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Annual"
+      },
+      {
+        "label": "Data sources",
+        "value": "Statistics Centre - Abu Dhabi (AI-generated composite)"
+      },
+      {
+        "label": "Statistical calculation method",
+        "value": "Weighted composite of employment rate, unemployment rate, labor force participation, vacancy rate, and Emiratisation indicators, normalized to a 0-100 scale using AI/ML models."
+      },
+      {
+        "label": "Last data update",
+        "value": "20240101"
+      },
+      {
+        "label": "Copyright and usage restrictions",
+        "value": "\u00a9 SCAD, for public usage"
+      }
+    ],
+    "dataSource": "SCAD Official",
+    "highlights": [],
+    "description": "AI-generated composite index measuring overall labor market health in the Emirate of Abu Dhabi.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "AI Generated",
+      "badge_ar": "\u0645\u064f\u0646\u0634\u0623 \u0628\u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a",
+      "title": "Labor Market Health Continues to Improve",
+      "title_ar": "\u0635\u062d\u0629 \u0633\u0648\u0642 \u0627\u0644\u0639\u0645\u0644 \u062a\u0633\u062a\u0645\u0631 \u0641\u064a \u0627\u0644\u062a\u062d\u0633\u0646",
+      "text": "The composite AI health index has reached its highest level since tracking began, driven by strong employment growth, declining unemployment, and increasing Emiratisation rates.",
+      "text_ar": "\u0648\u0635\u0644 \u0645\u0624\u0634\u0631 \u0627\u0644\u0635\u062d\u0629 \u0627\u0644\u0645\u0631\u0643\u0628 \u0625\u0644\u0649 \u0623\u0639\u0644\u0649 \u0645\u0633\u062a\u0648\u0649 \u0644\u0647 \u0645\u0646\u0630 \u0628\u062f\u0621 \u0627\u0644\u062a\u062a\u0628\u0639.",
+      "reason": "Multiple labor market fundamentals are simultaneously strengthening: employment rates are at historical highs, unemployment is declining, and structural indicators like Emiratisation and labor force participation show positive trajectories.",
+      "reason_ar": "\u062a\u062a\u0639\u0632\u0632 \u0639\u062f\u0629 \u0623\u0633\u0627\u0633\u064a\u0627\u062a \u0644\u0633\u0648\u0642 \u0627\u0644\u0639\u0645\u0644 \u0641\u064a \u0648\u0642\u062a \u0648\u0627\u062d\u062f."
+    },
+    "visualizations": [
+      {
+        "label": "AI Labor Market Health Index",
+        "series": [
+          {
+            "id": "total",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "total",
+            "label": "Health Index",
+            "filterBy": {
+              "TYPE": "NOWCAST",
+              "CITIZENSHIP": "Total"
+            },
+            "xAccessor": {
+              "path": "OBS_DT",
+              "type": "date",
+              "specifier": "%Y-%m-%d"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              {
+                "VALUE": 61.2,
+                "MAX_VALUE": 82.5,
+                "MIN_VALUE": 48.7,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2014-01-01",
+                "YEAR": "2014"
+              },
+              {
+                "VALUE": 59.8,
+                "MAX_VALUE": 82.5,
+                "MIN_VALUE": 48.7,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2015-01-01",
+                "YEAR": "2015"
+              },
+              {
+                "VALUE": 57.3,
+                "MAX_VALUE": 82.5,
+                "MIN_VALUE": 48.7,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2016-01-01",
+                "YEAR": "2016"
+              },
+              {
+                "VALUE": 55.9,
+                "MAX_VALUE": 82.5,
+                "MIN_VALUE": 48.7,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2017-01-01",
+                "YEAR": "2017"
+              },
+              {
+                "VALUE": 56.4,
+                "MAX_VALUE": 82.5,
+                "MIN_VALUE": 48.7,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2018-01-01",
+                "YEAR": "2018"
+              },
+              {
+                "VALUE": 58.1,
+                "MAX_VALUE": 82.5,
+                "MIN_VALUE": 48.7,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2019-01-01",
+                "YEAR": "2019"
+              },
+              {
+                "VALUE": 48.7,
+                "MAX_VALUE": 82.5,
+                "MIN_VALUE": 48.7,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2020-01-01",
+                "YEAR": "2020"
+              },
+              {
+                "VALUE": 62.3,
+                "MAX_VALUE": 82.5,
+                "MIN_VALUE": 48.7,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2021-01-01",
+                "YEAR": "2021"
+              },
+              {
+                "VALUE": 70.1,
+                "MAX_VALUE": 82.5,
+                "MIN_VALUE": 48.7,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2022-01-01",
+                "YEAR": "2022"
+              },
+              {
+                "VALUE": 76.8,
+                "MAX_VALUE": 82.5,
+                "MIN_VALUE": 48.7,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2023-01-01",
+                "YEAR": "2023"
+              },
+              {
+                "VALUE": 80.2,
+                "MAX_VALUE": 82.5,
+                "MIN_VALUE": 48.7,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2024-01-01",
+                "YEAR": "2024"
+              },
+              {
+                "VALUE": 82.5,
+                "MAX_VALUE": 82.5,
+                "MIN_VALUE": 48.7,
+                "MAX_OBS_DT": "2025-01-01",
+                "MIN_OBS_DT": "2014-01-01",
+                "OBS_DT": "2025-01-01",
+                "YEAR": "2025"
+              }
+            ],
+            "yMax": 82.5,
+            "yMin": 48.7,
+            "xMin": "2014-01-01",
+            "xMax": "2025-01-01"
+          }
+        ],
+        "viewName": "VW_DS_AI_LABOR_MARKET_HEALTH_INDEX",
+        "chartType": "line",
+        "valueFormat": "compact",
+        "isTimeSeries": true,
+        "rangeOptions": [
+          {
+            "id": "3y",
+            "label": "3Y",
+            "value": 3
+          },
+          {
+            "id": "5y",
+            "label": "5Y",
+            "value": 5
+          },
+          {
+            "id": "all",
+            "label": "ALL",
+            "value": null
+          }
+        ],
+        "showMinMaxValues": true
+      }
+    ],
+    "rangeOptions": [
+      {
+        "id": "all",
+        "label": "All",
+        "value": null
+      },
+      {
+        "id": "3",
+        "label": "3Y",
+        "value": 3
+      },
+      {
+        "id": "5",
+        "label": "5Y",
+        "value": 5
+      },
+      {
+        "id": "10",
+        "label": "10Y",
+        "value": 10
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "line",
+        "label": "Line Chart",
+        "icon": "graph-up",
+        "default": true
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
+      }
+    ]
+  }
+}

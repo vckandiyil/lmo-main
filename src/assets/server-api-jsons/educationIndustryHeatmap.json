@@ -1,0 +1,156 @@
+{
+  "success": true,
+  "correlationId": "g7h8i9j0-1007-5ed3-c6f4-0d73c003g931",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 31,
+    "title": "Education by Industry Heatmap",
+    "type": "scad",
+    "compare": false,
+    "unit": "%",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF JD ED IH 3101"
+      },
+      {
+        "label": "Keywords",
+        "value": "Education, Industry, Heatmap, Policy planning, Workforce"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "%"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Quarterly"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Last data update",
+        "value": "20250925"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Policy planning view",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Policy",
+      "badge_ar": "",
+      "title": "Technology and Healthcare Demand Higher Education Levels",
+      "title_ar": "",
+      "text": "Technology requires 35% Master's and 15% PhD holders, while Construction relies heavily on High School (40%) and Bachelor's (30%). Education policy should align training capacity with these sectoral needs.",
+      "text_ar": "",
+      "reason": "Cross-referencing education requirements by industry reveals structural mismatches that can inform scholarship allocation, vocational training investment, and immigration policy.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Education by Industry Heatmap",
+        "series": [
+          {
+            "id": "high-school",
+            "type": "solid",
+            "color": "#BFDBFE",
+            "group": "education",
+            "label": "High School",
+            "data": [
+              { "INDUSTRY": "Technology", "VALUE": 5 },
+              { "INDUSTRY": "Healthcare", "VALUE": 10 },
+              { "INDUSTRY": "Finance", "VALUE": 8 },
+              { "INDUSTRY": "Construction", "VALUE": 40 },
+              { "INDUSTRY": "Education", "VALUE": 5 }
+            ],
+            "xAccessor": {
+              "path": "INDUSTRY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          },
+          {
+            "id": "bachelor",
+            "type": "solid",
+            "color": "#3B82F6",
+            "group": "education",
+            "label": "Bachelor",
+            "data": [
+              { "INDUSTRY": "Technology", "VALUE": 45 },
+              { "INDUSTRY": "Healthcare", "VALUE": 40 },
+              { "INDUSTRY": "Finance", "VALUE": 50 },
+              { "INDUSTRY": "Construction", "VALUE": 30 },
+              { "INDUSTRY": "Education", "VALUE": 35 }
+            ],
+            "xAccessor": {
+              "path": "INDUSTRY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          },
+          {
+            "id": "master",
+            "type": "solid",
+            "color": "#1E40AF",
+            "group": "education",
+            "label": "Master",
+            "data": [
+              { "INDUSTRY": "Technology", "VALUE": 35 },
+              { "INDUSTRY": "Healthcare", "VALUE": 30 },
+              { "INDUSTRY": "Finance", "VALUE": 32 },
+              { "INDUSTRY": "Construction", "VALUE": 20 },
+              { "INDUSTRY": "Education", "VALUE": 35 }
+            ],
+            "xAccessor": {
+              "path": "INDUSTRY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          },
+          {
+            "id": "phd",
+            "type": "solid",
+            "color": "#1D4ED8",
+            "group": "education",
+            "label": "PhD",
+            "data": [
+              { "INDUSTRY": "Technology", "VALUE": 15 },
+              { "INDUSTRY": "Healthcare", "VALUE": 20 },
+              { "INDUSTRY": "Finance", "VALUE": 10 },
+              { "INDUSTRY": "Construction", "VALUE": 10 },
+              { "INDUSTRY": "Education", "VALUE": 25 }
+            ],
+            "xAccessor": {
+              "path": "INDUSTRY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          }
+        ],
+        "chartType": "heatmap",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false
+      }
+    ]
+  }
+}

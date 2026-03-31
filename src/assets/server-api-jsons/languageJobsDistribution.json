@@ -1,0 +1,138 @@
+{
+  "success": true,
+  "correlationId": "i9j0k1l2-1009-5ed3-c6f4-0d73c003g933",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 33,
+    "title": "Language vs Number of Jobs",
+    "type": "scad",
+    "compare": false,
+    "unit": "count",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF JD LG JB 3301"
+      },
+      {
+        "label": "Keywords",
+        "value": "Language, English, Arabic, Bilingual, Jobs, Localization"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Quarterly"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Last data update",
+        "value": "20250925"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Localization and accessibility insight",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Insight",
+      "badge_ar": "",
+      "title": "Government Sector Shows Strongest Arabic Language Demand",
+      "title_ar": "",
+      "text": "Government leads in Arabic-only postings (3,000) and bilingual roles (4,000), reflecting localisation mandates. Technology remains English-dominant at 8,000 postings, creating potential accessibility barriers.",
+      "text_ar": "",
+      "reason": "Language requirements in job postings affect workforce accessibility and Emiratisation goals. Monitoring language distribution helps ensure inclusive labour market participation.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Language vs Number of Jobs",
+        "series": [
+          {
+            "id": "english-only",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "language",
+            "label": "English Only",
+            "data": [
+              { "INDUSTRY": "Technology", "VALUE": 8000 },
+              { "INDUSTRY": "Healthcare", "VALUE": 4000 },
+              { "INDUSTRY": "Finance", "VALUE": 5000 },
+              { "INDUSTRY": "Construction", "VALUE": 3000 },
+              { "INDUSTRY": "Education", "VALUE": 2500 },
+              { "INDUSTRY": "Government", "VALUE": 1500 }
+            ],
+            "xAccessor": {
+              "path": "INDUSTRY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          },
+          {
+            "id": "arabic-only",
+            "type": "solid",
+            "color": "#3B82F6",
+            "group": "language",
+            "label": "Arabic Only",
+            "data": [
+              { "INDUSTRY": "Technology", "VALUE": 500 },
+              { "INDUSTRY": "Healthcare", "VALUE": 1200 },
+              { "INDUSTRY": "Finance", "VALUE": 800 },
+              { "INDUSTRY": "Construction", "VALUE": 2000 },
+              { "INDUSTRY": "Education", "VALUE": 1500 },
+              { "INDUSTRY": "Government", "VALUE": 3000 }
+            ],
+            "xAccessor": {
+              "path": "INDUSTRY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          },
+          {
+            "id": "bilingual",
+            "type": "solid",
+            "color": "#60A5FA",
+            "group": "language",
+            "label": "Bilingual",
+            "data": [
+              { "INDUSTRY": "Technology", "VALUE": 4000 },
+              { "INDUSTRY": "Healthcare", "VALUE": 3000 },
+              { "INDUSTRY": "Finance", "VALUE": 2500 },
+              { "INDUSTRY": "Construction", "VALUE": 1500 },
+              { "INDUSTRY": "Education", "VALUE": 2000 },
+              { "INDUSTRY": "Government", "VALUE": 4000 }
+            ],
+            "xAccessor": {
+              "path": "INDUSTRY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          }
+        ],
+        "chartType": "bar",
+        "stacking": "normal",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false
+      }
+    ]
+  }
+}

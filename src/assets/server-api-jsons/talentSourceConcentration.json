@@ -1,0 +1,122 @@
+{
+  "success": true,
+  "correlationId": "f4a1b2c3-5500-4e5f-9a1b-000000000055",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "talentSourceConcentration",
+    "title": "Talent Source Concentration",
+    "type": "scad",
+    "compare": false,
+    "unit": "count",
+    "filters": [],
+    "updated": "2025-09-25",
+    "category": "Talent Pool Intelligence",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF TP SC 1A 0055"
+      },
+      {
+        "label": "Keywords",
+        "value": "Talent, Source, Concentration, Country, Region, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "description": "Top source countries and regions contributing to the talent pool.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "India and Pakistan Dominate Talent Source Pipeline",
+      "title_ar": "",
+      "text": "India (38,500) and Pakistan (18,200) account for the largest share of the talent pipeline. Diversifying recruitment sources can reduce dependency and strengthen workforce resilience.",
+      "text_ar": "",
+      "reason": "Source concentration analysis reveals geographic dependency in talent pipelines. Diversification across countries and regions strengthens workforce resilience.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Talent Source Concentration",
+        "chartType": "column",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "series": [
+          {
+            "id": "talent-source-concentration",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "sources",
+            "label": "Talent Count",
+            "xAccessor": {
+              "path": "name",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "value",
+              "type": "value"
+            },
+            "data": [
+              {
+                "name": "India",
+                "VALUE": 38500
+              },
+              {
+                "name": "Pakistan",
+                "VALUE": 18200
+              },
+              {
+                "name": "Philippines",
+                "VALUE": 14800
+              },
+              {
+                "name": "Egypt",
+                "VALUE": 12500
+              },
+              {
+                "name": "UAE (Local)",
+                "VALUE": 11200
+              },
+              {
+                "name": "Jordan",
+                "VALUE": 8400
+              },
+              {
+                "name": "Bangladesh",
+                "VALUE": 7600
+              },
+              {
+                "name": "UK",
+                "VALUE": 5800
+              },
+              {
+                "name": "Lebanon",
+                "VALUE": 4200
+              },
+              {
+                "name": "South Africa",
+                "VALUE": 3100
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

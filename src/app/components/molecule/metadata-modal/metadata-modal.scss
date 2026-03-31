@@ -113,6 +113,18 @@
   }
 }
 
+// ---------------------------------------------------------------------------
+// RESPONSIVE: Mobile — full-width
+// ---------------------------------------------------------------------------
+@media (max-width: 767.98px) {
+  .metadata-modal {
+    &__content {
+      width: calc(100% - 32px);
+      max-height: calc(100vh - 64px);
+    }
+  }
+}
+
 @keyframes metadataModalFadeIn {
   from {
     opacity: 0;

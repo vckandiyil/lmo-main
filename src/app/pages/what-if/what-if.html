@@ -1,5 +1,5 @@
 <app-what-if-sidebar></app-what-if-sidebar>
-<app-filters></app-filters>
+<app-filters [hideLayoutBtn]="true"></app-filters>
 <div class="what-if__content">
   <div class="what-if__graphs">
     @for (widget of visibleWidgets(); track widget.id) {

@@ -1,0 +1,142 @@
+{
+  "success": true,
+  "correlationId": "a1b2c3d4-1005-5ed3-c6f4-0d73c003g005",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 105,
+    "title": "Sector Contribution to Openings",
+    "type": "scad",
+    "compare": false,
+    "unit": "%",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      { "label": "Indicator code", "value": "LM SEC CO 1A 1005" },
+      { "label": "Keywords", "value": "Sector, Contribution, Openings, Share, Concentration, Abu Dhabi" },
+      { "label": "Statistical population", "value": "All job openings categorised by sector from the Job Postings Platform." },
+      { "label": "Geographic coverage", "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra." },
+      { "label": "Measurement unit", "value": "%" },
+      { "label": "Available periodicity", "value": "Quarterly" },
+      { "label": "Data sources", "value": "Job Postings Platform" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Shows sector share and concentration",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Diversification",
+      "badge_ar": "",
+      "title": "IT & Telecom Sector Growing as Employment Driver",
+      "title_ar": "",
+      "text": "IT & Telecom has increased its share from 22% in Q1 to 25% in Q4 2025, reflecting successful diversification away from oil and gas dependency in the employment landscape.",
+      "text_ar": "",
+      "reason": "The shifting sector composition indicates progress in Abu Dhabi's economic diversification, with non-oil sectors increasingly contributing to job creation.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Sector Contribution to Openings",
+        "series": [
+          {
+            "id": "sector-oil-gas",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "oil-gas",
+            "label": "Oil & Gas",
+            "xAccessor": { "path": "QUARTER", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "QUARTER": "Q1 2025", "VALUE": 28 },
+              { "QUARTER": "Q2 2025", "VALUE": 26 },
+              { "QUARTER": "Q3 2025", "VALUE": 25 },
+              { "QUARTER": "Q4 2025", "VALUE": 24 }
+            ]
+          },
+          {
+            "id": "sector-it-telecom",
+            "type": "solid",
+            "color": "#3B82F6",
+            "group": "it-telecom",
+            "label": "IT & Telecom",
+            "xAccessor": { "path": "QUARTER", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "QUARTER": "Q1 2025", "VALUE": 22 },
+              { "QUARTER": "Q2 2025", "VALUE": 23 },
+              { "QUARTER": "Q3 2025", "VALUE": 24 },
+              { "QUARTER": "Q4 2025", "VALUE": 25 }
+            ]
+          },
+          {
+            "id": "sector-government",
+            "type": "solid",
+            "color": "#60A5FA",
+            "group": "government",
+            "label": "Government",
+            "xAccessor": { "path": "QUARTER", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "QUARTER": "Q1 2025", "VALUE": 18 },
+              { "QUARTER": "Q2 2025", "VALUE": 18 },
+              { "QUARTER": "Q3 2025", "VALUE": 17 },
+              { "QUARTER": "Q4 2025", "VALUE": 17 }
+            ]
+          },
+          {
+            "id": "sector-tourism",
+            "type": "solid",
+            "color": "#93C5FD",
+            "group": "tourism",
+            "label": "Tourism",
+            "xAccessor": { "path": "QUARTER", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "QUARTER": "Q1 2025", "VALUE": 14 },
+              { "QUARTER": "Q2 2025", "VALUE": 15 },
+              { "QUARTER": "Q3 2025", "VALUE": 16 },
+              { "QUARTER": "Q4 2025", "VALUE": 16 }
+            ]
+          },
+          {
+            "id": "sector-real-estate",
+            "type": "solid",
+            "color": "#BFDBFE",
+            "group": "real-estate",
+            "label": "Real Estate",
+            "xAccessor": { "path": "QUARTER", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "QUARTER": "Q1 2025", "VALUE": 10 },
+              { "QUARTER": "Q2 2025", "VALUE": 10 },
+              { "QUARTER": "Q3 2025", "VALUE": 10 },
+              { "QUARTER": "Q4 2025", "VALUE": 10 }
+            ]
+          },
+          {
+            "id": "sector-manufacturing",
+            "type": "solid",
+            "color": "#1E40AF",
+            "group": "manufacturing",
+            "label": "Manufacturing",
+            "xAccessor": { "path": "QUARTER", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" },
+            "data": [
+              { "QUARTER": "Q1 2025", "VALUE": 8 },
+              { "QUARTER": "Q2 2025", "VALUE": 8 },
+              { "QUARTER": "Q3 2025", "VALUE": 8 },
+              { "QUARTER": "Q4 2025", "VALUE": 8 }
+            ]
+          }
+        ],
+        "chartType": "column",
+        "stacking": "percent",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false
+      }
+    ]
+  }
+}

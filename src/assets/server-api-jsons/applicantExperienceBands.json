@@ -1,0 +1,66 @@
+{
+  "success": true,
+  "correlationId": "f4a1b2c3-4100-4e5f-9a1b-000000000041",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "applicantExperienceBands",
+    "title": "Experience Bands Distribution",
+    "type": "scad",
+    "compare": false,
+    "unit": "count",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Applicant Intelligence",
+    "metadata": [
+      { "label": "Indicator code", "value": "LF AI EB 1A 0041" },
+      { "label": "Keywords", "value": "Applicants, Experience, Bands, Distribution, UAE" },
+      { "label": "Data sources", "value": "Job Postings Platform" },
+      { "label": "Geographic coverage", "value": "UAE" },
+      { "label": "Measurement unit", "value": "count" },
+      { "label": "Available periodicity", "value": "Monthly" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Distribution of applicants across experience bands.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Mid-Experience Applicants Form the Largest Cohort",
+      "title_ar": "",
+      "text": "The 3-5 year band leads with 7,200 applicants, indicating a strong pipeline of professionals ready for mid-level roles. Early-career programmes should focus on accelerating the 0-2 year cohort.",
+      "text_ar": "",
+      "reason": "Experience band distribution reveals workforce depth at each career stage, helping employers calibrate role requirements and development investments.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Experience Bands Distribution",
+        "series": [
+          {
+            "id": "experience-bands",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "applicants",
+            "label": "Applicants",
+            "data": [
+              { "BAND": "0-2 years", "VALUE": 5800 },
+              { "BAND": "3-5 years", "VALUE": 7200 },
+              { "BAND": "6-10 years", "VALUE": 6500 },
+              { "BAND": "11-15 years", "VALUE": 4800 },
+              { "BAND": "16+ years", "VALUE": 4150 }
+            ],
+            "xAccessor": { "path": "BAND", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" }
+          }
+        ],
+        "chartType": "column",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false
+      }
+    ]
+  }
+}

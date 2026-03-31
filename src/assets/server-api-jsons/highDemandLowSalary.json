@@ -1,0 +1,90 @@
+{
+  "success": true,
+  "correlationId": "a1b2c3d4-1001-5ed3-c6f4-0d73c003g925",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": 25,
+    "title": "High Demand + Low Salary Roles",
+    "type": "scad",
+    "compare": false,
+    "unit": "count",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Demand",
+    "metadata": [
+      {
+        "label": "Indicator code",
+        "value": "LF JD HD LS 2501"
+      },
+      {
+        "label": "Keywords",
+        "value": "High demand, Low salary, Retention risk, Wage pressure, Roles"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Quarterly"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Last data update",
+        "value": "20250925"
+      }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Retention and wage pressure risk roles",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "Risk Alert",
+      "badge_ar": "",
+      "title": "Address Wage Pressure in High-Turnover Roles",
+      "title_ar": "",
+      "text": "Customer Service Representatives and Security Guards top the list with the highest demand yet lowest salaries, signalling significant retention risk. Targeted wage adjustments or benefits packages could reduce turnover costs.",
+      "text_ar": "",
+      "reason": "Roles with high demand and low compensation are prone to high attrition, increasing recruitment costs and reducing service quality. Proactive wage policy can mitigate these risks.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "High Demand + Low Salary Roles",
+        "series": [
+          {
+            "id": "high-demand-low-salary",
+            "type": "solid",
+            "color": "#3375c6",
+            "group": "roles",
+            "label": "Job Postings",
+            "data": [
+              { "ROLE": "Customer Service Rep", "VALUE": 2100 },
+              { "ROLE": "Security Guard", "VALUE": 1800 },
+              { "ROLE": "Delivery Driver", "VALUE": 1600 },
+              { "ROLE": "Retail Associate", "VALUE": 1400 },
+              { "ROLE": "Warehouse Worker", "VALUE": 1200 }
+            ],
+            "xAccessor": {
+              "path": "ROLE",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          }
+        ],
+        "chartType": "bar",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false
+      }
+    ]
+  }
+}

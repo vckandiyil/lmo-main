@@ -35,6 +35,7 @@ export interface WidgetChartConfig {
   dimensions?: { width?: number; height?: number };
   yAxis?: WidgetYAxisConfig;
   series?: WidgetSeriesConfig[];
+  stacking?: 'normal' | 'percent';
   forecast?: { color?: string; dashStyle?: string };
   compare?: { dashStyle?: string };
 }

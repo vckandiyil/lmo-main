@@ -1,11 +1,5 @@
 <aside class="nav-sidebar" [class.nav-sidebar--expanded]="expanded()">
   <div class="nav-sidebar__top">
-    <a class="nav-sidebar__logo-wrap" routerLink="/">
-      <div class="nav-sidebar__logo">
-        <img [src]="isDarkMode() ? 'assets/images/logos/small-dark-logo.svg' : 'assets/images/logos/small-white-logo.svg'" alt="Logo" class="nav-sidebar__logo-img"/>
-      </div>
-      <img src="assets/images/logos/small-white-logo-text.svg" alt="Logo text" class="nav-sidebar__logo-text"/>
-    </a>
     <div class="nav-sidebar__nav">
       <a class="nav-sidebar__nav-item" routerLink="/" routerLinkActive="nav-sidebar__nav-item--active" [routerLinkActiveOptions]="{exact: true}">
         <app-icon name="home-alt-slim-horiz" size="24" class="nav-sidebar__icon"/>

@@ -3,7 +3,6 @@
   top: var(--filters-h);
   left: var(--nav-sidebar-w);
   right: 0;
-  border-top: 1px solid #CCDEF1;
   background: #FFFFFF;
   padding: 4px;
   box-sizing: border-box;
@@ -47,6 +46,14 @@
     margin-right: 20px;
     direction: ltr;
     position: relative;
+
+    &--clickable {
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
 
     &::after {
       content: '';

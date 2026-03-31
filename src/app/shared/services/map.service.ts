@@ -68,6 +68,18 @@ export class MapService {
     return new Map({ basemap });
   }
 
+  async updateBasemapStyle(map: MapType, styleUrl: string): Promise<void> {
+    await this.ensureConfig();
+
+    const [Basemap, VectorTileLayer] = await Promise.all([
+      import('@arcgis/core/Basemap').then(m => m.default),
+      import('@arcgis/core/layers/VectorTileLayer').then(m => m.default),
+    ]);
+
+    const vectorTileLayer = new VectorTileLayer({ url: styleUrl });
+    map.basemap = new Basemap({ baseLayers: [vectorTileLayer] });
+  }
+
   async createMapView(container: HTMLDivElement, webMap: WebMapType): Promise<MapViewType> {
     await this.ensureConfig();
 

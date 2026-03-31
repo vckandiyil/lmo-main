@@ -1,0 +1,69 @@
+{
+  "success": true,
+  "correlationId": "f4a1b2c3-4200-4e5f-9a1b-000000000042",
+  "message": "Indicator config retrieved successfully",
+  "data": {
+    "id": "applicantCityTop15",
+    "title": "Applicants by City (Top 15)",
+    "type": "scad",
+    "compare": false,
+    "unit": "count",
+    "filters": [],
+    "related": [],
+    "updated": "2025-09-25",
+    "category": "Job Applicant Intelligence",
+    "metadata": [
+      { "label": "Indicator code", "value": "LF AI CT 1A 0042" },
+      { "label": "Keywords", "value": "Applicants, City, Location, Distribution, UAE" },
+      { "label": "Data sources", "value": "Job Postings Platform" },
+      { "label": "Geographic coverage", "value": "UAE" },
+      { "label": "Measurement unit", "value": "count" },
+      { "label": "Available periodicity", "value": "Monthly" }
+    ],
+    "dataSource": "Job Postings Platform",
+    "highlights": [],
+    "description": "Geographic distribution of applicants across UAE cities.",
+    "classification": "open",
+    "compareIndicators": [],
+    "aiRecommendation": {
+      "badge": "High Impact",
+      "badge_ar": "",
+      "title": "Abu Dhabi and Dubai Account for 72% of Applicants",
+      "title_ar": "",
+      "text": "Abu Dhabi leads with 11,900 applicants followed by Dubai at 8,500. Northern emirates represent an untapped talent reservoir that targeted outreach could activate.",
+      "text_ar": "",
+      "reason": "Geographic concentration in two cities creates recruitment efficiency but also vulnerability. Diversifying talent sourcing across emirates strengthens resilience.",
+      "reason_ar": ""
+    },
+    "visualizations": [
+      {
+        "label": "Applicants by City (Top 15)",
+        "series": [
+          {
+            "id": "applicants-by-city",
+            "type": "solid",
+            "color": "#2563EA",
+            "group": "applicants",
+            "label": "Applicants",
+            "data": [
+              { "CITY": "Abu Dhabi", "VALUE": 11900 },
+              { "CITY": "Dubai", "VALUE": 8500 },
+              { "CITY": "Sharjah", "VALUE": 2800 },
+              { "CITY": "Al Ain", "VALUE": 2100 },
+              { "CITY": "Ajman", "VALUE": 1200 },
+              { "CITY": "Ras Al Khaimah", "VALUE": 800 },
+              { "CITY": "Fujairah", "VALUE": 500 },
+              { "CITY": "Umm Al Quwain", "VALUE": 350 }
+            ],
+            "xAccessor": { "path": "CITY", "type": "category" },
+            "yAccessor": { "path": "VALUE", "type": "value" }
+          }
+        ],
+        "chartType": "bar",
+        "valueFormat": "compact",
+        "isTimeSeries": false,
+        "showMinMaxValues": false
+      }
+    ]
+  }
+}

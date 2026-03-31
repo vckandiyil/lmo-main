@@ -24,12 +24,24 @@ export class NavSidebar {
   protected readonly isNotificationModalOpen = signal(false);
   protected readonly isReportModalOpen = signal(false);
 
+  private readonly mobileQuery = typeof window !== 'undefined' && typeof window.matchMedia === 'function'
+    ? window.matchMedia('(max-width: 767.98px)')
+    : null;
+  private readonly isMobile = signal(this.mobileQuery?.matches ?? false);
+
   constructor() {
+    this.mobileQuery?.addEventListener('change', (e) => this.isMobile.set(e.matches));
+
     effect(() => {
-      this.document.documentElement.style.setProperty(
-        '--nav-sidebar-w',
-        this.expanded() ? '326px' : '88px'
-      );
+      if (this.isMobile()) {
+        // On mobile the CSS :root media query sets 48px; don't override it.
+        this.document.documentElement.style.removeProperty('--nav-sidebar-w');
+      } else {
+        this.document.documentElement.style.setProperty(
+          '--nav-sidebar-w',
+          this.expanded() ? '275px' : '88px'
+        );
+      }
     });
   }
 
