@@ -102,7 +102,7 @@
           {
             "id": "management",
             "type": "solid",
-            "color": "#005A9C",
+            "color": "#0078d4",
             "group": "Management",
             "label": "Management",
             "data": [
@@ -135,7 +135,7 @@
           {
             "id": "engineering",
             "type": "solid",
-            "color": "#E8A317",
+            "color": "#00bcf2",
             "group": "Engineering",
             "label": "Engineering",
             "data": [
@@ -168,7 +168,7 @@
           {
             "id": "sales",
             "type": "solid",
-            "color": "#27AE60",
+            "color": "#ff8c00",
             "group": "Sales",
             "label": "Sales",
             "data": [
@@ -201,7 +201,7 @@
           {
             "id": "customer-service",
             "type": "solid",
-            "color": "#E74C3C",
+            "color": "#e81123",
             "group": "Customer Service",
             "label": "Customer Service",
             "data": [
@@ -234,7 +234,7 @@
           {
             "id": "administration",
             "type": "solid",
-            "color": "#8E44AD",
+            "color": "#68217a",
             "group": "Administration",
             "label": "Administration",
             "data": [

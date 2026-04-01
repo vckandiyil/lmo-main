@@ -124,7 +124,7 @@
           {
             "id": "below-30k",
             "type": "solid",
-            "color": "#3667FF",
+            "color": "#0078d4",
             "group": "Below 30K",
             "label": "Below 30K",
             "data": [
@@ -157,7 +157,7 @@
           {
             "id": "30k-50k",
             "type": "solid",
-            "color": "#005A9C",
+            "color": "#00bcf2",
             "group": "30K - 50K",
             "label": "30K - 50K",
             "data": [
@@ -190,7 +190,7 @@
           {
             "id": "50k-70k",
             "type": "solid",
-            "color": "#E8A317",
+            "color": "#ff8c00",
             "group": "50K - 70K",
             "label": "50K - 70K",
             "data": [
@@ -223,7 +223,7 @@
           {
             "id": "70k-100k",
             "type": "solid",
-            "color": "#27AE60",
+            "color": "#009e49",
             "group": "70K - 100K",
             "label": "70K - 100K",
             "data": [
@@ -256,7 +256,7 @@
           {
             "id": "above-100k",
             "type": "solid",
-            "color": "#8E44AD",
+            "color": "#68217a",
             "group": "Above 100K",
             "label": "Above 100K",
             "data": [

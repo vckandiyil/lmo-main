@@ -36,6 +36,13 @@ export class ChartConfigService {
   ];
 
   /**
+   * Returns the color palette array for use by other services.
+   */
+  getColorPalette(): readonly string[] {
+    return this.colorPalette;
+  }
+
+  /**
    * Returns default chart options with responsive sizing,
    * Material-compatible font family, and azure-blue color palette.
    */

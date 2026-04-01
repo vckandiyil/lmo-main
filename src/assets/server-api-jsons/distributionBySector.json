@@ -134,7 +134,7 @@
           {
             "id": "healthcare",
             "type": "solid",
-            "color": "#E74C3C",
+            "color": "#0078d4",
             "group": "Healthcare",
             "label": "Healthcare",
             "data": [
@@ -167,7 +167,7 @@
           {
             "id": "education",
             "type": "solid",
-            "color": "#3667FF",
+            "color": "#00bcf2",
             "group": "Education",
             "label": "Education",
             "data": [
@@ -200,7 +200,7 @@
           {
             "id": "construction",
             "type": "solid",
-            "color": "#E8A317",
+            "color": "#ff8c00",
             "group": "Construction",
             "label": "Construction",
             "data": [
@@ -233,7 +233,7 @@
           {
             "id": "it",
             "type": "solid",
-            "color": "#27AE60",
+            "color": "#009e49",
             "group": "IT",
             "label": "IT",
             "data": [
@@ -266,7 +266,7 @@
           {
             "id": "finance",
             "type": "solid",
-            "color": "#8E44AD",
+            "color": "#68217a",
             "group": "Finance",
             "label": "Finance",
             "data": [

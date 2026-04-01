@@ -134,7 +134,7 @@
           {
             "id": "male",
             "type": "solid",
-            "color": "#005A9C",
+            "color": "#0078d4",
             "group": "Male",
             "label": "Male",
             "data": [
@@ -167,7 +167,7 @@
           {
             "id": "female",
             "type": "solid",
-            "color": "#E8A317",
+            "color": "#00bcf2",
             "group": "Female",
             "label": "Female",
             "data": [

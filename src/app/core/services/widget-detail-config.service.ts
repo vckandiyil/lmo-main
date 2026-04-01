@@ -20,6 +20,7 @@ import type {
   WidgetApiCompareIndicator,
 } from '../models/widget-api-response.model';
 import {DashboardDataService} from './dashboard-data.service';
+import {ChartConfigService} from '../../shared/services/chart-config.service';
 
 interface WidgetDetailConfigCache {
   configMap: Map<string, WidgetDetailConfig>;
@@ -30,6 +31,7 @@ interface WidgetDetailConfigCache {
 export class WidgetDetailConfigService {
   private readonly http    = inject(HttpClient);
   private readonly baseUrl = inject(API_BASE_URL);
+  private readonly chartConfig = inject(ChartConfigService);
 
   private readonly catalog$ = this.http
     .get<WidgetsCatalog>(`${this.baseUrl}/widgets-catalog.json`)
@@ -157,11 +159,12 @@ export class WidgetDetailConfigService {
 
     let multiSeries: MultiSeriesItem[] | undefined;
     if (!hasTotalSeries && allActualSeries.length > 0) {
-      multiSeries = allActualSeries.map((s: WidgetApiSeries) => {
+      const palette = this.chartConfig.getColorPalette();
+      multiSeries = allActualSeries.map((s: WidgetApiSeries, i: number) => {
         const seriesCategoryKey = s.xAccessor?.path ?? s.nameAccessor?.path;
         return {
           name:  s.label ?? '',
-          color: s.color ?? '#2563EA',
+          color: s.color ?? palette[i % palette.length],
           data:  (s.data ?? []).map((p: WidgetApiSeriesPoint) => ({
             year:  (seriesCategoryKey ? p[seriesCategoryKey] : p.YEAR) ?? '',
             value: isPercent ? Math.round(p.VALUE * 10) / 10 : p.VALUE,

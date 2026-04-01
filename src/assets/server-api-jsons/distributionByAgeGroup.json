@@ -137,7 +137,7 @@
           {
             "id": "18-24-years",
             "type": "solid",
-            "color": "#3667FF",
+            "color": "#0078d4",
             "group": "18-24 years",
             "label": "18-24 years",
             "data": [
@@ -170,7 +170,7 @@
           {
             "id": "25-34-years",
             "type": "solid",
-            "color": "#005A9C",
+            "color": "#00bcf2",
             "group": "25-34 years",
             "label": "25-34 years",
             "data": [
@@ -203,7 +203,7 @@
           {
             "id": "35-44-years",
             "type": "solid",
-            "color": "#E8A317",
+            "color": "#ff8c00",
             "group": "35-44 years",
             "label": "35-44 years",
             "data": [
@@ -236,7 +236,7 @@
           {
             "id": "45-54-years",
             "type": "solid",
-            "color": "#C0392B",
+            "color": "#e81123",
             "group": "45-54 years",
             "label": "45-54 years",
             "data": [
@@ -269,7 +269,7 @@
           {
             "id": "55-years",
             "type": "solid",
-            "color": "#27AE60",
+            "color": "#009e49",
             "group": "55+ years",
             "label": "55+ years",
             "data": [

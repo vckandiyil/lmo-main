@@ -135,7 +135,7 @@
           {
             "id": "emirati",
             "type": "solid",
-            "color": "#005A9C",
+            "color": "#0078d4",
             "group": "Emirati",
             "label": "Emirati",
             "data": [
@@ -168,7 +168,7 @@
           {
             "id": "non-emirati",
             "type": "solid",
-            "color": "#E8A317",
+            "color": "#00bcf2",
             "group": "Non-Emirati",
             "label": "Non-Emirati",
             "data": [
