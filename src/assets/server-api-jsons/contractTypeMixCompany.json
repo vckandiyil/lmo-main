@@ -11,15 +11,36 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
-      { "label": "Indicator code", "value": "LM CTR MX 1A 1008" },
-      { "label": "Keywords", "value": "Contract type, Company, Full-time, Part-time, Hiring strategy, Abu Dhabi" },
-      { "label": "Statistical population", "value": "All job postings classified by contract type and employer from the Job Postings Platform." },
-      { "label": "Geographic coverage", "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra." },
-      { "label": "Measurement unit", "value": "%" },
-      { "label": "Available periodicity", "value": "Monthly" },
-      { "label": "Data sources", "value": "Job Postings Platform" }
+      {
+        "label": "Indicator code",
+        "value": "LM CTR MX 1A 1008"
+      },
+      {
+        "label": "Keywords",
+        "value": "Contract type, Company, Full-time, Part-time, Hiring strategy, Abu Dhabi"
+      },
+      {
+        "label": "Statistical population",
+        "value": "All job postings classified by contract type and employer from the Job Postings Platform."
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "%"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      }
     ],
     "dataSource": "Job Postings Platform",
     "highlights": [],
@@ -31,7 +52,7 @@
       "badge_ar": "",
       "title": "Contract Work Rising in Energy Sector Companies",
       "title_ar": "",
-      "text": "TAQA and Masdar show contract work at 25% and 22% respectively, higher than the market average of 15%. This trend may affect job stability metrics for these sectors.",
+      "text": "ADNOC and Emaar Properties show contract work at 25% and 22% respectively, higher than the market average of 20%. This trend reflects project-based hiring in oil & gas and real estate.",
       "text_ar": "",
       "reason": "The growing share of contract-based hiring in energy companies signals a shift toward project-based employment, requiring updated labour market regulations and worker protections.",
       "reason_ar": ""
@@ -46,19 +67,55 @@
             "color": "#2563EA",
             "group": "full-time",
             "label": "Full-time",
-            "xAccessor": { "path": "COMPANY", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "COMPANY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "COMPANY": "ADNOC", "VALUE": 72 },
-              { "COMPANY": "Etisalat", "VALUE": 75 },
-              { "COMPANY": "Emirates NBD", "VALUE": 80 },
-              { "COMPANY": "Mubadala", "VALUE": 70 },
-              { "COMPANY": "Abu Dhabi Health", "VALUE": 68 },
-              { "COMPANY": "Aldar Properties", "VALUE": 74 },
-              { "COMPANY": "First Abu Dhabi Bank", "VALUE": 78 },
-              { "COMPANY": "Etihad Airways", "VALUE": 65 },
-              { "COMPANY": "TAQA", "VALUE": 60 },
-              { "COMPANY": "Masdar", "VALUE": 63 }
+              {
+                "COMPANY": "Emirates Group",
+                "VALUE": 70
+              },
+              {
+                "COMPANY": "ADNOC",
+                "VALUE": 65
+              },
+              {
+                "COMPANY": "Etisalat (e&)",
+                "VALUE": 76
+              },
+              {
+                "COMPANY": "First Abu Dhabi Bank",
+                "VALUE": 80
+              },
+              {
+                "COMPANY": "Emaar Properties",
+                "VALUE": 68
+              },
+              {
+                "COMPANY": "Emirates NBD",
+                "VALUE": 78
+              },
+              {
+                "COMPANY": "du (EITC)",
+                "VALUE": 74
+              },
+              {
+                "COMPANY": "Majid Al Futtaim",
+                "VALUE": 72
+              },
+              {
+                "COMPANY": "SEHA",
+                "VALUE": 75
+              },
+              {
+                "COMPANY": "Aldar Properties",
+                "VALUE": 66
+              }
             ]
           },
           {
@@ -67,19 +124,55 @@
             "color": "#60A5FA",
             "group": "part-time",
             "label": "Part-time",
-            "xAccessor": { "path": "COMPANY", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "COMPANY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "COMPANY": "ADNOC", "VALUE": 13 },
-              { "COMPANY": "Etisalat", "VALUE": 12 },
-              { "COMPANY": "Emirates NBD", "VALUE": 10 },
-              { "COMPANY": "Mubadala", "VALUE": 15 },
-              { "COMPANY": "Abu Dhabi Health", "VALUE": 17 },
-              { "COMPANY": "Aldar Properties", "VALUE": 14 },
-              { "COMPANY": "First Abu Dhabi Bank", "VALUE": 12 },
-              { "COMPANY": "Etihad Airways", "VALUE": 20 },
-              { "COMPANY": "TAQA", "VALUE": 15 },
-              { "COMPANY": "Masdar", "VALUE": 15 }
+              {
+                "COMPANY": "Emirates Group",
+                "VALUE": 8
+              },
+              {
+                "COMPANY": "ADNOC",
+                "VALUE": 10
+              },
+              {
+                "COMPANY": "Etisalat (e&)",
+                "VALUE": 7
+              },
+              {
+                "COMPANY": "First Abu Dhabi Bank",
+                "VALUE": 6
+              },
+              {
+                "COMPANY": "Emaar Properties",
+                "VALUE": 10
+              },
+              {
+                "COMPANY": "Emirates NBD",
+                "VALUE": 7
+              },
+              {
+                "COMPANY": "du (EITC)",
+                "VALUE": 8
+              },
+              {
+                "COMPANY": "Majid Al Futtaim",
+                "VALUE": 12
+              },
+              {
+                "COMPANY": "SEHA",
+                "VALUE": 10
+              },
+              {
+                "COMPANY": "Aldar Properties",
+                "VALUE": 12
+              }
             ]
           },
           {
@@ -88,19 +181,55 @@
             "color": "#93C5FD",
             "group": "contract",
             "label": "Contract",
-            "xAccessor": { "path": "COMPANY", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "COMPANY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "COMPANY": "ADNOC", "VALUE": 15 },
-              { "COMPANY": "Etisalat", "VALUE": 13 },
-              { "COMPANY": "Emirates NBD", "VALUE": 10 },
-              { "COMPANY": "Mubadala", "VALUE": 15 },
-              { "COMPANY": "Abu Dhabi Health", "VALUE": 15 },
-              { "COMPANY": "Aldar Properties", "VALUE": 12 },
-              { "COMPANY": "First Abu Dhabi Bank", "VALUE": 10 },
-              { "COMPANY": "Etihad Airways", "VALUE": 15 },
-              { "COMPANY": "TAQA", "VALUE": 25 },
-              { "COMPANY": "Masdar", "VALUE": 22 }
+              {
+                "COMPANY": "Emirates Group",
+                "VALUE": 22
+              },
+              {
+                "COMPANY": "ADNOC",
+                "VALUE": 25
+              },
+              {
+                "COMPANY": "Etisalat (e&)",
+                "VALUE": 17
+              },
+              {
+                "COMPANY": "First Abu Dhabi Bank",
+                "VALUE": 14
+              },
+              {
+                "COMPANY": "Emaar Properties",
+                "VALUE": 22
+              },
+              {
+                "COMPANY": "Emirates NBD",
+                "VALUE": 15
+              },
+              {
+                "COMPANY": "du (EITC)",
+                "VALUE": 18
+              },
+              {
+                "COMPANY": "Majid Al Futtaim",
+                "VALUE": 16
+              },
+              {
+                "COMPANY": "SEHA",
+                "VALUE": 15
+              },
+              {
+                "COMPANY": "Aldar Properties",
+                "VALUE": 22
+              }
             ]
           }
         ],
@@ -109,6 +238,19 @@
         "valueFormat": "compact",
         "isTimeSeries": false,
         "showMinMaxValues": false
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "stacked-bar",
+        "label": "Stacked Bar",
+        "icon": "chart-stacked",
+        "default": true
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

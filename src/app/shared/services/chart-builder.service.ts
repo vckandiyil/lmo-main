@@ -207,8 +207,11 @@ export class ChartBuilderService {
     series: WidgetDetailSeriesPoint[],
     ctx: ChartBuildContext,
   ): ChartOptions {
+    const horizontal = config.orientation === 'horizontal';
+    const hcType     = horizontal ? 'bar' : 'column';
+
     if (series.length === 0 && ctx.multiSeries?.length) {
-      return this.buildMultiBar(config, ctx, 'bar');
+      return this.buildMultiBar(config, ctx, hcType);
     }
     if (series.length === 0) return {};
     const primarySeries = config.series?.[0];
@@ -235,7 +238,7 @@ export class ChartBuilderService {
       const forecastData: (number | null)[] = series.map(() => null);
       forecastData.push(...forecastSeries.map(d => d.value));
       forecastSeries.forEach(d => allValues.push(d.value));
-      extraSeries.push({type: 'bar', name: 'Forecast', color: forecastColor, data: forecastData});
+      extraSeries.push({type: hcType, name: 'Forecast', color: forecastColor, data: forecastData});
     }
 
     for (const item of selectedCompareItems) {
@@ -245,14 +248,14 @@ export class ChartBuilderService {
       const cmpYears = new Set(entry.data.map(d => d.YEAR));
       const cmpVals: (number | null)[] = categories.map(y => cmpYears.has(y) ? (dataMap.get(y) ?? null) : null);
       cmpVals.forEach(v => { if (v !== null) allValues.push(v); });
-      extraSeries.push({type: 'bar', name: entry.title, color: item.color, data: cmpVals});
+      extraSeries.push({type: hcType, name: entry.title, color: item.color, data: cmpVals});
     }
 
     const {yMin, yMax} = this.calcYBounds(config.yAxis ?? {}, allValues);
     const tickCount    = config.yAxis?.tickCount ?? 5;
 
     return {
-      chart: {type: 'bar', backgroundColor: 'transparent', spacing: [40, 0, 20, 0]},
+      chart: {type: hcType, backgroundColor: 'transparent', spacing: [40, 0, 20, 0]},
       title: {text: ''},
       xAxis: this.buildXAxis(categories),
       yAxis: this.buildYAxis(yMin, yMax, tickCount, unit, precise),
@@ -260,10 +263,10 @@ export class ChartBuilderService {
       tooltip: {enabled: ctx.showTooltip ?? false, hideDelay: 0},
       credits: {enabled: false},
       plotOptions: {
-        bar: {dataLabels: {enabled: showDL}},
+        [hcType]: {dataLabels: {enabled: showDL}},
       },
       series: [
-        {type: 'bar', name: primarySeries?.name ?? '', color: primaryColor, data: actualValues} as any,
+        {type: hcType, name: primarySeries?.name ?? '', color: primaryColor, data: actualValues} as any,
         ...extraSeries,
       ],
     };
@@ -274,14 +277,16 @@ export class ChartBuilderService {
     series: WidgetDetailSeriesPoint[],
     ctx: ChartBuildContext,
   ): ChartOptions {
+    const horizontal = config.orientation === 'horizontal';
+    const hcType     = horizontal ? 'bar' : 'column';
     if (series.length === 0 && ctx.multiSeries?.length) {
-      return this.buildMultiBar(config, ctx, 'column');
+      return this.buildMultiBar(config, ctx, hcType);
     }
     const bar = this.buildBar(config, series, ctx);
     return {
       ...bar,
-      chart: {...(bar.chart ?? {}), type: 'column'},
-      series: (bar.series as any[]).map(s => ({...s, type: 'column'})),
+      chart: {...(bar.chart ?? {}), type: hcType},
+      series: (bar.series as any[]).map(s => ({...s, type: hcType})),
     };
   }
 
@@ -435,9 +440,11 @@ export class ChartBuilderService {
     const items = ctx.multiSeries;
     if (!items?.length) return {};
 
-    const showDL  = ctx.showDataLabels ?? true;
-    const precise = ctx.showPreciseValue ?? false;
-    const unit    = config.yAxis?.unit ?? '';
+    const showDL     = ctx.showDataLabels ?? true;
+    const precise    = ctx.showPreciseValue ?? false;
+    const unit       = config.yAxis?.unit ?? '';
+    const horizontal = config.orientation === 'horizontal';
+    const hcType     = horizontal ? 'bar' : 'column';
 
     const categories   = items[0].data.map(d => d.year);
     const allValues    = items.flatMap(s => s.data.map(d => d.value));
@@ -449,7 +456,7 @@ export class ChartBuilderService {
     return {
       colors: items.map(s => s.color),
       chart: {
-        type: 'column',
+        type: hcType,
         ...(width  ? {width}  : {}),
         ...(height ? {height} : {}),
         backgroundColor: 'transparent',
@@ -462,7 +469,7 @@ export class ChartBuilderService {
       tooltip: {enabled: ctx.showTooltip ?? false, hideDelay: 0},
       credits: {enabled: false},
       plotOptions: {
-        column: {
+        [hcType]: {
           grouping: true,
           dataLabels: this.makeBarDataLabels(unit, showDL, false),
           borderWidth: 0,
@@ -470,7 +477,7 @@ export class ChartBuilderService {
         },
       },
       series: items.map(s => ({
-        type:  'column' as const,
+        type:  hcType as 'bar' | 'column',
         name:  s.name,
         color: s.color,
         data:  s.data.map(d => d.value),
@@ -577,7 +584,7 @@ export class ChartBuilderService {
       chart: {type: 'solidgauge', backgroundColor: 'transparent', spacing: [0, 0, 0, 0]},
       title: {text: ''},
       pane: {center: ['50%', '70%'], size: '120%', startAngle: -90, endAngle: 90, background: [{backgroundColor: '#EEE', innerRadius: '60%', outerRadius: '100%', shape: 'arc' as any, borderWidth: 0}]},
-      yAxis: {min: 0, max: maxVal, stops: [[0.3, '#55BF3B'], [0.6, '#DDDF0D'], [0.9, '#DF5353']] as any, lineWidth: 0, tickWidth: 0, minorTickInterval: null as any, labels: {enabled: true, distance: 20, style: {fontFamily: "'Graphik Trial', sans-serif", fontSize: '12px', color: '#6A7180'}}, title: {text: ''}},
+      yAxis: {min: 0, max: maxVal, stops: [[0.3, '#DF5353'], [0.6, '#DDDF0D'], [0.9, '#55BF3B']] as any, lineWidth: 0, tickWidth: 0, minorTickInterval: null as any, labels: {enabled: true, distance: 20, style: {fontFamily: "'Graphik Trial', sans-serif", fontSize: '12px', color: '#6A7180'}}, title: {text: ''}},
       tooltip: {enabled: false},
       credits: {enabled: false},
       plotOptions: {solidgauge: {dataLabels: {y: -30, borderWidth: 0, useHTML: true, format: `<div style="text-align:center"><span style="font-size:28px;font-family:'Graphik Trial',sans-serif;font-weight:700;color:#1E2937">{y}</span><span style="font-size:16px;color:#6A7180">${unit}</span></div>`}}},

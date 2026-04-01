@@ -10,7 +10,7 @@
     "unit": "AED",
     "filters": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
       {
         "label": "Indicator code",
@@ -74,48 +74,51 @@
             },
             "data": [
               {
-                "name": "AI Engineer",
-                "VALUE": 42000
-              },
-              {
                 "name": "Cloud Architect",
-                "VALUE": 39500
+                "VALUE": 35000
               },
               {
-                "name": "DevOps Lead",
-                "VALUE": 37000
+                "name": "AI/ML Engineer",
+                "VALUE": 32000
               },
               {
-                "name": "Data Science Manager",
-                "VALUE": 36000
-              },
-              {
-                "name": "Cybersecurity Analyst",
-                "VALUE": 34500
-              },
-              {
-                "name": "Solutions Architect",
-                "VALUE": 33000
-              },
-              {
-                "name": "Full Stack Developer",
-                "VALUE": 31000
-              },
-              {
-                "name": "Product Manager",
+                "name": "Data Scientist",
                 "VALUE": 30000
               },
               {
-                "name": "Platform Engineer",
-                "VALUE": 28500
+                "name": "DevOps Engineer",
+                "VALUE": 28000
               },
               {
-                "name": "Machine Learning Engineer",
-                "VALUE": 27500
+                "name": "Cybersecurity Analyst",
+                "VALUE": 26000
               }
             ]
           }
         ]
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square",
+        "default": true
+      },
+      {
+        "id": "line",
+        "label": "Line Chart",
+        "icon": "graph-up"
+      },
+      {
+        "id": "pie",
+        "label": "Pie Chart",
+        "icon": "chart-pie"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

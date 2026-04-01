@@ -11,7 +11,7 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
       {
         "label": "Indicator code",
@@ -64,11 +64,63 @@
             "group": "education",
             "label": "High School",
             "data": [
-              { "INDUSTRY": "Technology", "VALUE": 5 },
-              { "INDUSTRY": "Healthcare", "VALUE": 10 },
-              { "INDUSTRY": "Finance", "VALUE": 8 },
-              { "INDUSTRY": "Construction", "VALUE": 40 },
-              { "INDUSTRY": "Education", "VALUE": 5 }
+              {
+                "INDUSTRY": "IT",
+                "VALUE": 0
+              },
+              {
+                "INDUSTRY": "Healthcare",
+                "VALUE": 0
+              },
+              {
+                "INDUSTRY": "Finance",
+                "VALUE": 0
+              },
+              {
+                "INDUSTRY": "Construction",
+                "VALUE": 8
+              },
+              {
+                "INDUSTRY": "Education",
+                "VALUE": 0
+              }
+            ],
+            "xAccessor": {
+              "path": "INDUSTRY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          },
+          {
+            "id": "diploma",
+            "type": "solid",
+            "color": "#93C5FD",
+            "group": "education",
+            "label": "Diploma",
+            "data": [
+              {
+                "INDUSTRY": "IT",
+                "VALUE": 15
+              },
+              {
+                "INDUSTRY": "Healthcare",
+                "VALUE": 20
+              },
+              {
+                "INDUSTRY": "Finance",
+                "VALUE": 12
+              },
+              {
+                "INDUSTRY": "Construction",
+                "VALUE": 45
+              },
+              {
+                "INDUSTRY": "Education",
+                "VALUE": 10
+              }
             ],
             "xAccessor": {
               "path": "INDUSTRY",
@@ -86,11 +138,26 @@
             "group": "education",
             "label": "Bachelor",
             "data": [
-              { "INDUSTRY": "Technology", "VALUE": 45 },
-              { "INDUSTRY": "Healthcare", "VALUE": 40 },
-              { "INDUSTRY": "Finance", "VALUE": 50 },
-              { "INDUSTRY": "Construction", "VALUE": 30 },
-              { "INDUSTRY": "Education", "VALUE": 35 }
+              {
+                "INDUSTRY": "IT",
+                "VALUE": 55
+              },
+              {
+                "INDUSTRY": "Healthcare",
+                "VALUE": 40
+              },
+              {
+                "INDUSTRY": "Finance",
+                "VALUE": 50
+              },
+              {
+                "INDUSTRY": "Construction",
+                "VALUE": 35
+              },
+              {
+                "INDUSTRY": "Education",
+                "VALUE": 30
+              }
             ],
             "xAccessor": {
               "path": "INDUSTRY",
@@ -108,11 +175,26 @@
             "group": "education",
             "label": "Master",
             "data": [
-              { "INDUSTRY": "Technology", "VALUE": 35 },
-              { "INDUSTRY": "Healthcare", "VALUE": 30 },
-              { "INDUSTRY": "Finance", "VALUE": 32 },
-              { "INDUSTRY": "Construction", "VALUE": 20 },
-              { "INDUSTRY": "Education", "VALUE": 35 }
+              {
+                "INDUSTRY": "IT",
+                "VALUE": 25
+              },
+              {
+                "INDUSTRY": "Healthcare",
+                "VALUE": 30
+              },
+              {
+                "INDUSTRY": "Finance",
+                "VALUE": 30
+              },
+              {
+                "INDUSTRY": "Construction",
+                "VALUE": 10
+              },
+              {
+                "INDUSTRY": "Education",
+                "VALUE": 45
+              }
             ],
             "xAccessor": {
               "path": "INDUSTRY",
@@ -130,11 +212,26 @@
             "group": "education",
             "label": "PhD",
             "data": [
-              { "INDUSTRY": "Technology", "VALUE": 15 },
-              { "INDUSTRY": "Healthcare", "VALUE": 20 },
-              { "INDUSTRY": "Finance", "VALUE": 10 },
-              { "INDUSTRY": "Construction", "VALUE": 10 },
-              { "INDUSTRY": "Education", "VALUE": 25 }
+              {
+                "INDUSTRY": "IT",
+                "VALUE": 5
+              },
+              {
+                "INDUSTRY": "Healthcare",
+                "VALUE": 10
+              },
+              {
+                "INDUSTRY": "Finance",
+                "VALUE": 8
+              },
+              {
+                "INDUSTRY": "Construction",
+                "VALUE": 2
+              },
+              {
+                "INDUSTRY": "Education",
+                "VALUE": 15
+              }
             ],
             "xAccessor": {
               "path": "INDUSTRY",
@@ -150,6 +247,24 @@
         "valueFormat": "compact",
         "isTimeSeries": false,
         "showMinMaxValues": false
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "heatmap",
+        "label": "Heatmap",
+        "icon": "chart-heatmap",
+        "default": true
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

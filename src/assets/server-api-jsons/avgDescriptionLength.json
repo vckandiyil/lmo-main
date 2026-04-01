@@ -11,7 +11,7 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
       {
         "label": "Indicator code",
@@ -64,14 +64,46 @@
             "group": "description",
             "label": "Avg Words",
             "data": [
-              { "INDUSTRY": "Technology", "VALUE": 450 },
-              { "INDUSTRY": "Finance", "VALUE": 380 },
-              { "INDUSTRY": "Healthcare", "VALUE": 350 },
-              { "INDUSTRY": "Education", "VALUE": 320 },
-              { "INDUSTRY": "Construction", "VALUE": 280 },
-              { "INDUSTRY": "Retail", "VALUE": 250 },
-              { "INDUSTRY": "Hospitality", "VALUE": 230 },
-              { "INDUSTRY": "Energy", "VALUE": 400 }
+              {
+                "INDUSTRY": "IT",
+                "VALUE": 485
+              },
+              {
+                "INDUSTRY": "Finance",
+                "VALUE": 420
+              },
+              {
+                "INDUSTRY": "Healthcare",
+                "VALUE": 510
+              },
+              {
+                "INDUSTRY": "Construction",
+                "VALUE": 350
+              },
+              {
+                "INDUSTRY": "Oil & Gas",
+                "VALUE": 465
+              },
+              {
+                "INDUSTRY": "Education",
+                "VALUE": 530
+              },
+              {
+                "INDUSTRY": "Tourism",
+                "VALUE": 380
+              },
+              {
+                "INDUSTRY": "Retail",
+                "VALUE": 310
+              },
+              {
+                "INDUSTRY": "Government",
+                "VALUE": 550
+              },
+              {
+                "INDUSTRY": "Manufacturing",
+                "VALUE": 370
+              }
             ],
             "xAccessor": {
               "path": "INDUSTRY",
@@ -87,6 +119,29 @@
         "valueFormat": "compact",
         "isTimeSeries": false,
         "showMinMaxValues": false
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square",
+        "default": true
+      },
+      {
+        "id": "line",
+        "label": "Line Chart",
+        "icon": "graph-up"
+      },
+      {
+        "id": "pie",
+        "label": "Pie Chart",
+        "icon": "chart-pie"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

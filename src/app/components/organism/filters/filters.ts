@@ -7,6 +7,7 @@ import {Dropdown} from '../../atom/dropdown/dropdown';
 import {Icon} from '../../atom/icon/icon';
 import {SearchModal} from '../search-modal/search-modal';
 import {PresentationModal} from '../../molecule/presentation-modal/presentation-modal';
+import {ReportModal} from '../../molecule/report-modal/report-modal';
 import {WidgetCatalogService} from '../../../core/services/widget-catalog.service';
 import {WidgetStore} from '../../../core';
 import {FilterStateService} from '../../../core/services/filter-state.service';
@@ -17,7 +18,7 @@ import {AdvancedFiltersPanel} from '../../molecule/advanced-filters-panel/advanc
 @Component({
   selector: 'app-filters',
   standalone: true,
-  imports: [Dropdown, Icon, SearchModal, PresentationModal, TranslateModule, RouterLink, AdvancedFiltersPanel],
+  imports: [Dropdown, Icon, SearchModal, PresentationModal, ReportModal, TranslateModule, RouterLink, AdvancedFiltersPanel],
   templateUrl: './filters.html',
   styleUrl: './filters.scss'
 })
@@ -62,6 +63,7 @@ export class Filters {
 
   isSearchModalOpen = signal(false);
   isPresentationModalOpen = signal(false);
+  isReportModalOpen = signal(false);
   isFilterPanelOpen = signal(false);
   searchQuery = signal('');
   isMicSpeaking = signal(false);
@@ -159,6 +161,14 @@ export class Filters {
 
   closePresentationModal(): void {
     this.isPresentationModalOpen.set(false);
+  }
+
+  openReportModal(): void {
+    this.isReportModalOpen.set(true);
+  }
+
+  closeReportModal(): void {
+    this.isReportModalOpen.set(false);
   }
 
   toggleMic(): void {

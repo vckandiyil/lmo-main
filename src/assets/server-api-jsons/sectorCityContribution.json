@@ -11,15 +11,36 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
-      { "label": "Indicator code", "value": "LM SEC CT 1A 1006" },
-      { "label": "Keywords", "value": "Sector, City, Contribution, Heatmap, Cross-view, Abu Dhabi" },
-      { "label": "Statistical population", "value": "All job postings cross-tabulated by sector and city from the Job Postings Platform." },
-      { "label": "Geographic coverage", "value": "Abu Dhabi, Dubai, Al Ain, Sharjah, and Ajman." },
-      { "label": "Measurement unit", "value": "count" },
-      { "label": "Available periodicity", "value": "Monthly" },
-      { "label": "Data sources", "value": "Job Postings Platform" }
+      {
+        "label": "Indicator code",
+        "value": "LM SEC CT 1A 1006"
+      },
+      {
+        "label": "Keywords",
+        "value": "Sector, City, Contribution, Heatmap, Cross-view, Abu Dhabi"
+      },
+      {
+        "label": "Statistical population",
+        "value": "All job postings cross-tabulated by sector and city from the Job Postings Platform."
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "Abu Dhabi, Dubai, Al Ain, Sharjah, and Ajman."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      }
     ],
     "dataSource": "Job Postings Platform",
     "highlights": [],
@@ -46,14 +67,39 @@
             "color": "#2563EA",
             "group": "abu-dhabi",
             "label": "Abu Dhabi",
-            "xAccessor": { "path": "SECTOR", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "SECTOR",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "SECTOR": "Oil & Gas", "VALUE": 4500 },
-              { "SECTOR": "IT & Telecom", "VALUE": 3200 },
-              { "SECTOR": "Government", "VALUE": 3800 },
-              { "SECTOR": "Tourism", "VALUE": 2100 },
-              { "SECTOR": "Real Estate", "VALUE": 1800 }
+              {
+                "SECTOR": "Oil & Gas",
+                "VALUE": 5200
+              },
+              {
+                "SECTOR": "IT & Telecom",
+                "VALUE": 4100
+              },
+              {
+                "SECTOR": "Government",
+                "VALUE": 4800
+              },
+              {
+                "SECTOR": "Tourism",
+                "VALUE": 2400
+              },
+              {
+                "SECTOR": "Real Estate",
+                "VALUE": 2200
+              },
+              {
+                "SECTOR": "Construction",
+                "VALUE": 3100
+              }
             ]
           },
           {
@@ -62,14 +108,39 @@
             "color": "#3B82F6",
             "group": "dubai",
             "label": "Dubai",
-            "xAccessor": { "path": "SECTOR", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "SECTOR",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "SECTOR": "Oil & Gas", "VALUE": 1200 },
-              { "SECTOR": "IT & Telecom", "VALUE": 4800 },
-              { "SECTOR": "Government", "VALUE": 1500 },
-              { "SECTOR": "Tourism", "VALUE": 4200 },
-              { "SECTOR": "Real Estate", "VALUE": 3500 }
+              {
+                "SECTOR": "Oil & Gas",
+                "VALUE": 1400
+              },
+              {
+                "SECTOR": "IT & Telecom",
+                "VALUE": 6800
+              },
+              {
+                "SECTOR": "Government",
+                "VALUE": 1800
+              },
+              {
+                "SECTOR": "Tourism",
+                "VALUE": 5600
+              },
+              {
+                "SECTOR": "Real Estate",
+                "VALUE": 4500
+              },
+              {
+                "SECTOR": "Construction",
+                "VALUE": 3800
+              }
             ]
           },
           {
@@ -78,14 +149,39 @@
             "color": "#60A5FA",
             "group": "al-ain",
             "label": "Al Ain",
-            "xAccessor": { "path": "SECTOR", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "SECTOR",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "SECTOR": "Oil & Gas", "VALUE": 800 },
-              { "SECTOR": "IT & Telecom", "VALUE": 600 },
-              { "SECTOR": "Government", "VALUE": 1200 },
-              { "SECTOR": "Tourism", "VALUE": 900 },
-              { "SECTOR": "Real Estate", "VALUE": 500 }
+              {
+                "SECTOR": "Oil & Gas",
+                "VALUE": 900
+              },
+              {
+                "SECTOR": "IT & Telecom",
+                "VALUE": 650
+              },
+              {
+                "SECTOR": "Government",
+                "VALUE": 1400
+              },
+              {
+                "SECTOR": "Tourism",
+                "VALUE": 800
+              },
+              {
+                "SECTOR": "Real Estate",
+                "VALUE": 550
+              },
+              {
+                "SECTOR": "Construction",
+                "VALUE": 1200
+              }
             ]
           },
           {
@@ -94,14 +190,39 @@
             "color": "#93C5FD",
             "group": "sharjah",
             "label": "Sharjah",
-            "xAccessor": { "path": "SECTOR", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "SECTOR",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "SECTOR": "Oil & Gas", "VALUE": 600 },
-              { "SECTOR": "IT & Telecom", "VALUE": 1500 },
-              { "SECTOR": "Government", "VALUE": 800 },
-              { "SECTOR": "Tourism", "VALUE": 1100 },
-              { "SECTOR": "Real Estate", "VALUE": 900 }
+              {
+                "SECTOR": "Oil & Gas",
+                "VALUE": 700
+              },
+              {
+                "SECTOR": "IT & Telecom",
+                "VALUE": 1800
+              },
+              {
+                "SECTOR": "Government",
+                "VALUE": 950
+              },
+              {
+                "SECTOR": "Tourism",
+                "VALUE": 1300
+              },
+              {
+                "SECTOR": "Real Estate",
+                "VALUE": 1100
+              },
+              {
+                "SECTOR": "Construction",
+                "VALUE": 4200
+              }
             ]
           },
           {
@@ -110,14 +231,39 @@
             "color": "#BFDBFE",
             "group": "ajman",
             "label": "Ajman",
-            "xAccessor": { "path": "SECTOR", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "SECTOR",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "SECTOR": "Oil & Gas", "VALUE": 500 },
-              { "SECTOR": "IT & Telecom", "VALUE": 700 },
-              { "SECTOR": "Government", "VALUE": 600 },
-              { "SECTOR": "Tourism", "VALUE": 800 },
-              { "SECTOR": "Real Estate", "VALUE": 550 }
+              {
+                "SECTOR": "Oil & Gas",
+                "VALUE": 300
+              },
+              {
+                "SECTOR": "IT & Telecom",
+                "VALUE": 550
+              },
+              {
+                "SECTOR": "Government",
+                "VALUE": 450
+              },
+              {
+                "SECTOR": "Tourism",
+                "VALUE": 600
+              },
+              {
+                "SECTOR": "Real Estate",
+                "VALUE": 400
+              },
+              {
+                "SECTOR": "Construction",
+                "VALUE": 1500
+              }
             ]
           }
         ],
@@ -125,6 +271,24 @@
         "valueFormat": "compact",
         "isTimeSeries": false,
         "showMinMaxValues": false
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "heatmap",
+        "label": "Heatmap",
+        "icon": "chart-heatmap",
+        "default": true
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

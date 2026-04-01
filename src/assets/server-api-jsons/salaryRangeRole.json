@@ -11,14 +11,32 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
-      { "label": "Indicator code", "value": "LF JD CR 1A 0020" },
-      { "label": "Keywords", "value": "Salary, Range, Role, Compensation, UAE" },
-      { "label": "Data sources", "value": "Job Postings Platform" },
-      { "label": "Geographic coverage", "value": "UAE" },
-      { "label": "Measurement unit", "value": "count" },
-      { "label": "Available periodicity", "value": "Monthly" }
+      {
+        "label": "Indicator code",
+        "value": "LF JD CR 1A 0020"
+      },
+      {
+        "label": "Keywords",
+        "value": "Salary, Range, Role, Compensation, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
     ],
     "dataSource": "Job Postings Platform",
     "highlights": [],
@@ -49,17 +67,47 @@
             "color": "#60A5FA",
             "group": "salary-range",
             "label": "Min Salary",
-            "xAccessor": { "path": "ROLE", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "ROLE",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "ROLE": "Software Engineer", "VALUE": 15000 },
-              { "ROLE": "Project Manager", "VALUE": 18000 },
-              { "ROLE": "Data Analyst", "VALUE": 12000 },
-              { "ROLE": "Accountant", "VALUE": 10000 },
-              { "ROLE": "Civil Engineer", "VALUE": 14000 },
-              { "ROLE": "Nurse", "VALUE": 8000 },
-              { "ROLE": "HR Specialist", "VALUE": 9000 },
-              { "ROLE": "Marketing Manager", "VALUE": 13000 }
+              {
+                "ROLE": "Software Engineer",
+                "VALUE": 12000
+              },
+              {
+                "ROLE": "Project Manager",
+                "VALUE": 15000
+              },
+              {
+                "ROLE": "Accountant",
+                "VALUE": 8000
+              },
+              {
+                "ROLE": "Data Analyst",
+                "VALUE": 10000
+              },
+              {
+                "ROLE": "Civil Engineer",
+                "VALUE": 10000
+              },
+              {
+                "ROLE": "Nurse",
+                "VALUE": 7000
+              },
+              {
+                "ROLE": "Marketing Manager",
+                "VALUE": 12000
+              },
+              {
+                "ROLE": "Financial Analyst",
+                "VALUE": 11000
+              }
             ]
           },
           {
@@ -68,20 +116,68 @@
             "color": "#1E40AF",
             "group": "salary-range",
             "label": "Max Salary",
-            "xAccessor": { "path": "ROLE", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "ROLE",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "ROLE": "Software Engineer", "VALUE": 35000 },
-              { "ROLE": "Project Manager", "VALUE": 45000 },
-              { "ROLE": "Data Analyst", "VALUE": 28000 },
-              { "ROLE": "Accountant", "VALUE": 22000 },
-              { "ROLE": "Civil Engineer", "VALUE": 30000 },
-              { "ROLE": "Nurse", "VALUE": 18000 },
-              { "ROLE": "HR Specialist", "VALUE": 20000 },
-              { "ROLE": "Marketing Manager", "VALUE": 32000 }
+              {
+                "ROLE": "Software Engineer",
+                "VALUE": 28000
+              },
+              {
+                "ROLE": "Project Manager",
+                "VALUE": 35000
+              },
+              {
+                "ROLE": "Accountant",
+                "VALUE": 18000
+              },
+              {
+                "ROLE": "Data Analyst",
+                "VALUE": 25000
+              },
+              {
+                "ROLE": "Civil Engineer",
+                "VALUE": 22000
+              },
+              {
+                "ROLE": "Nurse",
+                "VALUE": 15000
+              },
+              {
+                "ROLE": "Marketing Manager",
+                "VALUE": 30000
+              },
+              {
+                "ROLE": "Financial Analyst",
+                "VALUE": 26000
+              }
             ]
           }
         ]
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "columnrange",
+        "label": "Range",
+        "icon": "chart-range",
+        "default": true
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

@@ -46,6 +46,11 @@
         <app-button variant="toolbar-icon" [active]="sortDirection() === 'desc'" (click)="toggleSort('desc')">
           <app-icon buttonIcon name="nav-arrow-down" size="20"></app-icon>
         </app-button>
+        @if (showOrientationToggle()) {
+          <app-button variant="toolbar-icon" [active]="chartOrientation() === 'horizontal'" (click)="toggleOrientation()">
+            <app-icon buttonIcon [name]="chartOrientation() === 'vertical' ? 'horizontal-bars' : 'vertical-bars'" size="20"></app-icon>
+          </app-button>
+        }
       </div>
     </div>
 

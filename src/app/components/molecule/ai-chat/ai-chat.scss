@@ -27,6 +27,34 @@
       right: auto;
       left: 20px;
     }
+
+    &::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      right: calc(100% + 8px);
+      top: 50%;
+      transform: translateY(-50%);
+      background: #1E2937;
+      color: #FFFFFF;
+      font-family: 'Graphik Trial', sans-serif;
+      font-size: 12px;
+      line-height: 18px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.15s ease;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+
+    :host-context([dir='rtl']) &::after {
+      right: auto;
+      left: calc(100% + 8px);
+    }
   }
 
   &__toggle-icon {
@@ -102,6 +130,7 @@
 
   &__header {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 32px 0 16px;
@@ -111,6 +140,19 @@
   &__assistant-icon {
     width: 51px;
     height: 52px;
+  }
+
+  &__assistant-title {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #1E2937;
+    margin-top: 8px;
+
+    :host-context(body.theme--dark) & {
+      color: #FFFFFF;
+    }
   }
 
   &__content {

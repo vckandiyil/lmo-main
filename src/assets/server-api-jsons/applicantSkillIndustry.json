@@ -10,7 +10,7 @@
     "unit": "count",
     "filters": [],
     "updated": "2025-09-25",
-    "category": "Job Applicant Intelligence",
+    "category": "Job Seekers",
     "metadata": [
       {
         "label": "Indicator code",
@@ -71,23 +71,23 @@
             "data": [
               {
                 "CATEGORY": "IT",
-                "VALUE": 2800
+                "VALUE": 58000
               },
               {
                 "CATEGORY": "Finance",
-                "VALUE": 1200
+                "VALUE": 32000
               },
               {
                 "CATEGORY": "Healthcare",
-                "VALUE": 350
+                "VALUE": 8500
               },
               {
                 "CATEGORY": "Construction",
-                "VALUE": 200
+                "VALUE": 4200
               },
               {
                 "CATEGORY": "Education",
-                "VALUE": 580
+                "VALUE": 12000
               }
             ]
           },
@@ -95,7 +95,7 @@
             "id": "skill-industry-matrix-1",
             "type": "solid",
             "group": "heatmap-row",
-            "label": "Excel",
+            "label": "Microsoft Office",
             "color": "#3B82F6",
             "xAccessor": {
               "path": "CATEGORY",
@@ -104,23 +104,23 @@
             "data": [
               {
                 "CATEGORY": "IT",
-                "VALUE": 1400
+                "VALUE": 42000
               },
               {
                 "CATEGORY": "Finance",
-                "VALUE": 2600
+                "VALUE": 68000
               },
               {
                 "CATEGORY": "Healthcare",
-                "VALUE": 1800
+                "VALUE": 45000
               },
               {
                 "CATEGORY": "Construction",
-                "VALUE": 900
+                "VALUE": 28000
               },
               {
                 "CATEGORY": "Education",
-                "VALUE": 1500
+                "VALUE": 38000
               }
             ]
           },
@@ -137,23 +137,23 @@
             "data": [
               {
                 "CATEGORY": "IT",
-                "VALUE": 2400
+                "VALUE": 52000
               },
               {
                 "CATEGORY": "Finance",
-                "VALUE": 1900
+                "VALUE": 38000
               },
               {
                 "CATEGORY": "Healthcare",
-                "VALUE": 600
+                "VALUE": 9200
               },
               {
                 "CATEGORY": "Construction",
-                "VALUE": 300
+                "VALUE": 5800
               },
               {
                 "CATEGORY": "Education",
-                "VALUE": 750
+                "VALUE": 14000
               }
             ]
           },
@@ -170,23 +170,23 @@
             "data": [
               {
                 "CATEGORY": "IT",
-                "VALUE": 1500
+                "VALUE": 35000
               },
               {
                 "CATEGORY": "Finance",
-                "VALUE": 1800
+                "VALUE": 42000
               },
               {
                 "CATEGORY": "Healthcare",
-                "VALUE": 900
+                "VALUE": 22000
               },
               {
                 "CATEGORY": "Construction",
-                "VALUE": 2200
+                "VALUE": 55000
               },
               {
                 "CATEGORY": "Education",
-                "VALUE": 700
+                "VALUE": 15000
               }
             ]
           },
@@ -203,23 +203,23 @@
             "data": [
               {
                 "CATEGORY": "IT",
-                "VALUE": 2100
+                "VALUE": 28000
               },
               {
                 "CATEGORY": "Finance",
-                "VALUE": 1600
+                "VALUE": 35000
               },
               {
                 "CATEGORY": "Healthcare",
-                "VALUE": 800
+                "VALUE": 12000
               },
               {
                 "CATEGORY": "Construction",
-                "VALUE": 400
+                "VALUE": 6500
               },
               {
                 "CATEGORY": "Education",
-                "VALUE": 950
+                "VALUE": 18000
               }
             ]
           },
@@ -236,27 +236,45 @@
             "data": [
               {
                 "CATEGORY": "IT",
-                "VALUE": 2100
+                "VALUE": 48000
               },
               {
                 "CATEGORY": "Finance",
-                "VALUE": 800
+                "VALUE": 18000
               },
               {
                 "CATEGORY": "Healthcare",
-                "VALUE": 280
+                "VALUE": 5200
               },
               {
                 "CATEGORY": "Construction",
-                "VALUE": 220
+                "VALUE": 3800
               },
               {
                 "CATEGORY": "Education",
-                "VALUE": 350
+                "VALUE": 7500
               }
             ]
           }
         ]
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "heatmap",
+        "label": "Heatmap",
+        "icon": "chart-heatmap",
+        "default": true
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

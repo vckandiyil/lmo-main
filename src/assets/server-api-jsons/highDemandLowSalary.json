@@ -11,7 +11,7 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
       {
         "label": "Indicator code",
@@ -64,11 +64,26 @@
             "group": "roles",
             "label": "Job Postings",
             "data": [
-              { "ROLE": "Customer Service Rep", "VALUE": 2100 },
-              { "ROLE": "Security Guard", "VALUE": 1800 },
-              { "ROLE": "Delivery Driver", "VALUE": 1600 },
-              { "ROLE": "Retail Associate", "VALUE": 1400 },
-              { "ROLE": "Warehouse Worker", "VALUE": 1200 }
+              {
+                "ROLE": "Sales Executive",
+                "VALUE": 8500
+              },
+              {
+                "ROLE": "Admin Assistant",
+                "VALUE": 7000
+              },
+              {
+                "ROLE": "Customer Service Rep",
+                "VALUE": 6500
+              },
+              {
+                "ROLE": "Receptionist",
+                "VALUE": 5500
+              },
+              {
+                "ROLE": "Data Entry Clerk",
+                "VALUE": 5000
+              }
             ],
             "xAccessor": {
               "path": "ROLE",
@@ -84,6 +99,29 @@
         "valueFormat": "compact",
         "isTimeSeries": false,
         "showMinMaxValues": false
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square",
+        "default": true
+      },
+      {
+        "id": "line",
+        "label": "Line Chart",
+        "icon": "graph-up"
+      },
+      {
+        "id": "pie",
+        "label": "Pie Chart",
+        "icon": "chart-pie"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

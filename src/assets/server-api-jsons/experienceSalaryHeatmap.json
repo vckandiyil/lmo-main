@@ -11,14 +11,32 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
-      { "label": "Indicator code", "value": "LF JD HM 1D 0022" },
-      { "label": "Keywords", "value": "Experience, Salary, Heatmap, Bands, UAE" },
-      { "label": "Data sources", "value": "Job Postings Platform" },
-      { "label": "Geographic coverage", "value": "UAE" },
-      { "label": "Measurement unit", "value": "count" },
-      { "label": "Available periodicity", "value": "Monthly" }
+      {
+        "label": "Indicator code",
+        "value": "LF JD HM 1D 0022"
+      },
+      {
+        "label": "Keywords",
+        "value": "Experience, Salary, Heatmap, Bands, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
     ],
     "dataSource": "Job Postings Platform",
     "highlights": [],
@@ -49,14 +67,35 @@
             "color": "#BFDBFE",
             "group": "experience",
             "label": "0-2 years",
-            "xAccessor": { "path": "SALARY_BAND", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "SALARY_BAND",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "SALARY_BAND": "<10K", "VALUE": 450 },
-              { "SALARY_BAND": "10K-20K", "VALUE": 280 },
-              { "SALARY_BAND": "20K-30K", "VALUE": 60 },
-              { "SALARY_BAND": "30K-50K", "VALUE": 15 },
-              { "SALARY_BAND": "50K+", "VALUE": 10 }
+              {
+                "SALARY_BAND": "5K-10K",
+                "VALUE": 520
+              },
+              {
+                "SALARY_BAND": "10K-15K",
+                "VALUE": 380
+              },
+              {
+                "SALARY_BAND": "15K-20K",
+                "VALUE": 85
+              },
+              {
+                "SALARY_BAND": "20K-30K",
+                "VALUE": 20
+              },
+              {
+                "SALARY_BAND": "30K+",
+                "VALUE": 8
+              }
             ]
           },
           {
@@ -65,14 +104,35 @@
             "color": "#93C5FD",
             "group": "experience",
             "label": "3-5 years",
-            "xAccessor": { "path": "SALARY_BAND", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "SALARY_BAND",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "SALARY_BAND": "<10K", "VALUE": 180 },
-              { "SALARY_BAND": "10K-20K", "VALUE": 480 },
-              { "SALARY_BAND": "20K-30K", "VALUE": 220 },
-              { "SALARY_BAND": "30K-50K", "VALUE": 55 },
-              { "SALARY_BAND": "50K+", "VALUE": 20 }
+              {
+                "SALARY_BAND": "5K-10K",
+                "VALUE": 140
+              },
+              {
+                "SALARY_BAND": "10K-15K",
+                "VALUE": 460
+              },
+              {
+                "SALARY_BAND": "15K-20K",
+                "VALUE": 350
+              },
+              {
+                "SALARY_BAND": "20K-30K",
+                "VALUE": 120
+              },
+              {
+                "SALARY_BAND": "30K+",
+                "VALUE": 25
+              }
             ]
           },
           {
@@ -80,15 +140,36 @@
             "type": "solid",
             "color": "#60A5FA",
             "group": "experience",
-            "label": "6-10 years",
-            "xAccessor": { "path": "SALARY_BAND", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "label": "5-10 years",
+            "xAccessor": {
+              "path": "SALARY_BAND",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "SALARY_BAND": "<10K", "VALUE": 40 },
-              { "SALARY_BAND": "10K-20K", "VALUE": 310 },
-              { "SALARY_BAND": "20K-30K", "VALUE": 420 },
-              { "SALARY_BAND": "30K-50K", "VALUE": 180 },
-              { "SALARY_BAND": "50K+", "VALUE": 45 }
+              {
+                "SALARY_BAND": "5K-10K",
+                "VALUE": 35
+              },
+              {
+                "SALARY_BAND": "10K-15K",
+                "VALUE": 180
+              },
+              {
+                "SALARY_BAND": "15K-20K",
+                "VALUE": 420
+              },
+              {
+                "SALARY_BAND": "20K-30K",
+                "VALUE": 310
+              },
+              {
+                "SALARY_BAND": "30K+",
+                "VALUE": 65
+              }
             ]
           },
           {
@@ -96,15 +177,36 @@
             "type": "solid",
             "color": "#3B82F6",
             "group": "experience",
-            "label": "11-15 years",
-            "xAccessor": { "path": "SALARY_BAND", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "label": "10-15 years",
+            "xAccessor": {
+              "path": "SALARY_BAND",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "SALARY_BAND": "<10K", "VALUE": 12 },
-              { "SALARY_BAND": "10K-20K", "VALUE": 90 },
-              { "SALARY_BAND": "20K-30K", "VALUE": 280 },
-              { "SALARY_BAND": "30K-50K", "VALUE": 350 },
-              { "SALARY_BAND": "50K+", "VALUE": 120 }
+              {
+                "SALARY_BAND": "5K-10K",
+                "VALUE": 10
+              },
+              {
+                "SALARY_BAND": "10K-15K",
+                "VALUE": 55
+              },
+              {
+                "SALARY_BAND": "15K-20K",
+                "VALUE": 160
+              },
+              {
+                "SALARY_BAND": "20K-30K",
+                "VALUE": 380
+              },
+              {
+                "SALARY_BAND": "30K+",
+                "VALUE": 240
+              }
             ]
           },
           {
@@ -112,18 +214,57 @@
             "type": "solid",
             "color": "#1E40AF",
             "group": "experience",
-            "label": "16+ years",
-            "xAccessor": { "path": "SALARY_BAND", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "label": "15+ years",
+            "xAccessor": {
+              "path": "SALARY_BAND",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "SALARY_BAND": "<10K", "VALUE": 10 },
-              { "SALARY_BAND": "10K-20K", "VALUE": 35 },
-              { "SALARY_BAND": "20K-30K", "VALUE": 110 },
-              { "SALARY_BAND": "30K-50K", "VALUE": 500 },
-              { "SALARY_BAND": "50K+", "VALUE": 290 }
+              {
+                "SALARY_BAND": "5K-10K",
+                "VALUE": 5
+              },
+              {
+                "SALARY_BAND": "10K-15K",
+                "VALUE": 20
+              },
+              {
+                "SALARY_BAND": "15K-20K",
+                "VALUE": 45
+              },
+              {
+                "SALARY_BAND": "20K-30K",
+                "VALUE": 150
+              },
+              {
+                "SALARY_BAND": "30K+",
+                "VALUE": 480
+              }
             ]
           }
         ]
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "heatmap",
+        "label": "Heatmap",
+        "icon": "chart-heatmap",
+        "default": true
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

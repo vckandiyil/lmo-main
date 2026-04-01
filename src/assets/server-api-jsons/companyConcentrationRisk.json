@@ -11,15 +11,36 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
-      { "label": "Indicator code", "value": "LM CMP CR 1A 1009" },
-      { "label": "Keywords", "value": "Concentration, Risk, Top employers, Dependency, Abu Dhabi" },
-      { "label": "Statistical population", "value": "All job postings aggregated to measure employer concentration from the Job Postings Platform." },
-      { "label": "Geographic coverage", "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra." },
-      { "label": "Measurement unit", "value": "%" },
-      { "label": "Available periodicity", "value": "Monthly" },
-      { "label": "Data sources", "value": "Job Postings Platform" }
+      {
+        "label": "Indicator code",
+        "value": "LM CMP CR 1A 1009"
+      },
+      {
+        "label": "Keywords",
+        "value": "Concentration, Risk, Top employers, Dependency, Abu Dhabi"
+      },
+      {
+        "label": "Statistical population",
+        "value": "All job postings aggregated to measure employer concentration from the Job Postings Platform."
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "%"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      }
     ],
     "dataSource": "Job Postings Platform",
     "highlights": [],
@@ -31,7 +52,7 @@
       "badge_ar": "",
       "title": "Moderate Concentration Risk in Employer Base",
       "title_ar": "",
-      "text": "The top 10 companies account for 38% of all postings, indicating moderate concentration risk. Encouraging SME growth and startup hiring could reduce dependency on large employers.",
+      "text": "The top 10 companies account for 42% of all postings, indicating moderate-to-high concentration risk. Encouraging SME growth and startup hiring could reduce dependency on large employers.",
       "text_ar": "",
       "reason": "High employer concentration creates vulnerability to sector-specific shocks. Diversifying the employer base strengthens labour market resilience and broadens career opportunities.",
       "reason_ar": ""
@@ -46,10 +67,19 @@
             "color": "#2563EA",
             "group": "concentration",
             "label": "Top 10 Share",
-            "xAccessor": { "path": "METRIC", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "METRIC",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "METRIC": "Top 10 Share", "VALUE": 38 }
+              {
+                "METRIC": "Top 10 Share",
+                "VALUE": 42
+              }
             ]
           }
         ],
@@ -57,7 +87,27 @@
         "valueFormat": "compact",
         "isTimeSeries": false,
         "showMinMaxValues": false,
-        "yAxis": { "maxCap": 100 }
+        "yAxis": {
+          "maxCap": 100
+        }
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "solidgauge",
+        "label": "Gauge",
+        "icon": "chart-gauge",
+        "default": true
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

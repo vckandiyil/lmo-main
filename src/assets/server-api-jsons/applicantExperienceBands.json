@@ -11,14 +11,32 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Applicant Intelligence",
+    "category": "Job Seekers",
     "metadata": [
-      { "label": "Indicator code", "value": "LF AI EB 1A 0041" },
-      { "label": "Keywords", "value": "Applicants, Experience, Bands, Distribution, UAE" },
-      { "label": "Data sources", "value": "Job Postings Platform" },
-      { "label": "Geographic coverage", "value": "UAE" },
-      { "label": "Measurement unit", "value": "count" },
-      { "label": "Available periodicity", "value": "Monthly" }
+      {
+        "label": "Indicator code",
+        "value": "LF AI EB 1A 0041"
+      },
+      {
+        "label": "Keywords",
+        "value": "Applicants, Experience, Bands, Distribution, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
     ],
     "dataSource": "Job Postings Platform",
     "highlights": [],
@@ -46,20 +64,64 @@
             "group": "applicants",
             "label": "Applicants",
             "data": [
-              { "BAND": "0-2 years", "VALUE": 5800 },
-              { "BAND": "3-5 years", "VALUE": 7200 },
-              { "BAND": "6-10 years", "VALUE": 6500 },
-              { "BAND": "11-15 years", "VALUE": 4800 },
-              { "BAND": "16+ years", "VALUE": 4150 }
+              {
+                "BAND": "0-2 years",
+                "VALUE": 178000
+              },
+              {
+                "BAND": "2-5 years",
+                "VALUE": 245000
+              },
+              {
+                "BAND": "5-10 years",
+                "VALUE": 268000
+              },
+              {
+                "BAND": "10-15 years",
+                "VALUE": 134000
+              },
+              {
+                "BAND": "15+ years",
+                "VALUE": 67000
+              }
             ],
-            "xAccessor": { "path": "BAND", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" }
+            "xAccessor": {
+              "path": "BAND",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
           }
         ],
         "chartType": "column",
         "valueFormat": "compact",
         "isTimeSeries": false,
         "showMinMaxValues": false
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square",
+        "default": true
+      },
+      {
+        "id": "line",
+        "label": "Line Chart",
+        "icon": "graph-up"
+      },
+      {
+        "id": "pie",
+        "label": "Pie Chart",
+        "icon": "chart-pie"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

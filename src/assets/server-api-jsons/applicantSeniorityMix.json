@@ -11,14 +11,32 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Applicant Intelligence",
+    "category": "Job Seekers",
     "metadata": [
-      { "label": "Indicator code", "value": "LF AI SM 1A 0040" },
-      { "label": "Keywords", "value": "Applicants, Seniority, Mix, Junior, Senior, Executive, UAE" },
-      { "label": "Data sources", "value": "Job Postings Platform" },
-      { "label": "Geographic coverage", "value": "UAE" },
-      { "label": "Measurement unit", "value": "%" },
-      { "label": "Available periodicity", "value": "Monthly" }
+      {
+        "label": "Indicator code",
+        "value": "LF AI SM 1A 0040"
+      },
+      {
+        "label": "Keywords",
+        "value": "Applicants, Seniority, Mix, Junior, Senior, Executive, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "%"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
     ],
     "dataSource": "Job Postings Platform",
     "highlights": [],
@@ -50,12 +68,27 @@
             "color": "#BFDBFE",
             "group": "seniority",
             "label": "Intern",
-            "xAccessor": { "path": "YEAR", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "YEAR",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "YEAR": "2023", "VALUE": 8 },
-              { "YEAR": "2024", "VALUE": 7 },
-              { "YEAR": "2025", "VALUE": 6 }
+              {
+                "YEAR": "2023",
+                "VALUE": 5
+              },
+              {
+                "YEAR": "2024",
+                "VALUE": 5
+              },
+              {
+                "YEAR": "2025",
+                "VALUE": 5
+              }
             ]
           },
           {
@@ -64,12 +97,27 @@
             "color": "#93C5FD",
             "group": "seniority",
             "label": "Junior",
-            "xAccessor": { "path": "YEAR", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "YEAR",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "YEAR": "2023", "VALUE": 25 },
-              { "YEAR": "2024", "VALUE": 24 },
-              { "YEAR": "2025", "VALUE": 22 }
+              {
+                "YEAR": "2023",
+                "VALUE": 22
+              },
+              {
+                "YEAR": "2024",
+                "VALUE": 22
+              },
+              {
+                "YEAR": "2025",
+                "VALUE": 22
+              }
             ]
           },
           {
@@ -78,12 +126,27 @@
             "color": "#3B82F6",
             "group": "seniority",
             "label": "Mid",
-            "xAccessor": { "path": "YEAR", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "YEAR",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "YEAR": "2023", "VALUE": 35 },
-              { "YEAR": "2024", "VALUE": 35 },
-              { "YEAR": "2025", "VALUE": 36 }
+              {
+                "YEAR": "2023",
+                "VALUE": 38
+              },
+              {
+                "YEAR": "2024",
+                "VALUE": 38
+              },
+              {
+                "YEAR": "2025",
+                "VALUE": 38
+              }
             ]
           },
           {
@@ -92,12 +155,27 @@
             "color": "#1E40AF",
             "group": "seniority",
             "label": "Senior",
-            "xAccessor": { "path": "YEAR", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "YEAR",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "YEAR": "2023", "VALUE": 22 },
-              { "YEAR": "2024", "VALUE": 24 },
-              { "YEAR": "2025", "VALUE": 25 }
+              {
+                "YEAR": "2023",
+                "VALUE": 25
+              },
+              {
+                "YEAR": "2024",
+                "VALUE": 25
+              },
+              {
+                "YEAR": "2025",
+                "VALUE": 25
+              }
             ]
           },
           {
@@ -106,15 +184,43 @@
             "color": "#1D4ED8",
             "group": "seniority",
             "label": "Executive",
-            "xAccessor": { "path": "YEAR", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "YEAR",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "YEAR": "2023", "VALUE": 10 },
-              { "YEAR": "2024", "VALUE": 10 },
-              { "YEAR": "2025", "VALUE": 11 }
+              {
+                "YEAR": "2023",
+                "VALUE": 10
+              },
+              {
+                "YEAR": "2024",
+                "VALUE": 10
+              },
+              {
+                "YEAR": "2025",
+                "VALUE": 10
+              }
             ]
           }
         ]
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "stacked-bar",
+        "label": "Stacked Bar",
+        "icon": "chart-stacked",
+        "default": true
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

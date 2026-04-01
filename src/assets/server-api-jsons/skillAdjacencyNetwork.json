@@ -11,7 +11,7 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
       {
         "label": "Indicator code",
@@ -64,9 +64,22 @@
             "group": "skills",
             "label": "Python",
             "data": [
-              { "SKILL": "JavaScript", "VALUE": 4500 },
-              { "SKILL": "Data Analysis", "VALUE": 5200 },
-              { "SKILL": "Machine Learning", "VALUE": 4800 }
+              {
+                "SKILL": "Data Analysis",
+                "VALUE": 5200
+              },
+              {
+                "SKILL": "Machine Learning",
+                "VALUE": 4800
+              },
+              {
+                "SKILL": "SQL",
+                "VALUE": 4100
+              },
+              {
+                "SKILL": "Cloud (AWS/Azure)",
+                "VALUE": 3600
+              }
             ],
             "xAccessor": {
               "path": "SKILL",
@@ -78,15 +91,24 @@
             }
           },
           {
-            "id": "javascript",
+            "id": "sap",
             "type": "solid",
             "color": "#3B82F6",
             "group": "skills",
-            "label": "JavaScript",
+            "label": "SAP",
             "data": [
-              { "SKILL": "Python", "VALUE": 4500 },
-              { "SKILL": "SQL", "VALUE": 3800 },
-              { "SKILL": "Cloud Computing", "VALUE": 3200 }
+              {
+                "SKILL": "Financial Analysis",
+                "VALUE": 3800
+              },
+              {
+                "SKILL": "ERP",
+                "VALUE": 3500
+              },
+              {
+                "SKILL": "Project Management",
+                "VALUE": 3200
+              }
             ],
             "xAccessor": {
               "path": "SKILL",
@@ -98,14 +120,24 @@
             }
           },
           {
-            "id": "sql",
+            "id": "autocad",
             "type": "solid",
             "color": "#60A5FA",
             "group": "skills",
-            "label": "SQL",
+            "label": "AutoCAD",
             "data": [
-              { "SKILL": "Data Analysis", "VALUE": 4100 },
-              { "SKILL": "Python", "VALUE": 3900 }
+              {
+                "SKILL": "Civil Engineering",
+                "VALUE": 4200
+              },
+              {
+                "SKILL": "Architecture",
+                "VALUE": 3700
+              },
+              {
+                "SKILL": "BIM",
+                "VALUE": 3100
+              }
             ],
             "xAccessor": {
               "path": "SKILL",
@@ -117,54 +149,24 @@
             }
           },
           {
-            "id": "data-analysis",
+            "id": "cloud",
             "type": "solid",
             "color": "#1E40AF",
             "group": "skills",
-            "label": "Data Analysis",
+            "label": "Cloud (AWS/Azure)",
             "data": [
-              { "SKILL": "Python", "VALUE": 5200 },
-              { "SKILL": "SQL", "VALUE": 4100 },
-              { "SKILL": "Machine Learning", "VALUE": 3600 }
-            ],
-            "xAccessor": {
-              "path": "SKILL",
-              "type": "category"
-            },
-            "yAccessor": {
-              "path": "VALUE",
-              "type": "value"
-            }
-          },
-          {
-            "id": "machine-learning",
-            "type": "solid",
-            "color": "#1D4ED8",
-            "group": "skills",
-            "label": "Machine Learning",
-            "data": [
-              { "SKILL": "Python", "VALUE": 4800 },
-              { "SKILL": "Data Analysis", "VALUE": 3600 },
-              { "SKILL": "Cloud Computing", "VALUE": 2900 }
-            ],
-            "xAccessor": {
-              "path": "SKILL",
-              "type": "category"
-            },
-            "yAccessor": {
-              "path": "VALUE",
-              "type": "value"
-            }
-          },
-          {
-            "id": "cloud-computing",
-            "type": "solid",
-            "color": "#7C3AED",
-            "group": "skills",
-            "label": "Cloud Computing",
-            "data": [
-              { "SKILL": "JavaScript", "VALUE": 3200 },
-              { "SKILL": "Machine Learning", "VALUE": 2900 }
+              {
+                "SKILL": "DevOps",
+                "VALUE": 4000
+              },
+              {
+                "SKILL": "Cybersecurity",
+                "VALUE": 3400
+              },
+              {
+                "SKILL": "Python",
+                "VALUE": 3600
+              }
             ],
             "xAccessor": {
               "path": "SKILL",
@@ -182,27 +184,18 @@
             "group": "skills",
             "label": "Project Management",
             "data": [
-              { "SKILL": "Communication", "VALUE": 5500 },
-              { "SKILL": "Data Analysis", "VALUE": 2800 }
-            ],
-            "xAccessor": {
-              "path": "SKILL",
-              "type": "category"
-            },
-            "yAccessor": {
-              "path": "VALUE",
-              "type": "value"
-            }
-          },
-          {
-            "id": "communication",
-            "type": "solid",
-            "color": "#F59E0B",
-            "group": "skills",
-            "label": "Communication",
-            "data": [
-              { "SKILL": "Project Management", "VALUE": 5500 },
-              { "SKILL": "Leadership", "VALUE": 4700 }
+              {
+                "SKILL": "Leadership",
+                "VALUE": 5500
+              },
+              {
+                "SKILL": "Agile",
+                "VALUE": 4300
+              },
+              {
+                "SKILL": "PMP",
+                "VALUE": 3900
+              }
             ],
             "xAccessor": {
               "path": "SKILL",
@@ -218,6 +211,19 @@
         "valueFormat": "compact",
         "isTimeSeries": false,
         "showMinMaxValues": false
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "networkgraph",
+        "label": "Network",
+        "icon": "chart-network",
+        "default": true
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

@@ -11,15 +11,36 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
-      { "label": "Indicator code", "value": "LM KPI EX 1A 1001" },
-      { "label": "Keywords", "value": "KPI, Executive, Market pulse, Total postings, Abu Dhabi" },
-      { "label": "Statistical population", "value": "All job postings aggregated from the Job Postings Platform for the Emirate of Abu Dhabi." },
-      { "label": "Geographic coverage", "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra." },
-      { "label": "Measurement unit", "value": "count" },
-      { "label": "Available periodicity", "value": "Monthly" },
-      { "label": "Data sources", "value": "Job Postings Platform" }
+      {
+        "label": "Indicator code",
+        "value": "LM KPI EX 1A 1001"
+      },
+      {
+        "label": "Keywords",
+        "value": "KPI, Executive, Market pulse, Total postings, Abu Dhabi"
+      },
+      {
+        "label": "Statistical population",
+        "value": "All job postings aggregated from the Job Postings Platform for the Emirate of Abu Dhabi."
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      }
     ],
     "dataSource": "Job Postings Platform",
     "highlights": [],
@@ -31,7 +52,7 @@
       "badge_ar": "",
       "title": "Job Market Shows Strong Growth Momentum",
       "title_ar": "",
-      "text": "Total postings have reached 45,230, indicating robust hiring activity across the emirate. This represents a healthy labour market with sustained employer demand.",
+      "text": "Total postings have reached 168,000 this quarter, indicating robust hiring activity across the UAE. This represents a healthy labour market with sustained employer demand driven by Emiratisation and economic diversification.",
       "text_ar": "",
       "reason": "The aggregate posting volume signals strong economic confidence among employers, particularly in key sectors driving Abu Dhabi's diversification strategy.",
       "reason_ar": ""
@@ -55,7 +76,10 @@
               "type": "value"
             },
             "data": [
-              { "METRIC": "Total Postings", "VALUE": 45230 }
+              {
+                "METRIC": "Total Postings",
+                "VALUE": 168000
+              }
             ]
           }
         ],
@@ -63,6 +87,24 @@
         "valueFormat": "compact",
         "isTimeSeries": false,
         "showMinMaxValues": false
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "solidgauge",
+        "label": "Gauge",
+        "icon": "chart-gauge",
+        "default": true
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

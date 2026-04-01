@@ -59,6 +59,10 @@
     position: relative;
     margin-top: 24px;
     width: 960px;
+
+    ::ng-deep .highcharts-legend-item rect {
+      y: 8;
+    }
   }
 
   &__data-grid {

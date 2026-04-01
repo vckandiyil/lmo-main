@@ -4,20 +4,17 @@ import {
   computed,
   ElementRef,
   inject,
-  OnInit,
   signal,
   ViewChild,
 } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Icon } from '../../atom/icon/icon';
 import { animate, style, transition, trigger } from '@angular/animations';
-import { HttpClient } from '@angular/common/http';
 import { LanguageService } from '../../../core/services/language.service';
 import { AiChatService } from '../../../core/services/ai-chat.service';
 import { AiChatCustomChart, AiChatMessage } from '../../../core/models/ai-chat.model';
 import { ChartWrapper } from '../chart-wrapper/chart-wrapper';
 import { ChartOptions } from '../../../shared/services/chart-config.service';
-import { API_BASE_URL } from '../../../core/tokens/api-base-url.token';
 
 @Component({
   selector: 'app-ai-chat',
@@ -37,12 +34,10 @@ import { API_BASE_URL } from '../../../core/tokens/api-base-url.token';
     ]),
   ],
 })
-export class AiChat implements OnInit, AfterViewChecked {
+export class AiChat implements AfterViewChecked {
   private langService = inject(LanguageService);
   private aiChatService = inject(AiChatService);
   private translateService = inject(TranslateService);
-  private http = inject(HttpClient);
-  private baseUrl = inject(API_BASE_URL);
 
   @ViewChild('messageContainer') messageContainer?: ElementRef<HTMLElement>;
 
@@ -67,15 +62,6 @@ export class AiChat implements OnInit, AfterViewChecked {
     'LMI.AI_SUGGESTION_3',
   ];
 
-  ngOnInit(): void {
-    this.http
-      .get<AiChatMessage[]>(`${this.baseUrl}/ai-chat-example.json`)
-      .subscribe(messages => {
-        this.messages.set(messages);
-        this.shouldScrollToBottom = true;
-      });
-  }
-
   toggle(): void {
     if (this.isAnimating()) return;
     this.isAnimating.set(true);
@@ -85,6 +71,7 @@ export class AiChat implements OnInit, AfterViewChecked {
 
   onSuggestionClick(key: string): void {
     this.inputValue.set(this.translateService.instant(key));
+    this.sendMessage();
   }
 
   sendMessage(): void {

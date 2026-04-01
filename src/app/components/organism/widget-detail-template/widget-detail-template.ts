@@ -229,6 +229,7 @@ export class WidgetDetailTemplate implements OnInit, OnDestroy {
   showPreciseValue = signal<boolean>(false);
 
   sortDirection = signal<'asc' | 'desc' | null>(null);
+  chartOrientation = signal<'vertical' | 'horizontal'>('vertical');
 
   /** Chart-type switcher icons — driven by viewTypes from widgets-detail-config.json */
   readonly chartTypes = computed(() => {
@@ -272,6 +273,14 @@ export class WidgetDetailTemplate implements OnInit, OnDestroy {
     return this.presetService.presets().some(p =>
       p.leftWidgets.includes(type) || p.rightWidgets.includes(type),
     );
+  });
+
+  readonly showOrientationToggle = computed(() => {
+    const type = this.activeChartType();
+    const cfgType = this.config()?.chartConfig?.type;
+    return type === 'bar' || type === 'column' || type === 'stacked'
+      || cfgType === 'stacked-bar' || cfgType === 'grouped-column'
+      || cfgType === 'bar' || cfgType === 'column';
   });
 
   readonly settingsTabs = computed(() => this.config()?.settingsTabs ?? DEFAULT_SETTINGS_TABS);
@@ -426,6 +435,11 @@ export class WidgetDetailTemplate implements OnInit, OnDestroy {
     this.rebuildChart();
   }
 
+  toggleOrientation(): void {
+    this.chartOrientation.update(current => current === 'vertical' ? 'horizontal' : 'vertical');
+    this.rebuildChart();
+  }
+
   private rebuildChart(): void {
     this.tableRefreshTrigger.update(v => v + 1);
     const cfg = this.config();
@@ -436,7 +450,7 @@ export class WidgetDetailTemplate implements OnInit, OnDestroy {
     const isMultiSeriesConfig = cfg.chartConfig.type === 'stacked-bar' || cfg.chartConfig.type === 'grouped-column';
     const hasViewTypes = !!(cfg.viewTypes?.length);
     const chartType = isMultiSeriesConfig ? cfg.chartConfig.type : (hasViewTypes && activeType === 'bar' ? 'column' : activeType);
-    const effectiveConfig = {...cfg.chartConfig, type: chartType};
+    const effectiveConfig = {...cfg.chartConfig, type: chartType, orientation: this.chartOrientation()};
     this.chartOptionsSignal.set(
       this.chartBuilderService.build(effectiveConfig, this.getFilteredSeries(), this.buildContext()),
     );

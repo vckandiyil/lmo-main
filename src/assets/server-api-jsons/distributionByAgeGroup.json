@@ -117,7 +117,7 @@
       {
         "id": "stacked-bar",
         "label": "Stacked Bar",
-        "icon": "stats-up-square",
+        "icon": "chart-stacked",
         "default": true
       },
       {

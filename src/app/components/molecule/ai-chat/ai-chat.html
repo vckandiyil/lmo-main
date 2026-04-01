@@ -1,5 +1,6 @@
 <button
   class="ai-chat__toggle-btn"
+  [attr.data-tooltip]="'LMI.AI_ASSISTANT_TITLE' | translate"
   (click)="toggle()">
   @if (isAnimating()) {
     @if (isOpen()) {
@@ -27,6 +28,7 @@
 
     <div class="ai-chat__header">
       <img class="ai-chat__assistant-icon" src="assets/images/icons/AI Assistant.png" alt="AI Assistant"/>
+      <span class="ai-chat__assistant-title">{{ 'LMI.AI_ASSISTANT_TITLE' | translate }}</span>
     </div>
 
     @if (!hasMessages()) {

@@ -11,7 +11,7 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
       {
         "label": "Indicator code",
@@ -64,7 +64,10 @@
             "group": "ratio",
             "label": "Jr/Sr Ratio",
             "data": [
-              { "METRIC": "Jr/Sr Ratio", "VALUE": 2.3 }
+              {
+                "METRIC": "Jr/Sr Ratio",
+                "VALUE": 2.1
+              }
             ],
             "xAccessor": {
               "path": "METRIC",
@@ -81,6 +84,24 @@
         "isTimeSeries": false,
         "showMinMaxValues": false,
         "yAxisMaxCap": 5
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "solidgauge",
+        "label": "Gauge",
+        "icon": "chart-gauge",
+        "default": true
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

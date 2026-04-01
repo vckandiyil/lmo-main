@@ -11,14 +11,32 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
-      { "label": "Indicator code", "value": "LF JD HM 1C 0018" },
-      { "label": "Keywords", "value": "Industry, City, Heatmap, Regional, Sector, UAE" },
-      { "label": "Data sources", "value": "Job Postings Platform" },
-      { "label": "Geographic coverage", "value": "UAE" },
-      { "label": "Measurement unit", "value": "count" },
-      { "label": "Available periodicity", "value": "Monthly" }
+      {
+        "label": "Indicator code",
+        "value": "LF JD HM 1C 0018"
+      },
+      {
+        "label": "Keywords",
+        "value": "Industry, City, Heatmap, Regional, Sector, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
     ],
     "dataSource": "Job Postings Platform",
     "highlights": [],
@@ -44,71 +62,183 @@
         "showMinMaxValues": false,
         "series": [
           {
-            "id": "city-abu-dhabi",
+            "id": "city-dubai",
             "type": "solid",
             "color": "#2563EA",
             "group": "cities",
-            "label": "Abu Dhabi",
-            "xAccessor": { "path": "INDUSTRY", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "label": "Dubai",
+            "xAccessor": {
+              "path": "INDUSTRY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "INDUSTRY": "Technology", "VALUE": 3200 },
-              { "INDUSTRY": "Healthcare", "VALUE": 2100 },
-              { "INDUSTRY": "Finance", "VALUE": 2800 },
-              { "INDUSTRY": "Construction", "VALUE": 1900 },
-              { "INDUSTRY": "Education", "VALUE": 1400 },
-              { "INDUSTRY": "Energy", "VALUE": 4800 }
+              {
+                "INDUSTRY": "IT",
+                "VALUE": 18500
+              },
+              {
+                "INDUSTRY": "Finance",
+                "VALUE": 12400
+              },
+              {
+                "INDUSTRY": "Tourism",
+                "VALUE": 11200
+              },
+              {
+                "INDUSTRY": "Construction",
+                "VALUE": 8900
+              },
+              {
+                "INDUSTRY": "Oil & Gas",
+                "VALUE": 3200
+              },
+              {
+                "INDUSTRY": "Retail",
+                "VALUE": 9800
+              },
+              {
+                "INDUSTRY": "Government",
+                "VALUE": 2100
+              }
             ]
           },
           {
-            "id": "city-dubai",
+            "id": "city-abu-dhabi",
             "type": "solid",
             "color": "#3B82F6",
             "group": "cities",
-            "label": "Dubai",
-            "xAccessor": { "path": "INDUSTRY", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "label": "Abu Dhabi",
+            "xAccessor": {
+              "path": "INDUSTRY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "INDUSTRY": "Technology", "VALUE": 5000 },
-              { "INDUSTRY": "Healthcare", "VALUE": 1800 },
-              { "INDUSTRY": "Finance", "VALUE": 3500 },
-              { "INDUSTRY": "Construction", "VALUE": 2200 },
-              { "INDUSTRY": "Education", "VALUE": 1100 },
-              { "INDUSTRY": "Energy", "VALUE": 1200 }
-            ]
-          },
-          {
-            "id": "city-al-ain",
-            "type": "solid",
-            "color": "#60A5FA",
-            "group": "cities",
-            "label": "Al Ain",
-            "xAccessor": { "path": "INDUSTRY", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
-            "data": [
-              { "INDUSTRY": "Technology", "VALUE": 600 },
-              { "INDUSTRY": "Healthcare", "VALUE": 850 },
-              { "INDUSTRY": "Finance", "VALUE": 400 },
-              { "INDUSTRY": "Construction", "VALUE": 750 },
-              { "INDUSTRY": "Education", "VALUE": 900 },
-              { "INDUSTRY": "Energy", "VALUE": 350 }
+              {
+                "INDUSTRY": "IT",
+                "VALUE": 8600
+              },
+              {
+                "INDUSTRY": "Finance",
+                "VALUE": 7200
+              },
+              {
+                "INDUSTRY": "Tourism",
+                "VALUE": 4100
+              },
+              {
+                "INDUSTRY": "Construction",
+                "VALUE": 6800
+              },
+              {
+                "INDUSTRY": "Oil & Gas",
+                "VALUE": 15800
+              },
+              {
+                "INDUSTRY": "Retail",
+                "VALUE": 3600
+              },
+              {
+                "INDUSTRY": "Government",
+                "VALUE": 5200
+              }
             ]
           },
           {
             "id": "city-sharjah",
             "type": "solid",
-            "color": "#93C5FD",
+            "color": "#60A5FA",
             "group": "cities",
             "label": "Sharjah",
-            "xAccessor": { "path": "INDUSTRY", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "INDUSTRY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "INDUSTRY": "Technology", "VALUE": 1100 },
-              { "INDUSTRY": "Healthcare", "VALUE": 700 },
-              { "INDUSTRY": "Finance", "VALUE": 500 },
-              { "INDUSTRY": "Construction", "VALUE": 1300 },
-              { "INDUSTRY": "Education", "VALUE": 1200 },
-              { "INDUSTRY": "Energy", "VALUE": 250 }
+              {
+                "INDUSTRY": "IT",
+                "VALUE": 2800
+              },
+              {
+                "INDUSTRY": "Finance",
+                "VALUE": 1900
+              },
+              {
+                "INDUSTRY": "Tourism",
+                "VALUE": 1600
+              },
+              {
+                "INDUSTRY": "Construction",
+                "VALUE": 5100
+              },
+              {
+                "INDUSTRY": "Oil & Gas",
+                "VALUE": 1200
+              },
+              {
+                "INDUSTRY": "Retail",
+                "VALUE": 3800
+              },
+              {
+                "INDUSTRY": "Government",
+                "VALUE": 1100
+              }
+            ]
+          },
+          {
+            "id": "city-al-ain",
+            "type": "solid",
+            "color": "#93C5FD",
+            "group": "cities",
+            "label": "Al Ain",
+            "xAccessor": {
+              "path": "INDUSTRY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              {
+                "INDUSTRY": "IT",
+                "VALUE": 1100
+              },
+              {
+                "INDUSTRY": "Finance",
+                "VALUE": 800
+              },
+              {
+                "INDUSTRY": "Tourism",
+                "VALUE": 650
+              },
+              {
+                "INDUSTRY": "Construction",
+                "VALUE": 2400
+              },
+              {
+                "INDUSTRY": "Oil & Gas",
+                "VALUE": 1800
+              },
+              {
+                "INDUSTRY": "Retail",
+                "VALUE": 920
+              },
+              {
+                "INDUSTRY": "Government",
+                "VALUE": 680
+              }
             ]
           },
           {
@@ -117,18 +247,64 @@
             "color": "#BFDBFE",
             "group": "cities",
             "label": "Ajman",
-            "xAccessor": { "path": "INDUSTRY", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "INDUSTRY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "INDUSTRY": "Technology", "VALUE": 350 },
-              { "INDUSTRY": "Healthcare", "VALUE": 280 },
-              { "INDUSTRY": "Finance", "VALUE": 200 },
-              { "INDUSTRY": "Construction", "VALUE": 600 },
-              { "INDUSTRY": "Education", "VALUE": 450 },
-              { "INDUSTRY": "Energy", "VALUE": 220 }
+              {
+                "INDUSTRY": "IT",
+                "VALUE": 620
+              },
+              {
+                "INDUSTRY": "Finance",
+                "VALUE": 450
+              },
+              {
+                "INDUSTRY": "Tourism",
+                "VALUE": 380
+              },
+              {
+                "INDUSTRY": "Construction",
+                "VALUE": 1800
+              },
+              {
+                "INDUSTRY": "Oil & Gas",
+                "VALUE": 350
+              },
+              {
+                "INDUSTRY": "Retail",
+                "VALUE": 1100
+              },
+              {
+                "INDUSTRY": "Government",
+                "VALUE": 280
+              }
             ]
           }
         ]
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "heatmap",
+        "label": "Heatmap",
+        "icon": "chart-heatmap",
+        "default": true
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

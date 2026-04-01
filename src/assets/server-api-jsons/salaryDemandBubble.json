@@ -11,14 +11,32 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
-      { "label": "Indicator code", "value": "LF JD BB 1A 0021" },
-      { "label": "Keywords", "value": "Salary, Demand, Bubble, Volume, Roles, UAE" },
-      { "label": "Data sources", "value": "Job Postings Platform" },
-      { "label": "Geographic coverage", "value": "UAE" },
-      { "label": "Measurement unit", "value": "count" },
-      { "label": "Available periodicity", "value": "Monthly" }
+      {
+        "label": "Indicator code",
+        "value": "LF JD BB 1A 0021"
+      },
+      {
+        "label": "Keywords",
+        "value": "Salary, Demand, Bubble, Volume, Roles, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
     ],
     "dataSource": "Job Postings Platform",
     "highlights": [],
@@ -49,18 +67,66 @@
             "color": "#2563EA",
             "group": "roles",
             "label": "Demand Volume",
-            "xAccessor": { "path": "ROLE", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "ROLE",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "ROLE": "Software Engineer", "VALUE": 2800 },
-              { "ROLE": "Project Manager", "VALUE": 2200 },
-              { "ROLE": "Data Analyst", "VALUE": 1900 },
-              { "ROLE": "Accountant", "VALUE": 1700 },
-              { "ROLE": "Civil Engineer", "VALUE": 1500 },
-              { "ROLE": "Nurse", "VALUE": 1400 }
+              {
+                "ROLE": "Software Engineer",
+                "SALARY": 20000,
+                "VALUE": 8200
+              },
+              {
+                "ROLE": "Project Manager",
+                "SALARY": 25000,
+                "VALUE": 6100
+              },
+              {
+                "ROLE": "Data Analyst",
+                "SALARY": 17500,
+                "VALUE": 4500
+              },
+              {
+                "ROLE": "Civil Engineer",
+                "SALARY": 16000,
+                "VALUE": 4900
+              },
+              {
+                "ROLE": "Accountant",
+                "SALARY": 13000,
+                "VALUE": 5800
+              },
+              {
+                "ROLE": "Financial Analyst",
+                "SALARY": 18500,
+                "VALUE": 3200
+              }
             ]
           }
         ]
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "bubble",
+        "label": "Bubble",
+        "icon": "chart-bubble",
+        "default": true
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

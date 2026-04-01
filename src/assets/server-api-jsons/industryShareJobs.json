@@ -11,15 +11,36 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
-      { "label": "Indicator code", "value": "LM IND SH 1A 1002" },
-      { "label": "Keywords", "value": "Industry, Share, Jobs, Market composition, Abu Dhabi" },
-      { "label": "Statistical population", "value": "All job postings categorised by industry from the Job Postings Platform." },
-      { "label": "Geographic coverage", "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra." },
-      { "label": "Measurement unit", "value": "%" },
-      { "label": "Available periodicity", "value": "Monthly" },
-      { "label": "Data sources", "value": "Job Postings Platform" }
+      {
+        "label": "Indicator code",
+        "value": "LM IND SH 1A 1002"
+      },
+      {
+        "label": "Keywords",
+        "value": "Industry, Share, Jobs, Market composition, Abu Dhabi"
+      },
+      {
+        "label": "Statistical population",
+        "value": "All job postings categorised by industry from the Job Postings Platform."
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "%"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      }
     ],
     "dataSource": "Job Postings Platform",
     "highlights": [],
@@ -31,7 +52,7 @@
       "badge_ar": "",
       "title": "Technology Sector Gaining Market Share",
       "title_ar": "",
-      "text": "Technology's share of total job postings has increased from 25% to 28% over three months, signalling a structural shift in Abu Dhabi's labour demand toward digital roles.",
+      "text": "IT & Telecom's share of total job postings has increased from 21% to 22% over three months, signalling a structural shift in the UAE's labour demand toward digital roles.",
       "text_ar": "",
       "reason": "The growing dominance of the technology sector aligns with Abu Dhabi's economic diversification goals and suggests increasing need for digital skills training programmes.",
       "reason_ar": ""
@@ -41,87 +62,177 @@
         "label": "Industry Share of Total Jobs",
         "series": [
           {
-            "id": "industry-share-technology",
+            "id": "industry-share-it-telecom",
             "type": "solid",
             "color": "#2563EA",
-            "group": "technology",
-            "label": "Technology",
-            "xAccessor": { "path": "MONTH", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "group": "it-telecom",
+            "label": "IT & Telecom",
+            "xAccessor": {
+              "path": "MONTH",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "MONTH": "Jan 2025", "VALUE": 25 },
-              { "MONTH": "Feb 2025", "VALUE": 27 },
-              { "MONTH": "Mar 2025", "VALUE": 28 }
+              {
+                "MONTH": "Jan 2025",
+                "VALUE": 21
+              },
+              {
+                "MONTH": "Feb 2025",
+                "VALUE": 22
+              },
+              {
+                "MONTH": "Mar 2025",
+                "VALUE": 22
+              }
             ]
           },
           {
-            "id": "industry-share-healthcare",
+            "id": "industry-share-oil-gas",
             "type": "solid",
             "color": "#3B82F6",
-            "group": "healthcare",
-            "label": "Healthcare",
-            "xAccessor": { "path": "MONTH", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "group": "oil-gas",
+            "label": "Oil & Gas",
+            "xAccessor": {
+              "path": "MONTH",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "MONTH": "Jan 2025", "VALUE": 18 },
-              { "MONTH": "Feb 2025", "VALUE": 17 },
-              { "MONTH": "Mar 2025", "VALUE": 18 }
-            ]
-          },
-          {
-            "id": "industry-share-finance",
-            "type": "solid",
-            "color": "#60A5FA",
-            "group": "finance",
-            "label": "Finance",
-            "xAccessor": { "path": "MONTH", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
-            "data": [
-              { "MONTH": "Jan 2025", "VALUE": 15 },
-              { "MONTH": "Feb 2025", "VALUE": 15 },
-              { "MONTH": "Mar 2025", "VALUE": 14 }
+              {
+                "MONTH": "Jan 2025",
+                "VALUE": 15
+              },
+              {
+                "MONTH": "Feb 2025",
+                "VALUE": 14
+              },
+              {
+                "MONTH": "Mar 2025",
+                "VALUE": 14
+              }
             ]
           },
           {
             "id": "industry-share-construction",
             "type": "solid",
-            "color": "#93C5FD",
+            "color": "#60A5FA",
             "group": "construction",
             "label": "Construction",
-            "xAccessor": { "path": "MONTH", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "MONTH",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "MONTH": "Jan 2025", "VALUE": 12 },
-              { "MONTH": "Feb 2025", "VALUE": 11 },
-              { "MONTH": "Mar 2025", "VALUE": 11 }
+              {
+                "MONTH": "Jan 2025",
+                "VALUE": 13
+              },
+              {
+                "MONTH": "Feb 2025",
+                "VALUE": 13
+              },
+              {
+                "MONTH": "Mar 2025",
+                "VALUE": 13
+              }
             ]
           },
           {
-            "id": "industry-share-education",
+            "id": "industry-share-finance",
+            "type": "solid",
+            "color": "#93C5FD",
+            "group": "finance",
+            "label": "Finance & Banking",
+            "xAccessor": {
+              "path": "MONTH",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              {
+                "MONTH": "Jan 2025",
+                "VALUE": 12
+              },
+              {
+                "MONTH": "Feb 2025",
+                "VALUE": 12
+              },
+              {
+                "MONTH": "Mar 2025",
+                "VALUE": 12
+              }
+            ]
+          },
+          {
+            "id": "industry-share-healthcare",
             "type": "solid",
             "color": "#BFDBFE",
-            "group": "education",
-            "label": "Education",
-            "xAccessor": { "path": "MONTH", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "group": "healthcare",
+            "label": "Healthcare",
+            "xAccessor": {
+              "path": "MONTH",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "MONTH": "Jan 2025", "VALUE": 10 },
-              { "MONTH": "Feb 2025", "VALUE": 10 },
-              { "MONTH": "Mar 2025", "VALUE": 10 }
+              {
+                "MONTH": "Jan 2025",
+                "VALUE": 10
+              },
+              {
+                "MONTH": "Feb 2025",
+                "VALUE": 10
+              },
+              {
+                "MONTH": "Mar 2025",
+                "VALUE": 10
+              }
             ]
           },
           {
-            "id": "industry-share-energy",
+            "id": "industry-share-tourism",
             "type": "solid",
             "color": "#1E40AF",
-            "group": "energy",
-            "label": "Energy",
-            "xAccessor": { "path": "MONTH", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "group": "tourism",
+            "label": "Tourism & Hospitality",
+            "xAccessor": {
+              "path": "MONTH",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "MONTH": "Jan 2025", "VALUE": 8 },
-              { "MONTH": "Feb 2025", "VALUE": 8 },
-              { "MONTH": "Mar 2025", "VALUE": 8 }
+              {
+                "MONTH": "Jan 2025",
+                "VALUE": 9
+              },
+              {
+                "MONTH": "Feb 2025",
+                "VALUE": 9
+              },
+              {
+                "MONTH": "Mar 2025",
+                "VALUE": 9
+              }
             ]
           },
           {
@@ -129,27 +240,115 @@
             "type": "solid",
             "color": "#1D4ED8",
             "group": "retail",
-            "label": "Retail",
-            "xAccessor": { "path": "MONTH", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "label": "Retail & Trade",
+            "xAccessor": {
+              "path": "MONTH",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "MONTH": "Jan 2025", "VALUE": 7 },
-              { "MONTH": "Feb 2025", "VALUE": 7 },
-              { "MONTH": "Mar 2025", "VALUE": 6 }
+              {
+                "MONTH": "Jan 2025",
+                "VALUE": 8
+              },
+              {
+                "MONTH": "Feb 2025",
+                "VALUE": 8
+              },
+              {
+                "MONTH": "Mar 2025",
+                "VALUE": 8
+              }
             ]
           },
           {
-            "id": "industry-share-hospitality",
+            "id": "industry-share-education",
             "type": "solid",
             "color": "#3375C6",
-            "group": "hospitality",
-            "label": "Hospitality",
-            "xAccessor": { "path": "MONTH", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "group": "education",
+            "label": "Education",
+            "xAccessor": {
+              "path": "MONTH",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "MONTH": "Jan 2025", "VALUE": 5 },
-              { "MONTH": "Feb 2025", "VALUE": 5 },
-              { "MONTH": "Mar 2025", "VALUE": 5 }
+              {
+                "MONTH": "Jan 2025",
+                "VALUE": 6
+              },
+              {
+                "MONTH": "Feb 2025",
+                "VALUE": 6
+              },
+              {
+                "MONTH": "Mar 2025",
+                "VALUE": 6
+              }
+            ]
+          },
+          {
+            "id": "industry-share-government",
+            "type": "solid",
+            "color": "#4B8BDB",
+            "group": "government",
+            "label": "Government",
+            "xAccessor": {
+              "path": "MONTH",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              {
+                "MONTH": "Jan 2025",
+                "VALUE": 4
+              },
+              {
+                "MONTH": "Feb 2025",
+                "VALUE": 4
+              },
+              {
+                "MONTH": "Mar 2025",
+                "VALUE": 4
+              }
+            ]
+          },
+          {
+            "id": "industry-share-manufacturing",
+            "type": "solid",
+            "color": "#6BA3E8",
+            "group": "manufacturing",
+            "label": "Manufacturing",
+            "xAccessor": {
+              "path": "MONTH",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              {
+                "MONTH": "Jan 2025",
+                "VALUE": 2
+              },
+              {
+                "MONTH": "Feb 2025",
+                "VALUE": 2
+              },
+              {
+                "MONTH": "Mar 2025",
+                "VALUE": 2
+              }
             ]
           }
         ],
@@ -158,6 +357,19 @@
         "valueFormat": "compact",
         "isTimeSeries": false,
         "showMinMaxValues": false
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "stacked-bar",
+        "label": "Stacked Bar",
+        "icon": "chart-stacked",
+        "default": true
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

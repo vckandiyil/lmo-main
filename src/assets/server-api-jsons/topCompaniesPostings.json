@@ -11,15 +11,36 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
-      { "label": "Indicator code", "value": "LM CMP TP 1A 1007" },
-      { "label": "Keywords", "value": "Companies, Top employers, Postings, Hiring, Abu Dhabi" },
-      { "label": "Statistical population", "value": "All job postings aggregated by employer from the Job Postings Platform." },
-      { "label": "Geographic coverage", "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra." },
-      { "label": "Measurement unit", "value": "count" },
-      { "label": "Available periodicity", "value": "Monthly" },
-      { "label": "Data sources", "value": "Job Postings Platform" }
+      {
+        "label": "Indicator code",
+        "value": "LM CMP TP 1A 1007"
+      },
+      {
+        "label": "Keywords",
+        "value": "Companies, Top employers, Postings, Hiring, Abu Dhabi"
+      },
+      {
+        "label": "Statistical population",
+        "value": "All job postings aggregated by employer from the Job Postings Platform."
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      }
     ],
     "dataSource": "Job Postings Platform",
     "highlights": [],
@@ -31,7 +52,7 @@
       "badge_ar": "",
       "title": "ADNOC and Etisalat Lead Hiring Activity",
       "title_ar": "",
-      "text": "ADNOC (3,200) and Etisalat (2,800) are the top two hiring entities, representing significant Emiratisation opportunities in energy and telecommunications.",
+      "text": "Emirates Group (4,200) and ADNOC (3,800) are the top two hiring entities, representing significant Emiratisation opportunities in aviation and energy sectors.",
       "text_ar": "",
       "reason": "Engaging top employers in coordinated workforce planning can amplify national employment programme outcomes and ensure alignment with private sector needs.",
       "reason_ar": ""
@@ -46,19 +67,55 @@
             "color": "#2563EA",
             "group": "companies",
             "label": "Job Postings",
-            "xAccessor": { "path": "COMPANY", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "COMPANY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "COMPANY": "ADNOC", "VALUE": 3200 },
-              { "COMPANY": "Etisalat", "VALUE": 2800 },
-              { "COMPANY": "Emirates NBD", "VALUE": 2400 },
-              { "COMPANY": "Mubadala", "VALUE": 2100 },
-              { "COMPANY": "Abu Dhabi Health", "VALUE": 1900 },
-              { "COMPANY": "Aldar Properties", "VALUE": 1700 },
-              { "COMPANY": "First Abu Dhabi Bank", "VALUE": 1500 },
-              { "COMPANY": "Etihad Airways", "VALUE": 1400 },
-              { "COMPANY": "TAQA", "VALUE": 1200 },
-              { "COMPANY": "Masdar", "VALUE": 1100 }
+              {
+                "COMPANY": "Emirates Group",
+                "VALUE": 4200
+              },
+              {
+                "COMPANY": "ADNOC",
+                "VALUE": 3800
+              },
+              {
+                "COMPANY": "Etisalat (e&)",
+                "VALUE": 2900
+              },
+              {
+                "COMPANY": "First Abu Dhabi Bank",
+                "VALUE": 2600
+              },
+              {
+                "COMPANY": "Emaar Properties",
+                "VALUE": 2400
+              },
+              {
+                "COMPANY": "Emirates NBD",
+                "VALUE": 2200
+              },
+              {
+                "COMPANY": "du (EITC)",
+                "VALUE": 1900
+              },
+              {
+                "COMPANY": "Majid Al Futtaim",
+                "VALUE": 1800
+              },
+              {
+                "COMPANY": "SEHA",
+                "VALUE": 1600
+              },
+              {
+                "COMPANY": "Aldar Properties",
+                "VALUE": 1400
+              }
             ]
           }
         ],
@@ -66,6 +123,29 @@
         "valueFormat": "compact",
         "isTimeSeries": false,
         "showMinMaxValues": false
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square",
+        "default": true
+      },
+      {
+        "id": "line",
+        "label": "Line Chart",
+        "icon": "graph-up"
+      },
+      {
+        "id": "pie",
+        "label": "Pie Chart",
+        "icon": "chart-pie"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

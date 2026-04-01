@@ -9,11 +9,20 @@ import type {MoreMenuItem} from '../../atom/more-menu/more-menu';
 import type {ViewTypeConfig} from '../../../core/models/widget-detail-json.model';
 
 const CHART_TYPE_I18N: Record<string, string> = {
-  line:   'HOME.CHART_TYPE_LINE',
-  bar:    'HOME.CHART_TYPE_BAR',
-  column: 'HOME.CHART_TYPE_COLUMN',
-  pie:    'HOME.CHART_TYPE_PIE',
-  table:  'HOME.CHART_TYPE_TABLE',
+  line:           'HOME.CHART_TYPE_LINE',
+  bar:            'HOME.CHART_TYPE_BAR',
+  column:         'HOME.CHART_TYPE_COLUMN',
+  pie:            'HOME.CHART_TYPE_PIE',
+  table:          'HOME.CHART_TYPE_TABLE',
+  heatmap:        'HOME.CHART_TYPE_HEATMAP',
+  treemap:        'HOME.CHART_TYPE_TREEMAP',
+  networkgraph:   'HOME.CHART_TYPE_NETWORK',
+  funnel:         'HOME.CHART_TYPE_FUNNEL',
+  bubble:         'HOME.CHART_TYPE_BUBBLE',
+  solidgauge:     'HOME.CHART_TYPE_GAUGE',
+  columnrange:    'HOME.CHART_TYPE_RANGE',
+  spline:         'HOME.CHART_TYPE_SPLINE',
+  'stacked-bar':  'HOME.CHART_TYPE_STACKED',
 };
 
 @Component({

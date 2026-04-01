@@ -11,7 +11,7 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
       {
         "label": "Indicator code",
@@ -64,15 +64,13 @@
             "group": "language",
             "label": "English Only",
             "data": [
-              { "INDUSTRY": "Technology", "VALUE": 8000 },
-              { "INDUSTRY": "Healthcare", "VALUE": 4000 },
-              { "INDUSTRY": "Finance", "VALUE": 5000 },
-              { "INDUSTRY": "Construction", "VALUE": 3000 },
-              { "INDUSTRY": "Education", "VALUE": 2500 },
-              { "INDUSTRY": "Government", "VALUE": 1500 }
+              {
+                "CATEGORY": "English Only",
+                "VALUE": 58
+              }
             ],
             "xAccessor": {
-              "path": "INDUSTRY",
+              "path": "CATEGORY",
               "type": "category"
             },
             "yAccessor": {
@@ -81,21 +79,19 @@
             }
           },
           {
-            "id": "arabic-only",
+            "id": "english-arabic",
             "type": "solid",
             "color": "#3B82F6",
             "group": "language",
-            "label": "Arabic Only",
+            "label": "English + Arabic",
             "data": [
-              { "INDUSTRY": "Technology", "VALUE": 500 },
-              { "INDUSTRY": "Healthcare", "VALUE": 1200 },
-              { "INDUSTRY": "Finance", "VALUE": 800 },
-              { "INDUSTRY": "Construction", "VALUE": 2000 },
-              { "INDUSTRY": "Education", "VALUE": 1500 },
-              { "INDUSTRY": "Government", "VALUE": 3000 }
+              {
+                "CATEGORY": "English + Arabic",
+                "VALUE": 32
+              }
             ],
             "xAccessor": {
-              "path": "INDUSTRY",
+              "path": "CATEGORY",
               "type": "category"
             },
             "yAccessor": {
@@ -104,21 +100,40 @@
             }
           },
           {
-            "id": "bilingual",
+            "id": "english-hindi-urdu",
             "type": "solid",
             "color": "#60A5FA",
             "group": "language",
-            "label": "Bilingual",
+            "label": "English + Hindi/Urdu",
             "data": [
-              { "INDUSTRY": "Technology", "VALUE": 4000 },
-              { "INDUSTRY": "Healthcare", "VALUE": 3000 },
-              { "INDUSTRY": "Finance", "VALUE": 2500 },
-              { "INDUSTRY": "Construction", "VALUE": 1500 },
-              { "INDUSTRY": "Education", "VALUE": 2000 },
-              { "INDUSTRY": "Government", "VALUE": 4000 }
+              {
+                "CATEGORY": "English + Hindi/Urdu",
+                "VALUE": 6
+              }
             ],
             "xAccessor": {
-              "path": "INDUSTRY",
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
+          },
+          {
+            "id": "other",
+            "type": "solid",
+            "color": "#BFDBFE",
+            "group": "language",
+            "label": "Other",
+            "data": [
+              {
+                "CATEGORY": "Other",
+                "VALUE": 4
+              }
+            ],
+            "xAccessor": {
+              "path": "CATEGORY",
               "type": "category"
             },
             "yAccessor": {
@@ -132,6 +147,19 @@
         "valueFormat": "compact",
         "isTimeSeries": false,
         "showMinMaxValues": false
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "stacked-bar",
+        "label": "Stacked Bar",
+        "icon": "chart-stacked",
+        "default": true
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

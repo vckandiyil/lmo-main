@@ -11,15 +11,36 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
-      { "label": "Indicator code", "value": "LM JOB TD 1A 1010" },
-      { "label": "Keywords", "value": "Job type, Distribution, Full-time, Part-time, Contract, Abu Dhabi" },
-      { "label": "Statistical population", "value": "All job postings classified by employment type from the Job Postings Platform." },
-      { "label": "Geographic coverage", "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra." },
-      { "label": "Measurement unit", "value": "%" },
-      { "label": "Available periodicity", "value": "Monthly" },
-      { "label": "Data sources", "value": "Job Postings Platform" }
+      {
+        "label": "Indicator code",
+        "value": "LM JOB TD 1A 1010"
+      },
+      {
+        "label": "Keywords",
+        "value": "Job type, Distribution, Full-time, Part-time, Contract, Abu Dhabi"
+      },
+      {
+        "label": "Statistical population",
+        "value": "All job postings classified by employment type from the Job Postings Platform."
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "%"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      }
     ],
     "dataSource": "Job Postings Platform",
     "highlights": [],
@@ -46,13 +67,31 @@
             "color": "#2563EA",
             "group": "full-time",
             "label": "Full-time",
-            "xAccessor": { "path": "MONTH", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "MONTH",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "MONTH": "Jan 2025", "VALUE": 72 },
-              { "MONTH": "Feb 2025", "VALUE": 71 },
-              { "MONTH": "Mar 2025", "VALUE": 73 },
-              { "MONTH": "Apr 2025", "VALUE": 72 }
+              {
+                "MONTH": "Jan 2025",
+                "VALUE": 71
+              },
+              {
+                "MONTH": "Feb 2025",
+                "VALUE": 72
+              },
+              {
+                "MONTH": "Mar 2025",
+                "VALUE": 71
+              },
+              {
+                "MONTH": "Apr 2025",
+                "VALUE": 70
+              }
             ]
           },
           {
@@ -61,13 +100,31 @@
             "color": "#60A5FA",
             "group": "part-time",
             "label": "Part-time",
-            "xAccessor": { "path": "MONTH", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "MONTH",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "MONTH": "Jan 2025", "VALUE": 15 },
-              { "MONTH": "Feb 2025", "VALUE": 16 },
-              { "MONTH": "Mar 2025", "VALUE": 14 },
-              { "MONTH": "Apr 2025", "VALUE": 15 }
+              {
+                "MONTH": "Jan 2025",
+                "VALUE": 9
+              },
+              {
+                "MONTH": "Feb 2025",
+                "VALUE": 8
+              },
+              {
+                "MONTH": "Mar 2025",
+                "VALUE": 9
+              },
+              {
+                "MONTH": "Apr 2025",
+                "VALUE": 10
+              }
             ]
           },
           {
@@ -76,13 +133,31 @@
             "color": "#93C5FD",
             "group": "contract",
             "label": "Contract",
-            "xAccessor": { "path": "MONTH", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "MONTH",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "MONTH": "Jan 2025", "VALUE": 13 },
-              { "MONTH": "Feb 2025", "VALUE": 13 },
-              { "MONTH": "Mar 2025", "VALUE": 13 },
-              { "MONTH": "Apr 2025", "VALUE": 13 }
+              {
+                "MONTH": "Jan 2025",
+                "VALUE": 20
+              },
+              {
+                "MONTH": "Feb 2025",
+                "VALUE": 20
+              },
+              {
+                "MONTH": "Mar 2025",
+                "VALUE": 20
+              },
+              {
+                "MONTH": "Apr 2025",
+                "VALUE": 20
+              }
             ]
           }
         ],
@@ -91,6 +166,19 @@
         "valueFormat": "compact",
         "isTimeSeries": false,
         "showMinMaxValues": false
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "stacked-bar",
+        "label": "Stacked Bar",
+        "icon": "chart-stacked",
+        "default": true
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

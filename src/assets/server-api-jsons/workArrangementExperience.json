@@ -11,7 +11,7 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
       {
         "label": "Indicator code",
@@ -64,11 +64,22 @@
             "group": "arrangement",
             "label": "On-site",
             "data": [
-              { "CATEGORY": "Entry", "VALUE": 75 },
-              { "CATEGORY": "Junior", "VALUE": 65 },
-              { "CATEGORY": "Mid", "VALUE": 55 },
-              { "CATEGORY": "Senior", "VALUE": 50 },
-              { "CATEGORY": "Manager", "VALUE": 45 }
+              {
+                "CATEGORY": "Entry",
+                "VALUE": 85
+              },
+              {
+                "CATEGORY": "Mid",
+                "VALUE": 65
+              },
+              {
+                "CATEGORY": "Senior",
+                "VALUE": 50
+              },
+              {
+                "CATEGORY": "Executive",
+                "VALUE": 45
+              }
             ],
             "xAccessor": {
               "path": "CATEGORY",
@@ -86,11 +97,22 @@
             "group": "arrangement",
             "label": "Hybrid",
             "data": [
-              { "CATEGORY": "Entry", "VALUE": 15 },
-              { "CATEGORY": "Junior", "VALUE": 20 },
-              { "CATEGORY": "Mid", "VALUE": 25 },
-              { "CATEGORY": "Senior", "VALUE": 30 },
-              { "CATEGORY": "Manager", "VALUE": 35 }
+              {
+                "CATEGORY": "Entry",
+                "VALUE": 12
+              },
+              {
+                "CATEGORY": "Mid",
+                "VALUE": 25
+              },
+              {
+                "CATEGORY": "Senior",
+                "VALUE": 30
+              },
+              {
+                "CATEGORY": "Executive",
+                "VALUE": 35
+              }
             ],
             "xAccessor": {
               "path": "CATEGORY",
@@ -108,11 +130,22 @@
             "group": "arrangement",
             "label": "Remote",
             "data": [
-              { "CATEGORY": "Entry", "VALUE": 10 },
-              { "CATEGORY": "Junior", "VALUE": 15 },
-              { "CATEGORY": "Mid", "VALUE": 20 },
-              { "CATEGORY": "Senior", "VALUE": 20 },
-              { "CATEGORY": "Manager", "VALUE": 20 }
+              {
+                "CATEGORY": "Entry",
+                "VALUE": 3
+              },
+              {
+                "CATEGORY": "Mid",
+                "VALUE": 10
+              },
+              {
+                "CATEGORY": "Senior",
+                "VALUE": 20
+              },
+              {
+                "CATEGORY": "Executive",
+                "VALUE": 20
+              }
             ],
             "xAccessor": {
               "path": "CATEGORY",
@@ -129,6 +162,19 @@
         "valueFormat": "compact",
         "isTimeSeries": false,
         "showMinMaxValues": false
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "stacked-bar",
+        "label": "Stacked Bar",
+        "icon": "chart-stacked",
+        "default": true
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

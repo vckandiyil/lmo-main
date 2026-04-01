@@ -10,7 +10,7 @@
     "unit": "count",
     "filters": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
       {
         "label": "Indicator code",
@@ -70,24 +70,24 @@
             },
             "data": [
               {
-                "CATEGORY": "20-40k",
-                "VALUE": 120
+                "CATEGORY": "8-15K",
+                "VALUE": 180
               },
               {
-                "CATEGORY": "40-60k",
-                "VALUE": 350
-              },
-              {
-                "CATEGORY": "60-80k",
+                "CATEGORY": "15-20K",
                 "VALUE": 420
               },
               {
-                "CATEGORY": "80-100k",
-                "VALUE": 280
+                "CATEGORY": "20-25K",
+                "VALUE": 380
               },
               {
-                "CATEGORY": "100k+",
-                "VALUE": 150
+                "CATEGORY": "25-30K",
+                "VALUE": 210
+              },
+              {
+                "CATEGORY": "30K+",
+                "VALUE": 95
               }
             ]
           },
@@ -103,24 +103,24 @@
             },
             "data": [
               {
-                "CATEGORY": "20-40k",
-                "VALUE": 280
-              },
-              {
-                "CATEGORY": "40-60k",
-                "VALUE": 410
-              },
-              {
-                "CATEGORY": "60-80k",
+                "CATEGORY": "8-15K",
                 "VALUE": 310
               },
               {
-                "CATEGORY": "80-100k",
-                "VALUE": 140
+                "CATEGORY": "15-20K",
+                "VALUE": 450
               },
               {
-                "CATEGORY": "100k+",
-                "VALUE": 60
+                "CATEGORY": "20-25K",
+                "VALUE": 280
+              },
+              {
+                "CATEGORY": "25-30K",
+                "VALUE": 110
+              },
+              {
+                "CATEGORY": "30K+",
+                "VALUE": 40
               }
             ]
           },
@@ -136,24 +136,24 @@
             },
             "data": [
               {
-                "CATEGORY": "20-40k",
-                "VALUE": 150
+                "CATEGORY": "8-15K",
+                "VALUE": 90
               },
               {
-                "CATEGORY": "40-60k",
+                "CATEGORY": "15-20K",
+                "VALUE": 280
+              },
+              {
+                "CATEGORY": "20-25K",
+                "VALUE": 390
+              },
+              {
+                "CATEGORY": "25-30K",
                 "VALUE": 320
               },
               {
-                "CATEGORY": "60-80k",
-                "VALUE": 380
-              },
-              {
-                "CATEGORY": "80-100k",
-                "VALUE": 290
-              },
-              {
-                "CATEGORY": "100k+",
-                "VALUE": 180
+                "CATEGORY": "30K+",
+                "VALUE": 210
               }
             ]
           },
@@ -169,24 +169,24 @@
             },
             "data": [
               {
-                "CATEGORY": "20-40k",
-                "VALUE": 380
+                "CATEGORY": "8-15K",
+                "VALUE": 480
               },
               {
-                "CATEGORY": "40-60k",
-                "VALUE": 350
+                "CATEGORY": "15-20K",
+                "VALUE": 360
               },
               {
-                "CATEGORY": "60-80k",
-                "VALUE": 190
+                "CATEGORY": "20-25K",
+                "VALUE": 140
               },
               {
-                "CATEGORY": "80-100k",
-                "VALUE": 80
+                "CATEGORY": "25-30K",
+                "VALUE": 45
               },
               {
-                "CATEGORY": "100k+",
-                "VALUE": 30
+                "CATEGORY": "30K+",
+                "VALUE": 15
               }
             ]
           },
@@ -202,24 +202,24 @@
             },
             "data": [
               {
-                "CATEGORY": "20-40k",
-                "VALUE": 200
+                "CATEGORY": "8-15K",
+                "VALUE": 290
               },
               {
-                "CATEGORY": "40-60k",
-                "VALUE": 340
+                "CATEGORY": "15-20K",
+                "VALUE": 410
               },
               {
-                "CATEGORY": "60-80k",
-                "VALUE": 360
+                "CATEGORY": "20-25K",
+                "VALUE": 250
               },
               {
-                "CATEGORY": "80-100k",
-                "VALUE": 210
+                "CATEGORY": "25-30K",
+                "VALUE": 80
               },
               {
-                "CATEGORY": "100k+",
-                "VALUE": 90
+                "CATEGORY": "30K+",
+                "VALUE": 30
               }
             ]
           },
@@ -235,24 +235,24 @@
             },
             "data": [
               {
-                "CATEGORY": "20-40k",
-                "VALUE": 420
+                "CATEGORY": "8-15K",
+                "VALUE": 520
               },
               {
-                "CATEGORY": "40-60k",
-                "VALUE": 310
+                "CATEGORY": "15-20K",
+                "VALUE": 280
               },
               {
-                "CATEGORY": "60-80k",
-                "VALUE": 160
+                "CATEGORY": "20-25K",
+                "VALUE": 60
               },
               {
-                "CATEGORY": "80-100k",
-                "VALUE": 50
-              },
-              {
-                "CATEGORY": "100k+",
+                "CATEGORY": "25-30K",
                 "VALUE": 15
+              },
+              {
+                "CATEGORY": "30K+",
+                "VALUE": 5
               }
             ]
           },
@@ -268,28 +268,46 @@
             },
             "data": [
               {
-                "CATEGORY": "20-40k",
-                "VALUE": 180
+                "CATEGORY": "8-15K",
+                "VALUE": 150
               },
               {
-                "CATEGORY": "40-60k",
-                "VALUE": 290
+                "CATEGORY": "15-20K",
+                "VALUE": 340
               },
               {
-                "CATEGORY": "60-80k",
-                "VALUE": 320
+                "CATEGORY": "20-25K",
+                "VALUE": 360
               },
               {
-                "CATEGORY": "80-100k",
-                "VALUE": 240
+                "CATEGORY": "25-30K",
+                "VALUE": 190
               },
               {
-                "CATEGORY": "100k+",
-                "VALUE": 110
+                "CATEGORY": "30K+",
+                "VALUE": 120
               }
             ]
           }
         ]
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "heatmap",
+        "label": "Heatmap",
+        "icon": "chart-heatmap",
+        "default": true
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

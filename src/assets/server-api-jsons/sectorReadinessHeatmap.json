@@ -10,7 +10,7 @@
     "unit": "score",
     "filters": [],
     "updated": "2025-09-25",
-    "category": "Talent Pool Intelligence",
+    "category": "Talent Pool",
     "metadata": [
       {
         "label": "Indicator code",
@@ -233,6 +233,24 @@
             ]
           }
         ]
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "heatmap",
+        "label": "Heatmap",
+        "icon": "chart-heatmap",
+        "default": true
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

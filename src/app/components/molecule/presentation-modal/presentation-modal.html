@@ -6,16 +6,13 @@
   >
     <div class="presentation-modal__content" (click)="onContentClick($event)">
       <button class="presentation-modal__close" (click)="close()">
-        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M13.5 1.5L1.5 13.5M1.5 1.5L13.5 13.5" stroke="#37516E" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round"/>
-        </svg>
+        <app-icon name="close" size="16" [color]="closeIconColor()"/>
       </button>
       <div class="presentation-modal__body">
         <div class="presentation-modal__header">
           <div class="presentation-modal__title-wrapper">
             <div class="presentation-modal__icon">
-              <img src="assets/images/icons/presentation.svg" alt="Presentation"/>
+              <app-icon name="presentation" size="24"/>
             </div>
             <span class="presentation-modal__title">{{ 'LMI.LABOR_MARKET_PULSE' | translate }}</span>
           </div>
@@ -46,7 +43,7 @@
                         <span class="presentation-modal__value">{{ row.overall }}</span>
                         @if (activeTab() === 'yy') {
                           <span class="presentation-modal__yy-badge" [class.presentation-modal__yy-badge--negative]="row.yy.overall < 0">
-                            <img [src]="row.yy.overall >= 0 ? 'assets/images/icons/trending-up.svg' : 'assets/images/icons/trending-down.svg'" alt=""/>
+                            <app-icon [name]="row.yy.overall >= 0 ? 'trending-up' : 'trending-down'" size="16"/>
                             <span>{{ row.yy.overall >= 0 ? '+' : '' }}{{ row.yy.overall }}%</span>
                           </span>
                         }
@@ -57,7 +54,7 @@
                         <span class="presentation-modal__value">{{ row.alDhafra }}</span>
                         @if (activeTab() === 'yy') {
                           <span class="presentation-modal__yy-badge" [class.presentation-modal__yy-badge--negative]="row.yy.alDhafra < 0">
-                            <img [src]="row.yy.alDhafra >= 0 ? 'assets/images/icons/trending-up.svg' : 'assets/images/icons/trending-down.svg'" alt=""/>
+                            <app-icon [name]="row.yy.alDhafra >= 0 ? 'trending-up' : 'trending-down'" size="16"/>
                             <span>{{ row.yy.alDhafra >= 0 ? '+' : '' }}{{ row.yy.alDhafra }}%</span>
                           </span>
                         }
@@ -68,7 +65,7 @@
                         <span class="presentation-modal__value">{{ row.abuDhabi }}</span>
                         @if (activeTab() === 'yy') {
                           <span class="presentation-modal__yy-badge" [class.presentation-modal__yy-badge--negative]="row.yy.abuDhabi < 0">
-                            <img [src]="row.yy.abuDhabi >= 0 ? 'assets/images/icons/trending-up.svg' : 'assets/images/icons/trending-down.svg'" alt=""/>
+                            <app-icon [name]="row.yy.abuDhabi >= 0 ? 'trending-up' : 'trending-down'" size="16"/>
                             <span>{{ row.yy.abuDhabi >= 0 ? '+' : '' }}{{ row.yy.abuDhabi }}%</span>
                           </span>
                         }
@@ -79,7 +76,7 @@
                         <span class="presentation-modal__value">{{ row.alAin }}</span>
                         @if (activeTab() === 'yy') {
                           <span class="presentation-modal__yy-badge" [class.presentation-modal__yy-badge--negative]="row.yy.alAin < 0">
-                            <img [src]="row.yy.alAin >= 0 ? 'assets/images/icons/trending-up.svg' : 'assets/images/icons/trending-down.svg'" alt=""/>
+                            <app-icon [name]="row.yy.alAin >= 0 ? 'trending-up' : 'trending-down'" size="16"/>
                             <span>{{ row.yy.alAin >= 0 ? '+' : '' }}{{ row.yy.alAin }}%</span>
                           </span>
                         }
@@ -91,13 +88,42 @@
             </table>
           </div>
           <div class="presentation-modal__actions">
-            <app-button variant="dashed">
-              <svg buttonIcon width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8 4V12M4 8H12" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
-              </svg>
-              {{ 'HOME.ADD_INDICATOR' | translate }}
-            </app-button>
-            <app-button variant="filled">
+            <div class="presentation-modal__add-indicator-wrapper">
+              <app-button variant="dashed" (click)="toggleIndicatorPopup()">
+                <app-icon buttonIcon name="plus" size="16"/>
+                {{ 'HOME.ADD_INDICATOR' | translate }}
+              </app-button>
+              @if (isIndicatorPopupOpen()) {
+                <div class="presentation-modal__indicator-backdrop" (click)="closeIndicatorPopup()">
+                  <div class="presentation-modal__indicator-popup" (click)="$event.stopPropagation()">
+                    <div class="presentation-modal__indicator-popup-header">
+                      <span class="presentation-modal__indicator-popup-title">LMO Indicator</span>
+                    </div>
+                    <div class="presentation-modal__indicator-list">
+                      @for (indicator of popupIndicators; track indicator) {
+                        <label class="presentation-modal__indicator-item">
+                          <input
+                            type="checkbox"
+                            class="presentation-modal__indicator-checkbox"
+                            (change)="toggleIndicator(indicator)"
+                          />
+                          <span class="presentation-modal__indicator-label">{{ indicator }}</span>
+                        </label>
+                      }
+                    </div>
+                    <div class="presentation-modal__indicator-popup-actions">
+                      <app-button variant="filled" size="sm" (click)="addSelectedIndicators()">
+                        {{ 'HOME.ADD_INDICATOR' | translate }}
+                      </app-button>
+                      <button class="presentation-modal__indicator-cancel-btn" (click)="closeIndicatorPopup()">
+                        {{ 'COMMON.CANCEL' | translate }}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
+            <app-button variant="filled" (click)="onDownloadReport()">
               {{ 'LMI.DOWNLOAD_REPORT' | translate }}
             </app-button>
           </div>

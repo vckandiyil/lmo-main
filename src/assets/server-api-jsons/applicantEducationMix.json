@@ -10,7 +10,7 @@
     "unit": "%",
     "filters": [],
     "updated": "2025-09-25",
-    "category": "Job Applicant Intelligence",
+    "category": "Job Seekers",
     "metadata": [
       {
         "label": "Indicator code",
@@ -76,11 +76,11 @@
             "data": [
               {
                 "name": "Technology",
-                "VALUE": 8
+                "VALUE": 10
               },
               {
                 "name": "Finance",
-                "VALUE": 10
+                "VALUE": 8
               },
               {
                 "name": "Healthcare",
@@ -88,7 +88,7 @@
               },
               {
                 "name": "Construction",
-                "VALUE": 22
+                "VALUE": 35
               },
               {
                 "name": "Education",
@@ -113,7 +113,7 @@
             "data": [
               {
                 "name": "Technology",
-                "VALUE": 45
+                "VALUE": 52
               },
               {
                 "name": "Finance",
@@ -121,15 +121,15 @@
               },
               {
                 "name": "Healthcare",
-                "VALUE": 42
+                "VALUE": 38
               },
               {
                 "name": "Construction",
-                "VALUE": 55
+                "VALUE": 45
               },
               {
                 "name": "Education",
-                "VALUE": 40
+                "VALUE": 28
               }
             ]
           },
@@ -154,19 +154,19 @@
               },
               {
                 "name": "Finance",
-                "VALUE": 28
+                "VALUE": 35
               },
               {
                 "name": "Healthcare",
-                "VALUE": 25
+                "VALUE": 32
               },
               {
                 "name": "Construction",
-                "VALUE": 18
+                "VALUE": 15
               },
               {
                 "name": "Education",
-                "VALUE": 35
+                "VALUE": 42
               }
             ]
           },
@@ -187,15 +187,15 @@
             "data": [
               {
                 "name": "Technology",
-                "VALUE": 17
+                "VALUE": 8
               },
               {
                 "name": "Finance",
-                "VALUE": 14
+                "VALUE": 9
               },
               {
                 "name": "Healthcare",
-                "VALUE": 18
+                "VALUE": 15
               },
               {
                 "name": "Construction",
@@ -203,11 +203,24 @@
               },
               {
                 "name": "Education",
-                "VALUE": 20
+                "VALUE": 25
               }
             ]
           }
         ]
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "stacked-bar",
+        "label": "Stacked Bar",
+        "icon": "chart-stacked",
+        "default": true
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

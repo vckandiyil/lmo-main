@@ -280,6 +280,12 @@
 <app-presentation-modal
   [isOpen]="isPresentationModalOpen()"
   (closed)="closePresentationModal()"
+  (downloadReport)="openReportModal()"
+/>
+
+<app-report-modal
+  [isOpen]="isReportModalOpen()"
+  (closed)="closeReportModal()"
 />
 
 <app-search-modal

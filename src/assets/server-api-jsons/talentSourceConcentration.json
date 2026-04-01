@@ -10,7 +10,7 @@
     "unit": "count",
     "filters": [],
     "updated": "2025-09-25",
-    "category": "Talent Pool Intelligence",
+    "category": "Talent Pool",
     "metadata": [
       {
         "label": "Indicator code",
@@ -75,47 +75,70 @@
             "data": [
               {
                 "name": "India",
-                "VALUE": 38500
+                "VALUE": 285000
               },
               {
                 "name": "Pakistan",
-                "VALUE": 18200
+                "VALUE": 142000
               },
               {
                 "name": "Philippines",
-                "VALUE": 14800
+                "VALUE": 98000
               },
               {
                 "name": "Egypt",
-                "VALUE": 12500
-              },
-              {
-                "name": "UAE (Local)",
-                "VALUE": 11200
-              },
-              {
-                "name": "Jordan",
-                "VALUE": 8400
+                "VALUE": 72000
               },
               {
                 "name": "Bangladesh",
-                "VALUE": 7600
+                "VALUE": 65000
+              },
+              {
+                "name": "UAE (Local)",
+                "VALUE": 58000
+              },
+              {
+                "name": "Jordan",
+                "VALUE": 42000
               },
               {
                 "name": "UK",
-                "VALUE": 5800
+                "VALUE": 35000
               },
               {
                 "name": "Lebanon",
-                "VALUE": 4200
+                "VALUE": 28000
               },
               {
                 "name": "South Africa",
-                "VALUE": 3100
+                "VALUE": 18000
               }
             ]
           }
         ]
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square",
+        "default": true
+      },
+      {
+        "id": "line",
+        "label": "Line Chart",
+        "icon": "graph-up"
+      },
+      {
+        "id": "pie",
+        "label": "Pie Chart",
+        "icon": "chart-pie"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

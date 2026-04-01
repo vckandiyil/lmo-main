@@ -11,7 +11,7 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
       {
         "label": "Indicator code",
@@ -48,7 +48,7 @@
       "badge_ar": "",
       "title": "Invest in Python and Project Management Training Pipelines",
       "title_ar": "",
-      "text": "Python and Project Management dominate skill demand with 4,500 and 4,200 mentions respectively. Scaling certified training programmes in these areas can directly address employer needs.",
+      "text": "Project Management and Microsoft Office dominate skill demand with 12,500 and 11,200 mentions respectively. Scaling certified training programmes in these areas can directly address employer needs.",
       "text_ar": "",
       "reason": "The treemap highlights a clear concentration of demand in technical and managerial skills, suggesting that workforce development should prioritise digital literacy and leadership competencies.",
       "reason_ar": ""
@@ -77,83 +77,106 @@
             },
             "data": [
               {
-                "name": "Python",
-                "colorValue": 1,
-                "VALUE": 4500
-              },
-              {
                 "name": "Project Management",
+                "colorValue": 1,
+                "VALUE": 12500
+              },
+              {
+                "name": "Microsoft Office",
                 "colorValue": 2,
-                "VALUE": 4200
-              },
-              {
-                "name": "Data Analysis",
-                "colorValue": 3,
-                "VALUE": 3800
-              },
-              {
-                "name": "JavaScript",
-                "colorValue": 4,
-                "VALUE": 3500
+                "VALUE": 11200
               },
               {
                 "name": "Communication",
+                "colorValue": 3,
+                "VALUE": 10800
+              },
+              {
+                "name": "SAP",
+                "colorValue": 4,
+                "VALUE": 8400
+              },
+              {
+                "name": "Python",
                 "colorValue": 5,
-                "VALUE": 3200
+                "VALUE": 7600
               },
               {
                 "name": "SQL",
                 "colorValue": 6,
-                "VALUE": 2900
-              },
-              {
-                "name": "Leadership",
-                "colorValue": 7,
-                "VALUE": 2700
+                "VALUE": 7100
               },
               {
                 "name": "AutoCAD",
-                "colorValue": 8,
-                "VALUE": 2500
-              },
-              {
-                "name": "SAP",
-                "colorValue": 9,
-                "VALUE": 2300
-              },
-              {
-                "name": "Cloud Computing",
-                "colorValue": 10,
-                "VALUE": 2100
-              },
-              {
-                "name": "Cybersecurity",
-                "colorValue": 11,
-                "VALUE": 1900
-              },
-              {
-                "name": "Machine Learning",
-                "colorValue": 12,
-                "VALUE": 1800
-              },
-              {
-                "name": "Nursing",
-                "colorValue": 13,
-                "VALUE": 1700
+                "colorValue": 7,
+                "VALUE": 6500
               },
               {
                 "name": "Financial Analysis",
-                "colorValue": 14,
-                "VALUE": 1600
+                "colorValue": 8,
+                "VALUE": 6200
               },
               {
-                "name": "Excel",
+                "name": "Cloud (AWS/Azure)",
+                "colorValue": 9,
+                "VALUE": 5800
+              },
+              {
+                "name": "Data Analysis",
+                "colorValue": 10,
+                "VALUE": 5400
+              },
+              {
+                "name": "Leadership",
+                "colorValue": 11,
+                "VALUE": 5100
+              },
+              {
+                "name": "Java",
+                "colorValue": 12,
+                "VALUE": 4800
+              },
+              {
+                "name": "Sales",
+                "colorValue": 13,
+                "VALUE": 4500
+              },
+              {
+                "name": "Customer Service",
+                "colorValue": 14,
+                "VALUE": 4200
+              },
+              {
+                "name": "Cybersecurity",
                 "colorValue": 15,
-                "VALUE": 1500
+                "VALUE": 3800
               }
             ]
           }
         ]
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "treemap",
+        "label": "Treemap",
+        "icon": "chart-treemap",
+        "default": true
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square"
+      },
+      {
+        "id": "pie",
+        "label": "Pie Chart",
+        "icon": "chart-pie"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

@@ -10,7 +10,7 @@
     "unit": "%",
     "filters": [],
     "updated": "2025-09-25",
-    "category": "Talent Pool Intelligence",
+    "category": "Talent Pool",
     "metadata": [
       {
         "label": "Indicator code",
@@ -75,24 +75,16 @@
             },
             "data": [
               {
-                "name": "Technology",
-                "VALUE": 20
-              },
-              {
-                "name": "Finance",
-                "VALUE": 22
-              },
-              {
-                "name": "Healthcare",
+                "name": "2023",
                 "VALUE": 25
               },
               {
-                "name": "Construction",
-                "VALUE": 30
+                "name": "2024",
+                "VALUE": 23
               },
               {
-                "name": "Education",
-                "VALUE": 18
+                "name": "2025",
+                "VALUE": 21
               }
             ]
           },
@@ -112,24 +104,16 @@
             },
             "data": [
               {
-                "name": "Technology",
-                "VALUE": 30
+                "name": "2023",
+                "VALUE": 38
               },
               {
-                "name": "Finance",
-                "VALUE": 32
+                "name": "2024",
+                "VALUE": 37
               },
               {
-                "name": "Healthcare",
-                "VALUE": 35
-              },
-              {
-                "name": "Construction",
-                "VALUE": 35
-              },
-              {
-                "name": "Education",
-                "VALUE": 30
+                "name": "2025",
+                "VALUE": 36
               }
             ]
           },
@@ -149,24 +133,16 @@
             },
             "data": [
               {
-                "name": "Technology",
-                "VALUE": 25
-              },
-              {
-                "name": "Finance",
-                "VALUE": 24
-              },
-              {
-                "name": "Healthcare",
+                "name": "2023",
                 "VALUE": 22
               },
               {
-                "name": "Construction",
-                "VALUE": 20
+                "name": "2024",
+                "VALUE": 24
               },
               {
-                "name": "Education",
-                "VALUE": 28
+                "name": "2025",
+                "VALUE": 26
               }
             ]
           },
@@ -186,24 +162,16 @@
             },
             "data": [
               {
-                "name": "Technology",
-                "VALUE": 15
-              },
-              {
-                "name": "Finance",
-                "VALUE": 14
-              },
-              {
-                "name": "Healthcare",
-                "VALUE": 12
-              },
-              {
-                "name": "Construction",
+                "name": "2023",
                 "VALUE": 10
               },
               {
-                "name": "Education",
-                "VALUE": 16
+                "name": "2024",
+                "VALUE": 11
+              },
+              {
+                "name": "2025",
+                "VALUE": 12
               }
             ]
           },
@@ -223,28 +191,33 @@
             },
             "data": [
               {
-                "name": "Technology",
-                "VALUE": 10
-              },
-              {
-                "name": "Finance",
-                "VALUE": 8
-              },
-              {
-                "name": "Healthcare",
-                "VALUE": 6
-              },
-              {
-                "name": "Construction",
+                "name": "2023",
                 "VALUE": 5
               },
               {
-                "name": "Education",
-                "VALUE": 8
+                "name": "2024",
+                "VALUE": 5
+              },
+              {
+                "name": "2025",
+                "VALUE": 5
               }
             ]
           }
         ]
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "stacked-bar",
+        "label": "Stacked Bar",
+        "icon": "chart-stacked",
+        "default": true
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

@@ -11,7 +11,7 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
       {
         "label": "Indicator code",
@@ -64,12 +64,29 @@
             "group": "education",
             "label": "High School",
             "data": [
-              { "QUARTER": "Q1 2025", "VALUE": 15 },
-              { "QUARTER": "Q2 2025", "VALUE": 14 },
-              { "QUARTER": "Q3 2025", "VALUE": 13 }
+              {
+                "INDUSTRY": "IT",
+                "VALUE": 0
+              },
+              {
+                "INDUSTRY": "Finance",
+                "VALUE": 0
+              },
+              {
+                "INDUSTRY": "Healthcare",
+                "VALUE": 0
+              },
+              {
+                "INDUSTRY": "Construction",
+                "VALUE": 8
+              },
+              {
+                "INDUSTRY": "Education",
+                "VALUE": 0
+              }
             ],
             "xAccessor": {
-              "path": "QUARTER",
+              "path": "INDUSTRY",
               "type": "category"
             },
             "yAccessor": {
@@ -84,12 +101,29 @@
             "group": "education",
             "label": "Diploma",
             "data": [
-              { "QUARTER": "Q1 2025", "VALUE": 20 },
-              { "QUARTER": "Q2 2025", "VALUE": 19 },
-              { "QUARTER": "Q3 2025", "VALUE": 18 }
+              {
+                "INDUSTRY": "IT",
+                "VALUE": 15
+              },
+              {
+                "INDUSTRY": "Finance",
+                "VALUE": 12
+              },
+              {
+                "INDUSTRY": "Healthcare",
+                "VALUE": 20
+              },
+              {
+                "INDUSTRY": "Construction",
+                "VALUE": 45
+              },
+              {
+                "INDUSTRY": "Education",
+                "VALUE": 10
+              }
             ],
             "xAccessor": {
-              "path": "QUARTER",
+              "path": "INDUSTRY",
               "type": "category"
             },
             "yAccessor": {
@@ -104,12 +138,29 @@
             "group": "education",
             "label": "Bachelor",
             "data": [
-              { "QUARTER": "Q1 2025", "VALUE": 40 },
-              { "QUARTER": "Q2 2025", "VALUE": 41 },
-              { "QUARTER": "Q3 2025", "VALUE": 42 }
+              {
+                "INDUSTRY": "IT",
+                "VALUE": 55
+              },
+              {
+                "INDUSTRY": "Finance",
+                "VALUE": 50
+              },
+              {
+                "INDUSTRY": "Healthcare",
+                "VALUE": 40
+              },
+              {
+                "INDUSTRY": "Construction",
+                "VALUE": 35
+              },
+              {
+                "INDUSTRY": "Education",
+                "VALUE": 30
+              }
             ],
             "xAccessor": {
-              "path": "QUARTER",
+              "path": "INDUSTRY",
               "type": "category"
             },
             "yAccessor": {
@@ -124,12 +175,29 @@
             "group": "education",
             "label": "Master",
             "data": [
-              { "QUARTER": "Q1 2025", "VALUE": 20 },
-              { "QUARTER": "Q2 2025", "VALUE": 21 },
-              { "QUARTER": "Q3 2025", "VALUE": 22 }
+              {
+                "INDUSTRY": "IT",
+                "VALUE": 25
+              },
+              {
+                "INDUSTRY": "Finance",
+                "VALUE": 30
+              },
+              {
+                "INDUSTRY": "Healthcare",
+                "VALUE": 30
+              },
+              {
+                "INDUSTRY": "Construction",
+                "VALUE": 10
+              },
+              {
+                "INDUSTRY": "Education",
+                "VALUE": 45
+              }
             ],
             "xAccessor": {
-              "path": "QUARTER",
+              "path": "INDUSTRY",
               "type": "category"
             },
             "yAccessor": {
@@ -144,12 +212,29 @@
             "group": "education",
             "label": "PhD",
             "data": [
-              { "QUARTER": "Q1 2025", "VALUE": 5 },
-              { "QUARTER": "Q2 2025", "VALUE": 5 },
-              { "QUARTER": "Q3 2025", "VALUE": 5 }
+              {
+                "INDUSTRY": "IT",
+                "VALUE": 5
+              },
+              {
+                "INDUSTRY": "Finance",
+                "VALUE": 8
+              },
+              {
+                "INDUSTRY": "Healthcare",
+                "VALUE": 10
+              },
+              {
+                "INDUSTRY": "Construction",
+                "VALUE": 2
+              },
+              {
+                "INDUSTRY": "Education",
+                "VALUE": 15
+              }
             ],
             "xAccessor": {
-              "path": "QUARTER",
+              "path": "INDUSTRY",
               "type": "category"
             },
             "yAccessor": {
@@ -163,6 +248,19 @@
         "valueFormat": "compact",
         "isTimeSeries": false,
         "showMinMaxValues": false
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "stacked-bar",
+        "label": "Stacked Bar",
+        "icon": "chart-stacked",
+        "default": true
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

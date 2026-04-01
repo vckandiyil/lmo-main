@@ -11,15 +11,36 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
-      { "label": "Indicator code", "value": "LM SKL MX 1A 1004" },
-      { "label": "Keywords", "value": "Skill level, Industry, Low skill, Medium skill, High skill, Abu Dhabi" },
-      { "label": "Statistical population", "value": "All job postings classified by skill level requirement across industries." },
-      { "label": "Geographic coverage", "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra." },
-      { "label": "Measurement unit", "value": "%" },
-      { "label": "Available periodicity", "value": "Monthly" },
-      { "label": "Data sources", "value": "Job Postings Platform" }
+      {
+        "label": "Indicator code",
+        "value": "LM SKL MX 1A 1004"
+      },
+      {
+        "label": "Keywords",
+        "value": "Skill level, Industry, Low skill, Medium skill, High skill, Abu Dhabi"
+      },
+      {
+        "label": "Statistical population",
+        "value": "All job postings classified by skill level requirement across industries."
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "%"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      }
     ],
     "dataSource": "Job Postings Platform",
     "highlights": [],
@@ -31,7 +52,7 @@
       "badge_ar": "",
       "title": "Construction Sector Shows High Low-Skill Dependency",
       "title_ar": "",
-      "text": "Construction has 40% low-skill demand compared to Technology at only 10%. Upskilling programmes in construction could improve productivity and reduce reliance on low-skill labour.",
+      "text": "Construction has 50% low-skill demand compared to IT & Telecom at only 10%. Upskilling programmes in construction could improve productivity and reduce reliance on low-skill labour.",
       "text_ar": "",
       "reason": "The stark contrast in skill composition across industries highlights the need for sector-specific workforce development strategies aligned with Abu Dhabi's economic vision.",
       "reason_ar": ""
@@ -46,14 +67,35 @@
             "color": "#93C5FD",
             "group": "low-skill",
             "label": "Low Skill",
-            "xAccessor": { "path": "INDUSTRY", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "INDUSTRY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "INDUSTRY": "Technology", "VALUE": 10 },
-              { "INDUSTRY": "Healthcare", "VALUE": 25 },
-              { "INDUSTRY": "Finance", "VALUE": 15 },
-              { "INDUSTRY": "Construction", "VALUE": 40 },
-              { "INDUSTRY": "Education", "VALUE": 20 }
+              {
+                "INDUSTRY": "IT & Telecom",
+                "VALUE": 10
+              },
+              {
+                "INDUSTRY": "Healthcare",
+                "VALUE": 10
+              },
+              {
+                "INDUSTRY": "Finance & Banking",
+                "VALUE": 10
+              },
+              {
+                "INDUSTRY": "Construction",
+                "VALUE": 50
+              },
+              {
+                "INDUSTRY": "Education",
+                "VALUE": 5
+              }
             ]
           },
           {
@@ -62,14 +104,35 @@
             "color": "#3B82F6",
             "group": "medium-skill",
             "label": "Medium Skill",
-            "xAccessor": { "path": "INDUSTRY", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "INDUSTRY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "INDUSTRY": "Technology", "VALUE": 30 },
-              { "INDUSTRY": "Healthcare", "VALUE": 35 },
-              { "INDUSTRY": "Finance", "VALUE": 35 },
-              { "INDUSTRY": "Construction", "VALUE": 40 },
-              { "INDUSTRY": "Education", "VALUE": 35 }
+              {
+                "INDUSTRY": "IT & Telecom",
+                "VALUE": 25
+              },
+              {
+                "INDUSTRY": "Healthcare",
+                "VALUE": 30
+              },
+              {
+                "INDUSTRY": "Finance & Banking",
+                "VALUE": 35
+              },
+              {
+                "INDUSTRY": "Construction",
+                "VALUE": 35
+              },
+              {
+                "INDUSTRY": "Education",
+                "VALUE": 25
+              }
             ]
           },
           {
@@ -78,14 +141,35 @@
             "color": "#1E40AF",
             "group": "high-skill",
             "label": "High Skill",
-            "xAccessor": { "path": "INDUSTRY", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "INDUSTRY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "INDUSTRY": "Technology", "VALUE": 60 },
-              { "INDUSTRY": "Healthcare", "VALUE": 40 },
-              { "INDUSTRY": "Finance", "VALUE": 50 },
-              { "INDUSTRY": "Construction", "VALUE": 20 },
-              { "INDUSTRY": "Education", "VALUE": 45 }
+              {
+                "INDUSTRY": "IT & Telecom",
+                "VALUE": 65
+              },
+              {
+                "INDUSTRY": "Healthcare",
+                "VALUE": 60
+              },
+              {
+                "INDUSTRY": "Finance & Banking",
+                "VALUE": 55
+              },
+              {
+                "INDUSTRY": "Construction",
+                "VALUE": 15
+              },
+              {
+                "INDUSTRY": "Education",
+                "VALUE": 70
+              }
             ]
           }
         ],
@@ -94,6 +178,19 @@
         "valueFormat": "compact",
         "isTimeSeries": false,
         "showMinMaxValues": false
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "stacked-bar",
+        "label": "Stacked Bar",
+        "icon": "chart-stacked",
+        "default": true
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

@@ -11,7 +11,7 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
       {
         "label": "Indicator code",
@@ -64,12 +64,26 @@
             "group": "company-size",
             "label": "Job Postings",
             "data": [
-              { "SIZE": "1-10 employees", "VALUE": 3200 },
-              { "SIZE": "11-50", "VALUE": 5800 },
-              { "SIZE": "51-200", "VALUE": 8500 },
-              { "SIZE": "201-500", "VALUE": 7200 },
-              { "SIZE": "501-1000", "VALUE": 6100 },
-              { "SIZE": "1000+", "VALUE": 12500 }
+              {
+                "SIZE": "Startup (1-50)",
+                "VALUE": 22400
+              },
+              {
+                "SIZE": "SME (51-200)",
+                "VALUE": 38600
+              },
+              {
+                "SIZE": "Mid (201-500)",
+                "VALUE": 31200
+              },
+              {
+                "SIZE": "Large (501-1000)",
+                "VALUE": 28800
+              },
+              {
+                "SIZE": "Enterprise (1000+)",
+                "VALUE": 47000
+              }
             ],
             "xAccessor": {
               "path": "SIZE",
@@ -85,6 +99,29 @@
         "valueFormat": "compact",
         "isTimeSeries": false,
         "showMinMaxValues": false
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square",
+        "default": true
+      },
+      {
+        "id": "line",
+        "label": "Line Chart",
+        "icon": "graph-up"
+      },
+      {
+        "id": "pie",
+        "label": "Pie Chart",
+        "icon": "chart-pie"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

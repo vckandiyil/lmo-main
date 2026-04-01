@@ -10,7 +10,7 @@
     "unit": "count",
     "filters": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
       {
         "label": "Indicator code",
@@ -50,7 +50,7 @@
       "badge_ar": "",
       "title": "Software Engineers and Data Analysts Lead Job Demand",
       "title_ar": "",
-      "text": "Software Engineer leads with 4,200 postings, followed by Data Analyst (3,100) and Project Manager (2,800). Technology and management roles dominate employer demand across the emirate.",
+      "text": "Software Engineer leads with 8,200 postings, followed by Project Manager (6,100) and Accountant (5,800). Technology, management and finance roles dominate employer demand across the UAE.",
       "text_ar": "",
       "reason": "The concentration of postings in technology and management roles reflects the economy's digital transformation priorities and sustained demand for technically skilled professionals.",
       "reason_ar": ""
@@ -76,63 +76,63 @@
             "data": [
               {
                 "name": "Software Engineer",
-                "VALUE": 4200
-              },
-              {
-                "name": "Data Analyst",
-                "VALUE": 3100
+                "VALUE": 8200
               },
               {
                 "name": "Project Manager",
-                "VALUE": 2800
+                "VALUE": 6100
               },
               {
                 "name": "Accountant",
-                "VALUE": 2500
-              },
-              {
-                "name": "Civil Engineer",
-                "VALUE": 2300
-              },
-              {
-                "name": "Nurse",
-                "VALUE": 2100
-              },
-              {
-                "name": "Marketing Manager",
-                "VALUE": 1900
-              },
-              {
-                "name": "HR Specialist",
-                "VALUE": 1750
-              },
-              {
-                "name": "Financial Analyst",
-                "VALUE": 1600
-              },
-              {
-                "name": "Mechanical Engineer",
-                "VALUE": 1450
+                "VALUE": 5800
               },
               {
                 "name": "Sales Executive",
-                "VALUE": 1300
+                "VALUE": 5400
+              },
+              {
+                "name": "Civil Engineer",
+                "VALUE": 4900
+              },
+              {
+                "name": "Data Analyst",
+                "VALUE": 4500
+              },
+              {
+                "name": "HR Specialist",
+                "VALUE": 4200
+              },
+              {
+                "name": "Marketing Manager",
+                "VALUE": 3800
+              },
+              {
+                "name": "Mechanical Engineer",
+                "VALUE": 3500
+              },
+              {
+                "name": "Financial Analyst",
+                "VALUE": 3200
+              },
+              {
+                "name": "Nurse",
+                "VALUE": 3000
+              },
+              {
+                "name": "Business Analyst",
+                "VALUE": 2800
               },
               {
                 "name": "Teacher",
-                "VALUE": 1200
+                "VALUE": 2600
+              },
+              {
+                "name": "Architect",
+                "VALUE": 2300
               },
               {
                 "name": "Operations Manager",
-                "VALUE": 1100
-              },
-              {
-                "name": "UX Designer",
-                "VALUE": 950
-              },
-              {
-                "name": "Pharmacist",
-                "VALUE": 850
+                "VALUE": 2100
               }
             ]
           }
@@ -140,6 +140,29 @@
         "chartType": "bar",
         "valueFormat": "compact",
         "isTimeSeries": false
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square",
+        "default": true
+      },
+      {
+        "id": "line",
+        "label": "Line Chart",
+        "icon": "graph-up"
+      },
+      {
+        "id": "pie",
+        "label": "Pie Chart",
+        "icon": "chart-pie"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

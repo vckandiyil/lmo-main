@@ -11,7 +11,7 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
       {
         "label": "Indicator code",
@@ -64,11 +64,26 @@
             "group": "funnel",
             "label": "Positions",
             "data": [
-              { "STAGE": "Entry Level", "VALUE": 12500 },
-              { "STAGE": "Mid Level", "VALUE": 8200 },
-              { "STAGE": "Senior", "VALUE": 5400 },
-              { "STAGE": "Manager", "VALUE": 3100 },
-              { "STAGE": "Director/VP", "VALUE": 1200 }
+              {
+                "STAGE": "Applications",
+                "VALUE": 425000
+              },
+              {
+                "STAGE": "Screened",
+                "VALUE": 168000
+              },
+              {
+                "STAGE": "Interviewed",
+                "VALUE": 52000
+              },
+              {
+                "STAGE": "Offered",
+                "VALUE": 18500
+              },
+              {
+                "STAGE": "Hired",
+                "VALUE": 14200
+              }
             ],
             "xAccessor": {
               "path": "STAGE",
@@ -84,6 +99,24 @@
         "valueFormat": "compact",
         "isTimeSeries": false,
         "showMinMaxValues": false
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "funnel",
+        "label": "Funnel",
+        "icon": "chart-funnel",
+        "default": true
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

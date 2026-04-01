@@ -10,7 +10,7 @@
     "unit": "count",
     "filters": [],
     "updated": "2025-09-25",
-    "category": "Job Applicant Intelligence",
+    "category": "Job Seekers",
     "metadata": [
       {
         "label": "Indicator code",
@@ -75,47 +75,70 @@
             "data": [
               {
                 "name": "PMP",
-                "VALUE": 2100
-              },
-              {
-                "name": "AWS Solutions Architect",
-                "VALUE": 1800
-              },
-              {
-                "name": "CPA",
-                "VALUE": 1500
+                "VALUE": 45200
               },
               {
                 "name": "CFA",
-                "VALUE": 1350
-              },
-              {
-                "name": "CISSP",
-                "VALUE": 1200
-              },
-              {
-                "name": "Six Sigma",
-                "VALUE": 1050
-              },
-              {
-                "name": "Google Cloud Professional",
-                "VALUE": 950
+                "VALUE": 28600
               },
               {
                 "name": "ACCA",
-                "VALUE": 820
+                "VALUE": 24800
               },
               {
-                "name": "PHR/SPHR",
-                "VALUE": 700
+                "name": "AWS Solutions Architect",
+                "VALUE": 22100
               },
               {
-                "name": "CCNA",
-                "VALUE": 580
+                "name": "Cisco CCNA",
+                "VALUE": 19500
+              },
+              {
+                "name": "CPA",
+                "VALUE": 17800
+              },
+              {
+                "name": "NEBOSH",
+                "VALUE": 15200
+              },
+              {
+                "name": "Six Sigma",
+                "VALUE": 12600
+              },
+              {
+                "name": "ITIL",
+                "VALUE": 11400
+              },
+              {
+                "name": "CompTIA Security+",
+                "VALUE": 9800
               }
             ]
           }
         ]
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square",
+        "default": true
+      },
+      {
+        "id": "line",
+        "label": "Line Chart",
+        "icon": "graph-up"
+      },
+      {
+        "id": "pie",
+        "label": "Pie Chart",
+        "icon": "chart-pie"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

@@ -10,7 +10,7 @@
     "unit": "count",
     "filters": [],
     "updated": "2025-09-25",
-    "category": "Job Applicant Intelligence",
+    "category": "Job Seekers",
     "metadata": [
       {
         "label": "Indicator code",
@@ -74,68 +74,106 @@
             },
             "data": [
               {
-                "name": "Python",
+                "name": "Microsoft Office",
                 "colorValue": 1,
-                "VALUE": 8500
+                "VALUE": 285000
               },
               {
-                "name": "Excel",
+                "name": "Communication",
                 "colorValue": 2,
-                "VALUE": 7200
+                "VALUE": 248000
               },
               {
                 "name": "Project Management",
                 "colorValue": 3,
-                "VALUE": 6800
-              },
-              {
-                "name": "SQL",
-                "colorValue": 4,
-                "VALUE": 5400
-              },
-              {
-                "name": "Communication",
-                "colorValue": 5,
-                "VALUE": 5100
-              },
-              {
-                "name": "Leadership",
-                "colorValue": 6,
-                "VALUE": 4800
-              },
-              {
-                "name": "Data Analysis",
-                "colorValue": 7,
-                "VALUE": 4500
-              },
-              {
-                "name": "AutoCAD",
-                "colorValue": 8,
-                "VALUE": 4200
+                "VALUE": 198000
               },
               {
                 "name": "SAP",
+                "colorValue": 4,
+                "VALUE": 156000
+              },
+              {
+                "name": "Python",
+                "colorValue": 5,
+                "VALUE": 142000
+              },
+              {
+                "name": "SQL",
+                "colorValue": 6,
+                "VALUE": 128000
+              },
+              {
+                "name": "AutoCAD",
+                "colorValue": 7,
+                "VALUE": 115000
+              },
+              {
+                "name": "Financial Analysis",
+                "colorValue": 8,
+                "VALUE": 108000
+              },
+              {
+                "name": "Leadership",
                 "colorValue": 9,
-                "VALUE": 3900
+                "VALUE": 98000
+              },
+              {
+                "name": "Java",
+                "colorValue": 10,
+                "VALUE": 88000
               },
               {
                 "name": "Cloud Computing",
-                "colorValue": 10,
-                "VALUE": 3500
-              },
-              {
-                "name": "Financial Modeling",
                 "colorValue": 11,
-                "VALUE": 3200
+                "VALUE": 82000
               },
               {
-                "name": "JavaScript",
+                "name": "Sales",
                 "colorValue": 12,
-                "VALUE": 2900
+                "VALUE": 78000
+              },
+              {
+                "name": "Data Analysis",
+                "colorValue": 13,
+                "VALUE": 72000
+              },
+              {
+                "name": "Customer Service",
+                "colorValue": 14,
+                "VALUE": 65000
+              },
+              {
+                "name": "Cybersecurity",
+                "colorValue": 15,
+                "VALUE": 52000
               }
             ]
           }
         ]
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "treemap",
+        "label": "Treemap",
+        "icon": "chart-treemap",
+        "default": true
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square"
+      },
+      {
+        "id": "pie",
+        "label": "Pie Chart",
+        "icon": "chart-pie"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

@@ -11,14 +11,32 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
-      { "label": "Indicator code", "value": "LF JD GM 1B 0019" },
-      { "label": "Keywords", "value": "Remote, Work from Home, Digital, Geography, UAE" },
-      { "label": "Data sources", "value": "Job Postings Platform" },
-      { "label": "Geographic coverage", "value": "UAE" },
-      { "label": "Measurement unit", "value": "count" },
-      { "label": "Available periodicity", "value": "Monthly" }
+      {
+        "label": "Indicator code",
+        "value": "LF JD GM 1B 0019"
+      },
+      {
+        "label": "Keywords",
+        "value": "Remote, Work from Home, Digital, Geography, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
     ],
     "dataSource": "Job Postings Platform",
     "highlights": [],
@@ -49,17 +67,73 @@
             "color": "#3B82F6",
             "group": "cities",
             "label": "Remote Job Share",
-            "xAccessor": { "path": "CITY", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "CITY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "CITY": "Abu Dhabi", "VALUE": 28 },
-              { "CITY": "Dubai", "VALUE": 35 },
-              { "CITY": "Sharjah", "VALUE": 18 },
-              { "CITY": "Al Ain", "VALUE": 12 },
-              { "CITY": "Ajman", "VALUE": 10 }
+              {
+                "CITY": "Dubai",
+                "VALUE": 24
+              },
+              {
+                "CITY": "Abu Dhabi",
+                "VALUE": 18
+              },
+              {
+                "CITY": "Sharjah",
+                "VALUE": 12
+              },
+              {
+                "CITY": "Al Ain",
+                "VALUE": 8
+              },
+              {
+                "CITY": "Ajman",
+                "VALUE": 6
+              },
+              {
+                "CITY": "Ras Al Khaimah",
+                "VALUE": 5
+              },
+              {
+                "CITY": "Fujairah",
+                "VALUE": 4
+              },
+              {
+                "CITY": "Umm Al Quwain",
+                "VALUE": 3
+              }
             ]
           }
         ]
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square",
+        "default": true
+      },
+      {
+        "id": "line",
+        "label": "Line Chart",
+        "icon": "graph-up"
+      },
+      {
+        "id": "pie",
+        "label": "Pie Chart",
+        "icon": "chart-pie"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

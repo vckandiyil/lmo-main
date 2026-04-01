@@ -11,14 +11,32 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Applicant Intelligence",
+    "category": "Job Seekers",
     "metadata": [
-      { "label": "Indicator code", "value": "LF AI KP 1C 0038" },
-      { "label": "Keywords", "value": "Applicants, Experience, Median, Years, UAE" },
-      { "label": "Data sources", "value": "Job Postings Platform" },
-      { "label": "Geographic coverage", "value": "UAE" },
-      { "label": "Measurement unit", "value": "years" },
-      { "label": "Available periodicity", "value": "Monthly" }
+      {
+        "label": "Indicator code",
+        "value": "LF AI KP 1C 0038"
+      },
+      {
+        "label": "Keywords",
+        "value": "Applicants, Experience, Median, Years, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "years"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
     ],
     "dataSource": "Job Postings Platform",
     "highlights": [],
@@ -46,10 +64,19 @@
             "group": "applicants",
             "label": "Median Experience",
             "data": [
-              { "METRIC": "Median Experience", "VALUE": 8 }
+              {
+                "METRIC": "Median Experience",
+                "VALUE": 6
+              }
             ],
-            "xAccessor": { "path": "METRIC", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" }
+            "xAccessor": {
+              "path": "METRIC",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
           }
         ],
         "chartType": "solidgauge",
@@ -57,6 +84,24 @@
         "isTimeSeries": false,
         "showMinMaxValues": false,
         "yAxisMaxCap": 30
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "solidgauge",
+        "label": "Gauge",
+        "icon": "chart-gauge",
+        "default": true
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

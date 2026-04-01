@@ -11,7 +11,7 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
       {
         "label": "Indicator code",
@@ -64,12 +64,26 @@
             "group": "experience",
             "label": "Job Postings",
             "data": [
-              { "LEVEL": "Entry Level", "VALUE": 12500 },
-              { "LEVEL": "Junior (1-3 yrs)", "VALUE": 9800 },
-              { "LEVEL": "Mid (3-6 yrs)", "VALUE": 8200 },
-              { "LEVEL": "Senior (6-10 yrs)", "VALUE": 5400 },
-              { "LEVEL": "Manager (10+ yrs)", "VALUE": 3100 },
-              { "LEVEL": "Director/VP", "VALUE": 1200 }
+              {
+                "LEVEL": "Fresh/Entry (0-2 yrs)",
+                "VALUE": 28500
+              },
+              {
+                "LEVEL": "Junior (2-5 yrs)",
+                "VALUE": 42200
+              },
+              {
+                "LEVEL": "Mid (5-10 yrs)",
+                "VALUE": 51800
+              },
+              {
+                "LEVEL": "Senior (10-15 yrs)",
+                "VALUE": 31400
+              },
+              {
+                "LEVEL": "Executive (15+ yrs)",
+                "VALUE": 14100
+              }
             ],
             "xAccessor": {
               "path": "LEVEL",
@@ -85,6 +99,29 @@
         "valueFormat": "compact",
         "isTimeSeries": false,
         "showMinMaxValues": false
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square",
+        "default": true
+      },
+      {
+        "id": "line",
+        "label": "Line Chart",
+        "icon": "graph-up"
+      },
+      {
+        "id": "pie",
+        "label": "Pie Chart",
+        "icon": "chart-pie"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

@@ -10,7 +10,7 @@
     "unit": "score",
     "filters": [],
     "updated": "2025-09-25",
-    "category": "Job Applicant Intelligence",
+    "category": "Job Seekers",
     "metadata": [
       {
         "label": "Indicator code",
@@ -71,27 +71,15 @@
             "data": [
               {
                 "CATEGORY": "<1yr",
-                "VALUE": 88
+                "VALUE": 85
               },
               {
-                "CATEGORY": "1-2yr",
-                "VALUE": 72
-              },
-              {
-                "CATEGORY": "2-3yr",
-                "VALUE": 55
+                "CATEGORY": "1-3yr",
+                "VALUE": 62
               },
               {
                 "CATEGORY": "3-5yr",
                 "VALUE": 38
-              },
-              {
-                "CATEGORY": "5-10yr",
-                "VALUE": 22
-              },
-              {
-                "CATEGORY": "10+yr",
-                "VALUE": 12
               }
             ]
           },
@@ -108,27 +96,15 @@
             "data": [
               {
                 "CATEGORY": "<1yr",
-                "VALUE": 65
+                "VALUE": 72
               },
               {
-                "CATEGORY": "1-2yr",
-                "VALUE": 52
-              },
-              {
-                "CATEGORY": "2-3yr",
-                "VALUE": 40
+                "CATEGORY": "1-3yr",
+                "VALUE": 48
               },
               {
                 "CATEGORY": "3-5yr",
                 "VALUE": 28
-              },
-              {
-                "CATEGORY": "5-10yr",
-                "VALUE": 18
-              },
-              {
-                "CATEGORY": "10+yr",
-                "VALUE": 10
               }
             ]
           },
@@ -145,27 +121,15 @@
             "data": [
               {
                 "CATEGORY": "<1yr",
-                "VALUE": 48
+                "VALUE": 45
               },
               {
-                "CATEGORY": "1-2yr",
-                "VALUE": 38
-              },
-              {
-                "CATEGORY": "2-3yr",
+                "CATEGORY": "1-3yr",
                 "VALUE": 30
               },
               {
                 "CATEGORY": "3-5yr",
-                "VALUE": 22
-              },
-              {
-                "CATEGORY": "5-10yr",
-                "VALUE": 15
-              },
-              {
-                "CATEGORY": "10+yr",
-                "VALUE": 8
+                "VALUE": 18
               }
             ]
           },
@@ -182,27 +146,15 @@
             "data": [
               {
                 "CATEGORY": "<1yr",
-                "VALUE": 58
+                "VALUE": 55
               },
               {
-                "CATEGORY": "1-2yr",
-                "VALUE": 45
-              },
-              {
-                "CATEGORY": "2-3yr",
-                "VALUE": 35
+                "CATEGORY": "1-3yr",
+                "VALUE": 42
               },
               {
                 "CATEGORY": "3-5yr",
-                "VALUE": 25
-              },
-              {
-                "CATEGORY": "5-10yr",
-                "VALUE": 16
-              },
-              {
-                "CATEGORY": "10+yr",
-                "VALUE": 9
+                "VALUE": 32
               }
             ]
           },
@@ -210,7 +162,7 @@
             "id": "hopping-risk-matrix-4",
             "type": "solid",
             "group": "heatmap-row",
-            "label": "Education",
+            "label": "Oil & Gas",
             "color": "#BFDBFE",
             "xAccessor": {
               "path": "CATEGORY",
@@ -219,27 +171,15 @@
             "data": [
               {
                 "CATEGORY": "<1yr",
-                "VALUE": 42
+                "VALUE": 35
               },
               {
-                "CATEGORY": "1-2yr",
-                "VALUE": 32
-              },
-              {
-                "CATEGORY": "2-3yr",
-                "VALUE": 25
+                "CATEGORY": "1-3yr",
+                "VALUE": 22
               },
               {
                 "CATEGORY": "3-5yr",
-                "VALUE": 18
-              },
-              {
-                "CATEGORY": "5-10yr",
-                "VALUE": 12
-              },
-              {
-                "CATEGORY": "10+yr",
-                "VALUE": 6
+                "VALUE": 15
               }
             ]
           },
@@ -247,7 +187,7 @@
             "id": "hopping-risk-matrix-5",
             "type": "solid",
             "group": "heatmap-row",
-            "label": "Retail",
+            "label": "Education",
             "color": "#1E40AF",
             "xAccessor": {
               "path": "CATEGORY",
@@ -256,31 +196,37 @@
             "data": [
               {
                 "CATEGORY": "<1yr",
-                "VALUE": 82
+                "VALUE": 40
               },
               {
-                "CATEGORY": "1-2yr",
-                "VALUE": 68
-              },
-              {
-                "CATEGORY": "2-3yr",
-                "VALUE": 50
+                "CATEGORY": "1-3yr",
+                "VALUE": 28
               },
               {
                 "CATEGORY": "3-5yr",
-                "VALUE": 35
-              },
-              {
-                "CATEGORY": "5-10yr",
                 "VALUE": 20
-              },
-              {
-                "CATEGORY": "10+yr",
-                "VALUE": 11
               }
             ]
           }
         ]
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "heatmap",
+        "label": "Heatmap",
+        "icon": "chart-heatmap",
+        "default": true
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

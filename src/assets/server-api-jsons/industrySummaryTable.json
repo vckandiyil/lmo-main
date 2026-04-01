@@ -11,15 +11,36 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
-      { "label": "Indicator code", "value": "LM IND SM 1A 1003" },
-      { "label": "Keywords", "value": "Industry, Summary, Table, Job count, Abu Dhabi" },
-      { "label": "Statistical population", "value": "All job postings aggregated by industry from the Job Postings Platform." },
-      { "label": "Geographic coverage", "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra." },
-      { "label": "Measurement unit", "value": "count" },
-      { "label": "Available periodicity", "value": "Monthly" },
-      { "label": "Data sources", "value": "Job Postings Platform" }
+      {
+        "label": "Indicator code",
+        "value": "LM IND SM 1A 1003"
+      },
+      {
+        "label": "Keywords",
+        "value": "Industry, Summary, Table, Job count, Abu Dhabi"
+      },
+      {
+        "label": "Statistical population",
+        "value": "All job postings aggregated by industry from the Job Postings Platform."
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      }
     ],
     "dataSource": "Job Postings Platform",
     "highlights": [],
@@ -31,7 +52,7 @@
       "badge_ar": "",
       "title": "Technology and Healthcare Lead Job Creation",
       "title_ar": "",
-      "text": "Technology (12,500) and Healthcare (8,200) account for nearly half of all industry postings, underscoring the need for targeted training programmes in these fields.",
+      "text": "IT & Telecom (37,000) and Oil & Gas (23,500) account for over a third of all industry postings, underscoring the UAE's dual focus on digital transformation and energy sector strength.",
       "text_ar": "",
       "reason": "The concentration of demand in technology and healthcare reflects Abu Dhabi's strategic investments in digital transformation and public health infrastructure.",
       "reason_ar": ""
@@ -46,17 +67,55 @@
             "color": "#2563EA",
             "group": "industry",
             "label": "Job Postings",
-            "xAccessor": { "path": "INDUSTRY", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "INDUSTRY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "INDUSTRY": "Technology", "VALUE": 12500 },
-              { "INDUSTRY": "Healthcare", "VALUE": 8200 },
-              { "INDUSTRY": "Finance", "VALUE": 6800 },
-              { "INDUSTRY": "Construction", "VALUE": 5400 },
-              { "INDUSTRY": "Education", "VALUE": 4500 },
-              { "INDUSTRY": "Energy", "VALUE": 3600 },
-              { "INDUSTRY": "Retail", "VALUE": 3100 },
-              { "INDUSTRY": "Hospitality", "VALUE": 2300 }
+              {
+                "INDUSTRY": "IT & Telecom",
+                "VALUE": 37000
+              },
+              {
+                "INDUSTRY": "Oil & Gas",
+                "VALUE": 23500
+              },
+              {
+                "INDUSTRY": "Construction",
+                "VALUE": 21800
+              },
+              {
+                "INDUSTRY": "Finance & Banking",
+                "VALUE": 20200
+              },
+              {
+                "INDUSTRY": "Healthcare",
+                "VALUE": 16800
+              },
+              {
+                "INDUSTRY": "Tourism & Hospitality",
+                "VALUE": 15100
+              },
+              {
+                "INDUSTRY": "Retail & Trade",
+                "VALUE": 13400
+              },
+              {
+                "INDUSTRY": "Education",
+                "VALUE": 10100
+              },
+              {
+                "INDUSTRY": "Government",
+                "VALUE": 6700
+              },
+              {
+                "INDUSTRY": "Manufacturing",
+                "VALUE": 3400
+              }
             ]
           }
         ],
@@ -64,6 +123,29 @@
         "valueFormat": "compact",
         "isTimeSeries": false,
         "showMinMaxValues": false
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square",
+        "default": true
+      },
+      {
+        "id": "line",
+        "label": "Line Chart",
+        "icon": "graph-up"
+      },
+      {
+        "id": "pie",
+        "label": "Pie Chart",
+        "icon": "chart-pie"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

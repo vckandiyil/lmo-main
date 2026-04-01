@@ -10,7 +10,7 @@
     "unit": "score",
     "filters": [],
     "updated": "2025-09-25",
-    "category": "Job Applicant Intelligence",
+    "category": "Job Seekers",
     "metadata": [
       {
         "label": "Indicator code",
@@ -75,35 +75,62 @@
             "data": [
               {
                 "name": "Abu Dhabi",
-                "VALUE": 75
+                "VALUE": 72
               },
               {
                 "name": "Dubai",
-                "VALUE": 82
+                "VALUE": 85
               },
               {
                 "name": "Sharjah",
                 "VALUE": 68
               },
               {
-                "name": "Ajman",
+                "name": "Al Ain",
                 "VALUE": 55
               },
               {
-                "name": "Ras Al Khaimah",
-                "VALUE": 48
+                "name": "Ajman",
+                "VALUE": 62
+              },
+              {
+                "name": "RAK",
+                "VALUE": 58
               },
               {
                 "name": "Fujairah",
-                "VALUE": 42
+                "VALUE": 48
               },
               {
-                "name": "Umm Al Quwain",
-                "VALUE": 38
+                "name": "UAQ",
+                "VALUE": 42
               }
             ]
           }
         ]
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square",
+        "default": true
+      },
+      {
+        "id": "line",
+        "label": "Line Chart",
+        "icon": "graph-up"
+      },
+      {
+        "id": "pie",
+        "label": "Pie Chart",
+        "icon": "chart-pie"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

@@ -10,7 +10,7 @@
     "unit": "count",
     "filters": [],
     "updated": "2025-09-25",
-    "category": "Job Applicant Intelligence",
+    "category": "Job Seekers",
     "metadata": [
       {
         "label": "Indicator code",
@@ -75,31 +75,54 @@
             "data": [
               {
                 "name": "<1yr",
-                "VALUE": 6200
+                "VALUE": 124000
               },
               {
                 "name": "1-2yr",
-                "VALUE": 8500
+                "VALUE": 198000
               },
               {
                 "name": "2-3yr",
-                "VALUE": 7800
+                "VALUE": 215000
               },
               {
                 "name": "3-5yr",
-                "VALUE": 7100
+                "VALUE": 186000
               },
               {
                 "name": "5-10yr",
-                "VALUE": 5400
+                "VALUE": 112000
               },
               {
                 "name": "10+yr",
-                "VALUE": 3200
+                "VALUE": 57000
               }
             ]
           }
         ]
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square",
+        "default": true
+      },
+      {
+        "id": "line",
+        "label": "Line Chart",
+        "icon": "graph-up"
+      },
+      {
+        "id": "pie",
+        "label": "Pie Chart",
+        "icon": "chart-pie"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

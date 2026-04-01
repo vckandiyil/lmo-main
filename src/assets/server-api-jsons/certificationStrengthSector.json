@@ -10,7 +10,7 @@
     "unit": "%",
     "filters": [],
     "updated": "2025-09-25",
-    "category": "Talent Pool Intelligence",
+    "category": "Talent Pool",
     "metadata": [
       {
         "label": "Indicator code",
@@ -62,7 +62,7 @@
             "id": "cert-strength-sector-0",
             "type": "solid",
             "group": "heatmap-row",
-            "label": "Professional Cert",
+            "label": "IT",
             "color": "#2563EA",
             "xAccessor": {
               "path": "CATEGORY",
@@ -70,24 +70,20 @@
             },
             "data": [
               {
-                "CATEGORY": "Technology",
-                "VALUE": 55
+                "CATEGORY": "PMP",
+                "VALUE": 35
               },
               {
-                "CATEGORY": "Energy",
-                "VALUE": 45
+                "CATEGORY": "Cloud",
+                "VALUE": 42
               },
               {
-                "CATEGORY": "Finance",
-                "VALUE": 75
+                "CATEGORY": "Security",
+                "VALUE": 28
               },
               {
-                "CATEGORY": "Healthcare",
-                "VALUE": 68
-              },
-              {
-                "CATEGORY": "Government",
-                "VALUE": 30
+                "CATEGORY": "Data",
+                "VALUE": 22
               }
             ]
           },
@@ -95,7 +91,7 @@
             "id": "cert-strength-sector-1",
             "type": "solid",
             "group": "heatmap-row",
-            "label": "Technical Cert",
+            "label": "Finance",
             "color": "#3B82F6",
             "xAccessor": {
               "path": "CATEGORY",
@@ -103,24 +99,20 @@
             },
             "data": [
               {
-                "CATEGORY": "Technology",
-                "VALUE": 72
-              },
-              {
-                "CATEGORY": "Energy",
-                "VALUE": 58
-              },
-              {
-                "CATEGORY": "Finance",
-                "VALUE": 40
-              },
-              {
-                "CATEGORY": "Healthcare",
-                "VALUE": 35
-              },
-              {
-                "CATEGORY": "Government",
+                "CATEGORY": "PMP",
                 "VALUE": 25
+              },
+              {
+                "CATEGORY": "CFA",
+                "VALUE": 38
+              },
+              {
+                "CATEGORY": "ACCA",
+                "VALUE": 32
+              },
+              {
+                "CATEGORY": "Risk",
+                "VALUE": 18
               }
             ]
           },
@@ -128,7 +120,7 @@
             "id": "cert-strength-sector-2",
             "type": "solid",
             "group": "heatmap-row",
-            "label": "Industry Cert",
+            "label": "Healthcare",
             "color": "#60A5FA",
             "xAccessor": {
               "path": "CATEGORY",
@@ -136,24 +128,20 @@
             },
             "data": [
               {
-                "CATEGORY": "Technology",
-                "VALUE": 48
-              },
-              {
-                "CATEGORY": "Energy",
-                "VALUE": 65
-              },
-              {
-                "CATEGORY": "Finance",
-                "VALUE": 60
-              },
-              {
-                "CATEGORY": "Healthcare",
+                "CATEGORY": "Clinical",
                 "VALUE": 55
               },
               {
-                "CATEGORY": "Government",
-                "VALUE": 20
+                "CATEGORY": "NEBOSH",
+                "VALUE": 22
+              },
+              {
+                "CATEGORY": "Quality",
+                "VALUE": 18
+              },
+              {
+                "CATEGORY": "Research",
+                "VALUE": 12
               }
             ]
           },
@@ -161,7 +149,7 @@
             "id": "cert-strength-sector-3",
             "type": "solid",
             "group": "heatmap-row",
-            "label": "Academic Cert",
+            "label": "Construction",
             "color": "#93C5FD",
             "xAccessor": {
               "path": "CATEGORY",
@@ -169,28 +157,71 @@
             },
             "data": [
               {
-                "CATEGORY": "Technology",
+                "CATEGORY": "NEBOSH",
+                "VALUE": 45
+              },
+              {
+                "CATEGORY": "PMP",
+                "VALUE": 28
+              },
+              {
+                "CATEGORY": "Safety",
                 "VALUE": 35
               },
               {
-                "CATEGORY": "Energy",
-                "VALUE": 30
-              },
-              {
-                "CATEGORY": "Finance",
-                "VALUE": 42
-              },
-              {
-                "CATEGORY": "Healthcare",
-                "VALUE": 70
-              },
-              {
-                "CATEGORY": "Government",
+                "CATEGORY": "BIM",
                 "VALUE": 15
+              }
+            ]
+          },
+          {
+            "id": "cert-strength-sector-4",
+            "type": "solid",
+            "group": "heatmap-row",
+            "label": "Oil & Gas",
+            "color": "#1E40AF",
+            "xAccessor": {
+              "path": "CATEGORY",
+              "type": "category"
+            },
+            "data": [
+              {
+                "CATEGORY": "NEBOSH",
+                "VALUE": 52
+              },
+              {
+                "CATEGORY": "HSE",
+                "VALUE": 48
+              },
+              {
+                "CATEGORY": "PMP",
+                "VALUE": 32
+              },
+              {
+                "CATEGORY": "Process",
+                "VALUE": 25
               }
             ]
           }
         ]
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "heatmap",
+        "label": "Heatmap",
+        "icon": "chart-heatmap",
+        "default": true
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

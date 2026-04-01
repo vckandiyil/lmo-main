@@ -11,14 +11,32 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
-      { "label": "Indicator code", "value": "LF JD ST 1A 0016" },
-      { "label": "Keywords", "value": "Skill Level, Entry, Mid, Senior, Demand Mix, UAE" },
-      { "label": "Data sources", "value": "Job Postings Platform" },
-      { "label": "Geographic coverage", "value": "UAE" },
-      { "label": "Measurement unit", "value": "count" },
-      { "label": "Available periodicity", "value": "Monthly" }
+      {
+        "label": "Indicator code",
+        "value": "LF JD ST 1A 0016"
+      },
+      {
+        "label": "Keywords",
+        "value": "Skill Level, Entry, Mid, Senior, Demand Mix, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
     ],
     "dataSource": "Job Postings Platform",
     "highlights": [],
@@ -50,12 +68,27 @@
             "color": "#93C5FD",
             "group": "skill-levels",
             "label": "Entry Level",
-            "xAccessor": { "path": "QUARTER", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "QUARTER",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "QUARTER": "Q1 2025", "VALUE": 30 },
-              { "QUARTER": "Q2 2025", "VALUE": 28 },
-              { "QUARTER": "Q3 2025", "VALUE": 27 }
+              {
+                "QUARTER": "Q1 2025",
+                "VALUE": 27
+              },
+              {
+                "QUARTER": "Q2 2025",
+                "VALUE": 25
+              },
+              {
+                "QUARTER": "Q3 2025",
+                "VALUE": 23
+              }
             ]
           },
           {
@@ -64,12 +97,27 @@
             "color": "#3B82F6",
             "group": "skill-levels",
             "label": "Mid Level",
-            "xAccessor": { "path": "QUARTER", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "QUARTER",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "QUARTER": "Q1 2025", "VALUE": 45 },
-              { "QUARTER": "Q2 2025", "VALUE": 45 },
-              { "QUARTER": "Q3 2025", "VALUE": 44 }
+              {
+                "QUARTER": "Q1 2025",
+                "VALUE": 45
+              },
+              {
+                "QUARTER": "Q2 2025",
+                "VALUE": 46
+              },
+              {
+                "QUARTER": "Q3 2025",
+                "VALUE": 45
+              }
             ]
           },
           {
@@ -78,15 +126,43 @@
             "color": "#1E40AF",
             "group": "skill-levels",
             "label": "Senior Level",
-            "xAccessor": { "path": "QUARTER", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "QUARTER",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "QUARTER": "Q1 2025", "VALUE": 25 },
-              { "QUARTER": "Q2 2025", "VALUE": 27 },
-              { "QUARTER": "Q3 2025", "VALUE": 29 }
+              {
+                "QUARTER": "Q1 2025",
+                "VALUE": 28
+              },
+              {
+                "QUARTER": "Q2 2025",
+                "VALUE": 29
+              },
+              {
+                "QUARTER": "Q3 2025",
+                "VALUE": 32
+              }
             ]
           }
         ]
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "stacked-bar",
+        "label": "Stacked Bar",
+        "icon": "chart-stacked",
+        "default": true
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

@@ -11,15 +11,36 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
-      { "label": "Indicator code", "value": "LM RMT SH 1A 1011" },
-      { "label": "Keywords", "value": "Remote work, Hybrid, On-site, Industry, Work arrangement, Abu Dhabi" },
-      { "label": "Statistical population", "value": "All job postings classified by work arrangement type across industries." },
-      { "label": "Geographic coverage", "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra." },
-      { "label": "Measurement unit", "value": "%" },
-      { "label": "Available periodicity", "value": "Monthly" },
-      { "label": "Data sources", "value": "Job Postings Platform" }
+      {
+        "label": "Indicator code",
+        "value": "LM RMT SH 1A 1011"
+      },
+      {
+        "label": "Keywords",
+        "value": "Remote work, Hybrid, On-site, Industry, Work arrangement, Abu Dhabi"
+      },
+      {
+        "label": "Statistical population",
+        "value": "All job postings classified by work arrangement type across industries."
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "Emirate of Abu Dhabi including Abu Dhabi, Al Ain, and Al Dhafra."
+      },
+      {
+        "label": "Measurement unit",
+        "value": "%"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      }
     ],
     "dataSource": "Job Postings Platform",
     "highlights": [],
@@ -31,7 +52,7 @@
       "badge_ar": "",
       "title": "Technology Sector Leads Remote Work Adoption",
       "title_ar": "",
-      "text": "Technology has the highest remote work share at 45%, while Construction remains almost entirely on-site at 85%. Hybrid models are most prevalent in Finance (35%) and Education (30%).",
+      "text": "IT & Telecom has the highest remote work share at 28%, while Construction remains almost entirely on-site at 93%. Hybrid models are most prevalent in IT & Telecom (35%) and Finance (30%).",
       "text_ar": "",
       "reason": "Remote work patterns inform infrastructure planning, transport policy, and digital readiness investments across different sectors of the economy.",
       "reason_ar": ""
@@ -41,17 +62,32 @@
         "label": "Remote Share by Industry",
         "series": [
           {
-            "id": "remote-technology",
+            "id": "remote-it-telecom",
             "type": "solid",
             "color": "#2563EA",
-            "group": "technology",
-            "label": "Technology",
-            "xAccessor": { "path": "ARRANGEMENT", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "group": "it-telecom",
+            "label": "IT & Telecom",
+            "xAccessor": {
+              "path": "ARRANGEMENT",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "ARRANGEMENT": "Remote", "VALUE": 45 },
-              { "ARRANGEMENT": "Hybrid", "VALUE": 30 },
-              { "ARRANGEMENT": "On-site", "VALUE": 25 }
+              {
+                "ARRANGEMENT": "Remote",
+                "VALUE": 28
+              },
+              {
+                "ARRANGEMENT": "Hybrid",
+                "VALUE": 35
+              },
+              {
+                "ARRANGEMENT": "On-site",
+                "VALUE": 37
+              }
             ]
           },
           {
@@ -59,13 +95,28 @@
             "type": "solid",
             "color": "#3B82F6",
             "group": "finance",
-            "label": "Finance",
-            "xAccessor": { "path": "ARRANGEMENT", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "label": "Finance & Banking",
+            "xAccessor": {
+              "path": "ARRANGEMENT",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "ARRANGEMENT": "Remote", "VALUE": 20 },
-              { "ARRANGEMENT": "Hybrid", "VALUE": 35 },
-              { "ARRANGEMENT": "On-site", "VALUE": 45 }
+              {
+                "ARRANGEMENT": "Remote",
+                "VALUE": 12
+              },
+              {
+                "ARRANGEMENT": "Hybrid",
+                "VALUE": 30
+              },
+              {
+                "ARRANGEMENT": "On-site",
+                "VALUE": 58
+              }
             ]
           },
           {
@@ -74,12 +125,27 @@
             "color": "#60A5FA",
             "group": "healthcare",
             "label": "Healthcare",
-            "xAccessor": { "path": "ARRANGEMENT", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "ARRANGEMENT",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "ARRANGEMENT": "Remote", "VALUE": 10 },
-              { "ARRANGEMENT": "Hybrid", "VALUE": 15 },
-              { "ARRANGEMENT": "On-site", "VALUE": 75 }
+              {
+                "ARRANGEMENT": "Remote",
+                "VALUE": 3
+              },
+              {
+                "ARRANGEMENT": "Hybrid",
+                "VALUE": 8
+              },
+              {
+                "ARRANGEMENT": "On-site",
+                "VALUE": 89
+              }
             ]
           },
           {
@@ -88,12 +154,27 @@
             "color": "#93C5FD",
             "group": "education",
             "label": "Education",
-            "xAccessor": { "path": "ARRANGEMENT", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "ARRANGEMENT",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "ARRANGEMENT": "Remote", "VALUE": 25 },
-              { "ARRANGEMENT": "Hybrid", "VALUE": 30 },
-              { "ARRANGEMENT": "On-site", "VALUE": 45 }
+              {
+                "ARRANGEMENT": "Remote",
+                "VALUE": 15
+              },
+              {
+                "ARRANGEMENT": "Hybrid",
+                "VALUE": 25
+              },
+              {
+                "ARRANGEMENT": "On-site",
+                "VALUE": 60
+              }
             ]
           },
           {
@@ -102,12 +183,27 @@
             "color": "#BFDBFE",
             "group": "construction",
             "label": "Construction",
-            "xAccessor": { "path": "ARRANGEMENT", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "ARRANGEMENT",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "ARRANGEMENT": "Remote", "VALUE": 5 },
-              { "ARRANGEMENT": "Hybrid", "VALUE": 10 },
-              { "ARRANGEMENT": "On-site", "VALUE": 85 }
+              {
+                "ARRANGEMENT": "Remote",
+                "VALUE": 2
+              },
+              {
+                "ARRANGEMENT": "Hybrid",
+                "VALUE": 5
+              },
+              {
+                "ARRANGEMENT": "On-site",
+                "VALUE": 93
+              }
             ]
           }
         ],
@@ -115,6 +211,24 @@
         "valueFormat": "compact",
         "isTimeSeries": false,
         "showMinMaxValues": false
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "heatmap",
+        "label": "Heatmap",
+        "icon": "chart-heatmap",
+        "default": true
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

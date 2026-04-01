@@ -10,7 +10,7 @@
     "unit": "count",
     "filters": [],
     "updated": "2025-09-25",
-    "category": "Talent Pool Intelligence",
+    "category": "Talent Pool",
     "metadata": [
       {
         "label": "Indicator code",
@@ -74,52 +74,20 @@
             },
             "data": [
               {
-                "date": "2024-01",
-                "VALUE": 1200
+                "date": "2022",
+                "VALUE": 100
               },
               {
-                "date": "2024-02",
-                "VALUE": 1400
+                "date": "2023",
+                "VALUE": 145
               },
               {
-                "date": "2024-03",
-                "VALUE": 1650
+                "date": "2024",
+                "VALUE": 210
               },
               {
-                "date": "2024-04",
-                "VALUE": 1900
-              },
-              {
-                "date": "2024-05",
-                "VALUE": 2150
-              },
-              {
-                "date": "2024-06",
-                "VALUE": 2400
-              },
-              {
-                "date": "2024-07",
-                "VALUE": 2650
-              },
-              {
-                "date": "2024-08",
-                "VALUE": 2900
-              },
-              {
-                "date": "2024-09",
-                "VALUE": 3100
-              },
-              {
-                "date": "2024-10",
-                "VALUE": 3350
-              },
-              {
-                "date": "2024-11",
-                "VALUE": 3600
-              },
-              {
-                "date": "2024-12",
-                "VALUE": 3800
+                "date": "2025",
+                "VALUE": 320
               }
             ]
           },
@@ -128,7 +96,7 @@
             "type": "solid",
             "color": "#3B82F6",
             "group": "rising-skills",
-            "label": "Cloud",
+            "label": "Cloud Computing",
             "xAccessor": {
               "path": "date",
               "type": "date"
@@ -139,52 +107,20 @@
             },
             "data": [
               {
-                "date": "2024-01",
-                "VALUE": 1800
+                "date": "2022",
+                "VALUE": 100
               },
               {
-                "date": "2024-02",
-                "VALUE": 1950
+                "date": "2023",
+                "VALUE": 130
               },
               {
-                "date": "2024-03",
-                "VALUE": 2100
+                "date": "2024",
+                "VALUE": 175
               },
               {
-                "date": "2024-04",
-                "VALUE": 2300
-              },
-              {
-                "date": "2024-05",
-                "VALUE": 2500
-              },
-              {
-                "date": "2024-06",
-                "VALUE": 2700
-              },
-              {
-                "date": "2024-07",
-                "VALUE": 2850
-              },
-              {
-                "date": "2024-08",
-                "VALUE": 3000
-              },
-              {
-                "date": "2024-09",
-                "VALUE": 3200
-              },
-              {
-                "date": "2024-10",
-                "VALUE": 3400
-              },
-              {
-                "date": "2024-11",
-                "VALUE": 3550
-              },
-              {
-                "date": "2024-12",
-                "VALUE": 3700
+                "date": "2025",
+                "VALUE": 240
               }
             ]
           },
@@ -204,52 +140,20 @@
             },
             "data": [
               {
-                "date": "2024-01",
-                "VALUE": 900
+                "date": "2022",
+                "VALUE": 100
               },
               {
-                "date": "2024-02",
-                "VALUE": 1020
+                "date": "2023",
+                "VALUE": 125
               },
               {
-                "date": "2024-03",
-                "VALUE": 1150
+                "date": "2024",
+                "VALUE": 160
               },
               {
-                "date": "2024-04",
-                "VALUE": 1300
-              },
-              {
-                "date": "2024-05",
-                "VALUE": 1450
-              },
-              {
-                "date": "2024-06",
-                "VALUE": 1600
-              },
-              {
-                "date": "2024-07",
-                "VALUE": 1750
-              },
-              {
-                "date": "2024-08",
-                "VALUE": 1900
-              },
-              {
-                "date": "2024-09",
-                "VALUE": 2050
-              },
-              {
-                "date": "2024-10",
-                "VALUE": 2200
-              },
-              {
-                "date": "2024-11",
-                "VALUE": 2350
-              },
-              {
-                "date": "2024-12",
-                "VALUE": 2500
+                "date": "2025",
+                "VALUE": 215
               }
             ]
           },
@@ -269,52 +173,20 @@
             },
             "data": [
               {
-                "date": "2024-01",
-                "VALUE": 1500
+                "date": "2022",
+                "VALUE": 100
               },
               {
-                "date": "2024-02",
-                "VALUE": 1620
+                "date": "2023",
+                "VALUE": 135
               },
               {
-                "date": "2024-03",
-                "VALUE": 1750
+                "date": "2024",
+                "VALUE": 185
               },
               {
-                "date": "2024-04",
-                "VALUE": 1900
-              },
-              {
-                "date": "2024-05",
-                "VALUE": 2050
-              },
-              {
-                "date": "2024-06",
-                "VALUE": 2200
-              },
-              {
-                "date": "2024-07",
-                "VALUE": 2350
-              },
-              {
-                "date": "2024-08",
-                "VALUE": 2500
-              },
-              {
-                "date": "2024-09",
-                "VALUE": 2650
-              },
-              {
-                "date": "2024-10",
-                "VALUE": 2800
-              },
-              {
-                "date": "2024-11",
-                "VALUE": 2950
-              },
-              {
-                "date": "2024-12",
-                "VALUE": 3100
+                "date": "2025",
+                "VALUE": 260
               }
             ]
           },
@@ -334,56 +206,47 @@
             },
             "data": [
               {
-                "date": "2024-01",
-                "VALUE": 400
+                "date": "2022",
+                "VALUE": 100
               },
               {
-                "date": "2024-02",
-                "VALUE": 480
+                "date": "2023",
+                "VALUE": 110
               },
               {
-                "date": "2024-03",
-                "VALUE": 560
+                "date": "2024",
+                "VALUE": 125
               },
               {
-                "date": "2024-04",
-                "VALUE": 650
-              },
-              {
-                "date": "2024-05",
-                "VALUE": 740
-              },
-              {
-                "date": "2024-06",
-                "VALUE": 830
-              },
-              {
-                "date": "2024-07",
-                "VALUE": 920
-              },
-              {
-                "date": "2024-08",
-                "VALUE": 1010
-              },
-              {
-                "date": "2024-09",
-                "VALUE": 1100
-              },
-              {
-                "date": "2024-10",
-                "VALUE": 1200
-              },
-              {
-                "date": "2024-11",
-                "VALUE": 1300
-              },
-              {
-                "date": "2024-12",
-                "VALUE": 1400
+                "date": "2025",
+                "VALUE": 155
               }
             ]
           }
         ]
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "spline",
+        "label": "Spline",
+        "icon": "chart-spline",
+        "default": true
+      },
+      {
+        "id": "line",
+        "label": "Line Chart",
+        "icon": "graph-up"
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

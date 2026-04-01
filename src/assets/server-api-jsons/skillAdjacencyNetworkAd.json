@@ -10,14 +10,32 @@
     "unit": "",
     "filters": [],
     "updated": "2025-09-25",
-    "category": "Talent Pool Intelligence",
+    "category": "Talent Pool",
     "metadata": [
-      { "label": "Indicator code", "value": "LF TP SN 1A 0056" },
-      { "label": "Keywords", "value": "Skills, Network, Adjacency, Graph, Abu Dhabi, UAE" },
-      { "label": "Data sources", "value": "Job Postings Platform" },
-      { "label": "Geographic coverage", "value": "UAE" },
-      { "label": "Measurement unit", "value": "" },
-      { "label": "Available periodicity", "value": "Monthly" }
+      {
+        "label": "Indicator code",
+        "value": "LF TP SN 1A 0056"
+      },
+      {
+        "label": "Keywords",
+        "value": "Skills, Network, Adjacency, Graph, Abu Dhabi, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": ""
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
     ],
     "dataSource": "Job Postings Platform",
     "description": "Network graph showing skill co-occurrence and adjacency among Abu Dhabi professionals.",
@@ -46,11 +64,23 @@
             "group": "skills",
             "label": "AI/ML",
             "color": "#2563EA",
-            "xAccessor": { "path": "SKILL", "type": "category" },
+            "xAccessor": {
+              "path": "SKILL",
+              "type": "category"
+            },
             "data": [
-              { "SKILL": "Data Science", "VALUE": 4200 },
-              { "SKILL": "Python", "VALUE": 3800 },
-              { "SKILL": "Cloud", "VALUE": 3500 }
+              {
+                "SKILL": "Data Science",
+                "VALUE": 4200
+              },
+              {
+                "SKILL": "Python",
+                "VALUE": 3800
+              },
+              {
+                "SKILL": "Cloud",
+                "VALUE": 3500
+              }
             ]
           },
           {
@@ -59,11 +89,23 @@
             "group": "skills",
             "label": "Cloud",
             "color": "#3B82F6",
-            "xAccessor": { "path": "SKILL", "type": "category" },
+            "xAccessor": {
+              "path": "SKILL",
+              "type": "category"
+            },
             "data": [
-              { "SKILL": "DevOps", "VALUE": 3900 },
-              { "SKILL": "Cybersecurity", "VALUE": 3100 },
-              { "SKILL": "Blockchain", "VALUE": 2200 }
+              {
+                "SKILL": "DevOps",
+                "VALUE": 3900
+              },
+              {
+                "SKILL": "Cybersecurity",
+                "VALUE": 3100
+              },
+              {
+                "SKILL": "Blockchain",
+                "VALUE": 2200
+              }
             ]
           },
           {
@@ -72,10 +114,19 @@
             "group": "skills",
             "label": "Data Science",
             "color": "#60A5FA",
-            "xAccessor": { "path": "SKILL", "type": "category" },
+            "xAccessor": {
+              "path": "SKILL",
+              "type": "category"
+            },
             "data": [
-              { "SKILL": "Python", "VALUE": 4500 },
-              { "SKILL": "SQL", "VALUE": 3600 }
+              {
+                "SKILL": "Python",
+                "VALUE": 4500
+              },
+              {
+                "SKILL": "SQL",
+                "VALUE": 3600
+              }
             ]
           },
           {
@@ -84,9 +135,15 @@
             "group": "skills",
             "label": "DevOps",
             "color": "#93C5FD",
-            "xAccessor": { "path": "SKILL", "type": "category" },
+            "xAccessor": {
+              "path": "SKILL",
+              "type": "category"
+            },
             "data": [
-              { "SKILL": "Cybersecurity", "VALUE": 2800 }
+              {
+                "SKILL": "Cybersecurity",
+                "VALUE": 2800
+              }
             ]
           },
           {
@@ -95,9 +152,15 @@
             "group": "skills",
             "label": "Python",
             "color": "#1E40AF",
-            "xAccessor": { "path": "SKILL", "type": "category" },
+            "xAccessor": {
+              "path": "SKILL",
+              "type": "category"
+            },
             "data": [
-              { "SKILL": "SQL", "VALUE": 3200 }
+              {
+                "SKILL": "SQL",
+                "VALUE": 3200
+              }
             ]
           },
           {
@@ -106,10 +169,19 @@
             "group": "skills",
             "label": "Project Management",
             "color": "#1D4ED8",
-            "xAccessor": { "path": "SKILL", "type": "category" },
+            "xAccessor": {
+              "path": "SKILL",
+              "type": "category"
+            },
             "data": [
-              { "SKILL": "Excel", "VALUE": 2600 },
-              { "SKILL": "Data Science", "VALUE": 2100 }
+              {
+                "SKILL": "Excel",
+                "VALUE": 2600
+              },
+              {
+                "SKILL": "Data Science",
+                "VALUE": 2100
+              }
             ]
           },
           {
@@ -118,9 +190,15 @@
             "group": "skills",
             "label": "SQL",
             "color": "#BFDBFE",
-            "xAccessor": { "path": "SKILL", "type": "category" },
+            "xAccessor": {
+              "path": "SKILL",
+              "type": "category"
+            },
             "data": [
-              { "SKILL": "Excel", "VALUE": 2400 }
+              {
+                "SKILL": "Excel",
+                "VALUE": 2400
+              }
             ]
           },
           {
@@ -129,12 +207,31 @@
             "group": "skills",
             "label": "Blockchain",
             "color": "#6366F1",
-            "xAccessor": { "path": "SKILL", "type": "category" },
+            "xAccessor": {
+              "path": "SKILL",
+              "type": "category"
+            },
             "data": [
-              { "SKILL": "Cybersecurity", "VALUE": 1800 }
+              {
+                "SKILL": "Cybersecurity",
+                "VALUE": 1800
+              }
             ]
           }
         ]
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "networkgraph",
+        "label": "Network",
+        "icon": "chart-network",
+        "default": true
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

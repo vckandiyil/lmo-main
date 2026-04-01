@@ -11,14 +11,32 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Applicant Intelligence",
+    "category": "Job Seekers",
     "metadata": [
-      { "label": "Indicator code", "value": "LF AI CT 1A 0042" },
-      { "label": "Keywords", "value": "Applicants, City, Location, Distribution, UAE" },
-      { "label": "Data sources", "value": "Job Postings Platform" },
-      { "label": "Geographic coverage", "value": "UAE" },
-      { "label": "Measurement unit", "value": "count" },
-      { "label": "Available periodicity", "value": "Monthly" }
+      {
+        "label": "Indicator code",
+        "value": "LF AI CT 1A 0042"
+      },
+      {
+        "label": "Keywords",
+        "value": "Applicants, City, Location, Distribution, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
     ],
     "dataSource": "Job Postings Platform",
     "highlights": [],
@@ -46,23 +64,76 @@
             "group": "applicants",
             "label": "Applicants",
             "data": [
-              { "CITY": "Abu Dhabi", "VALUE": 11900 },
-              { "CITY": "Dubai", "VALUE": 8500 },
-              { "CITY": "Sharjah", "VALUE": 2800 },
-              { "CITY": "Al Ain", "VALUE": 2100 },
-              { "CITY": "Ajman", "VALUE": 1200 },
-              { "CITY": "Ras Al Khaimah", "VALUE": 800 },
-              { "CITY": "Fujairah", "VALUE": 500 },
-              { "CITY": "Umm Al Quwain", "VALUE": 350 }
+              {
+                "CITY": "Dubai",
+                "VALUE": 312000
+              },
+              {
+                "CITY": "Abu Dhabi",
+                "VALUE": 278000
+              },
+              {
+                "CITY": "Sharjah",
+                "VALUE": 125000
+              },
+              {
+                "CITY": "Al Ain",
+                "VALUE": 62000
+              },
+              {
+                "CITY": "Ajman",
+                "VALUE": 45000
+              },
+              {
+                "CITY": "Ras Al Khaimah",
+                "VALUE": 32000
+              },
+              {
+                "CITY": "Fujairah",
+                "VALUE": 22000
+              },
+              {
+                "CITY": "Umm Al Quwain",
+                "VALUE": 8000
+              }
             ],
-            "xAccessor": { "path": "CITY", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" }
+            "xAccessor": {
+              "path": "CITY",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            }
           }
         ],
         "chartType": "bar",
         "valueFormat": "compact",
         "isTimeSeries": false,
         "showMinMaxValues": false
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square",
+        "default": true
+      },
+      {
+        "id": "line",
+        "label": "Line Chart",
+        "icon": "graph-up"
+      },
+      {
+        "id": "pie",
+        "label": "Pie Chart",
+        "icon": "chart-pie"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }

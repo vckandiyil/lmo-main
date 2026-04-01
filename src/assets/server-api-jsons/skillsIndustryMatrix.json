@@ -11,14 +11,32 @@
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
-    "category": "Job Demand",
+    "category": "Job Vacancies",
     "metadata": [
-      { "label": "Indicator code", "value": "LF JD HM 1B 0015" },
-      { "label": "Keywords", "value": "Skills, Industry, Matrix, Heatmap, UAE" },
-      { "label": "Data sources", "value": "Job Postings Platform" },
-      { "label": "Geographic coverage", "value": "UAE" },
-      { "label": "Measurement unit", "value": "count" },
-      { "label": "Available periodicity", "value": "Monthly" }
+      {
+        "label": "Indicator code",
+        "value": "LF JD HM 1B 0015"
+      },
+      {
+        "label": "Keywords",
+        "value": "Skills, Industry, Matrix, Heatmap, UAE"
+      },
+      {
+        "label": "Data sources",
+        "value": "Job Postings Platform"
+      },
+      {
+        "label": "Geographic coverage",
+        "value": "UAE"
+      },
+      {
+        "label": "Measurement unit",
+        "value": "count"
+      },
+      {
+        "label": "Available periodicity",
+        "value": "Monthly"
+      }
     ],
     "dataSource": "Job Postings Platform",
     "highlights": [],
@@ -44,51 +62,114 @@
         "showMinMaxValues": false,
         "series": [
           {
-            "id": "industry-technology",
+            "id": "industry-it",
             "type": "solid",
             "color": "#2563EA",
             "group": "industries",
-            "label": "Technology",
-            "xAccessor": { "path": "SKILL", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "label": "IT",
+            "xAccessor": {
+              "path": "SKILL",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "SKILL": "Python", "VALUE": 1850 },
-              { "SKILL": "Project Management", "VALUE": 1200 },
-              { "SKILL": "Data Analysis", "VALUE": 1600 },
-              { "SKILL": "Communication", "VALUE": 800 },
-              { "SKILL": "SQL", "VALUE": 1700 }
-            ]
-          },
-          {
-            "id": "industry-healthcare",
-            "type": "solid",
-            "color": "#3B82F6",
-            "group": "industries",
-            "label": "Healthcare",
-            "xAccessor": { "path": "SKILL", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
-            "data": [
-              { "SKILL": "Python", "VALUE": 250 },
-              { "SKILL": "Project Management", "VALUE": 600 },
-              { "SKILL": "Data Analysis", "VALUE": 480 },
-              { "SKILL": "Communication", "VALUE": 1100 },
-              { "SKILL": "SQL", "VALUE": 180 }
+              {
+                "SKILL": "Python",
+                "VALUE": 6200
+              },
+              {
+                "SKILL": "SAP",
+                "VALUE": 2100
+              },
+              {
+                "SKILL": "AutoCAD",
+                "VALUE": 450
+              },
+              {
+                "SKILL": "Financial Analysis",
+                "VALUE": 980
+              },
+              {
+                "SKILL": "Project Management",
+                "VALUE": 3800
+              }
             ]
           },
           {
             "id": "industry-finance",
             "type": "solid",
-            "color": "#60A5FA",
+            "color": "#3B82F6",
             "group": "industries",
             "label": "Finance",
-            "xAccessor": { "path": "SKILL", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "SKILL",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "SKILL": "Python", "VALUE": 900 },
-              { "SKILL": "Project Management", "VALUE": 1050 },
-              { "SKILL": "Data Analysis", "VALUE": 1400 },
-              { "SKILL": "Communication", "VALUE": 750 },
-              { "SKILL": "SQL", "VALUE": 1200 }
+              {
+                "SKILL": "Python",
+                "VALUE": 1800
+              },
+              {
+                "SKILL": "SAP",
+                "VALUE": 3400
+              },
+              {
+                "SKILL": "AutoCAD",
+                "VALUE": 120
+              },
+              {
+                "SKILL": "Financial Analysis",
+                "VALUE": 5800
+              },
+              {
+                "SKILL": "Project Management",
+                "VALUE": 2600
+              }
+            ]
+          },
+          {
+            "id": "industry-healthcare",
+            "type": "solid",
+            "color": "#60A5FA",
+            "group": "industries",
+            "label": "Healthcare",
+            "xAccessor": {
+              "path": "SKILL",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              {
+                "SKILL": "Python",
+                "VALUE": 720
+              },
+              {
+                "SKILL": "SAP",
+                "VALUE": 1500
+              },
+              {
+                "SKILL": "AutoCAD",
+                "VALUE": 180
+              },
+              {
+                "SKILL": "Financial Analysis",
+                "VALUE": 860
+              },
+              {
+                "SKILL": "Project Management",
+                "VALUE": 2200
+              }
             ]
           },
           {
@@ -97,33 +178,93 @@
             "color": "#93C5FD",
             "group": "industries",
             "label": "Construction",
-            "xAccessor": { "path": "SKILL", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "xAccessor": {
+              "path": "SKILL",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "SKILL": "Python", "VALUE": 120 },
-              { "SKILL": "Project Management", "VALUE": 1800 },
-              { "SKILL": "Data Analysis", "VALUE": 300 },
-              { "SKILL": "Communication", "VALUE": 650 },
-              { "SKILL": "SQL", "VALUE": 100 }
+              {
+                "SKILL": "Python",
+                "VALUE": 380
+              },
+              {
+                "SKILL": "SAP",
+                "VALUE": 1900
+              },
+              {
+                "SKILL": "AutoCAD",
+                "VALUE": 5400
+              },
+              {
+                "SKILL": "Financial Analysis",
+                "VALUE": 620
+              },
+              {
+                "SKILL": "Project Management",
+                "VALUE": 4100
+              }
             ]
           },
           {
-            "id": "industry-education",
+            "id": "industry-oil-gas",
             "type": "solid",
             "color": "#BFDBFE",
             "group": "industries",
-            "label": "Education",
-            "xAccessor": { "path": "SKILL", "type": "category" },
-            "yAccessor": { "path": "VALUE", "type": "value" },
+            "label": "Oil & Gas",
+            "xAccessor": {
+              "path": "SKILL",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
             "data": [
-              { "SKILL": "Python", "VALUE": 400 },
-              { "SKILL": "Project Management", "VALUE": 550 },
-              { "SKILL": "Data Analysis", "VALUE": 620 },
-              { "SKILL": "Communication", "VALUE": 2000 },
-              { "SKILL": "SQL", "VALUE": 280 }
+              {
+                "SKILL": "Python",
+                "VALUE": 1400
+              },
+              {
+                "SKILL": "SAP",
+                "VALUE": 4200
+              },
+              {
+                "SKILL": "AutoCAD",
+                "VALUE": 3600
+              },
+              {
+                "SKILL": "Financial Analysis",
+                "VALUE": 1100
+              },
+              {
+                "SKILL": "Project Management",
+                "VALUE": 3500
+              }
             ]
           }
         ]
+      }
+    ],
+    "viewTypes": [
+      {
+        "id": "heatmap",
+        "label": "Heatmap",
+        "icon": "chart-heatmap",
+        "default": true
+      },
+      {
+        "id": "bar",
+        "label": "Bar Chart",
+        "icon": "stats-up-square"
+      },
+      {
+        "id": "table",
+        "label": "Table",
+        "icon": "layout-left"
       }
     ]
   }
