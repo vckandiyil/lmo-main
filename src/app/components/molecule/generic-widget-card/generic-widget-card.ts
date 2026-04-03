@@ -22,6 +22,7 @@ import type {WidgetChartConfig} from '../../../core/models/widget-chart-config.m
       [selected]="selected()"
       [widgetType]="widgetType()"
       [icons]="icons()"
+      [isCenter]="isCenter()"
       [indicatorName]="indicatorName()"
       [unit]="unit()"
       [updatedDate]="updatedDate()"

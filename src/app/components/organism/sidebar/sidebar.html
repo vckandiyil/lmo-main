@@ -12,6 +12,7 @@
         @for (widget of leftWidgetList(); track widget.id; let i = $index) {
           <div class="sidebar__widget-item" cdkDrag [cdkDragData]="widget" [cdkDragDisabled]="isMobile()" (cdkDragStarted)="onDragStarted()"
                (click)="onWidgetClick(widget.type)">
+            <div class="sidebar__drag-preview" *cdkDragPreview matchSize></div>
             <div class="sidebar__widget-placeholder" *cdkDragPlaceholder></div>
             @if (widget.type === WidgetType.Map) {
               <app-map-widget-card (expandClick)="onWidgetExpand('left', i, widget.type)"/>
@@ -61,6 +62,7 @@
         @for (widget of rightWidgetList(); track widget.id; let i = $index) {
           <div class="sidebar__widget-item" cdkDrag [cdkDragData]="widget" [cdkDragDisabled]="isMobile()" (cdkDragStarted)="onDragStarted()"
                (click)="onWidgetClick(widget.type)">
+            <div class="sidebar__drag-preview" *cdkDragPreview matchSize></div>
             <div class="sidebar__widget-placeholder" *cdkDragPlaceholder></div>
             @if (widget.type === WidgetType.Map) {
               <app-map-widget-card (expandClick)="onWidgetExpand('right', i, widget.type)"/>

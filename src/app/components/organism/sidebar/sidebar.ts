@@ -108,6 +108,21 @@ export class Sidebar implements AfterViewInit, OnInit, OnDestroy {
         setTimeout(() => this.setup4ColScrollListeners(), 0);
       }
     });
+
+    // Sync 4col signals when the store's widget lists change (e.g. topic filter).
+    // This is separate from the above effect so drag operations don't trigger re-splits.
+    effect(() => {
+      const left  = this.leftWidgetList();
+      const right = this.rightWidgetList();
+      if (untracked(() => this.layoutMode()) === '4col') {
+        const leftMid  = Math.ceil(left.length / 2);
+        const rightMid = Math.ceil(right.length / 2);
+        this.col1Widgets.set(left.slice(0, leftMid));
+        this.col2Widgets.set(left.slice(leftMid));
+        this.col3Widgets.set(right.slice(0, rightMid));
+        this.col4Widgets.set(right.slice(rightMid));
+      }
+    });
   }
 
   private getColSignal(col: 1 | 2 | 3 | 4) {

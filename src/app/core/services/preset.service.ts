@@ -55,6 +55,16 @@ export class PresetService {
     }));
   }
 
+  renamePreset(oldName: string, newName: string): void {
+    const trimmed = newName.trim();
+    if (!trimmed || trimmed === oldName) return;
+    if (this.presets().find(p => p.name === trimmed)) return;
+    this.presets.update(ps => ps.map(p => p.name === oldName ? {...p, name: trimmed} : p));
+    if (this.activePresetName() === oldName) {
+      this.activePresetName.set(trimmed);
+    }
+  }
+
   deletePreset(name: string): void {
     this.presets.update(ps => ps.filter(p => p.name !== name));
     if (this.activePresetName() === name) {

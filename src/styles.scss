@@ -265,8 +265,15 @@ input, textarea, select {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   opacity: 0.95;
   z-index: 1000;
+
+  // After drop, CDK animates the preview back to the placeholder position.
+  // For cross-list drops (e.g. sidebar → center) the placeholder coordinates
+  // are wrong, causing the preview to fly to a corner. Disable that animation.
+  &.cdk-drag-animating {
+    transition: none !important;
+  }
 }
 
 .cdk-drag-animating {
-  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
 }

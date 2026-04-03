@@ -108,7 +108,7 @@ export class WidgetDetailConfigService {
       },
       series: [{
         name:         d.title,
-        color:        primarySeries?.color ?? '#2563EA',
+        color:        this.chartConfig.getColorPalette()[0],
         lineWidth:    2,
         markerRadius: 4,
         dataLabels:   {enabled: true, unit},
@@ -164,7 +164,7 @@ export class WidgetDetailConfigService {
         const seriesCategoryKey = s.xAccessor?.path ?? s.nameAccessor?.path;
         return {
           name:  s.label ?? '',
-          color: s.color ?? palette[i % palette.length],
+          color: palette[i % palette.length],
           data:  (s.data ?? []).map((p: WidgetApiSeriesPoint) => ({
             year:  (seriesCategoryKey ? p[seriesCategoryKey] : p.YEAR) ?? '',
             value: isPercent ? Math.round(p.VALUE * 10) / 10 : p.VALUE,

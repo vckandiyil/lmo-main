@@ -5,6 +5,7 @@
   id="center-drop"
   [cdkDropListData]="centerDropData"
   [cdkDropListSortingDisabled]="true"
+  [cdkDropListAutoScrollDisabled]="true"
   [cdkDropListEnterPredicate]="canDropInCenter"
   (cdkDropListDropped)="onCenterDrop($event)">
   <div class="center-section__presentation">
@@ -97,7 +98,9 @@
   @if (centerWidget()) {
     @if (centerWidget() === WidgetType.GapAnalysis) {
       <div class="center-section__widget-area">
-        <app-gap-analysis-center (closed)="restoreFromCenter()"/>
+        <div class="center-section__widget-card">
+          <app-gap-analysis-center (closed)="restoreFromCenter()"/>
+        </div>
       </div>
     } @else {
       <div class="center-section__widget-area">

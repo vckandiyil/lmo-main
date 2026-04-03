@@ -17,8 +17,10 @@
   }
 
   &.cdk-drop-list-receiving {
-    outline: 2px dashed rgba(51, 117, 198, 0.6);
-    outline-offset: -4px;
+    .center-section__presentation,
+    .center-section__controls {
+      display: none;
+    }
   }
 
   &--widget-mode {

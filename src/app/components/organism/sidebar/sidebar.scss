@@ -1,5 +1,6 @@
 .sidebar {
   // 4-col layout: 20px left + 20px right + 3×8px gaps = 64px fixed; 4 equal columns
+  // Each column has 6px inner horizontal padding for card breathing room
   --_4cw: calc((100% - var(--nav-sidebar-w) - 64px) / 4);
 
   width: 384px;
@@ -262,7 +263,7 @@
     }
 
     .sidebar__content {
-      padding-bottom: 61px;
+      padding: 0 6px 61px;
     }
   }
 

@@ -10,6 +10,13 @@
     </a>
     <div class="filters__dropdowns">
       @if (isMyLmo()) {
+        <app-dropdown
+          [label]="'LMI.REGION' | translate"
+          [placeholder]="'LMI.ABU_DHABI_EMIRATES' | translate"
+          [options]="regionOptions()"
+          [variant]="'secondary'"
+          (selected)="onFilterChange('region', $event)"
+        />
         <div class="filters__preset-wrapper">
           <!-- Custom preset dropdown trigger -->
           <div
@@ -32,20 +39,58 @@
           @if (isPresetDropdownOpen()) {
             <div class="filters__preset-menu">
               @for (name of presetService.presetNames(); track name) {
-                <div
-                  class="filters__preset-option"
-                  [class.filters__preset-option--active]="activePresetName() === name"
-                  (click)="selectPreset(name)"
-                >
-                  <span class="filters__preset-option-label">{{ name }}</span>
-                  <button
-                    class="filters__preset-delete"
-                    (click)="deletePreset(name, $event)"
-                    [title]="'MY_LMO.DELETE_PRESET' | translate"
+                @if (renamingPresetName() === name) {
+                  <div class="filters__preset-rename" (click)="$event.stopPropagation()">
+                    <input
+                      class="filters__preset-rename-input"
+                      type="text"
+                      [value]="renameInputValue()"
+                      (input)="renameInputValue.set($any($event.target).value)"
+                      (keydown.enter)="confirmRenamePreset($event)"
+                      (keydown.escape)="cancelRenamePreset($event)"
+                    />
+                    <button class="filters__preset-rename-ok" (click)="confirmRenamePreset($event)">
+                      <app-icon name="check" size="12"/>
+                    </button>
+                    <button class="filters__preset-rename-cancel" (click)="cancelRenamePreset($event)">
+                      <app-icon name="close" size="12"/>
+                    </button>
+                  </div>
+                } @else if (confirmingDeleteName() === name) {
+                  <div class="filters__preset-confirm-delete" (click)="$event.stopPropagation()">
+                    <span class="filters__preset-confirm-delete-label">{{ 'COMMON.DELETE' | translate }}?</span>
+                    <button class="filters__preset-confirm-yes" (click)="confirmDeletePreset(name, $event)">
+                      {{ 'COMMON.YES' | translate }}
+                    </button>
+                    <button class="filters__preset-confirm-no" (click)="cancelDeletePreset($event)">
+                      {{ 'COMMON.NO' | translate }}
+                    </button>
+                  </div>
+                } @else {
+                  <div
+                    class="filters__preset-option"
+                    [class.filters__preset-option--active]="activePresetName() === name"
+                    (click)="selectPreset(name)"
                   >
-                    <app-icon name="close" size="12"/>
-                  </button>
-                </div>
+                    <span class="filters__preset-option-label">{{ name }}</span>
+                    <div class="filters__preset-actions">
+                      <button
+                        class="filters__preset-edit"
+                        (click)="startRenamePreset(name, $event)"
+                        [title]="'COMMON.RENAME' | translate"
+                      >
+                        <app-icon name="page-edit" size="12"/>
+                      </button>
+                      <button
+                        class="filters__preset-delete"
+                        (click)="askDeletePreset(name, $event)"
+                        [title]="'MY_LMO.DELETE_PRESET' | translate"
+                      >
+                        <app-icon name="close" size="12"/>
+                      </button>
+                    </div>
+                  </div>
+                }
               }
               @if (showSaveAsPreset()) {
                 <div class="filters__preset-option filters__preset-option--action" (click)="startCreatePreset('save')">
@@ -153,6 +198,15 @@
       <div class="filters-panel__body">
         @if (isMyLmo()) {
           <div class="filters-panel__section">
+            <span class="filters-panel__label">{{ 'LMI.REGION' | translate }}</span>
+            <app-dropdown
+              [placeholder]="'LMI.ABU_DHABI_EMIRATES' | translate"
+              [options]="regionOptions()"
+              [variant]="'secondary'"
+              (selected)="onFilterChange('region', $event)"
+            />
+          </div>
+          <div class="filters-panel__section">
             <span class="filters-panel__label">{{ 'MY_LMO.CUSTOM_PRESET' | translate }}</span>
             <div class="filters__preset-wrapper filters__preset-wrapper--panel">
               <div
@@ -173,20 +227,58 @@
               @if (isPresetDropdownOpen()) {
                 <div class="filters__preset-menu filters__preset-menu--panel">
                   @for (name of presetService.presetNames(); track name) {
-                    <div
-                      class="filters__preset-option"
-                      [class.filters__preset-option--active]="activePresetName() === name"
-                      (click)="selectPreset(name)"
-                    >
-                      <span class="filters__preset-option-label">{{ name }}</span>
-                      <button
-                        class="filters__preset-delete"
-                        (click)="deletePreset(name, $event)"
-                        [title]="'MY_LMO.DELETE_PRESET' | translate"
+                    @if (renamingPresetName() === name) {
+                      <div class="filters__preset-rename" (click)="$event.stopPropagation()">
+                        <input
+                          class="filters__preset-rename-input"
+                          type="text"
+                          [value]="renameInputValue()"
+                          (input)="renameInputValue.set($any($event.target).value)"
+                          (keydown.enter)="confirmRenamePreset($event)"
+                          (keydown.escape)="cancelRenamePreset($event)"
+                        />
+                        <button class="filters__preset-rename-ok" (click)="confirmRenamePreset($event)">
+                          <app-icon name="check" size="12"/>
+                        </button>
+                        <button class="filters__preset-rename-cancel" (click)="cancelRenamePreset($event)">
+                          <app-icon name="close" size="12"/>
+                        </button>
+                      </div>
+                    } @else if (confirmingDeleteName() === name) {
+                      <div class="filters__preset-confirm-delete" (click)="$event.stopPropagation()">
+                        <span class="filters__preset-confirm-delete-label">{{ 'COMMON.DELETE' | translate }}?</span>
+                        <button class="filters__preset-confirm-yes" (click)="confirmDeletePreset(name, $event)">
+                          {{ 'COMMON.YES' | translate }}
+                        </button>
+                        <button class="filters__preset-confirm-no" (click)="cancelDeletePreset($event)">
+                          {{ 'COMMON.NO' | translate }}
+                        </button>
+                      </div>
+                    } @else {
+                      <div
+                        class="filters__preset-option"
+                        [class.filters__preset-option--active]="activePresetName() === name"
+                        (click)="selectPreset(name)"
                       >
-                        <app-icon name="close" size="12"/>
-                      </button>
-                    </div>
+                        <span class="filters__preset-option-label">{{ name }}</span>
+                        <div class="filters__preset-actions">
+                          <button
+                            class="filters__preset-edit"
+                            (click)="startRenamePreset(name, $event)"
+                            [title]="'COMMON.RENAME' | translate"
+                          >
+                            <app-icon name="page-edit" size="12"/>
+                          </button>
+                          <button
+                            class="filters__preset-delete"
+                            (click)="askDeletePreset(name, $event)"
+                            [title]="'MY_LMO.DELETE_PRESET' | translate"
+                          >
+                            <app-icon name="close" size="12"/>
+                          </button>
+                        </div>
+                      </div>
+                    }
                   }
                   @if (showSaveAsPreset()) {
                     <div class="filters__preset-option filters__preset-option--action" (click)="startCreatePreset('save')">

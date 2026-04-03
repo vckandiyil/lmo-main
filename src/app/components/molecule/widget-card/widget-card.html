@@ -4,6 +4,7 @@
     <app-widget-header
       [title]="title()"
       [icons]="icons()"
+      [isCenter]="isCenter()"
       [moreItems]="moreItems()"
       (starsClick)="backMode.set('ai'); flipCard.toggle()"
       (infoClick)="backMode.set('info'); flipCard.toggle()"

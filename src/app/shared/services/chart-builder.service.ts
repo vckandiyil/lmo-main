@@ -64,7 +64,7 @@ export class ChartBuilderService {
     const compareDash   = config.compare?.dashStyle ?? 'ShortDash';
     const unit          = primarySeries?.dataLabels?.unit ?? '';
     const markerRadius  = primarySeries?.markerRadius ?? 4;
-    const primaryColor  = primarySeries?.color ?? '#2563EA';
+    const primaryColor  = primarySeries?.color ?? '#A2C2FE';
 
     const {forecastEnabled, forecastSeries, selectedCompareItems, relatedSVMap, forecastRelatedSVMap} = ctx;
     const showDL      = ctx.showDataLabels ?? true;
@@ -217,7 +217,7 @@ export class ChartBuilderService {
     const primarySeries = config.series?.[0];
     const unit          = primarySeries?.dataLabels?.unit ?? '';
     const forecastColor = config.forecast?.color ?? FORECAST_COLOR_DEFAULT;
-    const primaryColor  = primarySeries?.color ?? '#2563EA';
+    const primaryColor  = primarySeries?.color ?? '#A2C2FE';
 
     const {forecastEnabled, forecastSeries, selectedCompareItems, relatedSVMap} = ctx;
     const showDL      = ctx.showDataLabels ?? true;
@@ -564,7 +564,7 @@ export class ChartBuilderService {
       series: [{
         type: 'bubble' as any,
         name: config.series?.[0]?.name ?? 'Roles',
-        color: config.series?.[0]?.color ?? '#2563EA',
+        color: config.series?.[0]?.color ?? '#A2C2FE',
         data: bubbleData,
       }] as any,
     };
@@ -583,6 +583,7 @@ export class ChartBuilderService {
     return {
       chart: {type: 'solidgauge', backgroundColor: 'transparent', spacing: [0, 0, 0, 0]},
       title: {text: ''},
+      legend: {enabled: false},
       pane: {center: ['50%', '70%'], size: '120%', startAngle: -90, endAngle: 90, background: [{backgroundColor: '#EEE', innerRadius: '60%', outerRadius: '100%', shape: 'arc' as any, borderWidth: 0}]},
       yAxis: {min: 0, max: maxVal, stops: [[0.3, '#DF5353'], [0.6, '#DDDF0D'], [0.9, '#55BF3B']] as any, lineWidth: 0, tickWidth: 0, minorTickInterval: null as any, labels: {enabled: true, distance: 20, style: {fontFamily: "'Graphik Trial', sans-serif", fontSize: '12px', color: '#6A7180'}}, title: {text: ''}},
       tooltip: {enabled: false},
@@ -592,7 +593,7 @@ export class ChartBuilderService {
         type: 'solidgauge' as any,
         name: config.series?.[0]?.name ?? 'Value',
         data: [value],
-        color: config.series?.[0]?.color ?? '#2563EA',
+        color: config.series?.[0]?.color ?? '#A2C2FE',
       }] as any,
     };
   }
@@ -627,7 +628,7 @@ export class ChartBuilderService {
       series: [{
         type: 'columnrange' as any,
         name: config.series?.[0]?.name ?? 'Range',
-        color: config.series?.[0]?.color ?? '#2563EA',
+        color: config.series?.[0]?.color ?? '#A2C2FE',
         data: rangeData,
       }] as any,
     };
@@ -660,7 +661,7 @@ export class ChartBuilderService {
         type: 'funnel' as any,
         name: config.series?.[0]?.name ?? 'Pipeline',
         data: funnelData,
-        colors: ['#2563EA', '#3B82F6', '#60A5FA', '#93C5FD', '#BFDBFE'],
+        colors: ['#A2C2FE', '#75CA65', '#FAC656', '#F3393F', '#807DFE'],
       }] as any,
     };
   }
@@ -735,11 +736,12 @@ export class ChartBuilderService {
       legend: {enabled: false},
       tooltip: {enabled: true, pointFormat: '<b>{point.name}</b>: {point.value:,.0f}'},
       credits: {enabled: false},
-      colorAxis: {minColor: '#c6dbef', maxColor: '#084594'},
+      colorAxis: {minColor: '#c6dbef', maxColor: '#084594', showInLegend: false},
       series: [{
         type: 'treemap' as any,
         layoutAlgorithm: 'squarified',
         data: treemapData,
+        showInLegend: false,
         dataLabels: {enabled: true, style: {fontFamily: "'Graphik Trial', sans-serif", fontSize: '12px', fontWeight: '600', textOutline: 'none', color: '#FFFFFF'}},
       }] as any,
     };

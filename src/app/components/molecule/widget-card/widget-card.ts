@@ -38,6 +38,7 @@ export class WidgetCard {
   selected        = input(false);
   widgetType      = input<string>('');
   icons           = input<string[]>(['stars', 'stats-up-square', 'more']);
+  isCenter        = input(false);
   indicatorName   = input<string>('');
   unit            = input<string>('');
   updatedDate     = input<string>('');

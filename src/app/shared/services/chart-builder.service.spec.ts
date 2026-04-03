@@ -45,7 +45,8 @@ describe('ChartBuilderService', () => {
   });
 
   it('should build a bar chart with chart.type = "bar"', () => {
-    const result = service.build(makeConfig('bar'), SAMPLE_SERIES, BASE_CTX);
+    const config = {...makeConfig('bar'), orientation: 'horizontal' as const};
+    const result = service.build(config, SAMPLE_SERIES, BASE_CTX);
     expect(result.chart?.type).toBe('bar');
   });
 

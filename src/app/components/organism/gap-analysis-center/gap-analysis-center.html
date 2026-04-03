@@ -1,7 +1,7 @@
 <div class="gap-analysis-center">
   <div class="gap-analysis-center__header">
     <app-widget-checkbox [selected]="false"/>
-    <app-widget-header [title]="title()" (expandClick)="closed.emit()"/>
+    <app-widget-header [title]="title()" [icons]="headerIcons()" [isCenter]="true" (expandClick)="closed.emit()"/>
   </div>
 
   <div class="gap-analysis-center__chart" #chartContainer>

@@ -23,16 +23,13 @@ export class ChartConfigService {
    * Color palette compatible with Material azure-blue theme
    */
   private readonly colorPalette = [
-    '#0078d4', // Primary azure blue
-    '#00bcf2', // Light azure
-    '#00188f', // Dark azure
-    '#68217a', // Purple accent
-    '#009e49', // Success green
-    '#ff8c00', // Warning orange
-    '#e81123', // Error red
-    '#8764b8', // Secondary purple
-    '#00b294', // Teal
-    '#ffb900', // Gold
+    '#A2C2FE',
+    '#75CA65',
+    '#FAC656',
+    '#F3393F',
+    '#807DFE',
+    '#05264A',
+    '#58B799',
   ];
 
   /**

@@ -127,7 +127,7 @@ export const WidgetStore = signalStore(
       setTopicLayout(leftTypes: WidgetType[], rightTypes: WidgetType[]): void {
         const leftWidgets  = leftTypes.map(type  => ({id: createWidgetId(type),  type}));
         const rightWidgets = rightTypes.map(type => ({id: createWidgetId(type), type}));
-        patchState(store, {leftWidgets, rightWidgets});
+        patchState(store, {leftWidgets, rightWidgets, centerWidget: null});
       },
 
       restoreFromCenter(): void {

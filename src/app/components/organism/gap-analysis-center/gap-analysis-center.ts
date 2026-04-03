@@ -20,6 +20,11 @@ export class GapAnalysisCenter implements AfterViewInit {
 
   private readonly entry = toSignal(inject(WidgetCatalogService).getWidgetById('supply-and-demand'), {initialValue: undefined});
   readonly title = computed(() => this.entry()?.title ?? '');
+  readonly headerIcons = computed(() =>
+    this.entry()?.hasExpandIcon
+      ? ['stars', 'stats-up-square', 'expand', 'more']
+      : ['stars', 'stats-up-square', 'more']
+  );
 
   readonly selectedTimelineYear = signal(2026);
   readonly selectedQuarter      = signal('Q4');

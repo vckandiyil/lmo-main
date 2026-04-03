@@ -228,7 +228,7 @@ export class MiniChartBuilderService {
       },
       title: {text: ''},
       credits: {enabled: false},
-      legend: config.type === 'networkgraph' ? {enabled: false} : miniLegend(isDark),
+      legend: (config.type === 'networkgraph' || config.type === 'heatmap' || config.type === 'treemap' || config.type === 'solidgauge') ? {enabled: false} : miniLegend(isDark),
     };
 
     // Compact axis labels for types that have them
@@ -247,13 +247,16 @@ export class MiniChartBuilderService {
       (result.yAxis as any).title = {text: ''};
     }
 
-    // Shrink heatmap data labels
-    if (config.type === 'heatmap' && result.series) {
-      (result.series as any[]).forEach(s => {
-        if (s.dataLabels) {
-          s.dataLabels = {...s.dataLabels, enabled: true, style: {...(s.dataLabels.style ?? {}), fontSize: '8px'}};
-        }
-      });
+    // Shrink heatmap data labels and hide colorAxis legend
+    if (config.type === 'heatmap') {
+      (result as any).colorAxis = {...((result as any).colorAxis ?? {}), showInLegend: false};
+      if (result.series) {
+        (result.series as any[]).forEach(s => {
+          if (s.dataLabels) {
+            s.dataLabels = {...s.dataLabels, enabled: true, style: {...(s.dataLabels.style ?? {}), fontSize: '8px'}};
+          }
+        });
+      }
     }
 
     // Shrink treemap data labels
@@ -280,9 +283,10 @@ export class MiniChartBuilderService {
 
     // Compact solidgauge pane for mini size
     if (config.type === 'solidgauge') {
+      result.chart = {...(result.chart ?? {}), height: 150, spacing: [0, 0, 0, 0], margin: [0, 0, 0, 0]};
       (result as any).pane = {
-        center: ['50%', '70%'],
-        size: '100%',
+        center: ['50%', '80%'],
+        size: '120%',
         startAngle: -90,
         endAngle: 90,
         background: [{backgroundColor: '#EEE', innerRadius: '60%', outerRadius: '100%', shape: 'arc', borderWidth: 0}],
@@ -367,7 +371,7 @@ export class MiniChartBuilderService {
       fontFamily: CHART_FONT,
       fontWeight: '500',
       fontSize: '12px',
-      color: '#3375C6',
+      color: '#A2C2FE',
       textOutline: 'none',
     };
     const dlFormat = isMillion
@@ -400,12 +404,12 @@ export class MiniChartBuilderService {
         column: {borderRadius: 3, dataLabels: {enabled: true, ...dlFormat, style: dlStyle, crop: false, overflow: 'allow' as const}},
         bar:    {borderRadius: 3, dataLabels: {enabled: true, ...dlFormat, style: dlStyle, crop: false, overflow: 'allow' as const}},
         line: {
-          marker: {enabled: true, symbol: 'circle', radius: 2.5, fillColor: '#3375C6', lineWidth: 0, lineColor: '#3375C6'},
+          marker: {enabled: true, symbol: 'circle', radius: 2.5, fillColor: '#A2C2FE', lineWidth: 0, lineColor: '#A2C2FE'},
           dataLabels: {enabled: true, ...dlFormat, style: {...dlStyle, lineHeight: '12px'}, verticalAlign: 'bottom', y: -2, overflow: 'allow', crop: false},
           states: {hover: {enabled: false}},
         },
       },
-      series: [{type: hcType as any, name, color: '#3375C6', lineWidth: 2, data: values}],
+      series: [{type: hcType as any, name, color: '#A2C2FE', lineWidth: 2, data: values}],
     };
   }
 

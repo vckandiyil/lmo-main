@@ -317,7 +317,7 @@ export class DashboardDataService {
           indicatorFilters: [],
           seriesMeta: [{
             label:  totalSeries?.label ?? '',
-            color:  totalSeries?.color ?? '#2563EA',
+            color:  totalSeries?.color ?? '#A2C2FE',
             yMax:   totalSeries?.yMax  ?? 0,
             yMin:   totalSeries?.yMin  ?? 0,
             data:   (totalSeries?.data ?? []).map((p: any) => ({VALUE: p.VALUE, YEAR: p.YEAR})),

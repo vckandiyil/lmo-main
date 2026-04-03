@@ -1,4 +1,4 @@
-import {Component, computed, ElementRef, HostListener, inject, input, signal} from '@angular/core';
+import {Component, computed, ElementRef, HostListener, inject, input, OnInit, signal} from '@angular/core';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {map} from 'rxjs';
 import {RouterLink} from '@angular/router';
@@ -22,7 +22,7 @@ import {AdvancedFiltersPanel} from '../../molecule/advanced-filters-panel/advanc
   templateUrl: './filters.html',
   styleUrl: './filters.scss'
 })
-export class Filters {
+export class Filters implements OnInit {
   private readonly elementRef = inject(ElementRef);
   private readonly widgetCatalogService = inject(WidgetCatalogService);
   private readonly widgetStore = inject(WidgetStore);
@@ -56,10 +56,14 @@ export class Filters {
   createMode = signal<'new' | 'save'>('new');
   newPresetName = signal('');
 
+  confirmingDeleteName = signal<string | null>(null);
+  renamingPresetName = signal<string | null>(null);
+  renameInputValue = signal('');
+
   private readonly TOPIC_ORDER = ['Employment', 'Unemployment', 'Outside Labor Force', 'Job Vacancies', 'Job Seekers', 'Talent Pool'];
 
   readonly topicOptions = this.TOPIC_ORDER;
-  selectedTopic = signal<string | null>(null);
+  selectedTopic = signal<string | null>(this.TOPIC_ORDER[0]);
 
   isSearchModalOpen = signal(false);
   isPresentationModalOpen = signal(false);
@@ -74,6 +78,12 @@ export class Filters {
     ),
     {initialValue: ['All', 'Abu Dhabi', 'Al Ain', 'Al Dhafra']}
   );
+  ngOnInit(): void {
+    if (!this.isMyLmo()) {
+      this.onTopicSelect(this.TOPIC_ORDER[0]);
+    }
+  }
+
   onTopicSelect(value: string): void {
     this.selectedTopic.set(value);
     this.filterState.selectedTopic.set(value);
@@ -114,13 +124,46 @@ export class Filters {
     }
   }
 
-  deletePreset(name: string, event: MouseEvent): void {
+  askDeletePreset(name: string, event: MouseEvent): void {
+    event.stopPropagation();
+    this.renamingPresetName.set(null);
+    this.confirmingDeleteName.set(name);
+  }
+
+  confirmDeletePreset(name: string, event: MouseEvent): void {
     event.stopPropagation();
     const wasActive = this.presetService.activePresetName() === name;
     this.presetService.deletePreset(name);
+    this.confirmingDeleteName.set(null);
     if (wasActive) {
       this.widgetStore.setTopicLayout([], []);
     }
+  }
+
+  cancelDeletePreset(event: MouseEvent): void {
+    event.stopPropagation();
+    this.confirmingDeleteName.set(null);
+  }
+
+  startRenamePreset(name: string, event: MouseEvent): void {
+    event.stopPropagation();
+    this.confirmingDeleteName.set(null);
+    this.renamingPresetName.set(name);
+    this.renameInputValue.set(name);
+  }
+
+  confirmRenamePreset(event: Event): void {
+    event.stopPropagation();
+    const oldName = this.renamingPresetName();
+    if (oldName) {
+      this.presetService.renamePreset(oldName, this.renameInputValue());
+    }
+    this.renamingPresetName.set(null);
+  }
+
+  cancelRenamePreset(event: Event): void {
+    event.stopPropagation();
+    this.renamingPresetName.set(null);
   }
 
   startCreatePreset(mode: 'new' | 'save'): void {

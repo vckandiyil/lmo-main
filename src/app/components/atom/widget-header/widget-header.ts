@@ -25,7 +25,7 @@ import {MatTooltip} from '@angular/material/tooltip';
               <app-icon [name]="icon" size="18"/>
             </span>
           } @else if (icon === 'expand') {
-            <span class="widget-header__icon" matTooltip="Extended View" matTooltipPosition="above" (click)="onExpandClick($event)">
+            <span class="widget-header__icon" [matTooltip]="isCenter() ? 'Minimize' : 'Extended View'" matTooltipPosition="above" (click)="onExpandClick($event)">
               <app-icon class="widget-header__expand-icon" name="expand" size="18"/>
               <app-icon class="widget-header__collapse-icon" name="collapse" size="18"/>
             </span>
@@ -49,6 +49,7 @@ export class WidgetHeader {
 
   readonly title = input.required<string>();
   readonly icons = input<string[]>(['stars', 'stats-up-square', 'more']);
+  readonly isCenter = input(false);
   readonly moreItems = input<MoreMenuItem[]>([
     {icon: 'info-empty', label: 'HOME.MORE_INFORMATION'},
     {icon: 'forked-arrow', label: 'HOME.MORE_WHAT_IF'},
