@@ -14,8 +14,8 @@ import {MatTooltip} from '@angular/material/tooltip';
       <div class="widget-header__icons">
         @for (icon of icons(); track icon) {
           @if (icon === 'more') {
-            <span class="widget-header__icon widget-header__icon--more" matTooltip="Dropdown" matTooltipPosition="above" (click)="toggleMore($event)">
-              <app-icon name="more" size="18"/>
+            <span class="widget-header__icon widget-header__icon--more" matTooltip="Options" matTooltipPosition="above" (click)="toggleMore($event)">
+              <app-icon name="options" size="18"/>
             </span>
             @if (moreOpen()) {
               <app-more-menu [items]="moreItems()" (itemClicked)="onMoreItemClicked($event)"/>

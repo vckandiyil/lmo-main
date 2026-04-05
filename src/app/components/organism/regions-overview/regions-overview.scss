@@ -1,0 +1,585 @@
+:host {
+  display: block;
+}
+
+.regions-overview {
+  display: flex;
+  height: 985px;
+  background: url('/assets/images/separated-regions.png') center / cover no-repeat;
+
+  &__region {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 55px 32px;
+    position: relative;
+  }
+
+  &__title {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 38px;
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: #05264A;
+    margin: 0 0 20px;
+
+    .regions-overview__region:last-child & {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  &__card {
+    padding: 16px;
+
+    &--bottom {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      .regions-overview__region:first-child & {
+        width: 417px;
+      }
+
+      .regions-overview__region:nth-child(2) & {
+        width: 500px;
+      }
+
+      .regions-overview__region:last-child & {
+        width: 425px;
+      }
+    }
+  }
+
+  // =====================
+  // Column 1: Market Entrants
+  // =====================
+
+  &__entrants-columns {
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+  }
+
+  &__edu-col {
+    width: 215px;
+  }
+
+  &__imm-col {
+    width: 255px;
+  }
+
+  &__sub-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    color: #05264A;
+    margin-bottom: 32px;
+  }
+
+  &__sub-header-icon {
+    font-size: 14px;
+  }
+
+  &__edu-group {
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__edu-bar {
+    width: 100%;
+    height: 8px;
+    overflow: hidden;
+    margin-top: 4px;
+
+    ::ng-deep .chart-container {
+      margin-top: -8px;
+    }
+  }
+
+  &__edu-group-title {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    color: #000000;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__edu-row-top,
+  &__edu-row-bottom {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__edu-number {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #1E2937;
+  }
+
+  &__edu-label {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #6A7180;
+  }
+
+  // Immigration Supply
+
+  &__imm-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__imm-label {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    color: #000000;
+  }
+
+  &__imm-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__imm-skill {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #364151;
+    min-width: 48px;
+  }
+
+  &__imm-bar-group {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__imm-bar {
+    height: 8px;
+    min-width: 65px;
+    border-radius: 4px;
+    transition: width 1s ease;
+  }
+
+  &__imm-value {
+    font-family: 'Graphik Trial', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #1E2937;
+    white-space: nowrap;
+  }
+
+  // Total Supply Bottom
+
+  &__supply-bottom {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__supply-donut {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+  }
+
+  &__supply-donut-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+  }
+
+  &__supply-donut-top {
+    font-family: 'Graphik Trial', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #1B3A5C;
+  }
+
+  &__supply-donut-bottom {
+    font-family: 'Graphik Trial', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #58B799;
+  }
+
+  &__supply-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__supply-title {
+    font-family: 'Graphik Trial', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #05264A;
+  }
+
+  &__supply-legend {
+    display: flex;
+    gap: 12px;
+  }
+
+  &__supply-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'Graphik Trial', sans-serif;
+    font-size: 11px;
+    color: #6A7180;
+
+    strong {
+      font-weight: 700;
+      color: #1E2937;
+    }
+  }
+
+  &__supply-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+
+    &--emirati {
+      background: #1B3A5C;
+    }
+
+    &--expat {
+      background: #58B799;
+    }
+  }
+
+  // =====================
+  // Column 2: Labour Market Status
+  // =====================
+
+  &__status-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 530px;
+    margin: 0 auto;
+  }
+
+  &__donut-container {
+    position: relative;
+    width: 214px;
+    height: 214px;
+    flex-shrink: 0;
+  }
+
+  &__donut-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__donut-center {
+    gap: 2px;
+  }
+
+  &__donut-subtitle {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #364151;
+  }
+
+  &__donut-value {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    color: #05264A;
+  }
+
+  &__donut-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 248px;
+  }
+
+  &__legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  &__legend-label {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #6A7180;
+    flex: 1;
+  }
+
+  &__legend-value {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #05264A;
+  }
+
+  &__legend-pct {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #05264A;
+  }
+
+  &__legend-data {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-left: auto;
+  }
+
+  // Friction Path
+
+  &__friction {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__friction-donut {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    flex-shrink: 0;
+  }
+
+  &__friction-donut-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__friction-donut-label {
+    font-family: 'Graphik Trial', sans-serif;
+    font-size: 8px;
+    font-weight: 400;
+    color: #6A7180;
+  }
+
+  &__friction-donut-value {
+    font-family: 'Graphik Trial', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #1E2937;
+  }
+
+  &__friction-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+  }
+
+  &__friction-title {
+    font-family: 'Graphik Trial', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #05264A;
+    margin-bottom: 4px;
+  }
+
+  &__friction-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__friction-label {
+    font-family: 'Graphik Trial', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: #6A7180;
+  }
+
+  &__friction-value {
+    font-family: 'Graphik Trial', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #1E2937;
+  }
+
+  &__friction-legend {
+    display: flex;
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  &__friction-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'Graphik Trial', sans-serif;
+    font-size: 11px;
+    color: #6A7180;
+
+    strong {
+      font-weight: 700;
+      color: #1E2937;
+    }
+  }
+
+  // =====================
+  // Column 3: Market Shapes
+  // =====================
+
+  &__sectors {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 569px;
+    margin: 0 auto;
+  }
+
+  &__sector-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__sector-icon {
+    font-size: 14px;
+    width: 20px;
+    text-align: center;
+  }
+
+  &__sector-name {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    color: #05264A;
+    min-width: 80px;
+    margin-right: 16px;
+  }
+
+  &__sector-bar {
+    height: 22px;
+    border-radius: 96px;
+    transition: width 1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 12px;
+  }
+
+  &__sector-value {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: right;
+    color: #FFFFFF;
+  }
+
+  // Mismatch Gap
+
+  &__mismatch-title {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    color: #05264A;
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  &__mismatch-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__mismatch-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__mismatch-label {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #364151;
+    min-width: 120px;
+  }
+
+  &__mismatch-bar {
+    height: 8px;
+    border-radius: 4px;
+    transition: width 1s ease;
+  }
+
+  &__mismatch-value {
+    font-family: 'Graphik Trial', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #1E2937;
+    white-space: nowrap;
+  }
+}

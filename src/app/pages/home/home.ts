@@ -11,13 +11,14 @@ import {MarketEntrants} from '../../components/organism/market-entrants/market-e
 import {LaborForceComposition} from '../../components/organism/labor-force-composition/labor-force-composition';
 import {AiInsights} from '../../components/organism/ai-insights/ai-insights';
 import {Filters} from '../../components/organism/filters/filters';
+import {RegionsOverview} from '../../components/organism/regions-overview/regions-overview';
 import {DashboardDataService, LabourMarketPolicyEntry, NewsData} from '../../core/services/dashboard-data.service';
 import {LanguageService} from '../../core';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [InlineSvg, Button, Icon, Dropdown, MarketEntrants, LaborForceComposition, AiInsights, Filters, DatePipe, TranslateModule],
+  imports: [InlineSvg, Button, Icon, Dropdown, MarketEntrants, LaborForceComposition, AiInsights, Filters, RegionsOverview, DatePipe, TranslateModule],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })

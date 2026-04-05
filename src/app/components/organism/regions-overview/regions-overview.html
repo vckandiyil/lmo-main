@@ -1,0 +1,175 @@
+<section class="regions-overview">
+  <!-- Column 1: Market Entrants -->
+  <div class="regions-overview__region">
+    <h3 class="regions-overview__title">{{ 'HOME.MARKET_ENTRANTS' | translate }}</h3>
+    <div class="regions-overview__content">
+      <div class="regions-overview__card">
+        <div class="regions-overview__entrants-columns">
+          <!-- Education Supply -->
+          <div class="regions-overview__edu-col">
+            <div class="regions-overview__sub-header">
+              <app-icon name="bookmark-book" size="24" color="#05264A"/>
+              <span>{{ 'HOME.EDUCATION_SUPPLY' | translate }}</span>
+            </div>
+
+            @for (item of educationData(); track item.label) {
+              <div class="regions-overview__edu-group">
+                <div class="regions-overview__edu-group-title">
+                  <app-icon name="graduation-cap" size="24" color="#05264A"/>
+                  {{ getLabelKey(item.label) | translate }}
+                </div>
+                <div class="regions-overview__edu-row-top">
+                  <span class="regions-overview__edu-number">{{ item.emirati }}</span>
+                  <span class="regions-overview__edu-number">{{ item.expat }}</span>
+                </div>
+                <div class="regions-overview__edu-bar">
+                  <app-chart-wrapper [options]="item.chartOptions"/>
+                </div>
+                <div class="regions-overview__edu-row-bottom">
+                  <span class="regions-overview__edu-label">{{ 'HOME.EMIRATI' | translate }}</span>
+                  <span class="regions-overview__edu-label">{{ 'HOME.EXPAT' | translate }}</span>
+                </div>
+              </div>
+            }
+          </div>
+
+          <!-- Immigration Supply -->
+          <div class="regions-overview__imm-col">
+            <div class="regions-overview__sub-header">
+              <app-icon name="language" size="24" color="#05264A"/>
+              <span>{{ 'HOME.IMMIGRATION_SUPPLY' | translate }}</span>
+            </div>
+
+            <div class="regions-overview__imm-group">
+              <span class="regions-overview__imm-label">{{ 'HOME.SKILL_LEVEL' | translate }}</span>
+              @for (item of immigrationData(); track item.label) {
+                <div class="regions-overview__imm-row">
+                  <span class="regions-overview__imm-skill">{{ item.label }}</span>
+                  <div class="regions-overview__imm-bar-group">
+                    <div class="regions-overview__imm-bar" [style.width.%]="item.pct" [style.background]="item.color"></div>
+                    <span class="regions-overview__imm-value">{{ item.value }}k</span>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="regions-overview__card regions-overview__card--bottom">
+        <div class="regions-overview__supply-bottom">
+          <div class="regions-overview__supply-donut">
+            @if (totalSupplyChartOptions(); as opts) {
+              <app-chart-wrapper [options]="opts"/>
+            }
+          </div>
+          <div class="regions-overview__supply-info">
+            <span class="regions-overview__supply-title">{{ 'HOME.TOTAL_SUPPLY' | translate }}: 154k</span>
+            <div class="regions-overview__supply-legend">
+              <span class="regions-overview__supply-legend-item">
+                <span class="regions-overview__supply-dot regions-overview__supply-dot--emirati"></span>
+                {{ 'HOME.EMIRATI' | translate }} <strong>89k</strong>
+              </span>
+              <span class="regions-overview__supply-legend-item">
+                <span class="regions-overview__supply-dot regions-overview__supply-dot--expat"></span>
+                {{ 'HOME.EXPATS' | translate }} <strong>65k</strong>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Column 2: Labour Market Status -->
+  <div class="regions-overview__region">
+    <h3 class="regions-overview__title">{{ 'HOME.LABOUR_MARKET_STATUS' | translate }}</h3>
+    <div class="regions-overview__content">
+      <div class="regions-overview__status-main">
+        <div class="regions-overview__donut-container">
+          @if (marketStatusChartOptions(); as opts) {
+            <app-chart-wrapper [options]="opts"/>
+          }
+          <div class="regions-overview__donut-center">
+            <span class="regions-overview__donut-subtitle">Total Force</span>
+            <span class="regions-overview__donut-value">2.76M</span>
+          </div>
+        </div>
+        <div class="regions-overview__donut-legend">
+          @for (item of statusLegend(); track item.label) {
+            <div class="regions-overview__legend-item">
+              <span class="regions-overview__legend-dot" [style.background]="item.color"></span>
+              <span class="regions-overview__legend-label" [style.color]="item.color">{{ item.label }}</span>
+              <span class="regions-overview__legend-data">
+                <span class="regions-overview__legend-value">{{ item.value }}</span>
+                <span class="regions-overview__legend-pct">({{ item.pct }})</span>
+              </span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="regions-overview__card regions-overview__card--bottom">
+        <div class="regions-overview__friction">
+          <div class="regions-overview__friction-donut">
+            @if (frictionChartOptions(); as opts) {
+              <app-chart-wrapper [options]="opts"/>
+            }
+            <div class="regions-overview__friction-donut-center">
+              <span class="regions-overview__friction-donut-label">Unemployed</span>
+              <span class="regions-overview__friction-donut-value">115k</span>
+            </div>
+          </div>
+          <div class="regions-overview__friction-info">
+            <span class="regions-overview__friction-title">{{ 'HOME.FRICTION_PATH' | translate }}</span>
+            <div class="regions-overview__friction-stat">
+              <span class="regions-overview__friction-label">{{ 'HOME.UNEMPLOYED_POPULATION' | translate }}</span>
+              <span class="regions-overview__friction-value">115k (5.7%)</span>
+            </div>
+            <div class="regions-overview__friction-legend">
+              <span class="regions-overview__friction-legend-item">
+                <span class="regions-overview__supply-dot regions-overview__supply-dot--emirati"></span>
+                {{ 'HOME.EMIRATI' | translate }} <strong>67k</strong> (58%)
+              </span>
+              <span class="regions-overview__friction-legend-item">
+                <span class="regions-overview__supply-dot regions-overview__supply-dot--expat"></span>
+                {{ 'HOME.EXPATS' | translate }} <strong>48k</strong> (42%)
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Column 3: Market Shapes -->
+  <div class="regions-overview__region">
+    <h3 class="regions-overview__title">{{ 'HOME.MARKET_SHAPES' | translate }}</h3>
+    <div class="regions-overview__content">
+      <div class="regions-overview__sectors">
+        @for (sector of sectors(); track sector.name) {
+          <div class="regions-overview__sector-row">
+            <app-icon [name]="sector.icon" size="24" color="#05264A"/>
+            <span class="regions-overview__sector-name">{{ sector.name }}</span>
+            <div class="regions-overview__sector-bar" [style.width.%]="sector.pct" [style.background]="sector.color">
+              <span class="regions-overview__sector-value">{{ sector.value }}</span>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="regions-overview__card regions-overview__card--bottom">
+        <span class="regions-overview__mismatch-title">{{ 'HOME.MISMATCH_GAP' | translate }}</span>
+        <div class="regions-overview__mismatch-rows">
+          @for (item of mismatchData(); track item.label) {
+            <div class="regions-overview__mismatch-row">
+              <span class="regions-overview__mismatch-label">{{ item.label }}</span>
+              <div class="regions-overview__mismatch-bar" [style.width.%]="item.pct" [style.background]="item.color"></div>
+              <span class="regions-overview__mismatch-value">{{ item.value }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -164,7 +164,7 @@ export class WidgetDetailConfigService {
         const seriesCategoryKey = s.xAccessor?.path ?? s.nameAccessor?.path;
         return {
           name:  s.label ?? '',
-          color: palette[i % palette.length],
+          color: s.color ?? palette[i % palette.length],
           data:  (s.data ?? []).map((p: WidgetApiSeriesPoint) => ({
             year:  (seriesCategoryKey ? p[seriesCategoryKey] : p.YEAR) ?? '',
             value: isPercent ? Math.round(p.VALUE * 10) / 10 : p.VALUE,

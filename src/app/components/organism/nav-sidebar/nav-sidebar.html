@@ -1,50 +1,50 @@
 <aside class="nav-sidebar" [class.nav-sidebar--expanded]="expanded()">
   <div class="nav-sidebar__top">
     <div class="nav-sidebar__nav">
-      <a class="nav-sidebar__nav-item" routerLink="/" routerLinkActive="nav-sidebar__nav-item--active" [routerLinkActiveOptions]="{exact: true}">
+      <a class="nav-sidebar__nav-item" routerLink="/" routerLinkActive="nav-sidebar__nav-item--active" [routerLinkActiveOptions]="{exact: true}" data-tooltip="Overview">
         <app-icon name="home-alt-slim-horiz" size="24" class="nav-sidebar__icon"/>
         <span class="nav-sidebar__label">Overview</span>
       </a>
-      <a class="nav-sidebar__nav-item" routerLink="/labor-market-insights" routerLinkActive="nav-sidebar__nav-item--active">
+      <a class="nav-sidebar__nav-item" routerLink="/labor-market-insights" routerLinkActive="nav-sidebar__nav-item--active" data-tooltip="Labor Market Insights">
         <app-icon name="stats-up-square" size="24" class="nav-sidebar__icon"/>
         <span class="nav-sidebar__label">Labor Market Insights</span>
       </a>
-      <a class="nav-sidebar__nav-item" routerLink="/gap-analysis" routerLinkActive="nav-sidebar__nav-item--active">
+      <a class="nav-sidebar__nav-item" routerLink="/gap-analysis" routerLinkActive="nav-sidebar__nav-item--active" data-tooltip="Gap Analysis">
         <app-icon name="gap" size="24" class="nav-sidebar__icon"/>
         <span class="nav-sidebar__label">Gap Analysis</span>
       </a>
-      <a class="nav-sidebar__nav-item" routerLink="/forecast" routerLinkActive="nav-sidebar__nav-item--active">
+      <a class="nav-sidebar__nav-item" routerLink="/forecast" routerLinkActive="nav-sidebar__nav-item--active" data-tooltip="Forecasts">
         <app-icon name="graph-up" size="24" class="nav-sidebar__icon"/>
         <span class="nav-sidebar__label">Forecasts</span>
       </a>
-      <a class="nav-sidebar__nav-item" routerLink="/what-if" routerLinkActive="nav-sidebar__nav-item--active">
+      <a class="nav-sidebar__nav-item" routerLink="/what-if" routerLinkActive="nav-sidebar__nav-item--active" data-tooltip="What-If Simulator">
         <app-icon name="stats-report" size="24" class="nav-sidebar__icon"/>
         <span class="nav-sidebar__label">What-If Simulator</span>
       </a>
-      <a class="nav-sidebar__nav-item" (click)="openReportModal()">
+      <a class="nav-sidebar__nav-item" (click)="openReportModal()" data-tooltip="Insights Reports">
         <app-icon name="page-search" size="24" class="nav-sidebar__icon"/>
         <span class="nav-sidebar__label">Insights Reports</span>
       </a>
-      <a class="nav-sidebar__nav-item" routerLink="/my-lmo" routerLinkActive="nav-sidebar__nav-item--active">
+      <a class="nav-sidebar__nav-item" routerLink="/my-lmo" routerLinkActive="nav-sidebar__nav-item--active" data-tooltip="My LMO">
         <app-icon name="report-columns" size="24" class="nav-sidebar__icon"/>
         <span class="nav-sidebar__label">My LMO</span>
       </a>
     </div>
   </div>
   <div class="nav-sidebar__bottom">
-    <div class="nav-sidebar__icon-wrap nav-sidebar__icon-wrap--clickable" (click)="openNotificationModal()">
+    <div class="nav-sidebar__icon-wrap nav-sidebar__icon-wrap--clickable" (click)="openNotificationModal()" data-tooltip="Notifications">
       <app-icon name="notification" size="24" class="nav-sidebar__icon"/>
       <span class="nav-sidebar__label">Notifications</span>
     </div>
-    <div class="nav-sidebar__icon-wrap">
+    <div class="nav-sidebar__icon-wrap" data-tooltip="Text Size">
       <app-icon name="text" size="24" class="nav-sidebar__icon"/>
       <span class="nav-sidebar__label">Text Size</span>
     </div>
-    <div class="nav-sidebar__icon-wrap nav-sidebar__icon-wrap--clickable" (click)="toggleLanguage()">
+    <div class="nav-sidebar__icon-wrap nav-sidebar__icon-wrap--clickable" (click)="toggleLanguage()" data-tooltip="Language">
       <app-icon name="language" size="24" class="nav-sidebar__icon"/>
       <span class="nav-sidebar__label">Language</span>
     </div>
-    <div class="nav-sidebar__icon-wrap nav-sidebar__icon-wrap--clickable" (click)="toggleTheme()">
+    <div class="nav-sidebar__icon-wrap nav-sidebar__icon-wrap--clickable" (click)="toggleTheme()" data-tooltip="Dark mode">
       <app-icon [name]="isDarkMode() ? 'sun-light' : 'mode'" size="24" class="nav-sidebar__icon"/>
       <span class="nav-sidebar__label">Dark mode</span>
     </div>

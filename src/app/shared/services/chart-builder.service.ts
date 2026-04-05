@@ -257,7 +257,7 @@ export class ChartBuilderService {
     return {
       chart: {type: hcType, backgroundColor: 'transparent', spacing: [40, 0, 20, 0]},
       title: {text: ''},
-      xAxis: this.buildXAxis(categories),
+      xAxis: this.buildXAxis(categories, horizontal),
       yAxis: this.buildYAxis(yMin, yMax, tickCount, unit, precise),
       legend:  this.legendConfig(),
       tooltip: {enabled: ctx.showTooltip ?? false, hideDelay: 0},
@@ -408,7 +408,7 @@ export class ChartBuilderService {
         spacing: [40, 0, 20, 0],
       },
       title:   {text: ''},
-      xAxis:   this.buildXAxis(categories),
+      xAxis:   this.buildXAxis(categories, horizontal),
       yAxis:   compareSeries.length ? yAxes : yAxes[0],
       legend:  this.legendConfig(),
       tooltip: {enabled: ctx.showTooltip ?? false, hideDelay: 0},
@@ -463,7 +463,7 @@ export class ChartBuilderService {
         spacing: [40, 0, 20, 0],
       },
       title:   {text: ''},
-      xAxis:   this.buildXAxis(categories),
+      xAxis:   this.buildXAxis(categories, horizontal),
       yAxis:   this.buildYAxis(yMin, yMax, tickCount, unit, precise),
       legend:  this.legendConfig(),
       tooltip: {enabled: ctx.showTooltip ?? false, hideDelay: 0},
@@ -810,7 +810,7 @@ export class ChartBuilderService {
     return {
       chart: {type: hcType, backgroundColor: 'transparent', spacing: [40, 0, 20, 0]},
       title:   {text: ''},
-      xAxis:   this.buildXAxis(categories),
+      xAxis:   this.buildXAxis(categories, hcType === 'bar'),
       yAxis:   this.buildYAxis(yMin, yMax, tickCount, unit, precise),
       legend:  this.legendConfig(),
       tooltip: {enabled: ctx.showTooltip ?? false, hideDelay: 0},
@@ -951,14 +951,14 @@ export class ChartBuilderService {
     };
   }
 
-  private buildXAxis(categories: string[]): any {
+  private buildXAxis(categories: string[], horizontal = false): any {
     return {
       visible: true,
       categories,
       labels: {
         enabled: true,
         step: 1,
-        y: 20,
+        y: horizontal ? 4 : 20,
         autoRotation: [] as number[],
         useHTML: true,
         formatter: function(this: any): string {
@@ -967,7 +967,7 @@ export class ChartBuilderService {
         },
       },
       tickmarkPlacement: 'on',
-      offset: 20,
+      offset: horizontal ? 0 : 20,
       lineColor: 'transparent',
       lineWidth: 0,
       tickWidth: 0,
