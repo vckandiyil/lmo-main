@@ -1,7 +1,7 @@
 <div class="marital-activity-status" [class.marital-activity-status--selected]="selected()" (click)="onWidgetClick()">
   <app-flip-card #flipCard>
     <app-widget-checkbox [selected]="selected()" front/>
-    <app-widget-header [title]="'Marital Activity Status'" [icons]="['stars', 'more']" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" front/>
+    <app-widget-header [title]="'Marital Activity Status'" [icons]="['stars', 'more']" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" (removeClick)="removeClick.emit()" front/>
     <div class="marital-activity-status__body" front>
       <div class="marital-activity-status__legend">
         @for (item of statusData; track item.label) {

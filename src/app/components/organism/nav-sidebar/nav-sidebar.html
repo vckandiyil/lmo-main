@@ -1,3 +1,4 @@
+<!-- Desktop/tablet: standard sidebar -->
 <aside class="nav-sidebar" [class.nav-sidebar--expanded]="expanded()">
   <div class="nav-sidebar__top">
     <div class="nav-sidebar__nav">
@@ -55,6 +56,64 @@
     </span>
   </button>
 </aside>
+
+<!-- Mobile: slide-in overlay nav -->
+@if (mobileNavOpen()) {
+  <div class="nav-overlay" (click)="closeMobileNav()">
+    <aside class="nav-overlay__panel" (click)="$event.stopPropagation()">
+      <div class="nav-overlay__header">
+        <span class="nav-overlay__title">Menu</span>
+        <button class="nav-overlay__close" type="button" (click)="closeMobileNav()">
+          <app-icon name="close" size="16"/>
+        </button>
+      </div>
+      <nav class="nav-overlay__nav">
+        <a class="nav-overlay__item" routerLink="/" routerLinkActive="nav-overlay__item--active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileNav()">
+          <app-icon name="home-alt-slim-horiz" size="20"/>
+          <span>Overview</span>
+        </a>
+        <a class="nav-overlay__item" routerLink="/labor-market-insights" routerLinkActive="nav-overlay__item--active" (click)="closeMobileNav()">
+          <app-icon name="stats-up-square" size="20"/>
+          <span>Labor Market Insights</span>
+        </a>
+        <a class="nav-overlay__item" routerLink="/gap-analysis" routerLinkActive="nav-overlay__item--active" (click)="closeMobileNav()">
+          <app-icon name="gap" size="20"/>
+          <span>Gap Analysis</span>
+        </a>
+        <a class="nav-overlay__item" routerLink="/forecast" routerLinkActive="nav-overlay__item--active" (click)="closeMobileNav()">
+          <app-icon name="graph-up" size="20"/>
+          <span>Forecasts</span>
+        </a>
+        <a class="nav-overlay__item" routerLink="/what-if" routerLinkActive="nav-overlay__item--active" (click)="closeMobileNav()">
+          <app-icon name="stats-report" size="20"/>
+          <span>What-If Simulator</span>
+        </a>
+        <a class="nav-overlay__item" (click)="openReportModal(); closeMobileNav()">
+          <app-icon name="page-search" size="20"/>
+          <span>Insights Reports</span>
+        </a>
+        <a class="nav-overlay__item" routerLink="/my-lmo" routerLinkActive="nav-overlay__item--active" (click)="closeMobileNav()">
+          <app-icon name="report-columns" size="20"/>
+          <span>My LMO</span>
+        </a>
+      </nav>
+      <div class="nav-overlay__footer">
+        <a class="nav-overlay__item" (click)="openNotificationModal(); closeMobileNav()">
+          <app-icon name="notification" size="20"/>
+          <span>Notifications</span>
+        </a>
+        <a class="nav-overlay__item" (click)="toggleLanguage()">
+          <app-icon name="language" size="20"/>
+          <span>Language</span>
+        </a>
+        <a class="nav-overlay__item" (click)="toggleTheme()">
+          <app-icon [name]="isDarkMode() ? 'sun-light' : 'mode'" size="20"/>
+          <span>Dark mode</span>
+        </a>
+      </div>
+    </aside>
+  </div>
+}
 
 <app-notification-modal [isOpen]="isNotificationModalOpen()" (closed)="closeNotificationModal()"/>
 <app-report-modal [isOpen]="isReportModalOpen()" (closed)="closeReportModal()"/>

@@ -12,7 +12,7 @@
       {
         "key": "region",
         "label": "Region",
-        "type": "radio",
+        "type": "checkbox",
         "options": [
           "Abu Dhabi Emirates",
           "Abu Dhabi",

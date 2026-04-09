@@ -583,3 +583,179 @@
     white-space: nowrap;
   }
 }
+
+// ---------------------------------------------------------------------------
+// RESPONSIVE: Medium desktop (1200–1440px)
+// ---------------------------------------------------------------------------
+@media (min-width: 1200px) and (max-width: 1699.98px) {
+  .regions-overview {
+    height: auto;
+
+    &__region {
+      padding: 60px 24px 32px;
+    }
+
+    &__title {
+      font-size: 26px;
+      line-height: 32px;
+    }
+
+    &__entrants-columns {
+      gap: 24px;
+    }
+
+    &__edu-col {
+      width: 180px;
+    }
+
+    &__imm-col {
+      width: 200px;
+    }
+
+    &__sub-header {
+      font-size: 16px;
+    }
+
+    &__status-main {
+      width: 100%;
+    }
+
+    &__donut-container {
+      width: 170px;
+      height: 170px;
+    }
+
+    &__donut-legend {
+      width: 200px;
+    }
+
+    &__legend-label,
+    &__legend-value,
+    &__legend-pct {
+      font-size: 14px;
+    }
+
+    &__sectors {
+      width: 100%;
+    }
+
+    &__sector-name {
+      font-size: 16px;
+      min-width: 70px;
+      margin-right: 8px;
+    }
+
+    &__card--bottom {
+      position: static;
+      transform: none;
+      width: 100% !important;
+      margin-top: 16px;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// RESPONSIVE: Tablet
+// ---------------------------------------------------------------------------
+@media (max-width: 1199.98px) {
+  .regions-overview {
+    flex-direction: column;
+    height: auto;
+    background-size: 100% 33%;
+
+    &__region {
+      padding: 60px 40px 80px;
+    }
+
+    &__card--bottom {
+      position: static;
+      transform: none;
+      width: 100% !important;
+      margin-top: 24px;
+    }
+
+    &__status-main {
+      width: 100%;
+    }
+
+    &__sectors {
+      width: 100%;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// RESPONSIVE: Mobile
+// ---------------------------------------------------------------------------
+@media (max-width: 767.98px) {
+  .regions-overview {
+    background-image: none;
+
+    &__region {
+      padding: 40px 16px 60px;
+    }
+
+    &__title {
+      font-size: 24px;
+      line-height: 30px;
+    }
+
+    &__entrants-columns {
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    &__edu-col,
+    &__imm-col {
+      width: 100%;
+    }
+
+    &__status-main {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    &__donut-legend {
+      width: 100%;
+    }
+
+    &__sectors {
+      width: 100%;
+    }
+
+    &__sector-name {
+      font-size: 14px;
+      min-width: 60px;
+      margin-right: 8px;
+    }
+
+    &__mismatch-label {
+      min-width: 0;
+      font-size: 13px;
+      line-height: 18px;
+      white-space: nowrap;
+    }
+
+    &__mismatch-row {
+      gap: 4px;
+    }
+
+    &__friction {
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    &__friction-legend {
+      flex-wrap: wrap;
+    }
+
+    &__legend-label {
+      font-size: 14px;
+    }
+
+    &__legend-value,
+    &__legend-pct {
+      font-size: 14px;
+    }
+  }
+}

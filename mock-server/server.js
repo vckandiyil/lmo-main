@@ -24,7 +24,6 @@ const routes = {
   '/api/laborForceTotal.json': 'laborForceTotal.json',
   '/api/laborForceNationality.json': 'laborForceNationality.json',
   '/api/laborForceGender.json': 'laborForceGender.json',
-  '/api/marketEntrants.json': 'marketEntrants.json',
   '/api/marketEntrantsEducation.json': 'marketEntrantsEducation.json',
   '/api/marketEntrantsImmigration.json': 'marketEntrantsImmigration.json',
   '/api/vacancyRate.json': 'vacancyRate.json',
@@ -102,6 +101,7 @@ const routes = {
   '/api/seniorityPyramidAd.json': 'seniorityPyramidAd.json',
   '/api/talentSourceConcentration.json': 'talentSourceConcentration.json',
   '/api/skillAdjacencyNetworkAd.json': 'skillAdjacencyNetworkAd.json',
+  '/api/maritalActivityStatus.json': 'maritalActivityStatus.json',
 };
 
 const server = http.createServer((req, res) => {

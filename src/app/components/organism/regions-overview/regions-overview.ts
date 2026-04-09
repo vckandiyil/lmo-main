@@ -91,17 +91,17 @@ export class RegionsOverview implements OnInit {
   ]);
 
   ngOnInit(): void {
-    this.dashboardDataService.getData().subscribe({
+    this.dashboardDataService.getMarketEntrantsWidget().subscribe({
       next: (data) => {
-        const maxImm = Math.max(...data.marketEntrants.immigrationData.map(d => d.value));
+        const maxImm = Math.max(...data.immigrationData.map(d => d.value));
         const colorOrder = ['#3375C6', '#6698D4', '#99BBE3'];
-        this.immigrationData.set(data.marketEntrants.immigrationData.map((d, i) => ({
+        this.immigrationData.set(data.immigrationData.map((d, i) => ({
           label: d.label.replace('-skilled', ''),
           value: d.value,
           pct: (d.value / maxImm) * 100,
           color: colorOrder[i] ?? '#3375C6',
         })));
-        this.educationData.set(data.marketEntrants.educationData.map(item => {
+        this.educationData.set(data.educationData.map(item => {
           const total = item.emirati + item.expat;
           const emiratiPct = (item.emirati / total) * 100;
           return {

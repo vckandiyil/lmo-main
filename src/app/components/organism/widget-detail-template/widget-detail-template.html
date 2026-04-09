@@ -11,192 +11,217 @@
   </div>
 
   <div class="widget-detail-template__content">
-    <div class="widget-detail-template__toolbar">
-      <div class="widget-detail-template__toolbar-item">
-        @if (hasForecast()) {
-          <app-button variant="toolbar" [active]="forecastEnabled()" (click)="toggleForecast()">
-            <app-icon buttonIcon name="stats-up-square" size="20"></app-icon>
-            {{ 'LMI.FORECAST' | translate }}
-          </app-button>
-        }
-        @if (hasCompare()) {
-          <app-compare-dropdown [items]="compareItems()" (toggled)="toggleSV($event)"></app-compare-dropdown>
-        }
-      </div>
-      <div class="widget-detail-template__toolbar-item">
-        @if (monthlyChange() !== 0) {
-          <app-change-metric label="M/M" [value]="monthlyChange()"></app-change-metric>
-        }
-        @if (quarterlyChange() !== 0) {
-          <app-change-metric label="Q/Q" [value]="quarterlyChange()"></app-change-metric>
-        }
-        @if (yearlyChange() !== 0) {
-          <app-change-metric label="Y/Y" [value]="yearlyChange()"></app-change-metric>
-        }
-      </div>
-      <div class="widget-detail-template__toolbar-item">
-        <app-bookmark-dropdown
-          [presetNames]="presetNames()"
-          [isBookmarked]="isBookmarked()"
-          (presetSelected)="addToPreset($event)"
-        ></app-bookmark-dropdown>
-        <app-button variant="toolbar-icon" [active]="sortDirection() === 'asc'" (click)="toggleSort('asc')">
-          <app-icon buttonIcon name="nav-arrow-up" size="20"></app-icon>
-        </app-button>
-        <app-button variant="toolbar-icon" [active]="sortDirection() === 'desc'" (click)="toggleSort('desc')">
-          <app-icon buttonIcon name="nav-arrow-down" size="20"></app-icon>
-        </app-button>
-        @if (showOrientationToggle()) {
-          <app-button variant="toolbar-icon" [active]="chartOrientation() === 'horizontal'" (click)="toggleOrientation()">
-            <app-icon buttonIcon [name]="chartOrientation() === 'vertical' ? 'horizontal-bars' : 'vertical-bars'" size="20"></app-icon>
-          </app-button>
-        }
-      </div>
-    </div>
-
-    @if (activeChartType() !== 'table') {
-      <div class="widget-detail-template__chart">
-<app-chart-wrapper [options]="chartOptionsSignal()"></app-chart-wrapper>
-      </div>
-    } @else {
-      <div #tableContainer class="widget-detail-template__data-grid"></div>
-    }
-
-    <div class="widget-detail-template__footer">
-      <div class="widget-detail-template__footer-group">
-<app-range-selector [options]="rangeOptions()" [activeValue]="activeRange()"
-                            (rangeChanged)="setRange($event)"></app-range-selector>
-      </div>
-
-      <div class="widget-detail-template__footer-cards">
-        <div class="widget-detail-template__settings-card">
-          <div class="widget-detail-template__settings-tabs">
-            @for (tab of settingsTabs(); track tab.id) {
-              <div class="widget-detail-template__settings-tab"
-                   [class.widget-detail-template__settings-tab--active]="activeSettingsTab() === tab.id"
-                   (click)="setSettingsTab(tab.id)">
-                <app-icon [name]="tab.icon" size="24"></app-icon>
-              </div>
+    <div class="widget-detail-template__chart-row">
+      <div class="widget-detail-template__chart-area">
+        <div class="widget-detail-template__toolbar">
+          <div class="widget-detail-template__toolbar-item">
+            @if (hasForecast()) {
+              <app-button variant="toolbar" [active]="forecastEnabled()" (click)="toggleForecast()">
+                <app-icon buttonIcon name="stats-up-square" size="20"></app-icon>
+                {{ 'LMI.FORECAST' | translate }}
+              </app-button>
+            }
+            @if (hasCompare()) {
+              <app-compare-dropdown [items]="compareItems()" (toggled)="toggleSV($event)"></app-compare-dropdown>
             }
           </div>
-          <div class="widget-detail-template__settings-body"
-               [class.widget-detail-template__settings-body--first-active]="activeSettingsTab() === settingsTabs()[0]?.id"
-               [class.widget-detail-template__settings-body--comments-active]="activeSettingsTab() === 'comments'">
-            <span class="widget-detail-template__settings-title">{{ activeTab()?.label | translate }}</span>
-
-            @if (activeSettingsTab() === 'download') {
-              <div class="widget-detail-template__settings-group widget-detail-template__settings-group--download">
-                <div class="widget-detail-template__download-formats">
-                  @for (format of downloadFormats(); track format.id) {
-                    <div class="widget-detail-template__download-format">
-                      <div class="widget-detail-template__download-format-icon"
-                           [style.background-color]="format.color">
-                        <app-icon [name]="format.icon" [color]="format.iconColor" size="24"></app-icon>
-                      </div>
-                      <span class="widget-detail-template__download-format-label">{{ format.label }}</span>
-                    </div>
-                  }
-                </div>
-                <label class="widget-detail-template__checkbox">
-                  <input type="checkbox" [checked]="termsAccepted()" (change)="toggleTerms()">
-                  <span class="widget-detail-template__checkbox-mark"></span>
-                  {{ 'LMI.TERMS_AGREE' | translate }} <strong>{{ 'LMI.TERMS_CONDITIONS' | translate }}</strong>
-                </label>
-              </div>
-            } @else if (activeSettingsTab() === 'settings') {
-              <div class="widget-detail-template__settings-group">
-                <div class="widget-detail-template__chart-types">
-                  @for (type of chartTypes(); track type.id) {
-                    <div class="widget-detail-template__chart-type"
-                         [class.widget-detail-template__chart-type--active]="activeChartType() === type.id"
-                         (click)="setChartType(type.id)">
-                      <app-icon [name]="type.icon" size="24"></app-icon>
-                    </div>
-                  }
-                </div>
-                <div class="widget-detail-template__settings-options">
-                  <label class="widget-detail-template__checkbox">
-                    <input type="checkbox" [checked]="showTooltip()" (change)="toggleTooltip()">
-                    <span class="widget-detail-template__checkbox-mark"></span>
-                    {{ 'LMI.TOOLTIP' | translate }}
-                  </label>
-                  <label class="widget-detail-template__checkbox">
-                    <input type="checkbox" [checked]="showDataLabels()" (change)="toggleDataLabels()">
-                    <span class="widget-detail-template__checkbox-mark"></span>
-                    {{ 'LMI.DATA_LABELS' | translate }}
-                  </label>
-                  <label class="widget-detail-template__checkbox">
-                    <input type="checkbox" [checked]="showPreciseValue()" (change)="togglePreciseValue()">
-                    <span class="widget-detail-template__checkbox-mark"></span>
-                    {{ 'LMI.PRECISE_VALUE' | translate }}
-                  </label>
-                </div>
-              </div>
-            } @else if (activeSettingsTab() === 'notifications') {
-              <div class="widget-detail-template__notifications">
-                <div class="widget-detail-template__notification-row">
-                  <app-button variant="toggle" [active]="notificationEnabled1()"
-                              (click)="toggleNotification1()"></app-button>
-                  <span class="widget-detail-template__notification-label">{{ 'LMI.ENABLE_NOTIFICATIONS' | translate }}</span>
-                </div>
-                <div class="widget-detail-template__notification-row">
-                  <app-button variant="toggle" [active]="notificationEnabled2()"
-                              (click)="toggleNotification2()"></app-button>
-                  <span class="widget-detail-template__notification-label">{{ 'LMI.NOTIFICATIONS_EMAIL' | translate }}</span>
-                </div>
-              </div>
-            } @else if (activeSettingsTab() === 'comments') {
-              <div class="widget-detail-template__comments">
-                <div class="widget-detail-template__comment-input-group">
-                  <textarea class="widget-detail-template__comment-textarea"
-                            [placeholder]="'LMI.ADD_COMMENT_PLACEHOLDER' | translate"
-                            [value]="commentText()"
-                            (input)="commentText.set($any($event.target).value)"></textarea>
-                  <div class="widget-detail-template__comment-actions">
-                    <div class="widget-detail-template__comment-buttons">
-                      <app-button variant="comment-add" (click)="addComment()">{{ 'LMI.ADD' | translate }}</app-button>
-                      <app-button variant="comment-cancel" (click)="cancelComment()">{{ 'COMMON.CANCEL' | translate }}</app-button>
-                    </div>
-                    <span class="widget-detail-template__comment-notice">{{ 'LMI.COMMENTS_VISIBLE' | translate }}</span>
-                  </div>
-                </div>
-                @for (comment of comments(); track $index) {
-                  <div class="widget-detail-template__comment-card">
-                    <div class="widget-detail-template__comment-header">
-                      <div class="widget-detail-template__comment-meta">
-                        <span class="widget-detail-template__comment-author">{{ comment.name }}</span>
-                        <span class="widget-detail-template__comment-separator">|</span>
-                        <span class="widget-detail-template__comment-date">{{ 'LMI.CREATED_ON' | translate }} {{ comment.date }}</span>
-                      </div>
-                      <div class="widget-detail-template__comment-links">
-                        <span class="widget-detail-template__comment-link" (click)="editComment($index)">{{ 'LMI.EDIT' | translate }}</span>
-                        <span class="widget-detail-template__comment-link" (click)="removeComment($index)">{{ 'LMI.REMOVE' | translate }}</span>
-                      </div>
-                    </div>
-                    <span class="widget-detail-template__comment-text">{{ comment.text }}</span>
-                  </div>
-                }
-              </div>
-            } @else if (activeSettingsTab() === 'share') {
-              <div class="widget-detail-template__settings-group widget-detail-template__settings-group--download">
-                <div class="widget-detail-template__download-formats">
-                  @for (format of shareFormats(); track format.id) {
-                    <div class="widget-detail-template__download-format">
-                      <img [src]="'assets/images/icons/' + format.icon + '.svg'" [alt]="format.label" width="40"
-                           height="40">
-                      <span class="widget-detail-template__download-format-label">{{ format.label }}</span>
-                    </div>
-                  }
-                </div>
-                <label class="widget-detail-template__checkbox">
-                  <input type="checkbox" [checked]="termsAccepted()" (change)="toggleTerms()">
-                  <span class="widget-detail-template__checkbox-mark"></span>
-                  {{ 'LMI.TERMS_AGREE' | translate }} <strong>{{ 'LMI.TERMS_CONDITIONS' | translate }}</strong>
-                </label>
-              </div>
+          <div class="widget-detail-template__toolbar-item">
+            @if (monthlyChange() !== 0) {
+              <app-change-metric label="M/M" [value]="monthlyChange()"></app-change-metric>
+            }
+            @if (quarterlyChange() !== 0) {
+              <app-change-metric label="Q/Q" [value]="quarterlyChange()"></app-change-metric>
+            }
+            @if (yearlyChange() !== 0) {
+              <app-change-metric label="Y/Y" [value]="yearlyChange()"></app-change-metric>
+            }
+          </div>
+          <div class="widget-detail-template__toolbar-item">
+            <app-bookmark-dropdown
+              [presetNames]="presetNames()"
+              [isBookmarked]="isBookmarked()"
+              (presetSelected)="addToPreset($event)"
+            ></app-bookmark-dropdown>
+            <app-button variant="toolbar-icon" [active]="sortDirection() === 'asc'" (click)="toggleSort('asc')">
+              <app-icon buttonIcon name="nav-arrow-up" size="20"></app-icon>
+            </app-button>
+            <app-button variant="toolbar-icon" [active]="sortDirection() === 'desc'" (click)="toggleSort('desc')">
+              <app-icon buttonIcon name="nav-arrow-down" size="20"></app-icon>
+            </app-button>
+            @if (showOrientationToggle()) {
+              <app-button variant="toolbar-icon" [active]="chartOrientation() === 'horizontal'" (click)="toggleOrientation()">
+                <app-icon buttonIcon [name]="chartOrientation() === 'vertical' ? 'horizontal-bars' : 'vertical-bars'" size="20"></app-icon>
+              </app-button>
             }
           </div>
         </div>
+
+        @if (activeChartType() !== 'table') {
+          <div class="widget-detail-template__chart">
+            <app-chart-wrapper [options]="chartOptionsSignal()"></app-chart-wrapper>
+          </div>
+        } @else {
+          <div #tableContainer class="widget-detail-template__data-grid"></div>
+        }
+
+        @if (rangeOptions().length > 0) {
+          <div class="widget-detail-template__range-row">
+            <app-range-selector [options]="rangeOptions()" [activeValue]="activeRange()"
+                                (rangeChanged)="setRange($event)"
+                                (rangeToggled)="toggleNavigator($event)"></app-range-selector>
+          </div>
+        }
+      </div>
+
+      <div class="widget-detail-template__settings-sidebar">
+        <div class="widget-detail-template__settings-tabs">
+          @for (tab of settingsTabs(); track tab.id) {
+            <div class="widget-detail-template__settings-tab"
+                 [class.widget-detail-template__settings-tab--active]="activeSettingsTab() === tab.id"
+                 (click)="setSettingsTab(tab.id)">
+              <app-icon [name]="tab.icon" size="24"></app-icon>
+            </div>
+          }
+        </div>
+
+        <div class="widget-detail-template__settings-panel"
+             [class.widget-detail-template__settings-panel--first-active]="activeSettingsTab() === settingsTabs()[0]?.id">
+          <span class="widget-detail-template__settings-title">{{ activeTab()?.label | translate }}</span>
+
+          @if (activeSettingsTab() === 'download') {
+            <div class="widget-detail-template__settings-group widget-detail-template__settings-group--download">
+              <div class="widget-detail-template__download-formats">
+                @for (format of downloadFormats(); track format.id) {
+                  <div class="widget-detail-template__download-format">
+                    <div class="widget-detail-template__download-format-icon"
+                         [style.background-color]="format.color">
+                      <app-icon [name]="format.icon" [color]="format.iconColor" size="24"></app-icon>
+                    </div>
+                    <span class="widget-detail-template__download-format-label">{{ format.label }}</span>
+                  </div>
+                }
+              </div>
+              <label class="widget-detail-template__checkbox">
+                <input type="checkbox" [checked]="termsAccepted()" (change)="toggleTerms()">
+                <span class="widget-detail-template__checkbox-mark"></span>
+                {{ 'LMI.TERMS_AGREE' | translate }} <strong>{{ 'LMI.TERMS_CONDITIONS' | translate }}</strong>
+              </label>
+            </div>
+          } @else if (activeSettingsTab() === 'settings') {
+            <div class="widget-detail-template__settings-group">
+              <div class="widget-detail-template__chart-types">
+                @for (type of chartTypes(); track type.id) {
+                  <div class="widget-detail-template__chart-type"
+                       [class.widget-detail-template__chart-type--active]="activeChartType() === type.id"
+                       (click)="setChartType(type.id)">
+                    <app-icon [name]="type.icon" size="24"></app-icon>
+                  </div>
+                }
+              </div>
+              <div class="widget-detail-template__settings-options">
+                <label class="widget-detail-template__checkbox">
+                  <input type="checkbox" [checked]="showTooltip()" (change)="toggleTooltip()">
+                  <span class="widget-detail-template__checkbox-mark"></span>
+                  {{ 'LMI.TOOLTIP' | translate }}
+                </label>
+                <label class="widget-detail-template__checkbox">
+                  <input type="checkbox" [checked]="showDataLabels()" (change)="toggleDataLabels()">
+                  <span class="widget-detail-template__checkbox-mark"></span>
+                  {{ 'LMI.DATA_LABELS' | translate }}
+                </label>
+                <label class="widget-detail-template__checkbox">
+                  <input type="checkbox" [checked]="showPreciseValue()" (change)="togglePreciseValue()">
+                  <span class="widget-detail-template__checkbox-mark"></span>
+                  {{ 'LMI.PRECISE_VALUE' | translate }}
+                </label>
+              </div>
+            </div>
+          } @else if (activeSettingsTab() === 'notifications') {
+            <div class="widget-detail-template__notifications">
+              <div class="widget-detail-template__notification-row">
+                <app-button variant="toggle" [active]="notificationEnabled1()"
+                            (click)="toggleNotification1()"></app-button>
+                <span class="widget-detail-template__notification-label">{{ 'LMI.ENABLE_NOTIFICATIONS' | translate }}</span>
+              </div>
+              <div class="widget-detail-template__notification-row">
+                <app-button variant="toggle" [active]="notificationEnabled2()"
+                            (click)="toggleNotification2()"></app-button>
+                <span class="widget-detail-template__notification-label">{{ 'LMI.NOTIFICATIONS_EMAIL' | translate }}</span>
+              </div>
+            </div>
+          } @else if (activeSettingsTab() === 'comments') {
+            <div class="widget-detail-template__comments">
+              <div class="widget-detail-template__comment-input-group">
+                <textarea class="widget-detail-template__comment-textarea"
+                          [placeholder]="'LMI.ADD_COMMENT_PLACEHOLDER' | translate"
+                          [value]="commentText()"
+                          (input)="commentText.set($any($event.target).value)"></textarea>
+                <div class="widget-detail-template__comment-actions">
+                  <div class="widget-detail-template__comment-buttons">
+                    <app-button variant="comment-add" (click)="addComment()">{{ 'LMI.ADD' | translate }}</app-button>
+                    <app-button variant="comment-cancel" (click)="cancelComment()">{{ 'COMMON.CANCEL' | translate }}</app-button>
+                  </div>
+                  <span class="widget-detail-template__comment-notice">{{ 'LMI.COMMENTS_VISIBLE' | translate }}</span>
+                </div>
+              </div>
+              @for (comment of comments(); track $index) {
+                <div class="widget-detail-template__comment-card">
+                  <div class="widget-detail-template__comment-header">
+                    <div class="widget-detail-template__comment-meta">
+                      <span class="widget-detail-template__comment-author">{{ comment.name }}</span>
+                      <span class="widget-detail-template__comment-separator">|</span>
+                      <span class="widget-detail-template__comment-date">{{ 'LMI.CREATED_ON' | translate }} {{ comment.date }}</span>
+                    </div>
+                    <div class="widget-detail-template__comment-links">
+                      <span class="widget-detail-template__comment-link" (click)="editComment($index)">{{ 'LMI.EDIT' | translate }}</span>
+                      <span class="widget-detail-template__comment-link" (click)="removeComment($index)">{{ 'LMI.REMOVE' | translate }}</span>
+                    </div>
+                  </div>
+                  <span class="widget-detail-template__comment-text">{{ comment.text }}</span>
+                </div>
+              }
+            </div>
+          } @else if (activeSettingsTab() === 'share') {
+            <div class="widget-detail-template__settings-group widget-detail-template__settings-group--download">
+              <div class="widget-detail-template__download-formats">
+                @for (format of shareFormats(); track format.id) {
+                  <div class="widget-detail-template__download-format">
+                    <img [src]="'assets/images/icons/' + format.icon + '.svg'" [alt]="format.label" width="40"
+                         height="40">
+                    <span class="widget-detail-template__download-format-label">{{ format.label }}</span>
+                  </div>
+                }
+              </div>
+              <label class="widget-detail-template__checkbox">
+                <input type="checkbox" [checked]="termsAccepted()" (change)="toggleTerms()">
+                <span class="widget-detail-template__checkbox-mark"></span>
+                {{ 'LMI.TERMS_AGREE' | translate }} <strong>{{ 'LMI.TERMS_CONDITIONS' | translate }}</strong>
+              </label>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="widget-detail-template__footer">
+      <div class="widget-detail-template__footer-cards">
+        @if (aiRecommendation()) {
+          <div class="widget-detail-template__footer-card widget-detail-template__footer-card--ai">
+            <div class="widget-detail-template__footer-card-title">
+              <app-icon name="ai-icon" color="#3375C6" size="24"></app-icon>
+              {{ 'LMI.AI_REC_POLICYMAKERS' | translate }}
+            </div>
+            <div class="widget-detail-template__ai-body">
+              @if (aiRecommendation()?.badge) {
+                <app-badge variant="impact">{{ isArabic() ? (aiRecommendation()?.badge_ar ?? aiRecommendation()?.badge) : aiRecommendation()?.badge }}</app-badge>
+              }
+              <span class="widget-detail-template__ai-subtitle">{{ isArabic() ? (aiRecommendation()?.title_ar ?? aiRecommendation()?.title) : aiRecommendation()?.title }}</span>
+              <span class="widget-detail-template__ai-text">{{ isArabic() ? (aiRecommendation()?.text_ar ?? aiRecommendation()?.text) : aiRecommendation()?.text }}</span>
+              <span class="widget-detail-template__ai-label">{{ 'LMI.RECOMMENDED_BECAUSE' | translate }}</span>
+              <span class="widget-detail-template__ai-text">{{ isArabic() ? (aiRecommendation()?.reason_ar ?? aiRecommendation()?.reason) : aiRecommendation()?.reason }}</span>
+            </div>
+          </div>
+        }
 
         <div class="widget-detail-template__footer-card widget-detail-template__footer-card--metadata">
           <div class="widget-detail-template__footer-card-title">
@@ -217,49 +242,24 @@
             </ul>
           </div>
         </div>
+
+        <div class="widget-detail-template__footer-card widget-detail-template__footer-card--highlights">
+          <div class="widget-detail-template__footer-card-title">
+            <app-icon name="triangle-flag" color="#3375C6" size="24"></app-icon>
+            {{ 'LMI.TOP_HIGHLIGHTS' | translate }}
+          </div>
+          <div class="widget-detail-template__footer-card-list">
+            <ul class="widget-detail-template__footer-card-content">
+              @for (item of highlights(); track item.label) {
+                <li><span>{{ item.label }}: <span
+                  class="widget-detail-template__highlight-value">{{ item.value }}</span></span></li>
+              }
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
-  @if (aiRecommendation()) {
-    <div class="widget-detail-template__panels">
-      <div class="widget-detail-template__panel widget-detail-template__panel--main">
-        <div class="widget-detail-template__panel-header">
-          <app-icon name="ai-icon" color="#3375C6" size="24"></app-icon>
-          <span class="widget-detail-template__panel-title">{{ 'LMI.AI_REC_POLICYMAKERS' | translate }}</span>
-        </div>
-        <div class="widget-detail-template__panel-body">
-          <div class="widget-detail-template__panel-section">
-            @if (aiRecommendation()?.badge) {
-              <app-badge variant="impact">{{ isArabic() ? (aiRecommendation()?.badge_ar ?? aiRecommendation()?.badge) : aiRecommendation()?.badge }}</app-badge>
-            }
-            <div class="widget-detail-template__panel-text-group">
-              <span class="widget-detail-template__panel-subtitle">{{ isArabic() ? (aiRecommendation()?.title_ar ?? aiRecommendation()?.title) : aiRecommendation()?.title }}</span>
-              <span class="widget-detail-template__panel-text">{{ isArabic() ? (aiRecommendation()?.text_ar ?? aiRecommendation()?.text) : aiRecommendation()?.text }}</span>
-            </div>
-          </div>
-          <div class="widget-detail-template__panel-section">
-            <span class="widget-detail-template__panel-label">{{ 'LMI.RECOMMENDED_BECAUSE' | translate }}</span>
-            <span class="widget-detail-template__panel-text">{{ isArabic() ? (aiRecommendation()?.reason_ar ?? aiRecommendation()?.reason) : aiRecommendation()?.reason }}</span>
-          </div>
-        </div>
-      </div>
-      <div class="widget-detail-template__panel widget-detail-template__panel--aside">
-        <div class="widget-detail-template__panel-header">
-          <app-icon name="triangle-flag" color="#3375C6" size="24"></app-icon>
-          <span class="widget-detail-template__panel-title">{{ 'LMI.TOP_HIGHLIGHTS' | translate }}</span>
-        </div>
-        <div class="widget-detail-template__panel-list">
-          <ul class="widget-detail-template__footer-card-content widget-detail-template__footer-card-content--panel">
-            @for (item of highlights(); track item.label) {
-              <li><span>{{ item.label }}: <span
-                class="widget-detail-template__highlight-value">{{ item.value }}</span></span></li>
-            }
-          </ul>
-        </div>
-      </div>
-    </div>
-  }
 </div>
 
 <app-metadata-modal [isOpen]="metadataModalOpen()" [items]="metaData()"

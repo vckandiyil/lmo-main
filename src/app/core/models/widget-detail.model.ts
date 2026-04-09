@@ -24,6 +24,7 @@ export interface ChartBuildContext {
   showTooltip?: boolean;
   showDataLabels?: boolean;
   showPreciseValue?: boolean;
+  navigatorEnabled?: boolean;
   multiSeries?: MultiSeriesItem[];
 }
 

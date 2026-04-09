@@ -108,6 +108,7 @@
     "CHART_TYPE_STACKED": "Stacked",
     "MORE_WHAT_IF": "What-If-Simulator",
     "MORE_DOWNLOAD": "Download Data",
+    "MORE_REMOVE": "Remove Widget",
     "AI_INSIGHT": "AI Insight"
   },
   "LMI": {
@@ -189,6 +190,7 @@
     "RESET": "Reset",
     "APPLY_FILTERS": "Apply Filters",
     "FORECAST": "Forecast",
+    "RANGE": "Range",
     "STATISTICAL_METADATA": "Statistical Metadata",
     "METADATA_METHODOLOGY": "Metadata & Methodology",
     "AI_REC_POLICYMAKERS": "AI Recommendation for Policymakers",

@@ -1,7 +1,7 @@
 <div class="workforce-structure" [class.workforce-structure--selected]="selected()" (click)="onWidgetClick()">
   <app-flip-card #flipCard>
     <app-widget-checkbox [selected]="selected()" front/>
-    <app-widget-header [title]="'Workforce Structure'" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" front/>
+    <app-widget-header [title]="'Workforce Structure'" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" (removeClick)="removeClick.emit()" front/>
     <div class="workforce-structure__body" front>
       <div class="workforce-structure__section workforce-structure__section--age" (click)="onAgeDistributionClick($event)">
         <span class="workforce-structure__section-title">Age distribution</span>

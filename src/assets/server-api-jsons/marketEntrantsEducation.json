@@ -7,7 +7,7 @@
     "title": "Market Entrants by Education Level",
     "type": "scad",
     "compare": false,
-    "unit": "thousands",
+    "unit": "",
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
@@ -70,11 +70,11 @@
         "label": "Market Entrants by Education Level",
         "series": [
           {
-            "id": "secondary-education",
+            "id": "secondary-education-emirati",
             "type": "solid",
             "color": "#3375C6",
             "group": "secondary-education",
-            "label": "Secondary Education",
+            "label": "Secondary Education - Emirati",
             "xAccessor": {
               "path": "YEAR",
               "type": "category"
@@ -84,21 +84,21 @@
               "type": "value"
             },
             "data": [
-              { "YEAR": "2018", "VALUE": 32.1 },
-              { "YEAR": "2019", "VALUE": 34.5 },
-              { "YEAR": "2020", "VALUE": 28.6 },
-              { "YEAR": "2021", "VALUE": 33.8 },
-              { "YEAR": "2022", "VALUE": 39.2 },
-              { "YEAR": "2023", "VALUE": 43.5 },
-              { "YEAR": "2024", "VALUE": 47.4 }
+              { "YEAR": "2018", "VALUE": 23500 },
+              { "YEAR": "2019", "VALUE": 25300 },
+              { "YEAR": "2020", "VALUE": 20900 },
+              { "YEAR": "2021", "VALUE": 24800 },
+              { "YEAR": "2022", "VALUE": 28700 },
+              { "YEAR": "2023", "VALUE": 31900 },
+              { "YEAR": "2024", "VALUE": 34700 }
             ]
           },
           {
-            "id": "higher-education",
-            "type": "solid",
-            "color": "#58B799",
-            "group": "higher-education",
-            "label": "Higher Education",
+            "id": "secondary-education-expat",
+            "type": "dashed",
+            "color": "#84A7D3",
+            "group": "secondary-education",
+            "label": "Secondary Education - Expat",
             "xAccessor": {
               "path": "YEAR",
               "type": "category"
@@ -108,13 +108,61 @@
               "type": "value"
             },
             "data": [
-              { "YEAR": "2018", "VALUE": 28.4 },
-              { "YEAR": "2019", "VALUE": 31.3 },
-              { "YEAR": "2020", "VALUE": 25.7 },
-              { "YEAR": "2021", "VALUE": 30.8 },
-              { "YEAR": "2022", "VALUE": 38.5 },
-              { "YEAR": "2023", "VALUE": 46.2 },
-              { "YEAR": "2024", "VALUE": 55.3 }
+              { "YEAR": "2018", "VALUE": 8600 },
+              { "YEAR": "2019", "VALUE": 9200 },
+              { "YEAR": "2020", "VALUE": 7700 },
+              { "YEAR": "2021", "VALUE": 9000 },
+              { "YEAR": "2022", "VALUE": 10500 },
+              { "YEAR": "2023", "VALUE": 11600 },
+              { "YEAR": "2024", "VALUE": 12700 }
+            ]
+          },
+          {
+            "id": "higher-education-emirati",
+            "type": "solid",
+            "color": "#58B799",
+            "group": "higher-education",
+            "label": "Higher Education - Emirati",
+            "xAccessor": {
+              "path": "YEAR",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              { "YEAR": "2018", "VALUE": 20300 },
+              { "YEAR": "2019", "VALUE": 22400 },
+              { "YEAR": "2020", "VALUE": 18400 },
+              { "YEAR": "2021", "VALUE": 22000 },
+              { "YEAR": "2022", "VALUE": 27500 },
+              { "YEAR": "2023", "VALUE": 33000 },
+              { "YEAR": "2024", "VALUE": 39500 }
+            ]
+          },
+          {
+            "id": "higher-education-expat",
+            "type": "dashed",
+            "color": "#A1CBBD",
+            "group": "higher-education",
+            "label": "Higher Education - Expat",
+            "xAccessor": {
+              "path": "YEAR",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              { "YEAR": "2018", "VALUE": 8100 },
+              { "YEAR": "2019", "VALUE": 8900 },
+              { "YEAR": "2020", "VALUE": 7300 },
+              { "YEAR": "2021", "VALUE": 8800 },
+              { "YEAR": "2022", "VALUE": 11000 },
+              { "YEAR": "2023", "VALUE": 13200 },
+              { "YEAR": "2024", "VALUE": 15800 }
             ]
           }
         ],

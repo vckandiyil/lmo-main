@@ -49,6 +49,7 @@ export class WidgetCard {
 
   selectedChange  = output<void>();
   expandClick     = output<void>();
+  removeClick     = output<void>();
   chartTypeChange = output<string>();
 
   readonly backMode = signal<'ai' | 'info' | 'download'>('ai');
@@ -70,6 +71,7 @@ export class WidgetCard {
       ...(chartTypesItem ? [chartTypesItem] : []),
       {icon: 'forked-arrow', label: 'HOME.MORE_WHAT_IF'},
       {icon: 'download-data-window', label: 'HOME.MORE_DOWNLOAD'},
+      {icon: 'delete-circle', label: 'HOME.MORE_REMOVE'},
     ];
   });
 

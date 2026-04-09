@@ -624,6 +624,11 @@
 
   }
 
+  // Mobile nav button — hidden on desktop
+  &__mobile-nav-btn {
+    display: none;
+  }
+
   // Mobile filter button — hidden on desktop
   &__mobile-filter-btn {
     display: none;
@@ -878,6 +883,27 @@
 
     &__submit-section {
       display: none;
+    }
+
+    // Show the mobile nav button (hamburger)
+    &__mobile-nav-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      background: var(--lmo-bg-surface);
+      border: 1px solid var(--lmo-border-color);
+      border-radius: 50%;
+      cursor: pointer;
+      color: #697D92;
+
+      :host-context(body.theme--dark) & {
+        background: var(--lmo-bg-card);
+        border-color: #364151;
+        color: #9BA8B7;
+      }
     }
 
     // Show the mobile filter button

@@ -217,64 +217,155 @@
 }
 
 // ---------------------------------------------------------------------------
-// RESPONSIVE: Mobile — compact nav sidebar (48px)
+// RESPONSIVE: Mobile — hide fixed sidebar, show overlay when triggered
 // ---------------------------------------------------------------------------
 @media (max-width: 767.98px) {
   .nav-sidebar {
-    width: 48px;
-    padding: 8px 4px 12px;
+    display: none;
+  }
+}
+
+// Mobile nav overlay
+.nav-overlay {
+  display: none;
+
+  @media (max-width: 767.98px) {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    z-index: 1060;
+    background: rgba(0, 0, 0, 0.4);
+    animation: navOverlayFadeIn 0.2s ease;
+  }
+
+  &__panel {
+    width: 280px;
+    max-width: 85vw;
+    height: 100%;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    animation: navPanelSlideIn 0.25s ease-out;
     overflow-y: auto;
-    overflow-x: hidden;
-    scrollbar-width: none;
 
-    &::-webkit-scrollbar {
-      display: none;
+    :host-context(body.theme--dark) & {
+      background: var(--lmo-bg-card);
     }
 
-    // Never expand on mobile
-    &--expanded {
-      width: 48px;
-    }
-
-    &__toggle {
-      display: none;
-    }
-
-    &__nav-item {
-      width: 40px;
-      height: 40px;
-      padding: 0;
-      justify-content: center;
-      border-radius: 10px;
-    }
-
-    &__icon-wrap {
-      width: 40px;
-      height: 40px;
-      padding: 0;
-      justify-content: center;
-      border-radius: 10px;
-    }
-
-    &__icon {
-      width: 20px;
-      height: 20px;
-    }
-
-    &__nav {
-      gap: 2px;
-    }
-
-    &__bottom {
-      gap: 2px;
-    }
-
-    &__label {
-      display: none;
-    }
-
-    [data-tooltip]::after {
-      display: none;
+    :host-context([dir='rtl']) & {
+      margin-left: auto;
+      animation: navPanelSlideInRtl 0.25s ease-out;
     }
   }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid #E5E7EB;
+
+    :host-context(body.theme--dark) & {
+      border-bottom-color: #364151;
+    }
+  }
+
+  &__title {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: #05264A;
+
+    :host-context(body.theme--dark) & {
+      color: #FFFFFF;
+    }
+  }
+
+  &__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-radius: 8px;
+    color: #6A7180;
+
+    &:hover {
+      background: #F3F4F6;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 12px;
+    flex: 1;
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 12px;
+    border-top: 1px solid #E5E7EB;
+
+    :host-context(body.theme--dark) & {
+      border-top-color: #364151;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 10px;
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: #364151;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease;
+
+    :host-context(body.theme--dark) & {
+      color: #CDD4DB;
+    }
+
+    &:hover {
+      background: #F3F4F6;
+
+      :host-context(body.theme--dark) & {
+        background: #1F2937;
+      }
+    }
+
+    &--active {
+      background: #EBF2FA;
+      color: #2563EA;
+      font-weight: 500;
+
+      :host-context(body.theme--dark) & {
+        background: #1E3A5F;
+        color: #60A5FA;
+      }
+    }
+  }
+}
+
+@keyframes navOverlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes navPanelSlideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes navPanelSlideInRtl {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
 }

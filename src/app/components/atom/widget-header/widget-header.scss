@@ -58,3 +58,18 @@
     }
   }
 }
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .widget-header {
+    &__icons {
+      gap: 10px;
+    }
+
+    &__icon {
+      ::ng-deep app-icon svg {
+        width: 20px !important;
+        height: 20px !important;
+      }
+    }
+  }
+}

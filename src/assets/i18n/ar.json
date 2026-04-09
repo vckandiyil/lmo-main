@@ -108,6 +108,7 @@
     "CHART_TYPE_STACKED": "مكدس",
     "MORE_WHAT_IF": "محاكي الافتراضات",
     "MORE_DOWNLOAD": "تحميل البيانات",
+    "MORE_REMOVE": "إزالة الأداة",
     "AI_INSIGHT": "تحليل ذكي"
   },
   "LMI": {
@@ -189,6 +190,7 @@
     "RESET": "إعادة ضبط",
     "APPLY_FILTERS": "تطبيق الفلاتر",
     "FORECAST": "التوقعات",
+    "RANGE": "النطاق",
     "STATISTICAL_METADATA": "البيانات الوصفية الإحصائية",
     "METADATA_METHODOLOGY": "البيانات الوصفية والمنهجية",
     "AI_REC_POLICYMAKERS": "توصيات الذكاء الاصطناعي لصانعي السياسات",

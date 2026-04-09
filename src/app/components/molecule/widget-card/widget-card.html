@@ -10,6 +10,7 @@
       (infoClick)="backMode.set('info'); flipCard.toggle()"
       (downloadClick)="backMode.set('download'); flipCard.toggle()"
       (expandClick)="expandClick.emit()"
+      (removeClick)="removeClick.emit()"
       (chartTypeChange)="chartTypeChange.emit($event)"
       front/>
     <div class="widget-card__body" front>

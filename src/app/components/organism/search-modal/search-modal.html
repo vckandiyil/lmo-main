@@ -109,7 +109,13 @@
                   <div class="search-modal__col">
                     @for (type of col1Types(); track type) {
                       <div class="search-modal__widget-wrapper">
-                        <ng-container [ngComponentOutlet]="getWidgetComponent(type)"/>
+                        @if (type === WidgetType.Map) {
+                          <app-map-widget-card/>
+                        } @else if (isCustomWidget(type)) {
+                          <ng-container [ngComponentOutlet]="getWidgetComponent(type)"/>
+                        } @else {
+                          <app-generic-widget-card [widgetType]="type"/>
+                        }
                       </div>
                     }
                   </div>
@@ -118,7 +124,13 @@
                   <div class="search-modal__col">
                     @for (type of col2Types(); track type) {
                       <div class="search-modal__widget-wrapper">
-                        <ng-container [ngComponentOutlet]="getWidgetComponent(type)"/>
+                        @if (type === WidgetType.Map) {
+                          <app-map-widget-card/>
+                        } @else if (isCustomWidget(type)) {
+                          <ng-container [ngComponentOutlet]="getWidgetComponent(type)"/>
+                        } @else {
+                          <app-generic-widget-card [widgetType]="type"/>
+                        }
                       </div>
                     }
                   </div>
@@ -127,12 +139,44 @@
                   <div class="search-modal__col">
                     @for (type of col3Types(); track type) {
                       <div class="search-modal__widget-wrapper">
-                        <ng-container [ngComponentOutlet]="getWidgetComponent(type)"/>
+                        @if (type === WidgetType.Map) {
+                          <app-map-widget-card/>
+                        } @else if (isCustomWidget(type)) {
+                          <ng-container [ngComponentOutlet]="getWidgetComponent(type)"/>
+                        } @else {
+                          <app-generic-widget-card [widgetType]="type"/>
+                        }
                       </div>
                     }
                   </div>
                 }
               </div>
+
+              @if (totalPages() > 1) {
+                <div class="search-modal__pagination">
+                  <button
+                    class="search-modal__pagination-btn"
+                    [class.search-modal__pagination-btn--disabled]="currentPage() === 1"
+                    (click)="prevPage()"
+                  >
+                    <app-icon name="nav-arrow-left" size="16"/>
+                  </button>
+                  @for (page of pageNumbers(); track page) {
+                    <button
+                      class="search-modal__pagination-page"
+                      [class.search-modal__pagination-page--active]="currentPage() === page"
+                      (click)="goToPage(page)"
+                    >{{ page }}</button>
+                  }
+                  <button
+                    class="search-modal__pagination-btn"
+                    [class.search-modal__pagination-btn--disabled]="currentPage() === totalPages()"
+                    (click)="nextPage()"
+                  >
+                    <app-icon name="nav-arrow-right" size="16"/>
+                  </button>
+                </div>
+              }
             </div>
           </div>
         </div>

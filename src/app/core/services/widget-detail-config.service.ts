@@ -94,7 +94,7 @@ export class WidgetDetailConfigService {
 
     const chartConfig: WidgetChartConfig = {
       type:       chartType,
-      dimensions: {width: 960, height: 428},
+      dimensions: {height: 428},
       ...(d.orientation ? {orientation: d.orientation} : {}),
       ...(isStacked ? {stacking: viz?.stacking as 'normal' | 'percent'} : {}),
       yAxis: {
@@ -153,7 +153,7 @@ export class WidgetDetailConfigService {
       ?? (firstSeries?.xAccessor?.type === 'category' ? firstSeries?.xAccessor?.path : undefined)
       ?? firstSeries?.nameAccessor?.path;
     const series: WidgetDetailSeriesPoint[] = (totalSeriesDef?.data ?? []).map((p: WidgetApiSeriesPoint) => ({
-      year:  (nameKey ? p[nameKey] : p.YEAR) ?? '',
+      year:  p.YEAR ?? (nameKey ? p[nameKey] : '') ?? '',
       value: isPercent ? Math.round(p.VALUE * 10) / 10 : p.VALUE,
     }));
 
@@ -229,7 +229,7 @@ export class WidgetDetailConfigService {
           .filter((c: WidgetApiCompareIndicator) => c.data)
           .map((c: WidgetApiCompareIndicator) => {
             const normData = (c.data ?? []).map((point: any) => ({
-              YEAR:  nameKey ? point[nameKey] : (point.YEAR ?? ''),
+              YEAR:  point.YEAR ?? '',
               VALUE: point.VALUE,
             }));
             return [c.id, {title: c.title, data: normData}];

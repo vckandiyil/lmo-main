@@ -1,11 +1,11 @@
 <button class="advanced-filters-panel__trigger" type="button" (click)="toggle()">
-  <span class="advanced-filters-panel__trigger-text">Advanced Filters</span>
+  <span class="advanced-filters-panel__trigger-text">More Filters</span>
   <app-icon name="nav-arrow-down" size="20" class="advanced-filters-panel__trigger-icon" [class.advanced-filters-panel__trigger-icon--open]="isOpen()"/>
 </button>
 
 @if (isOpen()) {
   <div class="advanced-filters-panel__panel">
-    <span class="advanced-filters-panel__title">Advanced Filters</span>
+    <span class="advanced-filters-panel__title">More Filters</span>
     <div class="advanced-filters-panel__dropdowns">
       <app-dropdown
         [placeholder]="'HOME.CITIZENSHIP' | translate"

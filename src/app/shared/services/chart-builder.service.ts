@@ -24,24 +24,30 @@ export class ChartBuilderService {
     series: WidgetDetailSeriesPoint[],
     ctx: ChartBuildContext,
   ): ChartOptions {
+    let opts: ChartOptions;
     switch (config.type) {
-      case 'line':           return this.buildLine(config, series, ctx);
-      case 'bar':            return this.buildBar(config, series, ctx);
-      case 'column':         return this.buildColumn(config, series, ctx);
+      case 'line':           opts = this.buildLine(config, series, ctx); break;
+      case 'bar':            opts = this.buildBar(config, series, ctx); break;
+      case 'column':         opts = this.buildColumn(config, series, ctx); break;
       case 'pie':
-      case 'donut':          return this.buildPie(config, series, ctx);
-      case 'stacked-bar':    return this.buildStackedBar(config, ctx);
-      case 'grouped-column': return this.buildGroupedColumn(config, ctx);
-      case 'heatmap':        return this.buildHeatmap(config, series, ctx);
-      case 'bubble':         return this.buildBubble(config, series, ctx);
-      case 'solidgauge':     return this.buildSolidGauge(config, series, ctx);
-      case 'columnrange':    return this.buildColumnRange(config, series, ctx);
-      case 'funnel':         return this.buildFunnel(config, series, ctx);
-      case 'networkgraph':   return this.buildNetworkGraph(config, series, ctx);
-      case 'spline':         return this.buildSpline(config, series, ctx);
-      case 'treemap':        return this.buildTreemap(config, series, ctx);
-      default:               return this.buildCustom(config.type, config, series, ctx);
+      case 'donut':          opts = this.buildPie(config, series, ctx); break;
+      case 'stacked-bar':    opts = this.buildStackedBar(config, ctx); break;
+      case 'grouped-column': opts = this.buildGroupedColumn(config, ctx); break;
+      case 'heatmap':        opts = this.buildHeatmap(config, series, ctx); break;
+      case 'bubble':         opts = this.buildBubble(config, series, ctx); break;
+      case 'solidgauge':     opts = this.buildSolidGauge(config, series, ctx); break;
+      case 'columnrange':    opts = this.buildColumnRange(config, series, ctx); break;
+      case 'funnel':         opts = this.buildFunnel(config, series, ctx); break;
+      case 'networkgraph':   opts = this.buildNetworkGraph(config, series, ctx); break;
+      case 'spline':         opts = this.buildSpline(config, series, ctx); break;
+      case 'treemap':        opts = this.buildTreemap(config, series, ctx); break;
+      default:               opts = this.buildCustom(config.type, config, series, ctx); break;
     }
+    if (ctx.navigatorEnabled) {
+      (opts as any).navigator = {enabled: true, height: 40, margin: 15};
+      (opts as any).scrollbar = {enabled: false};
+    }
+    return opts;
   }
 
   // ---------------------------------------------------------------------------

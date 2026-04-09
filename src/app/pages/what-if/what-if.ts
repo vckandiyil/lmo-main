@@ -5,11 +5,12 @@ import {WhatIfSidebar} from '../../components/organism/what-if-sidebar/what-if-s
 import {ChartCard} from '../../components/molecule/chart-card/chart-card';
 import {WidgetCatalogService} from '../../core/services/widget-catalog.service';
 import {FilterStateService} from '../../core/services/filter-state.service';
+import {LmiBar} from '../../components/organism/lmi-bar/lmi-bar';
 
 @Component({
   selector: 'app-what-if',
   standalone: true,
-  imports: [Filters, WhatIfSidebar, ChartCard],
+  imports: [Filters, WhatIfSidebar, ChartCard, LmiBar],
   templateUrl: './what-if.html',
   styleUrl: './what-if.scss',
 })

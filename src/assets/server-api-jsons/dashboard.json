@@ -154,34 +154,6 @@
       "rightValue": 770344
     }
   },
-  "marketEntrants": {
-    "educationData": [
-      {
-        "label": "Secondary Education",
-        "emirati": 34.7,
-        "expat": 12.7
-      },
-      {
-        "label": "Higher Education",
-        "emirati": 39.5,
-        "expat": 15.8
-      }
-    ],
-    "immigrationData": [
-      {
-        "label": "High-skilled",
-        "value": 11
-      },
-      {
-        "label": "Medium-skilled",
-        "value": 15.7
-      },
-      {
-        "label": "Low-skilled",
-        "value": 27.5
-      }
-    ]
-  },
   "sectorGapsOpportunities": {
     "sectors": [
       {
@@ -348,30 +320,6 @@
       "2023",
       "2024",
       "2025"
-    ]
-  },
-  "maritalActivityStatus": {
-    "statusData": [
-      {
-        "label": "Never Married",
-        "value": 1260000
-      },
-      {
-        "label": "Married",
-        "value": 1890000
-      },
-      {
-        "label": "Divorced",
-        "value": 210000
-      },
-      {
-        "label": "Widowed",
-        "value": 105000
-      },
-      {
-        "label": "Unknown",
-        "value": 35000
-      }
     ]
   }
 }

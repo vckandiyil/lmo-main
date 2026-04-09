@@ -1,11 +1,11 @@
 import {Component, inject, input, OnInit, output, signal} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 import {ChartWrapper} from '../../molecule/chart-wrapper/chart-wrapper';
 import {WidgetHeader} from '../../atom/widget-header/widget-header';
 import {WidgetCheckbox} from '../../atom/widget-checkbox/widget-checkbox';
 import {FlipCard} from '../../atom/flip-card/flip-card';
 import {WidgetBack} from '../../atom/widget-back/widget-back';
 import {ChartOptions} from '../../../shared/services/chart-config.service';
-import {DashboardDataService} from '../../../core';
 
 const STATUS_COLORS: Record<string, string> = {
   'Never Married': '#1E4B7A',
@@ -29,7 +29,7 @@ interface StatusDataItem {
   styleUrl: './marital-activity-status.scss',
 })
 export class MaritalActivityStatus implements OnInit {
-  private readonly dashboardDataService = inject(DashboardDataService);
+  private readonly http = inject(HttpClient);
 
   statusData: StatusDataItem[] = [];
   total = 0;
@@ -38,6 +38,7 @@ export class MaritalActivityStatus implements OnInit {
   selected = input(false);
   selectedChange = output<void>();
   expandClick = output<void>();
+  removeClick = output<void>();
 
   onWidgetClick(): void {
     this.selectedChange.emit();
@@ -48,12 +49,13 @@ export class MaritalActivityStatus implements OnInit {
   }
 
   private loadData(): void {
-    this.dashboardDataService.getData().subscribe({
+    this.http.get<{data: {visualizations: Array<{series: Array<{label: string; data: Array<{VALUE: number}>}>}>}}>('assets/server-api-jsons/maritalActivityStatus.json').subscribe({
       next: (response) => {
-        const data = response.maritalActivityStatus;
-        this.statusData = data.statusData.map((item) => ({
-          ...item,
-          color: STATUS_COLORS[item.label] ?? '#C4C8CF',
+        const series = response.data.visualizations[0].series;
+        this.statusData = series.map((s) => ({
+          label: s.label,
+          value: s.data[s.data.length - 1].VALUE,
+          color: STATUS_COLORS[s.label] ?? '#C4C8CF',
         }));
         this.total = this.statusData.reduce((sum, item) => sum + item.value, 0);
         this.buildChart();

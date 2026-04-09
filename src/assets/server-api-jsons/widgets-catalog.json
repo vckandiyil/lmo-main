@@ -9,7 +9,7 @@
         "Outside Labor Force"
       ],
       "hasSidebarComponent": true,
-      "hasDetailView": true,
+      "hasDetailView": false,
       "hasExpandIcon": false,
       "hidden": false
     },

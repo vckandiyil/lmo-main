@@ -1,4 +1,4 @@
-import {Component, computed, effect, ElementRef, inject, input, output, signal, Type, ViewChild} from '@angular/core';
+import {Component, computed, effect, ElementRef, inject, input, output, signal, Type, untracked, ViewChild} from '@angular/core';
 import {NgComponentOutlet} from '@angular/common';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {animate, style, transition, trigger} from '@angular/animations';
@@ -8,12 +8,15 @@ import {WidgetType} from '../../../core';
 import type {AiOverviewResponse, AiOverview} from '../../../core';
 import {WidgetCatalogService} from '../../../core/services/widget-catalog.service';
 import {ALL_WIDGET_COMPONENTS, WIDGET_COMPONENT_MAP} from '../widgets';
+import {GenericWidgetCard} from '../../molecule/generic-widget-card/generic-widget-card';
+import {MapWidgetCard} from '../../molecule/map-widget-card/map-widget-card';
+import {Icon} from '../../atom/icon/icon';
 import type {WidgetCatalogEntry} from '../../../core/models/widget-catalog.model';
 
 @Component({
   selector: 'app-search-modal',
   standalone: true,
-  imports: [...ALL_WIDGET_COMPONENTS, NgComponentOutlet],
+  imports: [...ALL_WIDGET_COMPONENTS, NgComponentOutlet, GenericWidgetCard, MapWidgetCard, Icon],
   templateUrl: './search-modal.html',
   styleUrl: './search-modal.scss',
   animations: [
@@ -45,9 +48,12 @@ export class SearchModal {
   readonly aiOverview      = signal<AiOverview | null>(null);
 
   private readonly catalogEntries = toSignal(
-    this.catalogService.getSidebarWidgets(),
+    this.catalogService.getAllVisibleWidgets(),
     {initialValue: [] as WidgetCatalogEntry[]},
   );
+
+  readonly currentPage = signal(1);
+  readonly ITEMS_PER_PAGE = 8;
 
   readonly allWidgetTypes = computed(() =>
     this.catalogEntries().map(e => e.id as WidgetType),
@@ -57,17 +63,30 @@ export class SearchModal {
     this.allWidgetTypes().filter(type => this.isWidgetVisible(type)),
   );
 
-  /** Distribute widgets evenly across 3 columns. */
+  readonly totalPages = computed(() =>
+    Math.max(1, Math.ceil(this.visibleWidgetTypes().length / this.ITEMS_PER_PAGE)),
+  );
+
+  readonly paginatedWidgetTypes = computed(() => {
+    const start = (this.currentPage() - 1) * this.ITEMS_PER_PAGE;
+    return this.visibleWidgetTypes().slice(start, start + this.ITEMS_PER_PAGE);
+  });
+
+  readonly pageNumbers = computed(() =>
+    Array.from({length: this.totalPages()}, (_, i) => i + 1),
+  );
+
+  /** Adaptive breakpoints: col 1 always gets up to 2 items, remainder splits evenly into col 2 & 3. */
   private readonly colBreakpoints = computed((): [number, number] => {
-    const n    = this.visibleWidgetTypes().length;
-    const col1 = Math.ceil(n / 3);
+    const n    = this.paginatedWidgetTypes().length;
+    const col1 = Math.min(2, n);
     const col2 = Math.ceil((n - col1) / 2);
     return [col1, col1 + col2];
   });
 
-  readonly col1Types = computed(() => this.visibleWidgetTypes().slice(0, this.colBreakpoints()[0]));
-  readonly col2Types = computed(() => this.visibleWidgetTypes().slice(this.colBreakpoints()[0], this.colBreakpoints()[1]));
-  readonly col3Types = computed(() => this.visibleWidgetTypes().slice(this.colBreakpoints()[1]));
+  readonly col1Types = computed(() => this.paginatedWidgetTypes().slice(0, this.colBreakpoints()[0]));
+  readonly col2Types = computed(() => this.paginatedWidgetTypes().slice(this.colBreakpoints()[0], this.colBreakpoints()[1]));
+  readonly col3Types = computed(() => this.paginatedWidgetTypes().slice(this.colBreakpoints()[1]));
 
   constructor() {
     effect(() => {
@@ -78,6 +97,12 @@ export class SearchModal {
       }
     });
 
+    // Reset to first page whenever search results change.
+    effect(() => {
+      this.submittedQuery();
+      untracked(() => this.currentPage.set(1));
+    });
+
     this.loadAiOverview();
   }
 
@@ -86,6 +111,12 @@ export class SearchModal {
       next: (data) => this.aiOverview.set(data.aiOverview),
       error: (err) => console.error('Failed to load AI overview data:', err)
     });
+  }
+
+  readonly WidgetType = WidgetType;
+
+  isCustomWidget(type: WidgetType): boolean {
+    return type in WIDGET_COMPONENT_MAP;
   }
 
   getWidgetComponent(type: WidgetType): Type<unknown> {
@@ -99,7 +130,26 @@ export class SearchModal {
   isWidgetVisible(type: WidgetType): boolean {
     const search = this.submittedQuery().toLowerCase().trim();
     if (!search) return false;
-    return this.getWidgetTitle(type).toLowerCase().includes(search);
+    const entry = this.catalogEntries().find(e => e.id === type);
+    const matchesTitle    = this.getWidgetTitle(type).toLowerCase().includes(search);
+    const matchesCategory = entry?.category.some(c => c.toLowerCase().includes(search)) ?? false;
+    return matchesTitle || matchesCategory;
+  }
+
+  prevPage(): void {
+    if (this.currentPage() > 1) {
+      this.currentPage.update(p => p - 1);
+    }
+  }
+
+  nextPage(): void {
+    if (this.currentPage() < this.totalPages()) {
+      this.currentPage.update(p => p + 1);
+    }
+  }
+
+  goToPage(page: number): void {
+    this.currentPage.set(page);
   }
 
   onBackdropClick(): void {

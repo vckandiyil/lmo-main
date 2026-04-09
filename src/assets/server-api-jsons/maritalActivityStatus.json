@@ -7,7 +7,7 @@
     "title": "Marital Activity Status",
     "type": "scad",
     "compare": false,
-    "unit": "%",
+    "unit": "persons",
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
@@ -31,7 +31,7 @@
       },
       {
         "label": "Measurement unit",
-        "value": "%"
+        "value": "Persons"
       },
       {
         "label": "Available periodicity",
@@ -74,14 +74,14 @@
         "label": "Employment Rate by Marital Status",
         "series": [
           {
-            "id": "total",
+            "id": "never-married",
             "type": "solid",
-            "color": "#2563EA",
-            "group": "total",
-            "label": "Total",
+            "color": "#1E4B7A",
+            "group": "never-married",
+            "label": "Never Married",
             "filterBy": {
               "TYPE": "NOWCAST",
-              "CITIZENSHIP": "Total"
+              "MARITAL_STATUS": "Never Married"
             },
             "xAccessor": {
               "path": "OBS_DT",
@@ -93,117 +93,173 @@
               "type": "value"
             },
             "data": [
-              {
-                "VALUE": 71.2,
-                "MAX_VALUE": 76.8,
-                "MIN_VALUE": 65.4,
-                "MAX_OBS_DT": "2025-01-01",
-                "MIN_OBS_DT": "2014-01-01",
-                "OBS_DT": "2014-01-01",
-                "YEAR": "2014"
-              },
-              {
-                "VALUE": 70.5,
-                "MAX_VALUE": 76.8,
-                "MIN_VALUE": 65.4,
-                "MAX_OBS_DT": "2025-01-01",
-                "MIN_OBS_DT": "2014-01-01",
-                "OBS_DT": "2015-01-01",
-                "YEAR": "2015"
-              },
-              {
-                "VALUE": 69.8,
-                "MAX_VALUE": 76.8,
-                "MIN_VALUE": 65.4,
-                "MAX_OBS_DT": "2025-01-01",
-                "MIN_OBS_DT": "2014-01-01",
-                "OBS_DT": "2016-01-01",
-                "YEAR": "2016"
-              },
-              {
-                "VALUE": 69.1,
-                "MAX_VALUE": 76.8,
-                "MIN_VALUE": 65.4,
-                "MAX_OBS_DT": "2025-01-01",
-                "MIN_OBS_DT": "2014-01-01",
-                "OBS_DT": "2017-01-01",
-                "YEAR": "2017"
-              },
-              {
-                "VALUE": 68.7,
-                "MAX_VALUE": 76.8,
-                "MIN_VALUE": 65.4,
-                "MAX_OBS_DT": "2025-01-01",
-                "MIN_OBS_DT": "2014-01-01",
-                "OBS_DT": "2018-01-01",
-                "YEAR": "2018"
-              },
-              {
-                "VALUE": 69.3,
-                "MAX_VALUE": 76.8,
-                "MIN_VALUE": 65.4,
-                "MAX_OBS_DT": "2025-01-01",
-                "MIN_OBS_DT": "2014-01-01",
-                "OBS_DT": "2019-01-01",
-                "YEAR": "2019"
-              },
-              {
-                "VALUE": 65.4,
-                "MAX_VALUE": 76.8,
-                "MIN_VALUE": 65.4,
-                "MAX_OBS_DT": "2025-01-01",
-                "MIN_OBS_DT": "2014-01-01",
-                "OBS_DT": "2020-01-01",
-                "YEAR": "2020"
-              },
-              {
-                "VALUE": 70.1,
-                "MAX_VALUE": 76.8,
-                "MIN_VALUE": 65.4,
-                "MAX_OBS_DT": "2025-01-01",
-                "MIN_OBS_DT": "2014-01-01",
-                "OBS_DT": "2021-01-01",
-                "YEAR": "2021"
-              },
-              {
-                "VALUE": 72.5,
-                "MAX_VALUE": 76.8,
-                "MIN_VALUE": 65.4,
-                "MAX_OBS_DT": "2025-01-01",
-                "MIN_OBS_DT": "2014-01-01",
-                "OBS_DT": "2022-01-01",
-                "YEAR": "2022"
-              },
-              {
-                "VALUE": 74.3,
-                "MAX_VALUE": 76.8,
-                "MIN_VALUE": 65.4,
-                "MAX_OBS_DT": "2025-01-01",
-                "MIN_OBS_DT": "2014-01-01",
-                "OBS_DT": "2023-01-01",
-                "YEAR": "2023"
-              },
-              {
-                "VALUE": 75.6,
-                "MAX_VALUE": 76.8,
-                "MIN_VALUE": 65.4,
-                "MAX_OBS_DT": "2025-01-01",
-                "MIN_OBS_DT": "2014-01-01",
-                "OBS_DT": "2024-01-01",
-                "YEAR": "2024"
-              },
-              {
-                "VALUE": 76.8,
-                "MAX_VALUE": 76.8,
-                "MIN_VALUE": 65.4,
-                "MAX_OBS_DT": "2025-01-01",
-                "MIN_OBS_DT": "2014-01-01",
-                "OBS_DT": "2025-01-01",
-                "YEAR": "2025"
-              }
+              { "VALUE": 980000, "MAX_VALUE": 1260000, "MIN_VALUE": 890000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2014-01-01", "YEAR": "2014" },
+              { "VALUE": 1010000, "MAX_VALUE": 1260000, "MIN_VALUE": 890000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2015-01-01", "YEAR": "2015" },
+              { "VALUE": 1035000, "MAX_VALUE": 1260000, "MIN_VALUE": 890000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2016-01-01", "YEAR": "2016" },
+              { "VALUE": 1060000, "MAX_VALUE": 1260000, "MIN_VALUE": 890000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2017-01-01", "YEAR": "2017" },
+              { "VALUE": 1085000, "MAX_VALUE": 1260000, "MIN_VALUE": 890000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2018-01-01", "YEAR": "2018" },
+              { "VALUE": 1110000, "MAX_VALUE": 1260000, "MIN_VALUE": 890000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2019-01-01", "YEAR": "2019" },
+              { "VALUE": 890000, "MAX_VALUE": 1260000, "MIN_VALUE": 890000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2020-01-01", "YEAR": "2020" },
+              { "VALUE": 1050000, "MAX_VALUE": 1260000, "MIN_VALUE": 890000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2021-01-01", "YEAR": "2021" },
+              { "VALUE": 1120000, "MAX_VALUE": 1260000, "MIN_VALUE": 890000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2022-01-01", "YEAR": "2022" },
+              { "VALUE": 1170000, "MAX_VALUE": 1260000, "MIN_VALUE": 890000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2023-01-01", "YEAR": "2023" },
+              { "VALUE": 1215000, "MAX_VALUE": 1260000, "MIN_VALUE": 890000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2024-01-01", "YEAR": "2024" },
+              { "VALUE": 1260000, "MAX_VALUE": 1260000, "MIN_VALUE": 890000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2025-01-01", "YEAR": "2025" }
             ],
-            "yMax": 76.8,
-            "yMin": 65.4,
+            "yMax": 1260000,
+            "yMin": 890000,
+            "xMin": "2014-01-01",
+            "xMax": "2025-01-01"
+          },
+          {
+            "id": "married",
+            "type": "solid",
+            "color": "#58B799",
+            "group": "married",
+            "label": "Married",
+            "filterBy": {
+              "TYPE": "NOWCAST",
+              "MARITAL_STATUS": "Married"
+            },
+            "xAccessor": {
+              "path": "OBS_DT",
+              "type": "date",
+              "specifier": "%Y-%m-%d"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              { "VALUE": 1520000, "MAX_VALUE": 1890000, "MIN_VALUE": 1320000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2014-01-01", "YEAR": "2014" },
+              { "VALUE": 1555000, "MAX_VALUE": 1890000, "MIN_VALUE": 1320000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2015-01-01", "YEAR": "2015" },
+              { "VALUE": 1590000, "MAX_VALUE": 1890000, "MIN_VALUE": 1320000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2016-01-01", "YEAR": "2016" },
+              { "VALUE": 1625000, "MAX_VALUE": 1890000, "MIN_VALUE": 1320000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2017-01-01", "YEAR": "2017" },
+              { "VALUE": 1660000, "MAX_VALUE": 1890000, "MIN_VALUE": 1320000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2018-01-01", "YEAR": "2018" },
+              { "VALUE": 1700000, "MAX_VALUE": 1890000, "MIN_VALUE": 1320000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2019-01-01", "YEAR": "2019" },
+              { "VALUE": 1320000, "MAX_VALUE": 1890000, "MIN_VALUE": 1320000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2020-01-01", "YEAR": "2020" },
+              { "VALUE": 1580000, "MAX_VALUE": 1890000, "MIN_VALUE": 1320000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2021-01-01", "YEAR": "2021" },
+              { "VALUE": 1690000, "MAX_VALUE": 1890000, "MIN_VALUE": 1320000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2022-01-01", "YEAR": "2022" },
+              { "VALUE": 1760000, "MAX_VALUE": 1890000, "MIN_VALUE": 1320000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2023-01-01", "YEAR": "2023" },
+              { "VALUE": 1830000, "MAX_VALUE": 1890000, "MIN_VALUE": 1320000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2024-01-01", "YEAR": "2024" },
+              { "VALUE": 1890000, "MAX_VALUE": 1890000, "MIN_VALUE": 1320000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2025-01-01", "YEAR": "2025" }
+            ],
+            "yMax": 1890000,
+            "yMin": 1320000,
+            "xMin": "2014-01-01",
+            "xMax": "2025-01-01"
+          },
+          {
+            "id": "divorced",
+            "type": "solid",
+            "color": "#9B8FD7",
+            "group": "divorced",
+            "label": "Divorced",
+            "filterBy": {
+              "TYPE": "NOWCAST",
+              "MARITAL_STATUS": "Divorced"
+            },
+            "xAccessor": {
+              "path": "OBS_DT",
+              "type": "date",
+              "specifier": "%Y-%m-%d"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              { "VALUE": 165000, "MAX_VALUE": 210000, "MIN_VALUE": 142000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2014-01-01", "YEAR": "2014" },
+              { "VALUE": 168000, "MAX_VALUE": 210000, "MIN_VALUE": 142000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2015-01-01", "YEAR": "2015" },
+              { "VALUE": 171000, "MAX_VALUE": 210000, "MIN_VALUE": 142000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2016-01-01", "YEAR": "2016" },
+              { "VALUE": 174000, "MAX_VALUE": 210000, "MIN_VALUE": 142000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2017-01-01", "YEAR": "2017" },
+              { "VALUE": 178000, "MAX_VALUE": 210000, "MIN_VALUE": 142000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2018-01-01", "YEAR": "2018" },
+              { "VALUE": 182000, "MAX_VALUE": 210000, "MIN_VALUE": 142000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2019-01-01", "YEAR": "2019" },
+              { "VALUE": 142000, "MAX_VALUE": 210000, "MIN_VALUE": 142000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2020-01-01", "YEAR": "2020" },
+              { "VALUE": 170000, "MAX_VALUE": 210000, "MIN_VALUE": 142000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2021-01-01", "YEAR": "2021" },
+              { "VALUE": 185000, "MAX_VALUE": 210000, "MIN_VALUE": 142000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2022-01-01", "YEAR": "2022" },
+              { "VALUE": 193000, "MAX_VALUE": 210000, "MIN_VALUE": 142000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2023-01-01", "YEAR": "2023" },
+              { "VALUE": 202000, "MAX_VALUE": 210000, "MIN_VALUE": 142000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2024-01-01", "YEAR": "2024" },
+              { "VALUE": 210000, "MAX_VALUE": 210000, "MIN_VALUE": 142000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2025-01-01", "YEAR": "2025" }
+            ],
+            "yMax": 210000,
+            "yMin": 142000,
+            "xMin": "2014-01-01",
+            "xMax": "2025-01-01"
+          },
+          {
+            "id": "widowed",
+            "type": "solid",
+            "color": "#589FB7",
+            "group": "widowed",
+            "label": "Widowed",
+            "filterBy": {
+              "TYPE": "NOWCAST",
+              "MARITAL_STATUS": "Widowed"
+            },
+            "xAccessor": {
+              "path": "OBS_DT",
+              "type": "date",
+              "specifier": "%Y-%m-%d"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              { "VALUE": 82000, "MAX_VALUE": 105000, "MIN_VALUE": 68000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2014-01-01", "YEAR": "2014" },
+              { "VALUE": 84000, "MAX_VALUE": 105000, "MIN_VALUE": 68000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2015-01-01", "YEAR": "2015" },
+              { "VALUE": 85000, "MAX_VALUE": 105000, "MIN_VALUE": 68000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2016-01-01", "YEAR": "2016" },
+              { "VALUE": 87000, "MAX_VALUE": 105000, "MIN_VALUE": 68000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2017-01-01", "YEAR": "2017" },
+              { "VALUE": 89000, "MAX_VALUE": 105000, "MIN_VALUE": 68000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2018-01-01", "YEAR": "2018" },
+              { "VALUE": 91000, "MAX_VALUE": 105000, "MIN_VALUE": 68000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2019-01-01", "YEAR": "2019" },
+              { "VALUE": 68000, "MAX_VALUE": 105000, "MIN_VALUE": 68000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2020-01-01", "YEAR": "2020" },
+              { "VALUE": 85000, "MAX_VALUE": 105000, "MIN_VALUE": 68000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2021-01-01", "YEAR": "2021" },
+              { "VALUE": 92000, "MAX_VALUE": 105000, "MIN_VALUE": 68000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2022-01-01", "YEAR": "2022" },
+              { "VALUE": 96000, "MAX_VALUE": 105000, "MIN_VALUE": 68000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2023-01-01", "YEAR": "2023" },
+              { "VALUE": 100000, "MAX_VALUE": 105000, "MIN_VALUE": 68000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2024-01-01", "YEAR": "2024" },
+              { "VALUE": 105000, "MAX_VALUE": 105000, "MIN_VALUE": 68000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2025-01-01", "YEAR": "2025" }
+            ],
+            "yMax": 105000,
+            "yMin": 68000,
+            "xMin": "2014-01-01",
+            "xMax": "2025-01-01"
+          },
+          {
+            "id": "unknown",
+            "type": "solid",
+            "color": "#C4C8CF",
+            "group": "unknown",
+            "label": "Unknown",
+            "filterBy": {
+              "TYPE": "NOWCAST",
+              "MARITAL_STATUS": "Unknown"
+            },
+            "xAccessor": {
+              "path": "OBS_DT",
+              "type": "date",
+              "specifier": "%Y-%m-%d"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              { "VALUE": 28000, "MAX_VALUE": 35000, "MIN_VALUE": 22000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2014-01-01", "YEAR": "2014" },
+              { "VALUE": 28500, "MAX_VALUE": 35000, "MIN_VALUE": 22000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2015-01-01", "YEAR": "2015" },
+              { "VALUE": 29000, "MAX_VALUE": 35000, "MIN_VALUE": 22000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2016-01-01", "YEAR": "2016" },
+              { "VALUE": 29500, "MAX_VALUE": 35000, "MIN_VALUE": 22000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2017-01-01", "YEAR": "2017" },
+              { "VALUE": 30000, "MAX_VALUE": 35000, "MIN_VALUE": 22000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2018-01-01", "YEAR": "2018" },
+              { "VALUE": 30500, "MAX_VALUE": 35000, "MIN_VALUE": 22000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2019-01-01", "YEAR": "2019" },
+              { "VALUE": 22000, "MAX_VALUE": 35000, "MIN_VALUE": 22000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2020-01-01", "YEAR": "2020" },
+              { "VALUE": 28000, "MAX_VALUE": 35000, "MIN_VALUE": 22000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2021-01-01", "YEAR": "2021" },
+              { "VALUE": 30000, "MAX_VALUE": 35000, "MIN_VALUE": 22000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2022-01-01", "YEAR": "2022" },
+              { "VALUE": 32000, "MAX_VALUE": 35000, "MIN_VALUE": 22000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2023-01-01", "YEAR": "2023" },
+              { "VALUE": 33500, "MAX_VALUE": 35000, "MIN_VALUE": 22000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2024-01-01", "YEAR": "2024" },
+              { "VALUE": 35000, "MAX_VALUE": 35000, "MIN_VALUE": 22000, "MAX_OBS_DT": "2025-01-01", "MIN_OBS_DT": "2020-01-01", "OBS_DT": "2025-01-01", "YEAR": "2025" }
+            ],
+            "yMax": 35000,
+            "yMin": 22000,
             "xMin": "2014-01-01",
             "xMax": "2025-01-01"
           }

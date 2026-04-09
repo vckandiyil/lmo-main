@@ -3,9 +3,10 @@ import {forkJoin} from 'rxjs';
 import {WidgetCard} from '../widget-card/widget-card';
 import {WidgetDetailConfigService} from '../../../core/services/widget-detail-config.service';
 import {WidgetCatalogService} from '../../../core/services/widget-catalog.service';
-import {DashboardDataService} from '../../../core';
+import {DashboardDataService, WidgetStore} from '../../../core';
 import {MiniChartBuilderService} from '../../../shared/services/mini-chart-builder.service';
 import {ThemeService} from '../../../core/services/theme.service';
+import {WidgetType} from '../../../core/models/widget.model';
 import type {ChartOptions} from '../../../shared/services/chart-config.service';
 import type {MultiSeriesItem, WidgetDetailData, WidgetDetailSeriesPoint} from '../../../core/models/widget-detail.model';
 import type {ViewTypeConfig} from '../../../core/models/widget-detail-json.model';
@@ -32,6 +33,7 @@ import type {WidgetChartConfig} from '../../../core/models/widget-chart-config.m
       [tableRows]="tableRows()"
       (selectedChange)="selectedChange.emit()"
       (expandClick)="expandClick.emit()"
+      (removeClick)="onRemove()"
       (chartTypeChange)="onChartTypeChange($event)"
     />
   `,
@@ -42,6 +44,7 @@ export class GenericWidgetCard implements OnInit {
   private readonly dashboardDataService = inject(DashboardDataService);
   private readonly miniChartBuilder     = inject(MiniChartBuilderService);
   private readonly themeService         = inject(ThemeService);
+  private readonly widgetStore          = inject(WidgetStore);
 
   widgetType      = input.required<string>();
   selected        = input(false);
@@ -117,6 +120,10 @@ export class GenericWidgetCard implements OnInit {
         this.periodicity.set(p);
       });
     });
+  }
+
+  onRemove(): void {
+    this.widgetStore.removeWidget(this.widgetType() as WidgetType);
   }
 
   onChartTypeChange(type: string): void {

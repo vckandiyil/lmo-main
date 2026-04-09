@@ -40,6 +40,7 @@ export class Filters implements OnInit {
 
   isMyLmo = input<boolean>(false);
   hideLayoutBtn = input<boolean>(false);
+  isHome = input<boolean>(false);
 
   readonly activePresetName = this.presetService.activePresetName;
 
@@ -78,6 +79,20 @@ export class Filters implements OnInit {
     ),
     {initialValue: ['All', 'Abu Dhabi', 'Al Ain', 'Al Dhafra']}
   );
+
+  readonly citizenshipOptions = toSignal(
+    this.translate.stream(['LMI.ALL', 'LMI.EMIRATI', 'LMI.EXPAT']).pipe(
+      map(t => [t['LMI.ALL'], t['LMI.EMIRATI'], t['LMI.EXPAT']])
+    ),
+    {initialValue: ['All', 'Emirati', 'Expat']}
+  );
+
+  readonly genderOptions = toSignal(
+    this.translate.stream(['LMI.ALL', 'LMI.MALE', 'LMI.FEMALE']).pipe(
+      map(t => [t['LMI.ALL'], t['LMI.MALE'], t['LMI.FEMALE']])
+    ),
+    {initialValue: ['All', 'Male', 'Female']}
+  );
   ngOnInit(): void {
     if (!this.isMyLmo()) {
       this.onTopicSelect(this.TOPIC_ORDER[0]);
@@ -96,6 +111,8 @@ export class Filters implements OnInit {
   }
 
   onFilterChange(_filter: string, _value: string) {}
+
+  onRegionMultiChange(_values: string[]) {}
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent): void {
@@ -236,5 +253,9 @@ export class Filters implements OnInit {
 
   closeFilterPanel(): void {
     this.isFilterPanelOpen.set(false);
+  }
+
+  openMobileNav(): void {
+    this.layoutService.openMobileNav();
   }
 }

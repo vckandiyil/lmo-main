@@ -56,9 +56,12 @@ export class WidgetCenter {
     const topic  = this.selectedTopic();
     const search = this.searchValue().toLowerCase().trim();
     return this.sidebarEntries().filter(e => {
-      const matchesTopic  = !topic || e.category.includes(topic);
-      const matchesSearch = !search || e.title.toLowerCase().includes(search);
-      return matchesTopic && matchesSearch;
+      if (search) {
+        const matchesTitle    = e.title.toLowerCase().includes(search);
+        const matchesCategory = e.category.some(c => c.toLowerCase().includes(search));
+        return matchesTitle || matchesCategory;
+      }
+      return !topic || e.category.includes(topic);
     });
   });
 

@@ -1,4 +1,4 @@
-import {Component, ElementRef, HostListener, effect, input, output, signal} from '@angular/core';
+import {Component, ElementRef, HostListener, effect, input, output, signal, computed} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {Icon} from '../icon/icon';
 
@@ -16,17 +16,31 @@ export class Dropdown {
   noArrow = input<boolean>(false);
   value = input<string | null>(null);
   label = input<string | null>(null);
+  multi = input<boolean>(false);
+  multiValue = input<string[]>([]);
   selected = output<string>();
+  multiSelected = output<string[]>();
 
   isOpen = signal(false);
   selectedValue = signal<string | null>(null);
+  selectedMultiValues = signal<string[]>([]);
   newValue = signal<string | null>(null);
   previousValue = signal<string | null>(null);
   isAnimating = signal(false);
 
+  readonly multiDisplayValue = computed(() => {
+    const vals = this.selectedMultiValues();
+    if (vals.length === 0) return null;
+    if (vals.length === 1) return vals[0];
+    return `${vals.length} selected`;
+  });
+
   constructor(private elementRef: ElementRef) {
     effect(() => {
       this.selectedValue.set(this.value());
+    });
+    effect(() => {
+      this.selectedMultiValues.set(this.multiValue());
     });
   }
 
@@ -71,6 +85,18 @@ export class Dropdown {
       this.previousValue.set(null);
       this.newValue.set(null);
     }, 300);
+  }
+
+  toggleMulti(option: string): void {
+    this.selectedMultiValues.update(vals => {
+      const updated = vals.includes(option) ? vals.filter(v => v !== option) : [...vals, option];
+      this.multiSelected.emit(updated);
+      return updated;
+    });
+  }
+
+  isMultiChecked(option: string): boolean {
+    return this.selectedMultiValues().includes(option);
   }
 
   reset() {

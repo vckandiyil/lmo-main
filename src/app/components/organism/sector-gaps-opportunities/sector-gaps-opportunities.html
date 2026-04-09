@@ -1,7 +1,7 @@
 <div class="sector-gaps-opportunities" [class.sector-gaps-opportunities--selected]="selected()" (click)="onWidgetClick()">
   <app-flip-card #flipCard>
     <app-widget-checkbox [selected]="selected()" front/>
-    <app-widget-header [title]="'Sector gaps and opportunities'" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" front/>
+    <app-widget-header [title]="'Sector gaps and opportunities'" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" (removeClick)="removeClick.emit()" front/>
     <div class="sector-gaps-opportunities__legend" front>
       <div class="sector-gaps-opportunities__legend-item">
         <span class="sector-gaps-opportunities__legend-dot sector-gaps-opportunities__legend-dot--vacancies"></span>

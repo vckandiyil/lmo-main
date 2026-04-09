@@ -72,6 +72,7 @@ export class RegionProfile implements OnInit {
   isCenter = input(false);
   selectedChange = output<void>();
   expandClick = output<void>();
+  removeClick = output<void>();
 
   isClickable(label: string): boolean {
     return label in this.METRIC_WIDGET_MAP;

@@ -1,3 +1,7 @@
+:host {
+  --content-top: 127px;
+}
+
 .what-if {
   &__content {
     position: fixed;
@@ -68,6 +72,7 @@
 
 @media (max-width: 767.98px) {
   :host {
+    --content-top: 64px;
     gap: 12px;
     padding: var(--content-top) 8px 8px calc(var(--nav-sidebar-w) + 8px);
   }

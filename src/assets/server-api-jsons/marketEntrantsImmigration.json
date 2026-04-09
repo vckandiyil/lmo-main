@@ -7,7 +7,7 @@
     "title": "Market Entrants by Immigration",
     "type": "scad",
     "compare": false,
-    "unit": "thousands",
+    "unit": "",
     "filters": [],
     "related": [],
     "updated": "2025-09-25",
@@ -70,11 +70,11 @@
         "label": "Market Entrants by Immigration",
         "series": [
           {
-            "id": "total",
+            "id": "high-skilled",
             "type": "solid",
-            "color": "#589FB7",
-            "group": "total",
-            "label": "Total Immigration Supply",
+            "color": "#3375C6",
+            "group": "skill-level",
+            "label": "High-skilled",
             "xAccessor": {
               "path": "YEAR",
               "type": "category"
@@ -84,13 +84,61 @@
               "type": "value"
             },
             "data": [
-              { "YEAR": "2018", "VALUE": 85.2 },
-              { "YEAR": "2019", "VALUE": 91.4 },
-              { "YEAR": "2020", "VALUE": 62.3 },
-              { "YEAR": "2021", "VALUE": 78.6 },
-              { "YEAR": "2022", "VALUE": 95.1 },
-              { "YEAR": "2023", "VALUE": 102.8 },
-              { "YEAR": "2024", "VALUE": 108.5 }
+              { "YEAR": "2018", "VALUE": 15300 },
+              { "YEAR": "2019", "VALUE": 16400 },
+              { "YEAR": "2020", "VALUE": 11200 },
+              { "YEAR": "2021", "VALUE": 14100 },
+              { "YEAR": "2022", "VALUE": 17100 },
+              { "YEAR": "2023", "VALUE": 18500 },
+              { "YEAR": "2024", "VALUE": 19500 }
+            ]
+          },
+          {
+            "id": "medium-skilled",
+            "type": "solid",
+            "color": "#589FB7",
+            "group": "skill-level",
+            "label": "Medium-skilled",
+            "xAccessor": {
+              "path": "YEAR",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              { "YEAR": "2018", "VALUE": 30000 },
+              { "YEAR": "2019", "VALUE": 32200 },
+              { "YEAR": "2020", "VALUE": 21900 },
+              { "YEAR": "2021", "VALUE": 27700 },
+              { "YEAR": "2022", "VALUE": 33500 },
+              { "YEAR": "2023", "VALUE": 36200 },
+              { "YEAR": "2024", "VALUE": 38200 }
+            ]
+          },
+          {
+            "id": "low-skilled",
+            "type": "solid",
+            "color": "#91CFBB",
+            "group": "skill-level",
+            "label": "Low-skilled",
+            "xAccessor": {
+              "path": "YEAR",
+              "type": "category"
+            },
+            "yAccessor": {
+              "path": "VALUE",
+              "type": "value"
+            },
+            "data": [
+              { "YEAR": "2018", "VALUE": 39900 },
+              { "YEAR": "2019", "VALUE": 42800 },
+              { "YEAR": "2020", "VALUE": 29200 },
+              { "YEAR": "2021", "VALUE": 36800 },
+              { "YEAR": "2022", "VALUE": 44500 },
+              { "YEAR": "2023", "VALUE": 48100 },
+              { "YEAR": "2024", "VALUE": 50800 }
             ]
           }
         ],

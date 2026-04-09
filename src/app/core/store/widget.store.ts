@@ -69,6 +69,13 @@ export const WidgetStore = signalStore(
         }
       },
 
+      removeWidget(type: WidgetType): void {
+        patchState(store, {
+          leftWidgets: store.leftWidgets().filter(w => w.type !== type),
+          rightWidgets: store.rightWidgets().filter(w => w.type !== type),
+        });
+      },
+
       clearWidgets(): void {
         patchState(store, initialState);
       },

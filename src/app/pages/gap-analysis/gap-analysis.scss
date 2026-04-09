@@ -1,3 +1,7 @@
+:host {
+  --content-top: 127px;
+}
+
 .gap-analysis-center {
   position: fixed;
   top: var(--content-top);

@@ -43,8 +43,11 @@ export class ChartWrapper implements AfterViewInit, OnChanges, OnDestroy {
       const nextType = (changes['options'].currentValue  as ChartOptions)?.chart?.type;
       const crossesPieBoundary = (prevType === 'pie') !== (nextType === 'pie');
       const crossesHeatmapBoundary = (prevType === 'heatmap') !== (nextType === 'heatmap');
+      const prevNav = !!(changes['options'].previousValue as any)?.navigator?.enabled;
+      const nextNav = !!(changes['options'].currentValue as any)?.navigator?.enabled;
+      const crossesNavigatorBoundary = prevNav !== nextNav;
 
-      if (crossesPieBoundary || crossesHeatmapBoundary) {
+      if (crossesPieBoundary || crossesHeatmapBoundary || crossesNavigatorBoundary) {
         // Pie ↔ cartesian and heatmap ↔ cartesian transitions can't be handled via update() — recreate
         if (this.updateTimeoutId) {
           clearTimeout(this.updateTimeoutId);
@@ -100,6 +103,15 @@ export class ChartWrapper implements AfterViewInit, OnChanges, OnDestroy {
       }
 
       const merged = this.chartConfigService.mergeOptions(this.options);
+
+      // If no explicit height is configured, use the container's actual
+      // rendered height so the chart fills its CSS-sized parent.
+      if (!merged.chart?.height) {
+        const containerHeight = this.container.nativeElement.offsetHeight;
+        if (containerHeight > 0) {
+          merged.chart = {...(merged.chart ?? {}), height: containerHeight};
+        }
+      }
 
       this.ngZone.runOutsideAngular(() => {
         this.chart = Highcharts.chart(

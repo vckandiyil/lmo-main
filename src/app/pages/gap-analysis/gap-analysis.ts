@@ -3,11 +3,12 @@ import {Sidebar} from '../../components/organism/sidebar/sidebar';
 import {Filters} from '../../components/organism/filters/filters';
 import {GapAnalysisCenter} from '../../components/organism/gap-analysis-center/gap-analysis-center';
 import {LayoutService, WidgetStore} from '../../core';
+import {LmiBar} from '../../components/organism/lmi-bar/lmi-bar';
 
 @Component({
   selector: 'app-gap-analysis',
   standalone: true,
-  imports: [Sidebar, Filters, GapAnalysisCenter],
+  imports: [Sidebar, Filters, GapAnalysisCenter, LmiBar],
   templateUrl: './gap-analysis.html',
   styleUrl: './gap-analysis.scss',
 })

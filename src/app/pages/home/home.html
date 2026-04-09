@@ -1,56 +1,47 @@
-<app-filters [hideLayoutBtn]="true"/>
+<app-filters [hideLayoutBtn]="true" [isHome]="true"/>
+<app-lmi-bar/>
 
 <section class="hero">
-  <div class="hero__ellipse hero__ellipse--1"></div>
-  <div class="hero__ellipse hero__ellipse--2"></div>
-  <div class="hero__ellipse hero__ellipse--3"></div>
-  <div class="hero__ellipse hero__ellipse--4"></div>
-  <div class="hero__map">
-    <div class="hero__region hero__region--al-dhafra">
-      <app-inline-svg src="assets/images/regions/AI-Dhafra.svg"/>
-      <div class="hero__region-label">{{ 'HOME.REGION_AL_DHAFRA' | translate }}</div>
-      <span class="hero__region-dot"></span>
-    </div>
-    <div class="hero__region hero__region--abu-dhabi">
-      <app-inline-svg src="assets/images/regions/Abu-Dhabi.svg"/>
-      <div class="hero__region-label">{{ 'HOME.REGION_ABU_DHABI' | translate }}</div>
-      <span class="hero__region-dot"></span>
-    </div>
-    <div class="hero__region hero__region--al-ain">
-      <app-inline-svg src="assets/images/regions/Al-ain.svg"/>
-      <div class="hero__region-label">{{ 'HOME.REGION_AL_AIN' | translate }}</div>
-      <span class="hero__region-dot"></span>
+  <div class="hero__left">
+    <div class="hero__ellipse hero__ellipse--1"></div>
+    <div class="hero__ellipse hero__ellipse--2"></div>
+    <div class="hero__ellipse hero__ellipse--3"></div>
+    <div class="hero__ellipse hero__ellipse--4"></div>
+    <div class="hero__map">
+      <div class="hero__region hero__region--al-dhafra" [class.hero__region--selected]="isRegionSelected('al-dhafra')" (click)="toggleRegion('al-dhafra')">
+        <app-inline-svg src="assets/images/regions/AI-Dhafra.svg"/>
+        <div class="hero__region-label">{{ 'HOME.REGION_AL_DHAFRA' | translate }}</div>
+        <span class="hero__region-dot"></span>
+      </div>
+      <div class="hero__region hero__region--abu-dhabi" [class.hero__region--selected]="isRegionSelected('abu-dhabi')" (click)="toggleRegion('abu-dhabi')">
+        <app-inline-svg src="assets/images/regions/Abu-Dhabi.svg"/>
+        <div class="hero__region-label">{{ 'HOME.REGION_ABU_DHABI' | translate }}</div>
+        <span class="hero__region-dot"></span>
+      </div>
+      <div class="hero__region hero__region--al-ain" [class.hero__region--selected]="isRegionSelected('al-ain')" (click)="toggleRegion('al-ain')">
+        <app-inline-svg src="assets/images/regions/Al-ain.svg"/>
+        <div class="hero__region-label">{{ 'HOME.REGION_AL_AIN' | translate }}</div>
+        <span class="hero__region-dot"></span>
+      </div>
     </div>
   </div>
-  <div class="hero__bottom">
+  <div class="hero__right">
+    <app-region-profile/>
     <app-ai-insights/>
-    <app-market-entrants/>
     <app-labor-force-composition/>
-  </div>
-  <div class="hero__filters">
-    <span class="hero__filters-label">{{ 'HOME.FILTERS' | translate }}</span>
-    <div class="hero__filters-dropdowns">
-      <app-dropdown [placeholder]="'HOME.REGION' | translate" [options]="regionOptions()"/>
-      <app-dropdown [placeholder]="'HOME.CITIZENSHIP' | translate" [options]="citizenshipOptions()"/>
-      <app-dropdown [placeholder]="'HOME.WORK_SECTOR' | translate" [options]="workSectorOptions()"/>
-      <app-dropdown [placeholder]="'HOME.GENDER' | translate" [options]="genderOptions()"/>
-      <button class="hero__filters-close" (click)="resetFilters()">
-        <app-icon name="close" size="16"/>
-      </button>
-    </div>
   </div>
 </section>
 
-<app-regions-overview/>
+<!-- <app-regions-overview/> -->
 
-<div class="timeline-wrapper" #timelineWrapper>
-  <section class="timeline" #timelineSection>
+<div class="timeline-wrapper">
+  <section class="timeline">
     <app-inline-svg class="timeline__lines" src="assets/images/timeline-lines.svg"/>
     <div class="timeline__header">
       <h2 class="timeline__title">{{ 'HOME.POLICIES_TITLE' | translate }}</h2>
       <p class="timeline__subtitle">{{ 'HOME.POLICIES_SUBTITLE' | translate }}</p>
     </div>
-    <div class="timeline__content" #timelineContent dir="ltr">
+    <div class="timeline__content" dir="ltr">
       @for (row of timelineRows(); track $index) {
         <div class="timeline__card" [class.timeline__card--top]="$index % 2 !== 0"
              [class.timeline__card--bottom]="$index % 2 === 0">

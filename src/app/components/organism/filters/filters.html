@@ -15,7 +15,8 @@
           [placeholder]="'LMI.ABU_DHABI_EMIRATES' | translate"
           [options]="regionOptions()"
           [variant]="'secondary'"
-          (selected)="onFilterChange('region', $event)"
+          [multi]="true"
+          (multiSelected)="onRegionMultiChange($event)"
         />
         <div class="filters__preset-wrapper">
           <!-- Custom preset dropdown trigger -->
@@ -130,18 +131,39 @@
           [placeholder]="'LMI.ABU_DHABI_EMIRATES' | translate"
           [options]="regionOptions()"
           [variant]="'secondary'"
-          (selected)="onFilterChange('region', $event)"
+          [multi]="true"
+          (multiSelected)="onRegionMultiChange($event)"
         />
-        <app-dropdown
-          [label]="'LMI.TOPIC' | translate"
-          placeholder="Employment"
-          [value]="selectedTopic()"
-          [options]="topicOptions"
-          (selected)="onTopicSelect($event)"
-        />
+        @if (!isHome()) {
+          <app-dropdown
+            [label]="'LMI.TOPIC' | translate"
+            placeholder="Employment"
+            [value]="selectedTopic()"
+            [options]="topicOptions"
+            (selected)="onTopicSelect($event)"
+          />
+        }
+        @if (isHome()) {
+          <app-dropdown
+            [label]="'HOME.CITIZENSHIP' | translate"
+            [placeholder]="'LMI.ALL' | translate"
+            [options]="citizenshipOptions()"
+            [variant]="'secondary'"
+            (selected)="onFilterChange('citizenship', $event)"
+          />
+          <app-dropdown
+            [label]="'HOME.GENDER' | translate"
+            [placeholder]="'LMI.ALL' | translate"
+            [options]="genderOptions()"
+            [variant]="'secondary'"
+            (selected)="onFilterChange('gender', $event)"
+          />
+        }
       }
 
-      <app-advanced-filters-panel/>
+      @if (!isHome()) {
+        <app-advanced-filters-panel/>
+      }
     </div>
     <div class="filters__submit-section">
       <button class="filters__presentation-btn" type="button" (click)="openPresentationModal()">
@@ -178,6 +200,11 @@
       </div>
     </div>
 
+    <!-- Mobile: hamburger menu button (visible only on mobile) -->
+    <button class="filters__mobile-nav-btn" type="button" (click)="openMobileNav()">
+      <app-icon name="horizontal-bars" size="20"/>
+    </button>
+
     <!-- Mobile: filter icon button (visible only on mobile) -->
     <button class="filters__mobile-filter-btn" type="button" (click)="openFilterPanel()">
       <app-icon name="settings" size="20"/>
@@ -203,7 +230,8 @@
               [placeholder]="'LMI.ABU_DHABI_EMIRATES' | translate"
               [options]="regionOptions()"
               [variant]="'secondary'"
-              (selected)="onFilterChange('region', $event)"
+              [multi]="true"
+              (multiSelected)="onRegionMultiChange($event)"
             />
           </div>
           <div class="filters-panel__section">
@@ -299,18 +327,41 @@
               [placeholder]="'LMI.ABU_DHABI_EMIRATES' | translate"
               [options]="regionOptions()"
               [variant]="'secondary'"
-              (selected)="onFilterChange('region', $event)"
+              [multi]="true"
+              (multiSelected)="onRegionMultiChange($event)"
             />
           </div>
-          <div class="filters-panel__section">
-            <span class="filters-panel__label">{{ 'LMI.TOPIC' | translate }}</span>
-            <app-dropdown
-              placeholder="Employment"
-              [value]="selectedTopic()"
-              [options]="topicOptions"
-              (selected)="onTopicSelect($event)"
-            />
-          </div>
+          @if (!isHome()) {
+            <div class="filters-panel__section">
+              <span class="filters-panel__label">{{ 'LMI.TOPIC' | translate }}</span>
+              <app-dropdown
+                placeholder="Employment"
+                [value]="selectedTopic()"
+                [options]="topicOptions"
+                (selected)="onTopicSelect($event)"
+              />
+            </div>
+          }
+          @if (isHome()) {
+            <div class="filters-panel__section">
+              <span class="filters-panel__label">{{ 'HOME.CITIZENSHIP' | translate }}</span>
+              <app-dropdown
+                [placeholder]="'LMI.ALL' | translate"
+                [options]="citizenshipOptions()"
+                [variant]="'secondary'"
+                (selected)="onFilterChange('citizenship', $event)"
+              />
+            </div>
+            <div class="filters-panel__section">
+              <span class="filters-panel__label">{{ 'HOME.GENDER' | translate }}</span>
+              <app-dropdown
+                [placeholder]="'LMI.ALL' | translate"
+                [options]="genderOptions()"
+                [variant]="'secondary'"
+                (selected)="onFilterChange('gender', $event)"
+              />
+            </div>
+          }
         }
 
         <div class="filters-panel__section">
@@ -328,42 +379,44 @@
           </div>
         </div>
 
-        <div class="filters-panel__divider"></div>
+        @if (!isHome()) {
+          <div class="filters-panel__divider"></div>
 
-        <span class="filters-panel__section-title">Advanced Filters</span>
+          <span class="filters-panel__section-title">More Filters</span>
 
-        <div class="filters-panel__section">
-          <span class="filters-panel__label">{{ 'HOME.CITIZENSHIP' | translate }}</span>
-          <app-dropdown
-            [placeholder]="'HOME.CITIZENSHIP' | translate"
-            [options]="['All', 'Emirati', 'Expat']"
-            [variant]="'secondary'"
-          />
-        </div>
-        <div class="filters-panel__section">
-          <span class="filters-panel__label">{{ 'HOME.GENDER' | translate }}</span>
-          <app-dropdown
-            [placeholder]="'HOME.GENDER' | translate"
-            [options]="['All', 'Male', 'Female']"
-            [variant]="'secondary'"
-          />
-        </div>
-        <div class="filters-panel__section">
-          <span class="filters-panel__label">{{ 'LMI.SECTOR' | translate }}</span>
-          <app-dropdown
-            [placeholder]="'LMI.SECTOR' | translate"
-            [options]="['All', 'Education', 'Medical', 'IT', 'Finance']"
-            [variant]="'secondary'"
-          />
-        </div>
-        <div class="filters-panel__section">
-          <span class="filters-panel__label">{{ 'LMI.YEAR' | translate }}</span>
-          <app-dropdown
-            [placeholder]="'LMI.YEAR' | translate"
-            [options]="['All', '2024', '2023', '2022', '2021', '2020']"
-            [variant]="'secondary'"
-          />
-        </div>
+          <div class="filters-panel__section">
+            <span class="filters-panel__label">{{ 'HOME.CITIZENSHIP' | translate }}</span>
+            <app-dropdown
+              [placeholder]="'HOME.CITIZENSHIP' | translate"
+              [options]="['All', 'Emirati', 'Expat']"
+              [variant]="'secondary'"
+            />
+          </div>
+          <div class="filters-panel__section">
+            <span class="filters-panel__label">{{ 'HOME.GENDER' | translate }}</span>
+            <app-dropdown
+              [placeholder]="'HOME.GENDER' | translate"
+              [options]="['All', 'Male', 'Female']"
+              [variant]="'secondary'"
+            />
+          </div>
+          <div class="filters-panel__section">
+            <span class="filters-panel__label">{{ 'LMI.SECTOR' | translate }}</span>
+            <app-dropdown
+              [placeholder]="'LMI.SECTOR' | translate"
+              [options]="['All', 'Education', 'Medical', 'IT', 'Finance']"
+              [variant]="'secondary'"
+            />
+          </div>
+          <div class="filters-panel__section">
+            <span class="filters-panel__label">{{ 'LMI.YEAR' | translate }}</span>
+            <app-dropdown
+              [placeholder]="'LMI.YEAR' | translate"
+              [options]="['All', '2024', '2023', '2022', '2021', '2020']"
+              [variant]="'secondary'"
+            />
+          </div>
+        }
       </div>
     </aside>
   </div>

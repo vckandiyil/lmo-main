@@ -32,11 +32,6 @@ interface SkillData {
   value: number;
 }
 
-interface MarketEntrantsData {
-  educationData: EducationDataResponse[];
-  immigrationData: SkillData[];
-}
-
 @Component({
   selector: 'app-market-entrants',
   standalone: true,
@@ -55,6 +50,7 @@ export class MarketEntrants implements OnInit {
   selected = input(false);
   selectedChange = output<void>();
   expandClick = output<void>();
+  removeClick = output<void>();
 
   onWidgetClick(): void {
     this.selectedChange.emit();
@@ -75,9 +71,8 @@ export class MarketEntrants implements OnInit {
   }
 
   private loadData(): void {
-    this.dashboardDataService.getData().subscribe({
-      next: (response) => {
-        const data = response.marketEntrants;
+    this.dashboardDataService.getMarketEntrantsWidget().subscribe({
+      next: (data) => {
         this.educationData = data.educationData.map((item) => ({
           ...item,
           emiratiColor: EDUCATION_COLORS[item.label]?.emirati ?? '#3375C6',
@@ -94,7 +89,7 @@ export class MarketEntrants implements OnInit {
   }
 
   formatValue(value: number): string {
-    return `${value}k`;
+    return `${Math.round(value / 100) / 10}k`;
   }
 
   getLabelKey(label: string): string {
@@ -225,7 +220,7 @@ export class MarketEntrants implements OnInit {
             align: 'left',
             useHTML: true,
             formatter: function () {
-              return `<span style="color: var(--lmo-text-value); font-family: 'Graphik Trial', sans-serif; font-weight: 600; font-size: 14px;">${this.y}k</span>`;
+              return `<span style="color: var(--lmo-text-value); font-family: 'Graphik Trial', sans-serif; font-weight: 600; font-size: 14px;">${Math.round(this.y! / 100) / 10}k</span>`;
             },
           },
         },

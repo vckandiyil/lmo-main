@@ -3,7 +3,8 @@
   width: 100%;
 }
 
-:host-context(.center-section__widget-card) {
+:host-context(.center-section__widget-card),
+:host-context(.widget-detail-template__chart) {
   height: 100%;
 }
 
@@ -11,7 +12,8 @@
   width: 100%;
   position: relative;
 
-  :host-context(.center-section__widget-card) & {
+  :host-context(.center-section__widget-card) &,
+  :host-context(.widget-detail-template__chart) & {
     height: 100%;
   }
 }

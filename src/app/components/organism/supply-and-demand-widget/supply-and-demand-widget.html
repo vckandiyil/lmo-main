@@ -1,7 +1,7 @@
 <div class="supply-and-demand-widget" [class.supply-and-demand-widget--selected]="selected()" (click)="onWidgetClick()">
   <app-flip-card #flipCard>
     <app-widget-checkbox [selected]="selected()" front/>
-    <app-widget-header [title]="title()" [icons]="headerIcons()" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" front/>
+    <app-widget-header [title]="title()" [icons]="headerIcons()" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" (removeClick)="removeClick.emit()" front/>
     <div class="supply-and-demand-widget__body" front (click)="onChartClick($event)">
       <app-gap-analysis-sankey [height]="260" [compact]="true"/>
     </div>

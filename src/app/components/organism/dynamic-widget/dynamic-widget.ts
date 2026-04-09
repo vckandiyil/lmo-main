@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
   ComponentRef,
+  inject,
   Input,
   OnChanges,
   OnDestroy,
@@ -12,7 +13,7 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import {WIDGET_COMPONENT_MAP} from '../widgets';
-import {WidgetType} from '../../../core';
+import {WidgetStore, WidgetType} from '../../../core';
 
 /**
  * Renders any custom widget dynamically by type, forwarding its expandClick output.
@@ -29,10 +30,12 @@ export class DynamicWidget implements AfterViewInit, OnChanges, OnDestroy {
   @Input() isCenter = false;
   @ViewChild('anchor', {read: ViewContainerRef}) private anchor!: ViewContainerRef;
 
+  private readonly widgetStore = inject(WidgetStore);
+
   readonly expandClick = output<void>();
 
   private compRef: ComponentRef<unknown> | null = null;
-  private unsubscribe: (() => void) | null = null;
+  private unsubscribers: (() => void)[] = [];
   private viewReady = false;
 
   ngAfterViewInit(): void {
@@ -50,12 +53,12 @@ export class DynamicWidget implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.unsubscribe?.();
+    this.unsubscribers.forEach(fn => fn());
   }
 
   private rebuild(): void {
-    this.unsubscribe?.();
-    this.unsubscribe = null;
+    this.unsubscribers.forEach(fn => fn());
+    this.unsubscribers = [];
     this.anchor.clear();
     this.compRef = null;
 
@@ -66,12 +69,15 @@ export class DynamicWidget implements AfterViewInit, OnChanges, OnDestroy {
     this.compRef.setInput('widgetType', this.widgetType);
     this.compRef.setInput('isCenter', this.isCenter);
 
-    const expandOut = (this.compRef.instance as Record<string, unknown>)['expandClick'];
-    if (expandOut && typeof (expandOut as {subscribe?: unknown}).subscribe === 'function') {
-      const sub = (expandOut as {subscribe: (fn: () => void) => {unsubscribe?: () => void}}).subscribe(
-        () => this.expandClick.emit()
-      );
-      this.unsubscribe = () => sub.unsubscribe?.();
+    this.subscribeOutput('expandClick', () => this.expandClick.emit());
+    this.subscribeOutput('removeClick', () => this.widgetStore.removeWidget(this.widgetType));
+  }
+
+  private subscribeOutput(name: string, handler: () => void): void {
+    const out = (this.compRef!.instance as Record<string, unknown>)[name];
+    if (out && typeof (out as {subscribe?: unknown}).subscribe === 'function') {
+      const sub = (out as {subscribe: (fn: () => void) => {unsubscribe?: () => void}}).subscribe(handler);
+      this.unsubscribers.push(() => sub.unsubscribe?.());
     }
   }
 }

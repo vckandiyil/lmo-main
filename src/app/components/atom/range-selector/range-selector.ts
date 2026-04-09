@@ -6,6 +6,8 @@ export interface RangeOption {
   value: number | null;
 }
 
+const RANGE_OPTION: RangeOption = {id: '__range__', label: 'Range', value: -1};
+
 @Component({
   selector: 'app-range-selector',
   standalone: true,
@@ -16,15 +18,31 @@ export class RangeSelector implements AfterViewChecked {
   readonly options = input.required<RangeOption[]>();
   readonly activeValue = input.required<string>();
   readonly rangeChanged = output<string>();
+  readonly rangeToggled = output<boolean>();
 
   private el = inject(ElementRef);
 
   private readonly isDragging = signal(false);
   private readonly dragIndex = signal(-1);
+  private readonly rangeActive = signal(false);
+
+  /** Options: Range first, then numeric (3Y, 5Y, 10Y), then All last */
+  readonly allOptions = computed(() => {
+    const opts = this.options();
+    const allIdx = opts.findIndex(o => o.value === null);
+    const reordered = [...opts];
+    if (allIdx >= 0) {
+      const [allOpt] = reordered.splice(allIdx, 1);
+      reordered.push(allOpt);
+    }
+    reordered.unshift(RANGE_OPTION);
+    return reordered;
+  });
 
   protected readonly displayIndex = computed(() => {
     if (this.isDragging()) return this.dragIndex();
-    return this.options().findIndex(o => this.resolveValue(o) === this.activeValue());
+    if (this.rangeActive()) return 0;
+    return this.allOptions().findIndex(o => o.id !== RANGE_OPTION.id && this.resolveValue(o) === this.activeValue());
   });
 
   ngAfterViewChecked(): void {
@@ -50,8 +68,21 @@ export class RangeSelector implements AfterViewChecked {
   protected onPointerUp(event: PointerEvent): void {
     if (!this.isDragging()) return;
     this.isDragging.set(false);
-    const opt = this.options()[this.dragIndex()];
-    if (opt) this.rangeChanged.emit(this.resolveValue(opt));
+    const opt = this.allOptions()[this.dragIndex()];
+    if (!opt) return;
+
+    if (opt.id === RANGE_OPTION.id) {
+      // Selected "Range" → enable navigator
+      this.rangeActive.set(true);
+      this.rangeToggled.emit(true);
+    } else {
+      // Selected a regular option → disable navigator if active
+      if (this.rangeActive()) {
+        this.rangeActive.set(false);
+        this.rangeToggled.emit(false);
+      }
+      this.rangeChanged.emit(this.resolveValue(opt));
+    }
   }
 
   private findClosestIndex(clientX: number): number {
@@ -81,9 +112,6 @@ export class RangeSelector implements AfterViewChecked {
     const firstDotRect = dots[0].getBoundingClientRect();
     const lastDotRect = dots[dots.length - 1].getBoundingClientRect();
 
-    // Use physical positions so the track is correct in both LTR and RTL.
-    // In RTL the first dot is on the right and the last on the left, so we
-    // always pick the geometrically leftmost / rightmost dot.
     const leftDot = firstDotRect.left <= lastDotRect.left ? firstDotRect : lastDotRect;
     const rightDot = firstDotRect.left >= lastDotRect.left ? firstDotRect : lastDotRect;
 

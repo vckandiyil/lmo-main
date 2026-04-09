@@ -25,6 +25,7 @@ export class TalentPoolTreemap implements OnInit {
 
   selectedChange = output<void>();
   expandClick    = output<void>();
+  removeClick    = output<void>();
 
   private readonly http         = inject(HttpClient);
   private readonly baseUrl      = inject(API_BASE_URL);

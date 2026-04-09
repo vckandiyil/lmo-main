@@ -44,6 +44,7 @@ export class WorkforceStructure implements OnInit {
   selected = input(false);
   selectedChange = output<void>();
   expandClick = output<void>();
+  removeClick = output<void>();
 
   onWidgetClick(): void {
     this.selectedChange.emit();

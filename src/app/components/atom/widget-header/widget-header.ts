@@ -54,6 +54,7 @@ export class WidgetHeader {
     {icon: 'info-empty', label: 'HOME.MORE_INFORMATION'},
     {icon: 'forked-arrow', label: 'HOME.MORE_WHAT_IF'},
     {icon: 'download-data-window', label: 'HOME.MORE_DOWNLOAD'},
+    {icon: 'delete-circle', label: 'HOME.MORE_REMOVE'},
   ]);
 
   private readonly menuService = inject(MoreMenuService);
@@ -63,6 +64,7 @@ export class WidgetHeader {
   readonly expandClick = output<void>();
   readonly infoClick = output<void>();
   readonly downloadClick = output<void>();
+  readonly removeClick = output<void>();
   readonly chartTypeChange = output<string>();
 
   readonly moreOpen = computed(() => this.menuService.isOpen(this.id));
@@ -102,6 +104,8 @@ export class WidgetHeader {
       this.infoClick.emit();
     } else if (item.label === 'HOME.MORE_DOWNLOAD') {
       this.downloadClick.emit();
+    } else if (item.label === 'HOME.MORE_REMOVE') {
+      this.removeClick.emit();
     } else if (item.value?.startsWith('chart-type:')) {
       this.chartTypeChange.emit(item.value.replace('chart-type:', ''));
     }

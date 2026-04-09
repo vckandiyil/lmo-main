@@ -2,7 +2,7 @@ import {Component, effect, inject, signal} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
 import {RouterLink, RouterLinkActive} from '@angular/router';
 import {Icon} from '../../atom/icon/icon';
-import {ThemeService, LanguageService} from '../../../core';
+import {ThemeService, LanguageService, LayoutService} from '../../../core';
 import {NotificationModal} from '../../molecule/notification-modal/notification-modal';
 import {ReportModal} from '../../molecule/report-modal/report-modal';
 
@@ -17,12 +17,14 @@ export class NavSidebar {
   private readonly document = inject(DOCUMENT);
   private readonly themeService = inject(ThemeService);
   private readonly languageService = inject(LanguageService);
+  private readonly layoutService = inject(LayoutService);
 
   protected readonly expanded = signal(false);
   protected readonly isDarkMode = this.themeService.isDarkMode;
   protected readonly isRtl = this.languageService.isRtl;
   protected readonly isNotificationModalOpen = signal(false);
   protected readonly isReportModalOpen = signal(false);
+  protected readonly mobileNavOpen = this.layoutService.mobileNavOpen;
 
   private readonly mobileQuery = typeof window !== 'undefined' && typeof window.matchMedia === 'function'
     ? window.matchMedia('(max-width: 767.98px)')
@@ -71,5 +73,9 @@ export class NavSidebar {
 
   closeReportModal(): void {
     this.isReportModalOpen.set(false);
+  }
+
+  closeMobileNav(): void {
+    this.layoutService.closeMobileNav();
   }
 }

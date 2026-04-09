@@ -37,6 +37,11 @@ export class WidgetCatalogService {
     return this.catalog$.pipe(map(c => c.widgets.filter(w => w.hasDetailView && !w.hidden)));
   }
 
+  /** All widgets that are not hidden. */
+  getAllVisibleWidgets(): Observable<WidgetCatalogEntry[]> {
+    return this.catalog$.pipe(map(c => c.widgets.filter(w => !w.hidden)));
+  }
+
   /** Single widget entry by id. */
   getWidgetById(id: string): Observable<WidgetCatalogEntry | undefined> {
     return this.catalog$.pipe(map(c => c.widgets.find(w => w.id === id)));

@@ -4,7 +4,11 @@
       <span class="dropdown__label">{{ label() }}</span>
     }
     <div class="dropdown__value-container">
-      @if (isAnimating()) {
+      @if (multi()) {
+        <span class="dropdown__value" [class.dropdown__value--selected]="multiDisplayValue()">
+          {{ multiDisplayValue() ?? placeholder() }}
+        </span>
+      } @else if (isAnimating()) {
         <span class="dropdown__value dropdown__value--leaving" [class.dropdown__value--selected]="previousValue()">
           {{ previousValue() ?? placeholder() }}
         </span>
@@ -33,14 +37,30 @@
     <div class="dropdown__backdrop" (click)="toggle()"></div>
     <div class="dropdown__menu">
       @for (option of options(); track option) {
-        <a
-          class="dropdown__link"
-          [class.dropdown__link--selected]="selectedValue() === option"
-          href="#"
-          (click)="select(option); $event.preventDefault(); $event.stopPropagation()"
-        >
-          {{ option }}
-        </a>
+        @if (multi()) {
+          <label
+            class="dropdown__link dropdown__link--multi"
+            [class.dropdown__link--selected]="isMultiChecked(option)"
+            (click)="$event.stopPropagation()"
+          >
+            <input
+              type="checkbox"
+              class="dropdown__checkbox"
+              [checked]="isMultiChecked(option)"
+              (change)="toggleMulti(option)"
+            />
+            {{ option }}
+          </label>
+        } @else {
+          <a
+            class="dropdown__link"
+            [class.dropdown__link--selected]="selectedValue() === option"
+            href="#"
+            (click)="select(option); $event.preventDefault(); $event.stopPropagation()"
+          >
+            {{ option }}
+          </a>
+        }
       }
     </div>
   }

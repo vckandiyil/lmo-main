@@ -105,3 +105,15 @@
     height: 75px;
   }
 }
+
+@media (max-width: 767.98px) {
+  .market-entrants {
+    &__body {
+      height: auto;
+    }
+
+    &__education {
+      height: auto;
+    }
+  }
+}

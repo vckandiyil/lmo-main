@@ -1,7 +1,7 @@
 <div class="employment" [class.employment--selected]="selected()" (click)="onWidgetClick()">
   <app-flip-card #flipCard>
     <app-widget-checkbox [selected]="selected()" front/>
-    <app-widget-header [title]="'Employment'" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" front/>
+    <app-widget-header [title]="'Employment'" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" (removeClick)="removeClick.emit()" front/>
     <div class="employment__legend" front>
       <div class="employment__legend-item">
         <span class="employment__legend-dot employment__legend-dot--employment"></span>

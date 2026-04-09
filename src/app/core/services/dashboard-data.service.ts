@@ -1,6 +1,6 @@
 import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {map, Observable, shareReplay} from 'rxjs';
+import {forkJoin, map, Observable, shareReplay} from 'rxjs';
 import {API_BASE_URL} from '../tokens/api-base-url.token';
 
 export interface RegionMetric {
@@ -100,15 +100,6 @@ export interface EmploymentData {
   years: string[];
 }
 
-export interface MaritalStatusDataItem {
-  label: string;
-  value: number;
-}
-
-export interface MaritalActivityStatusData {
-  statusData: MaritalStatusDataItem[];
-}
-
 export interface LabourMarketPolicyEntry {
   created_date: string;
   descriptions: string[];
@@ -133,14 +124,12 @@ export interface NewsData {
 export interface DashboardData {
   regionProfile: RegionProfileData;
   laborForceComposition: LaborForceCompositionData;
-  marketEntrants: MarketEntrantsData;
   sectorGapsOpportunities: SectorGapsOpportunitiesData;
   unemploymentRate: UnemploymentRateData;
   workforceStructure: WorkforceStructureData;
   employmentRate: EmploymentRateData;
   employmentRateTrend: EmploymentRateTrendData;
   employment: EmploymentData;
-  maritalActivityStatus: MaritalActivityStatusData;
 }
 
 export interface IndicatorSecurity {
@@ -261,6 +250,7 @@ export class DashboardDataService {
   private vacancyRateDetailCache$: Observable<EmploymentRateDetailData> | null = null;
   private labourMarketPoliciesCache$: Observable<LabourMarketPolicyEntry[][]> | null = null;
   private newsCache$: Observable<NewsData> | null = null;
+  private marketEntrantsWidgetCache$: Observable<MarketEntrantsData> | null = null;
 
   /**
    * Get dashboard data with caching.
@@ -394,6 +384,44 @@ export class DashboardDataService {
       );
     }
     return this.labourMarketPoliciesCache$;
+  }
+
+  getMarketEntrantsWidget(): Observable<MarketEntrantsData> {
+    if (!this.marketEntrantsWidgetCache$) {
+      this.marketEntrantsWidgetCache$ = forkJoin([
+        this.http.get<any>(`${this.baseUrl}/marketEntrantsEducation.json`),
+        this.http.get<any>(`${this.baseUrl}/marketEntrantsImmigration.json`),
+      ]).pipe(
+        map(([eduRaw, immRaw]) => {
+          const eduSeries = eduRaw.data.visualizations[0].series as any[];
+          const immSeries = immRaw.data.visualizations[0].series as any[];
+
+          // Group education series by level, extract latest year emirati/expat values
+          const levels = new Map<string, {emirati: number; expat: number}>();
+          for (const s of eduSeries) {
+            const isExpat = s.id.endsWith('-expat');
+            const level = s.label.replace(/ - (Emirati|Expat)$/, '');
+            const latest = s.data[s.data.length - 1].VALUE;
+            if (!levels.has(level)) levels.set(level, {emirati: 0, expat: 0});
+            const entry = levels.get(level)!;
+            if (isExpat) entry.expat = latest; else entry.emirati = latest;
+          }
+
+          const educationData: EducationDataItem[] = [...levels.entries()].map(([label, v]) => ({
+            label, emirati: v.emirati, expat: v.expat,
+          }));
+
+          const immigrationData: ImmigrationDataItem[] = immSeries.map((s: any) => ({
+            label: s.label,
+            value: s.data[s.data.length - 1].VALUE,
+          }));
+
+          return {educationData, immigrationData};
+        }),
+        shareReplay(1),
+      );
+    }
+    return this.marketEntrantsWidgetCache$;
   }
 
   getNews(): Observable<NewsData> {

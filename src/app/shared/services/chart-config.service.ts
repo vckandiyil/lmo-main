@@ -7,6 +7,7 @@ import 'highcharts/modules/heatmap';
 import 'highcharts/modules/funnel';
 import 'highcharts/modules/solid-gauge';
 import 'highcharts/modules/networkgraph';
+import 'highcharts/modules/stock';
 
 /**
  * Chart options type extending Highcharts.Options

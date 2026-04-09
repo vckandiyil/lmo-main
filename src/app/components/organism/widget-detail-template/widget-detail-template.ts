@@ -227,6 +227,7 @@ export class WidgetDetailTemplate implements OnInit, OnDestroy {
   showTooltip = signal<boolean>(true);
   showDataLabels = signal<boolean>(true);
   showPreciseValue = signal<boolean>(false);
+  navigatorEnabled = signal<boolean>(false);
 
   sortDirection = signal<'asc' | 'desc' | null>(null);
   chartOrientation = signal<'vertical' | 'horizontal'>('vertical');
@@ -440,6 +441,15 @@ export class WidgetDetailTemplate implements OnInit, OnDestroy {
     this.rebuildChart();
   }
 
+  toggleNavigator(enabled: boolean): void {
+    this.navigatorEnabled.set(enabled);
+    if (enabled) {
+      this.activeRange.set('ALL');
+    }
+    this.rebuildChart();
+  }
+
+
   private rebuildChart(): void {
     this.tableRefreshTrigger.update(v => v + 1);
     const cfg = this.config();
@@ -467,6 +477,7 @@ export class WidgetDetailTemplate implements OnInit, OnDestroy {
       showTooltip: this.showTooltip(),
       showDataLabels: this.showDataLabels(),
       showPreciseValue: this.showPreciseValue(),
+      navigatorEnabled: this.navigatorEnabled(),
       multiSeries: this.rawMultiSeries.length ? this.getFilteredMultiSeries() : undefined,
     };
   }

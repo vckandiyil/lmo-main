@@ -1,7 +1,7 @@
 <div class="employment-rate-trend" [class.employment-rate-trend--selected]="selected()" (click)="onWidgetClick()">
   <app-flip-card #flipCard>
     <app-widget-checkbox [selected]="selected()" front/>
-    <app-widget-header [title]="'Employment Trend & Sentiment'" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" front/>
+    <app-widget-header [title]="'Employment Trend & Sentiment'" (starsClick)="flipCard.toggle()" (expandClick)="expandClick.emit()" (removeClick)="removeClick.emit()" front/>
     <div class="employment-rate-trend__legend" front>
       <div class="employment-rate-trend__legend-item">
         <span class="employment-rate-trend__legend-line"></span>

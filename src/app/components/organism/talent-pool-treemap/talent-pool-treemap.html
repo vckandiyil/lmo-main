@@ -5,6 +5,7 @@
       [title]="title()"
       [icons]="['stars', 'stats-up-square', 'more']"
       (starsClick)="flipCard.toggle()"
+      (removeClick)="removeClick.emit()"
       front/>
     <div class="talent-pool-treemap__body" front>
       @if (isCenter()) {

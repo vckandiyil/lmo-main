@@ -200,6 +200,19 @@
       background: var(--lmo-dropdown-hover);
       font-weight: 500;
     }
+
+    &--multi {
+      cursor: pointer;
+      gap: 8px;
+    }
+  }
+
+  &__checkbox {
+    accent-color: var(--lmo-primary, #3375C6);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    flex-shrink: 0;
   }
 }
 
