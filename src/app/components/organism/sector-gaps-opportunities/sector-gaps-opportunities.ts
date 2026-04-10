@@ -85,7 +85,7 @@ export class SectorGapsOpportunities implements OnInit {
           align: 'right',
           useHTML: true,
           formatter: function () {
-            return `<span style="color: var(--lmo-text-primary); font-family: 'Graphik Trial', sans-serif; font-weight: 400; font-size: 12px; text-align: right;">${this.value}</span>`;
+            return `<span style="color: var(--lmo-text-primary); font-family: sans-serif; font-weight: 400; font-size: 12px; text-align: right;">${this.value}</span>`;
           },
         },
         lineWidth: 0,
@@ -104,7 +104,7 @@ export class SectorGapsOpportunities implements OnInit {
           align: 'center',
           useHTML: true,
           formatter: function () {
-            return `<span style="color: var(--lmo-text-category); font-family: 'Graphik Trial', sans-serif; font-weight: 500; font-size: 12px;">${this.value}</span>`;
+            return `<span style="color: var(--lmo-text-category); font-family: sans-serif; font-weight: 500; font-size: 12px;">${this.value}</span>`;
           },
         },
         gridLineColor: '#B7C3D2',

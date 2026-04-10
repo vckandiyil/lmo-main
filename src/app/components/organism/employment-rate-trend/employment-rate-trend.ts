@@ -93,7 +93,7 @@ export class EmploymentRateTrend implements OnInit {
           enabled: true,
           useHTML: true,
           formatter: function () {
-            return `<span style="color: var(--lmo-text-category); font-family: 'Graphik Trial', sans-serif; font-weight: 400; font-size: 12px;">${this.value}%</span>`;
+            return `<span style="color: var(--lmo-text-category); font-family: sans-serif; font-weight: 400; font-size: 12px;">${this.value}%</span>`;
           },
         },
         gridLineWidth: 1,
@@ -122,7 +122,7 @@ export class EmploymentRateTrend implements OnInit {
             enabled: true,
             useHTML: true,
             formatter: function () {
-              return `<span style="color: var(--lmo-text-category); font-family: 'Graphik Trial', sans-serif; font-weight: 400; font-size: 12px;">${this.y}%</span>`;
+              return `<span style="color: var(--lmo-text-category); font-family: sans-serif; font-weight: 400; font-size: 12px;">${this.y}%</span>`;
             },
             verticalAlign: 'bottom',
             y: -5,

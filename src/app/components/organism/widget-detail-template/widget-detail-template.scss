@@ -40,7 +40,7 @@
     display: flex;
     align-items: center;
     gap: 32px;
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-weight: 600;
     font-size: 24px;
     line-height: 33px;
@@ -106,7 +106,7 @@
 
     ::ng-deep .hcg-table thead th {
       background: #F3F4F6 !important;
-      font-family: 'Graphik Trial', sans-serif !important;
+      font-family: sans-serif !important;
       font-weight: 600 !important;
       font-size: 14px !important;
       color: #05264A !important;
@@ -115,7 +115,7 @@
     }
 
     ::ng-deep .hcg-table tbody td {
-      font-family: 'Graphik Trial', sans-serif !important;
+      font-family: sans-serif !important;
       font-size: 14px !important;
       color: #364151 !important;
       padding: 12px 20px !important;
@@ -224,7 +224,7 @@
   }
 
   &__settings-title {
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-weight: 600;
     font-size: 18px;
     line-height: 27px;
@@ -304,7 +304,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
@@ -370,7 +370,7 @@
   }
 
   &__download-format-label {
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
@@ -440,7 +440,7 @@
   }
 
   &__footer-card-toggle {
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;
@@ -469,7 +469,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      font-family: 'Graphik Trial', sans-serif;
+      font-family: sans-serif;
       font-weight: 400;
       font-size: 14px;
       line-height: 21px;
@@ -496,7 +496,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
@@ -517,7 +517,7 @@
   }
 
   &__ai-subtitle {
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-weight: 600;
     font-size: 16px;
     line-height: 27px;
@@ -529,7 +529,7 @@
   }
 
   &__ai-text {
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
@@ -541,7 +541,7 @@
   }
 
   &__ai-label {
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-weight: 600;
     font-size: 14px;
     line-height: 22px;
@@ -554,7 +554,7 @@
   }
 
   &__highlight-value {
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -591,7 +591,7 @@
     border-radius: 12px;
     border: 1px solid #C4D3E8;
     padding: 12px 16px;
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-size: 14px;
     line-height: 21px;
     color: #364151;
@@ -623,7 +623,7 @@
   }
 
   &__comment-notice {
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-weight: 400;
     font-size: 11px;
     line-height: 16px;
@@ -655,7 +655,7 @@
     display: flex;
     align-items: center;
     gap: 4px;
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-size: 11px;
     color: #364151;
     min-width: 0;
@@ -676,7 +676,7 @@
   }
 
   &__comment-link {
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-weight: 500;
     font-size: 12px;
     line-height: 18px;
@@ -692,7 +692,7 @@
   }
 
   &__comment-text {
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;
@@ -719,7 +719,7 @@
   }
 
   &__notification-label {
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
@@ -733,7 +733,7 @@
   }
 
   &__description {
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 27px;

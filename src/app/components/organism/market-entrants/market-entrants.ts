@@ -190,7 +190,7 @@ export class MarketEntrants implements OnInit {
           reserveSpace: true,
           useHTML: true,
           formatter: function () {
-            return `<span style="color: var(--lmo-text-category); font-family: 'Graphik Trial', sans-serif; font-weight: 400; font-size: 14px;">${this.value}</span>`;
+            return `<span style="color: var(--lmo-text-category); font-family: sans-serif; font-weight: 400; font-size: 14px;">${this.value}</span>`;
           },
         },
       },
@@ -220,7 +220,7 @@ export class MarketEntrants implements OnInit {
             align: 'left',
             useHTML: true,
             formatter: function () {
-              return `<span style="color: var(--lmo-text-value); font-family: 'Graphik Trial', sans-serif; font-weight: 600; font-size: 14px;">${Math.round(this.y! / 100) / 10}k</span>`;
+              return `<span style="color: var(--lmo-text-value); font-family: sans-serif; font-weight: 600; font-size: 14px;">${Math.round(this.y! / 100) / 10}k</span>`;
             },
           },
         },

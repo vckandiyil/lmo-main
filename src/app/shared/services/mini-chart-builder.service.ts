@@ -7,7 +7,7 @@ import {ThemeService} from '../../core/services/theme.service';
 import {abbreviateNumber} from '../utils/number-format';
 
 const MINI_CHART_HEIGHT = 200;
-const CHART_FONT        = "'Graphik Trial', sans-serif";
+const CHART_FONT        = "sans-serif";
 const MINI_LABEL_STYLE  = `color:var(--lmo-text-category);font-family:${CHART_FONT};font-weight:400;font-size:12px;`;
 const COLOR_GRID_MINI   = '#CFDCEC';
 const miniLegend = (isDark: boolean) => ({
@@ -293,7 +293,7 @@ export class MiniChartBuilderService {
       };
       if ((result.plotOptions as any)?.solidgauge?.dataLabels) {
         (result.plotOptions as any).solidgauge.dataLabels.format =
-          '<div style="text-align:center"><span style="font-size:18px;font-family:\'Graphik Trial\',sans-serif;font-weight:700;color:#1E2937">{y}</span></div>';
+          '<div style="text-align:center"><span style="font-size:18px;font-family:sans-serif;font-weight:700;color:#1E2937">{y}</span></div>';
       }
     }
 

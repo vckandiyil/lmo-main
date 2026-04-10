@@ -91,7 +91,7 @@ export class MaritalActivityStatus implements OnInit {
         },
         formatter: function () {
           const ctx = this as unknown as {percentage?: number};
-          return `<span style="font-family: 'Graphik Trial', sans-serif; font-weight: 600; font-size: 14px; color: #1E4B7A;">${Math.round(ctx.percentage ?? 0)}%</span>`;
+          return `<span style="font-family: sans-serif; font-weight: 600; font-size: 14px; color: #1E4B7A;">${Math.round(ctx.percentage ?? 0)}%</span>`;
         },
       },
       credits: {

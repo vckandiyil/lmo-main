@@ -6,7 +6,7 @@ import {abbreviateNumber} from '../utils/number-format';
 import {ThemeService} from '../../core/services/theme.service';
 
 const FORECAST_COLOR_DEFAULT = '#5CC049';
-const CHART_FONT             = "'Graphik Trial', sans-serif";
+const CHART_FONT             = "sans-serif";
 const COLOR_AXIS_LABEL       = '#6A7180';
 const COLOR_GRID             = '#E8E8E8';
 
@@ -526,8 +526,8 @@ export class ChartBuilderService {
     return {
       chart: {type: 'heatmap', backgroundColor: 'transparent', spacing: [40, 20, 20, 20]},
       title: {text: ''},
-      xAxis: {categories: xCategories, labels: {style: {fontFamily: "'Graphik Trial', sans-serif", fontSize: '11px', color: '#6A7180'}}},
-      yAxis: {categories: yCategories, title: {text: ''}, reversed: true, labels: {style: {fontFamily: "'Graphik Trial', sans-serif", fontSize: '11px', color: '#6A7180'}}},
+      xAxis: {categories: xCategories, labels: {style: {fontFamily: "sans-serif", fontSize: '11px', color: '#6A7180'}}},
+      yAxis: {categories: yCategories, title: {text: ''}, reversed: true, labels: {style: {fontFamily: "sans-serif", fontSize: '11px', color: '#6A7180'}}},
       colorAxis: {min: minVal, max: maxVal, stops: [[0, '#f7fbff'], [0.25, '#c6dbef'], [0.5, '#6baed6'], [0.75, '#2171b5'], [1, '#084594']]},
       legend: {align: 'right' as const, layout: 'vertical' as const, verticalAlign: 'middle' as const, symbolHeight: 200},
       tooltip: {enabled: true, formatter: function(this: any): string { return `<b>${this.series.yAxis.categories[this.point.y]}</b><br/>${this.series.xAxis.categories[this.point.x]}: <b>${this.point.value}</b>`; }},
@@ -538,7 +538,7 @@ export class ChartBuilderService {
         data,
         borderWidth: 1,
         borderColor: '#ffffff',
-        dataLabels: {enabled: true, style: {fontFamily: "'Graphik Trial', sans-serif", fontSize: '10px', fontWeight: '400', textOutline: 'none'}},
+        dataLabels: {enabled: true, style: {fontFamily: "sans-serif", fontSize: '10px', fontWeight: '400', textOutline: 'none'}},
       }] as any,
     };
   }
@@ -561,8 +561,8 @@ export class ChartBuilderService {
     return {
       chart: {type: 'bubble', backgroundColor: 'transparent', spacing: [40, 20, 20, 20]},
       title: {text: ''},
-      xAxis: {title: {text: 'Median Salary'}, gridLineWidth: 1, labels: {style: {fontFamily: "'Graphik Trial', sans-serif", color: '#6A7180'}}},
-      yAxis: {title: {text: 'Postings'}, labels: {style: {fontFamily: "'Graphik Trial', sans-serif", color: '#6A7180'}}},
+      xAxis: {title: {text: 'Median Salary'}, gridLineWidth: 1, labels: {style: {fontFamily: "sans-serif", color: '#6A7180'}}},
+      yAxis: {title: {text: 'Postings'}, labels: {style: {fontFamily: "sans-serif", color: '#6A7180'}}},
       legend: this.legendConfig(),
       tooltip: {enabled: true, pointFormat: '{point.name}: Salary={point.x}, Postings={point.y}'},
       credits: {enabled: false},
@@ -591,10 +591,10 @@ export class ChartBuilderService {
       title: {text: ''},
       legend: {enabled: false},
       pane: {center: ['50%', '70%'], size: '120%', startAngle: -90, endAngle: 90, background: [{backgroundColor: '#EEE', innerRadius: '60%', outerRadius: '100%', shape: 'arc' as any, borderWidth: 0}]},
-      yAxis: {min: 0, max: maxVal, stops: [[0.3, '#DF5353'], [0.6, '#DDDF0D'], [0.9, '#55BF3B']] as any, lineWidth: 0, tickWidth: 0, minorTickInterval: null as any, labels: {enabled: true, distance: 20, style: {fontFamily: "'Graphik Trial', sans-serif", fontSize: '12px', color: '#6A7180'}}, title: {text: ''}},
+      yAxis: {min: 0, max: maxVal, stops: [[0.3, '#DF5353'], [0.6, '#DDDF0D'], [0.9, '#55BF3B']] as any, lineWidth: 0, tickWidth: 0, minorTickInterval: null as any, labels: {enabled: true, distance: 20, style: {fontFamily: "sans-serif", fontSize: '12px', color: '#6A7180'}}, title: {text: ''}},
       tooltip: {enabled: false},
       credits: {enabled: false},
-      plotOptions: {solidgauge: {dataLabels: {y: -30, borderWidth: 0, useHTML: true, format: `<div style="text-align:center"><span style="font-size:28px;font-family:'Graphik Trial',sans-serif;font-weight:700;color:#1E2937">{y}</span><span style="font-size:16px;color:#6A7180">${unit}</span></div>`}}},
+      plotOptions: {solidgauge: {dataLabels: {y: -30, borderWidth: 0, useHTML: true, format: `<div style="text-align:center"><span style="font-size:28px;font-family:sans-serif,sans-serif;font-weight:700;color:#1E2937">{y}</span><span style="font-size:16px;color:#6A7180">${unit}</span></div>`}}},
       series: [{
         type: 'solidgauge' as any,
         name: config.series?.[0]?.name ?? 'Value',
@@ -625,12 +625,12 @@ export class ChartBuilderService {
     return {
       chart: {type: 'columnrange', inverted: true, backgroundColor: 'transparent', spacing: [40, 20, 20, 20]},
       title: {text: ''},
-      xAxis: {categories, labels: {style: {fontFamily: "'Graphik Trial', sans-serif", fontSize: '11px', color: '#6A7180'}}},
-      yAxis: {title: {text: config.yAxis?.unit === 'AED' ? 'Salary (AED)' : 'Value'}, labels: {style: {fontFamily: "'Graphik Trial', sans-serif", color: '#6A7180'}}},
+      xAxis: {categories, labels: {style: {fontFamily: "sans-serif", fontSize: '11px', color: '#6A7180'}}},
+      yAxis: {title: {text: config.yAxis?.unit === 'AED' ? 'Salary (AED)' : 'Value'}, labels: {style: {fontFamily: "sans-serif", color: '#6A7180'}}},
       legend: this.legendConfig(),
       tooltip: {enabled: true, valueSuffix: config.yAxis?.unit ? ` ${config.yAxis.unit}` : ''},
       credits: {enabled: false},
-      plotOptions: {columnrange: {borderRadius: 3, dataLabels: {enabled: ctx.showDataLabels ?? true, style: {fontFamily: "'Graphik Trial', sans-serif", fontSize: '10px', textOutline: 'none'}}}},
+      plotOptions: {columnrange: {borderRadius: 3, dataLabels: {enabled: ctx.showDataLabels ?? true, style: {fontFamily: "sans-serif", fontSize: '10px', textOutline: 'none'}}}},
       series: [{
         type: 'columnrange' as any,
         name: config.series?.[0]?.name ?? 'Range',
@@ -660,7 +660,7 @@ export class ChartBuilderService {
           neckWidth: '30%',
           neckHeight: '25%',
           width: '80%',
-          dataLabels: {enabled: true, format: '<b>{point.name}</b>: {point.y:,.0f}', style: {fontFamily: "'Graphik Trial', sans-serif", fontSize: '12px', fontWeight: '400', textOutline: 'none'}},
+          dataLabels: {enabled: true, format: '<b>{point.name}</b>: {point.y:,.0f}', style: {fontFamily: "sans-serif", fontSize: '12px', fontWeight: '400', textOutline: 'none'}},
         } as any,
       },
       series: [{
@@ -698,7 +698,7 @@ export class ChartBuilderService {
         networkgraph: {
           keys: ['from', 'to'],
           layoutAlgorithm: {enableSimulation: true, gravitationalConstant: 0.0625, linkLength: 80},
-          dataLabels: {enabled: true, linkFormat: '', style: {fontFamily: "'Graphik Trial', sans-serif", fontSize: '11px', fontWeight: '400', textOutline: '2px white'}},
+          dataLabels: {enabled: true, linkFormat: '', style: {fontFamily: "sans-serif", fontSize: '11px', fontWeight: '400', textOutline: '2px white'}},
         } as any,
       },
       series: [{
@@ -748,7 +748,7 @@ export class ChartBuilderService {
         layoutAlgorithm: 'squarified',
         data: treemapData,
         showInLegend: false,
-        dataLabels: {enabled: true, style: {fontFamily: "'Graphik Trial', sans-serif", fontSize: '12px', fontWeight: '600', textOutline: 'none', color: '#FFFFFF'}},
+        dataLabels: {enabled: true, style: {fontFamily: "sans-serif", fontSize: '12px', fontWeight: '600', textOutline: 'none', color: '#FFFFFF'}},
       }] as any,
     };
   }

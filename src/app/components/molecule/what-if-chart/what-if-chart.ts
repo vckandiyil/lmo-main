@@ -235,10 +235,10 @@ function makeDataLabels(unit: string, fixedColor?: string): any {
         unit === '%'
           ? `${Math.round(this.y * 10) / 10}%`
           : Number(this.y).toLocaleString('en-US', {maximumFractionDigits: 0});
-      return `<span style="color: ${color}; font-family: 'Graphik Trial', sans-serif; font-weight: 600; font-size: 14px; line-height: 21px;">${display}</span>`;
+      return `<span style="color: ${color}; font-family: sans-serif; font-weight: 600; font-size: 14px; line-height: 21px;">${display}</span>`;
     },
     style: {
-      fontFamily: "'Graphik Trial', sans-serif",
+      fontFamily: "sans-serif",
       fontWeight: '600',
       fontSize: '14px',
       textOutline: 'none',

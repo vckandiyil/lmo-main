@@ -158,7 +158,7 @@ export class TalentPoolTreemap implements OnInit {
   }
 
   private buildMiniOptions(emirati: number, nonEmirati: number): ChartOptions {
-    const labelStyle = `color: var(--lmo-text-category); font-family: 'Graphik Trial', sans-serif; font-weight: 400; font-size: 11px;`;
+    const labelStyle = `color: var(--lmo-text-category); font-family: sans-serif; font-weight: 400; font-size: 11px;`;
     return {
       chart: {type: 'bar', height: 112, backgroundColor: 'transparent', spacing: [8, 12, 8, 0], marginLeft: 80},
       title: {text: ''},
@@ -193,7 +193,7 @@ export class TalentPoolTreemap implements OnInit {
                 : v >= 1_000
                 ? `${(v / 1_000).toFixed(0)}K`
                 : String(v);
-              return `<span style="font-family: 'Graphik Trial', sans-serif; font-size: 11px; font-weight: 500; color: #3375C6;">${formatted}</span>`;
+              return `<span style="font-family: sans-serif; font-size: 11px; font-weight: 500; color: #3375C6;">${formatted}</span>`;
             },
           },
         },

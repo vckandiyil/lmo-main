@@ -119,7 +119,7 @@
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
@@ -139,7 +139,7 @@
     border: none;
     outline: none;
     background: transparent;
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
@@ -199,7 +199,7 @@
 
   &__question {
     margin: 0;
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-weight: 600;
     font-size: 24px;
     line-height: 33px;
@@ -231,7 +231,7 @@
   }
 
   &__overview-title {
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-weight: 600;
     font-size: 20px;
     line-height: 30px;
@@ -305,7 +305,7 @@
 
   &__overview-text {
     margin: 0;
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 27px;
@@ -328,7 +328,7 @@
   }
 
   &__data-title {
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
@@ -345,7 +345,7 @@
     padding: 4px 12px;
     background: #DDE9F6;
     border-radius: 16px;
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-weight: 500;
     font-size: 12px;
     line-height: 18px;
@@ -362,7 +362,7 @@
   }
 
   &__data-item {
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 27px;
@@ -401,7 +401,7 @@
   }
 
   &__overview-toggle-text {
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-weight: 600;
     font-size: 18px;
     line-height: 30px;
@@ -506,7 +506,7 @@
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    font-family: 'Graphik Trial', sans-serif;
+    font-family: sans-serif;
     font-weight: 400;
     font-size: 14px;
     color: var(--lmo-text-primary);
