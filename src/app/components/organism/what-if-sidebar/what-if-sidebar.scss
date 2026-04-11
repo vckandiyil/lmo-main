@@ -168,3 +168,46 @@
     }
   }
 }
+
+// ---------------------------------------------------------------------------
+// RESPONSIVE: Tablet & Mobile (<1200px) — sidebar flows in the page,
+// becoming a full-width block above the chart content.
+// ---------------------------------------------------------------------------
+@media (max-width: 1199.98px) {
+  :host {
+    display: block;
+    order: 1;
+    flex: 1 1 100%;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .what-if-sidebar {
+    position: static;
+    width: 100%;
+    top: auto;
+    left: auto;
+    background: transparent;
+
+    :host-context([dir='rtl']) & {
+      right: auto;
+      left: auto;
+    }
+
+    &__widgets {
+      position: static;
+      width: 100%;
+      height: auto;
+      top: auto;
+      left: auto;
+      padding: 0;
+      background: transparent;
+      overflow: visible;
+
+      :host-context([dir='rtl']) & {
+        right: auto;
+        left: auto;
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import {Component, computed, inject} from '@angular/core';
 import {toSignal} from '@angular/core/rxjs-interop';
+import {TranslateModule} from '@ngx-translate/core';
 import {Filters} from '../../components/organism/filters/filters';
 import {ChartCard} from '../../components/molecule/chart-card/chart-card';
 import {Button} from '../../components/atom/button/button';
@@ -10,7 +11,7 @@ import {LmiBar} from '../../components/organism/lmi-bar/lmi-bar';
 @Component({
   selector: 'app-forecast',
   standalone: true,
-  imports: [Filters, ChartCard, Button, LmiBar],
+  imports: [Filters, ChartCard, Button, LmiBar, TranslateModule],
   templateUrl: './forecast.html',
   styleUrl: './forecast.scss',
 })

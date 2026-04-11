@@ -123,6 +123,19 @@ export class Sidebar implements AfterViewInit, OnInit, OnDestroy {
         this.col4Widgets.set(right.slice(rightMid));
       }
     });
+
+    // Open the widget center when the responsive filters panel (or any other
+    // surface) requests it via LayoutService.requestAddWidget(). We capture
+    // the initial counter value at construction time so a freshly-mounted
+    // sidebar (e.g. after route navigation) doesn't immediately re-trigger
+    // the modal for a request that was already handled before navigation.
+    const initialAddWidgetId = untracked(() => this.layoutService.addWidgetRequestId());
+    effect(() => {
+      const id = this.layoutService.addWidgetRequestId();
+      if (id > initialAddWidgetId) {
+        untracked(() => this.openWidgetCenter('left'));
+      }
+    });
   }
 
   private getColSignal(col: 1 | 2 | 3 | 4) {

@@ -320,3 +320,56 @@
     }
   }
 }
+
+// ---------------------------------------------------------------------------
+// RESPONSIVE: Tablet & Mobile (<1200px) — let the stats row wrap so the
+// 2027 Forecast / Target groups don't overflow narrow card widths.
+// ---------------------------------------------------------------------------
+@media (max-width: 1199.98px) {
+  .chart-card {
+    &__stats {
+      flex-wrap: wrap;
+      row-gap: 16px;
+    }
+
+    &__stat-divider {
+      display: none;
+    }
+
+    &__stat-group {
+      flex: 0 0 auto;
+      padding-inline-end: 16px;
+      border-inline-end: 1px dashed transparent;
+
+      &:nth-child(3) {
+        border-inline-end-color: #75ca65;
+      }
+
+      &:nth-child(5) {
+        border-inline-end-color: #f3393f;
+        border-inline-end: none;
+        padding-inline-end: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .chart-card {
+    &__stats {
+      gap: 12px;
+      row-gap: 12px;
+    }
+
+    &__stat-group {
+      gap: 12px;
+      padding-inline-end: 0;
+      border-inline-end: none !important;
+    }
+
+    &__title {
+      font-size: 17px;
+      line-height: 22px;
+    }
+  }
+}

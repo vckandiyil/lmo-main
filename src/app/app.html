@@ -1,3 +1,8 @@
 <app-nav-sidebar/>
 <router-outlet/>
 <app-ai-chat/>
+<app-widget-detail-modal
+  [isOpen]="activeDetailWidget() !== null"
+  [widgetType]="activeDetailWidget()"
+  (closed)="closeWidgetDetail()"
+/>

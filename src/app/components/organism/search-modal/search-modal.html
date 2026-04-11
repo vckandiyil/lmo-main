@@ -161,12 +161,16 @@
                   >
                     <app-icon name="nav-arrow-left" size="16"/>
                   </button>
-                  @for (page of pageNumbers(); track page) {
-                    <button
-                      class="search-modal__pagination-page"
-                      [class.search-modal__pagination-page--active]="currentPage() === page"
-                      (click)="goToPage(page)"
-                    >{{ page }}</button>
+                  @for (page of pageNumbers(); track $index) {
+                    @if (page === '...') {
+                      <span class="search-modal__pagination-ellipsis">…</span>
+                    } @else {
+                      <button
+                        class="search-modal__pagination-page"
+                        [class.search-modal__pagination-page--active]="currentPage() === page"
+                        (click)="goToPage(page)"
+                      >{{ page }}</button>
+                    }
                   }
                   <button
                     class="search-modal__pagination-btn"

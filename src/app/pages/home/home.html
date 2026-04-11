@@ -3,11 +3,16 @@
 
 <section class="hero">
   <div class="hero__left">
-    <div class="hero__ellipse hero__ellipse--1"></div>
-    <div class="hero__ellipse hero__ellipse--2"></div>
-    <div class="hero__ellipse hero__ellipse--3"></div>
-    <div class="hero__ellipse hero__ellipse--4"></div>
+    <div class="hero__ellipses">
+      <div class="hero__ellipse hero__ellipse--1"></div>
+      <div class="hero__ellipse hero__ellipse--2"></div>
+      <div class="hero__ellipse hero__ellipse--3"></div>
+      <div class="hero__ellipse hero__ellipse--4"></div>
+    </div>
     <div class="hero__map">
+      <div class="hero__region hero__region--closed">
+        <app-inline-svg src="assets/images/regions/closed-region.svg"/>
+      </div>
       <div class="hero__region hero__region--al-dhafra" [class.hero__region--selected]="isRegionSelected('al-dhafra')" (click)="toggleRegion('al-dhafra')">
         <app-inline-svg src="assets/images/regions/AI-Dhafra.svg"/>
         <div class="hero__region-label">{{ 'HOME.REGION_AL_DHAFRA' | translate }}</div>
@@ -24,11 +29,12 @@
         <span class="hero__region-dot"></span>
       </div>
     </div>
+    <app-ai-insights class="hero__ai-insights"/>
   </div>
   <div class="hero__right">
     <app-region-profile/>
-    <app-ai-insights/>
     <app-labor-force-composition/>
+    <app-workforce-structure/>
   </div>
 </section>
 

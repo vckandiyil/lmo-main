@@ -41,6 +41,7 @@ export class Filters implements OnInit {
   isMyLmo = input<boolean>(false);
   hideLayoutBtn = input<boolean>(false);
   isHome = input<boolean>(false);
+  showAddWidget = input<boolean>(false);
 
   readonly activePresetName = this.presetService.activePresetName;
 
@@ -257,5 +258,12 @@ export class Filters implements OnInit {
 
   openMobileNav(): void {
     this.layoutService.openMobileNav();
+  }
+
+  // Triggered from the responsive filters panel — closes the panel and asks
+  // the sidebar (via LayoutService) to open its widget picker.
+  requestAddWidget(): void {
+    this.closeFilterPanel();
+    this.layoutService.requestAddWidget();
   }
 }

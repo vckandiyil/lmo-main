@@ -4,7 +4,7 @@
   left: var(--nav-sidebar-w);
   right: 0;
   background: #FFFFFF;
-  padding: 4px;
+  padding: 6px 4px;
   box-sizing: border-box;
   z-index: 2;
 
@@ -30,7 +30,7 @@
     width: max-content;
     gap: 0;
     direction: ltr;
-    animation: lmi-scroll 80s linear infinite;
+    animation: lmi-scroll 100s linear infinite;
 
     &:hover {
       animation-play-state: paused;
@@ -86,8 +86,8 @@
   &__label {
     font-family: sans-serif;
     font-weight: 400;
-    font-size: 12px;
-    line-height: 18px;
+    font-size: 13px;
+    line-height: 19px;
     color: #000000;
     white-space: nowrap;
 
@@ -99,8 +99,8 @@
   &__value {
     font-family: sans-serif;
     font-weight: 400;
-    font-size: 12px;
-    line-height: 18px;
+    font-size: 13px;
+    line-height: 19px;
     color: #000000;
     white-space: nowrap;
 
@@ -116,5 +116,21 @@
   }
   to {
     transform: translateX(-50%);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// RESPONSIVE: Tablet & Mobile (<1200px) — sidebar is hidden, ticker spans
+// the full viewport width.
+// ---------------------------------------------------------------------------
+@media (max-width: 1199.98px) {
+  .lmi-bar {
+    left: 0;
+    right: 0;
+
+    :host-context([dir='rtl']) & {
+      left: 0;
+      right: 0;
+    }
   }
 }

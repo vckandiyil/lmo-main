@@ -47,7 +47,7 @@ export class DynamicWidget implements AfterViewInit, OnChanges, OnDestroy {
     if (!this.viewReady) return;
     if (changes['widgetType']) {
       this.rebuild();
-    } else if (changes['isCenter'] && this.compRef) {
+    } else if (changes['isCenter'] && this.compRef && this.componentHasInput('isCenter')) {
       this.compRef.setInput('isCenter', this.isCenter);
     }
   }
@@ -66,11 +66,20 @@ export class DynamicWidget implements AfterViewInit, OnChanges, OnDestroy {
     if (!compType) return;
 
     this.compRef = this.anchor.createComponent(compType as Type<unknown>);
-    this.compRef.setInput('widgetType', this.widgetType);
-    this.compRef.setInput('isCenter', this.isCenter);
+    if (this.componentHasInput('widgetType')) {
+      this.compRef.setInput('widgetType', this.widgetType);
+    }
+    if (this.componentHasInput('isCenter')) {
+      this.compRef.setInput('isCenter', this.isCenter);
+    }
 
     this.subscribeOutput('expandClick', () => this.expandClick.emit());
     this.subscribeOutput('removeClick', () => this.widgetStore.removeWidget(this.widgetType));
+  }
+
+  private componentHasInput(name: string): boolean {
+    const cmpDef = (this.compRef?.componentType as {ɵcmp?: {inputs?: Record<string, unknown>}})?.ɵcmp;
+    return !!cmpDef?.inputs && name in cmpDef.inputs;
   }
 
   private subscribeOutput(name: string, handler: () => void): void {

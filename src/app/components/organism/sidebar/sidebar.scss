@@ -362,10 +362,19 @@
 // ---------------------------------------------------------------------------
 @media (max-width: 1199.98px) {
   :host {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     order: 2;
-    flex: 1 1 calc(50% - 16px);
+    flex: 1 1 100%;
     min-width: 0;
+  }
+
+  // Recommendations should appear directly below the map (which is the
+  // previous flex item in the page), so order it before the asides inside
+  // the sidebar host.
+  app-recommendations {
+    order: -1;
   }
 
   .sidebar {
@@ -408,8 +417,35 @@
       padding: 0 0 20px;
     }
 
+    // The frame ("Add widget" button) is hidden on tablet/mobile, so the
+    // 60px spacer that reserves room for it leaves dead space between the
+    // left and right sidebar widget stacks. Collapse it.
+    &__content::after {
+      min-height: 0;
+      display: none;
+    }
+
     &__frame {
       display: none;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// RESPONSIVE: Wide tablet (1024–1199px) — widgets in 2 columns under the map.
+// Below 1024px we keep the single-column stack from the base tablet rules.
+// ---------------------------------------------------------------------------
+@media (min-width: 1024px) and (max-width: 1199.98px) {
+  .sidebar {
+    &__content {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      align-items: start;
+    }
+
+    &__widget-item {
+      min-width: 0;
     }
   }
 }

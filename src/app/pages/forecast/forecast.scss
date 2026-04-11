@@ -1,5 +1,5 @@
 :host {
-  --content-top: 127px;
+  --content-top: 132px;
 }
 
 .forecast {
@@ -24,6 +24,29 @@
     }
   }
 
+  &__header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+
+  &__title {
+    margin: 0;
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 33px;
+    color: var(--Text-Heading-Default, #05264A);
+
+    :host-context(body.theme--dark) & {
+      color: #FFFFFF;
+    }
+  }
+
   &__graphs {
     display: flex;
     flex-wrap: wrap;
@@ -34,24 +57,44 @@
   &__graphs-item {
     width: calc(50% - 10px);
   }
-
-  &__add-btn {
-    margin-top: 32px;
-  }
 }
 
 // ---------------------------------------------------------------------------
 // RESPONSIVE
 // ---------------------------------------------------------------------------
 @media (max-width: 1199.98px) {
+  :host {
+    --content-top: 108px;
+    display: block;
+    box-sizing: border-box;
+    min-height: 100vh;
+    background: #e9f5ff;
+
+    :host-context(body.theme--dark) & {
+      background: var(--lmo-bg-surface);
+    }
+  }
+
+  // Fixed-positioned children must be removed from the flow so the
+  // .forecast__content padding doesn't double-count them.
+  app-filters,
+  app-lmi-bar {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
+
   .forecast__content {
     position: static;
     width: 100%;
     height: auto;
+    top: auto;
     left: auto;
     right: auto;
-    padding: var(--content-top) 16px 16px calc(var(--nav-sidebar-w) + 16px);
+    padding: var(--content-top) 16px 16px 16px;
     transition: none;
+    align-items: stretch;
 
     :host-context([dir='rtl']) & {
       left: auto;
@@ -59,16 +102,21 @@
       transition: none;
     }
   }
+
+  .forecast__graphs-item {
+    width: calc(50% - 10px);
+    min-width: 0;
+  }
 }
 
 @media (max-width: 767.98px) {
   :host {
-    --content-top: 64px;
+    --content-top: 99px;
   }
 
   .forecast {
     &__content {
-      padding: var(--content-top) 8px 8px calc(var(--nav-sidebar-w) + 8px);
+      padding: var(--content-top) 8px 8px 8px;
     }
 
     &__graphs-item {

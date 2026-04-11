@@ -5,6 +5,7 @@ import {InlineSvg} from '../../components/atom/inline-svg/inline-svg';
 import {Button} from '../../components/atom/button/button';
 import {Icon} from '../../components/atom/icon/icon';
 import {LaborForceComposition} from '../../components/organism/labor-force-composition/labor-force-composition';
+import {WorkforceStructure} from '../../components/organism/workforce-structure/workforce-structure';
 import {AiInsights} from '../../components/organism/ai-insights/ai-insights';
 import {Filters} from '../../components/organism/filters/filters';
 import {LmiBar} from '../../components/organism/lmi-bar/lmi-bar';
@@ -16,7 +17,7 @@ import {LanguageService} from '../../core';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [InlineSvg, Button, Icon, LaborForceComposition, AiInsights, Filters, LmiBar, RegionProfile, RegionsOverview, DatePipe, TranslateModule],
+  imports: [InlineSvg, Button, Icon, LaborForceComposition, WorkforceStructure, AiInsights, Filters, LmiBar, RegionProfile, RegionsOverview, DatePipe, TranslateModule],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })

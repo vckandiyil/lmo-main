@@ -42,6 +42,7 @@ interface RegionPopulationData {
 })
 export class CenterSection implements AfterViewInit, OnDestroy {
   private readonly mapContainer = viewChild.required<ElementRef<HTMLDivElement>>('mapContainer');
+  private readonly hostRef = inject(ElementRef<HTMLElement>);
   private readonly mapService = inject(MapService);
   private readonly widgetStore = inject(WidgetStore);
   private readonly catalogService = inject(WidgetCatalogService);
@@ -74,7 +75,12 @@ export class CenterSection implements AfterViewInit, OnDestroy {
 
   is3DMode = signal(false);
   isTransitioning = signal(false);
+  isFullscreen = signal(false);
   regionData = signal<RegionPopulationData | null>(null);
+
+  private readonly onFullscreenChange = (): void => {
+    this.isFullscreen.set(!!document.fullscreenElement);
+  };
 
   drillRegion = signal<RegionPopulation | null>(null);
   drillBreadcrumb = signal<string[]>([]);
@@ -154,34 +160,11 @@ export class CenterSection implements AfterViewInit, OnDestroy {
     }
   }
 
-  resetView(): void {
-    if (this.is3DMode()) {
-      this.sceneView?.goTo(
-        {
-          position: {
-            x: this.defaultCenter[0],
-            y: this.defaultCenter[1] - 1.5,
-            z: 120000,
-          },
-          tilt: 55,
-          heading: 0,
-        },
-        { duration: 1200, easing: 'in-out-cubic' as any }
-      );
-    } else if (this.mapView) {
-      this.mapView.goTo({
-        center: this.defaultCenter,
-        zoom: this.defaultZoom,
-      });
-    }
-  }
-
   expandFullscreen(): void {
-    const container = this.mapContainer().nativeElement;
     if (document.fullscreenElement) {
       document.exitFullscreen();
     } else {
-      container.requestFullscreen();
+      this.hostRef.nativeElement.requestFullscreen();
     }
   }
 
@@ -232,9 +215,11 @@ export class CenterSection implements AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     this.initializeMap();
     this.loadRegionData();
+    document.addEventListener('fullscreenchange', this.onFullscreenChange);
   }
 
   ngOnDestroy(): void {
+    document.removeEventListener('fullscreenchange', this.onFullscreenChange);
     this.disposeClickHandler();
     if (this.mapView) {
       this.mapView.destroy();

@@ -200,12 +200,17 @@
       </div>
     </div>
 
-    <!-- Mobile: hamburger menu button (visible only on mobile) -->
+    <!-- Mobile: hamburger menu button (visible only on tablet/mobile) -->
     <button class="filters__mobile-nav-btn" type="button" (click)="openMobileNav()">
       <app-icon name="horizontal-bars" size="20"/>
     </button>
 
-    <!-- Mobile: filter icon button (visible only on mobile) -->
+    <!-- Mobile: Labor Market Pulse icon button (visible only on tablet/mobile) -->
+    <button class="filters__mobile-pulse-btn" type="button" (click)="openPresentationModal()">
+      <app-icon name="presentation" size="20"/>
+    </button>
+
+    <!-- Mobile: filter icon button (visible only on tablet/mobile) -->
     <button class="filters__mobile-filter-btn" type="button" (click)="openFilterPanel()">
       <app-icon name="settings" size="20"/>
     </button>
@@ -378,6 +383,15 @@
             />
           </div>
         </div>
+
+        @if (showAddWidget()) {
+          <div class="filters-panel__divider"></div>
+
+          <button type="button" class="filters-panel__add-widget" (click)="requestAddWidget()">
+            <app-icon name="plus" size="16"/>
+            <span>{{ 'LMI.ADD_WIDGET' | translate }}</span>
+          </button>
+        }
 
         @if (!isHome()) {
           <div class="filters-panel__divider"></div>

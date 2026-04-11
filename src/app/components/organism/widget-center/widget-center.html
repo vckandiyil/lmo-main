@@ -118,12 +118,16 @@
           >
             <app-icon name="nav-arrow-left" size="16"/>
           </button>
-          @for (page of pageNumbers(); track page) {
-            <button
-              class="widget-center__pagination-page"
-              [class.widget-center__pagination-page--active]="currentPage() === page"
-              (click)="goToPage(page)"
-            >{{ page }}</button>
+          @for (page of pageNumbers(); track $index) {
+            @if (page === '...') {
+              <span class="widget-center__pagination-ellipsis">…</span>
+            } @else {
+              <button
+                class="widget-center__pagination-page"
+                [class.widget-center__pagination-page--active]="currentPage() === page"
+                (click)="goToPage(page)"
+              >{{ page }}</button>
+            }
           }
           <button
             class="widget-center__pagination-btn"

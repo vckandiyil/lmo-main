@@ -35,6 +35,10 @@
     color: #AEB2BC;
     transition: color 0.15s ease;
 
+    :host-context(.sidebar) & {
+      color: #8991A2;
+    }
+
     &:hover {
       color: #000000;
     }

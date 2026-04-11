@@ -1,6 +1,10 @@
 <app-lmi-bar></app-lmi-bar>
 <app-filters [hideLayoutBtn]="true"></app-filters>
 <div class="forecast__content">
+  <div class="forecast__header">
+    <h2 class="forecast__title">{{ 'NAV.FORECASTS' | translate }}</h2>
+    <app-button variant="add-indicator"></app-button>
+  </div>
   <div class="forecast__graphs">
     @for (widget of visibleWidgets(); track widget.id) {
       <app-chart-card
@@ -13,5 +17,4 @@
       ></app-chart-card>
     }
   </div>
-  <app-button class="forecast__add-btn" variant="add-indicator"></app-button>
 </div>

@@ -217,9 +217,10 @@
 }
 
 // ---------------------------------------------------------------------------
-// RESPONSIVE: Mobile — hide fixed sidebar, show overlay when triggered
+// RESPONSIVE: Tablet & Mobile (<1200px) — hide fixed sidebar, show overlay
+// when triggered. Same behavior on tablet and phone.
 // ---------------------------------------------------------------------------
-@media (max-width: 767.98px) {
+@media (max-width: 1199.98px) {
   .nav-sidebar {
     display: none;
   }
@@ -229,7 +230,7 @@
 .nav-overlay {
   display: none;
 
-  @media (max-width: 767.98px) {
+  @media (max-width: 1199.98px) {
     display: flex;
     position: fixed;
     inset: 0;

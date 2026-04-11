@@ -27,17 +27,35 @@
             <table class="presentation-modal__table">
               <thead>
                 <tr>
-                  <th class="presentation-modal__table-header">{{ 'LMI.TABLE_DOMAIN' | translate }}</th>
+                  <th class="presentation-modal__table-header presentation-modal__table-header--sortable"
+                      (click)="toggleDomainSort()">
+                    <span class="presentation-modal__sort-label" [attr.data-tooltip]="'LMI.SORT_ALPHABETICAL' | translate">
+                      {{ 'LMI.TABLE_DOMAIN' | translate }}
+                      <app-icon
+                        class="presentation-modal__sort-icon"
+                        [name]="sortDirection() === 'asc' ? 'nav-arrow-up' : sortDirection() === 'desc' ? 'nav-arrow-down' : 'sort'"
+                        size="14"/>
+                    </span>
+                  </th>
                   <th class="presentation-modal__table-header">{{ 'LMI.TABLE_OVERALL' | translate }}</th>
-                  <th class="presentation-modal__table-header">{{ 'LMI.TABLE_AL_DHAFRA' | translate }}</th>
                   <th class="presentation-modal__table-header">{{ 'LMI.TABLE_ABU_DHABI' | translate }}</th>
                   <th class="presentation-modal__table-header">{{ 'LMI.TABLE_AL_AIN' | translate }}</th>
+                  <th class="presentation-modal__table-header">{{ 'LMI.TABLE_AL_DHAFRA' | translate }}</th>
                 </tr>
               </thead>
               <tbody>
-                @for (row of tableData; track row.domain) {
+                @for (row of sortedTableData(); track row.domain) {
                   <tr class="presentation-modal__table-row">
-                    <td class="presentation-modal__table-cell presentation-modal__table-cell--domain">{{ isArabic() ? (row.domain_ar ?? row.domain) : row.domain }}</td>
+                    <td class="presentation-modal__table-cell presentation-modal__table-cell--domain">
+                      <span class="presentation-modal__domain-text">{{ isArabic() ? (row.domain_ar ?? row.domain) : row.domain }}</span>
+                      <button
+                        type="button"
+                        class="presentation-modal__remove-btn"
+                        [attr.data-tooltip]="'LMI.REMOVE_INDICATOR' | translate"
+                        (click)="removeIndicator(row.domain)">
+                        <app-icon name="trash" size="16"/>
+                      </button>
+                    </td>
                     <td class="presentation-modal__table-cell">
                       <div class="presentation-modal__cell-content">
                         <span class="presentation-modal__value">{{ row.overall }}</span>
@@ -45,17 +63,6 @@
                           <span class="presentation-modal__yy-badge" [class.presentation-modal__yy-badge--negative]="row.yy.overall < 0">
                             <app-icon [name]="row.yy.overall >= 0 ? 'trending-up' : 'trending-down'" size="16"/>
                             <span>{{ row.yy.overall >= 0 ? '+' : '' }}{{ row.yy.overall }}%</span>
-                          </span>
-                        }
-                      </div>
-                    </td>
-                    <td class="presentation-modal__table-cell">
-                      <div class="presentation-modal__cell-content">
-                        <span class="presentation-modal__value">{{ row.alDhafra }}</span>
-                        @if (activeTab() === 'yy') {
-                          <span class="presentation-modal__yy-badge" [class.presentation-modal__yy-badge--negative]="row.yy.alDhafra < 0">
-                            <app-icon [name]="row.yy.alDhafra >= 0 ? 'trending-up' : 'trending-down'" size="16"/>
-                            <span>{{ row.yy.alDhafra >= 0 ? '+' : '' }}{{ row.yy.alDhafra }}%</span>
                           </span>
                         }
                       </div>
@@ -78,6 +85,17 @@
                           <span class="presentation-modal__yy-badge" [class.presentation-modal__yy-badge--negative]="row.yy.alAin < 0">
                             <app-icon [name]="row.yy.alAin >= 0 ? 'trending-up' : 'trending-down'" size="16"/>
                             <span>{{ row.yy.alAin >= 0 ? '+' : '' }}{{ row.yy.alAin }}%</span>
+                          </span>
+                        }
+                      </div>
+                    </td>
+                    <td class="presentation-modal__table-cell">
+                      <div class="presentation-modal__cell-content">
+                        <span class="presentation-modal__value">{{ row.alDhafra }}</span>
+                        @if (activeTab() === 'yy') {
+                          <span class="presentation-modal__yy-badge" [class.presentation-modal__yy-badge--negative]="row.yy.alDhafra < 0">
+                            <app-icon [name]="row.yy.alDhafra >= 0 ? 'trending-up' : 'trending-down'" size="16"/>
+                            <span>{{ row.yy.alDhafra >= 0 ? '+' : '' }}{{ row.yy.alDhafra }}%</span>
                           </span>
                         }
                       </div>

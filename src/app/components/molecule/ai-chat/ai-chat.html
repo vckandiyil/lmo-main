@@ -1,30 +1,18 @@
-<button
-  class="ai-chat__toggle-btn"
-  [attr.data-tooltip]="'LMI.AI_ASSISTANT_TITLE' | translate"
-  (click)="toggle()">
-  @if (isAnimating()) {
-    @if (isOpen()) {
-      <img class="ai-chat__toggle-icon ai-chat__toggle-icon--leaving" src="assets/images/icons/AI Assistant.png" alt="AI Assistant"/>
-      <div class="ai-chat__toggle-arrow ai-chat__toggle-arrow--entering">
-        <div class="ai-chat__toggle-arrow-icon"></div>
-      </div>
-    } @else {
-      <div class="ai-chat__toggle-arrow ai-chat__toggle-arrow--leaving">
-        <div class="ai-chat__toggle-arrow-icon"></div>
-      </div>
-      <img class="ai-chat__toggle-icon ai-chat__toggle-icon--entering" src="assets/images/icons/AI Assistant.png" alt="AI Assistant"/>
-    }
-  } @else if (isOpen()) {
-    <div class="ai-chat__toggle-arrow">
-      <div class="ai-chat__toggle-arrow-icon"></div>
-    </div>
-  } @else {
+@if (!isOpen()) {
+  <button
+    class="ai-chat__toggle-btn"
+    [attr.data-tooltip]="'LMI.AI_ASSISTANT_TITLE' | translate"
+    (click)="toggle()">
     <img class="ai-chat__toggle-icon" src="assets/images/icons/AI Assistant.png" alt="AI Assistant"/>
-  }
-</button>
+  </button>
+}
 
 @if (isOpen()) {
   <div class="ai-chat__panel" [@slideInOut]="animationParams()">
+
+    <button class="ai-chat__close" type="button" (click)="toggle()" [attr.aria-label]="'COMMON.CLOSE' | translate">
+      <app-icon name="close" size="16"/>
+    </button>
 
     <div class="ai-chat__header">
       <img class="ai-chat__assistant-icon" src="assets/images/icons/AI Assistant.png" alt="AI Assistant"/>

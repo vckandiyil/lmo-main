@@ -2,7 +2,8 @@
   display: block;
   flex: 1;
   overflow-y: auto;
-  padding-top: var(--filters-h);
+  --content-top: 110px;
+  padding-top: var(--content-top);
   padding-left: var(--nav-sidebar-w);
   background: var(--lmo-bg-surface);
   transition: padding-left 0.3s ease;
@@ -22,21 +23,21 @@
 
 .hero {
   display: flex;
-  gap: 50px;
-  padding: calc(64px + 30px) 48px 64px 0;
+  gap: 37px;
+  padding: 25px 48px 74px 0;
   overflow: hidden;
   justify-content: center;
 
   :host-context([dir='rtl']) & {
-    padding: calc(64px + 30px) 0 64px 48px;
+    padding: 74px 0 74px 48px;
   }
 
   &__left {
     position: relative;
     width: 1100px;
-    min-height: 600px;
     flex-shrink: 1;
     min-width: 0;
+    align-self: stretch;
   }
 
   &__right {
@@ -45,12 +46,13 @@
     justify-content: center;
     gap: 24px;
     flex-shrink: 0;
-    width: 344px;
-    max-width: 344px;
+    width: 393px;
+    max-width: 393px;
 
     app-region-profile,
     app-ai-insights,
-    app-labor-force-composition {
+    app-labor-force-composition,
+    app-workforce-structure {
       --lmo-bg-widget: #FFFFFF;
 
       :host-context(body.theme--dark) & {
@@ -62,21 +64,46 @@
       }
     }
 
-    app-labor-force-composition {
+    app-labor-force-composition,
+    app-workforce-structure {
       --flip-padding: 24px;
     }
   }
 
   &__map {
     position: absolute;
-    top: calc(50% - 80px);
+    top: calc(38% - 315px);
     left: 50%;
-    transform: translate(-50%, -50%) scale(0.9);
-    width: 1100px;
-    height: 600px;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 630px;
     pointer-events: none;
-    transition: transform 0.3s ease;
+    transition: top 0.3s ease, left 0.3s ease;
+  }
 
+  // AI insights widget rendered below the map inside the hero left column.
+  // Top is 70px below the map's bottom edge, bottom aligns with the sidebar
+  // bottom (i.e. the bottom of .hero__left, which stretches to the right
+  // sidebar's height).
+  &__ai-insights {
+    position: absolute;
+    top: calc(38% + 385px); // map vertical-center (38%) + half map height (315px) + 70px gap
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 833px;
+    max-width: 100%;
+    z-index: 2;
+    --lmo-bg-widget: #FFFFFF;
+
+    :host-context(body.theme--dark) & {
+      --lmo-bg-widget: var(--lmo-bg-card);
+    }
+
+    ::ng-deep .ai-insights {
+      height: 100%;
+      box-sizing: border-box;
+    }
   }
 
   &__region {
@@ -126,16 +153,16 @@
     }
 
     &--al-dhafra {
-      left: -65px;
-      top: 80px;
-      width: 838px;
-      height: 461px;
+      left: 0;
+      top: 308px;
+      width: 553px;
+      height: 303px;
 
       &.hero__region--selected {
-        width: 922px;
-        height: 507px;
-        left: #{-65px - 88px};
-        top: #{80px - 0px};
+        width: 608px;
+        height: 333px;
+        left: -58px;
+        top: 308px;
       }
 
       .hero__region-dot,
@@ -146,16 +173,16 @@
     }
 
     &--abu-dhabi {
-      left: 502px;
-      top: -59px;
-      width: 334px;
-      height: 395px;
+      left: 374px;
+      top: 216px;
+      width: 221px;
+      height: 264px;
 
       &.hero__region--selected {
-        width: 367px;
-        height: 435px;
-        left: #{502px - 30px};
-        top: #{-59px - 15px};
+        width: 243px;
+        height: 290px;
+        left: 352px;
+        top: 206px;
       }
 
       .hero__region-dot,
@@ -166,22 +193,40 @@
     }
 
     &--al-ain {
-      left: 708px;
-      top: -25px;
-      width: 344px;
-      height: 584px;
+      left: 510px;
+      top: 238px;
+      width: 228px;
+      height: 392px;
 
       &.hero__region--selected {
-        width: 378px;
-        height: 642px;
-        left: #{708px - 10px};
-        top: #{-25px - 10px};
+        width: 251px;
+        height: 431px;
+        left: 503px;
+        top: 231px;
       }
 
       .hero__region-dot,
       .hero__region-label {
         top: 60%;
         left: 45%;
+      }
+    }
+
+    &--closed {
+      left: 549px;
+      top: 0;
+      width: 250px;
+      height: 266px;
+      pointer-events: none;
+
+      ::ng-deep svg path {
+        fill: #DADDE2 !important;
+        cursor: default;
+        transition: none;
+      }
+
+      ::ng-deep svg path:hover {
+        fill: #DADDE2 !important;
       }
     }
   }
@@ -243,6 +288,16 @@
     }
   }
 
+  &__ellipses {
+    position: absolute;
+    top: calc(38% - 500px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1183px;
+    height: 1180px;
+    pointer-events: none;
+  }
+
   &__ellipse {
     position: absolute;
     border-radius: 50%;
@@ -253,8 +308,8 @@
     animation: pulse 4s ease-in-out infinite;
 
     &--1 {
-      width: 1031px;
-      height: 1031px;
+      width: 675px;
+      height: 675px;
       background: #FFFFFFE5;
       animation-delay: 0s;
 
@@ -264,9 +319,9 @@
     }
 
     &--2 {
-      width: 1333px;
-      height: 1333px;
-      border: 30px solid #FFFFFFB2;
+      width: 873px;
+      height: 873px;
+      border: 20px solid #FFFFFFB2;
       background: transparent;
       animation-delay: 0.5s;
 
@@ -276,9 +331,9 @@
     }
 
     &--3 {
-      width: 1584px;
-      height: 1580px;
-      border: 20px solid #FFFFFF80;
+      width: 1038px;
+      height: 1038px;
+      border: 13.11px solid #FFFFFF80;
       background: transparent;
       animation-delay: 1s;
 
@@ -288,9 +343,9 @@
     }
 
     &--4 {
-      width: 1805px;
-      height: 1801px;
-      border: 10px solid #FFFFFF4D;
+      width: 1183px;
+      height: 1183px;
+      border: 6.55px solid #FFFFFF4D;
       background: transparent;
       animation-delay: 1.5s;
 
@@ -710,60 +765,6 @@
         letter-spacing: 0;
         color: #3375C6;
       }
-    }
-  }
-}
-
-// ---------------------------------------------------------------------------
-// RESPONSIVE: Medium desktop (1200–1440px)
-// ---------------------------------------------------------------------------
-@media (min-width: 1200px) and (max-width: 1699.98px) {
-  .hero {
-    &__right {
-      width: 344px;
-    }
-  }
-
-  .news {
-    padding: 80px 60px 80px calc(60px + var(--nav-sidebar-w));
-
-    :host-context([dir='rtl']) & {
-      padding: 80px calc(60px + var(--nav-sidebar-w)) 80px 60px;
-    }
-
-    &__header-text {
-      width: auto;
-      flex: 1;
-    }
-
-    &__content {
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    &__featured {
-      width: 100%;
-      height: 450px;
-    }
-
-    &__list {
-      width: 100%;
-    }
-
-    &__card-image {
-      width: 300px;
-    }
-  }
-
-  .timeline {
-    padding: 80px 60px 80px calc(60px + var(--nav-sidebar-w));
-
-    :host-context([dir='rtl']) & {
-      padding: 80px calc(60px + var(--nav-sidebar-w)) 80px 60px;
-    }
-
-    &__header {
-      width: 100%;
     }
   }
 }

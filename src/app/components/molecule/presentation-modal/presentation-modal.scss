@@ -181,6 +181,52 @@
     &:not(:first-child) {
       width: 181.5px;
     }
+
+    &--sortable {
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+
+  &__sort-label {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    &[data-tooltip]::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1E2937;
+      color: #FFFFFF;
+      font-family: sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      z-index: 100;
+    }
+
+    &[data-tooltip]:hover::after {
+      opacity: 1;
+    }
+  }
+
+  &__sort-icon {
+    display: inline-flex;
+    color: #8493A8;
+
+    :host-context(body.theme--dark) & {
+      color: #9BA8B7;
+    }
   }
 
   &__table-row {
@@ -192,6 +238,10 @@
 
     &:last-child {
       border-bottom: none;
+    }
+
+    &:hover .presentation-modal__remove-btn {
+      opacity: 1;
     }
   }
 
@@ -211,10 +261,74 @@
     &--domain {
       font-weight: 400;
       color: #1E2937;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-right: 16px;
+
+      :host-context([dir='rtl']) & {
+        padding-right: 0;
+        padding-left: 16px;
+      }
 
       :host-context(body.theme--dark) & {
         color: #FFFFFF;
       }
+    }
+  }
+
+  &__domain-text {
+    flex: 1;
+  }
+
+  &__remove-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: #8493A8;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+
+    &:hover {
+      background: #F3F4F6;
+      color: #EF4444;
+
+      :host-context(body.theme--dark) & {
+        background: #212836;
+      }
+    }
+
+    &[data-tooltip]::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1E2937;
+      color: #FFFFFF;
+      font-family: sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      z-index: 100;
+    }
+
+    &[data-tooltip]:hover::after {
+      opacity: 1;
     }
   }
 
@@ -439,16 +553,134 @@
 }
 
 // ---------------------------------------------------------------------------
-// RESPONSIVE: Mobile — full-screen, single column
+// RESPONSIVE: Tablet & Mobile (<1200px) — full-screen, fluid widths.
+// ---------------------------------------------------------------------------
+@media (max-width: 1199.98px) {
+  .presentation-modal {
+    align-items: stretch;
+    overflow: hidden;
+
+    &__content {
+      width: 100%;
+      max-width: 100%;
+      height: 100vh;
+      max-height: 100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+
+    &__body,
+    &__header,
+    &__content-area,
+    &__table-frame,
+    &__table,
+    &__actions {
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    &__close {
+      top: 16px;
+      right: 16px;
+
+      :host-context([dir='rtl']) & {
+        right: auto;
+        left: 16px;
+      }
+    }
+
+    // The body is absolutely positioned on desktop with fixed dimensions —
+    // switch to in-flow with padding so it adapts to the viewport.
+    &__body {
+      position: static;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      padding: 24px;
+      gap: 24px;
+    }
+
+    &__header {
+      flex-wrap: wrap;
+      height: auto;
+      gap: 12px;
+    }
+
+    &__content-area {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+
+    &__table-frame {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      overflow-x: hidden;
+    }
+
+    &__table {
+      width: 100%;
+      table-layout: auto;
+    }
+
+    &__actions {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
+
+      ::ng-deep app-button {
+        flex: 0 1 auto;
+        max-width: 100%;
+
+        .button {
+          max-width: 100%;
+        }
+      }
+    }
+
+    &__add-indicator-wrapper {
+      flex: 0 1 auto;
+      max-width: 100%;
+    }
+
+    app-tab-group {
+      position: static;
+      left: auto;
+      right: auto;
+      width: 100%;
+      max-width: 100%;
+
+      :host-context([dir='rtl']) & {
+        left: auto;
+        right: auto;
+      }
+
+      ::ng-deep .tab-group {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    &__indicator-popup {
+      width: calc(100% - 32px);
+      max-width: 520px;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// RESPONSIVE: Mobile (<768px) — tighter paddings and smaller table cells.
+// The Domain column is sticky-left so it always stays visible while the
+// rest of the table scrolls horizontally.
 // ---------------------------------------------------------------------------
 @media (max-width: 767.98px) {
   .presentation-modal {
-    &__content {
-      width: 100%;
-      height: 100vh;
-      max-height: 100vh;
-    }
-
     &__close {
       top: 12px;
       right: 12px;
@@ -460,32 +692,54 @@
     }
 
     &__body {
-      position: static;
-      width: 100%;
-      height: auto;
       padding: 16px;
-      gap: 24px;
+      gap: 16px;
     }
 
-    &__content-area {
-      width: 100%;
-      height: auto;
+    &__title {
+      font-size: 20px;
+      line-height: 28px;
     }
 
+    // On phone, allow the table to keep its natural column widths and scroll
+    // horizontally inside its own frame. The Domain column is sticky so the
+    // row labels stay visible while scrolling sideways.
     &__table-frame {
+      display: block;
       width: 100%;
-      height: auto;
+      max-width: 100%;
       overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    &__table {
+      width: auto;
+      min-width: 560px;
+      table-layout: auto;
     }
 
     &__table-header {
-      font-size: 14px;
-      line-height: 21px;
+      font-size: 13px;
+      line-height: 19px;
       padding: 10px 8px;
+      background: #FFFFFF;
+      white-space: nowrap;
+
+      :host-context(body.theme--dark) & {
+        background: var(--lmo-bg-surface);
+      }
 
       &:first-child {
+        position: sticky;
+        left: 0;
+        z-index: 2;
         width: auto;
-        min-width: 120px;
+        min-width: 140px;
+        box-shadow: 1px 0 0 #CDD4DB;
+
+        :host-context(body.theme--dark) & {
+          box-shadow: 1px 0 0 #37516E;
+        }
       }
 
       &:not(:first-child) {
@@ -495,15 +749,40 @@
     }
 
     &__table-cell {
-      font-size: 14px;
+      font-size: 13px;
       padding: 10px 8px;
+      white-space: nowrap;
+
+      &--domain {
+        position: sticky;
+        left: 0;
+        z-index: 1;
+        background: #FFFFFF;
+        min-width: 140px;
+        box-shadow: 1px 0 0 #CDD4DB;
+        white-space: normal;
+
+        :host-context(body.theme--dark) & {
+          background: var(--lmo-bg-surface);
+          box-shadow: 1px 0 0 #37516E;
+        }
+      }
     }
 
-    app-tab-group {
-      position: static;
-      left: auto;
-      right: auto;
-      margin-top: 12px;
+    // On phone the action buttons stack and stretch to full width.
+    &__actions {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+
+      ::ng-deep app-button,
+      ::ng-deep app-button .button {
+        width: 100%;
+      }
+    }
+
+    &__add-indicator-wrapper {
+      width: 100%;
     }
   }
 }

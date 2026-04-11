@@ -72,9 +72,30 @@ export class SearchModal {
     return this.visibleWidgetTypes().slice(start, start + this.ITEMS_PER_PAGE);
   });
 
-  readonly pageNumbers = computed(() =>
-    Array.from({length: this.totalPages()}, (_, i) => i + 1),
-  );
+  /**
+   * Compact, windowed pagination: always shows page 1, the last page, and a
+   * window of ±1 around the current page. Gaps are represented by `'...'`
+   * which the template renders as a non-clickable ellipsis.
+   */
+  readonly pageNumbers = computed<(number | '...')[]>(() => {
+    const total = this.totalPages();
+    const current = this.currentPage();
+
+    if (total <= 7) {
+      return Array.from({length: total}, (_, i) => i + 1);
+    }
+
+    const items: (number | '...')[] = [1];
+    const windowStart = Math.max(2, current - 1);
+    const windowEnd = Math.min(total - 1, current + 1);
+
+    if (windowStart > 2) items.push('...');
+    for (let i = windowStart; i <= windowEnd; i++) items.push(i);
+    if (windowEnd < total - 1) items.push('...');
+
+    items.push(total);
+    return items;
+  });
 
   /** Adaptive breakpoints: col 1 always gets up to 2 items, remainder splits evenly into col 2 & 3. */
   private readonly colBreakpoints = computed((): [number, number] => {

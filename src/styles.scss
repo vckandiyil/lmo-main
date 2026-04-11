@@ -164,11 +164,11 @@ app-root.page--my-lmo {
 }
 
 app-root.page--my-lmo app-sidebar {
-  --sidebar-top: 127px;
+  --sidebar-top: 132px;
 }
 
 app-root.page--my-lmo app-center-section {
-  --content-top: 127px;
+  --content-top: 132px;
 }
 
 app-filters app-dropdown,
@@ -217,12 +217,27 @@ html, body {
   }
 }
 
-// On mobile, hide the nav sidebar and shrink the filters bar.
-@media (max-width: 767.98px) {
+// On tablet & mobile (<1200px), hide the nav sidebar and shrink the filters bar.
+@media (max-width: 1199.98px) {
   :root {
     --nav-sidebar-w: 0px;
     --filters-h: 56px;
     --content-top: 64px;
+  }
+
+  // Paint the body the same brand light-blue as the LMI/My-LMO/What-If/Forecast
+  // pages so any gap around the page :host doesn't show the default gray bg.
+  body:has(app-root.page--lmi),
+  body:has(app-root.page--my-lmo),
+  body:has(app-labor-market-insights),
+  body:has(app-what-if),
+  body:has(app-forecast),
+  body:has(app-gap-analysis) {
+    background-color: #e9f5ff;
+
+    &.theme--dark {
+      background-color: #1a2234;
+    }
   }
 }
 body { font-family: sans-serif; }

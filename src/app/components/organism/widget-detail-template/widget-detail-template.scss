@@ -746,3 +746,134 @@
     }
   }
 }
+
+// ---------------------------------------------------------------------------
+// RESPONSIVE: Tablet & Mobile (<1200px) — chart/settings stack vertically,
+// footer cards wrap and become full-width, fixed widths drop to 100%.
+// ---------------------------------------------------------------------------
+@media (max-width: 1199.98px) {
+  .widget-detail-template {
+    gap: 16px;
+
+    &__content {
+      padding: 24px;
+      border-radius: 16px;
+    }
+
+    &__toolbar {
+      height: auto;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    &__heading {
+      font-size: 20px;
+      line-height: 28px;
+      gap: 16px;
+    }
+
+    &__chart-row {
+      flex-direction: column;
+      height: auto;
+      gap: 16px;
+    }
+
+    &__chart-area {
+      height: auto;
+      width: 100%;
+    }
+
+    &__chart {
+      height: 360px;
+      flex: 0 0 360px;
+    }
+
+    &__data-grid {
+      height: auto;
+      max-height: 360px;
+    }
+
+    &__settings-sidebar {
+      width: 100%;
+      max-width: 100%;
+      align-self: stretch;
+      flex-direction: column;
+      padding-left: 0;
+    }
+
+    &__settings-tabs {
+      flex-direction: row;
+      width: 100%;
+    }
+
+    &__settings-tab {
+      flex: 1 1 auto;
+
+      &--active {
+        border-radius: 8px 8px 0 0;
+
+        :host-context([dir='rtl']) & {
+          border-radius: 8px 8px 0 0;
+        }
+      }
+    }
+
+    &__settings-panel {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 0 0 12px 12px;
+
+      &--first-active {
+        border-radius: 0 12px 12px 12px;
+
+        :host-context([dir='rtl']) & {
+          border-radius: 12px 0 12px 12px;
+        }
+      }
+    }
+
+    &__footer {
+      margin-top: 24px;
+    }
+
+    &__footer-cards {
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    &__footer-card {
+      flex: 1 1 100%;
+      min-width: 0;
+
+      &--ai,
+      &--metadata,
+      &--highlights {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .widget-detail-template {
+    &__content {
+      padding: 16px;
+    }
+
+    &__heading {
+      font-size: 18px;
+      line-height: 26px;
+      gap: 12px;
+    }
+
+    &__chart {
+      height: 280px;
+      flex: 0 0 280px;
+    }
+
+    &__data-grid {
+      max-height: 280px;
+    }
+  }
+}

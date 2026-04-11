@@ -1,6 +1,7 @@
 <section class="center-section"
   [class.center-section--widget-mode]="centerWidget() || showTalentPoolCenter()"
   [class.center-section--3d-mode]="is3DMode()"
+  [class.center-section--fullscreen]="isFullscreen()"
   cdkDropList
   id="center-drop"
   [cdkDropListData]="centerDropData"
@@ -23,12 +24,15 @@
   </div>
   <div #mapContainer class="center-section__map"></div>
   <div class="center-section__controls">
-    <button class="center-section__control-btn" (click)="resetView()">
-      <app-icon name="collapse" size="20"/>
-    </button>
-    <button class="center-section__control-btn" (click)="expandFullscreen()">
-      <app-icon name="expand" size="20"/>
-    </button>
+    @if (isFullscreen()) {
+      <button class="center-section__control-btn" (click)="expandFullscreen()">
+        <app-icon name="collapse" size="20"/>
+      </button>
+    } @else {
+      <button class="center-section__control-btn" (click)="expandFullscreen()">
+        <app-icon name="expand" size="20"/>
+      </button>
+    }
     <div class="center-section__zoom-controls">
       <button class="center-section__zoom-btn center-section__zoom-btn--plus" (click)="zoomIn()">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

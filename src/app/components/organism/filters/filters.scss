@@ -629,6 +629,11 @@
     display: none;
   }
 
+  // Mobile Labor Market Pulse button — hidden on desktop
+  &__mobile-pulse-btn {
+    display: none;
+  }
+
   // Mobile filter button — hidden on desktop
   &__mobile-filter-btn {
     display: none;
@@ -745,6 +750,43 @@
     margin: 4px 0;
   }
 
+  &__add-widget {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 44px;
+    width: 100%;
+    padding: 0 16px;
+    border: 1px dashed #6A7180;
+    border-radius: 12px;
+    background: transparent;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--lmo-text-primary);
+    transition: background 150ms ease, border-color 150ms ease;
+
+    &:hover {
+      background: var(--lmo-bg-surface);
+      border-color: #3375C6;
+      color: #3375C6;
+    }
+
+    :host-context(body.theme--dark) & {
+      border-color: #4A5662;
+      color: #FFFFFF;
+
+      &:hover {
+        background: #30394A;
+        border-color: #3375C6;
+        color: #FFFFFF;
+      }
+    }
+  }
+
   &__search {
     display: flex;
     align-items: center;
@@ -786,6 +828,33 @@
 // Preset wrapper inside the panel — full width
 .filters__preset-wrapper--panel {
   flex: 1 1 100%;
+  width: 100%;
+
+  // The "Add new preset" / "Save as" inline input is absolutely positioned
+  // by default, which gets clipped inside the narrow slide-in panel. Pin it
+  // to the wrapper so it spans the full panel width.
+  .filters__preset-create {
+    position: static;
+    width: 100%;
+    min-width: 0;
+    margin-top: 8px;
+    box-shadow: none;
+    flex-wrap: wrap;
+  }
+
+  .filters__preset-input {
+    flex: 1 1 100%;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .filters__preset-confirm {
+    flex: 1 1 auto;
+  }
+
+  .filters__preset-cancel {
+    flex: 0 0 auto;
+  }
 }
 
 // Preset menu inside the panel — static, not absolute
@@ -813,59 +882,41 @@
 }
 
 // ---------------------------------------------------------------------------
-// RESPONSIVE: Tablet (<1200px)
+// RESPONSIVE: Tablet & Mobile (<1200px) — collapse filters into side panel,
+// show hamburger + filter icon. Same layout for tablet and phone.
 // ---------------------------------------------------------------------------
 @media (max-width: 1199.98px) {
-  .filters {
-    height: auto;
-    min-height: var(--filters-h);
-    flex-wrap: wrap;
-    padding: 8px 16px;
-    gap: 8px;
-
-    &__container {
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    &__logo-text {
-      display: none;
-    }
-
-    &__dropdowns {
-      margin-inline-start: 0;
-      flex: 1 1 auto;
-      min-width: 0;
-    }
-
-    &__search {
-      flex: 1 1 250px;
-      width: auto;
-    }
-
-    &__submit-section {
-      min-width: auto;
-    }
-  }
-}
-
-// ---------------------------------------------------------------------------
-// RESPONSIVE: Mobile (<768px) — hide dropdowns/search, show filter icon
-// ---------------------------------------------------------------------------
-@media (max-width: 767.98px) {
   .filters {
     height: 56px;
     min-height: 56px;
     padding: 8px 12px;
 
+    // Flex with 3 anchor points: hamburger pinned left, logo centered via
+    // auto margins, pulse + filter pinned right. This avoids grid implicit
+    // row creation and is robust to the logo's natural width.
     &__container {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
       gap: 8px;
+    }
+
+    &__logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+      flex: 0 1 auto;
+      overflow: hidden;
+      margin-inline: auto;
+      order: 2;
     }
 
     &__logo {
       width: 40px;
       height: 40px;
       border-radius: 8px;
+      flex-shrink: 0;
     }
 
     &__logo-img {
@@ -873,40 +924,26 @@
       height: 24px;
     }
 
-    // Hide all the filter controls on mobile — they go into the side panel
+    &__logo-text {
+      display: block;
+      height: 28px;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    // Hide all the filter controls — they go into the side panel
     &__dropdowns,
     &__search,
     &__layout-btn,
-    &__presentation-btn {
-      display: none;
-    }
-
+    &__presentation-btn,
     &__submit-section {
       display: none;
     }
 
-    // Show the mobile nav button (hamburger)
-    &__mobile-nav-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      padding: 0;
-      background: var(--lmo-bg-surface);
-      border: 1px solid var(--lmo-border-color);
-      border-radius: 50%;
-      cursor: pointer;
-      color: #697D92;
-
-      :host-context(body.theme--dark) & {
-        background: var(--lmo-bg-card);
-        border-color: #364151;
-        color: #9BA8B7;
-      }
-    }
-
-    // Show the mobile filter button
+    // Shared style for the three round mobile icon buttons
+    &__mobile-nav-btn,
+    &__mobile-pulse-btn,
     &__mobile-filter-btn {
       display: flex;
       align-items: center;
@@ -919,7 +956,7 @@
       border-radius: 50%;
       cursor: pointer;
       color: #697D92;
-      margin-inline-start: auto;
+      flex-shrink: 0;
 
       :host-context(body.theme--dark) & {
         background: var(--lmo-bg-card);
@@ -927,5 +964,19 @@
         color: #9BA8B7;
       }
     }
+
+    &__mobile-nav-btn {
+      order: 1;
+    }
+
+    &__mobile-pulse-btn {
+      order: 3;
+    }
+
+    &__mobile-filter-btn {
+      order: 4;
+    }
   }
 }
+
+

@@ -214,3 +214,117 @@
     }
   }
 }
+
+// ---------------------------------------------------------------------------
+// RESPONSIVE: Tablet & Mobile (<1200px)
+// Recommendations becomes an in-flow block, always expanded, full-width.
+// All fixed heights from the desktop layout are relaxed so text can wrap.
+// ---------------------------------------------------------------------------
+@media (max-width: 1199.98px) {
+  :host {
+    display: block;
+    width: 100%;
+    order: 0;
+  }
+
+  .recommendations {
+    position: static;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    transition: none;
+
+    :host-context([dir='rtl']) & {
+      left: auto;
+      right: auto;
+      transition: none;
+    }
+
+    // Always expanded on tablet/mobile — hide the collapse toggle.
+    &__toggle {
+      display: none;
+    }
+
+    &__body {
+      overflow: visible;
+      flex: 0 1 auto;
+    }
+
+    &__header {
+      height: auto;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    &__title-wrapper {
+      width: auto;
+      height: auto;
+      flex-shrink: 1;
+    }
+
+    &__tabs {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      flex-shrink: 1;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+
+      :host-context(body.theme--dark) & {
+        background: transparent;
+      }
+    }
+
+    &__tab {
+      width: auto;
+      flex: 0 1 auto;
+      min-width: 0;
+      background: #E9F5FF;
+      border-radius: 96px;
+
+      :host-context(body.theme--dark) & {
+        background: #212836;
+      }
+
+      &--active {
+        background: #3375C6;
+
+        :host-context(body.theme--dark) & {
+          background: #3375C6;
+        }
+      }
+    }
+
+    &__content {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .recommendations {
+    padding: 16px;
+
+    &__header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__tabs {
+      width: 100%;
+    }
+
+    &__tab {
+      width: auto;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+  }
+}

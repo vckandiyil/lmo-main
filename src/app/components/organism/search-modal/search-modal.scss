@@ -495,6 +495,22 @@
     }
   }
 
+  &__pagination-ellipsis {
+    width: 24px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    font-size: 14px;
+    color: var(--lmo-text-secondary);
+    user-select: none;
+
+    :host-context(body.theme--dark) & {
+      color: #9BA8B7;
+    }
+  }
+
   &__pagination-page {
     width: 36px;
     height: 36px;
@@ -533,16 +549,69 @@
 }
 
 // ---------------------------------------------------------------------------
-// RESPONSIVE: Mobile — full-screen, single column
+// RESPONSIVE: Tablet & Mobile (<1200px) — full-screen, fluid widths.
 // ---------------------------------------------------------------------------
-@media (max-width: 767.98px) {
+@media (max-width: 1199.98px) {
   .search-modal {
+    align-items: stretch;
+
     &__content {
       width: 100%;
+      max-width: 100%;
       height: 100vh;
       max-height: 100vh;
     }
 
+    &__close {
+      top: 16px;
+      right: 16px;
+
+      :host-context([dir='rtl']) & {
+        right: auto;
+        left: 16px;
+      }
+    }
+
+    &__body {
+      padding: 24px;
+      padding-bottom: 40px;
+    }
+
+    &__search {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    &__overview-toggle {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    // Flatten the 3 pre-grouped columns into a balanced 2-column grid so
+    // widgets pack tightly on tablet.
+    &__widgets-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-auto-flow: row dense;
+      gap: 16px;
+    }
+
+    &__col {
+      display: contents;
+    }
+
+    &__question {
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// RESPONSIVE: Mobile (<768px) — single-column grid, tighter paddings.
+// ---------------------------------------------------------------------------
+@media (max-width: 767.98px) {
+  .search-modal {
     &__body {
       padding: 16px;
       padding-bottom: 32px;
@@ -558,27 +627,18 @@
       }
     }
 
-    &__search {
-      width: 100%;
-    }
-
-    &__overview-toggle {
-      width: 100%;
-    }
-
     &__widgets-grid {
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    &__col {
-      flex: 1 1 100%;
-      gap: 16px;
+      grid-template-columns: minmax(0, 1fr);
     }
 
     &__question {
       font-size: 18px;
       line-height: 26px;
+    }
+
+    &__overview-header {
+      flex-wrap: wrap;
+      gap: 12px;
     }
   }
 }

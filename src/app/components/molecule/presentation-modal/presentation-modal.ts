@@ -72,7 +72,20 @@ export class PresentationModal implements OnInit {
     {id: 'yy', label: 'LMI.TAB_YY'}
   ];
 
-  tableData: IndicatorRow[] = [];
+  tableData = signal<IndicatorRow[]>([]);
+  sortDirection = signal<'asc' | 'desc' | null>(null);
+  readonly sortedTableData = computed(() => {
+    const rows = this.tableData();
+    const dir = this.sortDirection();
+    if (!dir) return rows;
+    const isAr = this.isArabic();
+    return [...rows].sort((a, b) => {
+      const av = isAr ? (a.domain_ar ?? a.domain) : a.domain;
+      const bv = isAr ? (b.domain_ar ?? b.domain) : b.domain;
+      const cmp = av.localeCompare(bv, isAr ? 'ar' : 'en');
+      return dir === 'asc' ? cmp : -cmp;
+    });
+  });
   availableIndicators: CatalogWidget[] = [];
 
   readonly popupIndicators: string[] = [
@@ -105,7 +118,7 @@ export class PresentationModal implements OnInit {
   private loadData(): void {
     this.http.get<PresentationData>(`${this.baseUrl}/presentation.json`).subscribe({
       next: ({laborMarketPulse}) => {
-        this.tableData = laborMarketPulse.indicators;
+        this.tableData.set(laborMarketPulse.indicators);
       },
       error: (err) => console.error('Failed to load presentation data:', err)
     });
@@ -152,6 +165,14 @@ export class PresentationModal implements OnInit {
 
   onTabChanged(tabId: string): void {
     this.activeTab.set(tabId);
+  }
+
+  toggleDomainSort(): void {
+    this.sortDirection.update(prev => prev === 'asc' ? 'desc' : 'asc');
+  }
+
+  removeIndicator(domain: string): void {
+    this.tableData.update(rows => rows.filter(r => r.domain !== domain));
   }
 
   onBackdropClick(): void {

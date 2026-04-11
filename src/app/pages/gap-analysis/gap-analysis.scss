@@ -1,5 +1,5 @@
 :host {
-  --content-top: 127px;
+  --content-top: 132px;
 }
 
 .gap-analysis-center {
@@ -25,23 +25,40 @@
 // ---------------------------------------------------------------------------
 @media (max-width: 1199.98px) {
   :host {
+    --content-top: 108px;
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    padding: var(--content-top) 16px 16px calc(var(--nav-sidebar-w) + 16px);
+    padding: var(--content-top) 16px 16px 16px;
     box-sizing: border-box;
     min-height: 100vh;
+    background: #e9f5ff;
+
+    :host-context(body.theme--dark) & {
+      background: var(--lmo-bg-surface);
+    }
+  }
+
+  // Fixed-positioned children must be removed from the flex flow so they don't
+  // count as 0-width flex items adding spurious gaps before the center section.
+  app-filters,
+  app-lmi-bar {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
   }
 
   .gap-analysis-center {
-    position: static;
-    width: auto;
+    position: relative;
+    width: 100%;
     height: 400px;
+    top: auto;
     left: auto;
     right: auto;
     transition: none;
     order: 1;
-    flex: 1 1 calc(50% - 16px);
+    flex: 1 1 100%;
     min-width: 0;
 
     :host-context([dir='rtl']) & {
@@ -54,9 +71,9 @@
 
 @media (max-width: 767.98px) {
   :host {
-    --content-top: 64px;
+    --content-top: 99px;
     gap: 12px;
-    padding: var(--content-top) 8px 8px calc(var(--nav-sidebar-w) + 8px);
+    padding: var(--content-top) 8px 8px 8px;
   }
 
   .gap-analysis-center {
