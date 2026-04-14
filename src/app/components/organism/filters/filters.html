@@ -1,11 +1,11 @@
 <div class="filters">
   <div class="filters__container">
     <a class="filters__logo-wrap" routerLink="/">
-      <div class="filters__logo">
+      <!-- <div class="filters__logo">
         <img
           [src]="isDarkMode() ? 'assets/images/logos/small-dark-logo.svg' : 'assets/images/logos/small-white-logo.svg'"
           alt="Logo" class="filters__logo-img"/>
-      </div>
+      </div> -->
       <img src="assets/images/logos/small-white-logo-text.svg" alt="Logo text" class="filters__logo-text"/>
     </a>
     <div class="filters__dropdowns">
@@ -227,6 +227,22 @@
           <app-icon name="close" size="16"/>
         </button>
       </div>
+      <!-- Search with AI — pinned top -->
+      <div class="filters-panel__search-top">
+        <div class="filters-panel__search">
+          <app-icon name="search" size="20" color="#3375C6"/>
+          <input
+            type="text"
+            class="filters-panel__search-field"
+            placeholder="Search with AI..."
+            [value]="searchQuery()"
+            (input)="onSearchInput($event)"
+            (keydown.enter)="openSearchModal(); closeFilterPanel()"
+          />
+        </div>
+      </div>
+
+      <!-- Main filters + More filters — scrollable middle -->
       <div class="filters-panel__body">
         @if (isMyLmo()) {
           <div class="filters-panel__section">
@@ -369,30 +385,6 @@
           }
         }
 
-        <div class="filters-panel__section">
-          <span class="filters-panel__label">{{ 'LMI.SEARCH' | translate }}</span>
-          <div class="filters-panel__search">
-            <app-icon name="search" size="20" color="#3375C6"/>
-            <input
-              type="text"
-              class="filters-panel__search-field"
-              placeholder="Search with AI..."
-              [value]="searchQuery()"
-              (input)="onSearchInput($event)"
-              (keydown.enter)="openSearchModal(); closeFilterPanel()"
-            />
-          </div>
-        </div>
-
-        @if (showAddWidget()) {
-          <div class="filters-panel__divider"></div>
-
-          <button type="button" class="filters-panel__add-widget" (click)="requestAddWidget()">
-            <app-icon name="plus" size="16"/>
-            <span>{{ 'LMI.ADD_WIDGET' | translate }}</span>
-          </button>
-        }
-
         @if (!isHome()) {
           <div class="filters-panel__divider"></div>
 
@@ -432,6 +424,16 @@
           </div>
         }
       </div>
+
+      <!-- Add Widget — pinned bottom -->
+      @if (showAddWidget()) {
+        <div class="filters-panel__footer">
+          <button type="button" class="filters-panel__add-widget" (click)="requestAddWidget()">
+            <app-icon name="plus" size="16"/>
+            <span>{{ 'LMI.ADD_WIDGET' | translate }}</span>
+          </button>
+        </div>
+      }
     </aside>
   </div>
 }

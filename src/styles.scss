@@ -15,6 +15,9 @@
 // -----------------------------------------------------------------------------
 :root {
   --nav-sidebar-w: 88px;
+  --sidebar-w: calc((100vw - var(--nav-sidebar-w)) * 0.25);
+  --sidebar-left-w: var(--sidebar-w);
+  --sidebar-right-w: var(--sidebar-w);
   --filters-h: 80px;
   --content-top: 100px; /* filters height + 20px gap */
 
@@ -215,6 +218,11 @@ html, body {
     overflow: auto;
     overflow-x: hidden;
   }
+}
+
+// Disable layout transitions while the user is dragging a sidebar resize handle.
+body.sidebar-resizing * {
+  transition-property: none !important;
 }
 
 // On tablet & mobile (<1200px), hide the nav sidebar and shrink the filters bar.

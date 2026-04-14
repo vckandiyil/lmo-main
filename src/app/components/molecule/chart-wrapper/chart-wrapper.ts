@@ -29,6 +29,7 @@ export class ChartWrapper implements AfterViewInit, OnChanges, OnDestroy {
   private created = false;
   private creating = false;
   private updateTimeoutId: ReturnType<typeof setTimeout> | null = null;
+  private resizeObserver: ResizeObserver | null = null;
 
   private readonly ngZone = inject(NgZone);
   private readonly chartConfigService = inject(ChartConfigService);
@@ -120,11 +121,25 @@ export class ChartWrapper implements AfterViewInit, OnChanges, OnDestroy {
         );
         this.created = true;
         this.creating = false;
+        this.observeResize();
       });
     });
   }
 
+  private observeResize(): void {
+    if (this.resizeObserver) return;
+    this.resizeObserver = new ResizeObserver(() => {
+      if (this.chart && !this.chart.renderer?.forExport) {
+        this.chart.reflow();
+      }
+    });
+    this.resizeObserver.observe(this.container.nativeElement);
+  }
+
   ngOnDestroy(): void {
+    if (this.resizeObserver) {
+      this.resizeObserver.disconnect();
+    }
     if (this.updateTimeoutId) {
       clearTimeout(this.updateTimeoutId);
     }

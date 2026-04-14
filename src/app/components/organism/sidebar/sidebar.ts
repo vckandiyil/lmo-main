@@ -2,6 +2,7 @@ import {AfterViewInit, Component, computed, DestroyRef, effect, ElementRef, inje
 import {TranslateModule} from '@ngx-translate/core';
 import {CdkDragDrop, CdkDrag, CdkDropList, CdkDragPlaceholder} from '@angular/cdk/drag-drop';
 import {Icon} from '../../atom/icon/icon';
+import {ResizeHandle} from '../../atom/resize-handle/resize-handle';
 import {WIDGET_COMPONENT_MAP} from '../widgets';
 import {GenericWidgetCard} from '../../molecule/generic-widget-card/generic-widget-card';
 import {DynamicWidget} from '../dynamic-widget/dynamic-widget';
@@ -28,6 +29,7 @@ import type {Widget, SidebarPosition} from '../../../core';
     DynamicWidget,
     MapWidgetCard,
     TranslateModule,
+    ResizeHandle,
   ],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss'

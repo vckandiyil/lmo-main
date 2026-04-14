@@ -162,11 +162,14 @@
     letter-spacing: 0;
     color: var(--Text-Heading-Default, #05264A);
     text-align: left;
-    padding: 16px 0;
+    padding: 16px 16px 16px 0;
     border-bottom: 1px solid #CDD4DB;
+    white-space: nowrap;
+    vertical-align: top;
 
     :host-context([dir='rtl']) & {
       text-align: right;
+      padding: 16px 0 16px 16px;
     }
 
     :host-context(body.theme--dark) & {
@@ -252,7 +255,12 @@
     line-height: 24px;
     letter-spacing: 0;
     color: #1E2937;
-    padding: 16px 0;
+    padding: 16px 16px 16px 0;
+    vertical-align: top;
+
+    :host-context([dir='rtl']) & {
+      padding: 16px 0 16px 16px;
+    }
 
     :host-context(body.theme--dark) & {
       color: #FFFFFF;

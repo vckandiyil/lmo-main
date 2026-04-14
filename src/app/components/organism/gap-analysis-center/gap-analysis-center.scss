@@ -49,5 +49,9 @@
     :host-context(body.theme--dark) & {
       background: var(--lmo-bg-card);
     }
+
+    :host(.gap-analysis-center-host--fullscreen) & {
+      border-radius: 0;
+    }
   }
 }

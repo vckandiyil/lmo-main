@@ -1,0 +1,121 @@
+:host {
+  display: block;
+  width: 12px;
+  z-index: 10;
+}
+
+.resize-handle {
+  width: 100%;
+  height: 100%;
+  cursor: col-resize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  position: relative;
+
+  // Visible vertical line
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--lmo-border-color, #D1D5DB);
+    transition: width 0.15s ease, background 0.15s ease;
+  }
+
+  // Grip indicator
+  &::after {
+    content: '';
+    width: 4px;
+    height: 40px;
+    border-radius: 2px;
+    background: #B7C3D2;
+    opacity: 0.6;
+    transition: opacity 0.15s ease, background 0.15s ease;
+    z-index: 1;
+  }
+
+  &__tooltip {
+    position: fixed;
+    top: calc(var(--sidebar-top, var(--content-top)) + (100vh - var(--sidebar-top, var(--content-top))) / 2);
+    left: var(--_tooltip-left, auto);
+    right: var(--_tooltip-right, auto);
+    transform: var(--_tooltip-transform, translateX(-50%)) translateY(-50%);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #1E2937;
+    color: #FFFFFF;
+    border-radius: 8px;
+    padding: 6px 10px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+
+  &__icon {
+    color: #FFFFFF;
+    flex-shrink: 0;
+    cursor: col-resize;
+    pointer-events: auto;
+    padding: 2px;
+    border-radius: 4px;
+    transition: background 0.15s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+  }
+
+  &__pct {
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 1;
+
+    &--left {
+      color: #93C5FD;
+    }
+
+    &--right {
+      color: #93C5FD;
+    }
+  }
+
+  &:hover {
+    &::before {
+      width: 2px;
+      background: #3375C6;
+    }
+
+    &::after {
+      opacity: 1;
+      background: #3375C6;
+    }
+
+    .resize-handle__tooltip {
+      opacity: 1;
+    }
+  }
+}
+
+// Keep tooltip visible while dragging
+:host-context(body.sidebar-resizing) {
+  .resize-handle__tooltip {
+    opacity: 1;
+  }
+
+  .resize-handle::before {
+    width: 2px;
+    background: #3375C6;
+  }
+
+  .resize-handle::after {
+    opacity: 1;
+    background: #3375C6;
+  }
+}

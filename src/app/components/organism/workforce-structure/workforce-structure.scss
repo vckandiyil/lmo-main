@@ -23,18 +23,21 @@
     display: flex;
     gap: 47px;
     flex: 1;
-    overflow: visible;
+    overflow: hidden;
+    min-width: 0;
   }
 
   &__section {
     display: flex;
     flex-direction: column;
     gap: 4px;
-    overflow: visible;
+    overflow: hidden;
+    min-width: 0;
 
     &--age {
       flex: 1;
-      overflow: visible;
+      min-width: 0;
+      overflow: hidden;
     }
 
     &--split {
@@ -54,7 +57,8 @@
 
   &__chart {
     flex: 1;
-    overflow: visible;
+    overflow: hidden;
+    min-width: 0;
     min-height: 130px;
   }
 

@@ -10,7 +10,8 @@
 
   &__body {
     flex: 1;
-    overflow: visible;
+    min-width: 0;
+    overflow: hidden;
   }
 
   &__table {

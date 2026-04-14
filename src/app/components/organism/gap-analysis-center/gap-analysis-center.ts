@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, computed, ElementRef, inject, output, signal, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, computed, DestroyRef, ElementRef, inject, OnInit, output, signal, ViewChild} from '@angular/core';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {WidgetCatalogService} from '../../../core/services/widget-catalog.service';
 import {GapAnalysisSankey} from '../gap-analysis-sankey/gap-analysis-sankey';
@@ -12,9 +12,13 @@ import {GapAnalysisTimeline} from '../../molecule/gap-analysis-timeline/gap-anal
   imports: [GapAnalysisSankey, WidgetHeader, WidgetCheckbox, GapAnalysisTimeline],
   templateUrl: './gap-analysis-center.html',
   styleUrl: './gap-analysis-center.scss',
+  host: {'[class.gap-analysis-center-host--fullscreen]': 'isFullscreen()'},
 })
-export class GapAnalysisCenter implements AfterViewInit {
+export class GapAnalysisCenter implements OnInit, AfterViewInit {
   @ViewChild('chartContainer') chartContainer!: ElementRef<HTMLElement>;
+
+  private readonly el = inject(ElementRef);
+  private readonly destroyRef = inject(DestroyRef);
 
   readonly closed = output<void>();
 
@@ -26,9 +30,34 @@ export class GapAnalysisCenter implements AfterViewInit {
       : ['stars', 'stats-up-square', 'more']
   );
 
+  readonly compact = signal(window.matchMedia('(max-width: 1199.98px)').matches);
+
   readonly selectedTimelineYear = signal(2026);
   readonly selectedQuarter      = signal('Q4');
   readonly chartHeight          = signal(500);
+  readonly isFullscreen         = signal(false);
+
+  private readonly onFullscreenChange = (): void => {
+    this.isFullscreen.set(!!document.fullscreenElement);
+    setTimeout(() => {
+      this.chartHeight.set(this.chartContainer.nativeElement.offsetHeight);
+    }, 100);
+  };
+
+  ngOnInit(): void {
+    document.addEventListener('fullscreenchange', this.onFullscreenChange);
+    this.destroyRef.onDestroy(() => {
+      document.removeEventListener('fullscreenchange', this.onFullscreenChange);
+    });
+  }
+
+  toggleFullscreen(): void {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      this.el.nativeElement.requestFullscreen();
+    }
+  }
 
   ngAfterViewInit(): void {
     requestAnimationFrame(() => {

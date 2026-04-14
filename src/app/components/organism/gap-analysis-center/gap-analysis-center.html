@@ -5,14 +5,16 @@
   </div>
 
   <div class="gap-analysis-center__chart" #chartContainer>
-    <app-gap-analysis-sankey [year]="selectedTimelineYear()" [height]="chartHeight()"/>
+    <app-gap-analysis-sankey [year]="selectedTimelineYear()" [height]="chartHeight()" [compact]="compact()"/>
   </div>
 
   <div class="gap-analysis-center__timeline">
     <app-gap-analysis-timeline
       [selectedYear]="selectedTimelineYear()"
       [selectedQuarter]="selectedQuarter()"
+      [fullscreen]="isFullscreen()"
       (yearChange)="selectedTimelineYear.set($event)"
-      (quarterChange)="selectedQuarter.set($event)"/>
+      (quarterChange)="selectedQuarter.set($event)"
+      (fullscreenToggle)="toggleFullscreen()"/>
   </div>
 </div>

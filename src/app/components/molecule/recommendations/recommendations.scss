@@ -1,8 +1,8 @@
 .recommendations {
   position: fixed;
   bottom: 20px;
-  left: calc(var(--nav-sidebar-w) + 384px);
-  width: calc(100% - var(--nav-sidebar-w) - 384px - 384px);
+  left: calc(var(--nav-sidebar-w) + var(--sidebar-left-w));
+  width: calc(100% - var(--nav-sidebar-w) - var(--sidebar-left-w) - var(--sidebar-right-w));
   height: 168px;
   padding: 20px;
   box-sizing: border-box;
@@ -19,7 +19,7 @@
 
   :host-context([dir='rtl']) & {
     left: auto;
-    right: calc(var(--nav-sidebar-w) + 384px);
+    right: calc(var(--nav-sidebar-w) + var(--sidebar-right-w));
     transition: right 0.3s ease, width 0.3s ease, height 0.3s ease;
   }
 

@@ -3,12 +3,14 @@
   // Each column has 6px inner horizontal padding for card breathing room
   --_4cw: calc((100% - var(--nav-sidebar-w) - 64px) / 4);
 
-  width: 384px;
   box-sizing: border-box;
   background: var(--lmo-bg-surface);
   position: fixed;
+  z-index: 2;
 
   &--left {
+    --_side-w: var(--sidebar-left-w);
+    width: var(--sidebar-left-w);
     top: 0;
     left: var(--nav-sidebar-w);
     height: 0;
@@ -43,6 +45,8 @@
   }
 
   &--right {
+    --_side-w: var(--sidebar-right-w);
+    width: var(--sidebar-right-w);
     top: var(--sidebar-top, var(--content-top));
     right: 0;
     height: calc(100vh - var(--sidebar-top, var(--content-top)));
@@ -81,7 +85,7 @@
 
   &__widgets {
     position: fixed;
-    width: 384px;
+    width: var(--_side-w);
     height: calc(100vh - var(--sidebar-top, var(--content-top)));
     transition: left 0.3s ease;
     padding: 0 20px 20px;
@@ -115,6 +119,42 @@
       display: block;
       min-height: 60px;
       flex-shrink: 0;
+    }
+  }
+
+  &__resize-handle {
+    position: fixed;
+    top: var(--sidebar-top, var(--content-top));
+    bottom: 0;
+    width: 12px;
+    z-index: 200;
+
+    &--left {
+      left: calc(var(--nav-sidebar-w) + var(--sidebar-left-w) - 16px);
+      --_tooltip-left: calc(var(--nav-sidebar-w) + var(--sidebar-left-w) - 10px);
+      --_tooltip-transform: translateX(-50%);
+
+      :host-context([dir='rtl']) & {
+        left: auto;
+        right: calc(var(--nav-sidebar-w) + var(--sidebar-left-w) - 16px);
+        --_tooltip-left: auto;
+        --_tooltip-right: calc(var(--nav-sidebar-w) + var(--sidebar-left-w) - 10px);
+        --_tooltip-transform: translateX(50%);
+      }
+    }
+
+    &--right {
+      right: calc(var(--sidebar-right-w) - 16px);
+      --_tooltip-right: calc(var(--sidebar-right-w) - 10px);
+      --_tooltip-transform: translateX(50%);
+
+      :host-context([dir='rtl']) & {
+        right: auto;
+        left: calc(var(--sidebar-right-w) - 16px);
+        --_tooltip-left: calc(var(--sidebar-right-w) - 10px);
+        --_tooltip-right: auto;
+        --_tooltip-transform: translateX(-50%);
+      }
     }
   }
 
@@ -153,7 +193,7 @@
     position: fixed;
     bottom: 0;
     left: var(--nav-sidebar-w);
-    width: 384px;
+    width: var(--_side-w);
     transition: left 0.3s ease;
 
     :host-context([dir='rtl']) & {
@@ -389,6 +429,10 @@
       width: 100%;
       height: auto;
       overflow: visible;
+    }
+
+    &__resize-handle {
+      display: none;
     }
 
     &--left {

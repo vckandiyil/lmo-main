@@ -1,8 +1,8 @@
 .center-section {
   position: fixed;
   top: var(--content-top);
-  left: calc(var(--nav-sidebar-w) + 384px);
-  width: calc(100% - var(--nav-sidebar-w) - 768px);
+  left: calc(var(--nav-sidebar-w) + var(--sidebar-left-w));
+  width: calc(100% - var(--nav-sidebar-w) - var(--sidebar-left-w) - var(--sidebar-right-w));
   height: calc(100vh - var(--content-top) - 168px - 40px);
   transition: left 0.3s ease, width 0.3s ease;
   box-sizing: border-box;
@@ -12,7 +12,7 @@
 
   :host-context([dir='rtl']) & {
     left: auto;
-    right: calc(var(--nav-sidebar-w) + 384px);
+    right: calc(var(--nav-sidebar-w) + var(--sidebar-right-w));
     transition: right 0.3s ease, width 0.3s ease;
   }
 

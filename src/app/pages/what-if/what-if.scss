@@ -6,8 +6,8 @@
   &__content {
     position: fixed;
     top: var(--content-top);
-    left: calc(var(--nav-sidebar-w) + 384px);
-    width: calc(100% - var(--nav-sidebar-w) - 384px);
+    left: calc(var(--nav-sidebar-w) + var(--sidebar-left-w));
+    width: calc(100% - var(--nav-sidebar-w) - var(--sidebar-left-w));
     height: calc(100vh - var(--content-top));
     transition: left 0.3s ease, width 0.3s ease;
     padding: 0 20px 20px 0;
@@ -18,7 +18,7 @@
 
     :host-context([dir='rtl']) & {
       left: auto;
-      right: calc(var(--nav-sidebar-w) + 384px);
+      right: calc(var(--nav-sidebar-w) + var(--sidebar-left-w));
       padding: 8px 0 20px 20px;
       transition: right 0.3s ease, width 0.3s ease;
     }

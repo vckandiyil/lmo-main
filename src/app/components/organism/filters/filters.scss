@@ -662,7 +662,7 @@
     display: flex;
     flex-direction: column;
     animation: filterPanelSlideIn 250ms ease-out;
-    overflow-y: auto;
+    overflow: hidden;
 
     :host-context(body.theme--dark) & {
       background: #212836;
@@ -675,6 +675,18 @@
       box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
       animation: filterPanelSlideInRtl 250ms ease-out;
     }
+  }
+
+  &__search-top {
+    flex-shrink: 0;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--lmo-border-color);
+  }
+
+  &__footer {
+    flex-shrink: 0;
+    padding: 16px 20px;
+    border-top: 1px solid var(--lmo-border-color);
   }
 
   &__header {

@@ -1,5 +1,5 @@
 .what-if-sidebar {
-  width: 384px;
+  width: var(--sidebar-left-w);
   box-sizing: border-box;
   background: var(--lmo-bg-surface);
   position: fixed;
@@ -144,7 +144,7 @@
     position: fixed;
     top: var(--content-top);
     left: var(--nav-sidebar-w);
-    width: 384px;
+    width: var(--sidebar-left-w);
     transition: left 0.3s ease;
 
     :host-context([dir='rtl']) & {

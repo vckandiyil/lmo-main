@@ -1,5 +1,6 @@
 @if (layoutMode() === '3col') {
   <aside class="sidebar sidebar--left">
+    <app-resize-handle class="sidebar__resize-handle sidebar__resize-handle--left" side="left"/>
     <div class="sidebar__widgets" #leftWidgets>
       <div
         class="sidebar__content"
@@ -50,6 +51,7 @@
   </aside>
 
   <aside class="sidebar sidebar--right">
+    <app-resize-handle class="sidebar__resize-handle sidebar__resize-handle--right" side="right"/>
     <div class="sidebar__widgets" #rightWidgets>
       <div
         class="sidebar__content"

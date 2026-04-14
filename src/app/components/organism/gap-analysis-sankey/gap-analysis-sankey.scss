@@ -14,14 +14,7 @@
   &__chart {
     flex: 1;
     min-height: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    overflow: hidden;
 
     ::ng-deep app-chart-wrapper {
       display: block;
