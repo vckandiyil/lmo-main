@@ -77,6 +77,8 @@ export class CenterSection implements AfterViewInit, OnDestroy {
   isTransitioning = signal(false);
   isFullscreen = signal(false);
   regionData = signal<RegionPopulationData | null>(null);
+  mapLoading = signal(true);
+  mapProgress = signal(0);
 
   private readonly onFullscreenChange = (): void => {
     this.isFullscreen.set(!!document.fullscreenElement);
@@ -268,8 +270,13 @@ export class CenterSection implements AfterViewInit, OnDestroy {
 
   private async initializeMap(): Promise<void> {
     const container = this.mapContainer().nativeElement;
+    this.startMapLoading();
     const map = await this.createFreshMap();
+    this.mapProgress.set(50);
     this.mapView = await this.mapService.createMapViewFromMap(container, map);
+    this.mapProgress.set(75);
+    await this.mapView.when();
+    this.finishMapLoading();
     this.mapInitialized = true;
 
     this.mapView.watch('zoom', (zoom: number) => {
@@ -281,6 +288,16 @@ export class CenterSection implements AfterViewInit, OnDestroy {
         event.stopPropagation();
       }
     });
+  }
+
+  private startMapLoading(): void {
+    this.mapLoading.set(true);
+    this.mapProgress.set(15);
+  }
+
+  private finishMapLoading(): void {
+    this.mapProgress.set(100);
+    setTimeout(() => this.mapLoading.set(false), 250);
   }
 
   private setupZoomWatcher(): void {
@@ -352,6 +369,7 @@ export class CenterSection implements AfterViewInit, OnDestroy {
 
   private async switchTo3D(): Promise<void> {
     const container = this.mapContainer().nativeElement;
+    this.startMapLoading();
 
     if (this.mapView) {
       this.mapView.destroy();
@@ -359,12 +377,14 @@ export class CenterSection implements AfterViewInit, OnDestroy {
     }
 
     const map = await this.createFreshMap();
+    this.mapProgress.set(50);
     this.sceneView = await this.mapService.createSceneViewFromMap(
       container,
       map,
       this.defaultCenter,
       this.defaultZoom
     );
+    this.mapProgress.set(85);
 
     const data = this.regionData();
     if (data) {
@@ -379,10 +399,12 @@ export class CenterSection implements AfterViewInit, OnDestroy {
     }
 
     this.is3DMode.set(true);
+    this.finishMapLoading();
   }
 
   private async switchTo2D(): Promise<void> {
     const container = this.mapContainer().nativeElement;
+    this.startMapLoading();
 
     this.disposeClickHandler();
 
@@ -392,12 +414,15 @@ export class CenterSection implements AfterViewInit, OnDestroy {
     }
 
     const map = await this.createFreshMap();
+    this.mapProgress.set(50);
     this.mapView = await this.mapService.createMapViewFromMap(
       container,
       map,
       this.defaultCenter,
       this.defaultZoom
     );
+    this.mapProgress.set(75);
+    await this.mapView.when();
 
     this.mapView.watch('zoom', (zoom: number) => {
       this.isAtMinZoom.set(zoom <= this.defaultZoom);
@@ -410,5 +435,6 @@ export class CenterSection implements AfterViewInit, OnDestroy {
     });
 
     this.is3DMode.set(false);
+    this.finishMapLoading();
   }
 }

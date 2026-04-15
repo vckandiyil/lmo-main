@@ -23,6 +23,23 @@
     </button>
   </div>
   <div #mapContainer class="center-section__map"></div>
+  @if (mapLoading() && !centerWidget() && !showTalentPoolCenter()) {
+    <div class="center-section__map-loader" role="status" aria-live="polite">
+      <div class="center-section__map-loader-globe">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="36" cy="36" r="30" stroke="currentColor" stroke-width="1.5" opacity="0.9"/>
+          <ellipse cx="36" cy="36" rx="30" ry="12" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+          <ellipse cx="36" cy="36" rx="12" ry="30" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+          <line x1="6" y1="36" x2="66" y2="36" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+          <line x1="36" y1="6" x2="36" y2="66" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="center-section__map-loader-bar">
+        <div class="center-section__map-loader-fill" [style.width.%]="mapProgress()"></div>
+      </div>
+      <div class="center-section__map-loader-percent">{{ mapProgress() }}%</div>
+    </div>
+  }
   <div class="center-section__controls">
     @if (isFullscreen()) {
       <button class="center-section__control-btn" (click)="expandFullscreen()">
