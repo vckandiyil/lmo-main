@@ -68,8 +68,8 @@ export class WidgetDetailModal {
   close(): void {
     this.isClosing.set(true);
     setTimeout(() => {
-      this.isClosing.set(false);
       this.closed.emit();
+      this.isClosing.set(false);
     }, 300);
   }
 }

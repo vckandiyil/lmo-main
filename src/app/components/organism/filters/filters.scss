@@ -10,7 +10,7 @@
   border-bottom: 1px solid #DBE8F5;
   display: flex;
   align-items: center;
-  z-index: 3;
+  z-index: 11;
 
   :host-context(body.theme--dark) & {
     background: #212836;
@@ -509,7 +509,8 @@
     }
   }
 
-  &__presentation-btn {
+  &__presentation-btn,
+  &__report-btn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -949,6 +950,7 @@
     &__search,
     &__layout-btn,
     &__presentation-btn,
+    &__report-btn,
     &__submit-section {
       display: none;
     }

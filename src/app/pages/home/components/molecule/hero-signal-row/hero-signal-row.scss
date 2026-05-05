@@ -1,0 +1,99 @@
+:host {
+  display: grid;
+  grid-template-columns: 1fr 92px 70px;
+  align-items: center;
+  gap: 40px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--lmo-border-color);
+
+  &.hero-signal-row--no-divider {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+.hero-signal-row {
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__title {
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: var(--lmo-text-primary);
+  }
+
+  &__subtitle {
+    font-family: sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0;
+    color: var(--lmo-text-muted);
+  }
+
+  &__chart {
+    width: 92px;
+    height: 34px;
+    flex-shrink: 0;
+  }
+
+  &__delta {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    :host-context([dir='rtl']) & {
+      justify-content: flex-start;
+    }
+
+    ::ng-deep .badge {
+      padding: 4px 10px;
+      height: auto;
+    }
+  }
+
+  &__delta-text {
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #E8B13A;
+  }
+}
+
+@media (max-width: 767.98px) {
+  :host {
+    grid-template-columns: 1fr 70px;
+    gap: 16px;
+  }
+
+  .hero-signal-row {
+    &__chart {
+      display: none;
+    }
+  }
+}

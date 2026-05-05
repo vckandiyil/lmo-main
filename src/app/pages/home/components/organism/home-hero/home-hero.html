@@ -1,0 +1,81 @@
+<div class="home-hero__inner">
+  <div class="home-hero__cards">
+    <div class="home-hero__card home-hero__card--brief">
+      <header class="home-hero__header">
+        <div class="home-hero__live">
+          <span class="home-hero__live-dot"></span>
+          <span class="home-hero__live-text">{{ liveLabel() }}</span>
+        </div>
+        <div class="home-hero__heading">
+          <h1 class="home-hero__title">{{ title() }}</h1>
+          <p class="home-hero__subtitle">{{ subtitle() }}</p>
+        </div>
+      </header>
+
+      <div class="home-hero__brief">
+        @for (item of briefItems(); track $index; let last = $last) {
+          <app-hero-brief-item
+            [icon]="item.icon"
+            [iconColor]="item.iconColor"
+            [iconBg]="item.iconBg"
+            [title]="item.title"
+            [description]="item.description"
+            [titleLink]="item.titleLink"
+            [hasDivider]="!last"/>
+        }
+      </div>
+
+      <div class="home-hero__actions">
+        <button type="button" class="home-hero__btn home-hero__btn--primary">
+          <app-icon name="reports" size="24" color="#FFFFFF"/>
+          <span class="home-hero__btn-label">Explore Dashboard</span>
+        </button>
+        <button type="button" class="home-hero__btn home-hero__btn--secondary">
+          <app-icon name="user" size="24" color="#3375C6"/>
+          <span class="home-hero__btn-label">Personalize your Brief</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="home-hero__card home-hero__card--signals">
+      <div class="home-hero__signals-corner">
+        <div class="home-hero__signals-header">
+          <div class="home-hero__signals-title">Top Signals</div>
+          <button type="button" class="home-hero__signals-link">
+            <span class="home-hero__signals-link-label">View all signals</span>
+            <app-icon name="arrow-right" size="24" color="#3375C6"/>
+          </button>
+        </div>
+        <div class="home-hero__signals-body">
+          @for (s of signals(); track $index; let last = $last) {
+            <app-hero-signal-row
+              [icon]="s.icon"
+              [iconColor]="s.iconColor"
+              [iconBg]="s.iconBg"
+              [title]="s.title"
+              [subtitle]="s.subtitle"
+              [sparkData]="s.sparkData"
+              [sparkColor]="s.sparkColor"
+              [sparkFill]="s.sparkFill"
+              [delta]="s.delta"
+              [deltaVariant]="s.deltaVariant"
+              [hasDivider]="!last"
+              [class.hero-signal-row--no-divider]="last"/>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="home-hero__floating">
+  @for (card of kpiCards(); track $index) {
+    <app-hero-kpi-card
+      [icon]="card.icon"
+      [delta]="card.delta"
+      [trend]="card.trend"
+      [value]="card.value"
+      [label]="card.label"
+      [previous]="card.previous"/>
+  }
+</div>

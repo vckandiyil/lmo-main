@@ -7,7 +7,6 @@ import {WIDGET_COMPONENT_MAP} from '../widgets';
 import {GenericWidgetCard} from '../../molecule/generic-widget-card/generic-widget-card';
 import {DynamicWidget} from '../dynamic-widget/dynamic-widget';
 import {WidgetCenter} from '../widget-center/widget-center';
-import {WidgetDetailModal} from '../widget-detail-modal/widget-detail-modal';
 import {Recommendations} from '../../molecule/recommendations/recommendations';
 import {MapWidgetCard} from '../../molecule/map-widget-card/map-widget-card';
 import {WidgetStore, WidgetType, ThemeService, WidgetDetailService, LayoutService} from '../../../core';
@@ -21,7 +20,6 @@ import type {Widget, SidebarPosition} from '../../../core';
     Icon,
     GenericWidgetCard,
     WidgetCenter,
-    WidgetDetailModal,
     Recommendations,
     CdkDropList,
     CdkDrag,
@@ -88,7 +86,6 @@ export class Sidebar implements AfterViewInit, OnInit, OnDestroy {
     return this.getColSignal(col)().map(w => w.type);
   });
 
-  activeDetailWidget = this.widgetDetailService.activeDetailWidget;
   private wasDragged = false;
 
   constructor() {
@@ -223,10 +220,6 @@ export class Sidebar implements AfterViewInit, OnInit, OnDestroy {
       return;
     }
     this.widgetDetailService.open(type);
-  }
-
-  closeWidgetDetail(): void {
-    this.widgetDetailService.close();
   }
 
   onWidgetChartTypeChange(widgetType: WidgetType, chartType: string): void {

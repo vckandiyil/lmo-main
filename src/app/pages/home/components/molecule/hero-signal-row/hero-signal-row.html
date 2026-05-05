@@ -1,0 +1,21 @@
+<div class="hero-signal-row__info">
+  <div class="hero-signal-row__icon" [style.background]="iconBg()">
+    <app-icon [name]="icon()" size="28" [color]="iconColor()"/>
+  </div>
+  <div class="hero-signal-row__text">
+    <span class="hero-signal-row__title">{{ title() }}</span>
+    <span class="hero-signal-row__subtitle">{{ subtitle() }}</span>
+  </div>
+</div>
+<div class="hero-signal-row__chart">
+  <app-chart-wrapper [options]="chartOptions()"/>
+</div>
+<div class="hero-signal-row__delta">
+  @if (deltaVariant() === 'badge-success') {
+    <app-badge variant="success" size="sm">
+      {{ delta() }}
+    </app-badge>
+  } @else {
+    <span class="hero-signal-row__delta-text">{{ delta() }}</span>
+  }
+</div>

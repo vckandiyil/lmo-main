@@ -1,0 +1,88 @@
+.agent-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 16px;
+  border-radius: 8px;
+  background: #FFFFFF;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: color 300ms ease-out, border-color 300ms ease-out, background-color 300ms ease-out;
+
+  :host-context(body.theme--dark) & {
+    background: #212836;
+  }
+
+  &__label {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 21px;
+    letter-spacing: 0;
+    color: #6A7180;
+    transition: color 300ms ease-out;
+
+    :host-context(body.theme--dark) & {
+      color: #CDD4DB;
+    }
+  }
+
+  &:hover .agent-tab__label {
+    color: #05264A;
+
+    :host-context(body.theme--dark) & {
+      color: #FFFFFF;
+    }
+  }
+
+  &--selected {
+    border-color: #DADDE2;
+
+    :host-context(body.theme--dark) & {
+      border-color: #37516E;
+    }
+
+    .agent-tab__label {
+      color: #3375C6;
+
+      :host-context(body.theme--dark) & {
+        color: #4A8BD6;
+      }
+    }
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .agent-tab {
+    padding: 4px 14px;
+
+    &__label {
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .agent-tab {
+    padding: 4px 12px;
+
+    &__label {
+      font-size: 11px;
+      line-height: 16px;
+    }
+  }
+}
+
+@media (max-width: 479.98px) {
+  .agent-tab {
+    padding: 3px 10px;
+    gap: 6px;
+
+    &__label {
+      font-size: 10px;
+      line-height: 14px;
+    }
+  }
+}
+

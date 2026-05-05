@@ -1,0 +1,73 @@
+:host {
+  display: flex;
+  align-items: flex-start;
+  gap: 23px;
+}
+
+.hero-brief-item {
+  &__icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    border-radius: 8px;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--lmo-legend-border);
+
+    &--no-divider {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+
+  &__title {
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: var(--lmo-text-primary);
+    margin: 0;
+
+    &--link {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  &__description {
+    font-family: sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0;
+    color: var(--lmo-text-secondary);
+    margin: 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  :host {
+    gap: 14px;
+  }
+
+  .hero-brief-item {
+    &__icon {
+      width: 44px;
+      height: 44px;
+    }
+
+    &__title {
+      font-size: 15px;
+      line-height: 22px;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  &__text {
+    font-family: 'Graphik Trial', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    vertical-align: middle;
+    color: #6A7180;
+
+    :host-context(body.theme--dark) & {
+      color: #9CA3AF;
+    }
+  }
+
+  &__icon {
+    color: #AEB2BC;
+    display: inline-flex;
+
+    :host-context(body.theme--dark) & {
+      color: #6A7180;
+    }
+  }
+}

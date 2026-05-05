@@ -1,0 +1,49 @@
+<div class="persona-dropdown" [class.persona-dropdown--panel]="variant() === 'panel'">
+  <button
+    type="button"
+    class="persona-dropdown__trigger"
+    [class.persona-dropdown__trigger--open]="isOpen()"
+    (click)="toggle()"
+  >
+    @if (variant() !== 'panel') {
+      <span class="persona-dropdown__floating-label">{{ triggerLabel() | translate }}</span>
+    }
+    <span class="persona-dropdown__value-container">
+      <span class="persona-dropdown__value">{{ triggerValue() | translate }}</span>
+    </span>
+    <app-icon
+      name="nav-arrow-down"
+      size="20"
+      class="persona-dropdown__arrow"
+      [class.persona-dropdown__arrow--open]="isOpen()"
+    />
+  </button>
+  @if (isOpen()) {
+    <div class="persona-dropdown__menu" (click)="$event.stopPropagation()">
+      <span class="persona-dropdown__title">{{ 'HOME.PERSONALIZE_YOUR_PERSONA' | translate }}</span>
+      <div class="persona-dropdown__options">
+        @for (group of groups(); track group.key) {
+          <div class="persona-dropdown__option">
+            <div class="persona-dropdown__row">
+              <span class="persona-dropdown__label">{{ group.label | translate }}</span>
+            </div>
+            <div class="persona-dropdown__row persona-dropdown__row--chips">
+              @for (opt of group.options; track opt.key) {
+                <div
+                  class="persona-dropdown__chip"
+                  [class.persona-dropdown__chip--active]="isChipActive(group.key, opt.key)"
+                  (click)="toggleChip(group.key, opt.key)"
+                >
+                  {{ opt.label | translate }}
+                </div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+      <button type="button" class="persona-dropdown__apply" (click)="apply()">
+        <span class="persona-dropdown__apply-text">{{ 'COMMON.APPLY' | translate }}</span>
+      </button>
+    </div>
+  }
+</div>

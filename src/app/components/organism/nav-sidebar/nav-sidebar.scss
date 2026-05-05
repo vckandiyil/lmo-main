@@ -71,8 +71,34 @@
 
   &__top {
     flex: 1;
+    min-height: 0;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #CCDEF1 transparent;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #CCDEF1;
+      border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    :host-context(body.theme--dark) & {
+      scrollbar-color: #364151 transparent;
+
+      &::-webkit-scrollbar-thumb {
+        background: #364151;
+      }
+    }
   }
 
   &__nav {
@@ -92,6 +118,11 @@
     box-sizing: border-box;
     overflow: visible;
     text-decoration: none;
+    border: none;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: inherit;
 
     &:hover {
       background: var(--lmo-bg-secondary);
@@ -110,6 +141,122 @@
     }
   }
 
+  &__expand-btn {
+    margin-left: auto;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: inherit;
+    padding: 0;
+    flex-shrink: 0;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.06);
+    }
+
+    :host-context(body.theme--dark) &:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    :host-context([dir='rtl']) & {
+      margin-left: 0;
+      margin-right: auto;
+    }
+
+    &--inline {
+      margin-left: 0;
+
+      :host-context([dir='rtl']) & {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__submenu {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 2px 0 2px 44px;
+
+    :host-context([dir='rtl']) & {
+      padding: 2px 44px 2px 0;
+    }
+  }
+
+  &__sub-item {
+    height: 36px;
+    padding: 0 12px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #4A5662;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: inherit;
+
+    :host-context(body.theme--dark) & {
+      color: #CDD4DB;
+    }
+
+    &:hover {
+      background: var(--lmo-bg-secondary);
+    }
+
+    &--active {
+      background: var(--lmo-bg-secondary);
+      color: #3375C6;
+      font-weight: 500;
+    }
+
+    &--toggle {
+      justify-content: flex-start;
+    }
+
+    &--nested {
+      padding-left: 28px;
+
+      :host-context([dir='rtl']) & {
+        padding-left: 12px;
+        padding-right: 28px;
+      }
+    }
+  }
+
+  &__badge {
+    margin-left: auto;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 500;
+    background: var(--lmo-bg-secondary);
+    color: #6A7180;
+    white-space: nowrap;
+    line-height: 1.4;
+
+    :host-context(body.theme--dark) & {
+      color: #CDD4DB;
+    }
+
+    :host-context([dir='rtl']) & {
+      margin-left: 0;
+      margin-right: auto;
+    }
+  }
+
   &__bottom {
     display: flex;
     flex-direction: column;
@@ -118,12 +265,16 @@
 
   &__icon-wrap {
     width: 56px;
-    height: 56px;
+    height: 35px;
     padding: 0 16px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     border-radius: 12px;
+
+    .nav-sidebar__label {
+      font-size: 14px;
+    }
 
     &--clickable {
       cursor: pointer;
@@ -149,7 +300,7 @@
     transform: translateX(-6px);
     white-space: nowrap;
     font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     font-style: normal;
     line-height: 140%;
@@ -164,12 +315,12 @@
 
   &--expanded &__icon-wrap {
     width: 100%;
-    gap: 16px;
+    gap: 10px;
   }
 
   &--expanded &__nav-item {
     width: 100%;
-    gap: 16px;
+    gap: 10px;
   }
 
   &--expanded &__label {
@@ -179,41 +330,6 @@
     transition: opacity 0.2s ease 0.2s, max-width 0.3s ease, transform 0.2s ease 0.2s;
   }
 
-  // Tooltips – only when collapsed (not expanded)
-  &:not(&--expanded) [data-tooltip] {
-    position: relative;
-
-    &::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      left: calc(100% + 8px);
-      top: 50%;
-      transform: translateY(-50%);
-      background: #1E2937;
-      color: #FFFFFF;
-      font-family: sans-serif;
-      font-size: 12px;
-      line-height: 18px;
-      padding: 4px 10px;
-      border-radius: 6px;
-      white-space: nowrap;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.15s ease;
-      z-index: 100;
-    }
-
-    &:hover::after {
-      opacity: 1;
-    }
-  }
-
-  :host-context([dir='rtl']) &:not(&--expanded) [data-tooltip] {
-    &::after {
-      left: auto;
-      right: calc(100% + 8px);
-    }
-  }
 }
 
 // ---------------------------------------------------------------------------
@@ -330,6 +446,11 @@
     text-decoration: none;
     cursor: pointer;
     transition: background 0.15s ease;
+    border: none;
+    background: transparent;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: inherit;
 
     :host-context(body.theme--dark) & {
       color: #CDD4DB;
@@ -352,6 +473,77 @@
         background: #1E3A5F;
         color: #60A5FA;
       }
+    }
+
+    &--sub {
+      padding-left: 44px;
+      font-size: 14px;
+
+      :host-context([dir='rtl']) & {
+        padding-left: 12px;
+        padding-right: 44px;
+      }
+    }
+
+    &--sub-nested {
+      padding-left: 64px;
+      font-size: 14px;
+
+      :host-context([dir='rtl']) & {
+        padding-left: 12px;
+        padding-right: 64px;
+      }
+    }
+  }
+
+  &__badge {
+    margin-left: auto;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 500;
+    background: #EBF2FA;
+    color: #6A7180;
+    white-space: nowrap;
+    line-height: 1.4;
+
+    :host-context(body.theme--dark) & {
+      background: #1F2937;
+      color: #CDD4DB;
+    }
+
+    :host-context([dir='rtl']) & {
+      margin-left: 0;
+      margin-right: auto;
+    }
+  }
+
+  &__expand-btn {
+    margin-left: auto;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: transparent;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: inherit;
+    padding: 0;
+    flex-shrink: 0;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.06);
+    }
+
+    :host-context(body.theme--dark) &:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    :host-context([dir='rtl']) & {
+      margin-left: 0;
+      margin-right: auto;
     }
   }
 }

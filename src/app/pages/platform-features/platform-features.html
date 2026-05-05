@@ -1,0 +1,65 @@
+<app-filters [hideLayoutBtn]="true" [isHome]="true"/>
+<app-lmi-bar/>
+
+<section class="platform-features">
+  <div class="platform-features__section platform-features__section--ai">
+    <div class="platform-features__section-header">
+      <div class="platform-features__section-badge">
+        <app-icon name="stars" size="20"/>
+      </div>
+      <div class="platform-features__section-meta">
+        <div class="platform-features__section-label">Intelligence Features</div>
+        <h2 class="platform-features__section-title">AI that works as hard as you do</h2>
+        <p class="platform-features__section-desc">
+          Every surface of the platform is backed by AI — from the moment you search to the moment you share a report. These capabilities make data faster to find, easier to understand, and simpler to act on.
+        </p>
+      </div>
+    </div>
+
+    <div class="platform-features__grid platform-features__grid--cols-4">
+      @for (feature of intelligenceFeatures; track feature.title) {
+        <app-feature-card
+          variant="ai"
+          [iconName]="feature.iconName"
+          [tagline]="feature.tagline"
+          [title]="feature.title"
+          [intro]="feature.intro"
+          [bullets]="feature.bullets"
+          [ctaLabel]="feature.ctaLabel"
+          (ctaClick)="onFeatureClick(feature.action)"/>
+      }
+    </div>
+  </div>
+
+  <hr class="platform-features__divider" />
+
+  <div class="platform-features__section platform-features__section--platform">
+    <div class="platform-features__section-header">
+      <div class="platform-features__section-badge">
+        <app-icon name="layout-4col" size="20"/>
+      </div>
+      <div class="platform-features__section-meta">
+        <div class="platform-features__section-label">Platform Features</div>
+        <h2 class="platform-features__section-title">Purpose-built for labour market analysis</h2>
+        <p class="platform-features__section-desc">
+          Five analytical modules, each designed for a distinct mode of thinking — monitoring, forecasting, scenario testing, reporting, and personalisation. Together they form a complete toolkit for workforce intelligence.
+        </p>
+      </div>
+    </div>
+
+    <div class="platform-features__grid platform-features__grid--stack">
+      @for (feature of platformFeatures; track feature.title) {
+        <app-feature-card
+          variant="platform"
+          layout="wide"
+          [iconName]="feature.iconName"
+          [tagline]="feature.tagline"
+          [title]="feature.title"
+          [intro]="feature.intro"
+          [bullets]="feature.bullets"
+          [ctaLabel]="feature.ctaLabel"
+          (ctaClick)="onFeatureClick(feature.action)"/>
+      }
+    </div>
+  </div>
+</section>

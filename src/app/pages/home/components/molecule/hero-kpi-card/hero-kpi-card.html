@@ -1,0 +1,24 @@
+<div class="hero-kpi-card__head">
+  <div class="hero-kpi-card__head-top">
+    <div class="hero-kpi-card__icon">
+      <app-icon [name]="icon()" size="24" color="#697D92"/>
+    </div>
+    <div class="hero-kpi-card__meta">
+      <app-badge [variant]="isUp() ? 'success' : 'danger'" size="sm">
+        <app-icon badgeIcon
+                  [name]="isUp() ? 'trending-up' : 'trending-down'"
+                  [color]="isUp() ? '#5CC049' : '#EF4444'"
+                  size="16"/>
+        {{ delta() }}
+      </app-badge>
+    </div>
+  </div>
+  <div class="hero-kpi-card__body">
+    <p class="hero-kpi-card__value">{{ value() }}</p>
+    <p class="hero-kpi-card__label">{{ label() }}</p>
+  </div>
+</div>
+<div class="hero-kpi-card__compare">
+  <span class="hero-kpi-card__compare-label">vs last week</span>
+  <span class="hero-kpi-card__compare-value">{{ previous() }}</span>
+</div>

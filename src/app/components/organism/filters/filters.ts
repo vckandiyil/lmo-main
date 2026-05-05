@@ -1,4 +1,4 @@
-import {Component, computed, ElementRef, HostListener, inject, input, OnInit, signal} from '@angular/core';
+import {Component, computed, effect, ElementRef, HostListener, inject, input, OnInit, signal} from '@angular/core';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {map} from 'rxjs';
 import {RouterLink} from '@angular/router';
@@ -14,11 +14,12 @@ import {FilterStateService} from '../../../core/services/filter-state.service';
 import {LayoutService, LanguageService, ThemeService} from '../../../core';
 import {PresetService} from '../../../core/services/preset.service';
 import {AdvancedFiltersPanel} from '../../molecule/advanced-filters-panel/advanced-filters-panel';
+import {PersonaDropdown} from '../../molecule/persona-dropdown/persona-dropdown';
 
 @Component({
   selector: 'app-filters',
   standalone: true,
-  imports: [Dropdown, Icon, SearchModal, PresentationModal, ReportModal, TranslateModule, RouterLink, AdvancedFiltersPanel],
+  imports: [Dropdown, Icon, SearchModal, PresentationModal, ReportModal, TranslateModule, RouterLink, AdvancedFiltersPanel, PersonaDropdown],
   templateUrl: './filters.html',
   styleUrl: './filters.scss'
 })
@@ -94,6 +95,26 @@ export class Filters implements OnInit {
     ),
     {initialValue: ['All', 'Male', 'Female']}
   );
+  constructor() {
+    let lastSearchReq = this.layoutService.searchModalRequestId();
+    effect(() => {
+      const id = this.layoutService.searchModalRequestId();
+      if (id !== lastSearchReq) {
+        lastSearchReq = id;
+        this.openSearchModal();
+      }
+    });
+
+    let lastReportReq = this.layoutService.reportModalRequestId();
+    effect(() => {
+      const id = this.layoutService.reportModalRequestId();
+      if (id !== lastReportReq) {
+        lastReportReq = id;
+        this.openReportModal();
+      }
+    });
+  }
+
   ngOnInit(): void {
     if (!this.isMyLmo()) {
       this.onTopicSelect(this.TOPIC_ORDER[0]);
@@ -131,6 +152,8 @@ export class Filters implements OnInit {
       this.cancelCreatePreset();
     }
   }
+
+  onPersonaApplied(_selections: Record<string, string[]>): void {}
 
   selectPreset(name: string): void {
     this.isPresetDropdownOpen.set(false);

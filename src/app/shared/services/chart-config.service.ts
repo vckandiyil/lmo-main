@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import * as Highcharts from 'highcharts';
-import 'highcharts/highcharts-more';
-import 'highcharts/modules/sankey';
-import 'highcharts/modules/treemap';
-import 'highcharts/modules/heatmap';
-import 'highcharts/modules/funnel';
-import 'highcharts/modules/solid-gauge';
-import 'highcharts/modules/networkgraph';
-import 'highcharts/modules/stock';
+import Highcharts from 'highcharts/esm/highcharts';
+import 'highcharts/esm/highcharts-more';
+import 'highcharts/esm/modules/sankey';
+import 'highcharts/esm/modules/treemap';
+import 'highcharts/esm/modules/heatmap';
+import 'highcharts/esm/modules/funnel';
+import 'highcharts/esm/modules/solid-gauge';
+import 'highcharts/esm/modules/networkgraph';
+import 'highcharts/esm/modules/stock';
 
 /**
  * Chart options type extending Highcharts.Options

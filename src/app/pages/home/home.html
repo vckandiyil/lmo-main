@@ -1,112 +1,452 @@
 <app-filters [hideLayoutBtn]="true" [isHome]="true"/>
 <app-lmi-bar/>
 
-<section class="hero">
-  <div class="hero__left">
-    <div class="hero__ellipses">
-      <div class="hero__ellipse hero__ellipse--1"></div>
-      <div class="hero__ellipse hero__ellipse--2"></div>
-      <div class="hero__ellipse hero__ellipse--3"></div>
-      <div class="hero__ellipse hero__ellipse--4"></div>
-    </div>
-    <div class="hero__map">
-      <div class="hero__region hero__region--closed">
-        <app-inline-svg src="assets/images/regions/closed-region.svg"/>
-      </div>
-      <div class="hero__region hero__region--al-dhafra" [class.hero__region--selected]="isRegionSelected('al-dhafra')" (click)="toggleRegion('al-dhafra')">
-        <app-inline-svg src="assets/images/regions/AI-Dhafra.svg"/>
-        <div class="hero__region-label">{{ 'HOME.REGION_AL_DHAFRA' | translate }}</div>
-        <span class="hero__region-dot"></span>
-      </div>
-      <div class="hero__region hero__region--abu-dhabi" [class.hero__region--selected]="isRegionSelected('abu-dhabi')" (click)="toggleRegion('abu-dhabi')">
-        <app-inline-svg src="assets/images/regions/Abu-Dhabi.svg"/>
-        <div class="hero__region-label">{{ 'HOME.REGION_ABU_DHABI' | translate }}</div>
-        <span class="hero__region-dot"></span>
-      </div>
-      <div class="hero__region hero__region--al-ain" [class.hero__region--selected]="isRegionSelected('al-ain')" (click)="toggleRegion('al-ain')">
-        <app-inline-svg src="assets/images/regions/Al-ain.svg"/>
-        <div class="hero__region-label">{{ 'HOME.REGION_AL_AIN' | translate }}</div>
-        <span class="hero__region-dot"></span>
-      </div>
-    </div>
-    <app-ai-insights class="hero__ai-insights"/>
-  </div>
-  <div class="hero__right">
-    <app-region-profile/>
-    <app-labor-force-composition/>
-    <app-workforce-structure/>
-  </div>
-</section>
+<app-home-hero
+  [briefItems]="heroBrief()"
+  [signals]="heroSignals()"
+  [kpiCards]="heroFloatingCards()"/>
 
-<!-- <app-regions-overview/> -->
-
-<div class="timeline-wrapper">
-  <section class="timeline">
-    <app-inline-svg class="timeline__lines" src="assets/images/timeline-lines.svg"/>
-    <div class="timeline__header">
-      <h2 class="timeline__title">{{ 'HOME.POLICIES_TITLE' | translate }}</h2>
-      <p class="timeline__subtitle">{{ 'HOME.POLICIES_SUBTITLE' | translate }}</p>
+<section class="overview">
+  <header class="overview__header">
+    <div class="overview__heading">
+      <h1 class="overview__title">Workforce Overview Across the Emirate</h1>
+      <p class="overview__subtitle">Real-time snapshot of labour market performance and workforce composition across Abu Dhabi Emirates.</p>
     </div>
-    <div class="timeline__content" dir="ltr">
-      @for (row of timelineRows(); track $index) {
-        <div class="timeline__card" [class.timeline__card--top]="$index % 2 !== 0"
-             [class.timeline__card--bottom]="$index % 2 === 0">
-          @for (entry of row; track $index) {
-            <div class="timeline__entry">
-              <span class="timeline__year">{{ entry.created_date | date:'yyyy' }}</span>
-              @for (desc of (isArabic() ? (entry.descriptions_ar ?? entry.descriptions) : entry.descriptions); track $index) {
-                <p class="timeline__description">{{ desc }}</p>
-              }
+    <div class="overview__live">
+      <span class="overview__live-dot"></span>
+      <span class="overview__live-text">Live Data &ndash; Updated 15 min ago</span>
+    </div>
+  </header>
+
+  <div class="overview__card">
+    <!-- Column 1: Labor Market Health -->
+    <div class="overview__column overview__column--health">
+      <div class="overview__column-header overview__column-header--center">
+        <h2 class="overview__column-title">Labor Market Health</h2>
+        <p class="overview__column-subtitle">Key indicators of labour market performance</p>
+      </div>
+
+      <ul class="kpi-list">
+        @for (kpi of kpis(); track kpi.label) {
+          <li class="kpi-list__item">
+            <div class="kpi-list__icon">
+              <app-icon [name]="kpi.icon" size="28" color="#3375C6"/>
+            </div>
+            <div class="kpi-list__body">
+              <p class="kpi-list__label">{{ kpi.label }}</p>
+              <p class="kpi-list__value">{{ kpi.value }}</p>
+            </div>
+            <div class="kpi-list__delta">
+              <app-badge [variant]="kpi.trend === 'up' ? 'success' : 'danger'" size="sm">
+                <app-icon badgeIcon
+                          [name]="kpi.trend === 'up' ? 'trending-up' : 'trending-down'"
+                          [color]="kpi.trend === 'up' ? '#5CC049' : '#EF4444'"
+                          size="16"/>
+                {{ kpi.delta }}
+              </app-badge>
+              <span class="kpi-list__reference">{{ kpi.reference }}</span>
+            </div>
+          </li>
+        }
+      </ul>
+
+      <a class="overview__column-link" href="#" (click)="$event.preventDefault()">
+        View labor market insights
+        <app-icon name="arrow-right" size="24" color="#3375C6"/>
+      </a>
+    </div>
+
+    <!-- Column 2: Abu Dhabi Emirates map -->
+    <div class="overview__column overview__column--map">
+      <div class="overview__column-header overview__column-header--center">
+        <h2 class="overview__column-title">Abu Dhabi Emirates</h2>
+        <p class="overview__column-subtitle">Select a region</p>
+      </div>
+
+      <div class="region-map">
+        <div class="region-map__canvas">
+          <app-inline-svg src="assets/images/regions/all-regions.svg"/>
+
+          <div class="region-pin region-pin--al-dhafra">
+            <div class="region-pin__bubble">Al Dhafra</div>
+            <div class="region-pin__tail"></div>
+            <div class="region-pin__dot"><span class="region-pin__dot-inner"></span></div>
+          </div>
+
+          <div class="region-pin region-pin--abu-dhabi">
+            <div class="region-pin__bubble">Abu Dhabi</div>
+            <div class="region-pin__tail"></div>
+            <div class="region-pin__dot"><span class="region-pin__dot-inner"></span></div>
+          </div>
+
+          <div class="region-pin region-pin--al-ain">
+            <div class="region-pin__bubble">Al Ain</div>
+            <div class="region-pin__tail"></div>
+            <div class="region-pin__dot"><span class="region-pin__dot-inner"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="region-info">
+        <p class="region-info__hint">
+          <app-icon name="open-select-hand-gesture" size="20"/>
+          <span>Click a region on the map to update indicators and insights for that area.</span>
+        </p>
+
+        <div class="region-info__insight"
+             (mouseenter)="pauseInsightRotation()"
+             (mouseleave)="resumeInsightRotation()">
+          <app-icon name="ai-icon" size="24" color="#3375C6"/>
+          <span>{{ mapInsight() }}</span>
+        </div>
+
+        <div class="region-info__dots">
+          @for (insight of mapInsights(); track $index) {
+            <button type="button"
+                    class="region-info__dot"
+                    [class.region-info__dot--active]="activeInsightIndex() === $index"
+                    [attr.aria-label]="'Show insight ' + ($index + 1)"
+                    (click)="selectInsight($index)"></button>
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Column 3: Workforce Structure -->
+    <div class="overview__column overview__column--structure">
+      <div class="overview__column-header overview__column-header--center">
+        <h2 class="overview__column-title">Workforce Structure</h2>
+        <p class="overview__column-subtitle">Composition of the workforce</p>
+      </div>
+
+      <div class="workforce-grid">
+        <div class="workforce-stats">
+          @for (stat of workforceStats(); track stat.label) {
+            <div class="workforce-stats__tile">
+              <div class="workforce-stats__icon">
+                <app-icon [name]="stat.icon" size="28" color="#3375C6"/>
+              </div>
+              <div class="workforce-stats__body">
+                <p class="workforce-stats__label">{{ stat.label }}</p>
+                <p class="workforce-stats__value">{{ stat.value }}</p>
+                <p class="workforce-stats__caption">{{ stat.caption }}</p>
+              </div>
             </div>
           }
         </div>
-      }
-    </div>
-  </section>
-</div>
 
-<section class="news">
-  <div class="news__header">
-    <div class="news__header-text">
-      <h2 class="news__title">{{ 'HOME.NEWS_TITLE' | translate }}</h2>
-      <p class="news__subtitle">{{ 'HOME.NEWS_SUBTITLE' | translate }}</p>
-    </div>
-    <app-button class="news__action" variant="outline">
-      {{ 'HOME.VIEW_ALL_NEWS' | translate }}
-      <app-icon buttonIcon name="arrow-right" size="20"/>
-    </app-button>
-  </div>
-  <div class="news__content">
-    <div class="news__list">
-      @for (card of newsData()?.items ?? []; track $index) {
-        <a class="news__card" [href]="card.url" target="_blank" rel="noopener noreferrer">
-          <img class="news__card-image" [src]="card.image" [alt]="card.title">
-          <div class="news__card-body">
-            <div class="news__card-info">
-              <div class="news__card-date">
-                <app-icon name="calendar" size="20" color="#AEB2BC"/>
-                <span>{{ card.published_date | date:'dd MMM yyyy' }}</span>
+        <div class="workforce-donuts">
+          <div class="workforce-donuts__item">
+            <p class="workforce-donuts__title">Citizenship Split</p>
+            <div class="workforce-donuts__row">
+              <div class="workforce-donuts__chart">
+                <app-chart-wrapper [options]="citizenshipChart()"/>
               </div>
-              <h3 class="news__card-title">{{ isArabic() ? (card.title_ar ?? card.title) : card.title }}</h3>
+              <ul class="workforce-donuts__legend">
+                @for (entry of citizenshipLegend(); track entry.label) {
+                  <li class="workforce-donuts__legend-item">
+                    <span class="workforce-donuts__legend-value" [style.color]="entry.color">{{ entry.value }}</span>
+                    <span class="workforce-donuts__legend-label">{{ entry.label }}</span>
+                  </li>
+                }
+              </ul>
             </div>
-            <p class="news__card-description">{{ isArabic() ? (card.description_ar ?? card.description) : card.description }}</p>
           </div>
-        </a>
-      }
-    </div>
-    @if (newsData()?.featured; as featured) {
-      <a class="news__featured" [href]="featured.url" target="_blank" rel="noopener noreferrer">
-        <img class="news__featured-image" [src]="featured.image" [alt]="featured.title">
-        <div class="news__featured-overlay">
-          <div class="news__featured-info">
-            <div class="news__featured-date">
-              <app-icon name="calendar" size="20" color="#AEB2BC"/>
-              <span>{{ featured.published_date | date:'dd MMM yyyy' }}</span>
+
+          <div class="workforce-donuts__item">
+            <p class="workforce-donuts__title">Gender Split</p>
+            <div class="workforce-donuts__row">
+              <div class="workforce-donuts__chart">
+                <app-chart-wrapper [options]="genderChart()"/>
+              </div>
+              <ul class="workforce-donuts__legend">
+                @for (entry of genderLegend(); track entry.label) {
+                  <li class="workforce-donuts__legend-item">
+                    <span class="workforce-donuts__legend-value" [style.color]="entry.color">{{ entry.value }}</span>
+                    <span class="workforce-donuts__legend-label">{{ entry.label }}</span>
+                  </li>
+                }
+              </ul>
             </div>
-            <h3 class="news__featured-title">{{ isArabic() ? (featured.title_ar ?? featured.title) : featured.title }}</h3>
           </div>
         </div>
+      </div>
+
+      <div class="age-distribution">
+        <p class="age-distribution__title">Age Distribution</p>
+        <div class="age-distribution__chart">
+          <div class="age-distribution__bar">
+            @for (bucket of ageBuckets(); track bucket.label) {
+              <span class="age-distribution__segment"
+                    [style.flex]="bucket.value"
+                    [style.background]="bucket.color"></span>
+            }
+          </div>
+          <ul class="age-distribution__legend">
+            @for (bucket of ageBuckets(); track bucket.label) {
+              <li class="age-distribution__legend-item" [style.flex]="bucket.value">
+                <span class="age-distribution__legend-value" [style.color]="bucket.color">{{ bucket.value }}%</span>
+                <span class="age-distribution__legend-label">{{ bucket.label }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+
+      <a class="overview__column-link" href="#" (click)="$event.preventDefault()">
+        View gap analysis
+        <app-icon name="arrow-right" size="24" color="#3375C6"/>
       </a>
+    </div>
+  </div>
+</section>
+
+<section class="section-2">
+  <div class="section-2__header">
+    <div class="section-2__left">
+      <div class="section-2__heading">
+        <h2 class="section-2__title">Key Findings and Recommendations</h2>
+        <p class="section-2__subtitle">AI-generated insights highlighting labor market risks, opportunities, and actionable strategies.</p>
+      </div>
+
+      <div class="section-2__heading-spacer">
+      </div>
+    </div>
+
+    <div class="section-2__right">
+      @for (filter of findingsFilters(); track filter) {
+        <button type="button"
+                class="findings-filter"
+                [class.findings-filter--active]="activeFinding() === filter"
+                (click)="selectFinding(filter)">
+          {{ filter }}
+        </button>
+      }
+    </div>
+  </div>
+
+  <div class="section-2__cards">
+    @for (finding of findings(); track $index) {
+      <div class="finding-card" [style.borderLeftColor]="finding.borderColor">
+        <div class="finding-card__body">
+          <p class="finding-card__text">{{ finding.text }}</p>
+          <div class="finding-card__toolbar">
+            @for (metric of finding.metrics; track $index) {
+              <div class="finding-card__toolbar-item">
+                <span class="finding-card__metric-label">{{ metric.label }}</span>
+                <span class="finding-card__metric-value" [style.color]="metric.color || null">{{ metric.value }}</span>
+              </div>
+            }
+          </div>
+
+          <div class="finding-card__footer">
+            <div class="finding-card__footer-left">
+              <div class="finding-card__footer-heading">
+                <span class="finding-card__heading">Reasons:</span>
+              </div>
+              <div class="finding-card__confidence-pill" [style.background]="finding.confidenceBg">
+                <span class="finding-card__confidence" [style.color]="finding.confidenceColor">{{ finding.confidenceText }}</span>
+              </div>
+            </div>
+            <div class="finding-card__footer-right">
+              @for (reason of finding.reasons; track $index) {
+                <span class="finding-card__reason">- {{ reason }}</span>
+              }
+            </div>
+          </div>
+
+          <div class="finding-card__actions">
+            <div class="finding-card__actions-heading">
+              <span class="finding-card__heading">{{ finding.opportunitiesLabel }}</span>
+            </div>
+            <div class="finding-card__actions-list">
+              @for (opportunity of finding.opportunities; track $index) {
+                <span class="finding-card__reason">- {{ opportunity }}</span>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
     }
+  </div>
+</section>
+
+<section class="section-3">
+  <div class="section-3__header">
+    <div class="section-3__left">
+      <div class="section-3__heading">
+        <h2 class="section-3__title">Labour Market News</h2>
+        <p class="section-3__subtitle">Authoritative news and statistical briefings to support data-driven decisions<br>across Abu Dhabi&rsquo;s labour market.</p>
+      </div>
+    </div>
+
+    <div class="section-3__right">
+      @for (filter of policyFilters(); track filter) {
+        <button type="button"
+                class="findings-filter"
+                [class.findings-filter--active]="activePolicy() === filter"
+                (click)="selectPolicy(filter)">
+          {{ filter }}
+        </button>
+      }
+    </div>
+  </div>
+
+  <div class="section-3__grid">
+    @for (item of news(); track $index) {
+      <div class="news-card">
+        <div class="news-card__header">
+          <div class="news-card__meta">
+            <div class="news-card__source">
+              <div class="news-card__logo-frame">
+                <img class="news-card__logo" [src]="item.logo" alt="Source">
+              </div>
+              <div class="news-card__time-wrap">
+                <span class="news-card__time">{{ item.time }}</span>
+              </div>
+            </div>
+
+            <div class="news-card__sentiment" [class]="'news-card__sentiment news-card__sentiment--' + item.sentiment">
+              <span class="news-card__sentiment-text">{{ item.sentiment }}</span>
+            </div>
+          </div>
+          <div class="news-card__heading">
+            <h3 class="news-card__title">{{ item.title }}</h3>
+            <p class="news-card__description">{{ item.description }}</p>
+          </div>
+        </div>
+        <div class="news-card__footer">
+          <div class="news-card__takeaway-box">
+            <div class="news-card__takeaway-header">
+              <app-icon class="news-card__takeaway-icon" name="ai-icon" size="20" color="#3375C6"/>
+              <span class="news-card__takeaway-label">What this means</span>
+            </div>
+            <p class="news-card__takeaway">{{ item.takeaway }}</p>
+          </div>
+          <div class="news-card__meta-row">
+            <div class="news-card__category-wrap">
+              <span class="news-card__category">{{ item.category }}</span>
+            </div>
+            <a class="news-card__read-more" href="#" (click)="$event.preventDefault()">
+              <span>Read more</span>
+              <app-icon name="arrow-right" size="16" color="#3375C6"/>
+            </a>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<section class="section-4">
+  <header class="section-4__header">
+    <div class="section-4__heading">
+      <h2 class="section-4__title">Policy Insights &amp; Impact</h2>
+      <p class="section-4__subtitle">Key labour market policies, initiatives, and activities across Abu Dhabi with their impact and outcomes.</p>
+    </div>
+    <div class="section-4__live">
+      <span class="section-4__live-dot"></span>
+      <span class="section-4__live-text">Live Data &ndash; Updated 15 min ago</span>
+    </div>
+  </header>
+
+  <div class="section-4__panel">
+    <div class="section-4__panel-left">
+      <div class="section-4__panel-icon">
+        <app-icon name="ai-icon" size="32" color="#3375C6"/>
+      </div>
+      <div class="section-4__panel-summary">
+        <div class="section-4__panel-summary-heading">
+          <span class="section-4__panel-label">AI Summary</span>
+        </div>
+        <div class="section-4__panel-summary-text">
+          <p class="section-4__panel-text">Recent policies have positively impacted workforce participation and employment growth, particularly through skills development and private sector Emiratisation initiatives.</p>
+        </div>
+      </div>
+    </div>
+    <a class="section-4__view-full" href="#" (click)="$event.preventDefault()">
+      <span>View full Insights</span>
+      <app-icon name="arrow-right" size="24" color="#3375C6"/>
+    </a>
+  </div>
+
+  <div class="section-4__content">
+    <div class="section-4__cards">
+      @for (policy of policies(); track $index) {
+        <div class="policy-card">
+          <div class="policy-card__left">
+            <div class="policy-card__icon-frame"
+                 [style.background-color]="'#FFFFFF'"
+                 [style.background-image]="'linear-gradient(' + policy.impactBg + ', ' + policy.impactBg + ')'">
+              <app-icon [name]="policy.leftIcon" size="28" [color]="policy.impactColor"/>
+            </div>
+            <div class="policy-card__timeline-info">
+              <span class="policy-card__year">{{ policy.year }}</span>
+              <span class="policy-card__status" [style.color]="policy.statusColor">{{ policy.status }}</span>
+            </div>
+          </div>
+          <div class="policy-card__right" [style.borderLeftColor]="policy.impactColor">
+            <div class="policy-card__policy-info">
+              <span class="policy-card__category" [style.color]="policy.categoryColor">{{ policy.category }}</span>
+              <div class="policy-card__policy-info-body">
+                <h3 class="policy-card__title">{{ policy.title }}</h3>
+                <p class="policy-card__description">{{ policy.description }}</p>
+              </div>
+            </div>
+            <div class="policy-card__impact-section">
+              <span class="policy-card__category" [style.color]="policy.categoryColor">Impact</span>
+              <div class="policy-card__impact-body">
+                <div class="policy-card__impact" [style.background]="policy.impactBg">
+                  <app-icon [name]="policy.impactIcon" size="24" [color]="policy.impactColor"/>
+                  <span class="policy-card__impact-text" [style.color]="policy.impactColor">{{ policy.impactText }}</span>
+                </div>
+                <p class="policy-card__impact-detail">{{ policy.impactDetail }}</p>
+              </div>
+            </div>
+            <div class="policy-card__details">
+              <div class="policy-card__metrics">
+                <div class="policy-card__kpis-section">
+                  <span class="policy-card__sub-label">Impact on KPIs</span>
+                  <div class="policy-card__kpis-list">
+                    @for (kpi of policy.kpis; track $index) {
+                      <div class="policy-card__kpi">
+                        <span class="policy-card__kpi-name">{{ kpi.label }}</span>
+                        <app-badge [variant]="kpi.trend === 'up' ? 'success' : 'danger'" size="sm">
+                          <app-icon badgeIcon
+                                    [name]="kpi.trend === 'up' ? 'trending-up' : 'trending-down'"
+                                    [color]="kpi.trend === 'up' ? '#5CC049' : '#EF4444'"
+                                    size="16"/>
+                          {{ kpi.delta }}
+                        </app-badge>
+                      </div>
+                    }
+                  </div>
+                </div>
+                <div class="policy-card__focus-section">
+                  <span class="policy-card__sub-label">Focus Area</span>
+                  <div class="policy-card__focus-list">
+                    @for (area of policy.focusAreas; track $index) {
+                      <div class="policy-card__focus-area"
+                           [style.background]="policy.impactBg"
+                           [style.color]="policy.impactColor">{{ area }}</div>
+                    }
+                  </div>
+                </div>
+              </div>
+              <div class="policy-card__actions-stack">
+                <button type="button" class="policy-card__action policy-card__action--simulate">
+                  <app-icon name="stat-up" size="20" color="#3375C6"/>
+                  <span>Simulate Impact</span>
+                </button>
+                <button type="button" class="policy-card__action policy-card__action--details">
+                  <span class="policy-card__action-label">See Details</span>
+                  <app-icon name="arrow-right" size="18" color="#3375C6"/>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
   </div>
 </section>

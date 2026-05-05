@@ -2,50 +2,106 @@
 <aside class="nav-sidebar" [class.nav-sidebar--expanded]="expanded()">
   <div class="nav-sidebar__top">
     <div class="nav-sidebar__nav">
-      <a class="nav-sidebar__nav-item" routerLink="/" routerLinkActive="nav-sidebar__nav-item--active" [routerLinkActiveOptions]="{exact: true}" data-tooltip="Overview">
+
+      <!-- Group 1: Labour Market Pulse -->
+      <a class="nav-sidebar__nav-item" routerLink="/" routerLinkActive="nav-sidebar__nav-item--active" [routerLinkActiveOptions]="{exact: true}" [appNavTooltip]="'Labour Market Pulse'" [navTooltipDisabled]="expanded()">
         <app-icon name="home-alt-slim-horiz" size="24" class="nav-sidebar__icon"/>
-        <span class="nav-sidebar__label">Overview</span>
+        <span class="nav-sidebar__label">Labour Market Pulse</span>
       </a>
-      <a class="nav-sidebar__nav-item" routerLink="/labor-market-insights" routerLinkActive="nav-sidebar__nav-item--active" data-tooltip="Labor Market Insights">
+
+      <!-- Group 2: Labour Market Insights -->
+      <button class="nav-sidebar__nav-item" type="button" (click)="toggleInsights($event)" [appNavTooltip]="'Labour Market Insights'" [navTooltipDisabled]="expanded()">
         <app-icon name="stats-up-square" size="24" class="nav-sidebar__icon"/>
-        <span class="nav-sidebar__label">Labor Market Insights</span>
+        <span class="nav-sidebar__label">Labour Market Insights</span>
+        @if (expanded()) {
+          <span class="nav-sidebar__expand-btn" [attr.aria-label]="insightsExpanded() ? 'Collapse' : 'Expand'">
+            <app-icon [name]="insightsExpanded() ? 'nav-arrow-up' : 'nav-arrow-down'" size="16"/>
+          </span>
+        }
+      </button>
+      @if (expanded() && insightsExpanded()) {
+        <div class="nav-sidebar__submenu">
+          <a class="nav-sidebar__sub-item" routerLink="/labor-market-insights" routerLinkActive="nav-sidebar__sub-item--active">
+            <span>Dashboards</span>
+          </a>
+          <button class="nav-sidebar__sub-item nav-sidebar__sub-item--toggle" type="button" (click)="toggleSector($event)">
+            <span>Sector Insights</span>
+            <span class="nav-sidebar__badge">Coming Soon</span>
+            <span class="nav-sidebar__expand-btn nav-sidebar__expand-btn--inline" [attr.aria-label]="sectorExpanded() ? 'Collapse' : 'Expand'">
+              <app-icon [name]="sectorExpanded() ? 'nav-arrow-up' : 'nav-arrow-down'" size="16"/>
+            </span>
+          </button>
+          @if (sectorExpanded()) {
+            <a class="nav-sidebar__sub-item nav-sidebar__sub-item--nested" href="#" (click)="preventNav($event)">
+              <span>Education</span>
+            </a>
+            <a class="nav-sidebar__sub-item nav-sidebar__sub-item--nested" href="#" (click)="preventNav($event)">
+              <span>Health</span>
+            </a>
+          }
+        </div>
+      }
+
+      <!-- Group 3: Decision Support -->
+      <button class="nav-sidebar__nav-item" type="button" (click)="toggleDecision($event)" [appNavTooltip]="'Decision Support'" [navTooltipDisabled]="expanded()">
+        <app-icon name="tools" size="24" class="nav-sidebar__icon"/>
+        <span class="nav-sidebar__label">Decision Support</span>
+        @if (expanded()) {
+          <span class="nav-sidebar__expand-btn" [attr.aria-label]="decisionExpanded() ? 'Collapse' : 'Expand'">
+            <app-icon [name]="decisionExpanded() ? 'nav-arrow-up' : 'nav-arrow-down'" size="16"/>
+          </span>
+        }
+      </button>
+      @if (expanded() && decisionExpanded()) {
+        <div class="nav-sidebar__submenu">
+          <a class="nav-sidebar__sub-item" routerLink="/gap-analysis" routerLinkActive="nav-sidebar__sub-item--active">
+            <span>Gap Analysis</span>
+          </a>
+          <a class="nav-sidebar__sub-item" routerLink="/forecast" routerLinkActive="nav-sidebar__sub-item--active">
+            <span>Forecasting</span>
+          </a>
+          <a class="nav-sidebar__sub-item" routerLink="/what-if" routerLinkActive="nav-sidebar__sub-item--active">
+            <span>Scenario Modeling</span>
+          </a>
+        </div>
+      }
+
+      <!-- Job Market Intelligence (flat, with Coming Soon) -->
+      <a class="nav-sidebar__nav-item" routerLink="/job-market-intelligence" routerLinkActive="nav-sidebar__nav-item--active" [appNavTooltip]="'Job Market Intelligence'" [navTooltipDisabled]="expanded()">
+        <app-icon name="stars" size="24" class="nav-sidebar__icon"/>
+        <span class="nav-sidebar__label">Job Market Intelligence</span>
+        @if (expanded()) {
+          <span class="nav-sidebar__badge">Coming Soon</span>
+        }
       </a>
-      <a class="nav-sidebar__nav-item" routerLink="/gap-analysis" routerLinkActive="nav-sidebar__nav-item--active" data-tooltip="Gap Analysis">
-        <app-icon name="gap" size="24" class="nav-sidebar__icon"/>
-        <span class="nav-sidebar__label">Gap Analysis</span>
-      </a>
-      <a class="nav-sidebar__nav-item" routerLink="/forecast" routerLinkActive="nav-sidebar__nav-item--active" data-tooltip="Forecasts">
-        <app-icon name="graph-up" size="24" class="nav-sidebar__icon"/>
-        <span class="nav-sidebar__label">Forecasts</span>
-      </a>
-      <a class="nav-sidebar__nav-item" routerLink="/what-if" routerLinkActive="nav-sidebar__nav-item--active" data-tooltip="What-If Simulator">
-        <app-icon name="stats-report" size="24" class="nav-sidebar__icon"/>
-        <span class="nav-sidebar__label">What-If Simulator</span>
-      </a>
-      <a class="nav-sidebar__nav-item" (click)="openReportModal()" data-tooltip="Insights Reports">
-        <app-icon name="page-search" size="24" class="nav-sidebar__icon"/>
-        <span class="nav-sidebar__label">Insights Reports</span>
-      </a>
-      <a class="nav-sidebar__nav-item" routerLink="/my-lmo" routerLinkActive="nav-sidebar__nav-item--active" data-tooltip="My LMO">
+
+      <!-- My LMO -->
+      <a class="nav-sidebar__nav-item" routerLink="/my-lmo" routerLinkActive="nav-sidebar__nav-item--active" [appNavTooltip]="'My LMO'" [navTooltipDisabled]="expanded()">
         <app-icon name="report-columns" size="24" class="nav-sidebar__icon"/>
         <span class="nav-sidebar__label">My LMO</span>
+      </a>
+
+      <!-- Platform Features -->
+      <a class="nav-sidebar__nav-item" routerLink="/platform-features" routerLinkActive="nav-sidebar__nav-item--active" [appNavTooltip]="'Platform Features'" [navTooltipDisabled]="expanded()">
+        <app-icon name="settings" size="24" class="nav-sidebar__icon"/>
+        <span class="nav-sidebar__label">Platform Features</span>
       </a>
     </div>
   </div>
   <div class="nav-sidebar__bottom">
-    <div class="nav-sidebar__icon-wrap nav-sidebar__icon-wrap--clickable" (click)="openNotificationModal()" data-tooltip="Notifications">
+    <div class="nav-sidebar__icon-wrap nav-sidebar__icon-wrap--clickable" (click)="openNotificationModal()" [appNavTooltip]="'Notifications'" [navTooltipDisabled]="expanded()">
       <app-icon name="notification" size="24" class="nav-sidebar__icon"/>
       <span class="nav-sidebar__label">Notifications</span>
     </div>
-    <div class="nav-sidebar__icon-wrap" data-tooltip="Text Size">
+    <div class="nav-sidebar__icon-wrap" [appNavTooltip]="'Text Size'" [navTooltipDisabled]="expanded()">
       <app-icon name="text" size="24" class="nav-sidebar__icon"/>
       <span class="nav-sidebar__label">Text Size</span>
     </div>
-    <div class="nav-sidebar__icon-wrap nav-sidebar__icon-wrap--clickable" (click)="toggleLanguage()" data-tooltip="Language">
+    <div class="nav-sidebar__icon-wrap nav-sidebar__icon-wrap--clickable" (click)="toggleLanguage()" [appNavTooltip]="'Language'" [navTooltipDisabled]="expanded()">
       <app-icon name="language" size="24" class="nav-sidebar__icon"/>
       <span class="nav-sidebar__label">Language</span>
     </div>
-    <div class="nav-sidebar__icon-wrap nav-sidebar__icon-wrap--clickable" (click)="toggleTheme()" data-tooltip="Dark mode">
+    <div class="nav-sidebar__icon-wrap nav-sidebar__icon-wrap--clickable" (click)="toggleTheme()" [appNavTooltip]="'Dark mode'" [navTooltipDisabled]="expanded()">
       <app-icon [name]="isDarkMode() ? 'sun-light' : 'mode'" size="24" class="nav-sidebar__icon"/>
       <span class="nav-sidebar__label">Dark mode</span>
     </div>
@@ -68,33 +124,74 @@
         </button>
       </div>
       <nav class="nav-overlay__nav">
+
+        <!-- Group 1: Labour Market Pulse -->
         <a class="nav-overlay__item" routerLink="/" routerLinkActive="nav-overlay__item--active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileNav()">
           <app-icon name="home-alt-slim-horiz" size="20"/>
-          <span>Overview</span>
+          <span>Labour Market Pulse</span>
         </a>
-        <a class="nav-overlay__item" routerLink="/labor-market-insights" routerLinkActive="nav-overlay__item--active" (click)="closeMobileNav()">
+
+        <!-- Group 2: Labour Market Insights -->
+        <button class="nav-overlay__item" type="button" (click)="toggleInsights($event)">
           <app-icon name="stats-up-square" size="20"/>
-          <span>Labor Market Insights</span>
-        </a>
-        <a class="nav-overlay__item" routerLink="/gap-analysis" routerLinkActive="nav-overlay__item--active" (click)="closeMobileNav()">
-          <app-icon name="gap" size="20"/>
-          <span>Gap Analysis</span>
-        </a>
-        <a class="nav-overlay__item" routerLink="/forecast" routerLinkActive="nav-overlay__item--active" (click)="closeMobileNav()">
-          <app-icon name="graph-up" size="20"/>
-          <span>Forecasts</span>
-        </a>
-        <a class="nav-overlay__item" routerLink="/what-if" routerLinkActive="nav-overlay__item--active" (click)="closeMobileNav()">
-          <app-icon name="stats-report" size="20"/>
-          <span>What-If Simulator</span>
-        </a>
-        <a class="nav-overlay__item" (click)="openReportModal(); closeMobileNav()">
-          <app-icon name="page-search" size="20"/>
-          <span>Insights Reports</span>
+          <span>Labour Market Insights</span>
+          <span class="nav-overlay__expand-btn" [attr.aria-label]="insightsExpanded() ? 'Collapse' : 'Expand'">
+            <app-icon [name]="insightsExpanded() ? 'nav-arrow-up' : 'nav-arrow-down'" size="16"/>
+          </span>
+        </button>
+        @if (insightsExpanded()) {
+          <a class="nav-overlay__item nav-overlay__item--sub" routerLink="/labor-market-insights" routerLinkActive="nav-overlay__item--active" (click)="closeMobileNav()">
+            <span>Dashboards</span>
+          </a>
+          <button class="nav-overlay__item nav-overlay__item--sub" type="button" (click)="toggleSector($event)">
+            <span>Sector Insights</span>
+            <span class="nav-overlay__badge">Coming Soon</span>
+            <span class="nav-overlay__expand-btn" [attr.aria-label]="sectorExpanded() ? 'Collapse' : 'Expand'">
+              <app-icon [name]="sectorExpanded() ? 'nav-arrow-up' : 'nav-arrow-down'" size="16"/>
+            </span>
+          </button>
+          @if (sectorExpanded()) {
+            <a class="nav-overlay__item nav-overlay__item--sub-nested" href="#" (click)="preventNav($event)">
+              <span>Education</span>
+            </a>
+            <a class="nav-overlay__item nav-overlay__item--sub-nested" href="#" (click)="preventNav($event)">
+              <span>Health</span>
+            </a>
+          }
+        }
+
+        <!-- Group 3: Decision Support -->
+        <button class="nav-overlay__item" type="button" (click)="toggleDecision($event)">
+          <app-icon name="tools" size="20"/>
+          <span>Decision Support</span>
+          <span class="nav-overlay__expand-btn" [attr.aria-label]="decisionExpanded() ? 'Collapse' : 'Expand'">
+            <app-icon [name]="decisionExpanded() ? 'nav-arrow-up' : 'nav-arrow-down'" size="16"/>
+          </span>
+        </button>
+        @if (decisionExpanded()) {
+          <a class="nav-overlay__item nav-overlay__item--sub" routerLink="/gap-analysis" routerLinkActive="nav-overlay__item--active" (click)="closeMobileNav()">
+            <span>Gap Analysis</span>
+          </a>
+          <a class="nav-overlay__item nav-overlay__item--sub" routerLink="/forecast" routerLinkActive="nav-overlay__item--active" (click)="closeMobileNav()">
+            <span>Forecasting</span>
+          </a>
+          <a class="nav-overlay__item nav-overlay__item--sub" routerLink="/what-if" routerLinkActive="nav-overlay__item--active" (click)="closeMobileNav()">
+            <span>Scenario Modeling</span>
+          </a>
+        }
+
+        <a class="nav-overlay__item" routerLink="/job-market-intelligence" routerLinkActive="nav-overlay__item--active" (click)="closeMobileNav()">
+          <app-icon name="stars" size="20"/>
+          <span>Job Market Intelligence</span>
+          <span class="nav-overlay__badge">Coming Soon</span>
         </a>
         <a class="nav-overlay__item" routerLink="/my-lmo" routerLinkActive="nav-overlay__item--active" (click)="closeMobileNav()">
           <app-icon name="report-columns" size="20"/>
           <span>My LMO</span>
+        </a>
+        <a class="nav-overlay__item" routerLink="/platform-features" routerLinkActive="nav-overlay__item--active" (click)="closeMobileNav()">
+          <app-icon name="settings" size="20"/>
+          <span>Platform Features</span>
         </a>
       </nav>
       <div class="nav-overlay__footer">
@@ -116,4 +213,3 @@
 }
 
 <app-notification-modal [isOpen]="isNotificationModalOpen()" (closed)="closeNotificationModal()"/>
-<app-report-modal [isOpen]="isReportModalOpen()" (closed)="closeReportModal()"/>

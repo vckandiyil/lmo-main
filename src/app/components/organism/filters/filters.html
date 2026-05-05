@@ -126,15 +126,15 @@
           }
         </div>
       } @else {
-        <app-dropdown
-          [label]="'LMI.REGION' | translate"
-          [placeholder]="'LMI.ABU_DHABI_EMIRATES' | translate"
-          [options]="regionOptions()"
-          [variant]="'secondary'"
-          [multi]="true"
-          (multiSelected)="onRegionMultiChange($event)"
-        />
         @if (!isHome()) {
+          <app-dropdown
+            [label]="'LMI.REGION' | translate"
+            [placeholder]="'LMI.ABU_DHABI_EMIRATES' | translate"
+            [options]="regionOptions()"
+            [variant]="'secondary'"
+            [multi]="true"
+            (multiSelected)="onRegionMultiChange($event)"
+          />
           <app-dropdown
             [label]="'LMI.TOPIC' | translate"
             placeholder="Employment"
@@ -144,20 +144,7 @@
           />
         }
         @if (isHome()) {
-          <app-dropdown
-            [label]="'HOME.CITIZENSHIP' | translate"
-            [placeholder]="'LMI.ALL' | translate"
-            [options]="citizenshipOptions()"
-            [variant]="'secondary'"
-            (selected)="onFilterChange('citizenship', $event)"
-          />
-          <app-dropdown
-            [label]="'HOME.GENDER' | translate"
-            [placeholder]="'LMI.ALL' | translate"
-            [options]="genderOptions()"
-            [variant]="'secondary'"
-            (selected)="onFilterChange('gender', $event)"
-          />
+          <app-persona-dropdown (applied)="onPersonaApplied($event)"/>
         }
       }
 
@@ -166,6 +153,9 @@
       }
     </div>
     <div class="filters__submit-section">
+      <button class="filters__report-btn" type="button" (click)="openReportModal()">
+        <app-icon name="page-search" size="20"/>
+      </button>
       <button class="filters__presentation-btn" type="button" (click)="openPresentationModal()">
         <app-icon name="presentation" size="20"/>
       </button>
@@ -342,17 +332,17 @@
             </div>
           </div>
         } @else {
-          <div class="filters-panel__section">
-            <span class="filters-panel__label">{{ 'LMI.REGION' | translate }}</span>
-            <app-dropdown
-              [placeholder]="'LMI.ABU_DHABI_EMIRATES' | translate"
-              [options]="regionOptions()"
-              [variant]="'secondary'"
-              [multi]="true"
-              (multiSelected)="onRegionMultiChange($event)"
-            />
-          </div>
           @if (!isHome()) {
+            <div class="filters-panel__section">
+              <span class="filters-panel__label">{{ 'LMI.REGION' | translate }}</span>
+              <app-dropdown
+                [placeholder]="'LMI.ABU_DHABI_EMIRATES' | translate"
+                [options]="regionOptions()"
+                [variant]="'secondary'"
+                [multi]="true"
+                (multiSelected)="onRegionMultiChange($event)"
+              />
+            </div>
             <div class="filters-panel__section">
               <span class="filters-panel__label">{{ 'LMI.TOPIC' | translate }}</span>
               <app-dropdown
@@ -365,22 +355,8 @@
           }
           @if (isHome()) {
             <div class="filters-panel__section">
-              <span class="filters-panel__label">{{ 'HOME.CITIZENSHIP' | translate }}</span>
-              <app-dropdown
-                [placeholder]="'LMI.ALL' | translate"
-                [options]="citizenshipOptions()"
-                [variant]="'secondary'"
-                (selected)="onFilterChange('citizenship', $event)"
-              />
-            </div>
-            <div class="filters-panel__section">
-              <span class="filters-panel__label">{{ 'HOME.GENDER' | translate }}</span>
-              <app-dropdown
-                [placeholder]="'LMI.ALL' | translate"
-                [options]="genderOptions()"
-                [variant]="'secondary'"
-                (selected)="onFilterChange('gender', $event)"
-              />
+              <span class="filters-panel__label">{{ 'HOME.PERSONA' | translate }}</span>
+              <app-persona-dropdown variant="panel" (applied)="onPersonaApplied($event)"/>
             </div>
           }
         }

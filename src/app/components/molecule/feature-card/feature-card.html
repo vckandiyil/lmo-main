@@ -1,0 +1,27 @@
+<article [ngClass]="cardClasses()">
+  <div class="feature-card__icon">
+    <app-icon [name]="iconName()" size="22"/>
+  </div>
+
+  <div class="feature-card__tagline">{{ tagline() }}</div>
+  <h3 class="feature-card__title">{{ title() }}</h3>
+
+  @if (intro()) {
+    <p class="feature-card__intro">{{ intro() }}</p>
+  }
+
+  @if (bullets().length) {
+    <ul class="feature-card__points">
+      @for (point of bullets(); track point) {
+        <li class="feature-card__point">{{ point }}</li>
+      }
+    </ul>
+  }
+
+  <span class="feature-card__spacer"></span>
+
+  <a class="feature-card__cta" href="#" (click)="onCtaClick($event)">
+    <span class="feature-card__cta-label">{{ ctaLabel() }}</span>
+    <app-icon name="arrow-right" size="14" class="feature-card__cta-icon"/>
+  </a>
+</article>

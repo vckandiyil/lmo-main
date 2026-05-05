@@ -116,7 +116,7 @@
             [class.widget-center__pagination-btn--disabled]="currentPage() === 1"
             (click)="prevPage()"
           >
-            <app-icon name="nav-arrow-left" size="16"/>
+            <app-icon name="nav-arrow-left" size="24"/>
           </button>
           @for (page of pageNumbers(); track $index) {
             @if (page === '...') {
@@ -130,11 +130,11 @@
             }
           }
           <button
-            class="widget-center__pagination-btn"
+            class="widget-center__pagination-btn widget-center__pagination-btn--next"
             [class.widget-center__pagination-btn--disabled]="currentPage() === totalPages()"
             (click)="nextPage()"
           >
-            <app-icon name="nav-arrow-right" size="16"/>
+            <app-icon name="nav-arrow-right" size="24"/>
           </button>
         </div>
       }

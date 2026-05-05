@@ -1,0 +1,9 @@
+.status-dot {
+  display: inline-block;
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  &--green { background: #5CC049; }
+  &--red { background: #F3393F; }
+  &--yellow { background: #FAC656; }
+}

@@ -10,7 +10,7 @@ import {
   OnDestroy,
   SimpleChanges,
 } from '@angular/core';
-import * as Highcharts from 'highcharts';
+import Highcharts from 'highcharts/esm/highcharts';
 import {ChartConfigService, ChartOptions} from '../../../shared/services/chart-config.service';
 
 @Component({

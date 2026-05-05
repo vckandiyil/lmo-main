@@ -1,0 +1,7 @@
+<div class="hero-brief-item__icon" [style.background]="iconBg()">
+  <app-icon [name]="icon()" size="28" [color]="iconColor()"/>
+</div>
+<div class="hero-brief-item__text" [class.hero-brief-item__text--no-divider]="!hasDivider()">
+  <p class="hero-brief-item__title" [class.hero-brief-item__title--link]="titleLink()">{{ title() }}</p>
+  <p class="hero-brief-item__description">{{ description() }}</p>
+</div>

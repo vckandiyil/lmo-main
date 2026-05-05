@@ -100,27 +100,6 @@ export interface EmploymentData {
   years: string[];
 }
 
-export interface LabourMarketPolicyEntry {
-  created_date: string;
-  descriptions: string[];
-  descriptions_ar?: string[];
-}
-
-export interface NewsItem {
-  image: string;
-  published_date: string;
-  title: string;
-  title_ar?: string;
-  description?: string;
-  description_ar?: string;
-  url: string;
-}
-
-export interface NewsData {
-  items: NewsItem[];
-  featured: NewsItem;
-}
-
 export interface DashboardData {
   regionProfile: RegionProfileData;
   laborForceComposition: LaborForceCompositionData;
@@ -248,8 +227,6 @@ export class DashboardDataService {
   private emiratisationDetailCache$: Observable<EmploymentRateDetailData> | null = null;
   private laborForceParticipationDetailCache$: Observable<EmploymentRateDetailData> | null = null;
   private vacancyRateDetailCache$: Observable<EmploymentRateDetailData> | null = null;
-  private labourMarketPoliciesCache$: Observable<LabourMarketPolicyEntry[][]> | null = null;
-  private newsCache$: Observable<NewsData> | null = null;
   private marketEntrantsWidgetCache$: Observable<MarketEntrantsData> | null = null;
 
   /**
@@ -377,15 +354,6 @@ export class DashboardDataService {
     return this.vacancyRateDetailCache$;
   }
 
-  getLabourMarketPolicies(): Observable<LabourMarketPolicyEntry[][]> {
-    if (!this.labourMarketPoliciesCache$) {
-      this.labourMarketPoliciesCache$ = this.http.get<LabourMarketPolicyEntry[][]>(`${this.baseUrl}/labourMarketPolicies.json`).pipe(
-        shareReplay(1)
-      );
-    }
-    return this.labourMarketPoliciesCache$;
-  }
-
   getMarketEntrantsWidget(): Observable<MarketEntrantsData> {
     if (!this.marketEntrantsWidgetCache$) {
       this.marketEntrantsWidgetCache$ = forkJoin([
@@ -422,15 +390,6 @@ export class DashboardDataService {
       );
     }
     return this.marketEntrantsWidgetCache$;
-  }
-
-  getNews(): Observable<NewsData> {
-    if (!this.newsCache$) {
-      this.newsCache$ = this.http.get<NewsData>(`${this.baseUrl}/news.json`).pipe(
-        shareReplay(1)
-      );
-    }
-    return this.newsCache$;
   }
 
 }
